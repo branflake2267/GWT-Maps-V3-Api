@@ -26,7 +26,7 @@ public class StreetViewPov extends JavaScriptObject {
   }
   
   /**
-   * sets The camera heading in degrees relative to true north. True north is 0¡, east is 90¡, south is 180¡, west is 270¡.
+   * sets The camera heading in degrees relative to true north. True north is 0Â°, east is 90Â°, south is 180Â°, west is 270Â°.
    * @param heading
    */
   public final native void setHeading(int heading) /*-{
@@ -34,7 +34,7 @@ public class StreetViewPov extends JavaScriptObject {
   }-*/;
   
   /**
-   * gets The camera heading in degrees relative to true north. True north is 0¡, east is 90¡, south is 180¡, west is 270¡.
+   * gets The camera heading in degrees relative to true north. True north is 0Â°, east is 90Â°, south is 180Â°, west is 270Â°.
    * @return
    */
   public final native int getHeading() /*-{
@@ -42,7 +42,7 @@ public class StreetViewPov extends JavaScriptObject {
   }-*/;
   
   /**
-   * sets The camera pitch in degrees, relative to the street view vehicle. Ranges from 90¡ (directly upwards) to -90¡ (directly downwards).
+   * sets The camera pitch in degrees, relative to the street view vehicle. Ranges from 90Â° (directly upwards) to -90Â° (directly downwards).
    * @param pitch
    */
   public final native void setPitch(int pitch) /*-{
@@ -50,7 +50,7 @@ public class StreetViewPov extends JavaScriptObject {
   }-*/;
   
   /**
-   * gets The camera pitch in degrees, relative to the street view vehicle. Ranges from 90¡ (directly upwards) to -90¡ (directly downwards).
+   * gets The camera pitch in degrees, relative to the street view vehicle. Ranges from 90Â° (directly upwards) to -90Â° (directly downwards).
    * @return
    */
   public final native int getPitch() /*-{

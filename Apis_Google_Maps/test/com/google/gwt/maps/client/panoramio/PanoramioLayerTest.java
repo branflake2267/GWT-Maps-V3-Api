@@ -49,7 +49,8 @@ public class PanoramioLayerTest extends GWTTestCase {
         PanoramioLayer pano = PanoramioLayer.newInstance(optionsPano);
         
         pano.addClickHandler(new PanoramioMouseMapHandler() {
-          public void onEvent(PanoramioMouseMapEvent event) {
+          @SuppressWarnings("unused")
+		public void onEvent(PanoramioMouseMapEvent event) {
             PanoramioFeature feature = event.getFeatureDetails();
             String info = event.getInfoWindowHtml();
             LatLng latlng = event.getLatLng();

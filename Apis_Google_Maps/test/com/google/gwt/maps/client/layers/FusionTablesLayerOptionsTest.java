@@ -20,6 +20,7 @@ public class FusionTablesLayerOptionsTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -30,7 +31,8 @@ public class FusionTablesLayerOptionsTest extends GWTTestCase {
     }, false);
     delayTestFinish(ASYNC_DELAY_MS);
   }
-   
+
+  @SuppressWarnings("unused")
   public void testClickable() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -46,6 +48,7 @@ public class FusionTablesLayerOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testHeatmap() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -82,6 +85,7 @@ public class FusionTablesLayerOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testQuery() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -98,6 +102,7 @@ public class FusionTablesLayerOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testStyles() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -117,6 +122,7 @@ public class FusionTablesLayerOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
+  @SuppressWarnings("unused")
   public void testSuppressInfoWindows() {
     LoadApi.go(new Runnable() {
       public void run() {

@@ -30,6 +30,7 @@ public class AutocompleteTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
@@ -75,6 +76,7 @@ public class AutocompleteTest extends GWTTestCase {
     }, loadLibraries , sensor);
   }
   
+  @SuppressWarnings("unused")
   public void testPlace() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

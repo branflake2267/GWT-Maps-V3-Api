@@ -33,6 +33,7 @@ public class DistanceMatrixServiceTest extends GWTTestCase {
   /**
    * TODO I can't get this to work in Devmode, probably the same as Distance service
    */
+  @SuppressWarnings("unused")
   public void testUse1() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

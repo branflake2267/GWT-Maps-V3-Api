@@ -20,6 +20,7 @@ public class StyledMapTypeTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -30,6 +31,7 @@ public class StyledMapTypeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testUse2() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -46,6 +48,7 @@ public class StyledMapTypeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testAlt() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -66,6 +69,7 @@ public class StyledMapTypeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testMaxZoom() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -86,6 +90,7 @@ public class StyledMapTypeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testMinZoom() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -106,6 +111,7 @@ public class StyledMapTypeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testName() {
     LoadApi.go(new Runnable() {
       public void run() {

@@ -15,6 +15,7 @@ public class OverlayViewTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -25,6 +26,7 @@ public class OverlayViewTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
+  @SuppressWarnings("unused")
   public void testDraw() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -36,6 +38,7 @@ public class OverlayViewTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testMapWidget() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -47,6 +50,7 @@ public class OverlayViewTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testProjection() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -58,6 +62,7 @@ public class OverlayViewTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testOnAdd() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -69,6 +74,7 @@ public class OverlayViewTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testOnRemove() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -80,6 +86,7 @@ public class OverlayViewTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testOnStreetViewPanoWidget() {
     LoadApi.go(new Runnable() {
       public void run() {
