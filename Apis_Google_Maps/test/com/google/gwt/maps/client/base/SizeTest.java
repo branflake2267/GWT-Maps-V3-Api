@@ -15,6 +15,7 @@ public class SizeTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -25,6 +26,7 @@ public class SizeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testUse2() {
     LoadApi.go(new Runnable() {
       public void run() {

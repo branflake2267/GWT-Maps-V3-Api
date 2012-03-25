@@ -4,19 +4,19 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayInteger;
 
 /**
- * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties Ñ type and coord Ñ which define the general type of marker and coordinates specific to that type of marker.
+ * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties Â° type and coord Â° which define the general type of marker and coordinates specific to that type of marker.
  * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MarkerShape} 
  */
 public class MarkerShape extends JavaScriptObject {
   
   /**
-   * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties Ñ type and coord Ñ which define the general type of marker and coordinates specific to that type of marker.
+   * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties Â° type and coord Â° which define the general type of marker and coordinates specific to that type of marker.
    * use newInstance();
    */
   protected MarkerShape() {}
   
   /**
-   * creates This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties Ñ type and coord Ñ which define the general type of marker and coordinates specific to that type of marker.
+   * creates This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties Â° type and coord Â° which define the general type of marker and coordinates specific to that type of marker.
    * @return
    */
   public final static MarkerShape newInstance() {

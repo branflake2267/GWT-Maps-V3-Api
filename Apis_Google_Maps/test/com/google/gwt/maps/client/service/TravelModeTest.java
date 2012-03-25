@@ -39,7 +39,7 @@ public class TravelModeTest extends GWTTestCase {
     }
   }-*/;
 
-  
+  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
@@ -54,6 +54,7 @@ public class TravelModeTest extends GWTTestCase {
     }, loadLibraries , sensor);
   }
 
+  @SuppressWarnings("unused")
   public void testUse2() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
@@ -68,6 +69,7 @@ public class TravelModeTest extends GWTTestCase {
     }, loadLibraries , sensor);
   }
 
+  @SuppressWarnings("unused")
   public void testUse3() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

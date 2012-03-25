@@ -32,6 +32,7 @@ public class DirectionsServiceTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse1() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

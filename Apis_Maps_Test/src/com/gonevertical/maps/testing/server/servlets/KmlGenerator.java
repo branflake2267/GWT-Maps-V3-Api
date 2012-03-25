@@ -2,13 +2,12 @@ package com.gonevertical.maps.testing.server.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 public class KmlGenerator extends HttpServlet {
   
   private String[] example;

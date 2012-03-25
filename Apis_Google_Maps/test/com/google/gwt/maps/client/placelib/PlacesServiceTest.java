@@ -32,6 +32,7 @@ public class PlacesServiceTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
@@ -57,6 +58,7 @@ public class PlacesServiceTest extends GWTTestCase {
   /**
    * TODO add some more tests
    */
+  @SuppressWarnings("unused")
   public void testDetails1() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

@@ -16,6 +16,7 @@ public class MVCObjectTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -29,7 +30,7 @@ public class MVCObjectTest extends GWTTestCase {
   
   // TODO add all the bindtos...
   
-  
+  @SuppressWarnings("unused")
   public void testBindTo() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -41,6 +42,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testChanged() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -53,6 +55,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
+  @SuppressWarnings("unused")
   public void testGet() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -65,6 +68,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testNotify() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -77,6 +81,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testSet() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -89,6 +94,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testSetValues() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -101,6 +107,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testUnbind() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -113,6 +120,7 @@ public class MVCObjectTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testUnbindAll() {
     LoadApi.go(new Runnable() {
       public void run() {

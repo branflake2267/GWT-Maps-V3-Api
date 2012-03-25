@@ -1,6 +1,5 @@
 package com.google.gwt.maps.client.controls;
 
-import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.maps.client.MapTypeId;
@@ -82,7 +81,8 @@ public class MapTypeControlOptions extends JavaScriptObject {
     for (int i=0; i < mapTypeIds.length; i++) {
       result.set(i, mapTypeIds[i].value());
     }
-    ArrayHelper.nativePatchConstructorForSafari(result);
+    //TODO cannot access private method. Perhaps API was updated?
+    //ArrayHelper.nativePatchConstructorForSafari(result);
     setMapTypeIds(result);
   }
   
