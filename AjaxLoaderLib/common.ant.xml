@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<project name="common-link">
-  <!-- File common.ant.xml was moved to common-scripts folder.              -->
-  <!-- This file must be kept because of references in build-tools folder,  -->
-  <!-- which is shared among all GWT teams.                                 -->
-  <property file="${gwt.root}/common.properties"/>
-  <import file="${common.script}"/>
-</project>
