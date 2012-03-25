@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="dist-common">
+  <property name="gwt.root" location=".."/>
+  <property name="project.tail" value="distro-source/${dist.platform}"/>
+  <property file="${gwt.root}/common.properties"/>
+  <import file="${gwt.root}/common.ant.xml"/>
+  <property name="project.distname" value="gwt-${api.name}-${gwt.version}"/>
+  <property name="project.staging" location="${gwt.build.staging}/${project.distname}"/>
+  <property name="xslt.out" location="${gwt.build.out}/xslt-out"/>
+  <target name="filter" description="Filters distro files for versioning">
+    <!-- These files must be filtered for versioning -->
+    <mkdir dir="${project.build}"/>
+    <copy todir="${project.build}">
+      <fileset dir="src"/>
+      <filterset>
+        <filter token="GWT_VERSION" value="${gwt.version}"/>
+      </filterset>
+    </copy>
+  </target>
+  <target name="transform.eclipse.config" description="Transforms eclipse classpath for sample projects">
+    <mkdir dir="${xslt.out}"/>
+    <xslt basedir="${gwt.root}" destdir="${xslt.out}" includes="samples/*/.classpath" extension=".classpath" style="classpath-transform.xsl">
+      <param name="api.name" expression="${api.name}"/>
+    </xslt>
+  </target>
+  <target name="clean" description="Cleans this project's intermediate and output files">
+    <delete dir="${project.build}" failonerror="false"/>
+    <delete dir="${project.staging}" failonerror="false"/>
+    <delete dir="${xslt.out}" failonerror="false"/>
+    <delete file="${project.dist}" failonerror="false"/>
+  </target>
+</project>

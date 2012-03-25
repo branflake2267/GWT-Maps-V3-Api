@@ -1,0 +1,2 @@
+# Module com.gonevertical.maps.testing.Apis_Maps_Test.JUnit
+# RPC service class, partial path of RPC policy file

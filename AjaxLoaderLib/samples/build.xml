@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project name="samples" default="build" basedir=".">
+  <property name="gwt.root" location=".."/>
+  <property name="project.tail" value="samples"/>
+  <property file="${gwt.root}/common.properties"/>
+  <import file="${gwt.root}/common.ant.xml"/>
+  <!-- "build" is the default when subprojects are directly targetted -->
+  <property name="target" value="build"/>
+  <target name="helloajaxloader" description="Build the AjaxLoader sample">
+    <gwt.ant dir="helloajaxloader"/>
+  </target>
+  <target name="-do" depends="helloajaxloader" description="Run all subprojects"/>
+  <target name="build" description="Builds AjaxLoader API Library for GWT Samples">
+    <antcall target="-do">
+      <param name="target" value="build"/>
+    </antcall>
+  </target>
+  <target name="checkstyle" description="Static analysis of AjaxLoader API Library for GWT source">
+    <antcall target="-do">
+      <param name="target" value="checkstyle"/>
+    </antcall>
+  </target>
+  <target name="test" depends="build" description="Test AjaxLoader API Library for GWT">
+    <antcall target="-do">
+      <param name="target" value="test"/>
+    </antcall>
+  </target>
+  <target name="clean" description="Cleans this project's intermediate and output files">
+    <delete dir="${project.build}"/>
+    <antcall target="-do">
+      <param name="target" value="clean"/>
+    </antcall>
+  </target>
+</project>

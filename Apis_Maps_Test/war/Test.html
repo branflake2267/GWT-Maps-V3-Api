@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="Apis_Maps_Test.css">
+    <title>Maps</title>
+
+  </head>
+  <body>
+
+	<script>
+	function test(lat, lng, noWrap) {
+		alert('started');
+   		if (lat != null) {
+   		   lat = new Number(lat);
+   		   alert('latingnumb');
+   		}
+   		if (lng != null) {
+    		lng = new Number(lng);
+    	}
+    	
+    	alert(lat);
+    	alert(lng);
+    }
+	
+	test(undefined, "38", false);
+	</script>
+
+  </body>
+</html>

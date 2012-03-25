@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<project name="ajaxloader" default="build" basedir=".">
+  <property name="gwt.root" location=".."/>
+  <property name="project.tail" value="ajaxloader"/>
+  <property file="${gwt.root}/common.properties"/>
+  <import file="${gwt.root}/common.ant.xml"/>
+
+  <!--                                -->
+  <!-- Default dev mode test cases -->
+  <!--                                -->
+  <fileset id="default.dev.tests" dir="${javac.junit.out}" includes="${gwt.junit.testcase.includes}">
+  </fileset>
+
+  <!--                             -->
+  <!-- Default prod mode test cases -->
+  <!--                             -->
+  <fileset id="default.prod.tests" dir="${javac.junit.out}" includes="${gwt.junit.testcase.includes}">
+  </fileset>
+
+  <target name="compile" description="Compile all class files">
+    <mkdir dir="${javac.out}"/>
+    <gwt.javac>
+      <classpath>
+        <pathelement location="${gwt.dev.jar}"/>
+        <pathelement location="${gwt.user.jar}"/>
+      </classpath>
+    </gwt.javac>
+  </target>
+
+  <target name="compile.tests" depends="compile.emma.if.enabled" description="Compiles the test code for this project">
+    <mkdir dir="${javac.junit.out}"/>
+    <gwt.javac srcdir="test" destdir="${javac.junit.out}">
+      <classpath>
+        <pathelement location="${javac.out}"/>
+        <pathelement location="${gwt.tools.lib}/junit/junit-3.8.1.jar"/>
+        <pathelement location="${gwt.dev.jar}"/>
+        <pathelement location="${gwt.user.jar}"/>
+      </classpath>
+    </gwt.javac>
+  </target>
+
+  <target name="build" depends="compile" description="Build and package this project">
+    <mkdir dir="${gwt.build.lib}"/>
+    <gwt.jar>
+      <fileset dir="src" excludes="**/package.html"/>
+      <fileset dir="${javac.out}"/>
+    </gwt.jar>
+  </target>
+
+  <target name="checkstyle" depends="compile" description="Static analysis of source">
+    <gwt.checkstyle>
+      <fileset dir="src"/>
+    </gwt.checkstyle>
+  </target>
+
+  <!-- Standalone test targets for using manual testing -->
+  <target name="test.dev.manual"  depends="compile, compile.tests" description="Run a manual test in dev mode" >
+    <echo message="Performing manual testing in prod mode at ${gwt.remote.browsers}"/>
+    <gwt.junit test.args="-port ${gwt.junit.port} -out www -standardsMode -runStyle Manual:1 -batch module" test.out="${junit.out}/test.dev.manual" test.cases="default.dev.tests" />
+  </target>
+  <target name="test.prod.manual"  depends="compile, compile.tests" description="Run a manual test in prod mode"
+ >
+    <echo message="Performing manual testing in prod mode at ${gwt.remote.browsers}"/>
+    <gwt.junit test.args="-port ${gwt.junit.port} -out www -prod -standardsMode -runStyle Manual:1 -batch module" test.out="${junit.out}/test.prod.manual" test.cases="default.prod.tests" />
+  </target>
+
+  <!-- Remoteweb and Selenium targets for automated testing -->
+  <target name="test.dev.remoteweb"  depends="compile, compile.tests" description="Run a dev mode remoteweb test" if="gwt.remote.browsers">
+    <echo message="Performing remote browser testing in dev mode at ${gwt.remote.browsers}"/>
+    <gwt.junit test.args="-port ${gwt.junit.port} -out www -standardsMode -runStyle RemoteWeb:${gwt.remote.browsers} -Xtries 3" test.out="${junit.out}/test.dev.remoteweb" test.cases="default.dev.tests"/>
+  </target>
+
+  <target name="test.dev.selenium"  depends="compile, compile.tests" description="Run a dev mode test using Selenium RC at the given host and path" if="gwt.selenium.hosts">
+    <echo message="Performing remote browser testing in prod mode using Selenium RC at ${gwt.selenium.hosts}"/>
+    <gwt.junit test.args="-port ${gwt.junit.port} -out www -standardsMode -runStyle Selenium:${gwt.selenium.hosts} -batch module" test.out="${junit.out}/test.dev.selenium" test.cases="default.dev.tests"/>
+  </target>
+
+  <target name="test.prod.remoteweb"  depends="compile, compile.tests" description="Run a prod mode remoteweb test" if="gwt.remote.browsers">
+    <echo message="Performing remote browser testing in prod mode at ${gwt.remote.browsers}"/>
+    <gwt.junit test.args="-port ${gwt.junit.port} -out www -prod -standardsMode -runStyle RemoteWeb:${gwt.remote.browsers} -Xtries 3" test.out="${junit.out}/test.prod.remoteweb" test.cases="default.prod.tests"/>
+  </target>
+
+  <target name="test.prod.selenium"  depends="compile, compile.tests" description="Run a prod mode test using Selenium RC" if="gwt.selenium.hosts">
+    <echo message="Performing remote browser testing in prod mode using Selenium RC at ${gwt.selenium.hosts}"/>
+    <gwt.junit test.args="-port ${gwt.junit.port} -out www -prod -standardsMode -runStyle Selenium:${gwt.selenium.hosts} -batch module" test.out="${junit.out}/test.prod.selenium" test.cases="default.prod.tests"/>
+  </target>
+
+  <target name="test.dev" depends="compile, compile.tests" description="Run only dev-mode tests for this project.">
+    <gwt.junit test.args="-port ${gwt.junit.port} -standardsMode -batch module" test.out="${junit.out}/${build.host.platform}-dev-mode" test.cases="default.dev.tests"/>
+  </target>
+
+  <target name="test" depends="compile, compile.tests" description="Run dev-mode, and remoteweb tests for this project.">
+    <!--                                                  -->
+    <!-- Run dev mode and prod mode tests.                -->
+    <!--                                                  -->
+    <parallel threadcount="1">
+      <!-- Standalone HTML Unit tests are not reliable    -->
+      <!-- <antcall target="test.dev"/>                   -->
+      <antcall target="test.dev.remoteweb" />
+      <antcall target="test.dev.selenium" />
+      <antcall target="test.prod.remoteweb" />
+      <antcall target="test.prod.selenium" />
+    </parallel>
+  </target>
+
+  <target name="clean" description="Cleans this project's intermediate and output files">
+    <delete dir="bin"/>
+    <delete dir="${project.build}"/>
+    <delete file="${project.lib}"/>
+  </target>
+
+</project>

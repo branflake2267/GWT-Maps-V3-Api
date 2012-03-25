@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<project name="doc" default="build" basedir=".">
+  <property name="gwt.root" location=".."/>
+  <property name="project.tail" value="doc"/>
+  <property file="${gwt.root}/common.properties"/>
+  <import file="${gwt.root}/common.ant.xml"/>
+  <property.ensure name="java.tools.path" location="${java.home}/../lib/tools.jar" unless="build.host.ismac" message="Cannot find ${java.home}/../lib/tools.jar; please use a JDK when building doc rather than a JRE."/>
+  <!--
+    *** Note that if the API_SOURCE_PATH paths are updated,
+    the fileset dependencies in the outofdate tags in the doc,
+    gears, and javadoc targets must be updated as well.
+  -->
+  <path id="API_SOURCE_PATH">
+    <pathelement location="${gwt.root}/${api.name}/src"/>
+  </path>
+  <path id="API_CLASS_PATH">
+    <pathelement location="${gwt.root}/build/out/${api.name}/bin"/>
+    <pathelement location="${gwt.user.jar}"/>
+    <pathelement location="${gwt.dev.jar}"/>
+    <pathelement location="${gwt.tools.lib}/junit/junit-3.8.1.jar"/>
+  </path>
+  <target name="javadoc">
+    <outofdate>
+      <sourcefiles>
+        <fileset file="./src/${api.name}.html"/>
+        <fileset dir="${gwt.root}/${api.name}/src">
+          <include name="**/*.java"/>
+        </fileset>
+      </sourcefiles>
+      <targetfiles>
+        <!--
+          only checks one output file, will not rebuild other
+          files if this one is up to date
+        -->
+        <pathelement path="${project.build}/javadoc/index.html"/>
+      </targetfiles>
+      <sequential>
+        <echo>Building javadoc</echo>
+        <javadoc failonerror="true" source="1.5" Encoding="UTF-8" destdir="${project.build}/javadoc" classpathref="API_CLASS_PATH" sourcepathref="API_SOURCE_PATH">
+          <packageset dir="${gwt.root}/${api.name}/src">
+            <include name="**"/>
+          </packageset>
+        </javadoc>
+      </sequential>
+    </outofdate>
+  </target>
+  <target name="jar" depends="javadoc">
+    <mkdir dir="${gwt.build.lib}"/>
+    <zip destfile="${gwt.build.lib}/gwt-${api.name}-javadoc.jar" basedir="${project.build}/javadoc"/>
+  </target>
+  <target name="build" depends="javadoc,jar"/>
+</project>

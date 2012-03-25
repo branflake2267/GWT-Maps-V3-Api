@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project name="Ajaxloader API Library for GWT" default="build" basedir=".">
+  <property name="gwt.root" location="."/>
+  <property name="project.tail" value=""/>
+  <property file="${gwt.root}/common.properties"/>
+  <import file="${common.script}"/>
+  <!-- "build" is the default when subprojects are directly targetted -->
+  <property name="target" value="build"/>
+  <target name="build-tools" description="Builds tools required to build the Ajaxloader API Library for GWT">
+    <gwt.ant dir="build-tools"/>
+  </target>
+  <target name="dist-dev" depends="build-tools, ajaxloader" description="Run the minimum set of the distribution for development">
+    <gwt.ant dir="distro-source"/>
+  </target>
+  <target name="dist" depends="build-tools, ajaxloader, doc, samples" description="Run the distributions">
+    <gwt.ant dir="distro-source"/>
+  </target>
+  <target name="doc" depends="ajaxloader" description="Build doc">
+    <gwt.ant dir="doc"/>
+  </target>
+  <target name="ajaxloader" depends="build-tools" description="Build Ajaxloader Bindings">
+    <gwt.ant dir="${api.name}"/>
+  </target>
+  <target name="samples" depends="build-tools, ajaxloader" description="Build Ajaxloader samples">
+    <gwt.ant dir="samples"/>
+  </target>
+  <!-- TODO(piotrs): gwt rid of "-do" target -->
+  <target name="-do" depends="dist" description="Run all subprojects"/>
+  <target name="build" description="Builds Ajaxloader API Library for GWT">
+    <antcall target="-do">
+      <param name="target" value="build"/>
+    </antcall>
+  </target>
+  <target name="checkstyle" description="Static analysis of Ajaxloader API Library for GWT source">
+    <antcall target="-do">
+      <param name="target" value="checkstyle"/>
+    </antcall>
+  </target>
+  <target name="test" description="Runs unit tests">
+    <gwt.ant dir="${api.name}" target="test"/>
+  </target>
+  <target name="clean" description="Cleans the entire Ajaxloader API Library for GWT build">
+    <delete dir="${gwt.build}"/>
+    <antcall target="-do">
+      <param name="target" value="clean"/>
+    </antcall>
+  </target>
+</project>

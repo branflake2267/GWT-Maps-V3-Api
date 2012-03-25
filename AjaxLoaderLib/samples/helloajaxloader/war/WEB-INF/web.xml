@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>HelloAjaxLoader.html</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='apis_google_maps'>
+
+
+  <!-- GWT Core -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  
+  <!-- Load the api with -->
+  <inherits name='com.google.gwt.ajaxloader.AjaxLoader'/>
+
+  
+  <!--  -->
+  <inherits name="com.google.gwt.i18n.I18N"/>
+
+
+  <!-- translate the client to javascript -->
+  <source path='client'/>
+
+
+</module>

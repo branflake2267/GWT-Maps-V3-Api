@@ -1,0 +1,2 @@
+# Module com.google.gwt.maps.Apis_Google_Maps_ForTests.JUnit
+# RPC service class, partial path of RPC policy file
