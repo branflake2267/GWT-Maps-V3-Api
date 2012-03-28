@@ -49,7 +49,7 @@ public class Point extends JavaScriptObject {
    * get X coordinate
    * @return
    */
-  public final native int getX() /*-{
+  public final native double getX() /*-{
     return this.x;
   }-*/;
   
@@ -57,7 +57,7 @@ public class Point extends JavaScriptObject {
    * get Y coordinate
    * @return
    */
-  public final native int getY() /*-{
+  public final native double getY() /*-{
     return this.y;
   }-*/;
 }
