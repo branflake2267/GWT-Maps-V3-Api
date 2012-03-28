@@ -20,6 +20,7 @@ public class LatLngBoundsTest extends GWTTestCase {
   /**
    * {@link http://code.google.com/apis/maps/documentation/javascript/events.html}
    */
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {

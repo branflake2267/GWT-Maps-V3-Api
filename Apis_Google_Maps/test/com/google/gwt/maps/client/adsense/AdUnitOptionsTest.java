@@ -19,6 +19,7 @@ public class AdUnitOptionsTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);

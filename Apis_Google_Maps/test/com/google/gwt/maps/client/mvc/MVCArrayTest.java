@@ -25,7 +25,7 @@ public class MVCArrayTest extends GWTTestCase {
   public void testWorks() {
     assertEquals(true, true);
   }
-  
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -84,7 +84,7 @@ public class MVCArrayTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
-
+  @SuppressWarnings("unused")
   public void testGetArray() {
     LoadApi.go(new Runnable() {
       public void run() {

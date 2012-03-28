@@ -25,6 +25,7 @@ public class KmlLayerTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -63,6 +64,7 @@ public class KmlLayerTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testGetDefaultViewport() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -91,6 +93,7 @@ public class KmlLayerTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testMetadata() {
     LoadApi.go(new Runnable() {
       public void run() {

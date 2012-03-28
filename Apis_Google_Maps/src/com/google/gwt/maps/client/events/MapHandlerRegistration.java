@@ -155,7 +155,6 @@ public class MapHandlerRegistration {
    * @param properties
    * @param formatter
    */
-  @SuppressWarnings("unused")
   protected static <E extends MapEvent> void onCallback(
       final MapHandler<E> handler, 
       final Properties properties, 

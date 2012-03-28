@@ -17,7 +17,8 @@ public class GroundOverlayOptionsTest extends GWTTestCase {
   public void testWorks() {
     assertEquals(true, true);
   }
-
+  
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {

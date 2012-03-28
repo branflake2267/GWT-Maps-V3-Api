@@ -27,7 +27,6 @@ import com.google.gwt.maps.client.services.DistanceMatrixService;
 import com.google.gwt.maps.client.services.DistanceMatrixStatus;
 import com.google.gwt.maps.client.services.Duration;
 import com.google.gwt.maps.client.services.TravelMode;
-import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
