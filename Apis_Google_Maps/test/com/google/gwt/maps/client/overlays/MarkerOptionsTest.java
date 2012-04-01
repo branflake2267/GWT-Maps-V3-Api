@@ -22,6 +22,7 @@ public class MarkerOptionsTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -148,6 +149,7 @@ public class MarkerOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testIconStreetViewPanorama() {
     LoadApi.go(new Runnable() {
       public void run() {

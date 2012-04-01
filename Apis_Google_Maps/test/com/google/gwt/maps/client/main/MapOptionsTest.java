@@ -31,6 +31,7 @@ public class MapOptionsTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -379,6 +380,7 @@ public class MapOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testStreetViewControlOptions() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -509,6 +511,7 @@ public class MapOptionsTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testZoomControlOptions() {
     LoadApi.go(new Runnable() {
       public void run() {

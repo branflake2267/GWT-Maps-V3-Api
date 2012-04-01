@@ -15,6 +15,7 @@ public class MapCanvasProjectionTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -26,6 +27,7 @@ public class MapCanvasProjectionTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testfromContainerPixelToLatLng() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -37,6 +39,7 @@ public class MapCanvasProjectionTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testfromDivPixelToLatLng() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -48,6 +51,7 @@ public class MapCanvasProjectionTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testfromLatLngToContainerPixel() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -59,6 +63,7 @@ public class MapCanvasProjectionTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
+  @SuppressWarnings("unused")
   public void testfromLatLngToDivPixel() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -70,6 +75,7 @@ public class MapCanvasProjectionTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testgetWorldWidth() {
     LoadApi.go(new Runnable() {
       public void run() {

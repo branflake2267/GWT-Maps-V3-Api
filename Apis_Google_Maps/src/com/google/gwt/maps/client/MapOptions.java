@@ -14,7 +14,6 @@ import com.google.gwt.maps.client.controls.RotateControlOptions;
 import com.google.gwt.maps.client.controls.ScaleControlOptions;
 import com.google.gwt.maps.client.controls.StreetViewControlOptions;
 import com.google.gwt.maps.client.controls.ZoomControlOptions;
-import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * Map rendering options

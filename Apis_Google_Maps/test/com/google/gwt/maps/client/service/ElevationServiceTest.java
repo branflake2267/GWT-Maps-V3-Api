@@ -26,6 +26,7 @@ public class ElevationServiceTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
@@ -41,6 +42,7 @@ public class ElevationServiceTest extends GWTTestCase {
   /**
    * TODO get this to work in test mode?
    */
+  @SuppressWarnings("unused")
   public void testUse2() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

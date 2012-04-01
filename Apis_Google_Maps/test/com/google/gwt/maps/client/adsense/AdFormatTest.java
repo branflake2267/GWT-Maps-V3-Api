@@ -38,6 +38,7 @@ public class AdFormatTest extends GWTTestCase {
     }
   }-*/;
 
+  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

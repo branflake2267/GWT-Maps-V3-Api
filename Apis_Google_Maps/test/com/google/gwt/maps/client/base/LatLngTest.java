@@ -17,6 +17,7 @@ public class LatLngTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -27,6 +28,7 @@ public class LatLngTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testUse2() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -37,6 +39,7 @@ public class LatLngTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testUse3() {
     LoadApi.go(new Runnable() {
       public void run() {

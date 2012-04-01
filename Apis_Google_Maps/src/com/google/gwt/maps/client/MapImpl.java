@@ -152,7 +152,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * gets Returns the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. A value of 0 indicates no angle of incidence (no tilt) while 45¡ imagery will return a value of 45.
+   * gets Returns the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. A value of 0 indicates no angle of incidence (no tilt) while 45Â° imagery will return a value of 45.
    * @return
    */
   public final native int getTilt() /*-{

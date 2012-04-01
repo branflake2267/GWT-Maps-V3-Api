@@ -31,6 +31,7 @@ public class GeocoderTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();

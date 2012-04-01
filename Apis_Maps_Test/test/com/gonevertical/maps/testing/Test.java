@@ -3,6 +3,7 @@ package com.gonevertical.maps.testing;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 
+// TODO Test will not run. Not sure why not. Need investigation
 public class Test extends GWTTestCase {
 
   public static final int ASYNC_DELAY_MS = 5000;

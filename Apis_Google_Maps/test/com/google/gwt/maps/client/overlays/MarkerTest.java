@@ -20,6 +20,7 @@ public class MarkerTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -289,6 +290,7 @@ public class MarkerTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
+  @SuppressWarnings("unused")
   public void testClose() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -305,7 +307,7 @@ public class MarkerTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
-  
+  @SuppressWarnings("unused")
   public void testClose2() {
     LoadApi.go(new Runnable() {
       public void run() {

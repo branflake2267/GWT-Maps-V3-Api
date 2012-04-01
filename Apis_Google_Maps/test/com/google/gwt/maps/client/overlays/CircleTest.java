@@ -20,6 +20,7 @@ public class CircleTest extends GWTTestCase {
     assertEquals(true, true);
   }
 
+  @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
@@ -107,7 +108,7 @@ public class CircleTest extends GWTTestCase {
         LatLngBounds right = o.getBounds();
         assertEquals("((22.999910168471587, 24.999902410586856), (23.000089831528413, 25.000097589413144))", right.getToString());
         double radius = o.getRadius();
-        assertEquals(10, radius); 
+        assertEquals(10d, radius); 
         finishTest();
       }
     }, false);
