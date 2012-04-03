@@ -1,6 +1,7 @@
 package com.gonevertical.maps.testing.client.maps;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -61,7 +62,7 @@ public class ElevationMapWidget extends Composite {
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
-        System.out.println("clicked on latlng=" + event.getMouseEvent().getLatLng());
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
         
         findElevation(event);
       }
@@ -90,7 +91,7 @@ public class ElevationMapWidget extends Composite {
           LatLng location = e.getLocation();
           double res = e.getResolution();
           
-          System.out.println("worked elevation=" + elevation);
+          GWT.log("worked elevation=" + elevation);
           drawInfoWindow(location, elevation);
           
         } else if (status == ElevationStatus.OVER_QUERY_LIMIT) {
@@ -101,7 +102,7 @@ public class ElevationMapWidget extends Composite {
           
         }
         
-        System.out.println("elevation request finished");
+        GWT.log("elevation request finished");
       }
     });
   }

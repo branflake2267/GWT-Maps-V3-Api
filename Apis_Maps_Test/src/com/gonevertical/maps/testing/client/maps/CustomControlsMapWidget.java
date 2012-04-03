@@ -1,5 +1,6 @@
 package com.gonevertical.maps.testing.client.maps;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.maps.client.MapOptions;
@@ -89,7 +90,7 @@ public class CustomControlsMapWidget extends Composite {
     final CheckBox cb = new CheckBox();
     cb.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-        System.out.println("Button 2 Clicked");
+    	GWT.log("Button 2 Clicked");
         Window.alert("CheckBox is " + cb.getValue());
       }
     });

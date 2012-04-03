@@ -17,6 +17,7 @@ import com.gonevertical.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.gonevertical.maps.testing.client.maps.StreetViewMapWidget;
 import com.gonevertical.maps.testing.client.maps.StreetViewSideBySideMapWidget;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.maps.client.LoadApi;
@@ -237,14 +238,6 @@ public class Apis_Maps_Test implements EntryPoint {
     
     return map;
   }-*/;
-  
-  
-  private void test1() {
-    
-    
-    System.out.println("loaded");
-  }
-  
 
   private final native int test2(String type) /*-{
     //alert(type);

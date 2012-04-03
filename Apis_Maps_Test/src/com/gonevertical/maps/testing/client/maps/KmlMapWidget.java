@@ -83,7 +83,7 @@ public class KmlMapWidget extends Composite {
         KmlFeatureData featureData = event.getFeatureData();
         LatLng latlng = event.getLatLng();
         Size size = event.getPixelOffset();
-        System.out.println("clicked featureData=" + featureData.getToString());
+        GWT.log("clicked featureData=" + featureData.getToString());
       }
     });
 
@@ -98,7 +98,7 @@ public class KmlMapWidget extends Composite {
     //    String name = metaData.getName();
     //    String snippet = metaData.getSnippet();
 
-    //System.out.println("work? authName=" + authName);
+    //GWT.log("work? authName=" + authName);
 
   }
 

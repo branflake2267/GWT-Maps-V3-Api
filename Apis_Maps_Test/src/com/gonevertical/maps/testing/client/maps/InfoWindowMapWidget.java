@@ -1,5 +1,6 @@
 package com.gonevertical.maps.testing.client.maps;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -106,7 +107,7 @@ public class InfoWindowMapWidget extends Composite {
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
-        System.out.println("clicked on latlng=" + event.getMouseEvent().getLatLng());
+    	GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
     

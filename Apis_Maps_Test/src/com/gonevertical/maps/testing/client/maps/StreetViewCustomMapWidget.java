@@ -1,6 +1,6 @@
 package com.gonevertical.maps.testing.client.maps;
 
-import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Size;
 import com.google.gwt.maps.client.streetview.StreetViewLocation;
@@ -24,8 +24,6 @@ public class StreetViewCustomMapWidget extends Composite {
 
   private VerticalPanel pWidget;
 
-  private MapWidget mapWidget;
-
   public StreetViewCustomMapWidget() {
     pWidget = new VerticalPanel();
     initWidget(pWidget);
@@ -37,15 +35,12 @@ public class StreetViewCustomMapWidget extends Composite {
 
     pWidget.clear();
 
-    pWidget.add(new HTML("<br>Custom Street View - (For a better demo, I need to re-cut out tiles... later) <a href=\"http://gonevertical-hr.appspot.com/#pano_view~id:110010\" target=\"_blank\">I used tiles from my site here</a>"));
+    pWidget.add(new HTML("<br>Custom Street View - (For a better demo, I need to re-cut out tiles... later)"+
+    		" <a href=\"http://gonevertical-hr.appspot.com/#pano_view~id:110010\" "+
+    		"target=\"_blank\">I used tiles from my site here</a>"));
 
     drawStreeView();
-   
-  ">pano_view~id:110010\" target=\"_blank\">I used tiles from my site here</a>"));
-
-    drawStreeView();
-   
-   API Doc</a>
+  }
   
   private void drawStreeView() {
    
@@ -80,7 +75,7 @@ public class StreetViewCustomMapWidget extends Composite {
           public String getTileUrl(String pano, int zoom, int tileX, int tileY) {
             zoom = 0; // TODO make a better tiled pano for testing
             String url = "http://gonevertical-hr.appspot.com/serve?pano=99330&z=" + zoom + "&y=" + tileY + "&x=" + tileX;
-            System.out.println(url);
+            GWT.log("Got StreetView Tile from URL: "+url);
             return url;
           }
         });

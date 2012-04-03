@@ -1,5 +1,6 @@
 package com.gonevertical.maps.testing.client.maps;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -84,7 +85,7 @@ public class FusionTablesMapWidget extends Composite {
         Size pixelOffset = event.getPixelOffset();
         JavaScriptObject a = event.getRow();
         String json = event.getRowAsJson();
-        System.out.println("click on " + latlng.getToString() + "  json=" + json);
+        GWT.log("click on " + latlng.getToString() + "  json=" + json);
       }
     });
     layer.setMap(mapWidget);

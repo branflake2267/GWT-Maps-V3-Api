@@ -1,5 +1,6 @@
 package com.gonevertical.maps.testing.client.maps;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -89,7 +90,7 @@ public class DrawingMapWidget extends Composite {
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
-        System.out.println("clicked on latlng=" + event.getMouseEvent().getLatLng());
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
   }
@@ -116,69 +117,69 @@ public class DrawingMapWidget extends Composite {
     o.addCircleCompleteHandler(new CircleCompleteMapHandler() {
       public void onEvent(CircleCompleteMapEvent event) {
         Circle circle = event.getCircle();
-        System.out.println("circle completed radius=" + circle.getRadius());
+        GWT.log("circle completed radius=" + circle.getRadius());
       }
     });
 
     o.addMarkerCompleteHandler(new MarkerCompleteMapHandler() {
       public void onEvent(MarkerCompleteMapEvent event) {
         Marker marker = event.getMarker();
-        System.out.println("marker completed position=" + marker.getPosition());
+        GWT.log("marker completed position=" + marker.getPosition());
       }
     });
 
     o.addOverlayCompleteHandler(new OverlayCompleteMapHandler() {
       public void onEvent(OverlayCompleteMapEvent event) {
         OverlayType ot = event.getOverlayType();
-        System.out.println("marker completed OverlayType=" + ot.toString());
+        GWT.log("marker completed OverlayType=" + ot.toString());
 
         if (ot == OverlayType.CIRCLE) {
           Circle circle = event.getCircle();
-          System.out.println("radius=" + circle.getRadius());
+          GWT.log("radius=" + circle.getRadius());
         }
 
         if (ot == OverlayType.MARKER) {
           Marker marker = event.getMarker();
-          System.out.println("position=" + marker.getPosition());
+          GWT.log("position=" + marker.getPosition());
         }
 
         if (ot == OverlayType.POLYGON) {
           Polygon polygon = event.getPolygon();
-          System.out.println("paths=" + polygon.getPaths().toString());
+          GWT.log("paths=" + polygon.getPaths().toString());
         }
 
         if (ot == OverlayType.POLYLINE) {
           Polyline polyline = event.getPolyline();
-          System.out.println("paths=" + polyline.getPath().toString());
+          GWT.log("paths=" + polyline.getPath().toString());
         }
 
         if (ot == OverlayType.RECTANGLE) {
           Rectangle rectangle = event.getRectangle();
-          System.out.println("bounds=" + rectangle.getBounds());
+          GWT.log("bounds=" + rectangle.getBounds());
         }
 
-        System.out.println("marker completed OverlayType=" + ot.toString());
+        GWT.log("marker completed OverlayType=" + ot.toString());
       }
     });
 
     o.addPolygonCompleteHandler(new PolygonCompleteMapHandler() {
       public void onEvent(PolygonCompleteMapEvent event) {
         Polygon polygon = event.getPolygon();
-        System.out.println("Polygon completed paths=" + polygon.getPath().toString());
+        GWT.log("Polygon completed paths=" + polygon.getPath().toString());
       }
     });
 
     o.addPolylineCompleteHandler(new PolylineCompleteMapHandler() {
       public void onEvent(PolylineCompleteMapEvent event) {
         Polyline polyline = event.getPolyline();
-        System.out.println("Polyline completed paths=" + polyline.getPath().toString());
+        GWT.log("Polyline completed paths=" + polyline.getPath().toString());
       }
     });
 
     o.addRectangleCompleteHandler(new RectangleCompleteMapHandler() {
       public void onEvent(RectangleCompleteMapEvent event) {
         Rectangle rectangle = event.getRectangle();
-        System.out.println("Rectangle completed bounds=" + rectangle.getBounds().getToString());
+        GWT.log("Rectangle completed bounds=" + rectangle.getBounds().getToString());
       }
     });
 

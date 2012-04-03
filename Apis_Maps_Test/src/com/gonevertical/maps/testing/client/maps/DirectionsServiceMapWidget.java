@@ -1,6 +1,7 @@
 package com.gonevertical.maps.testing.client.maps;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.maps.client.MapOptions;
@@ -151,7 +152,7 @@ public class DirectionsServiceMapWidget extends Composite {
     o.getDistanceMatrix(request, new DistanceMatrixRequestHandler() {
       public void onCallback(DistanceMatrixResponse response, DistanceMatrixStatus status) {
         
-        System.out.println("status=" + status.value());
+    	GWT.log("status=" + status.value());
         
         if (status == DistanceMatrixStatus.INVALID_REQUEST) {
           
@@ -165,7 +166,7 @@ public class DirectionsServiceMapWidget extends Composite {
           JsArrayString org = response.getOriginAddresses();
           JsArray<DistanceMatrixResponseRow> rows = response.getRows();
           
-          System.out.println("rows.length=" + rows.length());
+          GWT.log("rows.length=" + rows.length());
           DistanceMatrixResponseRow d = rows.get(0);
           JsArray<DistanceMatrixResponseElement> elements = d.getElements();
           for (int i=0; i < elements.length(); i++) {
@@ -173,8 +174,8 @@ public class DirectionsServiceMapWidget extends Composite {
             Distance distance = e.getDistance();
             Duration duration = e.getDuration();
             DistanceMatrixElementStatus st = e.getStatus();
-            System.out.println("distance=" + distance.getText() + " value=" + distance.getValue());
-            System.out.println("duration=" + duration.getText() + " value=" + duration.getValue());
+            GWT.log("distance=" + distance.getText() + " value=" + distance.getValue());
+            GWT.log("duration=" + duration.getText() + " value=" + duration.getValue());
             
             String html = "&nbsp;&nbsp;Distance=" + distance.getText() + " Duration=" + duration.getText() + " ";
             htmlDistanceMatrixService.setHTML(html);

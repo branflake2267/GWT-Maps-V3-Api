@@ -1,5 +1,6 @@
 package com.google.gwt.maps.client.services;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
@@ -68,7 +69,7 @@ public class DirectionsService extends JavaScriptObject {
   
 //  public static final void test(String msg, JavaScriptObject jso) {
 //    JSONObject j = new JSONObject(jso);
-//    System.out.println("msg= "+ msg + " jso=" + j.toString());
+//    GWT.log("msg= "+ msg + " jso=" + j.toString());
 //  }
 //  
  
