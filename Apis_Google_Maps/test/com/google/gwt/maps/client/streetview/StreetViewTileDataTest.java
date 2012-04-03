@@ -62,7 +62,7 @@ public class StreetViewTileDataTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         StreetViewTileData o = StreetViewTileData.newInstance();
-        Size tileSize = Size.newInstance(10, 12);
+        Size tileSize = Size.newInstance(10d, 12d);
         o.setTileSize(tileSize);
         assertEquals("(10, 12)", o.getTileSize().getToString());
         finishTest();
@@ -75,7 +75,7 @@ public class StreetViewTileDataTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         StreetViewTileData o = StreetViewTileData.newInstance();
-        Size worldSize = Size.newInstance(13, 14);
+        Size worldSize = Size.newInstance(13d, 14d);
         o.setWorldSize(worldSize);
         assertEquals("(13, 14)", o.getWorldSize().getToString());
         finishTest();

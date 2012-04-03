@@ -41,7 +41,7 @@ public class ProjectionTest extends GWTTestCase {
         MapOptions options = MapOptions.newInstance();
         MapWidget wMap = new MapWidget(options);
         Projection p = wMap.getProjection();
-        Point point = Point.newInstance(4, 3);
+        Point point = Point.newInstance(4d, 3d);
         LatLng latlng = LatLng.newInstance(new BigDecimal(35), new BigDecimal(38));
         Point p2 = p.fromLatLngToPoint(latlng, point);
         assertEquals("(155.0222222222222, 101.40104481443532)", p2.getToString());
@@ -57,7 +57,7 @@ public class ProjectionTest extends GWTTestCase {
         MapOptions options = MapOptions.newInstance();
         MapWidget wMap = new MapWidget(options);
         Projection p = wMap.getProjection();
-        Point point = Point.newInstance(4, 3);
+        Point point = Point.newInstance(4d, 3d);
         Point p2 = p.fromPointToLatLng(point, false);
         assertEquals("(84.67351256610525, -174.375)", p2.getToString());
         finishTest();

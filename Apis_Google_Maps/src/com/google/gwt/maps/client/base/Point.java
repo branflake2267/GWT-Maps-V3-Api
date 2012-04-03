@@ -20,11 +20,11 @@ public class Point extends JavaScriptObject {
    * @param y
    * @return
    */
-  public final static Point newInstance(int x, int y) {
+  public final static Point newInstance(double x, double y) {
     return createJso(x, y).cast();
   }
   
-  private final static native JavaScriptObject createJso(int x, int y) /*-{
+  private final static native JavaScriptObject createJso(double x, double y) /*-{
     return new $wnd.google.maps.Point(x, y);
   }-*/;
   

@@ -3,44 +3,44 @@ package com.google.gwt.maps.client.base;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /** 
- * Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
+ * Two-dimensional size, where width is the distance on the x-axis, and height is the distance on the y-axis.
  * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Size}
  */
 public class Size extends JavaScriptObject {
   
   /**
-   * creates Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
+   * creates Two-dimensional size, where width is the distance on the x-axis, and height is the distance on the y-axis.
    * use newInstance();
    */
   protected Size() {}
 
   /**
-   * creates Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
+   * creates Two-dimensional size, where width is the distance on the x-axis, and height is the distance on the y-axis.
    * @param width
    * @param height
    * @param widthUnit
    * @param heightUnit
    * @return {@link Size}
    */
-  public final static Size newInstance(int width, int height, String widthUnit, String heightUnit) {
+  public final static Size newInstance(double width, double height, String widthUnit, String heightUnit) {
     return createJso(width, height, widthUnit, heightUnit).cast();
   }
   
   /**
-   * creates Two-dimensonal size, where width is the distance on the x-axis, and height is the distance on the y-axis.
+   * creates Two-dimensional size, where width is the distance on the x-axis, and height is the distance on the y-axis.
    * @param width
    * @param height
    * @return {@link Size}
    */
-  public final static Size newInstance(int width, int height) {
+  public final static Size newInstance(double width, double height) {
     return createJso(width, height).cast();
   }
 
-  private final static native Size createJso(int width, int height, String widthUnit, String heightUnit) /*-{
+  private final static native Size createJso(double width, double height, String widthUnit, String heightUnit) /*-{
     return new $wnd.google.maps.Size(width, height, widthUnit, heightUnit);
   }-*/;
   
-  private final static native Size createJso(int width, int height) /*-{
+  private final static native Size createJso(double width, double height) /*-{
     return new $wnd.google.maps.Size(width, height);
   }-*/;
   
@@ -65,7 +65,7 @@ public class Size extends JavaScriptObject {
    * sets The height along the y-axis, in pixels.
    * @param height
    */
-  public final native void setHeight(int height) /*-{
+  public final native void setHeight(double height) /*-{
     this.height = height;
   }-*/;
   
@@ -73,7 +73,7 @@ public class Size extends JavaScriptObject {
    * gets The height along the y-axis, in pixels.
    * @return
    */
-  public final native int getHeight() /*-{
+  public final native double getHeight() /*-{
     return this.height;
   }-*/;
   
@@ -81,7 +81,7 @@ public class Size extends JavaScriptObject {
    * sets The width along the x-axis, in pixels.
    * @param width
    */
-  public final native void setWidth(int width) /*-{
+  public final native void setWidth(double width) /*-{
     this.width = width;
   }-*/;
   
@@ -89,7 +89,7 @@ public class Size extends JavaScriptObject {
    * gets The width along the x-axis, in pixels.
    * @return
    */
-  public final native int getWidth() /*-{
+  public final native double getWidth() /*-{
     return this.width;
   }-*/;
 }

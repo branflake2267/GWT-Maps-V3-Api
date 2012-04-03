@@ -4,14 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<scm>
-		<connection>scm:git://github.com/twistedpair/GWT-Maps-V3-Api.git</connection>
-		<developerConnection>scm:git://github.com/twistedpair/GWT-Maps-V3-Api.git</developerConnection>
+		<connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
+		<developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+		<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
 	</scm>
 
 	<!-- Artifact details that people will use search for this project -->
 	<groupId>com.gonevertical.maps.testing</groupId>
 	<artifactId>gwt-maps-api-v3-testing</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>${gmapsApiVersion}-beta1-SNAPSHOT</version>
 	<name>Google Web Toolkit Maps API V3 - UI Test</name>
 	<url>http://code.google.com/p/gwt-maps-api/</url>
 	
@@ -33,12 +34,14 @@
 		<developer>
 			<name>Joseph Lust</name>
 			<organization>Lauf Labs LLC</organization>
+			<email>lauflabs@gmail.com</email>
 			<url>http://www.lustforge.com/</url>
 		</developer>
 	</developers>
 
 	<properties>
 		<!-- Java props -->
+		<gmapsApiVersion>3.8.0</gmapsApiVersion>
 		<javaVersion>1.6</javaVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -153,7 +156,7 @@
 		<dependency>
 			<groupId>com.google.gwt.maps</groupId>
 			<artifactId>gwt-maps-api-v3</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>${gmapsApiVersion}-beta1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 

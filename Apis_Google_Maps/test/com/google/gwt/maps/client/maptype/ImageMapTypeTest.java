@@ -150,7 +150,7 @@ public class ImageMapTypeTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         ImageMapTypeOptions options = ImageMapTypeOptions.newInstance();
-        Size left = Size.newInstance(103, 102);
+        Size left = Size.newInstance(103d, 102d);
         options.setTileSize(left);
         Size right = options.getTileSize();
         assertEquals(left.getToString(), right.getToString());

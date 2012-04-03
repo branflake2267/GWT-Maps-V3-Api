@@ -91,7 +91,7 @@ public class InfoWindowOptionsTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         InfoWindowOptions o = InfoWindowOptions.newInstance();
-        Size left = Size.newInstance(102, 203);
+        Size left = Size.newInstance(102d, 203d);
         o.setPixelOffet(left);
         Size right = o.getPixelOffset();
         assertEquals(left.getToString(), right.getToString());

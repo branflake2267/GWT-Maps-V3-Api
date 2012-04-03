@@ -140,7 +140,7 @@ public class MapImplTest extends GWTTestCase {
         MapImpl o = MapImpl.newInstance(element, options);
         Projection projection = o.getProjection();
         boolean nowrap = false;
-        Point pixel = Point.newInstance(10, 10);
+        Point pixel = Point.newInstance(10d, 10d);
         Point a = projection.fromPointToLatLng(pixel, nowrap);
         assertEquals("(83.67694304841554, -165.9375)", a.getToString());
         finishTest();

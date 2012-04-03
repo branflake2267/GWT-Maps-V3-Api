@@ -1,11 +1,16 @@
 package com.google.gwt.maps.client.base;
 
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 
 public class SizeTest extends GWTTestCase {
 
   public static final int ASYNC_DELAY_MS = 5000;
+  
+  public static final double MOCK_H = 100d;
+  public static final double MOCK_W = 250d;
+  
   
   public String getModuleName() {
     return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
@@ -19,7 +24,7 @@ public class SizeTest extends GWTTestCase {
   public void testUse() {
     LoadApi.go(new Runnable() {
       public void run() {
-        Size o = Size.newInstance(100, 250);
+        Size o = Size.newInstance(MOCK_H, MOCK_W);
         finishTest();
       }
     }, false);
@@ -30,7 +35,7 @@ public class SizeTest extends GWTTestCase {
   public void testUse2() {
     LoadApi.go(new Runnable() {
       public void run() {
-        Size o = Size.newInstance(100, 250, "px", "px");
+        Size o = Size.newInstance(MOCK_H, MOCK_W, "px", "px");
         finishTest();
       }
     }, false);
@@ -41,8 +46,8 @@ public class SizeTest extends GWTTestCase {
   public void testEqual() {
     LoadApi.go(new Runnable() {
       public void run() {
-        Size left = Size.newInstance(100, 250);
-        Size right = Size.newInstance(100, 250);
+        Size left = Size.newInstance(MOCK_H, MOCK_W);
+        Size right = Size.newInstance(MOCK_H, MOCK_W);
         boolean b = left.equals(right);
         assertEquals(true, b);
         finishTest();
@@ -54,8 +59,8 @@ public class SizeTest extends GWTTestCase {
   public void testNotEqual() {
     LoadApi.go(new Runnable() {
       public void run() {
-        Size left = Size.newInstance(101, 250);
-        Size right = Size.newInstance(100, 250);
+        Size left = Size.newInstance(101, MOCK_W);
+        Size right = Size.newInstance(MOCK_H, MOCK_W);
         boolean b = left.equals(right);
         assertEquals(false, b);
         finishTest();
@@ -64,11 +69,15 @@ public class SizeTest extends GWTTestCase {
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
-  public void testGetToString() {
+  public void testToString() {
     LoadApi.go(new Runnable() {
       public void run() {
-        String left = "(101, 250)";
-        Size right = Size.newInstance(101, 250);
+    	
+        String hStr = NumberFormat.getFormat("#.#").format(MOCK_H+1);
+    	String wStr = NumberFormat.getFormat("#.#").format(MOCK_W);
+        String left = "("+hStr+", "+wStr+")"; // oddly trailing zeros are truncated in API toString
+        
+        Size right = Size.newInstance(MOCK_H+1, MOCK_W);
         assertEquals(left, right.getToString());
         finishTest();
       }
@@ -79,11 +88,11 @@ public class SizeTest extends GWTTestCase {
   public void testWidth() {
     LoadApi.go(new Runnable() {
       public void run() {
-        int width = 100;
-        Size o = Size.newInstance(width, 250, "px", "px");
+    	  double width = MOCK_H;
+        Size o = Size.newInstance(width, MOCK_W, "px", "px");
         assertEquals(width, o.getWidth());
-        o.setWidth(101);
-        assertEquals(101, o.getWidth());
+        o.setWidth(MOCK_W+1);
+        assertEquals(MOCK_W+1, o.getWidth());
         finishTest();
       }
     }, false);
@@ -93,11 +102,11 @@ public class SizeTest extends GWTTestCase {
   public void testHeight() {
     LoadApi.go(new Runnable() {
       public void run() {
-        int height = 250;
-        Size o = Size.newInstance(100, height, "px", "px");
+        double height = MOCK_W;
+        Size o = Size.newInstance(MOCK_H, height, "px", "px");
         assertEquals(height, o.getHeight());
-        o.setHeight(251);
-        assertEquals(251, o.getHeight());
+        o.setHeight(MOCK_H+1);
+        assertEquals(MOCK_H+1, o.getHeight());
         finishTest();
       }
     }, false);

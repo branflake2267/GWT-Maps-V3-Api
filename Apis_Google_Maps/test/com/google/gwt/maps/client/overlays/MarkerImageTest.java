@@ -35,8 +35,8 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
+        double width = 21;
+        double height = 32;
         Size size = Size.newInstance(width, height);
         MarkerImage o = MarkerImage.newInstance(url, size);
         assertEquals(size.getToString(), o.getSize().getToString());
@@ -54,7 +54,7 @@ public class MarkerImageTest extends GWTTestCase {
         int width = 21;
         int height = 32;
         Size size = Size.newInstance(width, height);
-        Point origin = Point.newInstance(0, 0);
+        Point origin = Point.newInstance(0d, 0d);
         MarkerImage o = MarkerImage.newInstance(url, size, origin);
         assertEquals(origin.getToString(), o.getOrigin().getToString());
         finishTest();
@@ -68,11 +68,11 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
+        double width = 21;
+        double height = 32;
         Size size = Size.newInstance(width, height);
-        Point origin = Point.newInstance(0, 0);
-        Point anchor = Point.newInstance(width / 2, height);
+        Point origin = Point.newInstance(0d, 0d);
+        Point anchor = Point.newInstance(width / 2d, height);
         MarkerImage o = MarkerImage.newInstance(url, size, origin, anchor);
         assertEquals(anchor.getToString(), o.getAnchor().getToString());
         finishTest();
@@ -89,8 +89,8 @@ public class MarkerImageTest extends GWTTestCase {
         int width = 21;
         int height = 32;
         Size size = Size.newInstance(width, height);
-        Point origin = Point.newInstance(0, 0);
-        Point anchor = Point.newInstance(width / 2, height);
+        Point origin = Point.newInstance(0d, 0d);
+        Point anchor = Point.newInstance(width / 2d, height);
         Size scaledSize = Size.newInstance(width, height);
         MarkerImage o = MarkerImage.newInstance(url, size, origin, anchor, scaledSize);
         assertEquals(scaledSize.getToString(), o.getScaledSize().getToString());
@@ -105,9 +105,9 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
-        Point left = Point.newInstance(width / 2, height);
+        double width = 21;
+        double height = 32;
+        Point left = Point.newInstance(width / 2d, height);
         MarkerImage o = MarkerImage.newInstance(url);
         o.setAnchor(left);
         Point right = o.getAnchor();
@@ -123,7 +123,7 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        Point left = Point.newInstance(0, 0);
+        Point left = Point.newInstance(0d, 0d);
         MarkerImage o = MarkerImage.newInstance(url);
         o.setOrigin(left);
         Point right = o.getOrigin();

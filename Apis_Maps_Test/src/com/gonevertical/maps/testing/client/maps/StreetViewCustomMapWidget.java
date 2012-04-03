@@ -64,8 +64,8 @@ public class StreetViewCustomMapWidget extends Composite {
         location.setLatLng(position);
         location.setPano("diamondheadhike");
         
-        Size tileSize = Size.newInstance(300, 300);
-        Size worldSize = Size.newInstance(1708, 400);
+        Size tileSize = Size.newInstance(300d, 300d);
+        Size worldSize = Size.newInstance(1708d, 400d);
         
         StreetViewTileData tiles = StreetViewTileData.newInstance();
         tiles.setCenterHeading(0);
