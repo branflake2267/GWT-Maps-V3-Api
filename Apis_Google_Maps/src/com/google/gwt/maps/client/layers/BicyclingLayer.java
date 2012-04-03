@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A layer showing bike lanes and paths. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#BicyclingLayer}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#BicyclingLayer">BicyclingLayer API Doc</a>
  */
 public class BicyclingLayer extends MVCObject<BicyclingLayer> {
 

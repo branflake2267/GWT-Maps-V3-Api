@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * This class implements the MapType interface and is provided for rendering image tiles.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ImageMapType} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ImageMapType">ImageMapType API Doc</a> 
  */
 public class ImageMapType extends JavaScriptObject {
   

@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.MapWidget;
 
 /**
  * This object defines the properties that can be set on a FusionTablesLayer object.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesLayerOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesLayerOptions">FusionTablesLayerOptions API Doc</a>
  */
 public class FusionTablesLayerOptions extends JavaScriptObject {
 

@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /** 
  * Options for the rendering of the zoom control.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ZoomControlOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ZoomControlOptions">ZoomControlOptions API Doc</a>
  */
 public class ZoomControlOptions extends JavaScriptObject {
 
@@ -40,7 +41,7 @@ public class ZoomControlOptions extends JavaScriptObject {
 
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @param controlPosition {@link ControlPosition}
+   * @param position {@link ControlPosition}
    */
   public final void setPosition(ControlPosition position) {
     setPositionImpl(position.value());

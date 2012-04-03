@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  * The specification for a geocoding request to be sent to the Geocoder.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderRequest}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GeocoderRequest">GeocoderRequest API Doc</a>
  */
 public class GeocoderRequest extends JavaScriptObject {
 

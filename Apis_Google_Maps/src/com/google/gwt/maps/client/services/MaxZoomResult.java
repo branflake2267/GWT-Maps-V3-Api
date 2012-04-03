@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A MaxZoom result in JSON format retrieved from the MaxZoomService.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MaxZoomResult}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MaxZoomResult">MaxZoomResult API Doc</a>
  */
 public class MaxZoomResult extends JavaScriptObject {
   

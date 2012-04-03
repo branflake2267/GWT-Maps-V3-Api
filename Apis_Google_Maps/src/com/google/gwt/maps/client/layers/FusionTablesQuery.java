@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Specifies the data to retrieve from a Fusion Tables.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesQuery}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesQuery">FusionTablesQuery API Doc</a>
  */
 public class FusionTablesQuery extends JavaScriptObject {
 

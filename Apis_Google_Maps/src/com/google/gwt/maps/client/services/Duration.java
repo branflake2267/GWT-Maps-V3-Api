@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A representation of duration as a numeric value and a display string.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Duration}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Duration">Duration API Doc</a>
  */
 public class Duration extends JavaScriptObject {
   

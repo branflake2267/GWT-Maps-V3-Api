@@ -13,7 +13,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A groundoverlay overlay. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GroundOverlay}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GroundOverlay">GroundOverlay API Doc</a>
  */
 public class GroundOverlay extends MVCObject<GroundOverlay> {
 

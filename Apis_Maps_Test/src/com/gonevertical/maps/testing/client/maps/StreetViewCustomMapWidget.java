@@ -17,7 +17,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/streetview.html}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/streetview.html}
  */
 public class StreetViewCustomMapWidget extends Composite {
 
@@ -40,7 +41,11 @@ public class StreetViewCustomMapWidget extends Composite {
 
     drawStreeView();
    
-  }
+  ">pano_view~id:110010\" target=\"_blank\">I used tiles from my site here</a>"));
+
+    drawStreeView();
+   
+   API Doc</a>
   
   private void drawStreeView() {
    

@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.Size;
 
 /**
  * This class is used to create a MapType that renders image tiles.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ImageMapTypeOptions} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ImageMapTypeOptions">ImageMapTypeOptions API Doc</a> 
  */
 public class ImageMapTypeOptions extends JavaScriptObject {
   

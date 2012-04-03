@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.maptypes;
 
 /**
  * Each MapTypeStyleElementType distinguishes between the different representations of a feature.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapTypeStyleElementType}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleElementType">MapTypeStyleElementType API Doc</a>
  */
 public enum MapTypeStyleElementType {
 

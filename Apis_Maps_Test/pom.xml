@@ -12,7 +12,7 @@
 	<!-- Artifact details that people will use search for this project -->
 	<groupId>com.gonevertical.maps.testing</groupId>
 	<artifactId>gwt-maps-api-v3-testing</artifactId>
-	<version>${gmapsApiVersion}-beta1-SNAPSHOT</version>
+	<version>3.8.0-beta1-SNAPSHOT</version>
 	<name>Google Web Toolkit Maps API V3 - UI Test</name>
 	<url>http://code.google.com/p/gwt-maps-api/</url>
 	

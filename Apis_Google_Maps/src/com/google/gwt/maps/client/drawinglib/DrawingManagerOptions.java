@@ -11,7 +11,8 @@ import com.google.gwt.maps.client.overlays.RectangleOptions;
 
 /**
  * Options for the drawing manager.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DrawingManagerOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DrawingManagerOptions">DrawingManagerOptions API Doc</a>
  */
 public class DrawingManagerOptions extends JavaScriptObject {
 

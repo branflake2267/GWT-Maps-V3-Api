@@ -8,7 +8,8 @@ import com.google.gwt.user.client.ui.Widget;
 
 /** 
  * InfoWindow Options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#InfoWindowOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#InfoWindowOptions">InfoWindowOptions API Doc</a>
  */
 public class InfoWindowOptions extends JavaScriptObject {
 

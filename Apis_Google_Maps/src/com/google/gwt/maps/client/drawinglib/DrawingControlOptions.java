@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.controls.ControlPosition;
 
 /**
  * Options for the rendering of the drawing control.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DrawingControlOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DrawingControlOptions">DrawingControlOptions API Doc</a>
  */
 public class DrawingControlOptions extends JavaScriptObject {
   

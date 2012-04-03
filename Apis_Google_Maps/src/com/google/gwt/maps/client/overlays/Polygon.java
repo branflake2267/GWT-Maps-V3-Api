@@ -29,7 +29,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Polygon} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Polygon">Polygon API Doc</a> 
  */
 public class Polygon extends MVCObject<Polygon> {
   

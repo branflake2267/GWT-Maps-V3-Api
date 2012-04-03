@@ -10,7 +10,8 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Notice that although usual map projections associate longitude with the x-coordinate of the map, and latitude with the y-coordinate, the latitude coordinate is always written first, followed by the longitude.
  * Notice also that you cannot modify the coordinates of a LatLng. If you want to compute another point, you have to create a new one.
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#LatLng}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#LatLng">LatLng API Doc</a>
  */
 public class LatLng extends JavaScriptObject {
 
@@ -23,8 +24,6 @@ public class LatLng extends JavaScriptObject {
    * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90 degrees and +90 degrees, and longitude will be wrapped to lie between -180 degrees and +180 degrees.
    * @param lat
    * @param lng
-   * @param noWrap
-   * @return LatLng
    */
   public static LatLng newInstance(BigDecimal lat, BigDecimal lng) {
     return newInstance(lat, lng, false);

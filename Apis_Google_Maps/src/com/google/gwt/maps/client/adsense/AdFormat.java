@@ -1,10 +1,12 @@
 package com.google.gwt.maps.client.adsense;
 
 /**
- * Identifiers used to specify an AdSense For Content format. See https://google.com/adsense/adformats
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#AdFormat}
- * 
- * class is $wnd.google.maps.adsense.AdFormat
+ * Identifiers used to specify an AdSense For Content format. 
+ * <br><br>
+ * See <a href="https://google.com/adsense/adformats">AdFormats</a><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#AdFormat">AdFormat API Doc</a>
+ * <br><br>
+ * <b>Note:</b> class is <code>$wnd.google.maps.adsense.AdFormat</code>
  */
 public enum AdFormat {
   

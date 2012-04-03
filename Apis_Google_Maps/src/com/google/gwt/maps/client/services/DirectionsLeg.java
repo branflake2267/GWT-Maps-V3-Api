@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * A single leg consisting of a set of steps in a DirectionsResult. Some fields in the leg may not be returned for all requests. (This object was formerly known as "DirectionsRoute".) Note that though this result is "JSON-like," it is not strictly JSON, as it directly and indirectly includes LatLng objects.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsLeg}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsLeg">DirectionsLeg API Doc</a>
  */
 public class DirectionsLeg extends JavaScriptObject {
   

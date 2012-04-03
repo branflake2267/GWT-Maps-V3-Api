@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * The status returned by the MaxZoomService on the completion of a call to getMaxZoomAtLatLng().
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MaxZoomStatus}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MaxZoomStatus">MaxZoomStatus API Doc</a>
  */
 public enum MaxZoomStatus {
 

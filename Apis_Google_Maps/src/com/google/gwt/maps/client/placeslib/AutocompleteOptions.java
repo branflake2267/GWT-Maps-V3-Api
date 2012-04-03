@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  * The options that can be set on an Autocomplete.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#AutocompleteOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#AutocompleteOptions">AutocompleteOptions API Doc</a>
  */
 public class AutocompleteOptions extends JavaScriptObject {
 

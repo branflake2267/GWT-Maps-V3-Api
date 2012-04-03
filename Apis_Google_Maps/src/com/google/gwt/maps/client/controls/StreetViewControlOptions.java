@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Options for the rendering of the Street View pegman control on the map.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewControlOptions} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewControlOptions">StreetViewControlOptions API Doc</a> 
  */
 public class StreetViewControlOptions extends JavaScriptObject {
 
@@ -36,7 +37,7 @@ public class StreetViewControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @param controlPosition {@link ControlPosition}
+   * @param position {@link ControlPosition}
    */
   public final void setPosition(ControlPosition position) {
     setPositionImpl(position.value());

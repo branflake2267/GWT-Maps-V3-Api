@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JsArray;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ElevationService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ElevationService">ElevationService API Doc</a>
  */
 public interface ElevationServiceHandler {
 

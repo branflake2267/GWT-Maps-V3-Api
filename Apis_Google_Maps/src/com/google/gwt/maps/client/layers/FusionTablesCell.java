@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * Describes a single cell from a Fusion Tables table. 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesCell}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesCell">FusionTablesCell API Doc</a>
  */
 public class FusionTablesCell extends MVCObject<FusionTablesCell> {
   

@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.Size;
 
 /**
  * A structure representing a Marker icon or shadow image.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MarkerImage}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerImage">MarkerImage API Doc</a>
  */
 public class MarkerImage extends JavaScriptObject {
 

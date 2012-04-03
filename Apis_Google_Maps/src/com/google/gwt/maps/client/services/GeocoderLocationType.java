@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * Describes the type of location returned from a geocode.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderLocationType}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GeocoderLocationType">GeocoderLocationType API Doc</a>
  */
 public enum GeocoderLocationType {
 

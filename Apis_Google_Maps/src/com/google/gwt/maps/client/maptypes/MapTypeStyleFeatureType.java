@@ -3,7 +3,8 @@ package com.google.gwt.maps.client.maptypes;
 
 /**
  * Possible values for feature types. Specify these values as strings, i.e. 'administrative' or 'poi.park'. Stylers applied to a parent feature type automatically apply to all child feature types. Note however that parent features may include some additional features that are not included in one of their child feature types.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapTypeStyleFeatureType} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleFeatureType">MapTypeStyleFeatureType API Doc</a> 
  */
 public enum MapTypeStyleFeatureType {
 

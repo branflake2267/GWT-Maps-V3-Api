@@ -9,7 +9,8 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 
 /**
  * You can implement this class if you want to display custom types of overlay objects on the map. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#OverlayView} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#OverlayView">OverlayView API Doc</a> 
  */
 public class OverlayView extends MVCObject<OverlayView> {
   

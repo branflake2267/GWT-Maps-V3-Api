@@ -22,7 +22,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  *  Allows users to draw markers, polygons, polylines, rectangles, and circles on the map. The DrawingManager's drawing mode defines the type of overlay that will be created by the user. Adds a control to the map, allowing the user to switch drawing mode. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DrawingManager}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DrawingManager">DrawingManager API Doc</a>
  */
 public class DrawingManager extends MVCObject<DrawingManager> {
   

@@ -4,8 +4,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
 /**
- * A service for converting between an address and a LatLng.
- * {@link }
+ * A service for converting between an address and LatLng.
  */
 public class Geocoder extends JavaScriptObject {
   

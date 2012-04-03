@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * A service for computing directions between two or more places.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsService">DirectionsService API Doc</a>
  */
 public class DirectionsService extends JavaScriptObject {
   

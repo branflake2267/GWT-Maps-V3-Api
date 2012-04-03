@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * {@link Circle} Options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#CircleOptions} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#CircleOptions">CircleOptions API Doc</a> 
  */
 public class CircleOptions extends JavaScriptObject {
 

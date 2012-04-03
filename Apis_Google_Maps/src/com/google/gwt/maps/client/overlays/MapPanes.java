@@ -5,7 +5,8 @@ import com.google.gwt.dom.client.Element;
 
 /**
  * This object contains the DOM elements in which overlays are rendered. They are listed below with 'Pane 0' at the bottom and 'Pane 6' at the top.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapPanes} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapPanes">MapPanes API Doc</a> 
  */
 public class MapPanes extends JavaScriptObject {
 

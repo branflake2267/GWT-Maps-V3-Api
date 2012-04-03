@@ -4,7 +4,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Data for a single KML feature in JSON format, returned when a KML feature is clicked. The data contained in this object mirrors that associated with the feature in the KML or GeoRSS markup in which it is declared.
- * {@link }
  */
 public class KmlFeatureData extends JavaScriptObject {
   

@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  * Defines information about the geometry of a Place.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PlaceGeometry}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PlaceGeometry">PlaceGeometry API Doc</a>
  */
 public class PlaceGeometry extends JavaScriptObject {
 

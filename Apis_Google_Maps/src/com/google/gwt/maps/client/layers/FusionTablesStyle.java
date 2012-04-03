@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Controls the appearance of a set of features within a FusionTablesLayer. Features which match the provided SQL predicate will be styled with the supplied options.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesStyle}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesStyle">FusionTablesStyle API Doc</a>
  */
 public class FusionTablesStyle extends JavaScriptObject {
 

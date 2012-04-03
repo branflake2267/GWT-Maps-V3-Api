@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * This object is returned from various mouse events on the map and overlays, and contains all the fields shown below.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MouseEvent}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MouseEvent">MouseEvent API Doc</a>
  */
 public class MouseEvent {
   

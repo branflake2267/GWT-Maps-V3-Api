@@ -16,8 +16,9 @@ import com.google.gwt.maps.client.mvc.MVCObjectWidget;
 import com.google.gwt.user.client.DOM;
 
 /**
- * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <div> or bound to a Map. This class extends MVCObject.
- * {@linkhttp://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewPanorama} 
+ * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <code>&lt;div&gt;</code> or bound to a Map. This class extends MVCObject.
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewPanorama">StreetViewPanorama API Doc</a>
  */
 public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanoramaImpl> {
   
@@ -33,7 +34,7 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   }
   
   /**
-   * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <div> or bound to a Map. This class extends MVCObject.
+   * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <code>&lt;div&gt;</code> or bound to a Map. This class extends MVCObject.
    */
   public StreetViewPanoramaWidget(StreetViewPanoramaOptions options) {
     Element div = DOM.createDiv();
@@ -119,7 +120,7 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * Sets the current LatLng position for the Street View panorama.
-   * @param latLng
+   * @param latlng
    */
   public void setPosition(LatLng latlng) {
     impl.setPosition(latlng);
@@ -134,7 +135,7 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   };
   
   /**
-   * Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own <div>.
+   * Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own <code>&lt;div&gt;</code>.
    * @param visible
    */
   public void setVisible(boolean visible) {
@@ -146,7 +147,7 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * TODO
-   * Additional controls to attach to the panorama. To add a control to the panorama, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * Additional controls to attach to the panorama. To add a control to the panorama, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controls
    */
   public void setControls(MVCArray<Element> controls) { 

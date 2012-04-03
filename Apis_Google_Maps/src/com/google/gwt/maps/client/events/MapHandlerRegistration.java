@@ -181,18 +181,14 @@ public class MapHandlerRegistration {
   }
 
   
-  
-  
-  
-  /**
-   * Triggers the given event. All arguments after eventName are passed as arguments to the listeners.
-   * 
-   * fyi: use Marker in objects to click on
-   *  
-   * @param w
-   * @param eventType
-   * @param args
-   */
+/**
+ *  Triggers the given event. All arguments after eventName are passed as arguments to the listeners.
+ * <br>
+ * <b>Note:</b> Use Marker in objects to click on.
+ * @param w
+ * @param eventType
+ * @param objects
+ */
   public static void trigger(MapWidget w, MapEventType eventType, JavaScriptObject...objects) {
     JsArray<JavaScriptObject> a = ArrayHelper.toJsArray(objects);
     triggerImpl(w, eventType.value(), a);
@@ -202,10 +198,6 @@ public class MapHandlerRegistration {
     var jso = w.@com.google.gwt.maps.client.MapWidget::getJso()();
     $wnd.google.maps.event.trigger(jso, eventName, args);
   }-*/;
-  
-  
-  
-  
   
   
   /**

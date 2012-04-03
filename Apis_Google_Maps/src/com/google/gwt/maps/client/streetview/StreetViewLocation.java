@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /** 
  * A representation of a location in the Street View panorama.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewLocation}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewLocation">StreetViewLocation API Doc</a>
  */
 public class StreetViewLocation extends JavaScriptObject {
   

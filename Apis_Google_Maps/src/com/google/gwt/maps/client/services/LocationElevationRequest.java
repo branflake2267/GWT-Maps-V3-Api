@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * An elevation request sent by the ElevationService containing the list of discrete coordinates (LatLngs) for which to return elevation data.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#LocationElevationRequest}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#LocationElevationRequest">LocationElevationRequest API Doc</a>
  */
 public class LocationElevationRequest extends JavaScriptObject {
   

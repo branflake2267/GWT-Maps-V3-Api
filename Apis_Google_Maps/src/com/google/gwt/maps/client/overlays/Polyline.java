@@ -29,7 +29,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A polyline is a linear overlay of connected line segments on the map. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Polyline} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Polyline">Polyline API Doc</a> 
  */
 public class Polyline extends MVCObject<Polyline> {
 

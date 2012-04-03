@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.controls.ControlPosition;
 
 /**
  * Options for the rendering of the Street View address control.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewAddressControlOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewAddressControlOptions">StreetViewAddressControlOptions API Doc</a>
  */
 public class StreetViewAddressControlOptions extends JavaScriptObject {
   
@@ -37,7 +38,7 @@ public class StreetViewAddressControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @param controlPosition {@link ControlPosition}
+   * @param position {@link ControlPosition}
    */
   public final void setPosition(ControlPosition position) {
     setPositionImpl(position.value());

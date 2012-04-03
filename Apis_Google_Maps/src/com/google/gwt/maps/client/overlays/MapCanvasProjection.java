@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.Point;
 
 /**
  * This object is made available to the OverlayView from within the draw method. It is not guaranteed to be initialized until draw is called.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapCanvasProjection} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapCanvasProjection">MapCanvasProjection API Doc</a> 
  */
 public class MapCanvasProjection extends JavaScriptObject {
 

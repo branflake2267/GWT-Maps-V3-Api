@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /** 
  * Two-dimensional size, where width is the distance on the x-axis, and height is the distance on the y-axis.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Size}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Size">Size API Doc</a>
  */
 public class Size extends JavaScriptObject {
   

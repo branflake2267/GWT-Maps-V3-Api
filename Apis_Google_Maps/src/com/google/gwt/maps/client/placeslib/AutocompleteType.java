@@ -3,7 +3,8 @@ package com.google.gwt.maps.client.placeslib;
 
 /**
  * Supported types are 'establishment' for businesses and 'geocode' for addresses. If no type is specified, both types will be returned.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Autocomplete}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Autocomplete">Autocomplete API Doc</a>
  */
 public enum AutocompleteType {
   

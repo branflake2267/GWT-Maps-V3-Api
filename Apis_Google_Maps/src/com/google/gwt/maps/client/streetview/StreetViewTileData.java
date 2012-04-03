@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.base.Size;
 
 /**
  * The properties of the tile set used in a Street View panorama.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewTileData}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewTileData">StreetViewTileData API Doc</a>
  */
 public class StreetViewTileData extends JavaScriptObject {
   

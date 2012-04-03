@@ -248,7 +248,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   };
 
   /**
-   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45deg;.
+   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45&deg;.
    * @param panorama
    */
   public void setStreetView(StreetViewPanoramaImpl panorama) {
@@ -256,7 +256,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   };
 
   /**
-   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45deg;.
+   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45&deg;.
    * @param tilt
    */
   public void setTilt(int tilt) {
@@ -277,7 +277,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   
   /**
    * TODO
-   * sets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * sets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controls
    */
   public void setControls(MVCArray<Element> controls) {
@@ -285,7 +285,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   };
 
   /**
-   * sets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * sets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controlPosition
    * @param element
    */
@@ -294,7 +294,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   };
   
   /**
-   * sets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * sets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controlPosition
    * @param widget
    */
@@ -335,7 +335,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 
   /**
    * TODO
-   * gets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * gets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @return
    */
   public MVCArray<Element> getControls() {

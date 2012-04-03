@@ -3,7 +3,8 @@ package com.google.gwt.maps.client.streetview;
 
 /**
  * The status returned by the StreetViewService on completion of a Street View request.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewStatus}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewStatus">StreetViewStatus API Doc</a>
  */
 public enum StreetViewStatus {
 

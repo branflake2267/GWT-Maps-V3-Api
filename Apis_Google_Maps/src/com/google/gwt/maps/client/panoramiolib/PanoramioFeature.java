@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  *  Describes a single Panoramio feature.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PanoramioFeature}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PanoramioFeature">PanoramioFeature API Doc</a>
  */
 public class PanoramioFeature extends JavaScriptObject {
 
@@ -39,7 +40,9 @@ public class PanoramioFeature extends JavaScriptObject {
   }-*/;
   
   /**
-   * The unique identifier for this photo, as used in the Panoramio API (see {@link http://www.panoramio.com/api/widget/api.html}).
+   * The unique identifier for this photo, as used in the Panoramio API.
+   * <br><br>
+   * See <a href="http://www.panoramio.com/api/widget/api.html">Panoramio API</a>.
    * @param photoId
    */
   public final native void setPhotoId(String photoId) /*-{
@@ -47,7 +50,9 @@ public class PanoramioFeature extends JavaScriptObject {
   }-*/;
   
   /**
-   * The unique identifier for this photo, as used in the Panoramio API (see {@link http://www.panoramio.com/api/widget/api.html}).
+   * The unique identifier for this photo, as used in the Panoramio API.
+   * <br><br>
+   * See <a href="http://www.panoramio.com/api/widget/api.html">Panoramio API</a>.
    */
   public final native String getPhotoId() /*-{
     return this.photoId;
@@ -84,7 +89,9 @@ public class PanoramioFeature extends JavaScriptObject {
   }-*/;
 
   /**
-   * The unique identifier for the user who uploaded this photo, as used in the Panoramio API (see {@link http://www.panoramio.com/api/widget/api.html}).
+   * The unique identifier for the user who uploaded this photo, as used in the Panoramio API.
+   * <br><br>
+   * See <a href="http://www.panoramio.com/api/widget/api.html">Panoramio API</a>.
    * @param userId
    */
   public final native void setUserId(String userId) /*-{
@@ -92,7 +99,9 @@ public class PanoramioFeature extends JavaScriptObject {
   }-*/;
   
   /**
-   * The unique identifier for the user who uploaded this photo, as used in the Panoramio API (see {@link http://www.panoramio.com/api/widget/api.html}).
+   * The unique identifier for the user who uploaded this photo, as used in the Panoramio API.
+   * <br><br>
+   * See <a href="http://www.panoramio.com/api/widget/api.html">Panoramio API</a>.
    * @return
    */
   public final native String getUserId() /*-{

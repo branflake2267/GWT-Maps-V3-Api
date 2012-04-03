@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Contains details of the author of a KML document or feature.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#KmlAuthor}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#KmlAuthor">KmlAuthor API Doc</a>
  */
 public class KmlAuthor extends JavaScriptObject {
   

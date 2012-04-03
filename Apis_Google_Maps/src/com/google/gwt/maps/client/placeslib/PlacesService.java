@@ -8,7 +8,8 @@ import com.google.gwt.maps.client.MapWidget;
 
 /**
  * Contains methods related to searching for Places and retrieving details about a Place.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PlaceSearchRequest}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PlaceSearchRequest">PlaceSearchRequest API Doc</a>
  */
 public class PlacesService extends JavaScriptObject {
 

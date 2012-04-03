@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * A directions query to be sent to the DirectionsService.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsRequest}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsRequest">DirectionsRequest API Doc</a>
  */
 public class DirectionsRequest extends JavaScriptObject {
 

@@ -9,7 +9,8 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 
 /**
  * create Marker Options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MarkerOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">MarkerOptions API Doc</a>
  */
 public class MarkerOptions extends JavaScriptObject {
 

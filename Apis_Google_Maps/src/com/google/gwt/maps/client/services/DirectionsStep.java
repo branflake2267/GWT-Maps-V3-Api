@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * A single DirectionsStep in a DirectionsResult. Some fields may be undefined. Note that though this object is "JSON-like," it is not strictly JSON, as it directly includes LatLng objects.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsStep}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsStep">DirectionsStep API Doc</a>
  */
 public class DirectionsStep extends JavaScriptObject {
 

@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A single element of a response to a DistanceMatrixService request, which contains the duration and distance from one origin to one destination.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DistanceMatrixResponseElement}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixResponseElement">DistanceMatrixResponseElement API Doc</a>
  */
 public class DistanceMatrixResponseElement extends JavaScriptObject {
   

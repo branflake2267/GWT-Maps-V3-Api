@@ -3,8 +3,9 @@ package com.google.gwt.maps.client.controls;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Options for the rendering of the Overview Map control.
- * http://code.google.com/apis/maps/documentation/javascript/reference.html#OverviewMapControlOptions
+ * Options for the rendering of the Overview Map control
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#OverviewMapControlOptions">See OverviewMapControlOptions API</a>
  */
 public class OverviewMapControlOptions extends JavaScriptObject {
 

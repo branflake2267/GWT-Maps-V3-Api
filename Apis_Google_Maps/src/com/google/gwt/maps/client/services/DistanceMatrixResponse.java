@@ -6,7 +6,8 @@ import com.google.gwt.core.client.JsArrayString;
 
 /**
  * The response to a DistanceMatrixService request, consisting of the formatted origin and destination addresses, and a sequence of DistanceMatrixResponseRows, one for each corresponding origin address.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DistanceMatrixResponse}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixResponse">DistanceMatrixResponse API Doc</a>
  */
 public class DistanceMatrixResponse extends JavaScriptObject {
 

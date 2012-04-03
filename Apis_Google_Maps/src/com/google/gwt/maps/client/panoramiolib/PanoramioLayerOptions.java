@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.MapWidget;
 
 /**
  * This object defines the properties that can be set on a PanoramioLayer object.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PanoramioLayerOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PanoramioLayerOptions">PanoramioLayerOptions API Doc</a>
  */
 public class PanoramioLayerOptions extends JavaScriptObject {
 

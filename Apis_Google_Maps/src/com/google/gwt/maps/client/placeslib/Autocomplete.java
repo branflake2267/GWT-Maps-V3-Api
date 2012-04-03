@@ -14,7 +14,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A service to provide Place predictions based on a user's text input. It attaches to an input element of type text, and listens for text entry in that field. The list of predictions is presented as a drop-down list, and is updated as text is entered. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Autocomplete}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Autocomplete">Autocomplete API Doc</a>
  */
 public class Autocomplete extends MVCObject<Autocomplete> {
 

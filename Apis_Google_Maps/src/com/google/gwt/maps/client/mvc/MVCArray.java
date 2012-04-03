@@ -15,7 +15,8 @@ import com.google.gwt.maps.client.events.setat.SetAtMapHandler;
 
 /**
  * This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MVCArray}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MVCArray">MVCArray API Doc</a>
  */
 public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   
@@ -27,7 +28,7 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   
   /**
    * A mutable MVC Array.
-   * @param array
+   * @param newInstance
    * @return
    */
   public final static <T extends JavaScriptObject> MVCArray<T> newInstance() {

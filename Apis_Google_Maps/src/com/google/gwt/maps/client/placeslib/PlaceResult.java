@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.services.GeocoderAddressComponent;
 
 /**
  * Defines information about a Place.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PlaceResult}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PlaceResult">PlaceResult API Doc</a>
  */
 public class PlaceResult extends JavaScriptObject {
 
@@ -151,7 +152,9 @@ public class PlaceResult extends JavaScriptObject {
   }-*/;
   
   /**
-   * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks (See http://en.wikipedia.org/wiki/Code_injection).
+   * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks.
+   * <br><br>
+   * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code Injection</a>
    * @param name
    */
   public final native void setName(String name) /*-{
@@ -159,7 +162,9 @@ public class PlaceResult extends JavaScriptObject {
   }-*/;
   
   /**
-   * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks (See http://en.wikipedia.org/wiki/Code_injection).
+   * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks.
+   * <br><br>
+   * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code Injection</a>
    * @return
    */
   public final native String getName() /*-{

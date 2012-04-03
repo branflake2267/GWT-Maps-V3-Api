@@ -9,7 +9,8 @@ import com.google.gwt.maps.client.mvc.MVCArray;
 
 /**
  * polyline options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PolygonOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PolygonOptions">PolygonOptions API Doc</a>
  */
 public class PolylineOptions extends JavaScriptObject {
   

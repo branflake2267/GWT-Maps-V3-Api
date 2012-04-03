@@ -41,7 +41,6 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
 
   /**
    * get The position at which to anchor an infowindow on the clicked feature.
-   * @return {@link LatLng}
    */
   public LatLng getLatLng() {
     LatLng latLng = null;

@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * The element-level status about a particular origin-destination pairing returned by the DistanceMatrixService upon completion of a distance matrix request.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DistanceMatrixElementStatus}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixElementStatus">DistanceMatrixElementStatus API Doc</a>
  */
 public enum DistanceMatrixElementStatus {
 

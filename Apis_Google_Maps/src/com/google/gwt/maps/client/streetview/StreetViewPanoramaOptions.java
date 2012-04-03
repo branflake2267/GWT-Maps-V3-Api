@@ -8,7 +8,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * Options defining the properties of a StreetViewPanorama object.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewPanoramaOptions} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewPanoramaOptions">StreetViewPanoramaOptions API Doc</a> 
  */
 public class StreetViewPanoramaOptions extends JavaScriptObject {
   

@@ -15,7 +15,8 @@ public class LoadApi {
 
   /**
    * Libraries not loaded by default
-   * {@link http://code.google.com/apis/maps/documentation/javascript/basics.html#Libraries}
+   * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/basics.html#Libraries">Libraries API Doc</a>
    */
   public static enum LoadLibrary {
     

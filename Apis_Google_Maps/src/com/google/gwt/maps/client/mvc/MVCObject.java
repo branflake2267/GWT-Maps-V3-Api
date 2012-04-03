@@ -6,7 +6,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Base class implementing KVO.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MVCObject}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MVCObject">MVCObject API Doc</a>
  */
 public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
   
@@ -20,7 +21,7 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
    * (Main purpose is for internal use only)
    * 
    * create instance of MVCObject (inherited class)
-   * @param t - what type is being init
+   * @param createInstanceOfMVCObject - type is being init
    * @return
    */
   public final static <T extends JavaScriptObject> MVCObject<T> createInstanceOfMVCObject() {

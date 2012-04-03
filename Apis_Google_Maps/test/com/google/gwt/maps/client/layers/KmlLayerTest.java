@@ -11,7 +11,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/layers.html#KMLLayers}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#KMLLayers">KMLLayers API Doc</a>
  */
 public class KmlLayerTest extends GWTTestCase {
 

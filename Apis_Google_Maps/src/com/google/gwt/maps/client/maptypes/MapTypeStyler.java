@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A styler affects how a map's elements will be styled. Each MapTypeStyler should contain one and only one key. If more than one key is specified in a single MapTypeStyler, all but one will be ignored. For example: var rule = {hue: '#ff0000'}.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapTypeStyler}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyler">MapTypeStyler API Doc</a>
  */
 public class MapTypeStyler extends JavaScriptObject {
 

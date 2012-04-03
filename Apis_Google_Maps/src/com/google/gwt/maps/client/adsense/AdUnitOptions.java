@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.controls.ControlPosition;
 
 /**
  * ad unit options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#AdUnitOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#AdUnitOptions">AdUnitOptions API Doc</a>
  */
 public class AdUnitOptions extends JavaScriptObject {
 
@@ -33,7 +34,9 @@ public class AdUnitOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * The Format of the AdUnit. See https://google.com/adsense/adformats (Optional)
+   * The Format of the AdUnit.
+   * <br><br>
+   * See <a href="https://google.com/adsense/adformats">AdFormats</a>
    * @return
    */
   public final AdFormat getFormat() {
@@ -85,7 +88,9 @@ public class AdUnitOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * the Format of the AdUnit. See https://google.com/adsense/adformats (Optional)
+   * the Format of the AdUnit.
+   * <br><br>
+   * See <a href="https://google.com/adsense/adformats">AdFormats</a>
    * @param format
    */
   public final void setFormat(AdFormat format) {

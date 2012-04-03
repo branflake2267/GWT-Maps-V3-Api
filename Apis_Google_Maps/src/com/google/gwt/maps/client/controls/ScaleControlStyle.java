@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.controls;
 
 /**
  * Identifiers for scale control ids.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ScaleControlStyle} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ScaleControlStyle">ScaleControlStyle API Doc</a> 
  */
 public enum ScaleControlStyle {
   

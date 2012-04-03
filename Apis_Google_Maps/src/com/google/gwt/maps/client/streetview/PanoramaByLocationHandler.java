@@ -1,8 +1,7 @@
 package com.google.gwt.maps.client.streetview;
 
 /**
- * 
- * {@link }
+ * Retrieves {@link StreetViewPanoramaData}
  */
 public interface PanoramaByLocationHandler {
 

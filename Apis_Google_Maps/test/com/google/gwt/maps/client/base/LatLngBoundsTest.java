@@ -18,7 +18,7 @@ public class LatLngBoundsTest extends GWTTestCase {
   }
 
   /**
-   * {@link http://code.google.com/apis/maps/documentation/javascript/events.html}
+   * See <a href="https://developers.google.com/maps/documentation/javascript/events">Events API Doc</a>
    */
   @SuppressWarnings("unused")
   public void testUse() {

@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Specifies the appearance for a FusionTablesLayer when rendered as a heatmap.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesHeatmap}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesHeatmap">FusionTablesHeatmap API Doc</a>
  */
 public class FusionTableHeatmap extends JavaScriptObject {
 

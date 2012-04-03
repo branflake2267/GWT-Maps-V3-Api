@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * The result of an ElevationService request, consisting of the set of elevation coordinates and their elevation values. Note that a single request may produce multiple ElevationResults.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ElevationResult}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ElevationResult">ElevationResult API Doc</a>
  */
 public class ElevationResult extends JavaScriptObject {
   

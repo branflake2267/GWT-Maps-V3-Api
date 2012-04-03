@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.controls.MapTypeStyle;
 
 /**
  * Creates a MapType with a custom style.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StyledMapType} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StyledMapType">StyledMapType API Doc</a> 
  */
 public class StyledMapType extends JavaScriptObject {
 

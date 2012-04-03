@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.controls;
 
 /**
  * Identifiers for the zoom control.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ZoomControlStyle} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ZoomControlStyle">ZoomControlStyle API Doc</a> 
  */
 public enum ZoomControlStyle {
 

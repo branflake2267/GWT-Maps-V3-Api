@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  *  Geometry information about this GeocoderResult
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderGeometry}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GeocoderGeometry">GeocoderGeometry API Doc</a>
  */
 public class GeocoderGeometry extends JavaScriptObject {
   

@@ -58,7 +58,8 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 /**
  * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon construction. Note that the position must be set for the marker to display.
  * This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Marker}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">Marker API Doc</a>
  */
 public class Marker extends MVCObject<Marker> {
   
@@ -283,7 +284,7 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * set Map
-   * @param map
+   * @param mapWidget
    */
   public final void setMap(MapWidget mapWidget) {
     if (mapWidget == null) {

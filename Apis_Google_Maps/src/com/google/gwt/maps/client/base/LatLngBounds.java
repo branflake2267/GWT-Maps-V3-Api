@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A LatLngBounds instance represents a rectangle in geographical coordinates, including one that crosses the 180 degrees longitudinal meridian.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#LatLngBounds} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds">LatLngBounds API Doc</a> 
  */
 public class LatLngBounds extends JavaScriptObject {
   

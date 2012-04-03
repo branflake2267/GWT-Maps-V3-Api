@@ -32,7 +32,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A circle overlay. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Circle}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Circle">Circle API Doc</a>
  */
 public class Circle extends MVCObject<Circle> {
 

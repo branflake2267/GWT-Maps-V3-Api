@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -16,16 +14,21 @@ import com.google.gwt.maps.client.controls.StreetViewControlOptions;
 import com.google.gwt.maps.client.controls.ZoomControlOptions;
 
 /**
- * Map rendering options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapOptions}
+ * Map rendering options<br>
+ * <b>Note:</b> Defaults to LatLng(26.4,-9)
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapOptions">MapOptions API Doc</a>
  */
 public class MapOptions extends JavaScriptObject {
   
   /**
-   * This will tell the map how to render and with with what features
-   * use newInstance();
+   * This will tell the map how to render and with with what features<br>
+   * Use newInstance();
    */
   protected MapOptions() {}
+  
+  private static final double DEFAULT_LATLNG_LAT = 26.4d;
+  private static final double DEFAULT_LATLNG_LNG = -9d;
   
   /**
    * Create a new Instance of the MapOptions
@@ -56,7 +59,7 @@ public class MapOptions extends JavaScriptObject {
    * @param options 
    */
   private static void getDefaults(MapOptions options) { 
-    options.setCenter(LatLng.newInstance(new BigDecimal(26.4), new BigDecimal(-9)));
+    options.setCenter(LatLng.newInstance(DEFAULT_LATLNG_LAT, DEFAULT_LATLNG_LNG));
     options.setMapTypeId(MapTypeId.ROADMAP);
     options.setZoom(0);
   }
@@ -67,7 +70,7 @@ public class MapOptions extends JavaScriptObject {
    */
   private final static MapOptions newInstanceDefault() {
     JavaScriptObject jso = JavaScriptObject.createObject();
-    //WorkAroundUtils.removeGwtObjectId(jso);
+    //WorkAroundUtils.removeGwtObjectId(jso); TODO Still needed?
     return jso.cast();
   }
   
@@ -128,7 +131,7 @@ public class MapOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * get nables/disables zoom and center on double click. Enabled by default.
+   * get enables/disables zoom and center on double click. Enabled by default.
    * @return boolean
    */
   public final native boolean getDisableDoubleClickZoom() /*-{
@@ -248,22 +251,22 @@ public class MapOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * The initial Map {@Link MapTypeId}. Required.
-   * @param mapTypeId {@Link MapTypeId}
+   * The initial Map {@link MapTypeId}. Required.
+   * @param mapTypeId {@link MapTypeId}
    */
   public final void setMapTypeId(MapTypeId mapTypeId) {
     setMapTypeId(mapTypeId.value());
   }
   
   /**
-   * Native Use. Use setMapTypeId(MapTypeId mapTypeId). The initial Map {@Link MapTypeId}. Required.
+   * Native Use. Use setMapTypeId(MapTypeId mapTypeId). The initial Map {@link MapTypeId}. Required.
    */
   private final native void setMapTypeId(String type) /*-{
     this.mapTypeId = $wnd.google.maps.MapTypeId[type];
   }-*/;
   
   /**
-   * get {@Link MapTypeId}
+   * get {@link MapTypeId}
    * @return
    */
   public final MapTypeId getMapTypeId() {
@@ -272,7 +275,7 @@ public class MapOptions extends JavaScriptObject {
   }
   
   /**
-   * native use. get {@Link MapTypeId}
+   * native use. get {@link MapTypeId}
    * @return String
    */
   private final native String getMapTypeIdJs() /*-{
@@ -472,7 +475,7 @@ public class MapOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * set A StreetViewPanorama to display when the Street View pegman is dropped on the map. If no panorama is specified, a default StreetViewPanorama will be displayed in the map's div when the pegman is dropped.
+   * set A StreetViewPanorama to display when the Street View Pegman is dropped on the map. If no panorama is specified, a default StreetViewPanorama will be displayed in the map's div when the pegman is dropped.
    * @param streetViewControl
    */
   public final native void setStreetViewControl(boolean streetViewControl) /*-{
@@ -526,7 +529,7 @@ public class MapOptions extends JavaScriptObject {
       r[i] = arr.get(i);
     }
     return r;
-  }
+  }	
   
   /**
    * get set Styles to apply to each of the default map types. Note that styles will apply only to the labels and geometry in Satellite/Hybrid and Terrain modes.
@@ -537,14 +540,14 @@ public class MapOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * sets The angle of incidence of the map as measured in degrees from the viewport plane to the map plane. The only currently supported values are 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt of 45deg;. 45deg; imagery is only available for SATELLITE and HYBRID map types, within some locations, and at some zoom levels.
+   * sets The angle of incidence of the map as measured in degrees from the viewport plane to the map plane. The only currently supported values are 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt of 45&deg;. 45&deg; imagery is only available for SATELLITE and HYBRID map types, within some locations, and at some zoom levels.
    */
   public final native void setTilt(int tilt) /*-{
     this.tilt = tilt;
   }-*/;
   
   /**
-   * gets The angle of incidence of the map as measured in degrees from the viewport plane to the map plane. The only currently supported values are 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt of 45deg;. 45deg; imagery is only available for SATELLITE and HYBRID map types, within some locations, and at some zoom levels.
+   * gets The angle of incidence of the map as measured in degrees from the viewport plane to the map plane. The only currently supported values are 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt of 45&deg;. 45&deg; imagery is only available for SATELLITE and HYBRID map types, within some locations, and at some zoom levels.
    * @return
    */
   public final native int getTilt() /*-{

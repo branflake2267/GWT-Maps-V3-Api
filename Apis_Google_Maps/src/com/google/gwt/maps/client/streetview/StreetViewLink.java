@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A collection of references to adjacent Street View panos.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewLink}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewLink">StreetViewLink API Doc</a>
  */
 public class StreetViewLink extends JavaScriptObject {
   

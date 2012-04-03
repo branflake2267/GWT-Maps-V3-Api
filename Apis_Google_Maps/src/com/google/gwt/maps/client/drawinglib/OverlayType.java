@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.drawinglib;
 
 /**
  * The types of overlay that may be created by the DrawingManager.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#OverlayType}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#OverlayType">OverlayType API Doc</a>
  */
 public enum OverlayType {
 

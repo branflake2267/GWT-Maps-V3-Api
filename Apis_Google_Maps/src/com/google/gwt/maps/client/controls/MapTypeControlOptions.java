@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.MapTypeId;
 
 /**
  * Options for the rendering of the map type control.
- * http://code.google.com/apis/maps/documentation/javascript/reference.html#MapTypeControlOptions
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeControlOptions">MapTypeControlOptions API Doc</a>
  */
 public class MapTypeControlOptions extends JavaScriptObject {
 
@@ -74,7 +75,7 @@ public class MapTypeControlOptions extends JavaScriptObject {
   
   /**
    * set IDs of map types to show in the control.
-   * @param mapTypeId
+   * @param mapTypeIds
    */
   public final void setMapTypeIds(MapTypeId[] mapTypeIds) {
     JsArrayString result = JsArrayString.createArray().cast();
@@ -88,7 +89,7 @@ public class MapTypeControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @param controlPosition {@link ControlPosition}
+   * @param position {@link ControlPosition}
    */
   public final void setPosition(ControlPosition position) {
     setPositionImpl(position.value());

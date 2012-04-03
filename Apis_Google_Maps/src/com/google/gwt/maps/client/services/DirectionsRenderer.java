@@ -13,7 +13,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * Renders directions retrieved in the form of a DirectionsResult object retrieved from the DirectionsService. This class extends MVCObject. 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsRenderer}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsRenderer">DirectionsRenderer API Doc</a>
  */
 public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   
@@ -68,7 +69,7 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   }-*/;
 
   /**
-   * Returns the panel <div> in which the DirectionsResult is rendered.
+   * Returns the panel <code>&lt;div&gt;</code> in which the DirectionsResult is rendered.
    * @return
    */
   public final native Element getPanel() /*-{
@@ -100,7 +101,7 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   }-*/;
   
   /**
-   * This method renders the directions in a <div>. Pass null to remove the content from the panel.
+   * This method renders the directions in a <code>&lt;div&gt;</code>. Pass null to remove the content from the panel.
    * @param element
    */
   public final native void setPanel(Element element) /*-{

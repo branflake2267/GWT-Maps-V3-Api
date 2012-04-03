@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * Defines a service class that talks directly to Google servers for requesting elevation data.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ElevationService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ElevationService">ElevationService API Doc</a>
  */
 public class ElevationService extends JavaScriptObject {
   

@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.MapWidget;
 
 /**
  * This object defines the properties that can be set on a KmlLayer object. 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#KmlLayerOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#KmlLayerOptions">KmlLayerOptions API Doc</a>
  */
 public class KmlLayerOptions extends JavaScriptObject {
 

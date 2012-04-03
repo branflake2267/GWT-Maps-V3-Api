@@ -26,19 +26,20 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
- * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <div> or bound to a Map. This class extends MVCObject.
- * {@linkhttp://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewPanorama} 
+ * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <code>&lt;div&gt;</code> or bound to a Map. This class extends MVCObject.
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewPanorama">StreetViewPanorama API Doc</a>
  */
 public class StreetViewPanoramaImpl extends MVCObject<StreetViewPanoramaImpl> {
   
   /**
-   * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <div> or bound to a Map. This class extends MVCObject.
+   * Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <code>&lt;div&gt;</code> or bound to a Map. This class extends MVCObject.
    * use newInstance();
    */
   protected StreetViewPanoramaImpl() {}
 
   /**
-   * creates Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <div> or bound to a Map. This class extends MVCObject.
+   * creates Displays the panorama for a given LatLng or panorama ID. A StreetViewPanorama object provides a Street View "viewer" which can be stand-alone within a separate <code>&lt;div&gt;</code> or bound to a Map. This class extends MVCObject.
    * @param element {@link Element}
    * @param options {@link StreetViewPanoramaOptions}
    * @return {@link StreetViewPanoramaImpl}
@@ -128,7 +129,7 @@ public class StreetViewPanoramaImpl extends MVCObject<StreetViewPanoramaImpl> {
   }-*/;
   
   /**
-   * Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own <div>.
+   * Sets to true to make the panorama visible. If set to false, the panorama will be hidden whether it is embedded in the map or in its own <code>&lt;div&gt;</code>.
    * @param visible
    */
   public final native void setVisible(boolean visible) /*-{
@@ -137,7 +138,7 @@ public class StreetViewPanoramaImpl extends MVCObject<StreetViewPanoramaImpl> {
   
   /**
    * TODO
-   * Additional controls to attach to the panorama. To add a control to the panorama, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * Additional controls to attach to the panorama. To add a control to the panorama, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controls
    */
   public final native void setControls(MVCArray<Element> controls) /*-{

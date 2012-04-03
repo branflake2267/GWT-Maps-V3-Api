@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.base.Size;
 
 /**
  * This interface defines map type. This interface is typically used for base maps such as road, satellite or hybrid maps. Immutable.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapType}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapType">MapType API Doc</a>
  */
 public interface MapType {
   

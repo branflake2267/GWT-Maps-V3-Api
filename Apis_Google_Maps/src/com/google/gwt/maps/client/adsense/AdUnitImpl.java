@@ -22,8 +22,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * Implements AdSense for Content advertising on an associated map. To use an
  * AdUnit, you must obtain and specify an AdSense for Content publisher ID
  * within the AdUnit's constructor options. This class extends MVCObject.
- * {@link http
- * ://code.google.com/apis/maps/documentation/javascript/reference.html#AdUnit}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#AdUnit">AdUnit API Doc</a>
  */
 public class AdUnitImpl extends MVCObject<AdUnitImpl> {
 

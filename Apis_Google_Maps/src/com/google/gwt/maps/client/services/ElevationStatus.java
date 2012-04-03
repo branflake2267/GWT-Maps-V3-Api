@@ -1,8 +1,9 @@
 package com.google.gwt.maps.client.services;
 
 /**
- * http://code.google.com/apis/maps/documentation/javascript/reference.html#ElevationStatus
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ElevationStatus}
+ * Elevation Status constant.
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ElevationStatus">ElevationStatus API Doc</a>
  */
 public enum ElevationStatus {
 

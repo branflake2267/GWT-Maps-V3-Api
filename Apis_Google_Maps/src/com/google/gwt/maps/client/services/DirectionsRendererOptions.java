@@ -10,7 +10,8 @@ import com.google.gwt.maps.client.overlays.PolylineOptions;
 
 /**
  * This object defines the properties that can be set on a DirectionsRenderer object.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsRendererOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsRendererOptions">DirectionsRendererOptions API Doc</a>
  */
 public class DirectionsRendererOptions extends JavaScriptObject {
   
@@ -28,7 +29,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }
 
   /**
-   * The directions to display on the map and/or in a <div> panel, retrieved as a DirectionsResult object from DirectionsService.
+   * The directions to display on the map and/or in a <code>&lt;div&gt;</code> panel, retrieved as a DirectionsResult object from DirectionsService.
    * @param directions
    */
   public final native void setDirections(DirectionsResult directions) /*-{
@@ -36,7 +37,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * The directions to display on the map and/or in a <div> panel, retrieved as a DirectionsResult object from DirectionsService.
+   * The directions to display on the map and/or in a <code>&lt;div&gt;</code> panel, retrieved as a DirectionsResult object from DirectionsService.
    * @return
    */
   public final native DirectionsResult getDirections() /*-{
@@ -131,7 +132,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * The <div> in which to display the directions steps.
+   * The <code>&lt;div&gt;</code> in which to display the directions steps.
    * @param panel
    */
   public final native void setPanel(Element panel) /*-{
@@ -139,7 +140,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * The <div> in which to display the directions steps.
+   * The <code>&lt;div&gt;</code> in which to display the directions steps.
    * @return
    */
   public final native Element getPanel() /*-{

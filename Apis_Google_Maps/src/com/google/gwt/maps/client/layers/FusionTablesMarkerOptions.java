@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesMarkerOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesMarkerOptions">FusionTablesMarkerOptions API Doc</a>
  */
 public class FusionTablesMarkerOptions extends JavaScriptObject {
 
@@ -22,7 +23,8 @@ public class FusionTablesMarkerOptions extends JavaScriptObject {
   }
   
   /**
-   * sets The name of a Fusion Tables supported iconm {@link http://www.google.com/fusiontables/DataSource?dsrcid=308519}
+   * sets The name of a Fusion Tables supported icon.<br>
+   * See <a href="http://www.google.com/fusiontables/DataSource?dsrcid=308519">list of map icons</a>.
    * @param iconName
    */
   public final native void setIconName(String iconName) /*-{
@@ -30,7 +32,8 @@ public class FusionTablesMarkerOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * gets The name of a Fusion Tables supported icon {@link http://www.google.com/fusiontables/DataSource?dsrcid=308519}
+   * gets The name of a Fusion Tables supported icon.
+   * See <a href="http://www.google.com/fusiontables/DataSource?dsrcid=308519">list of map icons</a>.
    * @return
    */
   public final native String getIconName() /*-{

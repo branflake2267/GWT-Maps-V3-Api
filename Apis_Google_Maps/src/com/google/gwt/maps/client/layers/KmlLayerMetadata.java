@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Metadata for a single KML layer, in JSON format.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#KmlLayerMetadata}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#KmlLayerMetadata">KmlLayerMetadata API Doc</a>
  */
 public class KmlLayerMetadata extends JavaScriptObject {
   

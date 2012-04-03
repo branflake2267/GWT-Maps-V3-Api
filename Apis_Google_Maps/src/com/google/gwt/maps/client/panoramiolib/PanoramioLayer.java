@@ -12,7 +12,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A PanoramioLayer displays photos from Panoramio as a rendered layer. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PanoramioLayer}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PanoramioLayer">PanoramioLayer API Doc</a>
  */
 public class PanoramioLayer extends MVCObject<PanoramioLayer> {
 

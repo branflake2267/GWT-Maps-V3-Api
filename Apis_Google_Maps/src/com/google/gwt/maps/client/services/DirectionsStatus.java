@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * The status returned by the DirectionsService on the completion of a call to route().
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsStatus}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsStatus">DirectionsStatus API Doc</a>
  */
 public enum DirectionsStatus {
 

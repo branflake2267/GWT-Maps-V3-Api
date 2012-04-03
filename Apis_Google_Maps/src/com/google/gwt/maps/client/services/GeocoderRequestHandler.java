@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JsArray;
 
 /**
  * google.maps.Geocoder
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Geocoder}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Geocoder">Geocoder API Doc</a>
  */
 public interface GeocoderRequestHandler {
 

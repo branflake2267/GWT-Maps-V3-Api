@@ -9,7 +9,8 @@ import com.google.gwt.maps.client.maptypes.MapTypeStyler;
 
 /**
  * The MapTypeStyle is a collection of selectors and stylers that define how the map should be styled. Selectors specify what map elements should be affected and stylers specify how those elements should be modified.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapTypeStyle}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyle">MapTypeStyle API Doc</a>
  */
 public class MapTypeStyle extends JavaScriptObject {
 

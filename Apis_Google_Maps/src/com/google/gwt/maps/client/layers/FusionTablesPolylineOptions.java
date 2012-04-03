@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Options which control the appearance of polylines in a FusionTablesLayer.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#FusionTablesPolygonOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolygonOptions">FusionTablesPolygonOptions API Doc</a>
  */
 public class FusionTablesPolylineOptions extends JavaScriptObject {
 

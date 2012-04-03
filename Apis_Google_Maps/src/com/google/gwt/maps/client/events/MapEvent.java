@@ -7,8 +7,8 @@ import com.google.gwt.event.shared.GwtEvent;
 /**
  * Inherit this into unique Map Event
  *
- * @param <H> {@link extends MapHandler}
- * @param <E> {@link extends MapEvent}
+ * @param <H> {@link MapHandler}
+ * @param <E> {@link MapEvent}
  */
 public abstract class MapEvent<H extends MapHandler<E>, E> extends GwtEvent<H> {
 

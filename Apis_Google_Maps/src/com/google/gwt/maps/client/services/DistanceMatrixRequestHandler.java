@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DistanceMatrixService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixService">DistanceMatrixService API Doc</a>
  */
 public interface DistanceMatrixRequestHandler {
 

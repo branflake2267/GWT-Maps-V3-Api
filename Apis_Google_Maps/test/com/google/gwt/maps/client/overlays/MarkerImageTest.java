@@ -51,8 +51,8 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
+        double width = 21;
+        double height = 32;
         Size size = Size.newInstance(width, height);
         Point origin = Point.newInstance(0d, 0d);
         MarkerImage o = MarkerImage.newInstance(url, size, origin);
@@ -86,8 +86,8 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
+        double width = 21d;
+        double height = 32d;
         Size size = Size.newInstance(width, height);
         Point origin = Point.newInstance(0d, 0d);
         Point anchor = Point.newInstance(width / 2d, height);
@@ -139,8 +139,8 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
+        double width = 21;
+        double height = 32;
         Size left = Size.newInstance(width, height);
         MarkerImage o = MarkerImage.newInstance(url);
         o.setScaledSize(left);
@@ -157,8 +157,8 @@ public class MarkerImageTest extends GWTTestCase {
       public void run() {
         String url = "images/target.png";
         //String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        int width = 21;
-        int height = 32;
+        double width = 21;
+        double height = 32;
         Size left = Size.newInstance(width, height);
         MarkerImage o = MarkerImage.newInstance(url);
         o.setSize(left);

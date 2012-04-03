@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * The valid travel modes that can be specified in a DirectionsRequest as well as the travel modes returned in a DirectionsStep.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#TravelMode}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#TravelMode">TravelMode API Doc</a>
  */
 public enum TravelMode {
 

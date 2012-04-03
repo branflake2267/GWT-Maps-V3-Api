@@ -54,7 +54,8 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaImpl;
 
 /**
  * Creates a new map inside of the given HTML container, which is typically a DIV element
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Map}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Map">Map API Doc</a>
  */
 public class MapImpl extends MVCObject<MapImpl> {
   
@@ -229,7 +230,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45deg;.
+   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45&deg;.
    * @param panorama
    */
   public final native void setStreetView(StreetViewPanoramaImpl panorama) /*-{
@@ -237,7 +238,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45deg;.
+   * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45&deg;.
    * @param tilt
    */
   public final native void setTilt(int tilt) /*-{
@@ -254,7 +255,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * TODO
-   * sets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * sets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controls
    */
   public final native void setControls(MVCArray<Element> controls) /*-{
@@ -262,7 +263,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * sets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * sets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @param controlPosition
    * @param element
    */
@@ -276,7 +277,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * TODO
-   * gets Additional controls to attach to the map. To add a control to the map, add the control's <div> to the MVCArray corresponding to the ControlPosition where it should be rendered.
+   * gets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
    * @return
    */
   public final native MVCArray<Element> getControls() /*-{

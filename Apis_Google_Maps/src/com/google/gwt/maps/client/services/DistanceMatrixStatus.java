@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * The top-level status about the request in general returned by the DistanceMatrixService upon completion of a distance matrix request.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DistanceMatrixStatus}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixStatus">DistanceMatrixStatus API Doc</a>
  */
 public enum DistanceMatrixStatus {
 

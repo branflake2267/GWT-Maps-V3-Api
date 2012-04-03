@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.Point;
 
 /**
  * Map Projection Util relating to screen
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Projection}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Projection">Projection API Doc</a>
  */
 public class Projection extends JavaScriptObject {
   

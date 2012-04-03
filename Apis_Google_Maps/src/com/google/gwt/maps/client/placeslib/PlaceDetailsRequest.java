@@ -3,8 +3,7 @@ package com.google.gwt.maps.client.placeslib;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * A Place details query to be sent to the PlacesService. 
- * {@link }
+ * A Place details query to be sent to the {@link PlacesService}. 
  */
 public class PlaceDetailsRequest extends JavaScriptObject  {
 

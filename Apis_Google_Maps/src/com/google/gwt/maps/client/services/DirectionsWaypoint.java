@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsWaypoint}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsWaypoint">DirectionsWaypoint API Doc</a>
  */
 public class DirectionsWaypoint extends JavaScriptObject {
   

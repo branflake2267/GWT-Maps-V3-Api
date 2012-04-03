@@ -24,8 +24,9 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * An overlay that looks like a bubble and is often connected to a marker. This class extends MVCObject.
- * {@link }
+ * An overlay that looks like a bubble and is often connected to a marker.
+ * <br>Extends {@link MVCObject}.
+ * 
  */
 public class InfoWindow extends MVCObject<InfoWindow> {
 
@@ -204,7 +205,7 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   }
   
   /**
-   * This event is fired when the <div> containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically.
+   * This event is fired when the <code>&lt;div&gt;</code> containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically.
    * @param handler
    * @return
    */

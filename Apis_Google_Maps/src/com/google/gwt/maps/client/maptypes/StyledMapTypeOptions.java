@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * This class is used to specify options when creating a StyledMapType. These options cannot be changed after the StyledMapType is instantiated.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StyledMapTypeOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StyledMapTypeOptions">StyledMapTypeOptions API Doc</a>
  */
 public class StyledMapTypeOptions extends JavaScriptObject {
 

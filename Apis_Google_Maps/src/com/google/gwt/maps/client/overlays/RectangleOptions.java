@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  * {@link Rectangle} Options
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#RectangleOptions} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#RectangleOptions">RectangleOptions API Doc</a> 
  */
 public class RectangleOptions extends JavaScriptObject {
 

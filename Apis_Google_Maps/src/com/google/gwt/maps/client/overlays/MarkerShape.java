@@ -5,7 +5,8 @@ import com.google.gwt.core.client.JsArrayInteger;
 
 /**
  * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties ° type and coord ° which define the general type of marker and coordinates specific to that type of marker.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MarkerShape} 
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerShape">MarkerShape API Doc</a> 
  */
 public class MarkerShape extends JavaScriptObject {
   
@@ -24,7 +25,8 @@ public class MarkerShape extends JavaScriptObject {
   }
   
   /**
-   * sets The format of this attribute depends on the value of the type and follows the w3 AREA coords specification found at {@link http://www.w3.org/TR/REC-html40/struct/objects.html#adef-coords}. 
+   * sets The format of this attribute depends on the value of the type and follows the w3 AREA coords specification found at <br><br>
+ * See <a href="http://www.w3.org/TR/REC-html40/struct/objects.html#adef-coords">adef-coords API Doc</a>. 
    * The coords attribute is an array of integers that specify the pixel position of the shape relative to the top-left corner of the target image. The coordinates depend on the value of type as follows: 
    * - circle: coords is [x1,y1,r] where x1,y2 are the coordinates of the center of the circle, and r is the radius of the circle. 
    * - poly: coords is [x1,y1,x2,y2...xn,yn] where each x,y pair contains the coordinates of one vertex of the polygon. 

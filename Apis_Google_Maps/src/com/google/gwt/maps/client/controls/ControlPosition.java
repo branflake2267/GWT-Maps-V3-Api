@@ -2,18 +2,52 @@ package com.google.gwt.maps.client.controls;
 
 /**
  * Identifiers used to specify the placement of controls on the map. Controls are positioned relative to other controls in the same layout position. Controls that are added first are positioned closer to the edge of the map.<br> 
- * +----------------+ <br>
- * + TL    TC    TR + <br>
- * + LT          RT + <br>
- * +                + <br>
- * + LC          RC + <br>
- * +                + <br>
- * + LB          RB + <br>
- * + BL    BC    BR + <br>
- * +----------------+ <br>
+ * <br>
+ * <table border="1px" padding="0px">
+ *   <col width="33,3%"/><col width="33,3%"/><col width="33,3%"/>
+ *   <thead><tbody>
+ *   <tbody>
+ * 	<tr>
+ * 		<td>TL</td>
+ * 		<td>TC</td>
+ * 		<td>TR</td>
+ * 	</tr>
+ * 	<tr>
+ * 		<td>LT</td>
+ * 		<td></td>
+ * 		<td>RT</td>
+ * 	</tr>
+ * 	<tr>
+ * 		<td>&nbsp;</td>
+ * 		<td>&nbsp;</td>
+ * 		<td>&nbsp;</td>
+ * 	</tr>
+ * 	<tr>
+ * 		<td>LC</td>
+ * 		<td></td>
+ * 		<td>RC</td>
+ * 	</tr>
+ * 	<tr>
+ * 		<td>&nbsp;</td>
+ * 		<td>&nbsp;</td>
+ * 		<td>&nbsp;</td>
+ * 	</tr>
+ * 	<tr>
+ * 		<td>LB</td>
+ * 		<td></td>
+ * 		<td>LB</td>
+ * 	</tr>
+ * 	<tr>
+ * 		<td>BL</td>
+ * 		<td>BC</td>
+ * 		<td>BR</td>
+ * 	</tr>
+ * </tbody>
+ * </table>
+ * <br>
  * Elements in the top or bottom row flow towards the middle. Elements at the left or right sides flow downwards.
- * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#ControlPosition}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">ControlPosition API Doc</a>
  */
 public enum ControlPosition {
   

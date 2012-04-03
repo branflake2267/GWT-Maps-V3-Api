@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  *  A service for obtaining the highest zoom level at which satellite imagery is available for a given location.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#MaxZoomService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MaxZoomService">MaxZoomService API Doc</a>
  */
 public class MaxZoomService extends JavaScriptObject {
 

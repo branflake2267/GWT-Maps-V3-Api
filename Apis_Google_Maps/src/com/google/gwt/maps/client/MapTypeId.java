@@ -2,7 +2,8 @@ package com.google.gwt.maps.client;
 
 /**
  * Identifiers for common MapTypes
- * {@Link http://code.google.com/apis/maps/documentation/javascript/reference.html#MapTypeId}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeId">MapTypeId API Doc</a>
  */
 public enum MapTypeId {
 

@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * A service for computing distances between multiple origins and destinations.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DistanceMatrixService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixService">DistanceMatrixService API Doc</a>
  */
 public class DistanceMatrixService extends JavaScriptObject {
 

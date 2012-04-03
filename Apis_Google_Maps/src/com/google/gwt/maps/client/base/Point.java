@@ -4,7 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A point on a two-dimensional plane.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Point}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Point">Point API Doc</a>
  */
 public class Point extends JavaScriptObject {
   

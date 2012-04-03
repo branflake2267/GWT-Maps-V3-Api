@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.services;
 
 /**
  * The status returned by the Geocoder on the completion of a call to geocode().
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderStatus}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GeocoderStatus">GeocoderStatus API Doc</a>
  */
 public enum GeocoderStatus {
 

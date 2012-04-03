@@ -5,7 +5,8 @@ import com.google.gwt.core.client.JsArrayString;
 
 /**
  * A single address component within a GeocoderResult. A full address may consist of multiple address components.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderAddressComponent}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GeocoderAddressComponent">GeocoderAddressComponent API Doc</a>
  */
 public class GeocoderAddressComponent extends JavaScriptObject {
 

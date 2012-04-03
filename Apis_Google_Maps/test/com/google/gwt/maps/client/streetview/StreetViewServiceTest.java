@@ -11,7 +11,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/streetview.html}
+ * See <a href="https://developers.google.com/maps/documentation/javascript/streetview">StreetView API Doc</a>
  */
 public class StreetViewServiceTest extends GWTTestCase {
 

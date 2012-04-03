@@ -29,7 +29,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A rectangle overlay. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#Rectangle}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Rectangle">Rectangle API Doc</a>
  */
 public class Rectangle extends MVCObject<Rectangle> {
 

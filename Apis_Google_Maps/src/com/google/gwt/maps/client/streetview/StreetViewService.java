@@ -5,7 +5,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * A StreetViewService object performs searches for Street View data.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewService">StreetViewService API Doc</a>
  */
 public class StreetViewService extends JavaScriptObject {
   

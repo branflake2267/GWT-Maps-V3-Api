@@ -6,7 +6,8 @@ import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * An elevation query sent by the ElevationService containing the path along which to return sampled data. This request defines a continuous path along the earth along which elevation samples should be taken at evenly-spaced distances. All paths from vertex to vertex use segments of the great circle between those two points.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PathElevationRequest}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PathElevationRequest">PathElevationRequest API Doc</a>
  */
 public class PathElevationRequest extends JavaScriptObject {
   

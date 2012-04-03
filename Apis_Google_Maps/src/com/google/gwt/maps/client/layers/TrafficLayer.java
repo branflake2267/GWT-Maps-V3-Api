@@ -7,7 +7,8 @@ import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A traffic layer. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#TrafficLayer}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#TrafficLayer">TrafficLayer API Doc</a>
  */
 public class TrafficLayer extends MVCObject<TrafficLayer> {
   

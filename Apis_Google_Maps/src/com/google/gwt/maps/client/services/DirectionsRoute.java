@@ -9,7 +9,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  * A single route containing a set of legs in a DirectionsResult. (This object was formerly known as "DirectionsTrip".) Note that though this object is "JSON-like," it is not strictly JSON, as it directly and indirectly includes LatLng objects.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#DirectionsRoute}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsRoute">DirectionsRoute API Doc</a>
  */
 public class DirectionsRoute extends JavaScriptObject {
   

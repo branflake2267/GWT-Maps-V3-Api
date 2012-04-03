@@ -8,7 +8,8 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 
 /**
  * A Place search query to be sent to the PlacesService.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#PlaceSearchRequest}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PlaceSearchRequest">PlaceSearchRequest API Doc</a>
  */
 public class PlaceSearchRequest extends JavaScriptObject {
 
@@ -105,7 +106,7 @@ public class PlaceSearchRequest extends JavaScriptObject {
   }-*/;
   
   /**
-   * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given here {@link http://code.google.com/apis/maps/documentation/places/supported_types.html}.
+   * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given <a href="https://developers.google.com/maps/documentation/places/supported_types">here</a>.
    * @param types
    */
   public final void setTypes(AutocompleteType... types) {
@@ -125,7 +126,7 @@ public class PlaceSearchRequest extends JavaScriptObject {
   }-*/;
   
   /**
-   * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given here {@link http://code.google.com/apis/maps/documentation/places/supported_types.html}.
+   * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given <a href="https://developers.google.com/maps/documentation/places/supported_types">here</a>.
    * @return
    */
   public final AutocompleteType[] getTypes() {

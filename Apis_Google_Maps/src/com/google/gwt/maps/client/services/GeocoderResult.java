@@ -6,7 +6,8 @@ import com.google.gwt.core.client.JsArrayString;
 
 /**
  * A single geocoder result retrieved from the geocode server. A geocode request may return multiple result objects. Note that though this result is "JSON-like," it is not strictly JSON, as it indirectly includes a LatLng object.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#GeocoderResult}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#GeocoderResult">GeocoderResult API Doc</a>
  */
 public class GeocoderResult extends JavaScriptObject {
 

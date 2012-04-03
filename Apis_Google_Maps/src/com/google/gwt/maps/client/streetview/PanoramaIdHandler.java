@@ -2,7 +2,8 @@ package com.google.gwt.maps.client.streetview;
 
 /**
  * Handler for the getPanoramaById callback
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewService}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewService">StreetViewService API Doc</a>
  */
 public interface PanoramaIdHandler {
 

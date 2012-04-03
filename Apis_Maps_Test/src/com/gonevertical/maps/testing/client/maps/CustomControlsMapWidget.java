@@ -20,7 +20,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * {@link http://code.google.com/apis/maps/documentation/javascript/layers.html#FusionTables}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
  */
 public class CustomControlsMapWidget extends Composite {
 

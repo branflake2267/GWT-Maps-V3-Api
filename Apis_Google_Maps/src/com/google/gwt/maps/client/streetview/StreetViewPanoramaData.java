@@ -5,7 +5,8 @@ import com.google.gwt.core.client.JsArray;
 
 /** 
  * The representation of a panorama returned from the provider defined using registerPanoProvider.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#StreetViewPanoramaOptions}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewPanoramaOptions">StreetViewPanoramaOptions API Doc</a>
  */
 public class StreetViewPanoramaData extends JavaScriptObject {
   

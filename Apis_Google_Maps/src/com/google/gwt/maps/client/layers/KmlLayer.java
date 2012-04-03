@@ -14,7 +14,8 @@ import com.google.gwt.maps.client.events.kmlviewport.DefaultViewportChangeMapHan
 
 /**
  * A KmlLayer adds geographic markup to the map from a KML, KMZ or GeoRSS file that is hosted on a publicly accessible web server. A KmlFeatureData object is provided for each feature when clicked. This class extends MVCObject.
- * {@link http://code.google.com/apis/maps/documentation/javascript/reference.html#KmlLayer}
+ * <br><br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#KmlLayer">KmlLayer API Doc</a>
  */
 public class KmlLayer extends JavaScriptObject {
   
@@ -24,7 +25,7 @@ public class KmlLayer extends JavaScriptObject {
   protected KmlLayer() {}
   
   /**
-   * Creates a KmlLayer which renders the contents of the specified KML/KMZ file ({@link http://code.google.com/apis/kml/documentation/kmlreference.html}) or GeoRSS file ({@link http://www.georss.org}). 
+   * Creates a KmlLayer which renders the contents of the specified KML/KMZ file (<a href="https://developers.google.com/kml/documentation/kmlreference">KML API Doc</a>) or GeoRSS file (<a href="http://www.georss.org">GeoRSS API Doc</a>). 
    * @param url 
    * @param options {@link KmlLayerOptions}
    * @return {@link KmlLayerOptions}
@@ -34,10 +35,10 @@ public class KmlLayer extends JavaScriptObject {
   }
 
   /**
-   * Creates a KmlLayer which renders the contents of the specified KML/KMZ file ({@link http://code.google.com/apis/kml/documentation/kmlreference.html}) or GeoRSS file ({@link http://www.georss.org}).
+   * Creates a KmlLayer which renders the contents of the specified KML/KMZ file (<a href="https://developers.google.com/kml/documentation/kmlreference">KML API Doc</a>) or GeoRSS file (<a href="http://www.georss.org">GeoRSS API Doc</a>).
    * @param url
    * @return
-   */
+ */ 
   public final static KmlLayer newInstance(String url) {
     return createJso(url).cast();
   }
