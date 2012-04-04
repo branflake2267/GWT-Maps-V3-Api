@@ -14,7 +14,7 @@
 	<artifactId>gwt-maps-api-v3-testing</artifactId>
 	<version>3.8.0-beta1-SNAPSHOT</version>
 	<name>Google Web Toolkit Maps API V3 - UI Test</name>
-	<url>http://code.google.com/p/gwt-maps-api/</url>
+	<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
 	
 	<licenses>
 		<license>
