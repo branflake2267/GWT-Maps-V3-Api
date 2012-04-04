@@ -18,7 +18,6 @@ public class GeocoderResult extends JavaScriptObject {
   
   /**
    * A single geocoder result retrieved from the geocode server. A geocode request may return multiple result objects. Note that though this result is "JSON-like," it is not strictly JSON, as it indirectly includes a LatLng object.
-   * @return
    */
   public static final GeocoderResult newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class GeocoderResult extends JavaScriptObject {
   
   /**
    * An array of GeocoderAddressComponents
-   * @return
    */
   public final native JsArray<GeocoderAddressComponent> getAddress_Components() /*-{
     return this.address_components;
@@ -50,7 +48,6 @@ public class GeocoderResult extends JavaScriptObject {
   
   /**
    * A string containing the human-readable address of this location.
-   * @return
    */
   public final native String getFormatted_Address() /*-{
     return this.formatted_address;
@@ -66,7 +63,6 @@ public class GeocoderResult extends JavaScriptObject {
   
   /**
    * A GeocoderGeometry object
-   * @return
    */
   public final native GeocoderGeometry getGeometry() /*-{
     return this.geometry;
@@ -82,7 +78,6 @@ public class GeocoderResult extends JavaScriptObject {
   
   /**
    * An array of strings denoting the type of the returned geocoded element. A type consists of a unique string identifying the geocode result. (For example, "administrative_area_level_1", "country", etc.)
-   * @return
    */
   public final native JsArrayString getTypes() /*-{
     return this.types;

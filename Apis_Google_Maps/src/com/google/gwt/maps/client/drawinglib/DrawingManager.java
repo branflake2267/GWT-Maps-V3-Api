@@ -35,7 +35,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * Creates a DrawingManager that allows users to draw overlays on the map, and switch between the type of overlay to be drawn with a drawing control.
    * @param options
-   * @return
    */
   public static final DrawingManager newInstance(DrawingManagerOptions options) {
     return createJso(options).cast();
@@ -47,7 +46,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   
   /**
    * Returns the DrawingManager's drawing mode.
-   * @return
    */
   public final OverlayType getDrawingMode() {
     return OverlayType.fromValue(getDrawingModeImpl());
@@ -83,7 +81,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   
   /**
    * Returns the Map to which the DrawingManager is attached, which is the Map on which the overlays created will be placed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -96,7 +93,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * This event is fired when the user has finished drawing a circle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addCircleCompleteHandler(CircleCompleteMapHandler handler) {
     return MapHandlerRegistration.addHandlerDrawing(this, MapEventType.CIRCLECOMPLETE, handler, new CircleCompleteEventFormatter());
@@ -105,7 +101,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * This event is fired when the user has finished drawing a marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMarkerCompleteHandler(MarkerCompleteMapHandler handler) {
     return MapHandlerRegistration.addHandlerDrawing(this, MapEventType.MARKERCOMPLETE, handler, new MarkerCompleteEventFormatter());
@@ -114,7 +109,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * This event is fired when the user has finished drawing an overlay of any type.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addOverlayCompleteHandler(OverlayCompleteMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.OVERLAYCOMPLETE, handler, new OverlayCompleteEventFormatter());
@@ -123,7 +117,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * This event is fired when the user has finished drawing a polygon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addPolygonCompleteHandler(PolygonCompleteMapHandler handler) {
     return MapHandlerRegistration.addHandlerDrawing(this, MapEventType.POLYGONCOMPLETE, handler, new PolygonCompleteEventFormatter());
@@ -132,7 +125,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * This event is fired when the user has finished drawing a polyline.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addPolylineCompleteHandler(PolylineCompleteMapHandler handler) {
     return MapHandlerRegistration.addHandlerDrawing(this, MapEventType.POLYLINECOMPLETE, handler, new PolylineCompleteEventFormatter());
@@ -141,7 +133,6 @@ public class DrawingManager extends MVCObject<DrawingManager> {
   /**
    * This event is fired when the user has finished drawing a rectangle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRectangleCompleteHandler(RectangleCompleteMapHandler handler) {
     return MapHandlerRegistration.addHandlerDrawing(this, MapEventType.RECTANGLECOMPLETE, handler, new RectangleCompleteEventFormatter());

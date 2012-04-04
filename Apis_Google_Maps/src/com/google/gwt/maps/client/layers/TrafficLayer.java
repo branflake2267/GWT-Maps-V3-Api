@@ -19,7 +19,6 @@ public class TrafficLayer extends MVCObject<TrafficLayer> {
   
   /**
    * creates a traffic layer
-   * @return
    */
   public static final TrafficLayer newInstance() {
     return createJso().cast();
@@ -43,7 +42,6 @@ public class TrafficLayer extends MVCObject<TrafficLayer> {
   
   /**
    * Get the map on which the KML Layer is being rendered.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());

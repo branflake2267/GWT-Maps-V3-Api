@@ -17,7 +17,6 @@ public class MaxZoomResult extends JavaScriptObject {
 
   /**
    * A MaxZoom result in JSON format retrieved from the MaxZoomService.
-   * @return
    */
   public static final MaxZoomResult newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -37,7 +36,6 @@ public class MaxZoomResult extends JavaScriptObject {
   
   /**
    * Status of the request.
-   * @return
    */
   public final MaxZoomStatus getStatus() {
     return MaxZoomStatus.fromValue(getStatusImpl());
@@ -57,7 +55,6 @@ public class MaxZoomResult extends JavaScriptObject {
   
   /**
    * The maximum zoom level found at the given LatLng.
-   * @return
    */
   public final native int getZoom() /*-{
     return this.zoom;

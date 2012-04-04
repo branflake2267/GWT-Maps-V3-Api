@@ -84,7 +84,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get Color used for the background of the Map div.
-   * @return
    */
   public final native String getBackgroundColor() /*-{
     return this.backgroundColor;
@@ -92,7 +91,7 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * set The initial Map center. Required.
-   * @param center {@link center}
+   * @param center {@link LatLng}
    */
   public final native void setCenter(LatLng center) /*-{
     this.center = center;
@@ -164,7 +163,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get The name or url of the cursor to display on a draggable object.
-   * @return
    */
   public final native boolean getDraggableCursor() /*-{
     return this.draggableCursor;
@@ -180,7 +178,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get The name or url of the cursor to display when an object is dragging.
-   * @return
    */
   public final native boolean getDraggingCursor() /*-{
     return this.draggingCursor;
@@ -228,7 +225,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get The initial enabled/disabled state of the Map type control.
-   * @return
    */
   public final native boolean getMapTypeControl() /*-{
     return this.mapTypeControl;
@@ -267,7 +263,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get {@link MapTypeId}
-   * @return
    */
   public final MapTypeId getMapTypeId() {
     String type = getMapTypeIdJs();
@@ -308,7 +303,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get The minimum zoom level which will be displayed on the map. If omitted, or set to null, the minimum zoom from the current map type is used instead.
-   * @return
    */
   public final native int getMinZoom() /*-{
     return this.minZoom;
@@ -324,7 +318,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get If true, do not clear the contents of the Map div.
-   * @return
    */
   public final native boolean getNoClear() /*-{
     return this.noClear;
@@ -340,7 +333,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get The enabled/disabled state of the Overview Map control.
-   * @return
    */
   public final native boolean getOverviewMapControl() /*-{
     return this.overviewMapControl;
@@ -404,7 +396,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get The enabled/disabled state of the Rotate control.
-   * @return
    */
   public final native boolean getRotateControl() /*-{
     return this.rotateControl;
@@ -468,7 +459,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get If false, disables scrollwheel zooming on the map. The scrollwheel is enabled by default.
-   * @return
    */
   public final native boolean getScrollWheel() /*-{
     return this.scrollWheel;
@@ -484,7 +474,6 @@ public class MapOptions extends JavaScriptObject {
  
   /**
    * get set A StreetViewPanorama to display when the Street View pegman is dropped on the map. If no panorama is specified, a default StreetViewPanorama will be displayed in the map's div when the pegman is dropped.
-   * @return
    */
   public final native boolean getStreetViewControl() /*-{
     return this.streetViewControl;
@@ -520,7 +509,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get set Styles to apply to each of the default map types. Note that styles will apply only to the labels and geometry in Satellite/Hybrid and Terrain modes.
-   * @return
    */
   public final MapTypeStyle[] getMapTypeStyles() {
     JsArray<MapTypeStyle> arr = getMapTypeStylesJs();
@@ -533,7 +521,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * get set Styles to apply to each of the default map types. Note that styles will apply only to the labels and geometry in Satellite/Hybrid and Terrain modes.
-   * @return
    */
   private final native JsArray<MapTypeStyle> getMapTypeStylesJs() /*-{
     return this.styles;
@@ -548,7 +535,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * gets The angle of incidence of the map as measured in degrees from the viewport plane to the map plane. The only currently supported values are 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt of 45&deg;. 45&deg; imagery is only available for SATELLITE and HYBRID map types, within some locations, and at some zoom levels.
-   * @return
    */
   public final native int getTilt() /*-{
     return this.tilt;
@@ -580,7 +566,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * gets The enabled/disabled state of the Zoom control.
-   * @return
    */
   public final native boolean getZoomControl() /*-{
     return this.zoomControl;
@@ -596,7 +581,6 @@ public class MapOptions extends JavaScriptObject {
   
   /**
    * gets The display options for the Zoom control.
-   * @return
    */
   public final native ZoomControlOptions getZoomControlOptions() /*-{
     return this.zoomControlOptions;

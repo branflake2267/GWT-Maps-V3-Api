@@ -14,7 +14,6 @@ public class AdUnitOptions extends JavaScriptObject {
 
   /**
    * creates options for adunit
-   * @return
    */
   public static final AdUnitOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -27,7 +26,6 @@ public class AdUnitOptions extends JavaScriptObject {
   
   /**
    * The AdSense For Content channel number for tracking the performance of this AdUnit. It must be stored as a string as it will typically be a large UINT64. (Optional)
-   * @return
    */
   public final native String getChannelNumber() /*-{
     return this.channelNumber;
@@ -37,7 +35,6 @@ public class AdUnitOptions extends JavaScriptObject {
    * The Format of the AdUnit.
    * <br><br>
    * See <a href="https://google.com/adsense/adformats">AdFormats</a>
-   * @return
    */
   public final AdFormat getFormat() {
     return AdFormat.fromValue(getFormatImpl());
@@ -49,7 +46,6 @@ public class AdUnitOptions extends JavaScriptObject {
   
   /**
    * The map associated with this AdUnit. Ads will be targeted to the location the map's viewport. (Required)
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -61,7 +57,6 @@ public class AdUnitOptions extends JavaScriptObject {
   
   /**
    * The position of the AdUnit. If specified, the AdUnit will be displayed at this position. Otherwise, it will not be added to the map. (Optional)
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());
@@ -73,7 +68,6 @@ public class AdUnitOptions extends JavaScriptObject {
   
   /**
    * Your AdSense for Content publisher ID. Required and must be set at the time of initialization. (Required)
-   * @return
    */
   public final native String getPublisherId() /*-{
     return this.publisherId;

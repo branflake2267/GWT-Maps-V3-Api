@@ -13,7 +13,6 @@ public class PanoramioLayerOptions extends JavaScriptObject {
 
   /**
    * This object defines the properties that can be set on a PanoramioLayer object.
-   * @return
    */
   public final static PanoramioLayerOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -26,7 +25,6 @@ public class PanoramioLayerOptions extends JavaScriptObject {
   
   /**
    * If true, the layer receives mouse events. Default value is true.
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
@@ -34,7 +32,6 @@ public class PanoramioLayerOptions extends JavaScriptObject {
   
   /**
    * The map on which to display the layer.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -46,7 +43,6 @@ public class PanoramioLayerOptions extends JavaScriptObject {
 
   /**
    * Suppress the rendering of info windows when layer features are clicked.
-   * @return
    */
   public final native boolean getSuppressInfoWindows() /*-{
     return this.suppressInfoWindows;

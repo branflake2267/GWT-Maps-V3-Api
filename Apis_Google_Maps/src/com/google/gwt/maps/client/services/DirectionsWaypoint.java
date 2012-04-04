@@ -17,7 +17,6 @@ public class DirectionsWaypoint extends JavaScriptObject {
   
   /**
    * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed.
-   * @return
    */
   public static final DirectionsWaypoint newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -33,7 +32,6 @@ public class DirectionsWaypoint extends JavaScriptObject {
   
   /**
    * Waypoint location. Can be an address string or LatLng. Optional.
-   * @return
    */
   public final native String getLocation_String() /*-{
     return this.location;
@@ -49,7 +47,6 @@ public class DirectionsWaypoint extends JavaScriptObject {
   
   /**
    * Waypoint location. Can be an address string or LatLng. Optional.
-   * @return
    */
   public final native LatLng getLocation_LatLng() /*-{
     return this.location;
@@ -65,7 +62,6 @@ public class DirectionsWaypoint extends JavaScriptObject {
   
   /**
    * If true, indicates that this waypoint is a stop between the origin and destination. This has the effect of splitting the route into two. This value is true by default. Optional.
-   * @return
    */
   public final native boolean getStopOver() /*-{
     return this.stopover;

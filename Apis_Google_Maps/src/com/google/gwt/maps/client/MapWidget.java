@@ -49,7 +49,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   /**
    * reconstruct the mapWidget from jso
    * @param impl
-   * @return
    */
   public static MapWidget newInstance(MapImpl impl) {
     return new MapWidget(impl);
@@ -112,7 +111,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 
   /**
    * Sets the viewport to contain the given bounds.
-   * @param latLngBounds {@link LatLngBounds}
+   * @param bounds {@link LatLngBounds}
    */
   public void fitBounds(LatLngBounds bounds) {
     impl.fitBounds(bounds);
@@ -136,7 +135,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 
   /**
    * get Element
-   * @return
    */
   public Element getDiv() {
     return impl.getDiv();
@@ -176,7 +174,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 
   /**
    * gets Returns the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. A value of 0 indicates no angle of incidence (no tilt) while 45° imagery will return a value of 45.
-   * @return
    */
   public int getTilt() {
     return impl.getTilt();
@@ -184,7 +181,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 
   /**
    * get zoom
-   * @return
    */
   public int getZoom() {
     return impl.getZoom();
@@ -336,7 +332,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   /**
    * TODO
    * gets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
-   * @return
    */
   public MVCArray<Element> getControls() {
     return impl.getControls();
@@ -354,7 +349,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   /**
    * TODO
    * gets A registry of MapType instances by string ID.
-   * @return
    */
   public MapTypeRegistry getMapTypesRegistry() {
     return impl.getMapTypesRegistry();
@@ -372,7 +366,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   /**
    * TODO
    * gets Additional map types to overlay.
-   * @return
    */
   public MVCArray<JavaScriptObject> getOverlayMapTypes() {
     return impl.getOverlayMapTypes();

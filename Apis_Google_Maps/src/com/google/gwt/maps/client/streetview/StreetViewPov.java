@@ -16,7 +16,6 @@ public class StreetViewPov extends JavaScriptObject {
 
   /**
    * creates A point of view object which specifies the camera's orientation at the Street View panorama's position. The point of view is defined as heading, pitch and zoom.
-   * @return
    */
   public final static StreetViewPov newInstance() {
     JavaScriptObject jso = JavaScriptObject.createObject();
@@ -34,7 +33,6 @@ public class StreetViewPov extends JavaScriptObject {
   
   /**
    * gets The camera heading in degrees relative to true north. True north is 0°, east is 90°, south is 180°, west is 270°.
-   * @return
    */
   public final native int getHeading() /*-{
     return this.heading;
@@ -50,7 +48,6 @@ public class StreetViewPov extends JavaScriptObject {
   
   /**
    * gets The camera pitch in degrees, relative to the street view vehicle. Ranges from 90° (directly upwards) to -90° (directly downwards).
-   * @return
    */
   public final native int getPitch() /*-{
     return this.pitch;
@@ -66,7 +63,6 @@ public class StreetViewPov extends JavaScriptObject {
  
   /**
    * gets The zoom level. Fully zoomed-out is level 0, zooming in increases the zoom level.
-   * @return
    */
   public final native int getZoom() /*-{
     return this.zoom;

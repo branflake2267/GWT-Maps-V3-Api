@@ -19,7 +19,6 @@ public class LocationElevationRequest extends JavaScriptObject {
 
   /**
    * An elevation request sent by the ElevationService containing the list of discrete coordinates (LatLngs) for which to return elevation data.
-   * @return
    */
   public final static LocationElevationRequest newInstance() {
     JavaScriptObject jso = JavaScriptObject.createObject();
@@ -29,7 +28,7 @@ public class LocationElevationRequest extends JavaScriptObject {
   
   /**
    * The discrete locations for which to retrieve elevations.
-   * @param path
+   * @param locations
    */
   public final native void setLocations(JsArray<LatLng> locations) /*-{
     this.locations = locations;
@@ -37,7 +36,6 @@ public class LocationElevationRequest extends JavaScriptObject {
   
   /**
    * The discrete locations for which to retrieve elevations.
-   * @return
    */
   public final native JsArray<LatLng> getLocations() /*-{
     return this.locations;

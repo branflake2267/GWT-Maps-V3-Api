@@ -11,7 +11,6 @@ public interface StreetViewPanoramaProvider {
    * @param zoom
    * @param tileX
    * @param tileY
-   * @return
    */
   public StreetViewPanoramaData getPanoData(String pano, int zoom, int tileX, int tileY);
   

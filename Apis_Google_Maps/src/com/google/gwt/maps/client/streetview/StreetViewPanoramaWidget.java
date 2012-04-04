@@ -27,7 +27,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * create widget from a previous jso implementation
    * @param impl
-   * @return
    */
   public static StreetViewPanoramaWidget newInstance(StreetViewPanoramaImpl impl) {
     return new StreetViewPanoramaWidget(impl);
@@ -56,7 +55,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * get the JavaScriptObject overlay
-   * @return
    */
   public StreetViewPanoramaImpl getJso() {
     return impl;
@@ -64,7 +62,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
 
   /**
    * Returns the set of navigation links for the Street View panorama.
-   * @return
    */
   public JsArray<StreetViewLink> getLinks() {
     return impl.getLinks();
@@ -72,7 +69,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * Returns the current panorama ID for the Street View panorama. This id is stable within the browser's current session only.
-   * @return
    */
   public String getPano() {
     return impl.getPano();
@@ -80,7 +76,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * Returns the current LatLng position for the Street View panorama.
-   * @return
    */
   public LatLng getPosition() {
     return impl.getPosition();
@@ -88,7 +83,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * Returns the current point of view for the Street View panorama.
-   * @return
    */
   public StreetViewPov getPov() {
     return impl.getPov();
@@ -96,7 +90,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   
   /**
    * Returns true if the panorama is visible. It does not specify whether Street View imagery is available at the specified position.
-   * @return
    */
   public boolean getVisible() {
     return impl.getVisible();
@@ -161,7 +154,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * This event is fired when the close button is clicked.
    * @param handler
-   * @return
    */
   public HandlerRegistration addCloseClickHandler(CloseClickMapHandler handler) {
     return impl.addCloseClickHandler(handler);
@@ -170,7 +162,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * This event is fired when the panorama's links change. The links change asynchronously following a pano id change.
    * @param handler
-   * @return
    */
   public HandlerRegistration addLinksChangeHandler(LinksChangeMapHandler handler) {
     return impl.addLinksChangeHandler(handler);
@@ -179,7 +170,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * This event is fired when the panorama's pano id changes. The pano may change as the user navigates through the panorama or the position is manually set. Note that not all position changes trigger a pano_changed.
    * @param handler
-   * @return
    */
   public HandlerRegistration addPanoChangeHandler(PanoChangeMapHandler handler) {
     return impl.addPanoChangeHandler(handler);
@@ -188,7 +178,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * This event is fired when the panorama's position changes. The position changes as the user navigates through the panorama or the position is set manually.
    * @param handler
-   * @return
    */
   public HandlerRegistration addPositionChangeHandler(PositionChangeMapHandler handler) {
     return impl.addPositionChangeHandler(handler);
@@ -197,7 +186,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * This event is fired when the panorama's point-of-view changes. The point of view changes as the pitch, zoom, or heading changes.
    * @param handler
-   * @return
    */
   public HandlerRegistration addPovChangeHandler(PovChangeMapHandler handler) {
     return impl.addPovChangeHandler(handler);
@@ -206,7 +194,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * Developers should trigger this event on the panorama when its div changes size: google.maps.event.trigger(panorama, 'resize').
    * @param handler
-   * @return
    */
   public HandlerRegistration addResizeHandler(ResizeMapHandler handler) {
     return impl.addResizeHandler(handler);
@@ -215,7 +202,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   /**
    * This event is fired when the panorama's visibility changes. The visibility is changed when the Pegman id dragged onto the map, the close button is clicked, or setVisible() is called.
    * @param handler
-   * @return
    */
   public HandlerRegistration addVisibleChangeHandler(VisibleChangeMapHandler handler) {
     return impl.addVisibleChangeHandler(handler);

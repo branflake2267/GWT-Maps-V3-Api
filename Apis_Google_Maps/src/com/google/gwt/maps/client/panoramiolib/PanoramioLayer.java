@@ -25,7 +25,6 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   /**
    * A PanoramioLayer displays photos from Panoramio as a rendered layer. This class extends MVCObject.
    * @param options
-   * @return
    */
   public static final PanoramioLayer newInstance(PanoramioLayerOptions options) {
     return createJso(options).cast();
@@ -49,7 +48,6 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
 
   /**
    * The map on which to display the layer.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -61,7 +59,6 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   
   /**
    * A panoramio tag used to filter the photos which are displayed. Only photos which have been tagged with the supplied string will be shown.
-   * @return
    */
   public final native String getTag() /*-{
     return this.getTag();
@@ -85,7 +82,6 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   
   /**
    * A Panoramio user ID. If provided, only photos by this user will be displayed on the map. If both a tag and user ID are provided, the tag will take precedence.
-   * @return
    */
   public final native String getUserId() /*-{
     return this.userId;
@@ -102,7 +98,6 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   /**
    * This event is fired when a feature in the layer is clicked.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(PanoramioMouseMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new PanoramioMouseEventFormatter());

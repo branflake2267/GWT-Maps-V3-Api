@@ -26,7 +26,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   /**
    * Renders directions retrieved in the form of a DirectionsResult object retrieved from the DirectionsService. This class extends MVCObject.
    * @param options
-   * @return
    */
   public static final DirectionsRenderer newInstance(DirectionsRendererOptions options) {
     return createJso(options).cast();
@@ -38,7 +37,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   
   /**
    * Returns the renderer's current set of directions.
-   * @return
    */
   public final native DirectionsResult getDirections() /*-{
     return this.getDirections();
@@ -58,7 +56,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
 
   /**
    * Returns the map on which the DirectionsResult is rendered.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -70,7 +67,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
 
   /**
    * Returns the panel <code>&lt;div&gt;</code> in which the DirectionsResult is rendered.
-   * @return
    */
   public final native Element getPanel() /*-{
     return this.getPanel();
@@ -78,7 +74,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   
   /**
    * Returns the current (zero-based) route index in use by this DirectionsRenderer object.
-   * @return
    */
   public final native int getRouteIndex() /*-{
     return this.getRouteIndex();
@@ -110,7 +105,7 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   
   /**
    * Set the (zero-based) index of the route in the DirectionsResult object to render. By default, the first route in the array will be rendered.
-   * @param route
+   * @param routeIndex
    */
   public final native void setRouteIndex(int routeIndex) /*-{
     this.setRouteIndex(routeIndex);
@@ -119,7 +114,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
   /**
    * This event is fired when the rendered directions change, either when a new DirectionsResult is set or when the user finishes dragging a change to the directions path.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDirectionsChangeHandler(DirectionsChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DIRECTIONS_CHANGED, handler, new DirectionsChangeEventFormatter());

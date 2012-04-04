@@ -34,7 +34,6 @@ public class StreetViewPanoramaData extends JavaScriptObject {
   
   /**
    * gets Specifies the copyright text for this panorama.
-   * @return
    */
   public final native String getCopyright() /*-{
     return this.copyright;

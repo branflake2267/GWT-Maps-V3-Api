@@ -19,7 +19,6 @@ public class BicyclingLayer extends MVCObject<BicyclingLayer> {
   
   /**
    * A layer that displays bike lanes and paths and demotes large roads.
-   * @return
    */
   public static final BicyclingLayer newInstance() {
     return createJso().cast();
@@ -43,7 +42,6 @@ public class BicyclingLayer extends MVCObject<BicyclingLayer> {
   
   /**
    * Returns the map on which this layer is displayed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());

@@ -12,7 +12,6 @@ public class StreetViewAddressControlOptions extends JavaScriptObject {
   
   /**
    * creates Options for the rendering of the Street View address control.
-   * @return
    */
   public final static StreetViewAddressControlOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -26,7 +25,6 @@ public class StreetViewAddressControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());

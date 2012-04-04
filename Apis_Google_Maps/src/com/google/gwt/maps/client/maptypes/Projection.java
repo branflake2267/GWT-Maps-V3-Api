@@ -29,7 +29,6 @@ public class Projection extends JavaScriptObject {
    * Translates from the LatLng cylinder to the Point plane. This interface specifies a function which implements translation from given LatLng values to world coordinates on the map projection. The Maps API calls this method when it needs to plot locations on screen. Projection objects must implement this method.
    * @param latlng {@link LatLng}
    * @param point {@link Point}
-   * @return
    */
   public final native Point fromLatLngToPoint(LatLng latlng, Point point) /*-{
     return this.fromLatLngToPoint(latlng, point);
@@ -38,8 +37,7 @@ public class Projection extends JavaScriptObject {
   /**
    * This interface specifies a function which implements translation from world coordinates on a map projection to LatLng values. The Maps API calls this method when it needs to translate actions on screen to positions on the map. Projection objects must implement this method.
    * @param pixel {@link Point}
-   * @param nowrap 
-   * @return
+   * @param nowrap
    */
   public final native Point fromPointToLatLng(Point pixel, boolean nowrap) /*-{
     return this.fromPointToLatLng(pixel, nowrap);

@@ -42,7 +42,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * Create a rectangle using the passed RectangleOptions, which specify the bounds and style.
    * @param options
-   * @return
    */
   public final static Rectangle newInstance(RectangleOptions options) {
     return createJso(options).cast();
@@ -54,7 +53,6 @@ public class Rectangle extends MVCObject<Rectangle> {
 
   /**
    * Returns the bounds of this rectangle.
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.getBounds();
@@ -62,7 +60,6 @@ public class Rectangle extends MVCObject<Rectangle> {
 
   /**
    * Returns whether this rectangle can be edited by the user.
-   * @return
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
@@ -82,7 +79,6 @@ public class Rectangle extends MVCObject<Rectangle> {
 
   /**
    * Returns the map on which this rectangle is displayed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -115,7 +111,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired when the DOM click event is fired on the Rectangle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
@@ -124,7 +119,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired when the DOM dblclick event is fired on the Rectangle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
@@ -133,7 +127,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired when the DOM mousedown event is fired on the Rectangle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
@@ -142,7 +135,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired when the DOM mousemove event is fired on the Rectangle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler, new MouseMoveEventFormatter());
@@ -151,7 +143,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired on Rectangle mouseout.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
@@ -160,7 +151,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired on Rectangle mouseover.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
@@ -169,7 +159,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired when the DOM mouseup event is fired on the Rectangle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
@@ -178,7 +167,6 @@ public class Rectangle extends MVCObject<Rectangle> {
   /**
    * This event is fired when the Rectangle is right-clicked on.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());

@@ -17,7 +17,6 @@ public interface MapType {
    * @param tileCoord
    * @param zoom
    * @param ownerDocument
-   * @return
    */
   public Element getTile(Point tileCoord, int zoom, Document ownerDocument);
   
@@ -35,7 +34,6 @@ public interface MapType {
   
   /**
    * gets Alt text to display when this MapType's button is hovered over in the MapTypeControl. Optional.
-   * @return
    */
   public String getAlt();
   

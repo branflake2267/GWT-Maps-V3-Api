@@ -17,7 +17,6 @@ public class DistanceMatrixService extends JavaScriptObject {
   
   /**
    * Creates a new instance of a DistanceMatrixService that sends distance matrix queries to Google servers.
-   * @return
    */
   public static final DistanceMatrixService newInstance() {
     JavaScriptObject jso = createJso();

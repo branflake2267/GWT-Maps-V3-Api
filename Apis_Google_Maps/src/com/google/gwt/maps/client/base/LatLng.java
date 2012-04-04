@@ -33,7 +33,6 @@ public class LatLng extends JavaScriptObject {
    * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90 degrees and +90 degrees, and longitude will be wrapped to lie between -180 degrees and +180 degrees.
    * @param lat
    * @param lng
-   * @return
    */
   public static LatLng newInstance(double lat, double lng) {
     return newInstance(new BigDecimal(lat), new BigDecimal(lng), false);
@@ -44,7 +43,6 @@ public class LatLng extends JavaScriptObject {
    * @param lat
    * @param lng
    * @param noWrap
-   * @return
    */
   public static LatLng newInstance(BigDecimal lat, BigDecimal lng, boolean noWrap) {
     String slat = null;
@@ -91,7 +89,6 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * Returns the latitude in degrees.
-   * @return
    */
   public final native String getLat() /*-{
     return this.lat().toString();

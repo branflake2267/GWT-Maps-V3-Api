@@ -18,7 +18,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * A single DirectionsStep in a DirectionsResult. Some fields may be undefined. Note that though this object is "JSON-like," it is not strictly JSON, as it directly includes LatLng objects.
-   * @return
    */
   public static final DirectionsStep newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * The distance covered by this step. This property may be undefined as the distance may be unknown.
-   * @return
    */
   public final native Distance getDistance() /*-{
     return this.distance;
@@ -50,7 +48,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * The typical time required to perform this step in seconds and in text form. This property may be undefined as the duration may be unknown.
-   * @return
    */
   public final native Duration getDuration() /*-{
     return this.duration;
@@ -66,7 +63,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * The ending location of this step.
-   * @return
    */
   public final native LatLng getEnd_Location() /*-{
     return this.end_location;
@@ -82,7 +78,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * Instructions for this step.
-   * @return
    */
   public final native String getInstructions() /*-{
     return this.instructions;
@@ -98,7 +93,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * A sequence of LatLngs describing the course of this step.
-   * @return
    */
   public final native JsArray<LatLng> getPath() /*-{
     return this.path;
@@ -133,7 +127,6 @@ public class DirectionsStep extends JavaScriptObject {
   
   /**
    * The mode of travel used in this step.
-   * @return
    */
   public final TravelMode getTravelMode() {
     return TravelMode.fromValue(getTravel_ModeImpl());

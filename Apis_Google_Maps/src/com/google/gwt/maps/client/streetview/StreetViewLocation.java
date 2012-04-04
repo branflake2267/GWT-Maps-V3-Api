@@ -18,7 +18,6 @@ public class StreetViewLocation extends JavaScriptObject {
   
   /**
    * creates A representation of a location in the Street View panorama.
-   * @return
    */
   public final static StreetViewLocation newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class StreetViewLocation extends JavaScriptObject {
   
   /**
    * gets A localized string describing the location.
-   * @return
    */
   public final native String getDescription() /*-{
     return this.description;
@@ -50,7 +48,6 @@ public class StreetViewLocation extends JavaScriptObject {
   
   /**
    * gets The latlng of the panorama.
-   * @return
    */
   public final native LatLng getLatLng() /*-{
     return this.latLng;
@@ -66,7 +63,6 @@ public class StreetViewLocation extends JavaScriptObject {
   
   /**
    * gets A unique identifier for the panorama. This is stable within a session but unstable across sessions.
-   * @return
    */
   public final native String getPano() /*-{
     return this.pano;

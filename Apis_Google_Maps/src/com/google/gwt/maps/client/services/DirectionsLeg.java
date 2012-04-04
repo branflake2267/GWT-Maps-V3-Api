@@ -18,7 +18,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * A single leg consisting of a set of steps in a DirectionsResult. Some fields in the leg may not be returned for all requests. (This object was formerly known as "DirectionsRoute".) Note that though this result is "JSON-like," it is not strictly JSON, as it directly and indirectly includes LatLng objects.
-   * @return
    */
   public static final DirectionsLeg newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * The total distance covered by this leg. This property may be undefined as the distance may be unknown.
-   * @return
    */
   public final native Distance getDistance() /*-{
     return this.distance;
@@ -50,7 +48,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * The total duration of this leg. This property may be undefined as the duration may be unknown.
-   * @return
    */
   public final native Duration getDuration() /*-{
     return this.duration;
@@ -66,7 +63,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * The address of the destination of this leg.
-   * @return
    */
   public final native String getEnd_Address() /*-{
     return this.end_address;
@@ -82,7 +78,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * The DirectionsService calculates directions between locations by using the nearest transportation option (usually a road) at the start and end locations. end_location indicates the actual geocoded destination, which may be different than the end_location of the last step if, for example, the road is not near the destination of this leg.
-   * @return
    */
   public final native LatLng getEnd_Location() /*-{
     return this.end_location;
@@ -98,7 +93,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * The address of the origin of this leg.
-   * @return
    */
   public final native String getStart_Address() /*-{
     return this.start_address;
@@ -114,7 +108,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * The DirectionsService calculates directions between locations by using the nearest transportation option (usually a road) at the start and end locations. start_location indicates the actual geocoded origin, which may be different than the start_location of the first step if, for example, the road is not near the origin of this leg.
-   * @return
    */
   public final native LatLng getStart_Location() /*-{
     return this.start_location;
@@ -130,7 +123,6 @@ public class DirectionsLeg extends JavaScriptObject {
   
   /**
    * An array of DirectionsSteps, each of which contains information about the individual steps in this leg.
-   * @return
    */
   public final native JsArray<DirectionsStep> getSteps() /*-{
     return this.steps;
@@ -146,7 +138,6 @@ public class DirectionsLeg extends JavaScriptObject {
  
   /**
    * An array of waypoints along this leg that were not specified in the original request, either as a result of a user dragging the polyline or selecting an alternate route.
-   * @return
    */
   public final native JsArray<LatLng> getVia_Waypoints() /*-{
     return this.via_waypoints;

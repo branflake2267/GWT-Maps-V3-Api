@@ -22,7 +22,6 @@ public class PlacesService extends JavaScriptObject {
    * Contains methods related to searching for Places and retrieving details about a Place.
    * @param attrContainer
    * @param mapWidget
-   * @return
    */
   public static final PlacesService newInstance(Element attrContainer, MapWidget mapWidget) {
     return createJso(attrContainer, mapWidget.getJso());

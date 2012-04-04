@@ -49,7 +49,6 @@ public abstract class MapEvent<H extends MapHandler<E>, E> extends GwtEvent<H> {
   /**
    * get property object as json
    * @param jso
-   * @return
    */
   protected native String getAsJson(JavaScriptObject jso) /*-{
     return jso.toSource ? jso.toSource() : "NO SOURCE";

@@ -56,7 +56,6 @@ public class Size extends JavaScriptObject {
   
   /**
    * Returns a string representation of this Size.
-   * @return
    */
   public final native String getToString() /*-{
     return this.toString();
@@ -72,7 +71,6 @@ public class Size extends JavaScriptObject {
   
   /**
    * gets The height along the y-axis, in pixels.
-   * @return
    */
   public final native double getHeight() /*-{
     return this.height;
@@ -88,7 +86,6 @@ public class Size extends JavaScriptObject {
   
   /**
    * gets The width along the x-axis, in pixels.
-   * @return
    */
   public final native double getWidth() /*-{
     return this.width;

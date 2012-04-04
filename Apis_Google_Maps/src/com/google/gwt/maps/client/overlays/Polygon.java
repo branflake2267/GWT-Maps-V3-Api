@@ -42,7 +42,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * Create a polygon using the passed PolygonOptions, which specify the polygon's path, the stroke style for the polygon's edges, and the fill style for the polygon's interior regions. A polygon may contain one or more paths, where each path consists of an array of LatLngs. You may pass either an array of LatLngs or an MVCArray of LatLngs when constructing these paths. Arrays are converted to MVCArrays within the polygon upon instantiation.
    * @param options
-   * @return
    */
   public final static Polygon newInstance(PolygonOptions options) {
     return createJso(options).cast();
@@ -54,7 +53,6 @@ public class Polygon extends MVCObject<Polygon> {
   
   /**
    * Returns whether this shape can be edited by the user.
-   * @return
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
@@ -62,7 +60,6 @@ public class Polygon extends MVCObject<Polygon> {
   
   /**
    * Returns the map on which this shape is attached.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -74,7 +71,6 @@ public class Polygon extends MVCObject<Polygon> {
   
   /**
    * Retrieves the first path.
-   * @return
    */
   public final native MVCArray<LatLng> getPath() /*-{
     return this.getPath();
@@ -82,7 +78,6 @@ public class Polygon extends MVCObject<Polygon> {
   
   /**
    * Retrieves the paths for this polygon.
-   * @return
    */
   public final native MVCArray<MVCArray<LatLng>> getPaths() /*-{
     return this.getPaths();
@@ -167,7 +162,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired when the DOM click event is fired on the Polygon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
@@ -176,7 +170,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired when the DOM dblclick event is fired on the Polygon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
@@ -185,7 +178,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired when the DOM mousedown event is fired on the Polygon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
@@ -194,7 +186,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired when the DOM mousemove event is fired on the Polygon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler, new MouseMoveEventFormatter());
@@ -203,7 +194,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired on Polygon mouseout.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
@@ -212,7 +202,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired on Polygon mouseover.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
@@ -221,7 +210,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired when the DOM mouseup event is fired on the Polygon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
@@ -230,7 +218,6 @@ public class Polygon extends MVCObject<Polygon> {
   /**
    * This event is fired when the Polygon is right-clicked on.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());

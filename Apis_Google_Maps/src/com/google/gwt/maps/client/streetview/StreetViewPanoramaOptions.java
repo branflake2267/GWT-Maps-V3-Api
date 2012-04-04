@@ -39,7 +39,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The enabled/disabled state of the address control.
-   * @return
    */
   public final native boolean getAddressControl() /*-{
     return this.addressControl;
@@ -71,7 +70,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets Enables/disables zoom on double click. Enabled by default.
-   * @return
    */
   public final native boolean getDisableDoubleClickZoom() /*-{
     return this.disableDoubleClickZoom;
@@ -87,7 +85,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets If true, the close button is displayed. Disabled by default.
-   * @return
    */
   public final native boolean getEnableCloseButton() /*-{
     return this.enableCloseButton;
@@ -103,7 +100,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The enabled/disabled state of the links control.
-   * @return
    */
   public final native boolean getLinksControl() /*-{
     return this.linksControl;
@@ -119,7 +115,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The enabled/disabled state of the pan control.
-   * @return
    */
   public final native boolean getPanControl() /*-{
     return this.panControl;
@@ -151,7 +146,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The panorama ID, which should be set when specifying a custom panorama.
-   * @return
    */
   public final native String getPano() /*-{
     return this.pano;
@@ -178,7 +172,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /** 
    * gets Custom panorama provider, which takes a string pano id and returns an object defining the panorama given that id. This function must be defined to specify custom panorama imagery.
-   * @return
    */
   public final native StreetViewPanoramaProvider getPanoProvider() /*-{
     return this.panoProvider;
@@ -210,7 +203,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The camera orientation, specified as heading, pitch, and zoom, for the panorama.
-   * @return
    */
   public final native StreetViewPov getStreetViewPov() /*-{
     return this.pov;
@@ -226,7 +218,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets If false, disables scrollwheel zooming in Street View. The scrollwheel is enabled by default.
-   * @return
    */
   public final native boolean getsScrollWheel() /*-{
     return this.scrollwheel;
@@ -241,8 +232,7 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * gets If true, the Street View panorama is visible on load. 
-   * @return
+   * gets If true, the Street View panorama is visible on load.
    */
   public final native boolean getVisible() /*-{
     return this.visible;
@@ -258,7 +248,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The enabled/disabled state of the zoom control.
-   * @return
    */
   public final native boolean getZoomControl() /*-{
     return this.zoomControl;
@@ -274,7 +263,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
   
   /**
    * gets The display options for the zoom control.
-   * @return
    */
   public final native ZoomControlOptions getZoomControlOptions() /*-{
     return this.zoomControlOptions;

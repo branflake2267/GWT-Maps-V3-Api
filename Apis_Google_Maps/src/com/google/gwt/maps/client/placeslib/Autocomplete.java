@@ -27,7 +27,6 @@ public class Autocomplete extends MVCObject<Autocomplete> {
    * Creates a new instance of Autocomplete that attaches to the specified input text field with the given options.
    * @param inputField
    * @param options
-   * @return
    */
   public static final Autocomplete newInstance(Element inputField, AutocompleteOptions options) {
     return createJso(inputField, options).cast();
@@ -41,7 +40,6 @@ public class Autocomplete extends MVCObject<Autocomplete> {
   /**
    * This event is fired when a PlaceResult is made available for a Place the user has selected. If the user enters the name of a Place that was not suggested by the control and presses the Enter key, a place_changed event will be fired that contains the user input in the name property, with no other properties defined.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addPlaceChangeHandler(PlaceChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.PLACE_CHANGED, handler, new PlaceChangeEventFormatter());
@@ -49,7 +47,6 @@ public class Autocomplete extends MVCObject<Autocomplete> {
   
   /**
    * Returns the bounds to which predictions are biased.
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.getBounds();
@@ -57,7 +54,6 @@ public class Autocomplete extends MVCObject<Autocomplete> {
   
   /**
    * Returns the details of the Place selected by the user, or null if no Place has been selected yet.
-   * @return
    */
   public final native PlaceResult getPlace() /*-{
     return this.getPlace();

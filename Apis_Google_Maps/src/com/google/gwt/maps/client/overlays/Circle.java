@@ -45,7 +45,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * Create a circle using the passed CircleOptions, which specify the bounds and style.
    * @param options
-   * @return
    */
   public final static Circle newInstance(CircleOptions options) {
     return createJso(options).cast();
@@ -57,7 +56,6 @@ public class Circle extends MVCObject<Circle> {
 
   /**
    * Returns the bounds of this circle.
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.getBounds();
@@ -65,7 +63,6 @@ public class Circle extends MVCObject<Circle> {
   
   /**
    * Returns the center of this circle.
-   * @return
    */
   public final native LatLng getCenter() /*-{
     return this.getCenter();
@@ -73,7 +70,6 @@ public class Circle extends MVCObject<Circle> {
 
   /**
    * Returns whether this circle can be edited by the user.
-   * @return
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
@@ -93,7 +89,6 @@ public class Circle extends MVCObject<Circle> {
 
   /**
    * Returns the map on which this circle is displayed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -129,7 +124,6 @@ public class Circle extends MVCObject<Circle> {
   
   /**
    * Returns the radius of this circle (in meters).
-   * @return
    */
   public final native double getRadius() /*-{
     return this.getRadius();
@@ -138,7 +132,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * add center change handler
    * @param handler
-   * @return
    */
   public final HandlerRegistration addCenterChangeHandler(CenterChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CENTER_CHANGED, handler, new CenterChangeEventFormatter());
@@ -147,7 +140,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the DOM click event is fired on the Circle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
@@ -156,7 +148,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the DOM dblclick event is fired on the Circle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
@@ -165,7 +156,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the DOM mousedown event is fired on the Circle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
@@ -174,7 +164,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the DOM mousemove event is fired on the Circle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler, new MouseMoveEventFormatter());
@@ -183,7 +172,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired on Circle mouseout.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
@@ -192,7 +180,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired on Circle mouseover.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
@@ -201,7 +188,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the DOM mouseup event is fired on the Circle.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
@@ -210,7 +196,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the circle's radius is changed.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRadiusChangeHandler(RadiusChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.RADIUS_CHANGED, handler, new RadiusChangeEventFormatter());
@@ -219,7 +204,6 @@ public class Circle extends MVCObject<Circle> {
   /**
    * This event is fired when the Circle is right-clicked on.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());

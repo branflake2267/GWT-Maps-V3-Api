@@ -17,7 +17,6 @@ public class GeocoderAddressComponent extends JavaScriptObject {
  
   /**
    * A single address component within a GeocoderResult. A full address may consist of multiple address components.
-   * @return
    */
   public static final GeocoderAddressComponent newInstace() {
     return JavaScriptObject.createObject().cast();
@@ -33,7 +32,6 @@ public class GeocoderAddressComponent extends JavaScriptObject {
   
   /**
    * The full text of the address component
-   * @return
    */
   public final native String getLong_Name() /*-{
     return this.long_name;
@@ -49,7 +47,6 @@ public class GeocoderAddressComponent extends JavaScriptObject {
   
   /**
    * The abbreviated, short text of the given address component
-   * @return
    */
   public final native String getShort_Name() /*-{
     return this.short_name;
@@ -65,7 +62,6 @@ public class GeocoderAddressComponent extends JavaScriptObject {
   
   /**
    * An array of strings denoting the type of this address component
-   * @return
    */
   public final native JsArrayString getTypes() /*-{
     return this.types;

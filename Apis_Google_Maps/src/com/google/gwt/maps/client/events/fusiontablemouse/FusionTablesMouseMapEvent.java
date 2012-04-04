@@ -27,7 +27,6 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
 
   /**
    * Pre-rendered HTML content, as placed in the infowindow by the default UI.
-   * @return
    */
   public String getInfoWindowHtml() {
     String infoWindowHtml = null;
@@ -55,7 +54,6 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
 
   /**
    * gets The offset to apply to an infowindow anchored on the clicked feature.
-   * @return
    */
   public Size getPixelOffset() {
     Size pixelOffset = null;
@@ -69,7 +67,6 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
 
   /**
    * returns A collection of FusionTablesCell objects, indexed by column name, representing the contents of the table row which included the clicked feature.
-   * @return
    */
   public JavaScriptObject getRow() {
     return parseRow();
@@ -86,7 +83,6 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
   /**
    * returns a jso that would read possibly 
    *    like ({station:{columnName:"station", value:"Chicago"}, address:{columnName:"address", value:"800 N. State St., Chicago, IL"}, ridership:{columnName:"ridership", value:"13531"}})
-   * @return
    */
   private JavaScriptObject parseRow() {
     JavaScriptObject row = null;

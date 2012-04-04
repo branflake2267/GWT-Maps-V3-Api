@@ -37,7 +37,6 @@ public class KmlLayer extends JavaScriptObject {
   /**
    * Creates a KmlLayer which renders the contents of the specified KML/KMZ file (<a href="https://developers.google.com/kml/documentation/kmlreference">KML API Doc</a>) or GeoRSS file (<a href="http://www.georss.org">GeoRSS API Doc</a>).
    * @param url
-   * @return
  */ 
   public final static KmlLayer newInstance(String url) {
     return createJso(url).cast();
@@ -53,7 +52,6 @@ public class KmlLayer extends JavaScriptObject {
 
   /**
    * Get the default viewport for the layer being displayed.
-   * @return
    */
   public final native LatLngBounds getDefaultViewport() /*-{
     return this.getDefaultViewport();
@@ -77,7 +75,6 @@ public class KmlLayer extends JavaScriptObject {
   
   /**
    * Get the map on which the KML Layer is being rendered.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -89,7 +86,6 @@ public class KmlLayer extends JavaScriptObject {
   
   /**
    * Get the metadata associated with this layer, as specified in the layer markup.
-   * @return
    */
   public final native KmlLayerMetadata getMetadata() /*-{
     return this.getMetadata();
@@ -97,7 +93,6 @@ public class KmlLayer extends JavaScriptObject {
   
   /**
    * Get the URL of the geographic markup which is being displayed.
-   * @return
    */
   public final native String getUrl() /*-{
     return this.getUrl();
@@ -106,7 +101,6 @@ public class KmlLayer extends JavaScriptObject {
   /**
    * This event is fired when a feature in the layer is clicked.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(KmlMouseMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new KmlMouseEventFormatter());
@@ -115,7 +109,6 @@ public class KmlLayer extends JavaScriptObject {
   /**
    * This event is fired when the KML layers default viewport has changed.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDefaultViewportChangeHandler(DefaultViewportChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DEFAULTVIEWPORT_CHANGED, handler, new DefaultViewportChangeEventFormatter());

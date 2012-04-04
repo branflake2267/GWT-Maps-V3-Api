@@ -78,7 +78,6 @@ public class MapImpl extends MVCObject<MapImpl> {
    * private native method
    * @param id - dom element id
    * @param {@link MapOptions}
-   * @return
    */
   private final static native MapImpl createJso(Element element, MapOptions options) /*-{
     return new $wnd.google.maps.Map(element, options);
@@ -86,7 +85,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * Sets the viewport to contain the given bounds.
-   * @param latLngBounds {@link LatLngBounds}
+   * @param bounds {@link LatLngBounds}
    */
   public final native void fitBounds(LatLngBounds bounds) /*-{
     this.fitBounds(bounds);
@@ -102,7 +101,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * return map center in coordinates
-   * @return
    */
   public final native LatLng getCenter() /*-{
     return this.getCenter();
@@ -110,7 +108,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * get Element
-   * @return
    */
   public final native Element getDiv() /*-{
     return this.getDiv();
@@ -154,7 +151,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * gets Returns the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. A value of 0 indicates no angle of incidence (no tilt) while 45° imagery will return a value of 45.
-   * @return
    */
   public final native int getTilt() /*-{
     return this.getTilt();
@@ -162,7 +158,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * get zoom
-   * @return
    */
   public final native int getZoom() /*-{
     return this.getZoom();
@@ -278,7 +273,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   /**
    * TODO
    * gets Additional controls to attach to the map. To add a control to the map, add the control's <code>&lt;div&gt;</code> to the MVCArray corresponding to the ControlPosition where it should be rendered.
-   * @return
    */
   public final native MVCArray<Element> getControls() /*-{
     return controls;
@@ -296,7 +290,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   /**
    * TODO
    * gets A registry of MapType instances by string ID.
-   * @return
    */
   public final native MapTypeRegistry getMapTypesRegistry() /*-{
     return this.maptypes;
@@ -314,7 +307,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   /**
    * TODO
    * gets Additional map types to overlay.
-   * @return
    */
   public final native MVCArray<JavaScriptObject> getOverlayMapTypes() /*-{
     return this.overlayMapTypes;

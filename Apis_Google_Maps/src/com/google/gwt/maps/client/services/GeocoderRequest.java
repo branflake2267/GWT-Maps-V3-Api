@@ -18,7 +18,6 @@ public class GeocoderRequest extends JavaScriptObject {
   
   /**
    * The specification for a geocoding request to be sent to the Geocoder.
-   * @return
    */
   public static final GeocoderRequest newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class GeocoderRequest extends JavaScriptObject {
   
   /**
    * Address. Optional.
-   * @return
    */
   public final native String getAddress() /*-{
     return this.address;
@@ -50,7 +48,6 @@ public class GeocoderRequest extends JavaScriptObject {
   
   /**
    * LatLngBounds within which to search. Optional.
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.bounds;
@@ -66,7 +63,6 @@ public class GeocoderRequest extends JavaScriptObject {
   
   /**
    * LatLng about which to search. Optional.
-   * @return
    */
   public final native LatLng getLocation() /*-{
     return this.location;
@@ -82,7 +78,6 @@ public class GeocoderRequest extends JavaScriptObject {
   
   /**
    * Country code top-level domain within which to search. Optional.
-   * @return
    */
   public final native String getRegion() /*-{
     return this.region;

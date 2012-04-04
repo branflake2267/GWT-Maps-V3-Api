@@ -16,7 +16,6 @@ public class StyledMapTypeOptions extends JavaScriptObject {
   
   /**
    * creates options
-   * @return
    */
   public final static StyledMapTypeOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -32,7 +31,6 @@ public class StyledMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets Text to display when this MapType's button is hovered over in the map type control.
-   * @return
    */
   public final native String getAlt() /*-{
     return this.alt;
@@ -48,7 +46,6 @@ public class StyledMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets The maximum zoom level for the map when displaying this MapType. Optional.
-   * @return
    */
   public final native int getMaxZoom() /*-{
     return this.maxZoom;
@@ -64,7 +61,6 @@ public class StyledMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets The minimum zoom level for the map when displaying this MapType. Optional.
-   * @return
    */
   public final native int getMinZoom() /*-{
     return this.minZoom;
@@ -80,7 +76,6 @@ public class StyledMapTypeOptions extends JavaScriptObject {
 
   /**
    * gets The name to display in the map type control.
-   * @return
    */
   public final native String getName() /*-{
     return this.name;

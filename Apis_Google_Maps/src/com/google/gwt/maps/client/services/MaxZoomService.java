@@ -17,7 +17,6 @@ public class MaxZoomService extends JavaScriptObject {
   
   /**
    * A service for obtaining the highest zoom level at which satellite imagery is available for a given location.
-   * @return
    */
   public static final MaxZoomService newInstance() {
     return createJso().cast();

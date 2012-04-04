@@ -20,7 +20,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * A distance matrix query sent by the DistanceMatrixService containing arrays of origin and destination locations, and various options for computing metrics.
-   * @return
    */
   public static final DistanceMatrixRequest newInstance() {
     JavaScriptObject jso = JavaScriptObject.createObject();
@@ -38,7 +37,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * If true, instructs the Distance Matrix service to avoid highways where possible. Optional.
-   * @return
    */
   public final native boolean getAvoidHighways() /*-{
     return this.avoidHighways;
@@ -54,7 +52,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * If true, instructs the Distance Matrix service to avoid toll roads where possible. Optional.
-   * @return
    */
   public final native boolean getAvoidTolls() /*-{
     return this.avoidTolls;
@@ -70,7 +67,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * An array containing destination address strings and/or LatLngs, to which to calculate distance and time. Required.
-   * @return
    */
   public final native JsArray<LatLng> getDestinations() /*-{
     return this.destinations;
@@ -86,7 +82,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * An array containing destination address strings and/or LatLngs, to which to calculate distance and time. Required.
-   * @return
    */
   public final native JsArrayString getDestinations_Strings() /*-{
     return this.destinations;
@@ -102,7 +97,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * An array containing origin address strings and/or LatLngs, from which to calculate distance and time. Required.
-   * @return
    */
   public final native JsArray<LatLng> getOrigins() /*-{
     return this.origins;
@@ -118,7 +112,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * An array containing origin address strings and/or LatLngs, from which to calculate distance and time. Required.
-   * @return
    */
   public final native JsArrayString getOrigins_Strings() /*-{
     return this.origins;
@@ -133,8 +126,7 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   }-*/;
   
   /**
-   * 
-   * @return
+   * Create new {@link DistanceMatrixRequest} instance
    */
   public final native String getRegion() /*-{
     return this.region;
@@ -154,7 +146,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * Type of routing requested. Required.
-   * @return
    */
   public final TravelMode getTravelMode() {
     return TravelMode.fromValue(getTravelModeImpl());
@@ -178,7 +169,6 @@ public class DistanceMatrixRequest extends JavaScriptObject {
   
   /**
    * Preferred unit system to use when displaying distance. Optional; defaults to metric.
-   * @return
    */
   public final UnitSystem getUnitSystem() {
     return UnitSystem.fromValue(getUnitSystemImpl());

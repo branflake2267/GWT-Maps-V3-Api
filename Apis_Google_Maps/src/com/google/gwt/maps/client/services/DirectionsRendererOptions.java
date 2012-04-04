@@ -22,7 +22,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * This object defines the properties that can be set on a DirectionsRenderer object.
-   * @return
    */
   public static final DirectionsRendererOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -38,7 +37,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * The directions to display on the map and/or in a <code>&lt;div&gt;</code> panel, retrieved as a DirectionsResult object from DirectionsService.
-   * @return
    */
   public final native DirectionsResult getDirections() /*-{
     return this.directions;
@@ -53,8 +51,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * If true, allows the user to drag and modify the paths of routes rendered by this DirectionsRenderer. 
-   * @return
+   * If true, allows the user to drag and modify the paths of routes rendered by this DirectionsRenderer.
    */
   public final native boolean getDraggable() /*-{
     return this.draggable;
@@ -70,7 +67,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * This property indicates whether the renderer should provide UI to select amongst alternative routes. By default, this flag is false and a user-selectable list of routes will be shown in the directions' associated panel. To hide that list, set hideRouteList to true.
-   * @return
    */
   public final native boolean getHideRouteList() /*-{
     return hideRouteList;
@@ -104,8 +100,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }-*/;
   
   /**
-   * Map on which to display the directions. 
-   * @return
+   * Map on which to display the directions.
    */
   public final MapWidget getMapWidget() {
     return MapWidget.newInstance(getMapImpl());
@@ -125,7 +120,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * Options for the markers. All markers rendered by the DirectionsRenderer will use these options.
-   * @return
    */
   public final native MarkerOptions getMarkerOptions() /*-{
     return this.markerOptions;
@@ -141,7 +135,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * The <code>&lt;div&gt;</code> in which to display the directions steps.
-   * @return
    */
   public final native Element getPanel() /*-{
     return this.panel;
@@ -157,7 +150,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * Options for the polylines. All polylines rendered by the DirectionsRenderer will use these options.
-   * @return
    */
   public final native PolylineOptions getPolylineOptions() /*-{
     return this.polylineOptions;
@@ -173,7 +165,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * By default, the input map is centered and zoomed to the bounding box of this set of directions. If this option is set to true, the viewport is left unchanged, unless the map's center and zoom were never set.
-   * @return
    */
   public final native boolean getPreserveViewport() /*-{
     return this.preserveViewport;
@@ -189,7 +180,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * The index of the route within the DirectionsResult object. The default value is 0.
-   * @return
    */
   public final native int getRouteIndex() /*-{
     return this.routeIndex;
@@ -205,7 +195,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * Suppress the rendering of the BicyclingLayer when bicycling directions are requested.
-   * @return
    */
   public final native boolean getSuppressBicyclingLayer() /*-{
     return this.suppressBicyclingLayer;
@@ -221,7 +210,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * Suppress the rendering of info windows.
-   * @return
    */
   public final native boolean getSuppressInfoWindows() /*-{
     return this.suppressInfoWindows;
@@ -237,7 +225,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * Suppress the rendering of markers.
-   * @return
    */
   public final native boolean getSuppressMarkers() /*-{
     return this.suppressMarkers;
@@ -253,7 +240,6 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   
   /**
    * Suppress the rendering of polylines.
-   * @return
    */
   public final native boolean getSuppressPolylines() /*-{
     return this.suppressPolylines;

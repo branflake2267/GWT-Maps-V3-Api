@@ -16,7 +16,6 @@ public class FusionTablesStyle extends JavaScriptObject {
   
   /**
    * creates - Controls the appearance of a set of features within a FusionTablesLayer. Features which match the provided SQL predicate will be styled with the supplied options.
-   * @return
    */
   public final static FusionTablesStyle newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -32,7 +31,6 @@ public class FusionTablesStyle extends JavaScriptObject {
   
   /**
    * gets Options which control the appearance of point features.
-   * @return
    */
   public final native FusionTablesMarkerOptions getMarkerOptions() /*-{
     return this.markerOptions;l
@@ -48,7 +46,6 @@ public class FusionTablesStyle extends JavaScriptObject {
   
   /**
    * gets Options which control the appearance of polygons.
-   * @return
    */
   public final native FusionTablesPolygonOptions getPolygonOptions() /*-{
     return this.polygonOptions;
@@ -64,7 +61,6 @@ public class FusionTablesStyle extends JavaScriptObject {
   
   /**
    * gets Options which control the appearance of polylines.
-   * @return
    */
   public final native FusionTablesPolylineOptions getPolylineOptions() /*-{
     return this.polylineOptions;

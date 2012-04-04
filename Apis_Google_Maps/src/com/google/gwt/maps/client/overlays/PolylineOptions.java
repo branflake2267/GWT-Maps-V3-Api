@@ -21,7 +21,6 @@ public class PolylineOptions extends JavaScriptObject {
 
   /**
    * creates a new instance of options
-   * @return
    */
   public final static PolylineOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -37,7 +36,6 @@ public class PolylineOptions extends JavaScriptObject {
   
   /**
    * gets Indicates whether this Polyline handles click events. Defaults to true.
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
@@ -72,7 +70,6 @@ public class PolylineOptions extends JavaScriptObject {
   
   /**
    * gets Map on which to display Polyline.
-   * @return
    */
   public final MapWidget getMapWidget() {
     return MapWidget.newInstance(getMapImpl());
@@ -100,7 +97,6 @@ public class PolylineOptions extends JavaScriptObject {
   
   /**
    * gets The ordered sequence of coordinates of the Polyline. This path may be specified using either a simple array of LatLngs, or an MVCArray of LatLngs. Note that if you pass a simple array, it will be converted to an MVCArray Inserting or removing LatLngs in the MVCArray will automatically update the polyline on the map.
-   * @return
    */
   public final native MVCArray<LatLng> getPath_MVCArray() /*-{
     return this.path;
@@ -108,7 +104,6 @@ public class PolylineOptions extends JavaScriptObject {
   
   /**
    * gets The ordered sequence of coordinates of the Polyline. This path may be specified using either a simple array of LatLngs, or an MVCArray of LatLngs. Note that if you pass a simple array, it will be converted to an MVCArray Inserting or removing LatLngs in the MVCArray will automatically update the polyline on the map.
-   * @return
    */
   public final native JsArray<LatLng> getPath_JsArray() /*-{
     return this.path;
@@ -169,7 +164,6 @@ public class PolylineOptions extends JavaScriptObject {
   
   /**
    * gets The zIndex compared to other polys.
-   * @return
    */
   public final native int getZindex() /*-{
     return this.zIndex;

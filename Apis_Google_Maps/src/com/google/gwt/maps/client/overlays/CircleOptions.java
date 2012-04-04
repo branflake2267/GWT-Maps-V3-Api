@@ -19,7 +19,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * creates Circle options
-   * @return
    */
   public final static CircleOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -35,7 +34,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * gets the center
-   * @return
    */
   public final native LatLng getCenter() /*-{
     return this.center;
@@ -51,7 +49,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * gets Indicates whether this Polyline handles click events. Defaults to true.
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
@@ -67,7 +64,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * The fill color. All CSS3 colors are supported except for extended named colors.
-   * @return
    */
   public final native String getFillColor() /*-{
     return this.fillColor;
@@ -83,7 +79,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * The fill opacity between 0.0 and 1.0
-   * @return
    */
   public final native double getFillOpacity() /*-{
     return this.fillOpacity;
@@ -103,7 +98,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * gets Map on which to display Polyline.
-   * @return
    */
   public final MapWidget getMapWidget() {
     return MapWidget.newInstance(getMapImpl());
@@ -123,7 +117,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * gets The radius in meters on the Earth's surface
-   * @return
    */
   public final native double getRadius() /*-{
     return this.radius;
@@ -184,7 +177,6 @@ public class CircleOptions extends JavaScriptObject {
   
   /**
    * gets The zIndex compared to other rectangles.
-   * @return
    */
   public final native int getZindex() /*-{
     return this.zIndex;

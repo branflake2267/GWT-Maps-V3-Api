@@ -13,7 +13,6 @@ public interface TileUrlCallBack {
    * 
    * @param point x,y coordinates
    * @param zoomLevel zoomLevel
-   * @return
    */
   public String getTileUrl(Point point, int zoomLevel);
 }

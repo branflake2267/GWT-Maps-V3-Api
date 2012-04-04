@@ -67,7 +67,6 @@ public class MapTypeStyle extends JavaScriptObject {
   
   /**
    * get Selects the feature, or group of features, to which a styler should be applied. Optional; if featureType is not specified, the value is assumed to be 'all'.
-   * @return
    */
   public final MapTypeStyleFeatureType getFeatureType() {
     return MapTypeStyleFeatureType.fromValue(getFeatureTypeJs());

@@ -25,7 +25,6 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   /**
    * A layer that displays data from a Fusion Table.
    * @param options
-   * @return
    */
   public final static FusionTablesLayer newInstance(FusionTablesLayerOptions options) {
     return createJso(options).cast();
@@ -49,7 +48,6 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   
   /**
    * Returns the map on which this layer is displayed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -70,7 +68,6 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   /**
    * This event is fired when a feature in the layer is clicked.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(FusionTablesMouseMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new FusionTablesMouseEventFormatter());

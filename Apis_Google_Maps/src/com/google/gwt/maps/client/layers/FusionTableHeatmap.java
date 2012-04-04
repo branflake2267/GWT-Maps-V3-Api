@@ -16,7 +16,6 @@ public class FusionTableHeatmap extends JavaScriptObject {
   
   /**
    * Specifies the appearance for a FusionTablesLayer when rendered as a heatmap.
-   * @return
    */
   public static final FusionTableHeatmap newInstance() {
     return JavaScriptObject.createObject().cast();

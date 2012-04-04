@@ -18,7 +18,6 @@ public class GeocoderGeometry extends JavaScriptObject {
   
   /**
    * Geometry information about this GeocoderResult
-   * @return
    */
   public static final GeocoderGeometry newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class GeocoderGeometry extends JavaScriptObject {
   
   /**
    * The precise bounds of this GeocodeResult, if applicable
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.bounds;
@@ -50,7 +48,6 @@ public class GeocoderGeometry extends JavaScriptObject {
   
   /**
    * The latitude/longitude coordinates of this result
-   * @return
    */
   public final native LatLng getLocation() /*-{
     return this.location;
@@ -70,7 +67,6 @@ public class GeocoderGeometry extends JavaScriptObject {
   
   /**
    * The type of location returned in location
-   * @return
    */
   public final GeocoderLocationType getLocation_Type() {
     return GeocoderLocationType.fromValue(getLocation_TypeImpl());
@@ -90,7 +86,6 @@ public class GeocoderGeometry extends JavaScriptObject {
   
   /**
    * The bounds of the recommended viewport for displaying this GeocodeResult
-   * @return
    */
   public final native LatLngBounds getViewPort() /*-{
     return this.viewport;

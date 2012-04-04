@@ -18,7 +18,6 @@ public class PlaceGeometry extends JavaScriptObject {
   
   /**
    * Defines information about the geometry of a Place.
-   * @return
    */
   public static final PlaceGeometry newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class PlaceGeometry extends JavaScriptObject {
   
   /**
    * The Place's position.
-   * @return
    */
   public final native LatLng getLocation() /*-{
     return this.location;
@@ -50,7 +48,6 @@ public class PlaceGeometry extends JavaScriptObject {
   
   /**
    * The preferred viewport when displaying this Place on a map. This property will be null if the preferred viewport for the Place is not known.
-   * @return
    */
   public final native LatLngBounds getViewPort() /*-{
     return this.viewport;

@@ -23,7 +23,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * Options for the drawing manager.
-   * @return
    */
   public static final DrawingManagerOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -39,7 +38,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * Options to apply to any new circles created with this DrawingManager. The center and radius properties are ignored, and the map property of a new circle is always set to the DrawingManager's map.
-   * @return
    */
   public final native CircleOptions getCircleOptions() /*-{
     return this.circleOptions;
@@ -55,7 +53,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * The enabled/disabled state of the drawing control. Defaults to true.
-   * @return
    */
   public final native boolean getDrawingControl() /*-{
     return this.drawingControl;
@@ -71,7 +68,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * The display options for the drawing control.
-   * @return
    */
   public final native DrawingControlOptions getDrawingControlOptions() /*-{
     return this.drawingControlOptions;
@@ -95,7 +91,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * The Map to which the DrawingManager is attached, which is the Map on which the overlays created will be placed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -127,7 +122,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
  
   /**
    * Options to apply to any new markers created with this DrawingManager. The position property is ignored, and the map property of a new marker is always set to the DrawingManager's map.
-   * @return
    */
   public final native MarkerOptions getMarkerOptions() /*-{
     return this.markerOptions;
@@ -143,7 +137,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * Options to apply to any new polygons created with this DrawingManager. The paths property is ignored, and the map property of a new polygon is always set to the DrawingManager's map.
-   * @return
    */
   public final native PolygonOptions getPolygonOptions() /*-{
     return this.polygonOptions;
@@ -159,7 +152,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * Options to apply to any new polylines created with this DrawingManager. The path property is ignored, and the map property of a new polyline is always set to the DrawingManager's map.
-   * @return
    */
   public final native PolylineOptions getPolylineOptions() /*-{
     return this.polylineOptions;
@@ -175,7 +167,6 @@ public class DrawingManagerOptions extends JavaScriptObject {
   
   /**
    * Options to apply to any new rectangles created with this DrawingManager. The bounds property is ignored, and the map property of a new rectangle is always set to the DrawingManager's map.
-   * @return
    */
   public final native RectangleOptions getRectangleOptions() /*-{
     return this.rectangleOptions;

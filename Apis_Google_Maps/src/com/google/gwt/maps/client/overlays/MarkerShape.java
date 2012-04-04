@@ -18,7 +18,6 @@ public class MarkerShape extends JavaScriptObject {
   
   /**
    * creates This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties ° type and coord ° which define the general type of marker and coordinates specific to that type of marker.
-   * @return
    */
   public final static MarkerShape newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -39,7 +38,6 @@ public class MarkerShape extends JavaScriptObject {
   
   /**
    * gets coords (refer to setter)
-   * @return
    */
   public final native JsArrayInteger getCoordinates() /*-{
     return this.coords;
@@ -63,7 +61,6 @@ public class MarkerShape extends JavaScriptObject {
   
   /**
    * gets gets Describes the shape's type and can be circle, poly or rect.
-   * @return
    */
   public final MarkerShapeType getType() {
     return MarkerShapeType.fromValue(getTypeImpl());
@@ -71,7 +68,6 @@ public class MarkerShape extends JavaScriptObject {
   
   /**
    * gets Describes the shape's type and can be circle, poly or rect.
-   * @return
    */
   private final native String getTypeImpl() /*-{
     return this.type;

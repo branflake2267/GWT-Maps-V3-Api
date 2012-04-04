@@ -18,7 +18,6 @@ public class ElevationService extends JavaScriptObject {
 
   /**
    * Creates a new instance of a ElevationService that sends elevation queries to Google servers.
-   * @return
    */
   public static final ElevationService newInstance() {
     JavaScriptObject jso = createJso();

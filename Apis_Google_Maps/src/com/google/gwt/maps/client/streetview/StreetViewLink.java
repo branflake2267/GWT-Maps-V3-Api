@@ -17,7 +17,6 @@ public class StreetViewLink extends JavaScriptObject {
 
   /**
    * A collection of references to adjacent Street View panos.
-   * @return
    */
   public static final StreetViewLink newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -33,7 +32,6 @@ public class StreetViewLink extends JavaScriptObject {
   
   /**
    * gets A localized string describing the link.
-   * @return
    */
   public final native String getDescription() /*-{
     return this.description;
@@ -49,7 +47,6 @@ public class StreetViewLink extends JavaScriptObject {
   
   /**
    * gets The heading of the link.
-   * @return
    */
   public final native int getHeading() /*-{
     return this.heading;
@@ -65,7 +62,6 @@ public class StreetViewLink extends JavaScriptObject {
   
   /**
    * gets A unique identifier for the panorama. This id is stable within a session but unstable across sessions.
-   * @return
    */
   public final native String getPano() /*-{
     return this.pano;

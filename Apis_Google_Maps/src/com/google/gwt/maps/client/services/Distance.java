@@ -16,7 +16,6 @@ public class Distance extends JavaScriptObject {
   
   /**
    * A representation of distance as a numeric value and a display string.
-   * @return
    */
   public static final Distance newInstance() {
     return JavaScriptObject.createObject().cast();

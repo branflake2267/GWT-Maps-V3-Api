@@ -16,7 +16,6 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * Options which control the appearance of polylines in a FusionTablesLayer.
-   * @return
    */
   public final static FusionTablesPolylineOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -32,7 +31,6 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * gets The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
-   * @return
    */
   public final native String getStrokeColor() /*-{
     return this.strokeColor;
@@ -47,8 +45,7 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
   }-*/;
 
   /**
-   * gets The stroke opacity between 0.0 and 1.0. 
-   * @return
+   * gets The stroke opacity between 0.0 and 1.0.
    */
   public final native double getStrokeOpacity() /*-{
     return this.strokeOpacity;
@@ -64,7 +61,6 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * gets The stroke width in pixels, between 0 and 10.
-   * @return
    */
   public final native int getStrokeWeight() /*-{
     return this.strokeWeight;

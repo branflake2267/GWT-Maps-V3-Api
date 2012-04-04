@@ -18,8 +18,7 @@ public class PlaceResult extends JavaScriptObject {
   protected PlaceResult() {}
   
   /**
-   * 
-   * @return
+   * Create new {@link PlaceResult} instance.
    */
   public static final PlaceResult newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -35,7 +34,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * The collection of address components for this Place's location.
-   * @return
    */
   public final native JsArray<GeocoderAddressComponent> getAddress_Components() /*-{
     return this.address_components;
@@ -51,7 +49,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * The Place's full address.
-   * @return
    */
   public final native String getFormatted_Address() /*-{
     return this.formatted_address;
@@ -82,7 +79,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * The Place's geometry-related information.
-   * @return
    */
   public final native PlaceGeometry getGeometry() /*-{
     return this.geometry;
@@ -113,7 +109,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * URL to an image resource that can be used to represent this Place's category.
-   * @return
    */
   public final native String getIcon() /*-{
     return this.icon;
@@ -129,7 +124,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * A unique identifier denoting this Place. This identifier may not be used to retrieve information about this Place, and to verify the identity of a Place across separate searches. As ids can occasionally change, it is recommended that the stored id for a Place be compared with the id returned in later Details requests for the same Place, and updated if necessary.
-   * @return
    */
   public final native String getId() /*-{
     return this.id;
@@ -145,7 +139,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * The Place's phone number in international format. International format includes the country code, and is prefixed with the plus (+) sign.
-   * @return
    */
   public final native String getInternational_Phone_Number() /*-{
     return this.international_phone_number;
@@ -165,7 +158,6 @@ public class PlaceResult extends JavaScriptObject {
    * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks.
    * <br><br>
    * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code Injection</a>
-   * @return
    */
   public final native String getName() /*-{
     return this.name;
@@ -181,7 +173,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * The Place's rating, from 0.0 to 5.0, based on user reviews.
-   * @return
    */
   public final native int getRating() /*-{
     return this.rating;
@@ -197,7 +188,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * An opaque string that may be used to retrieve up-to-date information about this Place (via PlacesService.getDetails()). reference contains a unique token that you can use to retrieve additional information about this Place in a Place Details request. You can store this token and use it at any time in future to refresh cached data about this Place, but the same token is not guaranteed to be returned for any given Place across different searches.
-   * @return
    */
   public final native String getReference() /*-{
     return this.reference;
@@ -213,7 +203,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * An array of types for this Place (e.g., ["political",  "locality"] or ["restaurant", "establishment"]).
-   * @return
    */
   public final native JsArrayString getTypes() /*-{
     return this.types;
@@ -229,7 +218,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * URL of the associated Google Place Page.
-   * @return
    */
   public final native String getUrl() /*-{
     return this.url;
@@ -245,7 +233,6 @@ public class PlaceResult extends JavaScriptObject {
   
   /**
    * A fragment of the Place's address for disambiguation (usually street name and locality).
-   * @return
    */
   public final native String getVicinity() /*-{
     return this.vicinity;

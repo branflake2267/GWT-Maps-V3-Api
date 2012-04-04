@@ -19,7 +19,6 @@ public class Point extends JavaScriptObject {
    * creates A point on a two-dimensional plane.
    * @param x
    * @param y
-   * @return
    */
   public final static Point newInstance(double x, double y) {
     return createJso(x, y).cast();
@@ -32,7 +31,6 @@ public class Point extends JavaScriptObject {
   /**
    * Compares two Points
    * @param other
-   * @return
    */
   public final native boolean equals(Point other) /*-{
     return this.equals(other);
@@ -40,7 +38,6 @@ public class Point extends JavaScriptObject {
   
   /**
    * Returns a string representation of this Point.
-   * @return
    */
   public final native String getToString() /*-{
     return this.toString();
@@ -48,7 +45,6 @@ public class Point extends JavaScriptObject {
   
   /**
    * get X coordinate
-   * @return
    */
   public final native double getX() /*-{
     return this.x;
@@ -56,7 +52,6 @@ public class Point extends JavaScriptObject {
   
   /**
    * get Y coordinate
-   * @return
    */
   public final native double getY() /*-{
     return this.y;

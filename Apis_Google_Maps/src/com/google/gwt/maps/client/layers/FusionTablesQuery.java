@@ -32,7 +32,6 @@ public class FusionTablesQuery extends JavaScriptObject {
   
   /**
    * gets The ID of the Fusion Tables table to display. This ID can be found in the tables URL, as the value of the dsrcid parameter.
-   * @return
    */
   public final native String getFrom() /*-{
     return this.from;
@@ -48,7 +47,6 @@ public class FusionTablesQuery extends JavaScriptObject {
   
   /**
    * gets A column, containing geographic features to be displayed on the map. See Fusion Table Setup in the Maps API documentation for information about valid columns.
-   * @return
    */
   public final native String getSelect() /*-{
     return this.select;
@@ -64,7 +62,6 @@ public class FusionTablesQuery extends JavaScriptObject {
   
   /**
    * gets The SQL predicate to be applied to the layer.
-   * @return
    */
   public final native String getWhere() /*-{
     return this.where;

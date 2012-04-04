@@ -16,7 +16,6 @@ public class Duration extends JavaScriptObject {
 
   /**
    * A representation of duration as a numeric value and a display string.
-   * @return
    */
   public static final Duration newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -32,7 +31,6 @@ public class Duration extends JavaScriptObject {
   
   /**
    * A string representation of the duration value.
-   * @return
    */
   public final native String getText() /*-{
     return this.text;
@@ -48,7 +46,6 @@ public class Duration extends JavaScriptObject {
   
   /**
    * The duration in seconds.
-   * @return
    */
   public final native int getValue() /*-{
     return this.value;

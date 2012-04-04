@@ -39,7 +39,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   /**
    * Creates an info window with the given options. An InfoWindow can be placed on a map at a particular position or above a marker, depending on what is specified in the options. Unless auto-pan is disabled, an InfoWindow will pan the map to make itself visible when it is opened. After constructing an InfoWindow, you must call open to display it on the map. The user can click the close button on the InfoWindow to remove it from the map, or the developer can call close() for the same effect.
    * @param options {@link InfoWindowOptions}
-   * @return
    */
   public static final InfoWindow newInstance(InfoWindowOptions options) {
     return createJso(options).cast();
@@ -74,7 +73,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   
   /**
    * get Position
-   * @return
    */
   public final native LatLng getPosition() /*-{
     return this.getPosition();
@@ -82,7 +80,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   
   /**
    * get Z index
-   * @return
    */
   public final native int getZindex() /*-{
     return this.getZIndex();
@@ -189,7 +186,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   /**
    * This event is fired when the close button was clicked.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addCloseClickHandler(CloseClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLOSECLICK, handler, new CloseClickEventFormatter());
@@ -198,7 +194,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   /**
    * This event is fired when the content property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addContentChangeHandler(ContentChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CONTENT_CHANGED, handler, new ContentChangeEventFormatter());
@@ -207,7 +202,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   /**
    * This event is fired when the <code>&lt;div&gt;</code> containing the InfoWindow's content is attached to the DOM. You may wish to monitor this event if you are building out your info window content dynamically.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDomReadyHandler(DomReadyMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DOMREADY, handler, new DomReadyEventFormatter());
@@ -216,7 +210,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   /**
    * This event is fired when the position property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addPositionChangeHandler(PositionChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.POSITION_CHANGED, handler, new PositionChangeEventFormatter());
@@ -225,7 +218,6 @@ public class InfoWindow extends MVCObject<InfoWindow> {
   /**
    * This event is fired when the InfoWindow's zIndex changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addZindexChangedHandler(ZindexChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.ZINDEX_CHANGED, handler, new ZindexChangeEventFormatter());

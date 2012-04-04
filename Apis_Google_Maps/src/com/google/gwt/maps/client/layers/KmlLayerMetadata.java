@@ -16,7 +16,6 @@ public class KmlLayerMetadata extends JavaScriptObject {
 
   /**
    * Metadata for a single KML layer, in JSON format.
-   * @return
    */
   public static final KmlLayerMetadata newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -32,7 +31,6 @@ public class KmlLayerMetadata extends JavaScriptObject {
   
   /**
    * The layer's <atom:author>, extracted from the layer markup.
-   * @return
    */
   public final native KmlAuthor getAuthor() /*-{
     return this.author;
@@ -63,7 +61,6 @@ public class KmlLayerMetadata extends JavaScriptObject {
   
   /**
    * The layer's <name>, extracted from the layer markup.
-   * @return
    */
   public final native String getName() /*-{
     return this.name;
@@ -79,7 +76,6 @@ public class KmlLayerMetadata extends JavaScriptObject {
   
   /**
    * The layer's <Snippet>, extracted from the layer markup
-   * @return
    */
   public final native String getSnippet() /*-{
     return this.snippet;

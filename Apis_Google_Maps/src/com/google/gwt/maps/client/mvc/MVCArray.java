@@ -28,8 +28,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   
   /**
    * A mutable MVC Array.
-   * @param newInstance
-   * @return
    */
   public final static <T extends JavaScriptObject> MVCArray<T> newInstance() {
     return createJso().cast();
@@ -38,7 +36,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * A mutable MVC Array.
    * @param array
-   * @return
    */
   public final static <T extends JavaScriptObject> MVCArray<T> newInstance(JsArray<T> array) {
     if (array == null) {
@@ -50,7 +47,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * A mutable MVC Array.  
    * @param array one ore more objects (like T[] or T)
-   * @return
    */
   public final static <T extends JavaScriptObject> MVCArray<T> newInstance(T... array) {
     if (array == null) {
@@ -106,7 +102,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   
   /**
    * Returns a reference to the underlying Array. Warning: if the Array is mutated, no events will be fired by this object.
-   * @return
    */
   public final native JsArray<T> getArray() /*-{
     return this.getArray();
@@ -115,7 +110,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * Get an element at the specified index.
    * @param index
-   * @return
    */
   public final native T get(int index) /*-{
     return this.getAt(index);
@@ -123,7 +117,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   
   /**
    * Returns the number of elements in this array.
-   * @return
    */
   public final native int getLength() /*-{
     return this.getLength();
@@ -158,7 +151,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * Removes an element from the specified index.
    * @param index
-   * @return
    */
   public final native T removeAt(int index) /*-{
     return this.removeAt(index);
@@ -176,7 +168,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * This event is fired when insertAt() is called. The event passes the index that was passed to insertAt().
    * @param handler
-   * @return
    */
   public final HandlerRegistration addInsertAtHandler(InsertAtMapHandler handler) {
     return MapHandlerRegistration.addHandlerMvc(this, MapEventType.INSERT_AT, handler, new InsertAtEventFormatter());
@@ -185,7 +176,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * This event is fired when removeAt() is called. The event passes the index that was passed to removeAt() and the element that was removed from the array.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRemoveAtHandler(RemoveAtMapHandler handler) {
     return MapHandlerRegistration.addHandlerMvc(this, MapEventType.REMOVE_AT, handler, new RemoveAtEventFormatter());
@@ -194,7 +184,6 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
   /**
    * This event is fired when setAt() is called. The event passes the index that was passed to setAt() and the element that was previously in the array at that index.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addSetAtHandler(SetAtMapHandler handler) {
     return MapHandlerRegistration.addHandlerMvc(this, MapEventType.SET_AT, handler, new SetAtEventFormatter());

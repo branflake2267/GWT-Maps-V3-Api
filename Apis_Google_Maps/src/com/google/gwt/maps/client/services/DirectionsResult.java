@@ -17,7 +17,6 @@ public class DirectionsResult extends JavaScriptObject {
   
   /**
    * An array of DirectionsRoutes, each of which contains information about the legs and steps of which it is composed. There will only be one route unless the DirectionsRequest was made with provideRouteAlternatives set to true. (This property was formerly known as "trips".)
-   * @return
    */
   public static final DirectionsResult newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -33,7 +32,6 @@ public class DirectionsResult extends JavaScriptObject {
   
   /**
    * An array of DirectionsRoutes, each of which contains information about the legs and steps of which it is composed. There will only be one route unless the DirectionsRequest was made with provideRouteAlternatives set to true. (This property was formerly known as "trips".)
-   * @return
    */
   public final native JsArray<DirectionsRoute> getRoutes() /*-{
     return this.routes;

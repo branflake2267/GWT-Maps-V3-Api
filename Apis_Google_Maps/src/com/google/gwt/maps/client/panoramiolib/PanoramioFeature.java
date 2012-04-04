@@ -18,7 +18,6 @@ public class PanoramioFeature extends JavaScriptObject {
   /**
    * generated from event
    * Describes a single Panoramio feature.
-   * @return
    */
   public static final PanoramioFeature newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -102,7 +101,6 @@ public class PanoramioFeature extends JavaScriptObject {
    * The unique identifier for the user who uploaded this photo, as used in the Panoramio API.
    * <br><br>
    * See <a href="http://www.panoramio.com/api/widget/api.html">Panoramio API</a>.
-   * @return
    */
   public final native String getUserId() /*-{
     return this.userId;

@@ -16,7 +16,6 @@ public class FusionTablesMarkerOptions extends JavaScriptObject {
   
   /**
    * Options which control the appearance of point features in a FusionTablesLayer.
-   * @return
    */
   public static final FusionTablesMarkerOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class FusionTablesMarkerOptions extends JavaScriptObject {
   /**
    * gets The name of a Fusion Tables supported icon.
    * See <a href="http://www.google.com/fusiontables/DataSource?dsrcid=308519">list of map icons</a>.
-   * @return
    */
   public final native String getIconName() /*-{
     return this.iconName;

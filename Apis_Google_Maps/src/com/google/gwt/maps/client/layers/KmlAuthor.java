@@ -13,7 +13,6 @@ public class KmlAuthor extends JavaScriptObject {
   
   /**
    * Contains details of the author of a KML document or feature.
-   * @return
    */
   public static final KmlAuthor newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -29,7 +28,6 @@ public class KmlAuthor extends JavaScriptObject {
   
   /**
    * The author's e-mail address, or an empty string if not specified.
-   * @return
    */
   public final native String getEmail() /*-{
     return this.email;
@@ -45,7 +43,6 @@ public class KmlAuthor extends JavaScriptObject {
   
   /**
    * The author's name, or an empty string if not specified.
-   * @return
    */
   public final native String getName() /*-{
     return this.name;

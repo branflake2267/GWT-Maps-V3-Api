@@ -17,7 +17,6 @@ public class OverviewMapControlOptions extends JavaScriptObject {
   
   /**
    * creates a new instance for, Options for the rendering of the Overview Map control.
-   * @return
    */
   public final static OverviewMapControlOptions newInstance() {
     return JavaScriptObject.createObject().cast();

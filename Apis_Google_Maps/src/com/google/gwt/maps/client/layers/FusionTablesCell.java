@@ -18,7 +18,6 @@ public class FusionTablesCell extends MVCObject<FusionTablesCell> {
   
   /**
    * Describes a single cell from a Fusion Tables table.
-   * @return
    */
   public final static FusionTablesCell newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class FusionTablesCell extends MVCObject<FusionTablesCell> {
   
   /**
    * The name of the column in which the cell was located.
-   * @return
    */
   public final native String getColumnName() /*-{
     return this.columnName;
@@ -50,7 +48,6 @@ public class FusionTablesCell extends MVCObject<FusionTablesCell> {
   
   /**
    * The contents of the cell.
-   * @return
    */
   public final native String getValue() /*-{
     return this.value;

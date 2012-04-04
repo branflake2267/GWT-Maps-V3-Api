@@ -125,7 +125,6 @@ public class LoadApi {
   /**
    * get the url libraries parameter
    * @param loadLibraries
-   * @return
    */
   private static String getLibraries(ArrayList<LoadLibrary> loadLibraries) {
     if (loadLibraries == null) {

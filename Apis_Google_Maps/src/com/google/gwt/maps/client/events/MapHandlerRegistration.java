@@ -18,7 +18,6 @@ public class MapHandlerRegistration {
    * @param eventType
    * @param handler
    * @param formatter
-   * @return
    */
   public static <E extends MapEvent> HandlerRegistration addHandler(
       JavaScriptObject jso, 
@@ -40,7 +39,6 @@ public class MapHandlerRegistration {
    * @param eventType
    * @param handler
    * @param formatter
-   * @return
    */
   public static <E extends MapEvent> HandlerRegistration addHandlerMvc(
       JavaScriptObject jso, 
@@ -62,7 +60,6 @@ public class MapHandlerRegistration {
    * @param eventType
    * @param handler
    * @param formatter
-   * @return
    */
   public static <E extends MapEvent> HandlerRegistration addHandlerDrawing(
       JavaScriptObject jso, 
@@ -84,7 +81,6 @@ public class MapHandlerRegistration {
    * @param eventName
    * @param handler
    * @param formatter
-   * @return
    */
   private static native <E extends MapEvent> JavaScriptObject addHandlerImpl(
       JavaScriptObject jso, 
@@ -103,7 +99,6 @@ public class MapHandlerRegistration {
    * @param eventName
    * @param handler
    * @param formatter
-   * @return
    */
   private static native <E extends MapEvent> JavaScriptObject addHandlerImplMvc(
       JavaScriptObject jso, 
@@ -125,7 +120,6 @@ public class MapHandlerRegistration {
    * @param eventName
    * @param handler
    * @param formatter
-   * @return
    */
   private static native <E extends MapEvent> JavaScriptObject addHandlerImplDrawing(
       JavaScriptObject jso, 

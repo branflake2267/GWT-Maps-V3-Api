@@ -40,7 +40,6 @@ public class OverlayView extends MVCObject<OverlayView> {
   
   /**
    * get mapWidget
-   * @return
    */
   public final MapWidget getMapWidget() {
     return MapWidget.newInstance(getMapImpl());
@@ -52,7 +51,6 @@ public class OverlayView extends MVCObject<OverlayView> {
 
   /**
    * Returns the panes in which this OverlayView can be rendered. Only available after draw has been called.
-   * @return
    */
   public final native MapPanes getPanes() /*-{
     return this.getPanes();
@@ -60,7 +58,6 @@ public class OverlayView extends MVCObject<OverlayView> {
   
   /**
    * Returns the MapCanvasProjection object associated with this OverlayView. Only available after draw has been called.
-   * @return
    */
   public final native MapCanvasProjection getProjection() /*-{
     return this.getProjection();

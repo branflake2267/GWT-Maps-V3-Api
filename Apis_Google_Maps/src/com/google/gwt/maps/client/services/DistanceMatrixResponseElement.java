@@ -16,7 +16,6 @@ public class DistanceMatrixResponseElement extends JavaScriptObject {
   
   /**
    * A single element of a response to a DistanceMatrixService request, which contains the duration and distance from one origin to one destination.
-   * @return
    */
   public static final DistanceMatrixResponseElement newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -32,7 +31,6 @@ public class DistanceMatrixResponseElement extends JavaScriptObject {
 
   /**
    * The distance for this origin-destination pairing. This property may be undefined as the distance may be unknown.
-   * @return
    */
   public final native Distance getDistance() /*-{
     return this.distance;
@@ -48,7 +46,6 @@ public class DistanceMatrixResponseElement extends JavaScriptObject {
   
   /**
    * The duration for this origin-destination pairing. This property may be undefined as the duration may be unknown.
-   * @return
    */
   public final native Duration getDuration() /*-{
     return this.duration;
@@ -68,7 +65,6 @@ public class DistanceMatrixResponseElement extends JavaScriptObject {
   
   /**
    * The status of this particular origin-destination pairing.
-   * @return
    */
   public final DistanceMatrixElementStatus getStatus() {
     return DistanceMatrixElementStatus.fromValue(getStatusImpl());

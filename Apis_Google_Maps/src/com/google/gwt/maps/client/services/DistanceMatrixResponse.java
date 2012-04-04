@@ -19,7 +19,6 @@ public class DistanceMatrixResponse extends JavaScriptObject {
   
   /**
    * The response to a DistanceMatrixService request, consisting of the formatted origin and destination addresses, and a sequence of DistanceMatrixResponseRows, one for each corresponding origin address.
-   * @return
    */
   public static final DistanceMatrixResponse newInstance() {
     return createJso().cast();
@@ -39,7 +38,6 @@ public class DistanceMatrixResponse extends JavaScriptObject {
   
   /**
    * The formatted destination addresses.
-   * @return
    */
   public final native JsArrayString getDestinationAddresses() /*-{
     return this.destinationAddresses;
@@ -55,7 +53,6 @@ public class DistanceMatrixResponse extends JavaScriptObject {
   
   /**
    * The formatted origin addresses.
-   * @return
    */
   public final native JsArrayString getOriginAddresses() /*-{
     return this.originAddresses;
@@ -71,7 +68,6 @@ public class DistanceMatrixResponse extends JavaScriptObject {
   
   /**
    * The rows of the matrix, corresponding to the origin addresses.
-   * @return
    */
   public final native JsArray<DistanceMatrixResponseRow> getRows() /*-{
     return this.rows;

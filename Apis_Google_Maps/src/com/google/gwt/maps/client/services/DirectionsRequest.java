@@ -19,7 +19,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * A directions query to be sent to the DirectionsService.
-   * @return
    */
   public static final DirectionsRequest newInstance() {
     JavaScriptObject jso = JavaScriptObject.createObject();
@@ -44,7 +43,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * If true, instructs the Directions service to avoid highways where possible. Optional.
-   * @return
    */
   public final native boolean getAvoidHighways() /*-{
     return this.avoidHighways;
@@ -60,7 +58,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * If true, instructs the Directions service to avoid toll roads where possible. Optional.
-   * @return
    */
   public final native boolean getAvoidTolls() /*-{
     return this.avoidTolls;
@@ -91,7 +88,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Location of destination. This can be specified as either a string to be geocoded or a LatLng.
-   * @return
    */
   public final native LatLng getDestination_LatLng() /*-{
     return this.destination;
@@ -107,7 +103,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * If set to true, the DirectionService will attempt to re-order the supplied intermediate waypoints to minimize overall cost of the route. If waypoints are optimized, inspect DirectionsRoute.waypoint_order in the response to determine the new ordering.
-   * @return
    */
   public final native boolean getOptimizeWaypoints() /*-{
     return this.optimizeWaypoints;
@@ -115,15 +110,14 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Location of origin. This can be specified as either a string to be geocoded or a LatLng. Required.
-   * @param orgin
+   * @param origin
    */
   public final native void setOrigin(String origin) /*-{
     this.origin = origin;
   }-*/;
   
   /**
-   * Location of origin. This can be specified as either a string to be geocoded or a LatLng. 
-   * @return
+   * Location of origin. This can be specified as either a string to be geocoded or a LatLng.
    */
   public final native String getOrigin_String() /*-{
     return this.origin;
@@ -154,7 +148,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Whether or not route alternatives should be provided. Optional.
-   * @return
    */
   public final native boolean getProvideRouteAlternatives() /*-{
     return this.provideRouteAlternatives;
@@ -170,7 +163,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Region code used as a bias for geocoding requests. Optional.
-   * @return
    */
   public final native String getRegion() /*-{
     return this.region;
@@ -190,7 +182,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Type of routing requested. Required.
-   * @return
    */
   public final TravelMode getTravelMode() {
     return TravelMode.fromValue(getTravelModeImpl());
@@ -214,7 +205,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Preferred unit system to use when displaying distance. Defaults to the unit system used in the country of origin.
-   * @return
    */
   public final UnitSystem getUnitSystem() {
     return UnitSystem.fromValue(getUnitSystemImpl());
@@ -234,7 +224,6 @@ public class DirectionsRequest extends JavaScriptObject {
   
   /**
    * Array of intermediate waypoints. Directions will be calculated from the origin to the destination by way of each waypoint in this array. Optional.
-   * @return
    */
   public final native JsArray<DirectionsWaypoint> getWaypoints() /*-{
     return this.waypoints;

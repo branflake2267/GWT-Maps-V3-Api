@@ -27,7 +27,6 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
   
   /**
    * get A KmlFeatureData object, containing information about the clicked feature.
-   * @return
    */
   public KmlFeatureData getFeatureData() {
     KmlFeatureData featureData = null;
@@ -54,7 +53,6 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
 
   /**
    * get The offset to apply to an infowindow anchored on the clicked feature.
-   * @return
    */
   public Size getPixelOffset() {
     Size pixelOffset = null;

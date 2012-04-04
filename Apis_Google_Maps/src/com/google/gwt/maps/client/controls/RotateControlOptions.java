@@ -11,7 +11,6 @@ public class RotateControlOptions extends JavaScriptObject {
 
   /**
    * create a new instance of Options for the rendering of the rotate control.
-   * @return
    */
   public final static RotateControlOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -25,7 +24,6 @@ public class RotateControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());

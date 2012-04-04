@@ -43,7 +43,6 @@ public class KmlGenerator extends HttpServlet {
    * get the kml stuff
    * 
    * @param request
-   * @return
    */
   private String getKml(HttpServletRequest request) {
     
@@ -93,7 +92,6 @@ public class KmlGenerator extends HttpServlet {
   /**
    * you could get these from app engine query dynamically, using parameters from the querystring
    * @param index
-   * @return
    */
   private String getLink(int index) {
     if (example == null) {

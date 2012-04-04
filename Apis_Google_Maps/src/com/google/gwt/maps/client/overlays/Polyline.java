@@ -43,7 +43,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * Create a polyline using the passed PolylineOptions, which specify both the path of the polyline and the stroke style to use when drawing the polyline. You may pass either an array of LatLngs or an MVCArray of LatLngs when constructing a polyline, though simple arrays are converted to MVCArrays within the polyline upon instantiation.
    * @param options {@link PolylineOptions}
-   * @return
    */
   public static final Polyline newInstance(PolylineOptions options) {
     return createJso(options).cast();
@@ -55,7 +54,6 @@ public class Polyline extends MVCObject<Polyline> {
   
   /**
    * Returns whether this shape can be edited by the user.
-   * @return
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
@@ -63,7 +61,6 @@ public class Polyline extends MVCObject<Polyline> {
   
   /**
    * Returns the map on which this shape is attached.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -75,7 +72,6 @@ public class Polyline extends MVCObject<Polyline> {
   
   /**
    * Retrieves the first path.
-   * @return
    */
   public final native MVCArray<LatLng> getPath() /*-{
     return this.getPath();
@@ -128,7 +124,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired when the DOM click event is fired on the Polyline.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
@@ -137,7 +132,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired when the DOM dblclick event is fired on the Polyline.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
@@ -146,7 +140,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired when the DOM mousedown event is fired on the Polyline.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
@@ -155,7 +148,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired when the DOM mousemove event is fired on the Polyline.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler, new MouseMoveEventFormatter());
@@ -164,7 +156,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired on Polyline mouseout.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
@@ -173,7 +164,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired on Polyline mouseover.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
@@ -182,7 +172,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired when the DOM mouseup event is fired on the Polyline.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
@@ -191,7 +180,6 @@ public class Polyline extends MVCObject<Polyline> {
   /**
    * This event is fired when the Polyline is right-clicked on.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());

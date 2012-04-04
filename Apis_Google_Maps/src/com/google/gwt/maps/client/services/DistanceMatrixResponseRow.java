@@ -26,7 +26,6 @@ public class DistanceMatrixResponseRow extends JavaScriptObject {
   
   /**
    * The row's elements, corresponding to the destination addresses.
-   * @return
    */
   public final native JsArray<DistanceMatrixResponseElement> getElements() /*-{
     return this.elements;

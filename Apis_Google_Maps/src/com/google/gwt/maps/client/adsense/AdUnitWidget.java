@@ -38,7 +38,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's channelNumber property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addChannelNumberChangeHandler(ChannelNumberChangeMapHandler handler) {
     return impl.addChannelNumberChangeHandler(handler);
@@ -47,7 +46,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's format property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addFormatChangeHandler(FormatChangeMapHandler handler) {
     return impl.addFormatChangeHandler(handler);
@@ -56,7 +54,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's map property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMapChangeHandler(MapChangeMapHandler handler) {
     return impl.addMapChangeHandler(handler);
@@ -65,7 +62,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's position property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addPositionChangeHandler(PositionChangeMapHandler handler) {
     return impl.addPositionChangeHandler(handler);
@@ -73,7 +69,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
 
   /**
    * Returns the channel number in use by this AdUnit.
-   * @return
    */
   public final String getChannelNumber() {
 		return impl.getChannelNumber();
@@ -81,7 +76,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
 
   /**
    * Returns the containing element of the AdUnit.
-   * @return
    */
   public final Element getContainer() {
 		return impl.getContainer();
@@ -89,7 +83,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
 
   /**
    * Returns the format in use by this AdUnit.
-   * @return
    */
   public final AdFormat getFormat() {
 		return impl.getFormat();
@@ -97,7 +90,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
 
   /**
    * Returns the map to which this AdUnit's ads are targeted.
-   * @return
    */
   public final MapWidget getMap() {
     return impl.getMap();
@@ -105,7 +97,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
 
   /**
    * Returns the ControlPosition at which this AdUnit is displayed on the map.
-   * @return
    */
   public final ControlPosition getPosition() {
     return impl.getPosition();
@@ -113,7 +104,6 @@ public class AdUnitWidget extends MVCObjectWidget<AdUnitImpl> {
   
   /**
    * Returns the specified AdSense For Content publisher ID.
-   * @return
    */
   public final String getPublisherId() {
 		return impl.getPublisherId();

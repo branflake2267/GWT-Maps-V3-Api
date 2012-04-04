@@ -17,7 +17,6 @@ public class ImageMapType extends JavaScriptObject {
   /**
    * Constructs an ImageMapType using the provided ImageMapTypeOptions
    * @param options
-   * @return
    */
   public final static ImageMapType newInstance(ImageMapTypeOptions options) {
       return createJso(options).cast();

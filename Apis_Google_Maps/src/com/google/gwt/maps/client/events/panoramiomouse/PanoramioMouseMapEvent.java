@@ -41,7 +41,6 @@ public class PanoramioMouseMapEvent extends MapEvent<PanoramioMouseMapHandler, P
   
   /**
    * Pre-rendered HTML content, as placed in the infowindow by the default UI.
-   * @return
    */
   public String getInfoWindowHtml() {
     String infoWindowHtml = null;
@@ -69,7 +68,6 @@ public class PanoramioMouseMapEvent extends MapEvent<PanoramioMouseMapHandler, P
 
   /**
    * gets The offset to apply to an infowindow anchored on the clicked feature.
-   * @return
    */
   public Size getPixelOffset() {
     Size pixelOffset = null;

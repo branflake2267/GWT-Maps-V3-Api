@@ -19,10 +19,8 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
   
   /**
    * (Main purpose is for internal use only)
-   * 
+   * <br>
    * create instance of MVCObject (inherited class)
-   * @param createInstanceOfMVCObject - type is being init
-   * @return
    */
   public final static <T extends JavaScriptObject> MVCObject<T> createInstanceOfMVCObject() {
     return createJsoMvcObject().cast();
@@ -30,7 +28,6 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
 
   /**
    * Binds a View to a Model.
-   * @return
    */
   private final static native JavaScriptObject createJsoMvcObject() /*-{
     return $wnd.google.maps.MVCObject();
@@ -77,7 +74,6 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
   /**
    * Gets a value.
    * @param key
-   * @return
    */
   public final native T get(String key) /*-{
     return this.get(key);

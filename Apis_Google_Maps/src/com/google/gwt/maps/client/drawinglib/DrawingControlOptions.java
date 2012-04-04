@@ -19,7 +19,6 @@ public class DrawingControlOptions extends JavaScriptObject {
   
   /**
    * Options for the rendering of the drawing control.
-   * @return
    */
   public static final DrawingControlOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -48,7 +47,6 @@ public class DrawingControlOptions extends JavaScriptObject {
 
   /**
    * The drawing modes to display in the drawing control, in the order in which they are to be displayed. The hand icon (which corresponds to the null drawing mode) is always available and is not to be specified in this array. Defaults to [MARKER, POLYLINE, RECTANGLE, CIRCLE, POLYGON].
-   * @return
    */
   public final OverlayType[] getDrawingModes() {
     JsArrayString types = getDrawingModesImpl();
@@ -80,7 +78,6 @@ public class DrawingControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());

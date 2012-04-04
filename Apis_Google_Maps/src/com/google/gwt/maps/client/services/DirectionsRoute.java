@@ -20,8 +20,7 @@ public class DirectionsRoute extends JavaScriptObject {
   protected DirectionsRoute() {}
   
   /**
-   * A single route containing a set of legs in a DirectionsResult. (This object was formerly known as "DirectionsTrip".) Note that though this object is "JSON-like," it is not strictly JSON, as it directly and indirectly includes LatLng objects. 
-   * @return
+   * A single route containing a set of legs in a DirectionsResult. (This object was formerly known as "DirectionsTrip".) Note that though this object is "JSON-like," it is not strictly JSON, as it directly and indirectly includes LatLng objects.
    */
   public static final DirectionsRoute newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -37,7 +36,6 @@ public class DirectionsRoute extends JavaScriptObject {
   
   /**
    * The bounds for this route.
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.bounds;
@@ -53,7 +51,6 @@ public class DirectionsRoute extends JavaScriptObject {
   
   /**
    * Copyrights text to be displayed for this route.
-   * @return
    */
   public final native String getCopyrights() /*-{
     return this.copyrights;
@@ -69,7 +66,6 @@ public class DirectionsRoute extends JavaScriptObject {
   
   /**
    * An array of DirectionsLegs, each of which contains information about the steps of which it is composed. There will be one leg for each waypoint or destination specified. So a route with no waypoints will contain one DirectionsLeg and a route with one waypoint will contain two. (This property was formerly known as "routes".)
-   * @return
    */
   public final native JsArray<DirectionsLeg> getLegs() /*-{
     return this.legs;
@@ -85,7 +81,6 @@ public class DirectionsRoute extends JavaScriptObject {
   
   /**
    * An array of LatLngs representing the entire course of this route. The path is simplified in order to make it suitable in contexts where a small number of vertices is required (such as Static Maps API URLs).
-   * @return
    */
   public final native JsArray<LatLng> getOverview_Path() /*-{
     return this.overview_path;
@@ -101,7 +96,6 @@ public class DirectionsRoute extends JavaScriptObject {
   
   /**
    * Warnings to be displayed when showing these directions.
-   * @return
    */
   public final native JsArrayString getWarnings() /*-{
     return this.warnings;
@@ -135,7 +129,6 @@ public class DirectionsRoute extends JavaScriptObject {
       Destination: New York
     then this field will be an Array containing the values [2, 0, 1]. Note that the numbering of waypoints is zero-based.
     If any of the input waypoints has stopover set to false, this field will be empty, since route optimization is not available for such queries.
-   * @return
    */
   public final native JsArrayInteger getWayPoint_Order() /*-{
     return this.waypoint_order;

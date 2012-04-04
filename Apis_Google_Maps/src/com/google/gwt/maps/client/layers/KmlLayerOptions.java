@@ -18,7 +18,6 @@ public class KmlLayerOptions extends JavaScriptObject {
   
   /**
    * This object defines the properties that can be set on a KmlLayer object.
-   * @return
    */
   public static final KmlLayerOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class KmlLayerOptions extends JavaScriptObject {
   
   /**
    * If true, the layer receives mouse events. Default value is true.
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
@@ -54,7 +52,6 @@ public class KmlLayerOptions extends JavaScriptObject {
   
   /**
    * Get the map on which the KML Layer is being rendered.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -74,7 +71,6 @@ public class KmlLayerOptions extends JavaScriptObject {
   
   /**
    * By default, the input map is centered and zoomed to the bounding box of the contents of the layer. If this option is set to true, the viewport is left unchanged, unless the map's center and zoom were never set.
-   * @return
    */
   public final native boolean getPreserveViewport() /*-{
     return this.preserveViewport;
@@ -90,7 +86,6 @@ public class KmlLayerOptions extends JavaScriptObject {
   
   /**
    * Suppress the rendering of info windows when layer features are clicked.
-   * @return
    */
   public final native boolean getSuppressInfoWindows() /*-{
     return this.suppressInfoWindows;

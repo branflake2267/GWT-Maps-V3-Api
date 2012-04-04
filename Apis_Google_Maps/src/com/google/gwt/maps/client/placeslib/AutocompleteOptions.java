@@ -18,8 +18,7 @@ public class AutocompleteOptions extends JavaScriptObject {
   protected AutocompleteOptions() {}
   
   /**
-   * 
-   * @return
+   * Create new {@link AutocompleteOptions} instance.
    */
   public static final AutocompleteOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -62,7 +61,6 @@ public class AutocompleteOptions extends JavaScriptObject {
   
   /**
    * gets The types of predictions to be returned. Supported types are 'establishment' for businesses and 'geocode' for addresses. If neither is specified, both types are returned.
-   * @return
    */
   public final AutocompleteType[] getTypes() {
     JsArrayString at = getTypesImpl();

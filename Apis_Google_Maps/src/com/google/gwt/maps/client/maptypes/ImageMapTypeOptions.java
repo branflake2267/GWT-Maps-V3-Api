@@ -18,7 +18,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
 
   /**
    * This class is used to create a MapType that renders image tiles.
-   * @return
    */
   public final static ImageMapTypeOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -34,7 +33,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
   
   /**
    * get Alt text to display when this MapType's button is hovered over in the MapTypeControl.
-   * @return
    */
   public final native String getAlt() /*-{
     return this.alt;
@@ -44,7 +42,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
    * setup a callback to process the url creation
    * Returns a string (URL) for given tile coordinate (x, y) and zoom level. This function should have a signature of: getTileUrl(Point, number):string
    * @param callback
-   * @return
    */
   public final native void setTileUrl(TileUrlCallBack callback) /*-{
     this.getTileUrl = function(point, zoomLevel) {
@@ -57,7 +54,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
    * @param point
    * @param zoomLevel
    * @param callback
-   * @return
    */
   private final static String processTileUrlCallBack(Point point, int zoomLevel, TileUrlCallBack callback) {
     return callback.getTileUrl(point, zoomLevel);
@@ -73,7 +69,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets The maximum zoom level for the map when displaying this MapType.
-   * @return
    */
   public final native int getMaxZoom() /*-{
     return this.maxZoom;
@@ -89,7 +84,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets The minimum zoom level for the map when displaying this MapType. Optional.
-   * @return
    */
   public final native int getMinZoom() /*-{
     return this.minZoom;
@@ -105,7 +99,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets Name to display in the MapTypeControl.
-   * @return
    */
   public final native String getName() /*-{
     return this.name;
@@ -121,7 +114,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets The opacity to apply to the tiles. The opacity should be specified as a float value between 0 and 1.0, where 0 is fully transparent and 1 is fully opaque.
-   * @return
    */
   public final native double getOpacity() /*-{
     return this.opacity;
@@ -137,7 +129,6 @@ public class ImageMapTypeOptions extends JavaScriptObject {
   
   /**
    * gets The tile size.
-   * @return
    */
   public final native Size getTileSize() /*-{
     return this.size;

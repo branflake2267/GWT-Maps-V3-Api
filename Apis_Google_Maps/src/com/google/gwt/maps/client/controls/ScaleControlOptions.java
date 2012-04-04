@@ -24,7 +24,6 @@ public class ScaleControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());
@@ -36,7 +35,7 @@ public class ScaleControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @param controlPosition {@link ControlPosition}
+   * @param position {@link ControlPosition}
    */
   public final void setPosition(ControlPosition position) {
     setPositionImpl(position.value());

@@ -28,7 +28,6 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
    * @param url
    * @param bounds
    * @param options
-   * @return
    */
   public final static GroundOverlay newInstance(String url, LatLngBounds bounds, GroundOverlayOptions options) {
     return createJso(url, bounds, options).cast();
@@ -40,7 +39,6 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
 
   /**
    * Returns the bounds of this groundoverlay.
-   * @return
    */
   public final native LatLngBounds getBounds() /*-{
     return this.getBounds();
@@ -60,7 +58,6 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
 
   /**
    * Returns the map on which this groundoverlay is displayed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -72,7 +69,6 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
   
   /**
    * Gets the url of the projected image.
-   * @return
    */
   public final native String getUrl() /*-{
     this.getUrl();
@@ -81,7 +77,6 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
   /**
    * This event is fired when the DOM click event is fired on the GroundOverlay.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());

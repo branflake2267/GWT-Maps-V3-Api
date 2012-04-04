@@ -19,7 +19,6 @@ public class LatLngBounds extends JavaScriptObject {
    * creates A LatLngBounds instance represents a rectangle in geographical coordinates, including one that crosses the 180 degrees longitudinal meridian.
    * @param sw {@link LatLng}
    * @param ne {@link LatLng}
-   * @return
    */
   public final static LatLngBounds newInstance(LatLng sw, LatLng ne) {
     return createJso(sw, ne).cast(); 
@@ -32,7 +31,6 @@ public class LatLngBounds extends JavaScriptObject {
   /**
    * Returns true if the given lat/lng is in this bounds.
    * @param latlng {@link LatLng}
-   * @return
    */
   public final native boolean contains(LatLng latlng) /*-{
     return this.contains(latlng);
@@ -41,7 +39,6 @@ public class LatLngBounds extends JavaScriptObject {
   /**
    * Returns true if this bounds approximately equals the given bounds.
    * @param other {@link LatLngBounds}
-   * @return
    */
   public final native boolean equals(LatLngBounds other) /*-{
     return this.equals(other);

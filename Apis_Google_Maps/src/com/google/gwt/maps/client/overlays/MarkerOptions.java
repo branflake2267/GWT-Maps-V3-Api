@@ -22,7 +22,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * create Marker Options
-   * @return
    */
   public final static MarkerOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -38,7 +37,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Which animation to play when marker is added to a map.
-   * @return
    */
   public final native Animation getAnimation() /*-{
     return this.animation;
@@ -54,7 +52,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets If true, the marker receives mouse and touch events. Default value is true.
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
@@ -70,7 +67,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Mouse cursor to show on hover
-   * @return
    */
   public final native String getCursor() /*-{
     return this.cursor;
@@ -86,7 +82,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets If true, the marker can be dragged. Default value is false.
-   * @return
    */
   public final native boolean getDraggable() /*-{
     return this.draggable;
@@ -102,7 +97,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets If true, the marker shadow will not be displayed.
-   * @return
    */
   public final native boolean getFlat() /*-{
     return this.flat;
@@ -118,7 +112,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Icon for the foreground
-   * @return
    */
   public final native String getIcon_String() /*-{
     return this.icon;
@@ -134,7 +127,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Map on which to display Marker.
-   * @return
    */
   public final native MarkerImage getIcon_MarkerImage() /*-{
     return this.icon;
@@ -154,7 +146,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Map on which to display Polyline.
-   * @return
    */
   public final MapWidget getMapWidget() {
     return MapWidget.newInstance(getMapImpl());
@@ -174,7 +165,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Map on which to display Marker.
-   * @return
    */
   public final StreetViewPanoramaWidget getMapStreetViewPanoramaWidget() {
     return StreetViewPanoramaWidget.newInstance(getMapImpl_Street());
@@ -194,7 +184,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Optimization renders many markers as a single static element. Optimized rendering is enabled by default. Disable optimized rendering for animated GIFs or PNGs, or when each marker must be rendered as a separate DOM element (advanced usage only).
-   * @return
    */
   public final native boolean getOptimized() /*-{
     return this.optimized;
@@ -210,7 +199,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Marker position. Required.
-   * @return
    */
   public final native LatLng getPosition() /*-{
     return this.position;
@@ -226,7 +214,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets If false, disables raising and lowering the marker on drag. This option is true by default.
-   * @return
    */
   public final native boolean getRaiseOnDrag() /*-{
     return this.raiseOnDrag;
@@ -242,7 +229,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Shadow image
-   * @return
    */
   public final native String getShadow_String() /*-{
     return this.shadow;
@@ -258,7 +244,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Shadow image
-   * @return
    */
   public final native MarkerImage getShadow_MarkerImage() /*-{
     return this.shadow;
@@ -274,7 +259,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Image map region definition used for drag/click.
-   * @return
    */
   public final native MarkerShape getShape() /*-{
     return this.shape;
@@ -290,7 +274,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets Rollover text
-   * @return
    */
   public final native String getTitle() /*-{
     return this.title;
@@ -306,7 +289,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets If true, the marker is visible
-   * @return
    */
   public final native boolean getVisible() /*-{
     return this.visible;
@@ -322,7 +304,6 @@ public class MarkerOptions extends JavaScriptObject {
   
   /**
    * gets All markers are displayed on the map in order of their zIndex, with higher values displaying in front of markers with lower values. By default, markers are displayed according to their vertical position on screen, with lower markers appearing in front of markers further up the screen.
-   * @return
    */
   public final native int getZindex() /*-{
     return this.zIndex;

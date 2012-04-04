@@ -15,7 +15,6 @@ public class KmlFeatureData extends JavaScriptObject {
   
   /**
    * this is created from an event
-   * @return
    */
   public static final KmlFeatureData newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -31,7 +30,6 @@ public class KmlFeatureData extends JavaScriptObject {
   
   /**
    * The feature's <atom:author>, extracted from the layer markup (if specified).
-   * @return
    */
   public final native KmlAuthor getAuthor() /*-{
     return this.author;
@@ -47,7 +45,6 @@ public class KmlFeatureData extends JavaScriptObject {
   
   /**
    * The feature's <description>, extracted from the layer markup.
-   * @return
    */
   public final native String getDescription() /*-{
     return this.description;
@@ -78,7 +75,6 @@ public class KmlFeatureData extends JavaScriptObject {
   
   /**
    * The feature's balloon styled text, if set.
-   * @return
    */
   public final native String getInfoWindowHtml() /*-{
     return this.infoWindowHtml;
@@ -94,7 +90,6 @@ public class KmlFeatureData extends JavaScriptObject {
   
   /**
    * The feature's <name>, extracted from the layer markup.
-   * @return
    */
   public final native String getName() /*-{
     return this.name;
@@ -110,7 +105,6 @@ public class KmlFeatureData extends JavaScriptObject {
   
   /**
    * The feature's <Snippet>, extracted from the layer markup.
-   * @return
    */
   public final native String getSnippet() /*-{
     return this.snippet;
@@ -118,7 +112,6 @@ public class KmlFeatureData extends JavaScriptObject {
 
   /**
    * get to this object json string
-   * @return
    */
   public final native String getToString() /*-{
     return this.toSource ? this.toSource() : "NO SOURCE";

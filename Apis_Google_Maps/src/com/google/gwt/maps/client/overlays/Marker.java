@@ -72,7 +72,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon construction. Note that the position must be set for the marker to display.
    * @param options {@link MarkerOptions}
-   * @return
    */
   public static Marker newInstance(MarkerOptions options) {
     return createJso(options).cast();
@@ -84,7 +83,6 @@ public class Marker extends MVCObject<Marker> {
 
   /**
    * get animation
-   * @return
    */
   public final Animation getAnimation() {
     String animation = getAnimationImpl();
@@ -100,7 +98,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Clickable
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.getClickable();
@@ -108,7 +105,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Cursor
-   * @return
    */
   public final native String getCursor() /*-{
     return this.getCursor();
@@ -116,7 +112,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Draggable
-   * @return
    */
   public final native boolean getDraggable() /*-{
     return this.getDraggable();
@@ -124,7 +119,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Flat
-   * @return
    */
   public final native boolean getFlat() /*-{
     return this.getFlat();
@@ -132,7 +126,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Icon (if its a string use this)
-   * @return
    */
   public final native String getIcon_String() /*-{
     return this.getIcon();
@@ -140,7 +133,6 @@ public class Marker extends MVCObject<Marker> {
 
   /**
    * get Icon (if it is a marker image)
-   * @return
    */
   public final native MarkerImage getIcon_MarkerImage() /*-{
     return this.getIcon();
@@ -156,7 +148,6 @@ public class Marker extends MVCObject<Marker> {
  
   /**
    * get Map (if it is a pano)
-   * @return
    */
   public final StreetViewPanoramaWidget getMap_StreetViewPanorama() {
     return StreetViewPanoramaWidget.newInstance(getMap_StreetViewPanoramaImpl());
@@ -168,7 +159,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Position
-   * @return
    */
   public final native LatLng getPosition() /*-{
     return this.getPosition();
@@ -176,7 +166,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Shadow (if it is a String)
-   * @return
    */
   public final native String getShadow_String() /*-{
     return this.getShadow();
@@ -184,7 +173,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Shadow (if it is a MarkerImage)
-   * @return
    */
   public final native MarkerImage getShadow_MarkerImage() /*-{
     return this.getShadow();
@@ -192,7 +180,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Shape
-   * @return
    */
   public final native MarkerShape getShape() /*-{
     return this.getShape();
@@ -200,7 +187,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Title
-   * @return
    */
   public final native String getTitle() /*-{
     return this.getTitle();
@@ -208,7 +194,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Visible
-   * @return
    */
   public final native boolean getVisible() /*-{
     return this.getVisible();
@@ -216,7 +201,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * get Z Index
-   * @return
    */
   public final native int getZindex() /*-{
     return this.getZIndex();
@@ -376,7 +360,6 @@ public class Marker extends MVCObject<Marker> {
   
   /**
    * The maximum default z-index that the API will assign to a marker. You may set a higher z-index to bring a marker to the front.
-   * @return
    */
   public final native int getMax_Zindex() /*-{
     return $wnd.google.maps.Marker.MAX_ZINDEX;
@@ -385,7 +368,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's animation property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addAnimationChangeHandler(AnimationChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.ANIMATION_CHANGED, handler, new AnimationChangeEventFormatter());
@@ -394,7 +376,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker icon was clicked.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
@@ -403,7 +384,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's clickable property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addClickableChangeHandler(ClickableChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CLICKABLE_CHANGED, handler, new ClickableChangeEventFormatter());
@@ -412,7 +392,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's cursor property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addCursorChangeHandler(CursorChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CURSOR_CHANGED, handler, new CursorChangeEventFormatter());
@@ -421,7 +400,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker icon was double clicked.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
@@ -430,7 +408,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is repeatedly fired while the user drags the marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDragHandler(DragMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DRAG, handler, new DragEventFormatter());
@@ -439,7 +416,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the user stops dragging the marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDragEndHandler(DragEndMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DRAGEND, handler, new DragEndEventFormatter());
@@ -448,7 +424,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's draggable property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDraggableChangeHandler(DraggableChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DRAGGABLE_CHANGED, handler, new DraggableChangeEventFormatter());
@@ -457,7 +432,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the user starts dragging the marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addDragStartHandler(DragStartMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.DRAGSTART, handler, new DragStartEventFormatter());
@@ -466,7 +440,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's flat property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addFlatChangeHandler(FlatChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.FLAT_CHANGED, handler, new FlatChangeEventFormatter());
@@ -475,7 +448,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker icon property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addIconChangeHandler(IconChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.ICON_CHANGED, handler, new IconChangeEventFormatter());
@@ -484,7 +456,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired for a mousedown on the marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
@@ -493,7 +464,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the mouse leaves the area of the marker icon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
@@ -502,7 +472,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the mouse enters the area of the marker icon.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
@@ -511,7 +480,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired for a mouseup on the marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
@@ -520,7 +488,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker position property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addProjectionChangeHandler(ProjectionChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.PROJECTION_CHANGED, handler, new ProjectionChangeEventFormatter());
@@ -529,7 +496,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired for a rightclick on the marker.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());
@@ -538,7 +504,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's shadow property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addShadowChangeHandler(ShadowChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.SHADOW_CHANGED, handler, new ShadowChangeEventFormatter());
@@ -547,7 +512,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's shape property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addShapeChangeHandler(ShapeChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.SHAPE_CHANGED, handler, new ShapeChangeEventFormatter());
@@ -556,7 +520,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker title property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addTitleChangeHandler(TitleChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.TITLE_CHANGED, handler, new TitleChangeEventFormatter());
@@ -565,7 +528,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's visible property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addVisibleChangeHandler(VisibleChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.VISIBLE_CHANGED, handler, new VisibleChangeEventFormatter());
@@ -574,7 +536,6 @@ public class Marker extends MVCObject<Marker> {
   /**
    * This event is fired when the marker's zIndex property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addZindexChangeHandler(ZindexChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.ZINDEX_CHANGED, handler, new ZindexChangeEventFormatter());

@@ -18,7 +18,6 @@ public class StreetViewTileData extends JavaScriptObject {
 
   /**
    * creates The properties of the tile set used in a Street View panorama.
-   * @return
    */
   public final static StreetViewTileData newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -31,7 +30,6 @@ public class StreetViewTileData extends JavaScriptObject {
    * @param tileX is the x-coordinate of the tile.
    * @param tileY is the y-coordinate of the tile. 
    * @param handler
-   * @return
    */
   public final native String getTileUrl(String pano, int zoom, int tileX, int tileY, TileUrlHandler handler) /*-{
     this.getTileUrl = function(pano, zoom, tileX, tileY) {
@@ -53,7 +51,6 @@ public class StreetViewTileData extends JavaScriptObject {
    
   /**
    * gets The heading (in degrees) at the center of the panoramic tiles.
-   * @return
    */
   public final native int getCenterHeading() /*-{
     return this.centerHeading;
@@ -69,7 +66,6 @@ public class StreetViewTileData extends JavaScriptObject {
   
   /**
    * gets The size (in pixels) at which tiles will be rendered. This may not be the native tile image size.
-   * @return
    */
   public final native Size getTileSize() /*-{
     return this.tileSize;
@@ -85,7 +81,6 @@ public class StreetViewTileData extends JavaScriptObject {
   
   /**
    * gets The size (in pixels) of the whole panorama's "world".
-   * @return
    */
   public final native Size getWorldSize() /*-{
     return this.worldSize;

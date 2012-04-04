@@ -19,7 +19,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * creates - This object defines the properties that can be set on a FusionTablesLayer object.
-   * @return
    */
   public static final FusionTablesLayerOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -35,7 +34,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * gets If true, the layer receives mouse events. Default value is true.
-   * @return
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
@@ -51,7 +49,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * gets Options which define the appearance of the layer as a heatmap.
-   * @return
    */
   public final native FusionTableHeatmap getHeatmap() /*-{
     return this.heatmap;
@@ -71,7 +68,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * Returns the map on which this layer is displayed.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -91,7 +87,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * gets Options defining the data to display.
-   * @return
    */
   public final native FusionTablesQuery getQuery() /*-{
     return this.query;
@@ -107,7 +102,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * gets An array of up to 5 style specifications, which control the appearance of features within the layer.
-   * @return
    */
   public final native JsArray<FusionTablesStyle> getStyles() /*-{
     return this.styles;
@@ -123,7 +117,6 @@ public class FusionTablesLayerOptions extends JavaScriptObject {
   
   /**
    * gets Suppress the rendering of info windows when layer features are clicked.
-   * @return
    */
   public final native boolean getSuppressInfoWindows() /*-{
     return this.suppressInfoWindows;

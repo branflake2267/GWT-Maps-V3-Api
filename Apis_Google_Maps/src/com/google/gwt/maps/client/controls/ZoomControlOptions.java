@@ -11,7 +11,6 @@ public class ZoomControlOptions extends JavaScriptObject {
 
   /**
    * creates Options for the rendering of the zoom control.
-   * @return
    */
   public final static ZoomControlOptions newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -25,7 +24,6 @@ public class ZoomControlOptions extends JavaScriptObject {
   
   /**
    * Position id. Used to specify the position of the control on the map. The default position is TOP_LEFT.
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());
@@ -57,7 +55,6 @@ public class ZoomControlOptions extends JavaScriptObject {
   
   /*
    * gets Style id. Used to select what style of zoom control to display.
-   * @return   
   public final ZoomControlStyle getStyle() {
     return ZoomControlStyle.fromValue(getStyleJs());
   }

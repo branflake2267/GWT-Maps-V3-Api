@@ -142,7 +142,6 @@ public enum ControlPosition {
   
   /**
    * returns enum name
-   * @return
    */
   public String getName() {
     return name();
@@ -150,7 +149,6 @@ public enum ControlPosition {
   
   /**
    * returns javascript constant value
-   * @return
    */
   public int value() {
     return value;
@@ -163,7 +161,6 @@ public enum ControlPosition {
   /**
    * reconstruct from position from javascript constant value
    * @param value javascript constant value
-   * @return
    */
   public static ControlPosition fromValue(int value) {
     ControlPosition r = null;

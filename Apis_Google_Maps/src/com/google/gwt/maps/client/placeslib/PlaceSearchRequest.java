@@ -20,7 +20,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * A Place search query to be sent to the PlacesService.
-   * @return
    */
   public static final PlaceSearchRequest newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -51,7 +50,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * A term to be matched against all available fields, including but not limited to name, type, and address, as well as customer reviews and other third-party content.
-   * @return
    */
   public final native String getKeyword() /*-{
     return this.keyword;
@@ -67,7 +65,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * The location around which to search for Places.
-   * @return
    */
   public final native LatLng getLocation() /*-{
     return this.location;
@@ -83,7 +80,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * Restricts the Place search results to Places that include this text in the name.
-   * @return
    */
   public final native String getName() /*-{
     return this.name;
@@ -99,7 +95,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
-   * @return
    */
   public final native double getRaidus() /*-{
     return this.radius;
@@ -127,7 +122,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given <a href="https://developers.google.com/maps/documentation/places/supported_types">here</a>.
-   * @return
    */
   public final AutocompleteType[] getTypes() {
     JsArrayString at = getTypesImpl();

@@ -16,8 +16,7 @@ public class MapPanes extends JavaScriptObject {
   protected MapPanes() {}
   
   /**
-   * 
-   * @return
+   * Create new {@link MapPanes} instance
    */
   public static final MapPanes newInstance() {
     return JavaScriptObject.createObject().cast();
@@ -33,7 +32,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane contains the info window. It is above all map overlays. (Pane 6).
-   * @return
    */
   public final native Element getFloatPane() /*-{
     return this.floatPane;
@@ -49,7 +47,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane contains the info window shadow. It is above the overlayImage, so that markers can be in the shadow of the info window. (Pane 4).
-   * @return
    */
   public final native Element getFloatShadow() /*-{
     return this.floatShadow;
@@ -65,7 +62,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane is the lowest pane and is above the tiles. It may not receive DOM events. (Pane 0).
-   * @return
    */
   public final native Element getMapPane() /*-{
     return this.mapPane;
@@ -81,7 +77,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane contains the marker foreground images. (Pane 3).
-   * @return
    */
   public final native Element getOverlayImage() /*-{
     return this.overlayImage;
@@ -97,7 +92,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane contains polylines, polygons, ground overlays and tile layer overlays. It may not receive DOM events. (Pane 1).
-   * @return
    */
   public final native Element getOverlayLayer() /*-{
     return this.overlayLayer;
@@ -113,7 +107,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane contains elements that receive DOM mouse events, such as the transparent targets for markers. It is above the floatShadow, so that markers in the shadow of the info window can be clickable. (Pane 5).
-   * @return
    */
   public final native Element getOverlayMouseTarget() /*-{
     return this.overlayMouseTarget;
@@ -129,7 +122,6 @@ public class MapPanes extends JavaScriptObject {
   
   /**
    * gets This pane contains the marker shadows. It may not receive DOM events. (Pane 2).
-   * @return
    */
   public final native Element getOverlayShadow() /*-{
     return this.overlayShadow;

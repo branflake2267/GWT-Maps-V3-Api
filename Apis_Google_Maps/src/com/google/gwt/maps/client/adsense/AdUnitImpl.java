@@ -35,7 +35,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
    * Creates an AdSense for Content display ad on the associated map.
    * 
    * @param options
-   * @return
    */
   public final static AdUnitImpl newInstance(Element container, AdUnitOptions options) {
     return createJso(container, options).cast();
@@ -49,7 +48,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's channelNumber property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addChannelNumberChangeHandler(ChannelNumberChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.CHANNELNUMBER_CHANGED, handler, new ChannelNumberChangeEventFormatter());
@@ -58,7 +56,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's format property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addFormatChangeHandler(FormatChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.FORMAT_CHANGED, handler, new FormatChangeEventFormatter());
@@ -67,7 +64,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's map property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addMapChangeHandler(MapChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.MAP_CHANGED, handler, new MapChangeEventFormatter());
@@ -76,7 +72,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
   /**
    * This event is fired when the AdUnit's position property changes.
    * @param handler
-   * @return
    */
   public final HandlerRegistration addPositionChangeHandler(PositionChangeMapHandler handler) {
     return MapHandlerRegistration.addHandler(this, MapEventType.POSITION_CHANGED, handler, new PositionChangeEventFormatter());
@@ -84,7 +79,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
 
   /**
    * Returns the channel number in use by this AdUnit.
-   * @return
    */
   public final native String getChannelNumber() /*-{
 		return this.getChannelNumber();
@@ -92,7 +86,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
 
   /**
    * Returns the containing element of the AdUnit.
-   * @return
    */
   public final native Element getContainer() /*-{
 		return this.getContainer();
@@ -100,7 +93,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
 
   /**
    * Returns the format in use by this AdUnit.
-   * @return
    */
   public final native AdFormat getFormat() /*-{
 		return this.getFormat();
@@ -108,7 +100,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
 
   /**
    * Returns the map to which this AdUnit's ads are targeted.
-   * @return
    */
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -120,7 +111,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
 
   /**
    * Returns the ControlPosition at which this AdUnit is displayed on the map.
-   * @return
    */
   public final ControlPosition getPosition() {
     return ControlPosition.fromValue(getPositionImpl());
@@ -132,7 +122,6 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
   
   /**
    * Returns the specified AdSense For Content publisher ID.
-   * @return
    */
   public final native String getPublisherId() /*-{
 		return this.getPublisherId();
@@ -168,7 +157,7 @@ public class AdUnitImpl extends MVCObject<AdUnitImpl> {
   
   /**
    * Sets the ControlPosition at which to display the AdUnit on the map. If the position is set to null, the AdUnit is removed from the map.
-   * @param controlPosition {@link ControlPosition}
+   * @param position {@link ControlPosition}
    */
   public final void setPosition(ControlPosition position) {
     setPositionImpl(position.value());
