@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.maptype;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.MapOptions;
@@ -42,7 +40,7 @@ public class ProjectionTest extends GWTTestCase {
         MapWidget wMap = new MapWidget(options);
         Projection p = wMap.getProjection();
         Point point = Point.newInstance(4d, 3d);
-        LatLng latlng = LatLng.newInstance(new BigDecimal(35), new BigDecimal(38));
+        LatLng latlng = LatLng.newInstance(35d, 38d);
         Point p2 = p.fromLatLngToPoint(latlng, point);
         assertEquals("(155.0222222222222, 101.40104481443532)", p2.getToString());
         finishTest();

@@ -1,6 +1,5 @@
 package com.google.gwt.maps.client.placelib;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import com.google.gwt.dom.client.Element;
@@ -55,8 +54,8 @@ public class AutocompleteTest extends GWTTestCase {
         HTML tb = new HTML();
         Element textBoxElement = tb.getElement();
         AutocompleteOptions options = AutocompleteOptions.newInstance();
-        LatLng sw = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne = LatLng.newInstance(new BigDecimal(-25.363882), new BigDecimal(131.044922));
+        LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne = LatLng.newInstance(-25.363882d, 131.044922d);
         LatLngBounds left = LatLngBounds.newInstance(sw, ne);
         options.setBounds(left);
         
@@ -64,8 +63,8 @@ public class AutocompleteTest extends GWTTestCase {
         
         assertEquals(left.getToString(), o.getBounds().getToString());
         
-        LatLng sw2 = LatLng.newInstance(new BigDecimal(-32.203405), new BigDecimal(125.244141));
-        LatLng ne2 = LatLng.newInstance(new BigDecimal(-26.363882), new BigDecimal(131.044922));
+        LatLng sw2 = LatLng.newInstance(-32.203405d, 125.244141d);
+        LatLng ne2 = LatLng.newInstance(-26.363882d, 131.044922d);
         LatLngBounds left2 = LatLngBounds.newInstance(sw2, ne2);
         o.setBounds(left2);
        

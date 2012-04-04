@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.overlays;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.MapOptions;
@@ -38,8 +36,8 @@ public class RectangleTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         RectangleOptions options = RectangleOptions.newInstance();
-        LatLng sw = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne = LatLng.newInstance(new BigDecimal(-25.363882), new BigDecimal(131.044922));
+        LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne = LatLng.newInstance(-25.363882d, 131.044922d);
         LatLngBounds left = LatLngBounds.newInstance(sw, ne);
         options.setBounds(left);
         LatLngBounds right = options.getBounds();

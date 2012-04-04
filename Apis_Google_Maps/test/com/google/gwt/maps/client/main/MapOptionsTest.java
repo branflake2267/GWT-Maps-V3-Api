@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.main;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.MapOptions;
@@ -60,7 +58,7 @@ public class MapOptionsTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         MapOptions options = MapOptions.newInstance();
-        LatLng left = LatLng.newInstance(new BigDecimal(35.1), new BigDecimal(38.2));
+        LatLng left = LatLng.newInstance(35.1d, 38.2d);
         options.setCenter(left);
         LatLng right = options.getCenter();
         assertEquals(left, right);

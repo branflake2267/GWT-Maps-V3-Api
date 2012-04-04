@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.overlays;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.MapOptions;
@@ -29,8 +27,8 @@ public class GroundOverlayTest extends GWTTestCase {
         GroundOverlayOptions options = GroundOverlayOptions.newInstance();
         options.setClickable(true);
         String url = "images/target.png";
-        LatLng sw = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne = LatLng.newInstance(new BigDecimal(-25.363882), new BigDecimal(131.044922));
+        LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne = LatLng.newInstance(-25.363882d, 131.044922d);
         LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
         GroundOverlay o = GroundOverlay.newInstance(url, bounds, options);
         finishTest();
@@ -46,8 +44,8 @@ public class GroundOverlayTest extends GWTTestCase {
         GroundOverlayOptions options = GroundOverlayOptions.newInstance();
         options.setClickable(true);
         String url = "images/target.png";
-        LatLng sw = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne = LatLng.newInstance(new BigDecimal(-25.363882), new BigDecimal(131.044922));
+        LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne = LatLng.newInstance(-25.363882d, 131.044922d);
         LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
         GroundOverlay o = GroundOverlay.newInstance(url, bounds, options);
         finishTest();
@@ -62,8 +60,8 @@ public class GroundOverlayTest extends GWTTestCase {
         GroundOverlayOptions options = GroundOverlayOptions.newInstance();
         options.setClickable(true);
         String url = "images/target.png";
-        LatLng sw = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne = LatLng.newInstance(new BigDecimal(-25.363882), new BigDecimal(131.044922));
+        LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne = LatLng.newInstance(-25.363882d, 131.044922d);
         LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
         GroundOverlay o = GroundOverlay.newInstance(url, bounds, options);
         MapOptions opts = MapOptions.newInstance();
@@ -92,8 +90,8 @@ public class GroundOverlayTest extends GWTTestCase {
         options.setClickable(true);
         options.setMap(mapWidget);
         String url = "http://gwt-examples.googlecode.com/svn/trunk/DemoGadgetXml/war/images/target_sm.png";
-        LatLng sw = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne = LatLng.newInstance(new BigDecimal(-25.363882), new BigDecimal(131.044922));
+        LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne = LatLng.newInstance(-25.363882d, 131.044922d);
         LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
         
         GroundOverlay o = GroundOverlay.newInstance(url, bounds, options);

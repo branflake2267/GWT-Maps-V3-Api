@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.base;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -19,55 +17,32 @@ public class LatLng extends JavaScriptObject {
    * LatLng is a point in geographical coordinates, latitude and longitude.
    */
   protected LatLng() {}
-
-  /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90 degrees and +90 degrees, and longitude will be wrapped to lie between -180 degrees and +180 degrees.
-   * @param lat
-   * @param lng
-   */
-  public static LatLng newInstance(BigDecimal lat, BigDecimal lng) {
-    return newInstance(lat, lng, false);
-  }
   
   /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90 degrees and +90 degrees, and longitude will be wrapped to lie between -180 degrees and +180 degrees.
+   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90&deg; and +90 &deg;, and longitude will be wrapped to lie between -180 &deg; and +180 &deg;.
    * @param lat
    * @param lng
    */
   public static LatLng newInstance(double lat, double lng) {
-    return newInstance(new BigDecimal(lat), new BigDecimal(lng), false);
+    return newInstance(lat, lng, false);
   }
 
   /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90 degrees and +90 degrees, and longitude will be wrapped to lie between -180 degrees and +180 degrees.
+   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90&deg; and +90 &deg;, and longitude will be wrapped to lie between -180 &deg; and +180 &deg;.
    * @param lat
    * @param lng
    * @param noWrap
    */
-  public static LatLng newInstance(BigDecimal lat, BigDecimal lng, boolean noWrap) {
-    String slat = null;
-    if (lat != null) {
-      slat = lat.toPlainString();
-    }
-    String slng = null;
-    if (lng != null) {
-      slng = lng.toPlainString();
-    }
-    return createJso(slat, slng, noWrap);
+  public static LatLng newInstance(double lat, double lng, boolean noWrap) {
+    return createJso(lat, lng, noWrap);
   }
 
   /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90 degrees and +90 degrees, and longitude will be wrapped to lie between -180 degrees and +180 degrees.
+   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90&deg; and +90&deg;, and longitude will be wrapped to lie between -180&deg; and +180&deg;.
    * LatLng(lat:number, lng:number, noWrap?:boolean)
    * @return LatLng
    */
-  private static native LatLng createJso(String lat, String lng, boolean noWrap) /*-{
-    if (lat != null) {
-      lat = new Number(lat);
-    }
-    if (lng != null) {
-      lng = new Number(lng);
-    }
+  private static native LatLng createJso(double lat, double lng, boolean noWrap) /*-{
     return new $wnd.google.maps.LatLng(lat, lng, noWrap);
   }-*/;
 
@@ -81,33 +56,34 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * get latitude
-   * @return BigDecimal
+   * @return double
    */
-  public final BigDecimal getLatitude() {
-    return new BigDecimal(getLat());
+  public final double getLatitude() {
+     return getLat();
   }
 
   /**
    * Returns the latitude in degrees.
+   * @return double
    */
-  public final native String getLat() /*-{
-    return this.lat().toString();
+  public final native double getLat() /*-{
+    return this.lat();
   }-*/;
 
   /**
    * Returns the longitude in degrees.
-   * @return BigDecimal
+   * @return double
    */
-  public final BigDecimal getLongitude() {
-    return new BigDecimal(getLng());
+  public final double getLongitude() {
+    return getLng();
   }
 
   /**
    * Returns the latitude in degrees.
-   * @return String
+   * @return double
    */
-  private final native String getLng() /*-{
-    return this.lng().toString();
+  private final native double getLng() /*-{
+    return this.lng();
   }-*/;
 
   /**

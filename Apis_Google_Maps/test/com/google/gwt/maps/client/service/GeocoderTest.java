@@ -1,6 +1,5 @@
 package com.google.gwt.maps.client.service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import com.google.gwt.core.client.JsArray;
@@ -157,8 +156,8 @@ public class GeocoderTest extends GWTTestCase {
       public void run() {
         Geocoder o = Geocoder.newInstance();
         GeocoderRequest request = GeocoderRequest.newInstance();
-        LatLng sw1 = LatLng.newInstance(new BigDecimal(-31.203405), new BigDecimal(125.244141));
-        LatLng ne1 = LatLng.newInstance(new BigDecimal(-25.3633882), new BigDecimal(131.0434922));
+        LatLng sw1 = LatLng.newInstance(-31.203405d, 125.244141d);
+        LatLng ne1 = LatLng.newInstance(-25.3633882d, 131.0434922d);
         LatLngBounds bounds = LatLngBounds.newInstance(sw1, ne1);
         request.setBounds(bounds);
         o.geocode(request , new GeocoderRequestHandler() {

@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.streetview;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.base.LatLng;
@@ -47,7 +45,7 @@ public class StreetViewLocationTest extends GWTTestCase {
     LoadApi.go(new Runnable() {
       public void run() {
         StreetViewLocation o = StreetViewLocation.newInstance();
-        LatLng left = LatLng.newInstance(new BigDecimal(38), new BigDecimal(35));
+        LatLng left = LatLng.newInstance(38d, 35d);
         o.setLatLng(left);
         LatLng right = o.getLatLng();
         assertEquals(left.getToString(), right.getToString());

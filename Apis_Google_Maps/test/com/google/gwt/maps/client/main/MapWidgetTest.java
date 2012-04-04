@@ -1,7 +1,5 @@
 package com.google.gwt.maps.client.main;
 
-import java.math.BigDecimal;
-
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
@@ -64,8 +62,8 @@ public class MapWidgetTest extends GWTTestCase {
         MapWidget o = new MapWidget(options);
         o.setSize("500px", "500px");
         RootPanel.get().add(o);
-        LatLng ne = LatLng.newInstance(new BigDecimal("41.239045"), new BigDecimal("-73.508142"));
-        LatLng sw = LatLng.newInstance(new BigDecimal("42.88679"), new BigDecimal("-69.927992"));
+        LatLng ne = LatLng.newInstance(41.239045d, -73.508142d);
+        LatLng sw = LatLng.newInstance(42.88679d, -69.927992d);
         LatLngBounds left = LatLngBounds.newInstance(sw, ne);
         o.fitBounds(left);
         LatLngBounds right = o.getBounds();
@@ -273,8 +271,8 @@ public class MapWidgetTest extends GWTTestCase {
         
         MapOptions options = MapOptions.newInstance();
         MapWidget o = new MapWidget(options);
-        LatLng ne = LatLng.newInstance(new BigDecimal("41.239045"), new BigDecimal("-73.508142"));
-        LatLng sw = LatLng.newInstance(new BigDecimal("42.88679"), new BigDecimal("-69.927992"));
+        LatLng ne = LatLng.newInstance(41.239045d, -73.508142d);
+        LatLng sw = LatLng.newInstance(42.88679d, -69.927992d);
         LatLngBounds left = LatLngBounds.newInstance(sw, ne);
         o.panToBounds(left);
         LatLng center = o.getCenter();
@@ -293,7 +291,7 @@ public class MapWidgetTest extends GWTTestCase {
         
         MapOptions options = MapOptions.newInstance();
         MapWidget o = new MapWidget(options);
-        LatLng center = LatLng.newInstance(new BigDecimal("41.239045"), new BigDecimal("-73.508142"));
+        LatLng center = LatLng.newInstance(41.239045d, -73.508142d);
         o.setCenter(center);
         assertEquals("(41.239045, -73.50814200000002)", o.getCenter().getToString());
         finishTest();
