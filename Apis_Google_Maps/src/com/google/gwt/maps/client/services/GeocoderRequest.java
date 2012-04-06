@@ -3,6 +3,7 @@ package com.google.gwt.maps.client.services;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
+import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * The specification for a geocoding request to be sent to the Geocoder.
@@ -20,7 +21,9 @@ public class GeocoderRequest extends JavaScriptObject {
    * The specification for a geocoding request to be sent to the Geocoder.
    */
   public static final GeocoderRequest newInstance() {
-    return JavaScriptObject.createObject().cast();
+    JavaScriptObject jso = createObject();
+    WorkAroundUtils.removeGwtObjectId(jso);
+    return jso.cast();
   }
   
   /**
