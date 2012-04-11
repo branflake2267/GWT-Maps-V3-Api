@@ -48,7 +48,7 @@ public class AdFormatTest extends GWTTestCase {
         AdFormat o = AdFormat.BANNER;
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
   }
 
   public void testEnum1() {
@@ -98,7 +98,7 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
@@ -115,7 +115,7 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
@@ -132,11 +132,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
-  public void testEnu6() {
+  public void testEnum6() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
@@ -149,11 +149,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
-  public void testEnu7() {
+  public void testEnum7() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
@@ -166,11 +166,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
-  public void testEnu8() {
+  public void testEnum8() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
@@ -183,11 +183,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
-  public void testEnu9() {
+  public void testEnum9() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
@@ -200,11 +200,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
-  public void testEnu10() {
+  public void testEnum10() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
@@ -217,11 +217,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
 
-  public void testEnu11() {
+  public void testEnum11() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
@@ -234,11 +234,11 @@ public class AdFormatTest extends GWTTestCase {
         assertEquals(o, AdFormat.fromValue(o.value()));
         finishTest();
       }
-    }, loadLibraries , sensor);
+    }, loadLibraries, sensor);
     delayTestFinish(ASYNC_DELAY_MS);
   }
   
-  public void testEnu12() {
+  public void testEnum12() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
