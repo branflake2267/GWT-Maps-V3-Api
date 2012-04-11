@@ -19,8 +19,6 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
- * 
- * <br><br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
  */
 public class InfoWindowMapWidget extends Composite {
@@ -37,7 +35,6 @@ public class InfoWindowMapWidget extends Composite {
   }
 
   private void draw() {
-
     pWidget.clear();
 
     pWidget.add(new HTML("<br>Maps with Info Windows - click on marker"));
@@ -47,7 +44,6 @@ public class InfoWindowMapWidget extends Composite {
     drawInfoWindowOnMapCenter();
     
     drawMarker1();
-    
   }
   
   private void drawInfoWindowOnMapCenter() {
@@ -89,8 +85,6 @@ public class InfoWindowMapWidget extends Composite {
     
     InfoWindow iw = InfoWindow.newInstance(options);
     iw.open(mapWidget, marker);
-
-
   }
 
   private void drawMap() {
@@ -106,14 +100,13 @@ public class InfoWindowMapWidget extends Composite {
     
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
-        // TODO fix the event getting, getting ....
-    	GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
     
     mapWidget.addTilesLoadedHandler(new TilesLoadedMapHandler() {
       public void onEvent(TilesLoadedMapEvent event) {
-        
+        // Load something after the tiles load
       }
     });
   }
