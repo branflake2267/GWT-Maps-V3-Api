@@ -38,14 +38,14 @@ public class AdFormatTest extends GWTTestCase {
     }
   }-*/;
 
-  @SuppressWarnings("unused")
   public void testUse() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);   
     LoadApi.go(new Runnable() {
       public void run() {
-        AdFormat o = AdFormat.BANNER;
+        @SuppressWarnings("unused")
+		AdFormat o = AdFormat.BANNER;
         finishTest();
       }
     }, loadLibraries, sensor);

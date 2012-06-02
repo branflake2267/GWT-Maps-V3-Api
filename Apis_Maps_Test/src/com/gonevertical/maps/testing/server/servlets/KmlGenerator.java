@@ -47,7 +47,8 @@ public class KmlGenerator extends HttpServlet {
   private String getKml(HttpServletRequest request) {
     
     // TODO how to get a parameter - not used yet...
-    Long id = getParameterLong(request, "id");
+    @SuppressWarnings("unused")
+	Long id = getParameterLong(request, "id");
     
     StringBuilder sb = new StringBuilder();
     sb.append("<?xml version=\"1.0\" standalone=\"yes\"?>\n");

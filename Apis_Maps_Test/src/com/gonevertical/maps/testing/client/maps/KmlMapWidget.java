@@ -26,8 +26,6 @@ public class KmlMapWidget extends Composite {
   private VerticalPanel pWidget;
 
   private MapWidget mapWidget;
-
-  private boolean changeState;
   
   public KmlMapWidget() {
     pWidget = new VerticalPanel();
@@ -81,14 +79,19 @@ public class KmlMapWidget extends Composite {
     o.addClickHandler(new KmlMouseMapHandler() {
       public void onEvent(KmlMouseMapEvent event) {
         KmlFeatureData featureData = event.getFeatureData();
-        LatLng latlng = event.getLatLng();
-        Size size = event.getPixelOffset();
+        
+        @SuppressWarnings("unused")
+		LatLng latlng = event.getLatLng();
+        
+        @SuppressWarnings("unused")
+		Size size = event.getPixelOffset();
         GWT.log("clicked featureData=" + featureData.getToString());
       }
     });
 
     // TODO I need a better link with more meta data
-    KmlLayerMetadata metaData = o.getMetadata();
+    @SuppressWarnings("unused")
+	KmlLayerMetadata metaData = o.getMetadata();
     //    KmlAuthor author = metaData.getAuthor();
     //    String authName = author.getName();
     //    String authEmail = author.getEmail();

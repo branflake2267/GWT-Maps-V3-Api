@@ -66,7 +66,8 @@ public class MapHandlerRegistration {
       MapEventType eventType, 
       MapHandler<E> handler, 
       MapEventFormatter<E> formatter) {
-    final JavaScriptObject listener = addHandlerImplDrawing(jso, eventType.value(), handler, formatter);
+    
+	  final JavaScriptObject listener = addHandlerImplDrawing(jso, eventType.value(), handler, formatter);
     HandlerRegistration registration = new HandlerRegistration() {
       public void removeHandler() { 
         removeHandlerImpl(listener);
@@ -83,7 +84,7 @@ public class MapHandlerRegistration {
    * @param formatter
    */
   private static native <E extends MapEvent> JavaScriptObject addHandlerImpl(
-      JavaScriptObject jso, 
+      JavaScriptObject jso,
       String eventName, 
       MapHandler<E> handler, 
       MapEventFormatter<E> formatter) /*-{

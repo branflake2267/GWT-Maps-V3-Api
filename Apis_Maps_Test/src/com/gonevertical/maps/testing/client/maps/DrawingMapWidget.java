@@ -47,175 +47,184 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class DrawingMapWidget extends Composite {
 
-  private VerticalPanel pWidget;
+	private VerticalPanel pWidget;
 
-  private MapWidget mapWidget;
+	private MapWidget mapWidget;
 
-  public DrawingMapWidget() {
-    pWidget = new VerticalPanel();
-    initWidget(pWidget);
+	public DrawingMapWidget() {
+		pWidget = new VerticalPanel();
+		initWidget(pWidget);
 
-    draw();
-  }
+		draw();
+	}
 
-  private void draw() {
+	private void draw() {
 
-    pWidget.clear();
+		pWidget.clear();
 
-    pWidget.add(new HTML("<br>Map with Drawing"));
+		pWidget.add(new HTML("<br>Map with Drawing"));
 
-    drawMap();
+		drawMap();
 
-    drawDrawing();
+		drawDrawing();
 
-    //drawMapAds();
-  }
+		// drawMapAds();
+	}
 
-  private void drawMap() {
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
-    MapOptions opts = MapOptions.newInstance();
-    opts.setZoom(4);
-    opts.setCenter(center);
-    opts.setMapTypeId(MapTypeId.HYBRID);
+	private void drawMap() {
+		LatLng center = LatLng.newInstance(49.496675, -102.65625);
+		MapOptions opts = MapOptions.newInstance();
+		opts.setZoom(4);
+		opts.setCenter(center);
+		opts.setMapTypeId(MapTypeId.HYBRID);
 
-    mapWidget = new MapWidget(opts);
-    pWidget.add(mapWidget);
-    mapWidget.setSize("750px", "500px");
+		mapWidget = new MapWidget(opts);
+		pWidget.add(mapWidget);
+		mapWidget.setSize("750px", "500px");
 
-    mapWidget.addClickHandler(new ClickMapHandler() {
-      public void onEvent(ClickMapEvent event) {
-        // TODO fix the event getting, getting ....
-        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
-      }
-    });
-  }
+		mapWidget.addClickHandler(new ClickMapHandler() {
+			public void onEvent(ClickMapEvent event) {
+				// TODO fix the event getting, getting ....
+				GWT.log("clicked on latlng="
+						+ event.getMouseEvent().getLatLng());
+			}
+		});
+	}
 
+	private void drawDrawing() {
 
-  private void drawDrawing() {
+		DrawingControlOptions drawingControlOptions = DrawingControlOptions
+				.newInstance();
+		drawingControlOptions.setPosition(ControlPosition.TOP_CENTER);
+		drawingControlOptions.setDrawingModes(OverlayType.values());
 
-    DrawingControlOptions drawingControlOptions = DrawingControlOptions.newInstance();
-    drawingControlOptions.setPosition(ControlPosition.TOP_CENTER);
-    drawingControlOptions.setDrawingModes(OverlayType.values());
+		CircleOptions circleOptions = CircleOptions.newInstance();
+		// circleOptions.setFillColor("FF6633");
 
-    CircleOptions circleOptions = CircleOptions.newInstance();
-    //circleOptions.setFillColor("FF6633");
+		DrawingManagerOptions options = DrawingManagerOptions.newInstance();
+		options.setMap(mapWidget);
+		options.setDrawingMode(OverlayType.CIRCLE);
+		options.setCircleOptions(circleOptions);
 
-    DrawingManagerOptions options = DrawingManagerOptions.newInstance();
-    options.setMap(mapWidget);
-    options.setDrawingMode(OverlayType.CIRCLE);
-    options.setCircleOptions(circleOptions);
+		options.setDrawingControlOptions(drawingControlOptions);
 
-    options.setDrawingControlOptions(drawingControlOptions);
+		DrawingManager o = DrawingManager.newInstance(options);
 
-    DrawingManager o = DrawingManager.newInstance(options); 
+		o.addCircleCompleteHandler(new CircleCompleteMapHandler() {
+			public void onEvent(CircleCompleteMapEvent event) {
+				Circle circle = event.getCircle();
+				GWT.log("circle completed radius=" + circle.getRadius());
+			}
+		});
 
-    o.addCircleCompleteHandler(new CircleCompleteMapHandler() {
-      public void onEvent(CircleCompleteMapEvent event) {
-        Circle circle = event.getCircle();
-        GWT.log("circle completed radius=" + circle.getRadius());
-      }
-    });
+		o.addMarkerCompleteHandler(new MarkerCompleteMapHandler() {
+			public void onEvent(MarkerCompleteMapEvent event) {
+				Marker marker = event.getMarker();
+				GWT.log("marker completed position=" + marker.getPosition());
+			}
+		});
 
-    o.addMarkerCompleteHandler(new MarkerCompleteMapHandler() {
-      public void onEvent(MarkerCompleteMapEvent event) {
-        Marker marker = event.getMarker();
-        GWT.log("marker completed position=" + marker.getPosition());
-      }
-    });
+		o.addOverlayCompleteHandler(new OverlayCompleteMapHandler() {
+			public void onEvent(OverlayCompleteMapEvent event) {
+				OverlayType ot = event.getOverlayType();
+				GWT.log("marker completed OverlayType=" + ot.toString());
 
-    o.addOverlayCompleteHandler(new OverlayCompleteMapHandler() {
-      public void onEvent(OverlayCompleteMapEvent event) {
-        OverlayType ot = event.getOverlayType();
-        GWT.log("marker completed OverlayType=" + ot.toString());
+				if (ot == OverlayType.CIRCLE) {
+					Circle circle = event.getCircle();
+					GWT.log("radius=" + circle.getRadius());
+				}
 
-        if (ot == OverlayType.CIRCLE) {
-          Circle circle = event.getCircle();
-          GWT.log("radius=" + circle.getRadius());
-        }
+				if (ot == OverlayType.MARKER) {
+					Marker marker = event.getMarker();
+					GWT.log("position=" + marker.getPosition());
+				}
 
-        if (ot == OverlayType.MARKER) {
-          Marker marker = event.getMarker();
-          GWT.log("position=" + marker.getPosition());
-        }
+				if (ot == OverlayType.POLYGON) {
+					Polygon polygon = event.getPolygon();
+					GWT.log("paths=" + polygon.getPaths().toString());
+				}
 
-        if (ot == OverlayType.POLYGON) {
-          Polygon polygon = event.getPolygon();
-          GWT.log("paths=" + polygon.getPaths().toString());
-        }
+				if (ot == OverlayType.POLYLINE) {
+					Polyline polyline = event.getPolyline();
+					GWT.log("paths=" + polyline.getPath().toString());
+				}
 
-        if (ot == OverlayType.POLYLINE) {
-          Polyline polyline = event.getPolyline();
-          GWT.log("paths=" + polyline.getPath().toString());
-        }
+				if (ot == OverlayType.RECTANGLE) {
+					Rectangle rectangle = event.getRectangle();
+					GWT.log("bounds=" + rectangle.getBounds());
+				}
 
-        if (ot == OverlayType.RECTANGLE) {
-          Rectangle rectangle = event.getRectangle();
-          GWT.log("bounds=" + rectangle.getBounds());
-        }
+				GWT.log("marker completed OverlayType=" + ot.toString());
+			}
+		});
 
-        GWT.log("marker completed OverlayType=" + ot.toString());
-      }
-    });
+		o.addPolygonCompleteHandler(new PolygonCompleteMapHandler() {
+			public void onEvent(PolygonCompleteMapEvent event) {
+				Polygon polygon = event.getPolygon();
+				GWT.log("Polygon completed paths="
+						+ polygon.getPath().toString());
+			}
+		});
 
-    o.addPolygonCompleteHandler(new PolygonCompleteMapHandler() {
-      public void onEvent(PolygonCompleteMapEvent event) {
-        Polygon polygon = event.getPolygon();
-        GWT.log("Polygon completed paths=" + polygon.getPath().toString());
-      }
-    });
+		o.addPolylineCompleteHandler(new PolylineCompleteMapHandler() {
+			public void onEvent(PolylineCompleteMapEvent event) {
+				Polyline polyline = event.getPolyline();
+				GWT.log("Polyline completed paths="
+						+ polyline.getPath().toString());
+			}
+		});
 
-    o.addPolylineCompleteHandler(new PolylineCompleteMapHandler() {
-      public void onEvent(PolylineCompleteMapEvent event) {
-        Polyline polyline = event.getPolyline();
-        GWT.log("Polyline completed paths=" + polyline.getPath().toString());
-      }
-    });
+		o.addRectangleCompleteHandler(new RectangleCompleteMapHandler() {
+			public void onEvent(RectangleCompleteMapEvent event) {
+				Rectangle rectangle = event.getRectangle();
+				GWT.log("Rectangle completed bounds="
+						+ rectangle.getBounds().getToString());
+			}
+		});
 
-    o.addRectangleCompleteHandler(new RectangleCompleteMapHandler() {
-      public void onEvent(RectangleCompleteMapEvent event) {
-        Rectangle rectangle = event.getRectangle();
-        GWT.log("Rectangle completed bounds=" + rectangle.getBounds().getToString());
-      }
-    });
+	}
 
-  }
+	//TODO implement or drop method
+	@SuppressWarnings("unused")
+	private void drawMapAds() {
 
-  private void drawMapAds() {
+		AdUnitOptions options = AdUnitOptions.newInstance();
+		options.setFormat(AdFormat.HALF_BANNER);
+		options.setPosition(ControlPosition.RIGHT_CENTER);
+		options.setMap(mapWidget);
+		options.setPublisherId("pub-0032065764310410");
+		options.setChannelNumber("4000893900");
 
-    AdUnitOptions options = AdUnitOptions.newInstance();
-    options.setFormat(AdFormat.HALF_BANNER);
-    options.setPosition(ControlPosition.RIGHT_CENTER);
-    options.setMap(mapWidget);
-    options.setPublisherId("pub-0032065764310410");
-    options.setChannelNumber("4000893900");
+		AdUnitWidget adUnit = new AdUnitWidget(options);
 
-    AdUnitWidget adUnit = new AdUnitWidget(options);
+		adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
+			public void onEvent(ChannelNumberChangeMapEvent event) {
+			}
+		});
 
-    adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
-      public void onEvent(ChannelNumberChangeMapEvent event) { 
-      }
-    });
+		adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
+			public void onEvent(FormatChangeMapEvent event) {
+			}
+		});
 
-    adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
-      public void onEvent(FormatChangeMapEvent event) {
-      }
-    });
+		adUnit.addMapChangeHandler(new MapChangeMapHandler() {
+			public void onEvent(MapChangeMapEvent event) {
+			}
+		});
 
-    adUnit.addMapChangeHandler(new MapChangeMapHandler() {
-      public void onEvent(MapChangeMapEvent event) {
-      }
-    });
+		adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
+			public void onEvent(PositionChangeMapEvent event) {
+			}
+		});
 
-    adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
-      public void onEvent(PositionChangeMapEvent event) {
-      }
-    });
-
-  }
+	}
 
 }

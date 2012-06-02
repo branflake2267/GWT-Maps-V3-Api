@@ -80,10 +80,16 @@ public class FusionTablesMapWidget extends Composite {
     FusionTablesLayer layer = FusionTablesLayer.newInstance(options);
     layer.addClickHandler(new FusionTablesMouseMapHandler() {
       public void onEvent(FusionTablesMouseMapEvent event) {
-        String infoWindowHtml = event.getInfoWindowHtml();
+    	  
+        @SuppressWarnings("unused")
+		String infoWindowHtml = event.getInfoWindowHtml();
         LatLng latlng = event.getLatLng();
-        Size pixelOffset = event.getPixelOffset();
-        JavaScriptObject a = event.getRow();
+        
+        @SuppressWarnings("unused")
+		Size pixelOffset = event.getPixelOffset();
+        
+        @SuppressWarnings("unused")
+		JavaScriptObject jso = event.getRow();
         String json = event.getRowAsJson();
         GWT.log("click on " + latlng.getToString() + "  json=" + json);
       }

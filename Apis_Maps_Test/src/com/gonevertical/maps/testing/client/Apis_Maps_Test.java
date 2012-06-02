@@ -17,7 +17,6 @@ import com.gonevertical.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.gonevertical.maps.testing.client.maps.StreetViewMapWidget;
 import com.gonevertical.maps.testing.client.maps.StreetViewSideBySideMapWidget;
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.maps.client.LoadApi;
