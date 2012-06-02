@@ -66,7 +66,7 @@ public class LatLng extends JavaScriptObject {
    * Returns the latitude in degrees.
    * @return double
    */
-  public final native double getLat() /*-{
+  private final native double getLat() /*-{
     return this.lat();
   }-*/;
 
