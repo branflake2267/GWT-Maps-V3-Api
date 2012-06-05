@@ -33,7 +33,7 @@
 
 		<!-- Plugins needed for building -->
 		<plugins>
-			<!-- Build and package module as GWT jar w/ .gwt inside -->
+			<!-- Build and package module as GWT war -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
