@@ -10,45 +10,18 @@
 	</scm>
 
 	<!-- Artifact details that people will use search for this project -->
-	<groupId>com.google.gwt.maps</groupId>
-	<artifactId>gwt-maps-api-v3</artifactId>
-	<version>3.8.0-beta1-SNAPSHOT</version>
-	<name>Google Web Toolkit Maps API V3</name>
-	<url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
+	<artifactId>gwt-maps-api-v3-core</artifactId>
+	<name>GWT Maps API V3 Core</name>
 
-	<licenses>
-		<license>
-			<name>Apache License 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
-		</license>
-	</licenses>
-
-	<!-- Dev info -->
-	<developers>
-		<developer>
-			<name>Brandon Donnelson</name>
-			<email>branflake2267@gmail.com</email>
-			<organization>Gone Vertical LLC</organization>
-			<url>http://gonevertical.com/</url>
-		</developer>
-		<developer>
-			<name>Joseph Lust</name>
-			<organization>Lauf Labs LLC</organization>
-			<email>lauflabs@gmail.com</email>
-			<url>http://www.lustforge.com/</url>
-		</developer>
-	</developers>
+	<!-- Link to parent -->
+	<parent>
+		<groupId>com.google.gwt.maps</groupId>
+		<artifactId>gwt-maps-api-v3</artifactId>
+		<version>3.8.0-beta2-SNAPSHOT</version>
+	</parent>
 
 	<properties>
-		<!-- Java props -->
-		<gmapsApiVersion>3.8.0</gmapsApiVersion>
-		<javaVersion>1.6</javaVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- GWT props -->
-		<gwt.version>2.4.0</gwt.version>
-		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
 	</properties>
 
 	<!-- Actual build instructions and sequences -->
@@ -61,7 +34,7 @@
 		<!-- Build this code -->
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
-		
+
 		<!-- Add java sources and *.gwt.xml to the jar (necessary for GWT) -->
 		<resources>
 			<resource>
@@ -79,7 +52,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.4.0</version>
 
 				<executions>
 					<execution>
@@ -131,13 +103,8 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-
-				<configuration>
-					<source>${javaVersion}</source>
-					<target>${javaVersion}</target>
-				</configuration>
 			</plugin>
+			
 			<!-- Deploy source code in the repository -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -180,28 +147,20 @@
 		<dependency>
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
-			<version>1.1.0</version>
-			<scope>compile</scope>
 		</dependency>
 		<!-- Just the necessary GWT bits -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>${gwt.version}</version>
-			<scope>provided</scope> <!-- don't copy to jar -->
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
-			<version>${gwt.version}</version>
-			<scope>provided</scope> <!-- don't copy to jar -->
 		</dependency>
 		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope> <!-- don't copy to jar -->
 		</dependency>
 
 	</dependencies>

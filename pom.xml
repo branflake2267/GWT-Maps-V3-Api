@@ -1,17 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-<modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Artifact details that people will use search for this project -->
 	<groupId>com.google.gwt.maps</groupId>
 	<artifactId>gwt-maps-api-v3</artifactId>
 	<version>3.8.0-beta2-SNAPSHOT</version>
-	<name>Google Web Toolkit Maps API V3</name>
+	<packaging>pom</packaging> <!-- b/c is a parent POM, others are jars/wars -->
+
+	<name>GWT Maps API V3</name>
+	<description>GWT library to access Google Maps javascript API</description>
 	<url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
+	<inceptionYear>2011</inceptionYear>
+	<organization>
+		<name>Gone Vertical LLC</name>
+	</organization>
 
 	<licenses>
 		<license>
@@ -19,7 +23,7 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
 		</license>
 	</licenses>
-	
+
 	<scm>
 		<connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
 		<developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
@@ -29,22 +33,34 @@
 	<!-- Dev info -->
 	<developers>
 		<developer>
+			<id>branflake2267</id>
 			<name>Brandon Donnelson</name>
 			<email>branflake2267@gmail.com</email>
 			<organization>Gone Vertical LLC</organization>
-			<url>http://gonevertical.com/</url>
+			<organizationUrl>http://gonevertical.com</organizationUrl>
+			<roles>
+				<role>Lead developer</role>
+			</roles>
+			<timezone>-8</timezone>
 		</developer>
 		<developer>
+			<id>twistedpair</id>
 			<name>Joseph Lust</name>
 			<organization>Lauf Labs LLC</organization>
 			<email>lauflabs@gmail.com</email>
-			<url>http://www.lustforge.com/</url>
+			<organizationUrl>http://www.lustforge.com/</organizationUrl>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-5</timezone>
 		</developer>
 	</developers>
 
 	<properties>
-		<!-- Java props -->
+		<!-- Goolge maps props -->
 		<gmapsApiVersion>3.8.0</gmapsApiVersion>
+	
+		<!-- Java props -->
 		<javaVersion>1.6</javaVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -54,21 +70,65 @@
 	</properties>
 
 
-  <modules>
-    <module>com.google.gwt.maps</module>
-	<module>com.google.gwt.maps.testing</module>
-  </modules>
+	<modules>
+		<module>gwt-maps-api-v3-core</module>
+		<module>gwt-maps-api-v3-demo</module>
+	</modules>
 
-  </dependencyManagement>
-  <dependencies>
-  </dependencies>
-  </dependencyManagement>
-  
-  <build>
-    <pluginManagement>
-      <plugins>
-      </plugins>
-    </pluginManagement>
-  </build>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Build the core app -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+
+					<configuration>
+						<source>${javaVersion}</source>
+						<target>${javaVersion}</target>
+					</configuration>
+				</plugin>
+				<!-- Build the GWT -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>gwt-maven-plugin</artifactId>
+					<version>${gwt.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Other Google -->
+			<dependency>
+				<groupId>com.google.gwt.google-apis</groupId>
+				<artifactId>gwt-ajaxloader</artifactId>
+				<version>1.1.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<!-- Just the necessary GWT bits -->
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-user</artifactId>
+				<version>${gwt.version}</version>
+				<scope>provided</scope> <!-- don't copy to jar -->
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-dev</artifactId>
+				<version>${gwt.version}</version>
+				<scope>provided</scope> <!-- don't copy to jar -->
+			</dependency>
+			<!-- Testing -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.7</version>
+				<scope>test</scope> <!-- don't copy to jar -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
