@@ -10,8 +10,9 @@
 	</scm>
 
 	<!-- Artifact details that people will use search for this project -->
-	<artifactId>gwt-maps-api-v3-core</artifactId>
-	<name>GWT Maps API V3 Core</name>
+	<artifactId>Apis_Google_Maps</artifactId>
+<!-- 	<artifactId>gwt-maps-api-v3-core</artifactId> -->
+	<name>GWT Maps API V3 - Core</name>
 
 	<!-- Link to parent -->
 	<parent>

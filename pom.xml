@@ -71,8 +71,10 @@
 
 
 	<modules>
-		<module>gwt-maps-api-v3-core</module>
-		<module>gwt-maps-api-v3-demo</module>
+		<module>Apis_Google_Maps</module>
+		<module>Apis_Maps_Test</module>
+		<!-- <module>gwt-maps-api-v3-core</module>
+		<module>gwt-maps-api-v3-demo</module> -->
 	</modules>
 
 	<build>

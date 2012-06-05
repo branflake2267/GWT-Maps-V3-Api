@@ -4,8 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Artifact details that people will use search for this project -->
-	<artifactId>gwt-maps-api-v3-demo</artifactId>
-	<name>GWT V3 Demo Web App</name>
+	<artifactId>Apis_Maps_Test</artifactId>
+<!-- 	<artifactId>gwt-maps-api-v3-demo</artifactId> -->
+	<name>GWT Maps API V3 - Demo Web App</name>
 
 	<!-- Link to parent -->
 	<parent>
@@ -117,8 +118,9 @@
 		<!-- GWT Maps API V3 -->
 		<dependency>
 			<groupId>com.google.gwt.maps</groupId>
-			<artifactId>gwt-maps-api-v3-core</artifactId>
-			<version>${gmapsApiVersion}-beta1-SNAPSHOT</version>
+			<artifactId>Apis_Google_Maps</artifactId>
+<!-- 			<artifactId>gwt-maps-api-v3-core</artifactId> -->
+			<version>${gmapsApiVersion}-beta2-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 
