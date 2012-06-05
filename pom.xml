@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+<modelVersion>4.0.0</modelVersion>
+
+	<!-- Artifact details that people will use search for this project -->
+	<groupId>com.google.gwt.maps</groupId>
+	<artifactId>gwt-maps-api-v3</artifactId>
+	<version>3.8.0-beta2-SNAPSHOT</version>
+	<name>Google Web Toolkit Maps API V3</name>
+	<url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
+
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+	
+	<scm>
+		<connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
+		<developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+		<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
+	</scm>
+
+	<!-- Dev info -->
+	<developers>
+		<developer>
+			<name>Brandon Donnelson</name>
+			<email>branflake2267@gmail.com</email>
+			<organization>Gone Vertical LLC</organization>
+			<url>http://gonevertical.com/</url>
+		</developer>
+		<developer>
+			<name>Joseph Lust</name>
+			<organization>Lauf Labs LLC</organization>
+			<email>lauflabs@gmail.com</email>
+			<url>http://www.lustforge.com/</url>
+		</developer>
+	</developers>
+
+	<properties>
+		<!-- Java props -->
+		<gmapsApiVersion>3.8.0</gmapsApiVersion>
+		<javaVersion>1.6</javaVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- GWT props -->
+		<gwt.version>2.4.0</gwt.version>
+		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
+	</properties>
+
+
+  <modules>
+    <module>com.google.gwt.maps</module>
+	<module>com.google.gwt.maps.testing</module>
+  </modules>
+
+  </dependencyManagement>
+  <dependencies>
+  </dependencies>
+  </dependencyManagement>
+  
+  <build>
+    <pluginManagement>
+      <plugins>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
