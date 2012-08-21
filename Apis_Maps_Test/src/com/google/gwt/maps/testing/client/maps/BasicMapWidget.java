@@ -24,6 +24,7 @@ import com.google.gwt.maps.client.overlays.InfoWindow;
 import com.google.gwt.maps.client.overlays.InfoWindowOptions;
 import com.google.gwt.maps.client.overlays.Marker;
 import com.google.gwt.maps.client.overlays.MarkerOptions;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -53,7 +54,12 @@ public class BasicMapWidget extends Composite {
 
 		pWidget.clear();
 
+		Anchor sectionAnchor = new Anchor();
+		sectionAnchor.setName("basicMapE");
+		pWidget.add(sectionAnchor);
+
 		pWidget.add(new HTML("<br>Basic Map Example. With an AdUnit"));
+		
 
 		drawMap();
 

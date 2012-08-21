@@ -10,6 +10,7 @@ import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.overlays.Polyline;
 import com.google.gwt.maps.client.overlays.PolylineOptions;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -36,6 +37,11 @@ public class PolylineMapWidget extends Composite {
 	private void draw() {
 
 		pWidget.clear();
+		
+		Anchor sectionAnchor = new Anchor();
+		sectionAnchor.setName("polylineExample");
+		pWidget.add(sectionAnchor);
+		
 		pWidget.add(new HTML("<br>Map with Polyline. 3 lines of 12 points, 12 points and 165 points."));
 
 		drawMap();
