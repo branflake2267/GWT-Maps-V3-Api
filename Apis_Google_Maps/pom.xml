@@ -11,8 +11,9 @@
 
 	<!-- Artifact details that people will use search for this project -->
 	<artifactId>Apis_Google_Maps</artifactId>
-<!-- 	<artifactId>gwt-maps-api-v3-core</artifactId> -->
+	<!-- <artifactId>gwt-maps-api-v3-core</artifactId> -->
 	<name>GWT Maps API V3 - Core</name>
+	<packaging>jar</packaging>
 
 	<!-- Link to parent -->
 	<parent>
@@ -33,8 +34,8 @@
 		<testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>
 
 		<!-- Build this code -->
-		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>test</testSourceDirectory>
+		<sourceDirectory>${basedir}/src</sourceDirectory>
+		<testSourceDirectory>${basedir}/test</testSourceDirectory>
 
 		<!-- Add java sources and *.gwt.xml to the jar (necessary for GWT) -->
 		<resources>
@@ -54,25 +55,17 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-
 				<configuration>
-					<!-- Include *.gwt.xml files -->
+					<!-- Include *.gwt.xml files in the jar because is inheritable library -->
 					<compileSourcesArtifacts>
-						<compileSourcesArtifact>com.google.gwt.maps:apis_Google_Maps</compileSourcesArtifact>
+						<compileSourcesArtifact>com.google.gwt.maps:Apis_Google_Maps</compileSourcesArtifact>
 					</compileSourcesArtifacts>
 
 					<!-- Main module -->
 					<module>com.google.gwt.maps.Apis_Google_Maps</module>
-					<!-- <module>com.google.gwt.maps.Apis_Google_Maps_ForTests</module> -->
 				</configuration>
 			</plugin>
+
 			<!-- Don't test GWTTestCases, just the suite -->
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -100,12 +93,13 @@
 					</includes>
 				</configuration>
 			</plugin>
+
 			<!-- Build using java 1.6. GWT requires at least Java 1.5 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-			
+
 			<!-- Deploy source code in the repository -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -120,6 +114,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<!-- Deploy javadoc in the repository -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -134,11 +129,56 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- <skip>true</skip> -->
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<locale>en</locale>
+					<linksource>true</linksource>
+					<validateLinks>true</validateLinks>
+					<links>
+						<link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.4</link>
+					</links>
+					<quiet>true</quiet>
+					<serialwarn>true</serialwarn>
+					<skip>{$javadocs.skip}</skip>
+					<stylesheet>maven</stylesheet>
 				</configuration>
 			</plugin>
 		</plugins>
 
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											gwt-maven-plugin
+										</artifactId>
+										<versionRange>
+											[2.4.0,)
+										</versionRange>
+										<goals>
+											<goal>resources</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<!-- External project dependencies -->
