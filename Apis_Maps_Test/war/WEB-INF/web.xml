@@ -7,7 +7,7 @@
 	<!-- Servlets -->
 	<servlet>
 		<servlet-name>KmlGenerator</servlet-name>
-		<servlet-class>com.gonevertical.maps.testing.server.servlets.KmlGenerator</servlet-class>
+		<servlet-class>com.google.gwt.maps.testing.server.servlets.KmlGenerator</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>KmlGenerator</servlet-name>
