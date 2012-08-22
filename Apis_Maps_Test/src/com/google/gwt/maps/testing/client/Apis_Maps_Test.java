@@ -34,6 +34,7 @@ import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewSideBySideMapWidget;
+import com.google.gwt.maps.testing.client.maps.WeatherLayersWidget;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
@@ -60,6 +61,7 @@ public class Apis_Maps_Test implements EntryPoint {
     loadLibraries.add(LoadLibrary.GEOMETRY);
     loadLibraries.add(LoadLibrary.PANORAMIO);
     loadLibraries.add(LoadLibrary.PLACES);
+    loadLibraries.add(LoadLibrary.WEATHER);
     
     Runnable onLoad = new Runnable() {
       public void run() {
@@ -76,12 +78,14 @@ public class Apis_Maps_Test implements EntryPoint {
     HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
     RootPanel.get().add(html);
 
-    drawElevation();
+    drawPolylineMap();
     
     drawDirections();
     
-    drawPolylineMap();
+    drawWeatherMap();
     
+    drawElevation();
+        
     drawAdvancedLayers();
     
     drawCustomControlsMap();
@@ -110,9 +114,14 @@ public class Apis_Maps_Test implements EntryPoint {
     
   }
   
-  private void drawElevation() {
-    ElevationMapWidget wMap = new ElevationMapWidget();
+  private void drawWeatherMap() {
+    WeatherLayersWidget wMap = new WeatherLayersWidget();
     RootPanel.get().add(wMap);
+  }
+  
+  private void drawElevation() {
+	  ElevationMapWidget wMap = new ElevationMapWidget();
+	  RootPanel.get().add(wMap);
   }
   
   private void drawAdvancedLayers() {

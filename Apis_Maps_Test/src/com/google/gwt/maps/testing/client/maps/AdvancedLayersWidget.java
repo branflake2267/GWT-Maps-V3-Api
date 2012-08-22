@@ -13,10 +13,7 @@ import com.google.gwt.maps.client.events.click.ClickMapHandler;
 import com.google.gwt.maps.client.layers.BicyclingLayer;
 import com.google.gwt.maps.client.layers.TrafficLayer;
 import com.google.gwt.maps.client.layers.TransitLayer;
-import com.google.gwt.maps.client.overlays.Marker;
-import com.google.gwt.maps.client.overlays.MarkerOptions;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -105,32 +102,19 @@ public class AdvancedLayersWidget extends Composite {
 
 		mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
 
+		// apply button so people can see more interesting map
+		trafficLayer.setMap(mapWidget);
+		button.getElement().getStyle().setColor("red");
 	}
 
 	private void draw() {
 
 		pWidget.clear();
 
-		Anchor sectionAnchor = new Anchor();
-		sectionAnchor.setName("basicMapE");
-		pWidget.add(sectionAnchor);
-
 		pWidget.add(new HTML("<br>Advanced Map Layers Example"));
 
 		drawMap();
 		drawLayerControls();
-	}
-
-	// TODO implement this method or drop it
-	@SuppressWarnings("unused")
-	private void drawMarker2() {
-		LatLng center = LatLng.newInstance(47.8, -121.4);
-		MarkerOptions options = MarkerOptions.newInstance();
-		options.setPosition(center);
-		options.setTitle("Hello World");
-
-		final Marker marker = Marker.newInstance(options);
-
 	}
 
 	private void drawMap() {

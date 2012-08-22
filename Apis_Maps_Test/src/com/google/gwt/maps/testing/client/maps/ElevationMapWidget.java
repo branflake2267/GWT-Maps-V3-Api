@@ -3,6 +3,7 @@ package com.google.gwt.maps.testing.client.maps;
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -52,11 +53,11 @@ public class ElevationMapWidget extends Composite {
 	}
 
 	private void drawMap() {
-		LatLng center = LatLng.newInstance(49.496675, -102.65625);
+		LatLng center = LatLng.newInstance(39.31, -106.02);
 		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(4);
+		opts.setZoom(8);
 		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.HYBRID);
+		opts.setMapTypeId(MapTypeId.TERRAIN);
 
 		mapWidget = new MapWidget(opts);
 		pWidget.add(mapWidget);
@@ -115,8 +116,13 @@ public class ElevationMapWidget extends Composite {
 	}
 
 	protected void drawInfoWindow(LatLng position, double elevation) {
-		HTML html = new HTML("Elevation is " + elevation + " at "
-				+ position.getToString());
+		
+		NumberFormat format = NumberFormat.getFormat("###.##");
+		String elevationStr = format.format(elevation);
+		String latlngStr = "[ "+format.format(position.getLatitude()) + ", "+format.format(position.getLongitude())+" ]";
+		String message = "Elevation is "+elevationStr+"m @ "+latlngStr;
+				
+		HTML html = new HTML(message);
 		InfoWindowOptions options = InfoWindowOptions.newInstance();
 		options.setContent(html);
 		InfoWindow iw = InfoWindow.newInstance(options);

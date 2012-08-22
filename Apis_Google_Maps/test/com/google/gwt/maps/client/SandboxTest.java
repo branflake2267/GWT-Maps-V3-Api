@@ -17,7 +17,7 @@ public class SandboxTest extends GWTTestCase {
     assertEquals(true, true);
   }
   
-  public void testOut() {
+  public void testLoadAllLibraries() {
     boolean sensor = false;
     ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
     loadLibraries.add(LoadLibrary.ADSENSE);
@@ -25,6 +25,7 @@ public class SandboxTest extends GWTTestCase {
     loadLibraries.add(LoadLibrary.GEOMETRY);
     loadLibraries.add(LoadLibrary.PANORAMIO);
     loadLibraries.add(LoadLibrary.PLACES);
+    loadLibraries.add(LoadLibrary.WEATHER);
     
     LoadApi.go(new Runnable() {
       public void run() {

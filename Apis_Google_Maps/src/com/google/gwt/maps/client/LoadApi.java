@@ -41,6 +41,11 @@ public class LoadApi {
     PANORAMIO,
     
     /**
+     * weather contains functionality for adding meterological layers to your Maps API application. Consult the Weather Layers documentation for more information.
+     */
+    WEATHER,
+    
+    /**
      * places enables your application to search for businesses, geographic locations, and points of interest near a given location, or as a user types. Consult the Places Library documentation for more information.
      */
     PLACES;
