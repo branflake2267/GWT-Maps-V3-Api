@@ -12,7 +12,7 @@ We've already Mavenized this project, but are currently having it added to the C
 - [gwt-maps-api-v3-3.8.0-beta1.jar](http://www.lustforge.com/GWT/gwt-maps-api-v3-3.8.0-beta1-SNAPSHOT.jar)
 
 
-##To Build (with Maven
+##To Build (with Maven)
 
 1. Download the jar (only gwt-maps-api-v3-3.8.0-beta1.jar is needed)
 2. Add the jars to your local repo.
