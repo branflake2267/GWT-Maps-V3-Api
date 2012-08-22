@@ -2,21 +2,6 @@ package com.google.gwt.maps.testing.client;
 
 import java.util.ArrayList;
 
-import com.google.gwt.maps.testing.client.maps.AutocompletePlacesMapWidget;
-import com.google.gwt.maps.testing.client.maps.BasicMapWidget;
-import com.google.gwt.maps.testing.client.maps.ControlsMapWidget;
-import com.google.gwt.maps.testing.client.maps.CustomControlsMapWidget;
-import com.google.gwt.maps.testing.client.maps.DirectionsServiceMapWidget;
-import com.google.gwt.maps.testing.client.maps.DrawingMapWidget;
-import com.google.gwt.maps.testing.client.maps.ElevationMapWidget;
-import com.google.gwt.maps.testing.client.maps.FusionTablesMapWidget;
-import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
-import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
-import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
-import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
-import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
-import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
-import com.google.gwt.maps.testing.client.maps.StreetViewSideBySideMapWidget;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
@@ -33,6 +18,22 @@ import com.google.gwt.maps.client.events.click.ClickMapEvent;
 import com.google.gwt.maps.client.events.click.ClickMapHandler;
 import com.google.gwt.maps.client.overlays.Marker;
 import com.google.gwt.maps.client.overlays.MarkerOptions;
+import com.google.gwt.maps.testing.client.maps.AdvancedLayersWidget;
+import com.google.gwt.maps.testing.client.maps.AutocompletePlacesMapWidget;
+import com.google.gwt.maps.testing.client.maps.BasicMapWidget;
+import com.google.gwt.maps.testing.client.maps.ControlsMapWidget;
+import com.google.gwt.maps.testing.client.maps.CustomControlsMapWidget;
+import com.google.gwt.maps.testing.client.maps.DirectionsServiceMapWidget;
+import com.google.gwt.maps.testing.client.maps.DrawingMapWidget;
+import com.google.gwt.maps.testing.client.maps.ElevationMapWidget;
+import com.google.gwt.maps.testing.client.maps.FusionTablesMapWidget;
+import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
+import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
+import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
+import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
+import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
+import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
+import com.google.gwt.maps.testing.client.maps.StreetViewSideBySideMapWidget;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
@@ -81,6 +82,8 @@ public class Apis_Maps_Test implements EntryPoint {
     
     drawPolylineMap();
     
+    drawAdvancedLayers();
+    
     drawCustomControlsMap();
     
     drawInfoWindowMap();
@@ -110,6 +113,11 @@ public class Apis_Maps_Test implements EntryPoint {
   private void drawElevation() {
     ElevationMapWidget wMap = new ElevationMapWidget();
     RootPanel.get().add(wMap);
+  }
+  
+  private void drawAdvancedLayers() {
+	  AdvancedLayersWidget wMap = new AdvancedLayersWidget();
+	  RootPanel.get().add(wMap);
   }
 
   private void drawDirections() {
