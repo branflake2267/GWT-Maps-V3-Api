@@ -42,6 +42,7 @@ import com.google.gwt.maps.client.layers.KmlLayerMetadataTest;
 import com.google.gwt.maps.client.layers.KmlLayerOptionsTest;
 import com.google.gwt.maps.client.layers.KmlLayerTest;
 import com.google.gwt.maps.client.layers.TrafficLayerTest;
+import com.google.gwt.maps.client.layers.TransitLayerTest;
 import com.google.gwt.maps.client.main.LoadApiTest;
 import com.google.gwt.maps.client.main.MapOptionsTest;
 import com.google.gwt.maps.client.main.MapTypeIdTest;
@@ -128,6 +129,12 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidgetTest;
 import com.google.gwt.maps.client.streetview.StreetViewPovTest;
 import com.google.gwt.maps.client.streetview.StreetViewServiceTest;
 import com.google.gwt.maps.client.streetview.StreetViewTileDataTest;
+import com.google.gwt.maps.client.weatherlib.CloudLayerTest;
+import com.google.gwt.maps.client.weatherlib.LabelColorTest;
+import com.google.gwt.maps.client.weatherlib.TemperatureUnitTest;
+import com.google.gwt.maps.client.weatherlib.WeatherLayerOptionsTest;
+import com.google.gwt.maps.client.weatherlib.WeatherLayerTest;
+import com.google.gwt.maps.client.weatherlib.WindSpeedUnitTest;
 
 /**
  * NOTES:
@@ -273,7 +280,13 @@ public class MapsTestSuite extends GWTTestSuite {
     suite.addTestSuite(DistanceMatrixElementStatusTest.class);
     suite.addTestSuite(DistanceMatrixRequestTest.class);
     suite.addTestSuite(DistanceMatrixServiceTest.class);
-    
+    suite.addTestSuite(TransitLayerTest.class);
+    suite.addTestSuite(CloudLayerTest.class);
+    suite.addTestSuite(WeatherLayerTest.class);
+    suite.addTestSuite(WeatherLayerOptionsTest.class);
+    suite.addTestSuite(LabelColorTest.class);
+    suite.addTestSuite(TemperatureUnitTest.class);
+    suite.addTestSuite(WindSpeedUnitTest.class);  
     
     
     return suite;
