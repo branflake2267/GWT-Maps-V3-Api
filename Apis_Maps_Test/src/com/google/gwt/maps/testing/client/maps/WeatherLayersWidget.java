@@ -61,7 +61,7 @@ public class WeatherLayersWidget extends Composite {
 
 		FlowPanel widget = new FlowPanel();
 		widget.add(button);
-		widget.add(new HTML("Advanced Layers"));
+		widget.add(new HTML("Weather Layers"));
 		widget.add(button);
 
 		DOM.setStyleAttribute(widget.getElement(), "background", "white");
@@ -72,6 +72,9 @@ public class WeatherLayersWidget extends Composite {
 
 		mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
 
+		// apply clouds
+		cloudLayer.setMap(mapWidget);
+		button.getElement().getStyle().setColor("red");
 	}
 
 	private void draw() {
@@ -84,11 +87,12 @@ public class WeatherLayersWidget extends Composite {
 	}
 
 	private void drawMap() {
-		LatLng center = LatLng.newInstance(42.35, -71.07);
+		// zoom out for the clouds
+		LatLng center = LatLng.newInstance(47.11, -4.91);
 		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(14);
+		opts.setZoom(3);
 		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.ROADMAP);
+		opts.setMapTypeId(MapTypeId.SATELLITE);
 
 		mapWidget = new MapWidget(opts);
 		pWidget.add(mapWidget);
