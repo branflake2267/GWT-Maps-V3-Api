@@ -47,10 +47,14 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   private HashMap<Integer, Widget> controls = null;
 
   /**
-   * reconstruct the mapWidget from jso
+   * Reconstruct the mapWidget from JSO
    * @param impl
+   * @return NULL if input is NULL
    */
   public static MapWidget newInstance(MapImpl impl) {
+	  if(impl==null) {
+		  return null;
+	  }
     return new MapWidget(impl);
   }
   

@@ -7,35 +7,39 @@ import com.google.gwt.maps.client.interfaces.HasMapWidget;
 import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
- * A traffic layer. This class extends MVCObject. <br>
+ * A transit layer. This class extends MVCObject. <br>
  * <br>
  * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/reference#TrafficLayer"
- * >TrafficLayer API Doc</a>
+ * "https://developers.google.com/maps/documentation/javascript/reference#TransitLayer"
+ * >TransitLayer API Doc</a>
  */
-public class TrafficLayer extends MVCObject<TrafficLayer> implements
+public class TransitLayer extends MVCObject<TransitLayer> implements
 		HasMapWidget {
 
 	/**
 	 * use newInstance();
 	 */
-	protected TrafficLayer() {
+	protected TransitLayer() {
 	}
 
 	/**
 	 * creates a traffic layer
 	 */
-	public static final TrafficLayer newInstance() {
+	public static final TransitLayer newInstance() {
 		return createJso().cast();
 	}
 
 	private static final native JavaScriptObject createJso() /*-{
-		return new $wnd.google.maps.TrafficLayer();
+		return new $wnd.google.maps.TransitLayer();
 	}-*/;
 
 	@Override
 	public final void setMap(MapWidget mapWidget) {
-		setMapImpl(mapWidget.getJso());
+		if (mapWidget == null) {
+			setMapImpl(null);
+		} else {
+			setMapImpl(mapWidget.getJso());
+		}
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
@@ -50,5 +54,4 @@ public class TrafficLayer extends MVCObject<TrafficLayer> implements
 	private final native MapImpl getMapImpl() /*-{
 		return this.getMap();
 	}-*/;
-
 }

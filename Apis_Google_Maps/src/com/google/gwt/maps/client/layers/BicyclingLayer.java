@@ -3,6 +3,7 @@ package com.google.gwt.maps.client.layers;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.interfaces.HasMapWidget;
 import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
@@ -10,7 +11,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br><br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#BicyclingLayer">BicyclingLayer API Doc</a>
  */
-public class BicyclingLayer extends MVCObject<BicyclingLayer> {
+public class BicyclingLayer extends MVCObject<BicyclingLayer> implements HasMapWidget {
 
   /**
    * use newInstance();
@@ -28,10 +29,7 @@ public class BicyclingLayer extends MVCObject<BicyclingLayer> {
     return new $wnd.google.maps.BicyclingLayer();
   }-*/;
   
-  /**
-   * Renders the layer on the specified map. If map is set to null, the layer will be removed.
-   * @param mapWidget
-   */
+  @Override
   public final void setMap(MapWidget mapWidget) {
     setMapImpl(mapWidget.getJso());
   }
@@ -40,9 +38,7 @@ public class BicyclingLayer extends MVCObject<BicyclingLayer> {
     this.map = map;
   }-*/;
   
-  /**
-   * Returns the map on which this layer is displayed.
-   */
+  @Override
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
   }
