@@ -10,53 +10,66 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#KMLLayers">KMLLayers API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#KMLLayers"
+ * >KMLLayers API Doc</a>
  */
 public class TrafficLayerTest extends GWTTestCase {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	public static final int ASYNC_DELAY_MS = 5000;
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public String getModuleName() {
+		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        TrafficLayer o = TrafficLayer.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	public void testWorks() {
+		assertEquals(true, true);
+	}
 
-  public void testUse2() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        LatLng center = LatLng.newInstance(49.496675,-102.65625);
-        MapOptions opts = MapOptions.newInstance();
-        opts.setZoom(4);
-        opts.setCenter(center);
-        opts.setMapTypeId(MapTypeId.ROADMAP);
-        
-        MapWidget mapWidget = new MapWidget(opts);
-        RootPanel.get().add(mapWidget);
-        mapWidget.setSize("500px", "500px");
-        
-        TrafficLayer o = TrafficLayer.newInstance();
-        o.setMap(mapWidget);
-        
-        MapWidget right = o.getMap();
-        assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  }
+	@SuppressWarnings("unused")
+	public void testUse() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				TrafficLayer o = TrafficLayer.newInstance();
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+
+	public void testUse2() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				LatLng center = LatLng.newInstance(49.496675, -102.65625);
+				MapOptions opts = MapOptions.newInstance();
+				opts.setZoom(4);
+				opts.setCenter(center);
+				opts.setMapTypeId(MapTypeId.ROADMAP);
+
+				MapWidget mapWidget = new MapWidget(opts);
+				RootPanel.get().add(mapWidget);
+				mapWidget.setSize("500px", "500px");
+
+				TrafficLayer o = TrafficLayer.newInstance();
+
+				// test clearing from map
+				o.setMap(null);
+				assertNull(o.getMap());
+
+				o.setMap(mapWidget);
+				MapWidget right = o.getMap();
+				assertEquals(mapWidget.getCenter().getToString(), right
+						.getCenter().getToString());
+
+				// test clearing from map
+				o.setMap(null);
+				assertNull(o.getMap());
+
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+}

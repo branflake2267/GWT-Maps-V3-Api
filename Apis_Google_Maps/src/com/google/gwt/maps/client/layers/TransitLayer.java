@@ -3,7 +3,6 @@ package com.google.gwt.maps.client.layers;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.interfaces.HasMapWidget;
 import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
@@ -13,8 +12,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * "https://developers.google.com/maps/documentation/javascript/reference#TransitLayer"
  * >TransitLayer API Doc</a>
  */
-public class TransitLayer extends MVCObject<TransitLayer> implements
-		HasMapWidget {
+public class TransitLayer extends MVCObject<TransitLayer> {
 
 	/**
 	 * use newInstance();
@@ -33,7 +31,12 @@ public class TransitLayer extends MVCObject<TransitLayer> implements
 		return new $wnd.google.maps.TransitLayer();
 	}-*/;
 
-	@Override
+	/**
+	 * Renders the layer on the specified map. If map is set to null, the layer
+	 * is removed.
+	 * 
+	 * @param mapWidget
+	 */
 	public final void setMap(MapWidget mapWidget) {
 		if (mapWidget == null) {
 			setMapImpl(null);
@@ -46,7 +49,9 @@ public class TransitLayer extends MVCObject<TransitLayer> implements
 		this.setMap(map);
 	}-*/;
 
-	@Override
+	/**
+	 * Get the map on which the layer is being rendered.
+	 */
 	public final MapWidget getMap() {
 		return MapWidget.newInstance(getMapImpl());
 	}

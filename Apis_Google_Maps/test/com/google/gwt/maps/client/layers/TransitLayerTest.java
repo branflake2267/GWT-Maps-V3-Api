@@ -50,16 +50,20 @@ public class TransitLayerTest extends GWTTestCase {
 				mapWidget.setSize("500px", "500px");
 
 				TransitLayer o = TransitLayer.newInstance();
-				o.setMap(mapWidget);
 
-				MapWidget expected = o.getMap();
-				assertEquals(mapWidget.getCenter().getToString(), expected
-						.getCenter().getToString());
-				
 				// test clearing from map
 				o.setMap(null);
 				assertNull(o.getMap());
-				
+
+				o.setMap(mapWidget);
+				MapWidget expected = o.getMap();
+				assertEquals(mapWidget.getCenter().getToString(), expected
+						.getCenter().getToString());
+
+				// test clearing from map
+				o.setMap(null);
+				assertNull(o.getMap());
+
 				finishTest();
 			}
 		}, false);

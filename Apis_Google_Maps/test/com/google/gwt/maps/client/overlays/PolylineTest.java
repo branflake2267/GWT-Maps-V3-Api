@@ -12,97 +12,106 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class PolylineTest extends GWTTestCase {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	public static final int ASYNC_DELAY_MS = 5000;
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public String getModuleName() {
+		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	public void testWorks() {
+		assertEquals(true, true);
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PolylineOptions options = PolylineOptions.newInstance();
-        Polyline o = Polyline.newInstance(options);
+	@SuppressWarnings("unused")
+	public void testUse() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				PolylineOptions options = PolylineOptions.newInstance();
+				Polyline o = Polyline.newInstance(options);
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testEditable() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PolylineOptions options = PolylineOptions.newInstance();
-        Polyline o = Polyline.newInstance(options);
-        boolean left = true;
-        o.setEditable(left);
-        boolean right = o.getEditable();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testMap() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PolylineOptions options = PolylineOptions.newInstance();
-        Polyline o = Polyline.newInstance(options);
-        MapOptions opts = MapOptions.newInstance();
-        MapWidget left = new MapWidget(opts);
-        left.setSize("500px", "500px");
-        RootPanel.get().add(left);
-        o.setMap(left);
-        MapWidget right = o.getMap();
-        assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testPath_JsArray() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PolylineOptions options = PolylineOptions.newInstance();
-        Polyline o = Polyline.newInstance(options);
-        LatLng[] a = new LatLng[3];
-        a[0] = LatLng.newInstance(35, 36);
-        a[1] = LatLng.newInstance(36, 37);
-        a[2] = LatLng.newInstance(38, 39);
-        JsArray<LatLng> left = ArrayHelper.toJsArray(a);
-        o.setPath(left);
-        // fail and it will throw
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testPath_MVCArray() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PolylineOptions options = PolylineOptions.newInstance();
-        Polyline o = Polyline.newInstance(options);
-        LatLng[] a = new LatLng[3];
-        a[0] = LatLng.newInstance(35, 36);
-        a[1] = LatLng.newInstance(36, 37);
-        a[2] = LatLng.newInstance(38, 39);
-        MVCArray<LatLng> left = MVCArray.newInstance(a);
-        o.setPath(left);
-        // fail and it will throw
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+
+	public void testEditable() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				PolylineOptions options = PolylineOptions.newInstance();
+				Polyline o = Polyline.newInstance(options);
+				boolean left = true;
+				o.setEditable(left);
+				boolean right = o.getEditable();
+				assertEquals(left, right);
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+
+	public void testMap() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				PolylineOptions options = PolylineOptions.newInstance();
+				Polyline o = Polyline.newInstance(options);
+
+				// test getting null map
+				assertNull(o.getMap());
+
+				MapOptions opts = MapOptions.newInstance();
+				MapWidget left = new MapWidget(opts);
+				left.setSize("500px", "500px");
+				RootPanel.get().add(left);
+				o.setMap(left);
+				MapWidget right = o.getMap();
+				assertEquals(left.getCenter().getToString(), right.getCenter()
+						.getToString());
+
+				// test clearing from map
+				o.setMap(null);
+				assertNull(o.getMap());
+
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+
+	public void testPath_JsArray() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				PolylineOptions options = PolylineOptions.newInstance();
+				Polyline o = Polyline.newInstance(options);
+				LatLng[] a = new LatLng[3];
+				a[0] = LatLng.newInstance(35, 36);
+				a[1] = LatLng.newInstance(36, 37);
+				a[2] = LatLng.newInstance(38, 39);
+				JsArray<LatLng> left = ArrayHelper.toJsArray(a);
+				o.setPath(left);
+				// fail and it will throw
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+
+	public void testPath_MVCArray() {
+		LoadApi.go(new Runnable() {
+			public void run() {
+				PolylineOptions options = PolylineOptions.newInstance();
+				Polyline o = Polyline.newInstance(options);
+				LatLng[] a = new LatLng[3];
+				a[0] = LatLng.newInstance(35, 36);
+				a[1] = LatLng.newInstance(36, 37);
+				a[2] = LatLng.newInstance(38, 39);
+				MVCArray<LatLng> left = MVCArray.newInstance(a);
+				o.setPath(left);
+				// fail and it will throw
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+
 }

@@ -3,7 +3,6 @@ package com.google.gwt.maps.client.layers;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.interfaces.HasMapWidget;
 import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
@@ -13,8 +12,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * "https://developers.google.com/maps/documentation/javascript/reference#TrafficLayer"
  * >TrafficLayer API Doc</a>
  */
-public class TrafficLayer extends MVCObject<TrafficLayer> implements
-		HasMapWidget {
+public class TrafficLayer extends MVCObject<TrafficLayer> {
 
 	/**
 	 * use newInstance();
@@ -33,16 +31,18 @@ public class TrafficLayer extends MVCObject<TrafficLayer> implements
 		return new $wnd.google.maps.TrafficLayer();
 	}-*/;
 
-	@Override
 	public final void setMap(MapWidget mapWidget) {
-		setMapImpl(mapWidget.getJso());
+		if (mapWidget == null) {
+			setMapImpl(null);
+		} else {
+			setMapImpl(mapWidget.getJso());
+		}
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
 		this.setMap(map);
 	}-*/;
 
-	@Override
 	public final MapWidget getMap() {
 		return MapWidget.newInstance(getMapImpl());
 	}
