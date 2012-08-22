@@ -68,9 +68,9 @@ public class AutocompletePlacesMapWidget extends Composite {
   private void drawMap() {
     LatLng center = LatLng.newInstance(49.496675,-102.65625);
     MapOptions opts = MapOptions.newInstance();
-    opts.setZoom(4);
+    opts.setZoom(8);
     opts.setCenter(center);
-    opts.setMapTypeId(MapTypeId.HYBRID);
+    opts.setMapTypeId(MapTypeId.TERRAIN);
 
     mapWidget = new MapWidget(opts);
     pWidget.add(mapWidget);
@@ -107,7 +107,8 @@ public class AutocompletePlacesMapWidget extends Composite {
         PlaceGeometry geomtry = result.getGeometry();
         LatLng center = geomtry.getLocation();
         
-        mapWidget.setCenter(center);
+        mapWidget.panTo(center);
+        //mapWidget.setZoom(8);
         
         GWT.log("place changed center=" + center);
       }
