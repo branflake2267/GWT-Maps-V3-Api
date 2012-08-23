@@ -85,11 +85,11 @@
 					</systemProperties>
 					<!-- Multi-thread -->
 					<parallel>classes</parallel>
-					<threadCount>4</threadCount>
+					<threadCount>8</threadCount>
 					<perCoreThreadCount>true</perCoreThreadCount>
-					<!-- Only run the suite -->
+					<!-- Only run the GWTTests -->
 					<includes>
-						<include>**/*TestSuite.java</include>
+						<include>**/*Test.java</include>
 					</includes>
 				</configuration>
 			</plugin>

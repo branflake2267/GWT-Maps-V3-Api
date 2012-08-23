@@ -18,17 +18,14 @@ public class CloudLayerTest extends GWTTestCase {
 		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
 	}
 
-	public void testWorks() {
-		assertEquals(true, true);
-	}
-
-	@SuppressWarnings("unused")
 	public void testUse() {
 		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
 		loadLibraries.add(LoadLibrary.WEATHER);
 		LoadApi.go(new Runnable() {
 			public void run() {
 				CloudLayer o = CloudLayer.newInstance();
+				assertNotNull("CloudLayer should have been created.",o);
+				
 				finishTest();
 			}
 		}, loadLibraries, false);

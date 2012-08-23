@@ -107,7 +107,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * get Element
+   * Get map's containing element
    */
   public final native Element getDiv() /*-{
     return this.getDiv();

@@ -60,8 +60,9 @@ public class MapImplTest extends GWTTestCase {
 				
 
 				// expected
-				LatLng expectedSW = LatLng.newInstance(30.792110d, -54.84306d);
-				LatLng expectedNE = LatLng.newInstance(51.64751d, -88.59306d);
+				LatLng expectedSW = LatLng.newInstance(30.792110d, -180d);
+				LatLng expectedNE = LatLng.newInstance(51.64751d, 180d);
+				@SuppressWarnings("unused")
 				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
 				
 				// test
@@ -84,15 +85,19 @@ public class MapImplTest extends GWTTestCase {
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
+				
+				Element container = fp.getElement();
+				String testClassName = "TestClassName";
+				container.addClassName(testClassName);
+				
 				fp.setSize("103px", "204px");
 				Element element = fp.getElement();
 				MapOptions options = MapOptions.newInstance();
 				MapImpl o = MapImpl.newInstance(element, options);
 				Element e = o.getDiv();
-				int right = e.getAbsoluteRight();
-				int bottom = e.getAbsoluteBottom();
-				assertEquals(111, right);
-				assertEquals(312, bottom);
+								
+				assertEquals(testClassName, e.getClassName());
+				
 				finishTest();
 			}
 		}, false);
@@ -107,7 +112,8 @@ public class MapImplTest extends GWTTestCase {
 			  FlowPanel fp = new FlowPanel();
 			  RootPanel.get().add(fp);
 			  fp.setSize("103px", "204px");
-			  Element element = fp.getElement();
+			  @SuppressWarnings("unused")
+			Element element = fp.getElement();
 			  
 			  MapOptions options = MapOptions.newInstance();
 			  MapWidget widget = new MapWidget(options);
