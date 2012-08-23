@@ -35,8 +35,9 @@ public enum MapTypeId {
     return valueOf(type.toUpperCase());
   }
 
-  public String toString() {
-    return name();
+  @Override
+public String toString() {
+    return name().toLowerCase();
   }
 
 }

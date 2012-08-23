@@ -48,6 +48,7 @@ import com.google.gwt.maps.client.events.zoom.ZoomChangeEventFormatter;
 import com.google.gwt.maps.client.events.zoom.ZoomChangeMapHandler;
 import com.google.gwt.maps.client.maptypes.MapTypeRegistry;
 import com.google.gwt.maps.client.maptypes.Projection;
+import com.google.gwt.maps.client.maptypes.StyledMapType;
 import com.google.gwt.maps.client.mvc.MVCArray;
 import com.google.gwt.maps.client.mvc.MVCObject;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaImpl;
@@ -288,11 +289,19 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * TODO
+   * Set the custom map type into the map's registry
+   * @param mapTypeId
+   * @param styledType
+   */
+  public final native void setCustomMapType(String mapTypeId, StyledMapType styledType) /*-{
+    this.mapTypes.set(mapTypeId, styledType);
+  }-*/;
+  
+  /**
    * gets A registry of MapType instances by string ID.
    */
-  public final native MapTypeRegistry getMapTypesRegistry() /*-{
-    return this.maptypes;
+  public final native MapTypeRegistry getMapTypeRegistry() /*-{
+    return this.mapTypes;
   }-*/;
   
   /**

@@ -83,6 +83,7 @@
 	
 		<!-- Google maps props -->
 		<gmapsApiVersion>3.8.0</gmapsApiVersion>
+		<gwt.style>OBF</gwt.style>
 
 		<!-- Java props -->
 		<javaVersion>1.6</javaVersion>
@@ -115,7 +116,9 @@
 					<version>${gwt.version}</version>
 
 					<!-- project level .gwt.xml files defined in sub-projects -->
-					<configuration></configuration>
+					<configuration>
+						<style>${gwt.style}</style>
+					</configuration>
 
 					<executions>
 						<execution>

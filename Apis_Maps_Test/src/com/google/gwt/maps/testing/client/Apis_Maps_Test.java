@@ -34,6 +34,7 @@ import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewSideBySideMapWidget;
+import com.google.gwt.maps.testing.client.maps.StyledMapWidget;
 import com.google.gwt.maps.testing.client.maps.WeatherLayersWidget;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -47,6 +48,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  */
 public class Apis_Maps_Test implements EntryPoint {
 
+	@Override
 	public void onModuleLoad() {
 		loadMapApi();
 	}
@@ -64,6 +66,7 @@ public class Apis_Maps_Test implements EntryPoint {
 		loadLibraries.add(LoadLibrary.WEATHER);
 
 		Runnable onLoad = new Runnable() {
+			@Override
 			public void run() {
 				draw();
 			}
@@ -84,6 +87,10 @@ public class Apis_Maps_Test implements EntryPoint {
 
 		drawWeatherMap();
 
+		drawStyledMap();
+
+		drawDrawingMap();
+
 		drawElevation();
 
 		drawAdvancedLayers();
@@ -100,7 +107,6 @@ public class Apis_Maps_Test implements EntryPoint {
 
 		drawAutocomplete();
 
-		drawDrawingMap();
 
 		drawBasicMap();
 
@@ -116,6 +122,11 @@ public class Apis_Maps_Test implements EntryPoint {
 
 	private void drawWeatherMap() {
 		WeatherLayersWidget wMap = new WeatherLayersWidget();
+		RootPanel.get().add(wMap);
+	}
+	
+	private void drawStyledMap() {
+		StyledMapWidget wMap = new StyledMapWidget();
 		RootPanel.get().add(wMap);
 	}
 
@@ -205,6 +216,7 @@ public class Apis_Maps_Test implements EntryPoint {
 		RootPanel.get().add(wMap);
 
 		wMap.addClickHandler(new ClickMapHandler() {
+			@Override
 			public void onEvent(ClickMapEvent event) {
 				MouseEvent me = event.getMouseEvent();
 				LatLng ll = me.getLatLng();

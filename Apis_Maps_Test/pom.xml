@@ -50,6 +50,9 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 
+				<configuration>
+					<style>${gwt.style}</style>
+				</configuration>
 
 			</plugin>
 
@@ -95,9 +98,9 @@
 						</goals>
 					</execution>
 				</executions>
-				
+
 				<configuration>
-					<webXml>war/WEB-INF/web.xml</webXml>					
+					<webXml>war/WEB-INF/web.xml</webXml>
 				</configuration>
 			</plugin>
 
@@ -137,6 +140,22 @@
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
+
+				<!-- Used for local tomcat debugging -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>tomcat-maven-plugin</artifactId>
+					<version>1.1</version>
+					<configuration>
+						<port>3030</port>
+						<warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
+					</configuration>
+
+					<goals>
+						<goal>run-war</goal>
+					</goals>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>

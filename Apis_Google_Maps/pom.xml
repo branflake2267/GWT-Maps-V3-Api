@@ -60,7 +60,10 @@
 					<compileSourcesArtifacts>
 						<compileSourcesArtifact>com.google.gwt.maps:Apis_Google_Maps</compileSourcesArtifact>
 					</compileSourcesArtifacts>
-
+					
+					<strict>true</strict>
+					<style>${gwt.style}</style>
+					
 					<!-- Main module -->
 					<module>com.google.gwt.maps.Apis_Google_Maps</module>
 				</configuration>

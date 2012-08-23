@@ -54,10 +54,6 @@ public class BasicMapWidget extends Composite {
 
 		pWidget.clear();
 
-		Anchor sectionAnchor = new Anchor();
-		sectionAnchor.setName("basicMapE");
-		pWidget.add(sectionAnchor);
-
 		pWidget.add(new HTML("<br>Basic Map Example. With an AdUnit"));
 		
 

@@ -11,7 +11,8 @@ public class MapTypeStyleTest extends GWTTestCase {
 
   public static final int ASYNC_DELAY_MS = 5000;
   
-  public String getModuleName() {
+  @Override
+public String getModuleName() {
     return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
   }
 
@@ -22,7 +23,8 @@ public class MapTypeStyleTest extends GWTTestCase {
   @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {
-      public void run() {
+      @Override
+	public void run() {
         MapTypeStyle options = MapTypeStyle.newInstance();
         finishTest();
       }
@@ -32,7 +34,8 @@ public class MapTypeStyleTest extends GWTTestCase {
   
   public void testElementType() {
     LoadApi.go(new Runnable() {
-      public void run() {
+      @Override
+	public void run() {
         MapTypeStyle options = MapTypeStyle.newInstance();
         MapTypeStyleElementType left = MapTypeStyleElementType.GEOMETRY;
         options.setElementType(left);
@@ -46,7 +49,8 @@ public class MapTypeStyleTest extends GWTTestCase {
   
   public void testElementTypes() {
     LoadApi.go(new Runnable() {
-      public void run() {
+      @Override
+	public void run() {
         MapTypeStyle options = MapTypeStyle.newInstance();
         MapTypeStyleElementType[] values = MapTypeStyleElementType.values();
         for (int i=0; i < values.length; i++) {
@@ -63,7 +67,8 @@ public class MapTypeStyleTest extends GWTTestCase {
   
   public void testFeatureType() {
     LoadApi.go(new Runnable() {
-      public void run() {
+      @Override
+	public void run() {
         MapTypeStyle options = MapTypeStyle.newInstance();
         MapTypeStyleFeatureType left = MapTypeStyleFeatureType.ADMINISTRATIVE__LOCALITY;
         options.setFeatureType(left);
@@ -77,7 +82,8 @@ public class MapTypeStyleTest extends GWTTestCase {
   
   public void testFeatureTypes() {
     LoadApi.go(new Runnable() {
-      public void run() {
+      @Override
+	public void run() {
         MapTypeStyle options = MapTypeStyle.newInstance();
         MapTypeStyleFeatureType[] values = MapTypeStyleFeatureType.values();
         for (int i=0; i < values.length; i++) {
@@ -94,37 +100,28 @@ public class MapTypeStyleTest extends GWTTestCase {
   
   public void testStylers() {
     LoadApi.go(new Runnable() {
-      public void run() {
+      @Override
+	public void run() {
         MapTypeStyle options = MapTypeStyle.newInstance();
-        MapTypeStyler[] left = new MapTypeStyler[2];
-        left[0] = MapTypeStyler.newInstance();
-        left[0].setGamma(.01f);
-        left[0].setHue("#ffff");
-        left[0].setInvertLightness(false);
-        left[0].setLightness(1);
-        left[0].setSaturation(5);
-        left[0].setVisibility("on");
-        left[1] = MapTypeStyler.newInstance();
-        left[1].setGamma(.01f);
-        left[1].setHue("#ffff");
-        left[1].setInvertLightness(false);
-        left[1].setLightness(1);
-        left[1].setSaturation(5);
-        left[1].setVisibility("on");
+        MapTypeStyler[] left = new MapTypeStyler[] {
+				MapTypeStyler.newHueStyler("#ffff00"),
+				MapTypeStyler.newInvertLightnessStyler(false),
+				MapTypeStyler.newSaturationStyler(75),
+				MapTypeStyler.newVisibilityStyler("on"),
+				MapTypeStyler.newGammaStyler(0.01d),
+				MapTypeStyler.newLightnessStyler(1)
+		};
+        
         options.setStylers(left);
         MapTypeStyler[] right = options.getStylers();
-        assertEquals(left[0].getGamma(), right[0].getGamma());
+        
         assertEquals(left[0].getHue(), right[0].getHue());
-        assertEquals(left[0].getInvertLightness(), right[0].getInvertLightness());
-        assertEquals(left[0].getLightness(), right[0].getLightness());
-        assertEquals(left[0].getSaturation(), right[0].getSaturation());
-        assertEquals(left[0].getVisibility(), right[0].getVisibility());
-        assertEquals(left[1].getGamma(), right[0].getGamma());
-        assertEquals(left[1].getHue(), right[0].getHue());
-        assertEquals(left[1].getInvertLightness(), right[0].getInvertLightness());
-        assertEquals(left[1].getLightness(), right[0].getLightness());
-        assertEquals(left[1].getSaturation(), right[0].getSaturation());
-        assertEquals(left[1].getVisibility(), right[0].getVisibility());
+        assertEquals(left[1].getInvertLightness(), right[1].getInvertLightness());
+        assertEquals(left[2].getSaturation(), right[2].getSaturation());
+        assertEquals(left[3].getVisibility(), right[3].getVisibility());
+        assertEquals(left[4].getGamma(), right[4].getGamma());
+        assertEquals(left[5].getLightness(), right[5].getLightness());
+
         finishTest();
       }
     }, false);

@@ -1,5 +1,7 @@
 package com.google.gwt.maps.client.main;
 
+import com.google.gwt.ajaxloader.client.ArrayHelper;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
@@ -10,8 +12,12 @@ import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.base.Point;
+import com.google.gwt.maps.client.controls.MapTypeStyle;
 import com.google.gwt.maps.client.layers.TrafficLayer;
+import com.google.gwt.maps.client.maptypes.MapTypeRegistry;
 import com.google.gwt.maps.client.maptypes.Projection;
+import com.google.gwt.maps.client.maptypes.StyledMapType;
+import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -19,17 +25,15 @@ public class MapImplTest extends GWTTestCase {
 
 	public static final int ASYNC_DELAY_MS = 5000;
 
+	@Override
 	public String getModuleName() {
 		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -47,6 +51,7 @@ public class MapImplTest extends GWTTestCase {
 	 */
 	public void testFitBounds() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -82,6 +87,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testGetDiv() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -106,7 +112,8 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testJsoToWidgetConversion() {
 	  LoadApi.go(new Runnable() {
-		  public void run() {
+		  @Override
+		public void run() {
 			  
 			  // make map
 			  FlowPanel fp = new FlowPanel();
@@ -142,6 +149,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testGetHeading() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -168,6 +176,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testgetMapTypeId() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -183,9 +192,40 @@ public class MapImplTest extends GWTTestCase {
 		}, false);
 		delayTestFinish(ASYNC_DELAY_MS);
 	}
+	
+	public void testGetMapTypeRegistry() {
+		LoadApi.go(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				MapTypeId left = MapTypeId.HYBRID;
+				o.setMapTypeId(left);
+				
+				// custom map to add
+		        JsArray<MapTypeStyle> styles = ArrayHelper.toJsArray(new MapTypeStyle[]{}); // JS needs JSArray, convert
+		        StyledMapTypeOptions opt2 = StyledMapTypeOptions.newInstance();
+		        opt2.setName("My Eyes are Bleeding!");// the name that appears on map controls
+		        StyledMapType customMapType = StyledMapType.newInstance(styles, opt2); // apply to new styled map
+				
+				// if it worked we should be able to set it
+				MapTypeRegistry reg = o.getMapTypeRegistry();
+				reg.set("SomeNewMapType", customMapType);
+				
+				// we're just making sure nothing broke - all methods are obf and private, so we cannot inspect
+				
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
 
 	public void testGetProjection() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -239,6 +279,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testGetTilt() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -259,6 +300,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testGetZoom() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -277,6 +319,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testGetPanBy() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -295,6 +338,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testPanTo() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -314,6 +358,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testPanToBounds() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -335,6 +380,7 @@ public class MapImplTest extends GWTTestCase {
 
 	public void testSetCenter() {
 		LoadApi.go(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
