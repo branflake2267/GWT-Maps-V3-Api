@@ -30,8 +30,8 @@ public class MapOptions extends JavaScriptObject {
 	protected MapOptions() {
 	}
 
-	private static final double DEFAULT_LATLNG_LAT = 26.4d;
-	private static final double DEFAULT_LATLNG_LNG = -9d;
+	public static final double DEFAULT_LATLNG_LAT = 26.4d;
+	public static final double DEFAULT_LATLNG_LNG = -9d;
 
 	/**
 	 * Create a new Instance of the MapOptions This will also create a defaults
@@ -41,7 +41,7 @@ public class MapOptions extends JavaScriptObject {
 	 */
 	public final static MapOptions newInstance() {
 		MapOptions options = newInstanceDefault();
-		getDefaults(options);
+		setDefaults(options);
 		return options;
 	}
 
@@ -56,21 +56,43 @@ public class MapOptions extends JavaScriptObject {
 	public final static MapOptions newInstance(boolean withdefaults) {
 		MapOptions options = newInstanceDefault();
 		if (withdefaults == true) {
-			getDefaults(options);
+			setDefaults(options);
 		}
 		return options;
 	}
 
 	/**
-	 * get the Required defaults, this should help prevent setup errors
+	 * Set the Required defaults, this should help prevent setup errors<br>
+	 * NOTE: These are the defaults as would be applied to a map if no options were used. They are set here so that NPE's are not thrown if you access an unset field.
 	 * 
 	 * @param options
 	 */
-	private static void getDefaults(MapOptions options) {
+	private static void setDefaults(MapOptions options) {
 		options.setCenter(LatLng.newInstance(DEFAULT_LATLNG_LAT,
 				DEFAULT_LATLNG_LNG));
 		options.setMapTypeId(MapTypeId.ROADMAP);
 		options.setZoom(0);
+		options.setDisableDefaultUi(false);
+		options.setDisableDoubleClickZoom(false);
+		options.setDraggable(true);
+		options.setDraggableCursor(null);
+		options.setDraggingCursor(null);
+		options.setHeading(0);
+		options.setKeyboardShortcuts(true);
+		options.setMapTypeControl(true);
+		options.setScrollWheel(true);
+		options.setNoClear(false);
+		options.setRotateControl(false);
+		options.setTilt(0);
+		options.setScaleControl(false);
+		options.setStreetViewControl(false);
+		options.setStreetViewControlOptions(null);
+		options.setOverviewMapControl(false);
+		options.setPanControl(true);
+		options.setZoomControl(true);
+		options.setMapMaker(false);
+		// Max/Min zoom not set with default here because it depends on the map type in use
+		// We don't want to risk overriding that
 	}
 
 	/**
@@ -183,14 +205,14 @@ public class MapOptions extends JavaScriptObject {
 	 * 
 	 * @param draggableCursor
 	 */
-	public final native void setDraggableCursor(boolean draggableCursor) /*-{
+	public final native void setDraggableCursor(String draggableCursor) /*-{
 		this.draggableCursor = draggableCursor;
 	}-*/;
 
 	/**
 	 * get The name or url of the cursor to display on a draggable object.
 	 */
-	public final native boolean getDraggableCursor() /*-{
+	public final native String getDraggableCursor() /*-{
 		return this.draggableCursor;
 	}-*/;
 
@@ -199,14 +221,14 @@ public class MapOptions extends JavaScriptObject {
 	 * 
 	 * @param draggingCursor
 	 */
-	public final native void setDraggingCursor(boolean draggingCursor) /*-{
+	public final native void setDraggingCursor(String draggingCursor) /*-{
 		this.draggingCursor = draggingCursor;
 	}-*/;
 
 	/**
 	 * get The name or url of the cursor to display when an object is dragging.
 	 */
-	public final native boolean getDraggingCursor() /*-{
+	public final native String getDraggingCursor() /*-{
 		return this.draggingCursor;
 	}-*/;
 
@@ -557,7 +579,7 @@ public class MapOptions extends JavaScriptObject {
 	 * @param scrollWheel
 	 */
 	public final native void setScrollWheel(boolean scrollWheel) /*-{
-		this.scrollWheel = scrollWheel;
+		this.scrollwheel = scrollWheel;
 	}-*/;
 
 	/**
@@ -565,7 +587,7 @@ public class MapOptions extends JavaScriptObject {
 	 * enabled by default.
 	 */
 	public final native boolean getScrollWheel() /*-{
-		return this.scrollWheel;
+		return this.scrollwheel;
 	}-*/;
 
 	/**
@@ -613,7 +635,7 @@ public class MapOptions extends JavaScriptObject {
 	 * @return {@link StreetViewControlOptions}
 	 */
 	public final native StreetViewControlOptions getStreetViewControlOptions() /*-{
-		return this.streetViewcontrolOptions;
+		return this.streetViewControlOptions;
 	}-*/;
 
 	public final void setMapTypeStyles(MapTypeStyle[] styles) {
@@ -708,6 +730,22 @@ public class MapOptions extends JavaScriptObject {
 	public final native boolean getZoomControl() /*-{
 		return this.zoomControl;
 	}-*/;
+	
+	/**
+	 * Sets Map Maker usage. 
+	 * @param mapMaker True if Map Maker tiles should be used instead of regular tiles.
+	 */
+	public final native void setMapMaker(boolean mapMaker) /*-{
+		this.mapMaker = mapMaker;
+	}-*/;
+	
+	/**
+	 * Gets Map Maker usage. 
+	 * @returns True if Map Maker tiles are used instead of regular tiles.
+	 */
+	public final native boolean getMapMaker() /*-{
+		return this.mapMaker;
+	}-*/;
 
 	/**
 	 * sets The display options for the Zoom control.
@@ -726,9 +764,4 @@ public class MapOptions extends JavaScriptObject {
 		return this.zoomControlOptions;
 	}-*/;
 
-	
-	public final String toString2() {
-		return "Type:"+getMapTypeIdJs()+
-				", Styles:"+getMapTypeStyles();
-	}
 }

@@ -44,6 +44,11 @@ public class MapOptionsTest extends GWTTestCase {
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				String left = "red";
+				
+				// should get default value if name is correct
+				String pretest = options.getBackgroundColor();
+				assertNull(pretest);
+				
 				options.setBackgroundColor(left);
 				String right = options.getBackgroundColor();
 				assertEquals(left, right);
@@ -58,6 +63,12 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				LatLng pretest = options.getCenter();
+				assertEquals(MapOptions.DEFAULT_LATLNG_LAT,pretest.getLatitude(),1e2);				
+				assertEquals(MapOptions.DEFAULT_LATLNG_LNG,pretest.getLongitude(),1e2);				
+				
 				LatLng left = LatLng.newInstance(35.1d, 38.2d);
 				options.setCenter(left);
 				LatLng right = options.getCenter();
@@ -75,6 +86,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getDisableDefaultUi();
+				assertFalse(pretest);		
+				
 				boolean left = true;
 				options.setDisableDefaultUi(left);
 				boolean right = options.getDisableDefaultUi();
@@ -90,6 +106,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getDraggable();
+				assertTrue(pretest);		
+				
 				boolean left = true;
 				options.setDraggable(left);
 				boolean right = options.getDraggable();
@@ -105,6 +126,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getDisableDoubleClickZoom();
+				assertFalse(pretest);		
+				
 				boolean left = true;
 				options.setDisableDoubleClickZoom(left);
 				boolean right = options.getDisableDoubleClickZoom();
@@ -120,9 +146,14 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
-				boolean left = true;
+				
+				// should get default value if name is correct
+				String pretest = options.getDraggingCursor();
+				assertNull(pretest);		
+				
+				String left = "cursor";
 				options.setDraggingCursor(left);
-				boolean right = options.getDraggingCursor();
+				String right = options.getDraggingCursor();
 				assertEquals(left, right);
 				finishTest();
 			}
@@ -135,6 +166,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				int pretest = options.getHeading();
+				assertEquals(0,pretest);		
+				
 				int left = 1234;
 				options.setHeading(left);
 				int right = options.getHeading();
@@ -150,6 +186,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getKeyboardShortcuts();
+				assertTrue(pretest);		
+				
 				boolean left = true;
 				options.setKeyboardShortcuts(left);
 				boolean right = options.getKeyboardShortcuts();
@@ -165,9 +206,14 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
-				boolean left = true;
+				
+				// should get default value if name is correct
+				String pretest = options.getDraggableCursor();
+				assertNull(pretest);		
+				
+				String left = "fooCursor";
 				options.setDraggableCursor(left);
-				boolean right = options.getDraggableCursor();
+				String right = options.getDraggableCursor();
 				assertEquals(left, right);
 				finishTest();
 			}
@@ -180,6 +226,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getMapTypeControl();
+				assertTrue(pretest);		
+				
 				boolean left = true;
 				options.setMapTypeControl(left);
 				boolean right = options.getMapTypeControl();
@@ -195,6 +246,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				MapTypeControlOptions pretest = options.getMapTypeControlOptions();
+				assertNull(pretest);		
+				
 				MapTypeControlOptions left = MapTypeControlOptions
 						.newInstance();
 				options.setMapTypeControlOptions(left);
@@ -213,6 +269,7 @@ public class MapOptionsTest extends GWTTestCase {
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 
+				// check default is true
 				assertEquals(MapTypeId.ROADMAP, options.getMapTypeId());
 
 				MapTypeId left = MapTypeId.TERRAIN;
@@ -236,15 +293,32 @@ public class MapOptionsTest extends GWTTestCase {
 				assertEquals(MapTypeId.ROADMAP.toString(),
 						options.getMapTypeIdString());
 
-				System.out.println(options.toString2());
-
 				String customType = "fooType";
 				options.setMapTypeId(customType);
-				System.out.println(options.toString2());
 
 				String actual = options.getMapTypeIdString();
 				assertEquals(customType, actual);
 
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
+	
+	public void testMapMaker() {
+		LoadApi.go(new Runnable() {
+			@Override
+			public void run() {
+				MapOptions options = MapOptions.newInstance();
+				
+				boolean pretest = options.getMapMaker();
+				assertFalse(pretest);
+				
+				boolean expected = true;
+				options.setMapMaker(expected);
+				boolean actual = options.getMapMaker();
+				assertEquals(expected, actual);
+				
 				finishTest();
 			}
 		}, false);
@@ -256,6 +330,7 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
 				int left = 10;
 				options.setMaxZoom(left);
 				int right = options.getMaxZoom();
@@ -271,6 +346,7 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+
 				int left = 9;
 				options.setMinZoom(left);
 				int right = options.getMinZoom();
@@ -286,6 +362,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getNoClear();
+				assertFalse(pretest);
+				
 				boolean left = true;
 				options.setNoClear(left);
 				boolean right = options.getNoClear();
@@ -301,6 +382,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getOverviewMapControl();
+				assertFalse(pretest);
+				
 				boolean left = true;
 				options.setOverviewMapControl(left);
 				boolean right = options.getOverviewMapControl();
@@ -316,6 +402,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				OverviewMapControlOptions pretest = options.getOverviewMapControlOptions();
+				assertNull(pretest);
+				
 				OverviewMapControlOptions left = OverviewMapControlOptions
 						.newInstance();
 				options.setOverviewMapControlOptions(left);
@@ -333,6 +424,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getPanControl();
+				assertTrue(pretest);
+				
 				boolean left = true;
 				options.setPanControl(left);
 				boolean right = options.getPanControl();
@@ -348,6 +444,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				PanControlOptions pretest = options.getPanControlOptions();
+				assertNull(pretest);
+				
 				PanControlOptions left = PanControlOptions.newInstance();
 				options.setPanControlOptions(left);
 				PanControlOptions right = options.getPanControlOptions();
@@ -363,6 +464,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getRotateControl();
+				assertFalse(pretest);
+				
 				boolean left = true;
 				options.setRotateControl(left);
 				boolean right = options.getRotateControl();
@@ -378,6 +484,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getScaleControl();
+				assertFalse(pretest);
+				
 				boolean left = true;
 				options.setScaleControl(left);
 				boolean right = options.getScaleControl();
@@ -393,6 +504,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				RotateControlOptions pretest = options.getRotateControlOptions();
+				assertNull(pretest);
+				
 				RotateControlOptions left = RotateControlOptions.newInstance();
 				options.setRotateControlOptions(left);
 				RotateControlOptions right = options.getRotateControlOptions();
@@ -408,6 +524,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getScrollWheel();
+				assertTrue(pretest);
+				
 				boolean left = true;
 				options.setScrollWheel(left);
 				boolean right = options.getScrollWheel();
@@ -423,6 +544,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getStreetViewControl();
+				assertFalse(pretest);
+				
 				boolean left = true;
 				options.setStreetViewControl(left);
 				boolean right = options.getStreetViewControl();
@@ -433,27 +559,32 @@ public class MapOptionsTest extends GWTTestCase {
 		delayTestFinish(ASYNC_DELAY_MS);
 	}
 
-	@SuppressWarnings("unused")
+
 	public void testStreetViewControlOptions() {
 		LoadApi.go(new Runnable() {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				StreetViewControlOptions pretest = options.getStreetViewControlOptions();
+				assertNull(pretest);
+				
 				StreetViewControlOptions left = StreetViewControlOptions
 						.newInstance();
 				left.setPosition(ControlPosition.BOTTOM_CENTER);
 				options.setStreetViewControlOptions(left);
 				StreetViewControlOptions right = options
 						.getStreetViewControlOptions();
-				// TODO
-				// assertEquals(left.getPosition(), right.getPosition());
+
+				assertEquals(ControlPosition.BOTTOM_CENTER, right.getPosition());
+				
 				finishTest();
 			}
 		}, false);
 		delayTestFinish(ASYNC_DELAY_MS);
 	}
 
-	// TODO
 	public void testMapTypeStyles() {
 		LoadApi.go(new Runnable() {
 			@Override
@@ -508,6 +639,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				int pretest = options.getTilt();
+				assertEquals(0,pretest);
+				
 				int left = 15;
 				options.setTilt(left);
 				int right = options.getTilt();
@@ -523,6 +659,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				int pretest = options.getZoom();
+				assertEquals(0,pretest);
+				
 				int left = 10;
 				options.setZoom(left);
 				int right = options.getZoom();
@@ -538,6 +679,11 @@ public class MapOptionsTest extends GWTTestCase {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
+				
+				// should get default value if name is correct
+				boolean pretest = options.getZoomControl();
+				assertTrue(pretest);
+				
 				boolean left = true;
 				options.setZoomControl(left);
 				boolean right = options.getZoomControl();
@@ -548,19 +694,22 @@ public class MapOptionsTest extends GWTTestCase {
 		delayTestFinish(ASYNC_DELAY_MS);
 	}
 
-	@SuppressWarnings("unused")
 	public void testZoomControlOptions() {
 		LoadApi.go(new Runnable() {
 			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
-				ZoomControlOptions left = ZoomControlOptions.newInstance();
+				// should get default value if name is correct
+				ZoomControlOptions pretest = options.getZoomControlOptions();
+				assertNull(pretest);
+				
 
+				ZoomControlOptions left = ZoomControlOptions.newInstance();
+				left.setPosition(ControlPosition.RIGHT_CENTER);
 				options.setZoomControlOptions(left);
 				ZoomControlOptions right = options.getZoomControlOptions();
 
-				// assertEquals(left.getPosition(), right.getPosition()); //
-				// TODO
+				assertEquals(left.getPosition(), right.getPosition());
 
 				finishTest();
 			}
