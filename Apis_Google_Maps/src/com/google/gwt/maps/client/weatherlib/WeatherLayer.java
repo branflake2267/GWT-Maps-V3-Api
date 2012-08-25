@@ -22,14 +22,18 @@ public class WeatherLayer extends MVCObject<WeatherLayer> {
 
 	/**
 	 * A layer that displays graphics showing current weather conditions.
-	 * @param options {@link WeatherLayerOptions} configuration for layer (units, style, behaviors)
-	 * @return
+	 * 
+	 * @param options
+	 *            {@link WeatherLayerOptions} configuration for layer (units,
+	 *            style, behaviors)
+	 * @return WeatherLayer object
 	 */
 	public static final WeatherLayer newInstance(WeatherLayerOptions options) {
 		return createJso(options).cast();
 	}
 
-	private static final native JavaScriptObject createJso(WeatherLayerOptions options) /*-{
+	private static final native JavaScriptObject createJso(
+			WeatherLayerOptions options) /*-{
 		return new $wnd.google.maps.weather.WeatherLayer(options);
 	}-*/;
 

@@ -60,10 +60,10 @@
 					<compileSourcesArtifacts>
 						<compileSourcesArtifact>com.google.gwt.maps:Apis_Google_Maps</compileSourcesArtifact>
 					</compileSourcesArtifacts>
-					
+
 					<strict>true</strict>
 					<style>${gwt.style}</style>
-					
+
 					<!-- Main module -->
 					<module>com.google.gwt.maps.Apis_Google_Maps</module>
 				</configuration>
@@ -143,13 +143,47 @@
 					<serialwarn>true</serialwarn>
 					<skip>{$javadocs.skip}</skip>
 					<stylesheet>maven</stylesheet>
+					
+					<!-- GA Tracking code -->
+					<header>
+					<![CDATA[
+						<script type="text/javascript">
+						  var _gaq = _gaq || [];
+						  _gaq.push(['_setAccount', 'UA-34327650-1']);
+						  _gaq.push(['_trackPageview']);
+						
+						  (function() {
+						    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+						    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+						    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+						  })();
+						
+						</script>
+						
+						<div align="center">
+							<br> <span class="gh-section">Follow us on GitHub</span>
+							<iframe
+								src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large"
+								allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+								height="30px"></iframe>
+							<iframe
+								src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large"
+								allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+								height="30px"></iframe>
+						</div>
+					]]>
+					
+					
+					</header>
+					
 				</configuration>
 			</plugin>
 		</plugins>
 
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

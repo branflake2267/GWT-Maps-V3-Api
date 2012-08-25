@@ -77,6 +77,7 @@ public class LoadApi {
 			return valueOf(value.toUpperCase());
 		}
 
+		@Override
 		public String toString() {
 			return name().toLowerCase();
 		}
