@@ -17,7 +17,8 @@ We've already Mavenized this project, but are currently having it added to the C
 1. Download the jar (only gwt-maps-api-v3-3.8.0-beta2.jar is needed)
 2. Add the jars to your local repo.
 3. Add the dependencies to your POM.
-
+	
+	```xml
 	<!-- GWT Maps API V3 -->
 	<dependency>
 		<groupId>com.google.gwt.maps</groupId>
@@ -32,10 +33,12 @@ We've already Mavenized this project, but are currently having it added to the C
 		<artifactId>gwt-ajaxloader</artifactId>
 		<version>1.1.0</version>
 	</dependency>
+	```
 4. Add the inherits statement to your module.gwt.xml.
-
+	
+	```xml
 	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
-
+	```
 
 ##Contribute
 Learn about contributing under [Eclipse Contributor Setup](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Eclipse-Contributor-Setup)
