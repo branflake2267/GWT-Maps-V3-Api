@@ -547,7 +547,7 @@ public class MapOptionsTest extends GWTTestCase {
 				
 				// should get default value if name is correct
 				boolean pretest = options.getStreetViewControl();
-				assertFalse(pretest);
+				assertTrue(pretest);
 				
 				boolean left = true;
 				options.setStreetViewControl(left);

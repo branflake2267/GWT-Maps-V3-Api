@@ -85,7 +85,7 @@ public class MapOptions extends JavaScriptObject {
 		options.setRotateControl(false);
 		options.setTilt(0);
 		options.setScaleControl(false);
-		options.setStreetViewControl(false);
+		options.setStreetViewControl(true);
 		options.setStreetViewControlOptions(null);
 		options.setOverviewMapControl(false);
 		options.setPanControl(true);

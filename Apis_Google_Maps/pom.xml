@@ -88,7 +88,7 @@
 					</systemProperties>
 					<!-- Multi-thread -->
 					<parallel>classes</parallel>
-					<threadCount>8</threadCount>
+					<threadCount>4</threadCount>
 					<perCoreThreadCount>true</perCoreThreadCount>
 					<!-- Only run the GWTTests -->
 					<includes>

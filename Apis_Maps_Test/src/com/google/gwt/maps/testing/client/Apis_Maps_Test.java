@@ -246,7 +246,7 @@ public class Apis_Maps_Test implements EntryPoint {
 		options.setDisableDefaultUi(false);
 		options.setDisableDoubleClickZoom(true); // works
 		options.setDraggable(true); // true
-		options.setDraggingCursor(true);
+		options.setDraggingCursor("crosshair");
 		options.setHeading(45);
 		options.setKeyboardShortcuts(true); // works
 		options.setMapTypeControl(true);
