@@ -1,0 +1,561 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package com.google.gwt.maps.client;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    import com.google.gwt.core.client.JavaScriptObject;<a name="line.3"></a>
+<FONT color="green">004</FONT>    import com.google.gwt.dom.client.Element;<a name="line.4"></a>
+<FONT color="green">005</FONT>    import com.google.gwt.event.shared.HandlerRegistration;<a name="line.5"></a>
+<FONT color="green">006</FONT>    import com.google.gwt.maps.client.base.LatLng;<a name="line.6"></a>
+<FONT color="green">007</FONT>    import com.google.gwt.maps.client.base.LatLngBounds;<a name="line.7"></a>
+<FONT color="green">008</FONT>    import com.google.gwt.maps.client.controls.ControlPosition;<a name="line.8"></a>
+<FONT color="green">009</FONT>    import com.google.gwt.maps.client.events.MapEventType;<a name="line.9"></a>
+<FONT color="green">010</FONT>    import com.google.gwt.maps.client.events.MapHandlerRegistration;<a name="line.10"></a>
+<FONT color="green">011</FONT>    import com.google.gwt.maps.client.events.bounds.BoundsChangeEventFormatter;<a name="line.11"></a>
+<FONT color="green">012</FONT>    import com.google.gwt.maps.client.events.bounds.BoundsChangeMapHandler;<a name="line.12"></a>
+<FONT color="green">013</FONT>    import com.google.gwt.maps.client.events.center.CenterChangeEventFormatter;<a name="line.13"></a>
+<FONT color="green">014</FONT>    import com.google.gwt.maps.client.events.center.CenterChangeMapHandler;<a name="line.14"></a>
+<FONT color="green">015</FONT>    import com.google.gwt.maps.client.events.click.ClickEventFormatter;<a name="line.15"></a>
+<FONT color="green">016</FONT>    import com.google.gwt.maps.client.events.click.ClickMapHandler;<a name="line.16"></a>
+<FONT color="green">017</FONT>    import com.google.gwt.maps.client.events.dblclick.DblClickEventFormatter;<a name="line.17"></a>
+<FONT color="green">018</FONT>    import com.google.gwt.maps.client.events.dblclick.DblClickMapHandler;<a name="line.18"></a>
+<FONT color="green">019</FONT>    import com.google.gwt.maps.client.events.drag.DragEventFormatter;<a name="line.19"></a>
+<FONT color="green">020</FONT>    import com.google.gwt.maps.client.events.drag.DragMapHandler;<a name="line.20"></a>
+<FONT color="green">021</FONT>    import com.google.gwt.maps.client.events.dragend.DragEndEventFormatter;<a name="line.21"></a>
+<FONT color="green">022</FONT>    import com.google.gwt.maps.client.events.dragend.DragEndMapHandler;<a name="line.22"></a>
+<FONT color="green">023</FONT>    import com.google.gwt.maps.client.events.dragstart.DragStartEventFormatter;<a name="line.23"></a>
+<FONT color="green">024</FONT>    import com.google.gwt.maps.client.events.dragstart.DragStartMapHandler;<a name="line.24"></a>
+<FONT color="green">025</FONT>    import com.google.gwt.maps.client.events.heading.HeadingChangeEventFormatter;<a name="line.25"></a>
+<FONT color="green">026</FONT>    import com.google.gwt.maps.client.events.heading.HeadingChangeMapHandler;<a name="line.26"></a>
+<FONT color="green">027</FONT>    import com.google.gwt.maps.client.events.idle.IdleEventFormatter;<a name="line.27"></a>
+<FONT color="green">028</FONT>    import com.google.gwt.maps.client.events.idle.IdleMapHandler;<a name="line.28"></a>
+<FONT color="green">029</FONT>    import com.google.gwt.maps.client.events.maptypeid.MapTypeIdChangeEventFormatter;<a name="line.29"></a>
+<FONT color="green">030</FONT>    import com.google.gwt.maps.client.events.maptypeid.MapTypeIdChangeMapHandler;<a name="line.30"></a>
+<FONT color="green">031</FONT>    import com.google.gwt.maps.client.events.mousemove.MouseMoveEventFormatter;<a name="line.31"></a>
+<FONT color="green">032</FONT>    import com.google.gwt.maps.client.events.mousemove.MouseMoveMapHandler;<a name="line.32"></a>
+<FONT color="green">033</FONT>    import com.google.gwt.maps.client.events.mouseout.MouseOutEventFormatter;<a name="line.33"></a>
+<FONT color="green">034</FONT>    import com.google.gwt.maps.client.events.mouseout.MouseOutMapHandler;<a name="line.34"></a>
+<FONT color="green">035</FONT>    import com.google.gwt.maps.client.events.mouseover.MouseOverEventFormatter;<a name="line.35"></a>
+<FONT color="green">036</FONT>    import com.google.gwt.maps.client.events.mouseover.MouseOverMapHandler;<a name="line.36"></a>
+<FONT color="green">037</FONT>    import com.google.gwt.maps.client.events.projection.ProjectionChangeEventFormatter;<a name="line.37"></a>
+<FONT color="green">038</FONT>    import com.google.gwt.maps.client.events.projection.ProjectionChangeMapHandler;<a name="line.38"></a>
+<FONT color="green">039</FONT>    import com.google.gwt.maps.client.events.resize.ResizeEventFormatter;<a name="line.39"></a>
+<FONT color="green">040</FONT>    import com.google.gwt.maps.client.events.resize.ResizeMapHandler;<a name="line.40"></a>
+<FONT color="green">041</FONT>    import com.google.gwt.maps.client.events.rightclick.RightClickEventFormatter;<a name="line.41"></a>
+<FONT color="green">042</FONT>    import com.google.gwt.maps.client.events.rightclick.RightClickMapHandler;<a name="line.42"></a>
+<FONT color="green">043</FONT>    import com.google.gwt.maps.client.events.tiles.TilesLoadedEventFormatter;<a name="line.43"></a>
+<FONT color="green">044</FONT>    import com.google.gwt.maps.client.events.tiles.TilesLoadedMapHandler;<a name="line.44"></a>
+<FONT color="green">045</FONT>    import com.google.gwt.maps.client.events.tilt.TiltChangeEventFormatter;<a name="line.45"></a>
+<FONT color="green">046</FONT>    import com.google.gwt.maps.client.events.tilt.TiltChangeMapHandler;<a name="line.46"></a>
+<FONT color="green">047</FONT>    import com.google.gwt.maps.client.events.zoom.ZoomChangeEventFormatter;<a name="line.47"></a>
+<FONT color="green">048</FONT>    import com.google.gwt.maps.client.events.zoom.ZoomChangeMapHandler;<a name="line.48"></a>
+<FONT color="green">049</FONT>    import com.google.gwt.maps.client.maptypes.MapTypeRegistry;<a name="line.49"></a>
+<FONT color="green">050</FONT>    import com.google.gwt.maps.client.maptypes.Projection;<a name="line.50"></a>
+<FONT color="green">051</FONT>    import com.google.gwt.maps.client.maptypes.StyledMapType;<a name="line.51"></a>
+<FONT color="green">052</FONT>    import com.google.gwt.maps.client.mvc.MVCArray;<a name="line.52"></a>
+<FONT color="green">053</FONT>    import com.google.gwt.maps.client.mvc.MVCObject;<a name="line.53"></a>
+<FONT color="green">054</FONT>    import com.google.gwt.maps.client.streetview.StreetViewPanoramaImpl;<a name="line.54"></a>
+<FONT color="green">055</FONT>    <a name="line.55"></a>
+<FONT color="green">056</FONT>    /**<a name="line.56"></a>
+<FONT color="green">057</FONT>     * Creates a new map inside of the given HTML container, which is typically a DIV element<a name="line.57"></a>
+<FONT color="green">058</FONT>     * &lt;br&gt;&lt;br&gt;<a name="line.58"></a>
+<FONT color="green">059</FONT>     * See &lt;a href="https://developers.google.com/maps/documentation/javascript/reference#Map"&gt;Map API Doc&lt;/a&gt;<a name="line.59"></a>
+<FONT color="green">060</FONT>     */<a name="line.60"></a>
+<FONT color="green">061</FONT>    public class MapImpl extends MVCObject&lt;MapImpl&gt; {<a name="line.61"></a>
+<FONT color="green">062</FONT>      <a name="line.62"></a>
+<FONT color="green">063</FONT>      /**<a name="line.63"></a>
+<FONT color="green">064</FONT>       * Creates a new map inside of the given HTML container, which is typically a DIV element.<a name="line.64"></a>
+<FONT color="green">065</FONT>       */<a name="line.65"></a>
+<FONT color="green">066</FONT>      protected MapImpl() {}<a name="line.66"></a>
+<FONT color="green">067</FONT>     <a name="line.67"></a>
+<FONT color="green">068</FONT>      /**<a name="line.68"></a>
+<FONT color="green">069</FONT>       * Creates a new map inside of the given HTML container, which is typically a DIV element.<a name="line.69"></a>
+<FONT color="green">070</FONT>       * @param element - map dom element container, like a div<a name="line.70"></a>
+<FONT color="green">071</FONT>       * @param options - {@link MapOptions}<a name="line.71"></a>
+<FONT color="green">072</FONT>       * @return {@link MapImpl}<a name="line.72"></a>
+<FONT color="green">073</FONT>       */<a name="line.73"></a>
+<FONT color="green">074</FONT>      public final static MapImpl newInstance(Element element, MapOptions options) {<a name="line.74"></a>
+<FONT color="green">075</FONT>        return createJso(element, options);<a name="line.75"></a>
+<FONT color="green">076</FONT>      }<a name="line.76"></a>
+<FONT color="green">077</FONT>      <a name="line.77"></a>
+<FONT color="green">078</FONT>      /**<a name="line.78"></a>
+<FONT color="green">079</FONT>       * private native method<a name="line.79"></a>
+<FONT color="green">080</FONT>       * @param id - dom element id<a name="line.80"></a>
+<FONT color="green">081</FONT>       * @param {@link MapOptions}<a name="line.81"></a>
+<FONT color="green">082</FONT>       */<a name="line.82"></a>
+<FONT color="green">083</FONT>      private final static native MapImpl createJso(Element element, MapOptions options) /*-{<a name="line.83"></a>
+<FONT color="green">084</FONT>        return new $wnd.google.maps.Map(element, options);<a name="line.84"></a>
+<FONT color="green">085</FONT>      }-*/;<a name="line.85"></a>
+<FONT color="green">086</FONT>      <a name="line.86"></a>
+<FONT color="green">087</FONT>      /**<a name="line.87"></a>
+<FONT color="green">088</FONT>       * Sets the viewport to contain the given bounds.<a name="line.88"></a>
+<FONT color="green">089</FONT>       * @param bounds {@link LatLngBounds}<a name="line.89"></a>
+<FONT color="green">090</FONT>       */<a name="line.90"></a>
+<FONT color="green">091</FONT>      public final native void fitBounds(LatLngBounds bounds) /*-{<a name="line.91"></a>
+<FONT color="green">092</FONT>        this.fitBounds(bounds);<a name="line.92"></a>
+<FONT color="green">093</FONT>      }-*/;<a name="line.93"></a>
+<FONT color="green">094</FONT>      <a name="line.94"></a>
+<FONT color="green">095</FONT>      /**<a name="line.95"></a>
+<FONT color="green">096</FONT>       * Returns the lat/lng bounds of the current viewport. If the map is not yet initialized (i.e. the mapType is still null), or center and zoom have not been set then the result is null or undefined.<a name="line.96"></a>
+<FONT color="green">097</FONT>       * @return {@link LatLngBounds}<a name="line.97"></a>
+<FONT color="green">098</FONT>       */<a name="line.98"></a>
+<FONT color="green">099</FONT>      public final native LatLngBounds getBounds() /*-{<a name="line.99"></a>
+<FONT color="green">100</FONT>        return this.getBounds();<a name="line.100"></a>
+<FONT color="green">101</FONT>      }-*/;<a name="line.101"></a>
+<FONT color="green">102</FONT>      <a name="line.102"></a>
+<FONT color="green">103</FONT>      /**<a name="line.103"></a>
+<FONT color="green">104</FONT>       * return map center in coordinates<a name="line.104"></a>
+<FONT color="green">105</FONT>       */<a name="line.105"></a>
+<FONT color="green">106</FONT>      public final native LatLng getCenter() /*-{<a name="line.106"></a>
+<FONT color="green">107</FONT>        return this.getCenter();<a name="line.107"></a>
+<FONT color="green">108</FONT>      }-*/;<a name="line.108"></a>
+<FONT color="green">109</FONT>      <a name="line.109"></a>
+<FONT color="green">110</FONT>      /**<a name="line.110"></a>
+<FONT color="green">111</FONT>       * Get map's containing element<a name="line.111"></a>
+<FONT color="green">112</FONT>       */<a name="line.112"></a>
+<FONT color="green">113</FONT>      public final native Element getDiv() /*-{<a name="line.113"></a>
+<FONT color="green">114</FONT>        return this.getDiv();<a name="line.114"></a>
+<FONT color="green">115</FONT>      }-*/; <a name="line.115"></a>
+<FONT color="green">116</FONT>      <a name="line.116"></a>
+<FONT color="green">117</FONT>      /**<a name="line.117"></a>
+<FONT color="green">118</FONT>       * Returns the compass heading of aerial imagery. The heading value is measured in degrees (clockwise) from cardinal direction North.<a name="line.118"></a>
+<FONT color="green">119</FONT>       * @return int<a name="line.119"></a>
+<FONT color="green">120</FONT>       */<a name="line.120"></a>
+<FONT color="green">121</FONT>      public final native int getHeading() /*-{<a name="line.121"></a>
+<FONT color="green">122</FONT>        return this.getHeading() || 0;<a name="line.122"></a>
+<FONT color="green">123</FONT>      }-*/;<a name="line.123"></a>
+<FONT color="green">124</FONT>      <a name="line.124"></a>
+<FONT color="green">125</FONT>      /**<a name="line.125"></a>
+<FONT color="green">126</FONT>       * gets {@link MapTypeId}<a name="line.126"></a>
+<FONT color="green">127</FONT>       * @return {@link MapTypeId}<a name="line.127"></a>
+<FONT color="green">128</FONT>       */<a name="line.128"></a>
+<FONT color="green">129</FONT>      public final MapTypeId getMapTypeId() {<a name="line.129"></a>
+<FONT color="green">130</FONT>        return MapTypeId.fromValue(getMapTypeIdImpl());<a name="line.130"></a>
+<FONT color="green">131</FONT>      }<a name="line.131"></a>
+<FONT color="green">132</FONT>     <a name="line.132"></a>
+<FONT color="green">133</FONT>      private final native String getMapTypeIdImpl() /*-{<a name="line.133"></a>
+<FONT color="green">134</FONT>        return this.getMapTypeId();<a name="line.134"></a>
+<FONT color="green">135</FONT>      }-*/;<a name="line.135"></a>
+<FONT color="green">136</FONT>      <a name="line.136"></a>
+<FONT color="green">137</FONT>      /**<a name="line.137"></a>
+<FONT color="green">138</FONT>       * Returns the current Projection. If the map is not yet initialized (i.e. the mapType is still null) then the result is null. Listen to projection_changed and check its value to ensure it is not null.<a name="line.138"></a>
+<FONT color="green">139</FONT>       * @return {@link Projection}<a name="line.139"></a>
+<FONT color="green">140</FONT>       */<a name="line.140"></a>
+<FONT color="green">141</FONT>      public final native Projection getProjection() /*-{<a name="line.141"></a>
+<FONT color="green">142</FONT>        return this.getProjection();<a name="line.142"></a>
+<FONT color="green">143</FONT>      }-*/;<a name="line.143"></a>
+<FONT color="green">144</FONT>      <a name="line.144"></a>
+<FONT color="green">145</FONT>      /**<a name="line.145"></a>
+<FONT color="green">146</FONT>       * Returns the default StreetViewPanorama bound to the map, which may be a default panorama embedded within the map, or the panorama set using setStreetView(). Changes to the map's streetViewControl will be reflected in the display of such a bound panorama.<a name="line.146"></a>
+<FONT color="green">147</FONT>       * @return {@link StreetViewPanoramaImpl}<a name="line.147"></a>
+<FONT color="green">148</FONT>       */<a name="line.148"></a>
+<FONT color="green">149</FONT>      public final native StreetViewPanoramaImpl getStreetView() /*-{<a name="line.149"></a>
+<FONT color="green">150</FONT>        return this.getStreetView();<a name="line.150"></a>
+<FONT color="green">151</FONT>      }-*/;<a name="line.151"></a>
+<FONT color="green">152</FONT>      <a name="line.152"></a>
+<FONT color="green">153</FONT>      /**<a name="line.153"></a>
+<FONT color="green">154</FONT>       * gets Returns the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. A value of 0 indicates no angle of incidence (no tilt) while 45° imagery will return a value of 45.<a name="line.154"></a>
+<FONT color="green">155</FONT>       */<a name="line.155"></a>
+<FONT color="green">156</FONT>      public final native int getTilt() /*-{<a name="line.156"></a>
+<FONT color="green">157</FONT>        return this.getTilt();<a name="line.157"></a>
+<FONT color="green">158</FONT>      }-*/;<a name="line.158"></a>
+<FONT color="green">159</FONT>      <a name="line.159"></a>
+<FONT color="green">160</FONT>      /**<a name="line.160"></a>
+<FONT color="green">161</FONT>       * get zoom<a name="line.161"></a>
+<FONT color="green">162</FONT>       */<a name="line.162"></a>
+<FONT color="green">163</FONT>      public final native int getZoom() /*-{<a name="line.163"></a>
+<FONT color="green">164</FONT>        return this.getZoom();<a name="line.164"></a>
+<FONT color="green">165</FONT>      }-*/;<a name="line.165"></a>
+<FONT color="green">166</FONT>      <a name="line.166"></a>
+<FONT color="green">167</FONT>      /**<a name="line.167"></a>
+<FONT color="green">168</FONT>       * Changes the center of the map by the given distance in pixels. If the distance is less than both the width and height of the map, the transition will be smoothly animated. Note that the map coordinate system increases from west to east (for x values) and north to south (for y values).<a name="line.168"></a>
+<FONT color="green">169</FONT>       * @param x<a name="line.169"></a>
+<FONT color="green">170</FONT>       * @param y<a name="line.170"></a>
+<FONT color="green">171</FONT>       */<a name="line.171"></a>
+<FONT color="green">172</FONT>      public final native void panBy(int x, int y) /*-{<a name="line.172"></a>
+<FONT color="green">173</FONT>        this.panBy(x, y);<a name="line.173"></a>
+<FONT color="green">174</FONT>      }-*/;<a name="line.174"></a>
+<FONT color="green">175</FONT>      <a name="line.175"></a>
+<FONT color="green">176</FONT>      /**<a name="line.176"></a>
+<FONT color="green">177</FONT>       * Changes the center of the map to the given LatLng. If the change is less than both the width and height of the map, the transition will be smoothly animated.<a name="line.177"></a>
+<FONT color="green">178</FONT>       * @param latLng<a name="line.178"></a>
+<FONT color="green">179</FONT>       */<a name="line.179"></a>
+<FONT color="green">180</FONT>      public final native void panTo(LatLng latLng) /*-{<a name="line.180"></a>
+<FONT color="green">181</FONT>        this.panTo(latLng);<a name="line.181"></a>
+<FONT color="green">182</FONT>      }-*/;<a name="line.182"></a>
+<FONT color="green">183</FONT>      <a name="line.183"></a>
+<FONT color="green">184</FONT>      /**<a name="line.184"></a>
+<FONT color="green">185</FONT>       * Pans the map by the minimum amount necessary to contain the given LatLngBounds. It makes no guarantee where on the map the bounds will be, except that as much of the bounds as possible will be visible. The bounds will be positioned inside the area bounded by the map type and navigation (pan, zoom, and Street View) controls, if they are present on the map. If the bounds is larger than the map, the map will be shifted to include the northwest corner of the bounds. If the change in the map's position is less than both the width and height of the map, the transition will be smoothly animated.<a name="line.185"></a>
+<FONT color="green">186</FONT>       * @param latLngBounds<a name="line.186"></a>
+<FONT color="green">187</FONT>       */<a name="line.187"></a>
+<FONT color="green">188</FONT>      public final native void panToBounds(LatLngBounds latLngBounds) /*-{<a name="line.188"></a>
+<FONT color="green">189</FONT>        this.panToBounds(latLngBounds);<a name="line.189"></a>
+<FONT color="green">190</FONT>      }-*/;<a name="line.190"></a>
+<FONT color="green">191</FONT>      <a name="line.191"></a>
+<FONT color="green">192</FONT>      /**<a name="line.192"></a>
+<FONT color="green">193</FONT>       * set center<a name="line.193"></a>
+<FONT color="green">194</FONT>       * @param latlng<a name="line.194"></a>
+<FONT color="green">195</FONT>       */<a name="line.195"></a>
+<FONT color="green">196</FONT>      public final native void setCenter(LatLng latlng) /*-{<a name="line.196"></a>
+<FONT color="green">197</FONT>        this.setCenter(latlng);<a name="line.197"></a>
+<FONT color="green">198</FONT>      }-*/;<a name="line.198"></a>
+<FONT color="green">199</FONT>      <a name="line.199"></a>
+<FONT color="green">200</FONT>      /**<a name="line.200"></a>
+<FONT color="green">201</FONT>       * Sets the compass heading for aerial imagery measured in degrees from cardinal direction North.<a name="line.201"></a>
+<FONT color="green">202</FONT>       * @param heading<a name="line.202"></a>
+<FONT color="green">203</FONT>       */<a name="line.203"></a>
+<FONT color="green">204</FONT>      public final native void setHeading(int heading) /*-{<a name="line.204"></a>
+<FONT color="green">205</FONT>        this.setHeading(heading);<a name="line.205"></a>
+<FONT color="green">206</FONT>      }-*/;<a name="line.206"></a>
+<FONT color="green">207</FONT>      <a name="line.207"></a>
+<FONT color="green">208</FONT>      /**<a name="line.208"></a>
+<FONT color="green">209</FONT>       * set MapTypeId<a name="line.209"></a>
+<FONT color="green">210</FONT>       * @param mapTypeId<a name="line.210"></a>
+<FONT color="green">211</FONT>       */<a name="line.211"></a>
+<FONT color="green">212</FONT>      public final void setMapTypeId(MapTypeId mapTypeId) { <a name="line.212"></a>
+<FONT color="green">213</FONT>        setMapTypeIdImpl(mapTypeId.name());<a name="line.213"></a>
+<FONT color="green">214</FONT>      }<a name="line.214"></a>
+<FONT color="green">215</FONT>      <a name="line.215"></a>
+<FONT color="green">216</FONT>      private final native void setMapTypeIdImpl(String mapTypeId) /*-{<a name="line.216"></a>
+<FONT color="green">217</FONT>        this.setMapTypeId(mapTypeId);<a name="line.217"></a>
+<FONT color="green">218</FONT>      }-*/;<a name="line.218"></a>
+<FONT color="green">219</FONT>      <a name="line.219"></a>
+<FONT color="green">220</FONT>      /**<a name="line.220"></a>
+<FONT color="green">221</FONT>       * set MapOptions<a name="line.221"></a>
+<FONT color="green">222</FONT>       * @param options<a name="line.222"></a>
+<FONT color="green">223</FONT>       */<a name="line.223"></a>
+<FONT color="green">224</FONT>      public final native void setOptions(MapOptions options) /*-{<a name="line.224"></a>
+<FONT color="green">225</FONT>        this.setOptions(options);<a name="line.225"></a>
+<FONT color="green">226</FONT>      }-*/;<a name="line.226"></a>
+<FONT color="green">227</FONT>      <a name="line.227"></a>
+<FONT color="green">228</FONT>      /**<a name="line.228"></a>
+<FONT color="green">229</FONT>       * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45&amp;deg;.<a name="line.229"></a>
+<FONT color="green">230</FONT>       * @param panorama<a name="line.230"></a>
+<FONT color="green">231</FONT>       */<a name="line.231"></a>
+<FONT color="green">232</FONT>      public final native void setStreetView(StreetViewPanoramaImpl panorama) /*-{<a name="line.232"></a>
+<FONT color="green">233</FONT>        this.setStreetView(panorama);<a name="line.233"></a>
+<FONT color="green">234</FONT>      }-*/;<a name="line.234"></a>
+<FONT color="green">235</FONT>      <a name="line.235"></a>
+<FONT color="green">236</FONT>      /**<a name="line.236"></a>
+<FONT color="green">237</FONT>       * Sets the angle of incidence for aerial imagery (available for SATELLITE and HYBRID map types) measured in degrees from the viewport plane to the map plane. The only supported values are 0, indicating no angle of incidence (no tilt), and 45 indicating a tilt of 45&amp;deg;.<a name="line.237"></a>
+<FONT color="green">238</FONT>       * @param tilt<a name="line.238"></a>
+<FONT color="green">239</FONT>       */<a name="line.239"></a>
+<FONT color="green">240</FONT>      public final native void setTilt(int tilt) /*-{<a name="line.240"></a>
+<FONT color="green">241</FONT>        this.setTilt(tilt);<a name="line.241"></a>
+<FONT color="green">242</FONT>      }-*/; <a name="line.242"></a>
+<FONT color="green">243</FONT>      <a name="line.243"></a>
+<FONT color="green">244</FONT>      /**<a name="line.244"></a>
+<FONT color="green">245</FONT>       * sets map zoom<a name="line.245"></a>
+<FONT color="green">246</FONT>       * @param zoom<a name="line.246"></a>
+<FONT color="green">247</FONT>       */<a name="line.247"></a>
+<FONT color="green">248</FONT>      public final native void setZoom(int zoom) /*-{<a name="line.248"></a>
+<FONT color="green">249</FONT>        this.setZoom(zoom);<a name="line.249"></a>
+<FONT color="green">250</FONT>      }-*/;<a name="line.250"></a>
+<FONT color="green">251</FONT>      <a name="line.251"></a>
+<FONT color="green">252</FONT>      /**<a name="line.252"></a>
+<FONT color="green">253</FONT>       * TODO<a name="line.253"></a>
+<FONT color="green">254</FONT>       * sets Additional controls to attach to the map. To add a control to the map, add the control's &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; to the MVCArray corresponding to the ControlPosition where it should be rendered.<a name="line.254"></a>
+<FONT color="green">255</FONT>       * @param controls<a name="line.255"></a>
+<FONT color="green">256</FONT>       */<a name="line.256"></a>
+<FONT color="green">257</FONT>      public final native void setControls(MVCArray&lt;Element&gt; controls) /*-{<a name="line.257"></a>
+<FONT color="green">258</FONT>        this.controls = controls;<a name="line.258"></a>
+<FONT color="green">259</FONT>      }-*/;<a name="line.259"></a>
+<FONT color="green">260</FONT>      <a name="line.260"></a>
+<FONT color="green">261</FONT>      /**<a name="line.261"></a>
+<FONT color="green">262</FONT>       * sets Additional controls to attach to the map. To add a control to the map, add the control's &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; to the MVCArray corresponding to the ControlPosition where it should be rendered.<a name="line.262"></a>
+<FONT color="green">263</FONT>       * @param controlPosition<a name="line.263"></a>
+<FONT color="green">264</FONT>       * @param element<a name="line.264"></a>
+<FONT color="green">265</FONT>       */<a name="line.265"></a>
+<FONT color="green">266</FONT>      public final void setControls(ControlPosition controlPosition, Element element) {<a name="line.266"></a>
+<FONT color="green">267</FONT>        setControls(controlPosition.value(), element);<a name="line.267"></a>
+<FONT color="green">268</FONT>      }<a name="line.268"></a>
+<FONT color="green">269</FONT>      <a name="line.269"></a>
+<FONT color="green">270</FONT>      private final native void setControls(int controlPosition, Element element) /*-{<a name="line.270"></a>
+<FONT color="green">271</FONT>        this.controls[controlPosition].push(element);<a name="line.271"></a>
+<FONT color="green">272</FONT>      }-*/;<a name="line.272"></a>
+<FONT color="green">273</FONT>      <a name="line.273"></a>
+<FONT color="green">274</FONT>      /**<a name="line.274"></a>
+<FONT color="green">275</FONT>       * TODO<a name="line.275"></a>
+<FONT color="green">276</FONT>       * gets Additional controls to attach to the map. To add a control to the map, add the control's &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; to the MVCArray corresponding to the ControlPosition where it should be rendered.<a name="line.276"></a>
+<FONT color="green">277</FONT>       */<a name="line.277"></a>
+<FONT color="green">278</FONT>      public final native MVCArray&lt;Element&gt; getControls() /*-{<a name="line.278"></a>
+<FONT color="green">279</FONT>        return controls;<a name="line.279"></a>
+<FONT color="green">280</FONT>      }-*/;<a name="line.280"></a>
+<FONT color="green">281</FONT>      <a name="line.281"></a>
+<FONT color="green">282</FONT>      /**<a name="line.282"></a>
+<FONT color="green">283</FONT>       * TODO<a name="line.283"></a>
+<FONT color="green">284</FONT>       * sets A registry of MapType instances by string ID.<a name="line.284"></a>
+<FONT color="green">285</FONT>       * @param mapTypes<a name="line.285"></a>
+<FONT color="green">286</FONT>       */<a name="line.286"></a>
+<FONT color="green">287</FONT>      public final native void setMapTypesRegistry(MapTypeRegistry mapTypes) /*-{<a name="line.287"></a>
+<FONT color="green">288</FONT>        this.mapTypes = mapTypes;<a name="line.288"></a>
+<FONT color="green">289</FONT>      }-*/;<a name="line.289"></a>
+<FONT color="green">290</FONT>      <a name="line.290"></a>
+<FONT color="green">291</FONT>      /**<a name="line.291"></a>
+<FONT color="green">292</FONT>       * Set the custom map type into the map's registry<a name="line.292"></a>
+<FONT color="green">293</FONT>       * @param mapTypeId<a name="line.293"></a>
+<FONT color="green">294</FONT>       * @param styledType<a name="line.294"></a>
+<FONT color="green">295</FONT>       */<a name="line.295"></a>
+<FONT color="green">296</FONT>      public final native void setCustomMapType(String mapTypeId, StyledMapType styledType) /*-{<a name="line.296"></a>
+<FONT color="green">297</FONT>        this.mapTypes.set(mapTypeId, styledType);<a name="line.297"></a>
+<FONT color="green">298</FONT>      }-*/;<a name="line.298"></a>
+<FONT color="green">299</FONT>      <a name="line.299"></a>
+<FONT color="green">300</FONT>      /**<a name="line.300"></a>
+<FONT color="green">301</FONT>       * gets A registry of MapType instances by string ID.<a name="line.301"></a>
+<FONT color="green">302</FONT>       */<a name="line.302"></a>
+<FONT color="green">303</FONT>      public final native MapTypeRegistry getMapTypeRegistry() /*-{<a name="line.303"></a>
+<FONT color="green">304</FONT>        return this.mapTypes;<a name="line.304"></a>
+<FONT color="green">305</FONT>      }-*/;<a name="line.305"></a>
+<FONT color="green">306</FONT>      <a name="line.306"></a>
+<FONT color="green">307</FONT>      /**<a name="line.307"></a>
+<FONT color="green">308</FONT>       * TODO<a name="line.308"></a>
+<FONT color="green">309</FONT>       * sets Additional map types to overlay.<a name="line.309"></a>
+<FONT color="green">310</FONT>       * @param overlayMapTypes<a name="line.310"></a>
+<FONT color="green">311</FONT>       */<a name="line.311"></a>
+<FONT color="green">312</FONT>      public final native void setOverlayMapTypes(MVCArray&lt;JavaScriptObject&gt; overlayMapTypes) /*-{<a name="line.312"></a>
+<FONT color="green">313</FONT>        this.overlayMapTypes = overlayMapTypes;<a name="line.313"></a>
+<FONT color="green">314</FONT>      }-*/;<a name="line.314"></a>
+<FONT color="green">315</FONT>      <a name="line.315"></a>
+<FONT color="green">316</FONT>      /**<a name="line.316"></a>
+<FONT color="green">317</FONT>       * TODO<a name="line.317"></a>
+<FONT color="green">318</FONT>       * gets Additional map types to overlay.<a name="line.318"></a>
+<FONT color="green">319</FONT>       */<a name="line.319"></a>
+<FONT color="green">320</FONT>      public final native MVCArray&lt;JavaScriptObject&gt; getOverlayMapTypes() /*-{<a name="line.320"></a>
+<FONT color="green">321</FONT>        return this.overlayMapTypes;<a name="line.321"></a>
+<FONT color="green">322</FONT>      }-*/;<a name="line.322"></a>
+<FONT color="green">323</FONT>      <a name="line.323"></a>
+<FONT color="green">324</FONT>      /**<a name="line.324"></a>
+<FONT color="green">325</FONT>       * This event is fired when the viewport bounds have changed.<a name="line.325"></a>
+<FONT color="green">326</FONT>       * @param handler {@link BoundsChangeMapHandler}<a name="line.326"></a>
+<FONT color="green">327</FONT>       * @return {@link MapHandlerRegistration}<a name="line.327"></a>
+<FONT color="green">328</FONT>       */<a name="line.328"></a>
+<FONT color="green">329</FONT>      public final HandlerRegistration addBoundsChangeHandler(BoundsChangeMapHandler handler) {<a name="line.329"></a>
+<FONT color="green">330</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.BOUNDS_CHANGED, handler, new BoundsChangeEventFormatter());<a name="line.330"></a>
+<FONT color="green">331</FONT>      }<a name="line.331"></a>
+<FONT color="green">332</FONT>    <a name="line.332"></a>
+<FONT color="green">333</FONT>      /**<a name="line.333"></a>
+<FONT color="green">334</FONT>       * This event is fired when the map center property changes.<a name="line.334"></a>
+<FONT color="green">335</FONT>       * @param handler {@link CenterChangeMapHandler}<a name="line.335"></a>
+<FONT color="green">336</FONT>       * @return {@link MapHandlerRegistration}<a name="line.336"></a>
+<FONT color="green">337</FONT>       */<a name="line.337"></a>
+<FONT color="green">338</FONT>      public final HandlerRegistration addCenterChangeHandler(CenterChangeMapHandler handler) {<a name="line.338"></a>
+<FONT color="green">339</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.CENTER_CHANGED, handler, new CenterChangeEventFormatter());<a name="line.339"></a>
+<FONT color="green">340</FONT>      }<a name="line.340"></a>
+<FONT color="green">341</FONT>    <a name="line.341"></a>
+<FONT color="green">342</FONT>      /**<a name="line.342"></a>
+<FONT color="green">343</FONT>       * This event is fired when the user clicks on the map (but not when they click on a marker or infowindow).<a name="line.343"></a>
+<FONT color="green">344</FONT>       * @param handler {@link ClickMapHandler}<a name="line.344"></a>
+<FONT color="green">345</FONT>       * @return {@link MapHandlerRegistration}<a name="line.345"></a>
+<FONT color="green">346</FONT>       */<a name="line.346"></a>
+<FONT color="green">347</FONT>      public final HandlerRegistration addClickHandler(ClickMapHandler handler) {<a name="line.347"></a>
+<FONT color="green">348</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());<a name="line.348"></a>
+<FONT color="green">349</FONT>      }<a name="line.349"></a>
+<FONT color="green">350</FONT>    <a name="line.350"></a>
+<FONT color="green">351</FONT>      /**<a name="line.351"></a>
+<FONT color="green">352</FONT>       * This event is fired when the user double-clicks on the map. Note that the click event will also fire, right before this one.<a name="line.352"></a>
+<FONT color="green">353</FONT>       * @param handler {@link DblClickMapHandler}<a name="line.353"></a>
+<FONT color="green">354</FONT>       * @return {@link MapHandlerRegistration}<a name="line.354"></a>
+<FONT color="green">355</FONT>       */<a name="line.355"></a>
+<FONT color="green">356</FONT>      public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {<a name="line.356"></a>
+<FONT color="green">357</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());<a name="line.357"></a>
+<FONT color="green">358</FONT>      }<a name="line.358"></a>
+<FONT color="green">359</FONT>    <a name="line.359"></a>
+<FONT color="green">360</FONT>      /**<a name="line.360"></a>
+<FONT color="green">361</FONT>       * This event is repeatedly fired while the user drags the map.<a name="line.361"></a>
+<FONT color="green">362</FONT>       * @param handler {@link DragMapHandler}<a name="line.362"></a>
+<FONT color="green">363</FONT>       * @return {@link MapHandlerRegistration}<a name="line.363"></a>
+<FONT color="green">364</FONT>       */<a name="line.364"></a>
+<FONT color="green">365</FONT>      public final HandlerRegistration addDragHandler(DragMapHandler handler) {<a name="line.365"></a>
+<FONT color="green">366</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.DRAG, handler, new DragEventFormatter());<a name="line.366"></a>
+<FONT color="green">367</FONT>      }<a name="line.367"></a>
+<FONT color="green">368</FONT>    <a name="line.368"></a>
+<FONT color="green">369</FONT>      /**<a name="line.369"></a>
+<FONT color="green">370</FONT>       * This event is fired when the user stops dragging the map.<a name="line.370"></a>
+<FONT color="green">371</FONT>       * @param handler {@link DragEndMapHandler}<a name="line.371"></a>
+<FONT color="green">372</FONT>       * @return {@link MapHandlerRegistration}<a name="line.372"></a>
+<FONT color="green">373</FONT>       */<a name="line.373"></a>
+<FONT color="green">374</FONT>      public final HandlerRegistration addDragEndHandler(DragEndMapHandler handler) {<a name="line.374"></a>
+<FONT color="green">375</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.DRAGEND, handler, new DragEndEventFormatter());<a name="line.375"></a>
+<FONT color="green">376</FONT>      }<a name="line.376"></a>
+<FONT color="green">377</FONT>    <a name="line.377"></a>
+<FONT color="green">378</FONT>      /**<a name="line.378"></a>
+<FONT color="green">379</FONT>       * This event is fired when the user starts dragging the map.<a name="line.379"></a>
+<FONT color="green">380</FONT>       * @param handler {@link DragStartMapHandler}<a name="line.380"></a>
+<FONT color="green">381</FONT>       * @return {@link MapHandlerRegistration}<a name="line.381"></a>
+<FONT color="green">382</FONT>       */<a name="line.382"></a>
+<FONT color="green">383</FONT>      public final HandlerRegistration addDragStartHandler(DragStartMapHandler handler) {<a name="line.383"></a>
+<FONT color="green">384</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.DRAGSTART, handler, new DragStartEventFormatter());<a name="line.384"></a>
+<FONT color="green">385</FONT>      }<a name="line.385"></a>
+<FONT color="green">386</FONT>    <a name="line.386"></a>
+<FONT color="green">387</FONT>      /**<a name="line.387"></a>
+<FONT color="green">388</FONT>       * This event is fired when the map heading property changes.<a name="line.388"></a>
+<FONT color="green">389</FONT>       * @param handler {@link HeadingChangeMapHandler}<a name="line.389"></a>
+<FONT color="green">390</FONT>       * @return {@link MapHandlerRegistration}<a name="line.390"></a>
+<FONT color="green">391</FONT>       */<a name="line.391"></a>
+<FONT color="green">392</FONT>      public final HandlerRegistration addHeadingChangeHandler(HeadingChangeMapHandler handler) {<a name="line.392"></a>
+<FONT color="green">393</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.HEADING_CHANGED, handler, new HeadingChangeEventFormatter());<a name="line.393"></a>
+<FONT color="green">394</FONT>      }<a name="line.394"></a>
+<FONT color="green">395</FONT>    <a name="line.395"></a>
+<FONT color="green">396</FONT>      /**<a name="line.396"></a>
+<FONT color="green">397</FONT>       * This event is fired when the map becomes idle after panning or zooming.<a name="line.397"></a>
+<FONT color="green">398</FONT>       * @param handler {@link IdleMapHandler}<a name="line.398"></a>
+<FONT color="green">399</FONT>       * @return {@link MapHandlerRegistration}<a name="line.399"></a>
+<FONT color="green">400</FONT>       */<a name="line.400"></a>
+<FONT color="green">401</FONT>      public final HandlerRegistration addIdleHandler(IdleMapHandler handler) {<a name="line.401"></a>
+<FONT color="green">402</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.IDLE, handler, new IdleEventFormatter());<a name="line.402"></a>
+<FONT color="green">403</FONT>      }<a name="line.403"></a>
+<FONT color="green">404</FONT>    <a name="line.404"></a>
+<FONT color="green">405</FONT>      /**<a name="line.405"></a>
+<FONT color="green">406</FONT>       * This event is fired when the mapTypeId property changes.<a name="line.406"></a>
+<FONT color="green">407</FONT>       * @param handler {@link MapTypeIdChangeMapHandler}<a name="line.407"></a>
+<FONT color="green">408</FONT>       * @return {@link MapHandlerRegistration}<a name="line.408"></a>
+<FONT color="green">409</FONT>       */<a name="line.409"></a>
+<FONT color="green">410</FONT>      public final HandlerRegistration addMapTypeIdChangeHandler(MapTypeIdChangeMapHandler handler) {<a name="line.410"></a>
+<FONT color="green">411</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.MAPTYPEID_CHANGED, handler, new MapTypeIdChangeEventFormatter());<a name="line.411"></a>
+<FONT color="green">412</FONT>      }<a name="line.412"></a>
+<FONT color="green">413</FONT>    <a name="line.413"></a>
+<FONT color="green">414</FONT>      /**<a name="line.414"></a>
+<FONT color="green">415</FONT>       * This event is fired whenever the user's mouse moves over the map container.<a name="line.415"></a>
+<FONT color="green">416</FONT>       * @param handler {@link MouseMoveMapHandler}<a name="line.416"></a>
+<FONT color="green">417</FONT>       * @return {@link MapHandlerRegistration}<a name="line.417"></a>
+<FONT color="green">418</FONT>       */<a name="line.418"></a>
+<FONT color="green">419</FONT>      public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {<a name="line.419"></a>
+<FONT color="green">420</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler, new MouseMoveEventFormatter());<a name="line.420"></a>
+<FONT color="green">421</FONT>      }<a name="line.421"></a>
+<FONT color="green">422</FONT>    <a name="line.422"></a>
+<FONT color="green">423</FONT>      /**<a name="line.423"></a>
+<FONT color="green">424</FONT>       * This event is fired when the user's mouse exits the map container.<a name="line.424"></a>
+<FONT color="green">425</FONT>       * @param handler {@link MouseOutMapHandler}<a name="line.425"></a>
+<FONT color="green">426</FONT>       * @return {@link MapHandlerRegistration}<a name="line.426"></a>
+<FONT color="green">427</FONT>       */<a name="line.427"></a>
+<FONT color="green">428</FONT>      public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {<a name="line.428"></a>
+<FONT color="green">429</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());<a name="line.429"></a>
+<FONT color="green">430</FONT>      }<a name="line.430"></a>
+<FONT color="green">431</FONT>    <a name="line.431"></a>
+<FONT color="green">432</FONT>      /**<a name="line.432"></a>
+<FONT color="green">433</FONT>       * This event is fired when the user's mouse enters the map container.<a name="line.433"></a>
+<FONT color="green">434</FONT>       * @param handler {@link MouseOverMapHandler}<a name="line.434"></a>
+<FONT color="green">435</FONT>       * @return {@link MapHandlerRegistration}<a name="line.435"></a>
+<FONT color="green">436</FONT>       */<a name="line.436"></a>
+<FONT color="green">437</FONT>      public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {<a name="line.437"></a>
+<FONT color="green">438</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());<a name="line.438"></a>
+<FONT color="green">439</FONT>      }<a name="line.439"></a>
+<FONT color="green">440</FONT>    <a name="line.440"></a>
+<FONT color="green">441</FONT>      /**<a name="line.441"></a>
+<FONT color="green">442</FONT>       * This event is fired when the projection has changed.<a name="line.442"></a>
+<FONT color="green">443</FONT>       * @param handler {@link ProjectionChangeMapHandler}<a name="line.443"></a>
+<FONT color="green">444</FONT>       * @return {@link MapHandlerRegistration}<a name="line.444"></a>
+<FONT color="green">445</FONT>       */<a name="line.445"></a>
+<FONT color="green">446</FONT>      public final HandlerRegistration addProjectionChangeHandler(ProjectionChangeMapHandler handler) {<a name="line.446"></a>
+<FONT color="green">447</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.PROJECTION_CHANGED, handler, new ProjectionChangeEventFormatter());<a name="line.447"></a>
+<FONT color="green">448</FONT>      }<a name="line.448"></a>
+<FONT color="green">449</FONT>    <a name="line.449"></a>
+<FONT color="green">450</FONT>      /**<a name="line.450"></a>
+<FONT color="green">451</FONT>       * Developers should trigger this event on the map when the div changes size: google.maps.event.trigger(map, 'resize') .<a name="line.451"></a>
+<FONT color="green">452</FONT>       * @param handler {@link ResizeMapHandler}<a name="line.452"></a>
+<FONT color="green">453</FONT>       * @return {@link MapHandlerRegistration}<a name="line.453"></a>
+<FONT color="green">454</FONT>       */<a name="line.454"></a>
+<FONT color="green">455</FONT>      public final HandlerRegistration addResizeHandler(ResizeMapHandler handler) {<a name="line.455"></a>
+<FONT color="green">456</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.RESIZE, handler, new ResizeEventFormatter());<a name="line.456"></a>
+<FONT color="green">457</FONT>      }<a name="line.457"></a>
+<FONT color="green">458</FONT>    <a name="line.458"></a>
+<FONT color="green">459</FONT>      /**<a name="line.459"></a>
+<FONT color="green">460</FONT>       * This event is fired when the DOM contextmenu event is fired on the map container.<a name="line.460"></a>
+<FONT color="green">461</FONT>       * @param handler {@link RightClickMapHandler}<a name="line.461"></a>
+<FONT color="green">462</FONT>       * @return {@link MapHandlerRegistration}<a name="line.462"></a>
+<FONT color="green">463</FONT>       */<a name="line.463"></a>
+<FONT color="green">464</FONT>      public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {<a name="line.464"></a>
+<FONT color="green">465</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());<a name="line.465"></a>
+<FONT color="green">466</FONT>      }<a name="line.466"></a>
+<FONT color="green">467</FONT>    <a name="line.467"></a>
+<FONT color="green">468</FONT>      /**<a name="line.468"></a>
+<FONT color="green">469</FONT>       * This event is fired when the visible tiles have finished loading.<a name="line.469"></a>
+<FONT color="green">470</FONT>       * @param handler {@link TilesLoadedMapHandler}<a name="line.470"></a>
+<FONT color="green">471</FONT>       * @return {@link MapHandlerRegistration}<a name="line.471"></a>
+<FONT color="green">472</FONT>       */<a name="line.472"></a>
+<FONT color="green">473</FONT>      public final HandlerRegistration addTilesLoadedHandler(TilesLoadedMapHandler handler) {<a name="line.473"></a>
+<FONT color="green">474</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.TILESLOADED, handler, new TilesLoadedEventFormatter());<a name="line.474"></a>
+<FONT color="green">475</FONT>      }<a name="line.475"></a>
+<FONT color="green">476</FONT>    <a name="line.476"></a>
+<FONT color="green">477</FONT>      /**<a name="line.477"></a>
+<FONT color="green">478</FONT>       * This event is fired when the map tilt property changes.<a name="line.478"></a>
+<FONT color="green">479</FONT>       * @param handler {@link TiltChangeMapHandler}<a name="line.479"></a>
+<FONT color="green">480</FONT>       * @return {@link MapHandlerRegistration}<a name="line.480"></a>
+<FONT color="green">481</FONT>       */<a name="line.481"></a>
+<FONT color="green">482</FONT>      public final HandlerRegistration addTiltChangeHandler(TiltChangeMapHandler handler) {<a name="line.482"></a>
+<FONT color="green">483</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.TILT_CHANGED, handler, new TiltChangeEventFormatter());<a name="line.483"></a>
+<FONT color="green">484</FONT>      }<a name="line.484"></a>
+<FONT color="green">485</FONT>    <a name="line.485"></a>
+<FONT color="green">486</FONT>      /**<a name="line.486"></a>
+<FONT color="green">487</FONT>       * This event is fired when the map zoom property changes.<a name="line.487"></a>
+<FONT color="green">488</FONT>       * @param handler {@link ZoomChangeMapHandler}<a name="line.488"></a>
+<FONT color="green">489</FONT>       * @return {@link MapHandlerRegistration}<a name="line.489"></a>
+<FONT color="green">490</FONT>       */<a name="line.490"></a>
+<FONT color="green">491</FONT>      public final HandlerRegistration addZoomChangeHandler(ZoomChangeMapHandler handler) {<a name="line.491"></a>
+<FONT color="green">492</FONT>        return MapHandlerRegistration.addHandler(this, MapEventType.ZOOM_CHANGED, handler, new ZoomChangeEventFormatter());<a name="line.492"></a>
+<FONT color="green">493</FONT>      }<a name="line.493"></a>
+<FONT color="green">494</FONT>    <a name="line.494"></a>
+<FONT color="green">495</FONT>    }<a name="line.495"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

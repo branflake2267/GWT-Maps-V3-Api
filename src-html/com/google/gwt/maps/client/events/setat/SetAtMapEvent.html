@@ -1,0 +1,99 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package com.google.gwt.maps.client.events.setat;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    import com.google.gwt.ajaxloader.client.Properties;<a name="line.3"></a>
+<FONT color="green">004</FONT>    import com.google.gwt.ajaxloader.client.Properties.TypeException;<a name="line.4"></a>
+<FONT color="green">005</FONT>    import com.google.gwt.maps.client.events.MapEvent;<a name="line.5"></a>
+<FONT color="green">006</FONT>    <a name="line.6"></a>
+<FONT color="green">007</FONT>    public class SetAtMapEvent extends MapEvent&lt;SetAtMapHandler, SetAtMapEvent&gt; {<a name="line.7"></a>
+<FONT color="green">008</FONT>    <a name="line.8"></a>
+<FONT color="green">009</FONT>      public static Type&lt;SetAtMapHandler&gt; TYPE = new Type&lt;SetAtMapHandler&gt;();<a name="line.9"></a>
+<FONT color="green">010</FONT>      <a name="line.10"></a>
+<FONT color="green">011</FONT>      public SetAtMapEvent(Properties properties) {<a name="line.11"></a>
+<FONT color="green">012</FONT>        super(properties);<a name="line.12"></a>
+<FONT color="green">013</FONT>      }<a name="line.13"></a>
+<FONT color="green">014</FONT>    <a name="line.14"></a>
+<FONT color="green">015</FONT>      @Override<a name="line.15"></a>
+<FONT color="green">016</FONT>      public com.google.gwt.event.shared.GwtEvent.Type&lt;SetAtMapHandler&gt; getAssociatedType() {<a name="line.16"></a>
+<FONT color="green">017</FONT>        return TYPE;<a name="line.17"></a>
+<FONT color="green">018</FONT>      }<a name="line.18"></a>
+<FONT color="green">019</FONT>    <a name="line.19"></a>
+<FONT color="green">020</FONT>      @Override<a name="line.20"></a>
+<FONT color="green">021</FONT>      protected void dispatch(SetAtMapHandler handler) {<a name="line.21"></a>
+<FONT color="green">022</FONT>        handler.onEvent(this);<a name="line.22"></a>
+<FONT color="green">023</FONT>      }<a name="line.23"></a>
+<FONT color="green">024</FONT>      <a name="line.24"></a>
+<FONT color="green">025</FONT>      public int getIndex() {<a name="line.25"></a>
+<FONT color="green">026</FONT>        int index = -1;<a name="line.26"></a>
+<FONT color="green">027</FONT>        try {<a name="line.27"></a>
+<FONT color="green">028</FONT>          index = properties.getNumber("index").intValue();<a name="line.28"></a>
+<FONT color="green">029</FONT>        } catch (TypeException e) {<a name="line.29"></a>
+<FONT color="green">030</FONT>        }<a name="line.30"></a>
+<FONT color="green">031</FONT>        return index;<a name="line.31"></a>
+<FONT color="green">032</FONT>      }<a name="line.32"></a>
+<FONT color="green">033</FONT>    }<a name="line.33"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,800 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package com.google.gwt.maps.client;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    import com.google.gwt.ajaxloader.client.ArrayHelper;<a name="line.3"></a>
+<FONT color="green">004</FONT>    import com.google.gwt.core.client.JavaScriptObject;<a name="line.4"></a>
+<FONT color="green">005</FONT>    import com.google.gwt.core.client.JsArray;<a name="line.5"></a>
+<FONT color="green">006</FONT>    import com.google.gwt.maps.client.base.LatLng;<a name="line.6"></a>
+<FONT color="green">007</FONT>    import com.google.gwt.maps.client.controls.MapTypeControlOptions;<a name="line.7"></a>
+<FONT color="green">008</FONT>    import com.google.gwt.maps.client.controls.MapTypeStyle;<a name="line.8"></a>
+<FONT color="green">009</FONT>    import com.google.gwt.maps.client.controls.OverviewMapControlOptions;<a name="line.9"></a>
+<FONT color="green">010</FONT>    import com.google.gwt.maps.client.controls.PanControlOptions;<a name="line.10"></a>
+<FONT color="green">011</FONT>    import com.google.gwt.maps.client.controls.RotateControlOptions;<a name="line.11"></a>
+<FONT color="green">012</FONT>    import com.google.gwt.maps.client.controls.ScaleControlOptions;<a name="line.12"></a>
+<FONT color="green">013</FONT>    import com.google.gwt.maps.client.controls.StreetViewControlOptions;<a name="line.13"></a>
+<FONT color="green">014</FONT>    import com.google.gwt.maps.client.controls.ZoomControlOptions;<a name="line.14"></a>
+<FONT color="green">015</FONT>    <a name="line.15"></a>
+<FONT color="green">016</FONT>    /**<a name="line.16"></a>
+<FONT color="green">017</FONT>     * Map rendering options&lt;br&gt;<a name="line.17"></a>
+<FONT color="green">018</FONT>     * &lt;b&gt;Note:&lt;/b&gt; Defaults to LatLng(26.4,-9) &lt;br&gt;<a name="line.18"></a>
+<FONT color="green">019</FONT>     * &lt;br&gt;<a name="line.19"></a>
+<FONT color="green">020</FONT>     * See &lt;a href=<a name="line.20"></a>
+<FONT color="green">021</FONT>     * "https://developers.google.com/maps/documentation/javascript/reference#MapOptions"<a name="line.21"></a>
+<FONT color="green">022</FONT>     * &gt;MapOptions API Doc&lt;/a&gt;<a name="line.22"></a>
+<FONT color="green">023</FONT>     */<a name="line.23"></a>
+<FONT color="green">024</FONT>    public class MapOptions extends JavaScriptObject {<a name="line.24"></a>
+<FONT color="green">025</FONT>    <a name="line.25"></a>
+<FONT color="green">026</FONT>            /**<a name="line.26"></a>
+<FONT color="green">027</FONT>             * This will tell the map how to render and with with what features&lt;br&gt;<a name="line.27"></a>
+<FONT color="green">028</FONT>             * Use newInstance();<a name="line.28"></a>
+<FONT color="green">029</FONT>             */<a name="line.29"></a>
+<FONT color="green">030</FONT>            protected MapOptions() {<a name="line.30"></a>
+<FONT color="green">031</FONT>            }<a name="line.31"></a>
+<FONT color="green">032</FONT>    <a name="line.32"></a>
+<FONT color="green">033</FONT>            private static final double DEFAULT_LATLNG_LAT = 26.4d;<a name="line.33"></a>
+<FONT color="green">034</FONT>            private static final double DEFAULT_LATLNG_LNG = -9d;<a name="line.34"></a>
+<FONT color="green">035</FONT>    <a name="line.35"></a>
+<FONT color="green">036</FONT>            /**<a name="line.36"></a>
+<FONT color="green">037</FONT>             * Create a new Instance of the MapOptions This will also create a defaults<a name="line.37"></a>
+<FONT color="green">038</FONT>             * center, mapTypeId and Zoom<a name="line.38"></a>
+<FONT color="green">039</FONT>             * <a name="line.39"></a>
+<FONT color="green">040</FONT>             * @return MapOptions<a name="line.40"></a>
+<FONT color="green">041</FONT>             */<a name="line.41"></a>
+<FONT color="green">042</FONT>            public final static MapOptions newInstance() {<a name="line.42"></a>
+<FONT color="green">043</FONT>                    MapOptions options = newInstanceDefault();<a name="line.43"></a>
+<FONT color="green">044</FONT>                    getDefaults(options);<a name="line.44"></a>
+<FONT color="green">045</FONT>                    return options;<a name="line.45"></a>
+<FONT color="green">046</FONT>            }<a name="line.46"></a>
+<FONT color="green">047</FONT>    <a name="line.47"></a>
+<FONT color="green">048</FONT>            /**<a name="line.48"></a>
+<FONT color="green">049</FONT>             * Create a new Instance of the MapOptions<a name="line.49"></a>
+<FONT color="green">050</FONT>             * <a name="line.50"></a>
+<FONT color="green">051</FONT>             * @param withdefaults<a name="line.51"></a>
+<FONT color="green">052</FONT>             *            - [true]= setup required defaults, center, mapTypeId and Zoom.<a name="line.52"></a>
+<FONT color="green">053</FONT>             *            [false]= will not use defaults<a name="line.53"></a>
+<FONT color="green">054</FONT>             * @return MapOptions<a name="line.54"></a>
+<FONT color="green">055</FONT>             */<a name="line.55"></a>
+<FONT color="green">056</FONT>            public final static MapOptions newInstance(boolean withdefaults) {<a name="line.56"></a>
+<FONT color="green">057</FONT>                    MapOptions options = newInstanceDefault();<a name="line.57"></a>
+<FONT color="green">058</FONT>                    if (withdefaults == true) {<a name="line.58"></a>
+<FONT color="green">059</FONT>                            getDefaults(options);<a name="line.59"></a>
+<FONT color="green">060</FONT>                    }<a name="line.60"></a>
+<FONT color="green">061</FONT>                    return options;<a name="line.61"></a>
+<FONT color="green">062</FONT>            }<a name="line.62"></a>
+<FONT color="green">063</FONT>    <a name="line.63"></a>
+<FONT color="green">064</FONT>            /**<a name="line.64"></a>
+<FONT color="green">065</FONT>             * get the Required defaults, this should help prevent setup errors<a name="line.65"></a>
+<FONT color="green">066</FONT>             * <a name="line.66"></a>
+<FONT color="green">067</FONT>             * @param options<a name="line.67"></a>
+<FONT color="green">068</FONT>             */<a name="line.68"></a>
+<FONT color="green">069</FONT>            private static void getDefaults(MapOptions options) {<a name="line.69"></a>
+<FONT color="green">070</FONT>                    options.setCenter(LatLng.newInstance(DEFAULT_LATLNG_LAT,<a name="line.70"></a>
+<FONT color="green">071</FONT>                                    DEFAULT_LATLNG_LNG));<a name="line.71"></a>
+<FONT color="green">072</FONT>                    options.setMapTypeId(MapTypeId.ROADMAP);<a name="line.72"></a>
+<FONT color="green">073</FONT>                    options.setZoom(0);<a name="line.73"></a>
+<FONT color="green">074</FONT>            }<a name="line.74"></a>
+<FONT color="green">075</FONT>    <a name="line.75"></a>
+<FONT color="green">076</FONT>            /**<a name="line.76"></a>
+<FONT color="green">077</FONT>             * setup a javascript object to store the values in<a name="line.77"></a>
+<FONT color="green">078</FONT>             * <a name="line.78"></a>
+<FONT color="green">079</FONT>             * @return MapOptions<a name="line.79"></a>
+<FONT color="green">080</FONT>             */<a name="line.80"></a>
+<FONT color="green">081</FONT>            private final static MapOptions newInstanceDefault() {<a name="line.81"></a>
+<FONT color="green">082</FONT>                    JavaScriptObject jso = JavaScriptObject.createObject();<a name="line.82"></a>
+<FONT color="green">083</FONT>                    // WorkAroundUtils.removeGwtObjectId(jso); TODO Still needed?<a name="line.83"></a>
+<FONT color="green">084</FONT>                    return jso.cast();<a name="line.84"></a>
+<FONT color="green">085</FONT>            }<a name="line.85"></a>
+<FONT color="green">086</FONT>    <a name="line.86"></a>
+<FONT color="green">087</FONT>            /**<a name="line.87"></a>
+<FONT color="green">088</FONT>             * set Color used for the background of the Map div. This color will be<a name="line.88"></a>
+<FONT color="green">089</FONT>             * visible when tiles have not yet loaded as the user pans. This option can<a name="line.89"></a>
+<FONT color="green">090</FONT>             * only be set when the map is initialized.<a name="line.90"></a>
+<FONT color="green">091</FONT>             * <a name="line.91"></a>
+<FONT color="green">092</FONT>             * @param backgroundColor<a name="line.92"></a>
+<FONT color="green">093</FONT>             */<a name="line.93"></a>
+<FONT color="green">094</FONT>            public final native void setBackgroundColor(String backgroundColor) /*-{<a name="line.94"></a>
+<FONT color="green">095</FONT>                    this.backgroundColor = backgroundColor;<a name="line.95"></a>
+<FONT color="green">096</FONT>            }-*/;<a name="line.96"></a>
+<FONT color="green">097</FONT>    <a name="line.97"></a>
+<FONT color="green">098</FONT>            /**<a name="line.98"></a>
+<FONT color="green">099</FONT>             * get Color used for the background of the Map div.<a name="line.99"></a>
+<FONT color="green">100</FONT>             */<a name="line.100"></a>
+<FONT color="green">101</FONT>            public final native String getBackgroundColor() /*-{<a name="line.101"></a>
+<FONT color="green">102</FONT>                    return this.backgroundColor;<a name="line.102"></a>
+<FONT color="green">103</FONT>            }-*/;<a name="line.103"></a>
+<FONT color="green">104</FONT>    <a name="line.104"></a>
+<FONT color="green">105</FONT>            /**<a name="line.105"></a>
+<FONT color="green">106</FONT>             * set The initial Map center. Required.<a name="line.106"></a>
+<FONT color="green">107</FONT>             * <a name="line.107"></a>
+<FONT color="green">108</FONT>             * @param center<a name="line.108"></a>
+<FONT color="green">109</FONT>             *            {@link LatLng}<a name="line.109"></a>
+<FONT color="green">110</FONT>             */<a name="line.110"></a>
+<FONT color="green">111</FONT>            public final native void setCenter(LatLng center) /*-{<a name="line.111"></a>
+<FONT color="green">112</FONT>                    this.center = center;<a name="line.112"></a>
+<FONT color="green">113</FONT>            }-*/;<a name="line.113"></a>
+<FONT color="green">114</FONT>    <a name="line.114"></a>
+<FONT color="green">115</FONT>            /**<a name="line.115"></a>
+<FONT color="green">116</FONT>             * get {@link LatLng}<a name="line.116"></a>
+<FONT color="green">117</FONT>             * <a name="line.117"></a>
+<FONT color="green">118</FONT>             * @return {@link LatLng}<a name="line.118"></a>
+<FONT color="green">119</FONT>             */<a name="line.119"></a>
+<FONT color="green">120</FONT>            public final native LatLng getCenter() /*-{<a name="line.120"></a>
+<FONT color="green">121</FONT>                    return this.center;<a name="line.121"></a>
+<FONT color="green">122</FONT>            }-*/;<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>            /**<a name="line.124"></a>
+<FONT color="green">125</FONT>             * set Enables/disables all default UI. May be overridden individually.<a name="line.125"></a>
+<FONT color="green">126</FONT>             * <a name="line.126"></a>
+<FONT color="green">127</FONT>             * @param disableDefaultUI<a name="line.127"></a>
+<FONT color="green">128</FONT>             */<a name="line.128"></a>
+<FONT color="green">129</FONT>            public final native void setDisableDefaultUi(boolean disableDefaultUI) /*-{<a name="line.129"></a>
+<FONT color="green">130</FONT>                    this.disableDefaultUI = disableDefaultUI;<a name="line.130"></a>
+<FONT color="green">131</FONT>            }-*/;<a name="line.131"></a>
+<FONT color="green">132</FONT>    <a name="line.132"></a>
+<FONT color="green">133</FONT>            /**<a name="line.133"></a>
+<FONT color="green">134</FONT>             * get Enables/disables all default UI. May be overridden individually.<a name="line.134"></a>
+<FONT color="green">135</FONT>             * <a name="line.135"></a>
+<FONT color="green">136</FONT>             * @return boolean<a name="line.136"></a>
+<FONT color="green">137</FONT>             */<a name="line.137"></a>
+<FONT color="green">138</FONT>            public final native boolean getDisableDefaultUi() /*-{<a name="line.138"></a>
+<FONT color="green">139</FONT>                    return this.disableDefaultUI;<a name="line.139"></a>
+<FONT color="green">140</FONT>            }-*/;<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>            /**<a name="line.142"></a>
+<FONT color="green">143</FONT>             * set Enables/disables zoom and center on double click. Enabled by default.<a name="line.143"></a>
+<FONT color="green">144</FONT>             * <a name="line.144"></a>
+<FONT color="green">145</FONT>             * @param disableDoubleClickZoom<a name="line.145"></a>
+<FONT color="green">146</FONT>             */<a name="line.146"></a>
+<FONT color="green">147</FONT>            public final native void setDisableDoubleClickZoom(<a name="line.147"></a>
+<FONT color="green">148</FONT>                            boolean disableDoubleClickZoom) /*-{<a name="line.148"></a>
+<FONT color="green">149</FONT>                    this.disableDoubleClickZoom = disableDoubleClickZoom;<a name="line.149"></a>
+<FONT color="green">150</FONT>            }-*/;<a name="line.150"></a>
+<FONT color="green">151</FONT>    <a name="line.151"></a>
+<FONT color="green">152</FONT>            /**<a name="line.152"></a>
+<FONT color="green">153</FONT>             * get enables/disables zoom and center on double click. Enabled by default.<a name="line.153"></a>
+<FONT color="green">154</FONT>             * <a name="line.154"></a>
+<FONT color="green">155</FONT>             * @return boolean<a name="line.155"></a>
+<FONT color="green">156</FONT>             */<a name="line.156"></a>
+<FONT color="green">157</FONT>            public final native boolean getDisableDoubleClickZoom() /*-{<a name="line.157"></a>
+<FONT color="green">158</FONT>                    return this.disableDoubleClickZoom;<a name="line.158"></a>
+<FONT color="green">159</FONT>            }-*/;<a name="line.159"></a>
+<FONT color="green">160</FONT>    <a name="line.160"></a>
+<FONT color="green">161</FONT>            /**<a name="line.161"></a>
+<FONT color="green">162</FONT>             * set If false, prevents the map from being dragged. Dragging is enabled by<a name="line.162"></a>
+<FONT color="green">163</FONT>             * default.<a name="line.163"></a>
+<FONT color="green">164</FONT>             * <a name="line.164"></a>
+<FONT color="green">165</FONT>             * @param draggable<a name="line.165"></a>
+<FONT color="green">166</FONT>             */<a name="line.166"></a>
+<FONT color="green">167</FONT>            public final native void setDraggable(boolean draggable) /*-{<a name="line.167"></a>
+<FONT color="green">168</FONT>                    this.draggable = draggable;<a name="line.168"></a>
+<FONT color="green">169</FONT>            }-*/;<a name="line.169"></a>
+<FONT color="green">170</FONT>    <a name="line.170"></a>
+<FONT color="green">171</FONT>            /**<a name="line.171"></a>
+<FONT color="green">172</FONT>             * get If false, prevents the map from being dragged. Dragging is enabled by<a name="line.172"></a>
+<FONT color="green">173</FONT>             * default.<a name="line.173"></a>
+<FONT color="green">174</FONT>             * <a name="line.174"></a>
+<FONT color="green">175</FONT>             * @return boolean<a name="line.175"></a>
+<FONT color="green">176</FONT>             */<a name="line.176"></a>
+<FONT color="green">177</FONT>            public final native boolean getDraggable() /*-{<a name="line.177"></a>
+<FONT color="green">178</FONT>                    return this.draggable;<a name="line.178"></a>
+<FONT color="green">179</FONT>            }-*/;<a name="line.179"></a>
+<FONT color="green">180</FONT>    <a name="line.180"></a>
+<FONT color="green">181</FONT>            /**<a name="line.181"></a>
+<FONT color="green">182</FONT>             * set The name or url of the cursor to display on a draggable object.<a name="line.182"></a>
+<FONT color="green">183</FONT>             * <a name="line.183"></a>
+<FONT color="green">184</FONT>             * @param draggableCursor<a name="line.184"></a>
+<FONT color="green">185</FONT>             */<a name="line.185"></a>
+<FONT color="green">186</FONT>            public final native void setDraggableCursor(boolean draggableCursor) /*-{<a name="line.186"></a>
+<FONT color="green">187</FONT>                    this.draggableCursor = draggableCursor;<a name="line.187"></a>
+<FONT color="green">188</FONT>            }-*/;<a name="line.188"></a>
+<FONT color="green">189</FONT>    <a name="line.189"></a>
+<FONT color="green">190</FONT>            /**<a name="line.190"></a>
+<FONT color="green">191</FONT>             * get The name or url of the cursor to display on a draggable object.<a name="line.191"></a>
+<FONT color="green">192</FONT>             */<a name="line.192"></a>
+<FONT color="green">193</FONT>            public final native boolean getDraggableCursor() /*-{<a name="line.193"></a>
+<FONT color="green">194</FONT>                    return this.draggableCursor;<a name="line.194"></a>
+<FONT color="green">195</FONT>            }-*/;<a name="line.195"></a>
+<FONT color="green">196</FONT>    <a name="line.196"></a>
+<FONT color="green">197</FONT>            /**<a name="line.197"></a>
+<FONT color="green">198</FONT>             * set The name or url of the cursor to display when an object is dragging.<a name="line.198"></a>
+<FONT color="green">199</FONT>             * <a name="line.199"></a>
+<FONT color="green">200</FONT>             * @param draggingCursor<a name="line.200"></a>
+<FONT color="green">201</FONT>             */<a name="line.201"></a>
+<FONT color="green">202</FONT>            public final native void setDraggingCursor(boolean draggingCursor) /*-{<a name="line.202"></a>
+<FONT color="green">203</FONT>                    this.draggingCursor = draggingCursor;<a name="line.203"></a>
+<FONT color="green">204</FONT>            }-*/;<a name="line.204"></a>
+<FONT color="green">205</FONT>    <a name="line.205"></a>
+<FONT color="green">206</FONT>            /**<a name="line.206"></a>
+<FONT color="green">207</FONT>             * get The name or url of the cursor to display when an object is dragging.<a name="line.207"></a>
+<FONT color="green">208</FONT>             */<a name="line.208"></a>
+<FONT color="green">209</FONT>            public final native boolean getDraggingCursor() /*-{<a name="line.209"></a>
+<FONT color="green">210</FONT>                    return this.draggingCursor;<a name="line.210"></a>
+<FONT color="green">211</FONT>            }-*/;<a name="line.211"></a>
+<FONT color="green">212</FONT>    <a name="line.212"></a>
+<FONT color="green">213</FONT>            /**<a name="line.213"></a>
+<FONT color="green">214</FONT>             * set The heading for aerial imagery in degrees measured clockwise from<a name="line.214"></a>
+<FONT color="green">215</FONT>             * cardinal direction North. Headings are snapped to the nearest available<a name="line.215"></a>
+<FONT color="green">216</FONT>             * angle for which imagery is available.<a name="line.216"></a>
+<FONT color="green">217</FONT>             * <a name="line.217"></a>
+<FONT color="green">218</FONT>             * @param heading<a name="line.218"></a>
+<FONT color="green">219</FONT>             */<a name="line.219"></a>
+<FONT color="green">220</FONT>            public final native void setHeading(int heading) /*-{<a name="line.220"></a>
+<FONT color="green">221</FONT>                    this.heading = heading;<a name="line.221"></a>
+<FONT color="green">222</FONT>            }-*/;<a name="line.222"></a>
+<FONT color="green">223</FONT>    <a name="line.223"></a>
+<FONT color="green">224</FONT>            /**<a name="line.224"></a>
+<FONT color="green">225</FONT>             * get The heading for aerial imagery in degrees measured clockwise from<a name="line.225"></a>
+<FONT color="green">226</FONT>             * cardinal direction North. Headings are snapped to the nearest available<a name="line.226"></a>
+<FONT color="green">227</FONT>             * angle for which imagery is available.<a name="line.227"></a>
+<FONT color="green">228</FONT>             * <a name="line.228"></a>
+<FONT color="green">229</FONT>             * @return int<a name="line.229"></a>
+<FONT color="green">230</FONT>             */<a name="line.230"></a>
+<FONT color="green">231</FONT>            public final native int getHeading() /*-{<a name="line.231"></a>
+<FONT color="green">232</FONT>                    return this.heading;<a name="line.232"></a>
+<FONT color="green">233</FONT>            }-*/;<a name="line.233"></a>
+<FONT color="green">234</FONT>    <a name="line.234"></a>
+<FONT color="green">235</FONT>            /**<a name="line.235"></a>
+<FONT color="green">236</FONT>             * set If false, prevents the map from being controlled by the keyboard.<a name="line.236"></a>
+<FONT color="green">237</FONT>             * Keyboard shortcuts are enabled by default.<a name="line.237"></a>
+<FONT color="green">238</FONT>             * <a name="line.238"></a>
+<FONT color="green">239</FONT>             * @param keyboardShortcuts<a name="line.239"></a>
+<FONT color="green">240</FONT>             */<a name="line.240"></a>
+<FONT color="green">241</FONT>            public final native void setKeyboardShortcuts(boolean keyboardShortcuts) /*-{<a name="line.241"></a>
+<FONT color="green">242</FONT>                    this.keyboardShortcuts = keyboardShortcuts;<a name="line.242"></a>
+<FONT color="green">243</FONT>            }-*/;<a name="line.243"></a>
+<FONT color="green">244</FONT>    <a name="line.244"></a>
+<FONT color="green">245</FONT>            /**<a name="line.245"></a>
+<FONT color="green">246</FONT>             * get If false, prevents the map from being controlled by the keyboard.<a name="line.246"></a>
+<FONT color="green">247</FONT>             * Keyboard shortcuts are enabled by default.<a name="line.247"></a>
+<FONT color="green">248</FONT>             * <a name="line.248"></a>
+<FONT color="green">249</FONT>             * @return boolean<a name="line.249"></a>
+<FONT color="green">250</FONT>             */<a name="line.250"></a>
+<FONT color="green">251</FONT>            public final native boolean getKeyboardShortcuts() /*-{<a name="line.251"></a>
+<FONT color="green">252</FONT>                    return this.keyboardShortcuts;<a name="line.252"></a>
+<FONT color="green">253</FONT>            }-*/;<a name="line.253"></a>
+<FONT color="green">254</FONT>    <a name="line.254"></a>
+<FONT color="green">255</FONT>            /**<a name="line.255"></a>
+<FONT color="green">256</FONT>             * set The initial enabled/disabled state of the Map type control.<a name="line.256"></a>
+<FONT color="green">257</FONT>             * <a name="line.257"></a>
+<FONT color="green">258</FONT>             * @param mapTypeControl<a name="line.258"></a>
+<FONT color="green">259</FONT>             */<a name="line.259"></a>
+<FONT color="green">260</FONT>            public final native void setMapTypeControl(boolean mapTypeControl) /*-{<a name="line.260"></a>
+<FONT color="green">261</FONT>                    this.mapTypeControl = mapTypeControl;<a name="line.261"></a>
+<FONT color="green">262</FONT>            }-*/;<a name="line.262"></a>
+<FONT color="green">263</FONT>    <a name="line.263"></a>
+<FONT color="green">264</FONT>            /**<a name="line.264"></a>
+<FONT color="green">265</FONT>             * get The initial enabled/disabled state of the Map type control.<a name="line.265"></a>
+<FONT color="green">266</FONT>             */<a name="line.266"></a>
+<FONT color="green">267</FONT>            public final native boolean getMapTypeControl() /*-{<a name="line.267"></a>
+<FONT color="green">268</FONT>                    return this.mapTypeControl;<a name="line.268"></a>
+<FONT color="green">269</FONT>            }-*/;<a name="line.269"></a>
+<FONT color="green">270</FONT>    <a name="line.270"></a>
+<FONT color="green">271</FONT>            /**<a name="line.271"></a>
+<FONT color="green">272</FONT>             * set The initial display options for the Map type control.<a name="line.272"></a>
+<FONT color="green">273</FONT>             * <a name="line.273"></a>
+<FONT color="green">274</FONT>             * @param mapTypeControlOptions<a name="line.274"></a>
+<FONT color="green">275</FONT>             */<a name="line.275"></a>
+<FONT color="green">276</FONT>            public final native void setMapTypeControlOptions(<a name="line.276"></a>
+<FONT color="green">277</FONT>                            MapTypeControlOptions mapTypeControlOptions) /*-{<a name="line.277"></a>
+<FONT color="green">278</FONT>                    this.mapTypeControlOptions = mapTypeControlOptions;<a name="line.278"></a>
+<FONT color="green">279</FONT>            }-*/;<a name="line.279"></a>
+<FONT color="green">280</FONT>    <a name="line.280"></a>
+<FONT color="green">281</FONT>            /**<a name="line.281"></a>
+<FONT color="green">282</FONT>             * get The initial display options for the Map type control.<a name="line.282"></a>
+<FONT color="green">283</FONT>             * <a name="line.283"></a>
+<FONT color="green">284</FONT>             * @return {@link MapTypeControlOptions}<a name="line.284"></a>
+<FONT color="green">285</FONT>             */<a name="line.285"></a>
+<FONT color="green">286</FONT>            public final native MapTypeControlOptions getMapTypeControlOptions() /*-{<a name="line.286"></a>
+<FONT color="green">287</FONT>                    return this.mapTypeControlOptions;<a name="line.287"></a>
+<FONT color="green">288</FONT>            }-*/;<a name="line.288"></a>
+<FONT color="green">289</FONT>    <a name="line.289"></a>
+<FONT color="green">290</FONT>            /**<a name="line.290"></a>
+<FONT color="green">291</FONT>             * The initial Map {@link MapTypeId}. Required.<a name="line.291"></a>
+<FONT color="green">292</FONT>             * <a name="line.292"></a>
+<FONT color="green">293</FONT>             * @param mapTypeId<a name="line.293"></a>
+<FONT color="green">294</FONT>             *            {@link MapTypeId}<a name="line.294"></a>
+<FONT color="green">295</FONT>             */<a name="line.295"></a>
+<FONT color="green">296</FONT>            public final void setMapTypeId(MapTypeId mapTypeId) {<a name="line.296"></a>
+<FONT color="green">297</FONT>                    setMapTypeIdJs(mapTypeId.value());<a name="line.297"></a>
+<FONT color="green">298</FONT>            }<a name="line.298"></a>
+<FONT color="green">299</FONT>    <a name="line.299"></a>
+<FONT color="green">300</FONT>            /**<a name="line.300"></a>
+<FONT color="green">301</FONT>             * The initial Map {@link MapTypeId}. Required.<a name="line.301"></a>
+<FONT color="green">302</FONT>             * <a name="line.302"></a>
+<FONT color="green">303</FONT>             * @param mapTypeId<a name="line.303"></a>
+<FONT color="green">304</FONT>             *            String<a name="line.304"></a>
+<FONT color="green">305</FONT>             */<a name="line.305"></a>
+<FONT color="green">306</FONT>            public final void setMapTypeId(String mapTypeId) {<a name="line.306"></a>
+<FONT color="green">307</FONT>                    setMapTypeIdStringJs(mapTypeId);<a name="line.307"></a>
+<FONT color="green">308</FONT>            }<a name="line.308"></a>
+<FONT color="green">309</FONT>    <a name="line.309"></a>
+<FONT color="green">310</FONT>            /**<a name="line.310"></a>
+<FONT color="green">311</FONT>             * Native Use. Use setMapTypeId(MapTypeId mapTypeId). The initial Map<a name="line.311"></a>
+<FONT color="green">312</FONT>             * {@link MapTypeId}. Required.<a name="line.312"></a>
+<FONT color="green">313</FONT>             */<a name="line.313"></a>
+<FONT color="green">314</FONT>            private final native void setMapTypeIdJs(String type) /*-{<a name="line.314"></a>
+<FONT color="green">315</FONT>                    this.mapTypeId = $wnd.google.maps.MapTypeId[type];<a name="line.315"></a>
+<FONT color="green">316</FONT>            }-*/;<a name="line.316"></a>
+<FONT color="green">317</FONT>            <a name="line.317"></a>
+<FONT color="green">318</FONT>            /**<a name="line.318"></a>
+<FONT color="green">319</FONT>             * Native Use. Apply a given user defined map type string. Required.<a name="line.319"></a>
+<FONT color="green">320</FONT>             */<a name="line.320"></a>
+<FONT color="green">321</FONT>            private final native void setMapTypeIdStringJs(String type) /*-{<a name="line.321"></a>
+<FONT color="green">322</FONT>                    this.mapTypeId = type;<a name="line.322"></a>
+<FONT color="green">323</FONT>            }-*/;<a name="line.323"></a>
+<FONT color="green">324</FONT>    <a name="line.324"></a>
+<FONT color="green">325</FONT>            /**<a name="line.325"></a>
+<FONT color="green">326</FONT>             * Get {@link MapTypeId}<a name="line.326"></a>
+<FONT color="green">327</FONT>             */<a name="line.327"></a>
+<FONT color="green">328</FONT>            public final MapTypeId getMapTypeId() {<a name="line.328"></a>
+<FONT color="green">329</FONT>                    String type = getMapTypeIdJs();<a name="line.329"></a>
+<FONT color="green">330</FONT>                    return MapTypeId.fromValue(type);<a name="line.330"></a>
+<FONT color="green">331</FONT>            }<a name="line.331"></a>
+<FONT color="green">332</FONT>    <a name="line.332"></a>
+<FONT color="green">333</FONT>            /**<a name="line.333"></a>
+<FONT color="green">334</FONT>             * Get mapTypeId string<a name="line.334"></a>
+<FONT color="green">335</FONT>             */<a name="line.335"></a>
+<FONT color="green">336</FONT>            public final String getMapTypeIdString() {<a name="line.336"></a>
+<FONT color="green">337</FONT>                    return getMapTypeIdJs();<a name="line.337"></a>
+<FONT color="green">338</FONT>            }<a name="line.338"></a>
+<FONT color="green">339</FONT>    <a name="line.339"></a>
+<FONT color="green">340</FONT>            /**<a name="line.340"></a>
+<FONT color="green">341</FONT>             * native use. get {@link MapTypeId}<a name="line.341"></a>
+<FONT color="green">342</FONT>             * <a name="line.342"></a>
+<FONT color="green">343</FONT>             * @return String<a name="line.343"></a>
+<FONT color="green">344</FONT>             */<a name="line.344"></a>
+<FONT color="green">345</FONT>            private final native String getMapTypeIdJs() /*-{<a name="line.345"></a>
+<FONT color="green">346</FONT>                    return this.mapTypeId;<a name="line.346"></a>
+<FONT color="green">347</FONT>            }-*/;<a name="line.347"></a>
+<FONT color="green">348</FONT>    <a name="line.348"></a>
+<FONT color="green">349</FONT>            /**<a name="line.349"></a>
+<FONT color="green">350</FONT>             * set The maximum zoom level which will be displayed on the map. If<a name="line.350"></a>
+<FONT color="green">351</FONT>             * omitted, or set to null, the maximum zoom from the current map type is<a name="line.351"></a>
+<FONT color="green">352</FONT>             * used instead.<a name="line.352"></a>
+<FONT color="green">353</FONT>             * <a name="line.353"></a>
+<FONT color="green">354</FONT>             * @param maxZoom<a name="line.354"></a>
+<FONT color="green">355</FONT>             */<a name="line.355"></a>
+<FONT color="green">356</FONT>            public final native void setMaxZoom(int maxZoom) /*-{<a name="line.356"></a>
+<FONT color="green">357</FONT>                    this.maxZoom = maxZoom;<a name="line.357"></a>
+<FONT color="green">358</FONT>            }-*/;<a name="line.358"></a>
+<FONT color="green">359</FONT>    <a name="line.359"></a>
+<FONT color="green">360</FONT>            /**<a name="line.360"></a>
+<FONT color="green">361</FONT>             * get maxZoom<a name="line.361"></a>
+<FONT color="green">362</FONT>             * <a name="line.362"></a>
+<FONT color="green">363</FONT>             * @return int<a name="line.363"></a>
+<FONT color="green">364</FONT>             */<a name="line.364"></a>
+<FONT color="green">365</FONT>            public final native int getMaxZoom() /*-{<a name="line.365"></a>
+<FONT color="green">366</FONT>                    return this.maxZoom;<a name="line.366"></a>
+<FONT color="green">367</FONT>            }-*/;<a name="line.367"></a>
+<FONT color="green">368</FONT>    <a name="line.368"></a>
+<FONT color="green">369</FONT>            /**<a name="line.369"></a>
+<FONT color="green">370</FONT>             * set The minimum zoom level which will be displayed on the map. If<a name="line.370"></a>
+<FONT color="green">371</FONT>             * omitted, or set to null, the minimum zoom from the current map type is<a name="line.371"></a>
+<FONT color="green">372</FONT>             * used instead.<a name="line.372"></a>
+<FONT color="green">373</FONT>             * <a name="line.373"></a>
+<FONT color="green">374</FONT>             * @param minZoom<a name="line.374"></a>
+<FONT color="green">375</FONT>             */<a name="line.375"></a>
+<FONT color="green">376</FONT>            public final native void setMinZoom(int minZoom) /*-{<a name="line.376"></a>
+<FONT color="green">377</FONT>                    this.minZoom = minZoom;<a name="line.377"></a>
+<FONT color="green">378</FONT>            }-*/;<a name="line.378"></a>
+<FONT color="green">379</FONT>    <a name="line.379"></a>
+<FONT color="green">380</FONT>            /**<a name="line.380"></a>
+<FONT color="green">381</FONT>             * get The minimum zoom level which will be displayed on the map. If<a name="line.381"></a>
+<FONT color="green">382</FONT>             * omitted, or set to null, the minimum zoom from the current map type is<a name="line.382"></a>
+<FONT color="green">383</FONT>             * used instead.<a name="line.383"></a>
+<FONT color="green">384</FONT>             */<a name="line.384"></a>
+<FONT color="green">385</FONT>            public final native int getMinZoom() /*-{<a name="line.385"></a>
+<FONT color="green">386</FONT>                    return this.minZoom;<a name="line.386"></a>
+<FONT color="green">387</FONT>            }-*/;<a name="line.387"></a>
+<FONT color="green">388</FONT>    <a name="line.388"></a>
+<FONT color="green">389</FONT>            /**<a name="line.389"></a>
+<FONT color="green">390</FONT>             * set If true, do not clear the contents of the Map div.<a name="line.390"></a>
+<FONT color="green">391</FONT>             * <a name="line.391"></a>
+<FONT color="green">392</FONT>             * @param noClear<a name="line.392"></a>
+<FONT color="green">393</FONT>             */<a name="line.393"></a>
+<FONT color="green">394</FONT>            public final native void setNoClear(boolean noClear) /*-{<a name="line.394"></a>
+<FONT color="green">395</FONT>                    this.noClear = noClear;<a name="line.395"></a>
+<FONT color="green">396</FONT>            }-*/;<a name="line.396"></a>
+<FONT color="green">397</FONT>    <a name="line.397"></a>
+<FONT color="green">398</FONT>            /**<a name="line.398"></a>
+<FONT color="green">399</FONT>             * get If true, do not clear the contents of the Map div.<a name="line.399"></a>
+<FONT color="green">400</FONT>             */<a name="line.400"></a>
+<FONT color="green">401</FONT>            public final native boolean getNoClear() /*-{<a name="line.401"></a>
+<FONT color="green">402</FONT>                    return this.noClear;<a name="line.402"></a>
+<FONT color="green">403</FONT>            }-*/;<a name="line.403"></a>
+<FONT color="green">404</FONT>    <a name="line.404"></a>
+<FONT color="green">405</FONT>            /**<a name="line.405"></a>
+<FONT color="green">406</FONT>             * set The enabled/disabled state of the Overview Map control.<a name="line.406"></a>
+<FONT color="green">407</FONT>             * <a name="line.407"></a>
+<FONT color="green">408</FONT>             * @param overviewMapControl<a name="line.408"></a>
+<FONT color="green">409</FONT>             */<a name="line.409"></a>
+<FONT color="green">410</FONT>            public final native void setOverviewMapControl(boolean overviewMapControl) /*-{<a name="line.410"></a>
+<FONT color="green">411</FONT>                    this.overviewMapControl = overviewMapControl;<a name="line.411"></a>
+<FONT color="green">412</FONT>            }-*/;<a name="line.412"></a>
+<FONT color="green">413</FONT>    <a name="line.413"></a>
+<FONT color="green">414</FONT>            /**<a name="line.414"></a>
+<FONT color="green">415</FONT>             * get The enabled/disabled state of the Overview Map control.<a name="line.415"></a>
+<FONT color="green">416</FONT>             */<a name="line.416"></a>
+<FONT color="green">417</FONT>            public final native boolean getOverviewMapControl() /*-{<a name="line.417"></a>
+<FONT color="green">418</FONT>                    return this.overviewMapControl;<a name="line.418"></a>
+<FONT color="green">419</FONT>            }-*/;<a name="line.419"></a>
+<FONT color="green">420</FONT>    <a name="line.420"></a>
+<FONT color="green">421</FONT>            /**<a name="line.421"></a>
+<FONT color="green">422</FONT>             * set The display options for the Overview Map control.<a name="line.422"></a>
+<FONT color="green">423</FONT>             * {@link OverviewMapControlOptions}<a name="line.423"></a>
+<FONT color="green">424</FONT>             * <a name="line.424"></a>
+<FONT color="green">425</FONT>             * @param overviewMapControlOptions<a name="line.425"></a>
+<FONT color="green">426</FONT>             */<a name="line.426"></a>
+<FONT color="green">427</FONT>            public final native void setOverviewMapControlOptions(<a name="line.427"></a>
+<FONT color="green">428</FONT>                            OverviewMapControlOptions overviewMapControlOptions) /*-{<a name="line.428"></a>
+<FONT color="green">429</FONT>                    this.overviewMapControlOptions = overviewMapControlOptions;<a name="line.429"></a>
+<FONT color="green">430</FONT>            }-*/;<a name="line.430"></a>
+<FONT color="green">431</FONT>    <a name="line.431"></a>
+<FONT color="green">432</FONT>            /**<a name="line.432"></a>
+<FONT color="green">433</FONT>             * get The display options for the Overview Map control.<a name="line.433"></a>
+<FONT color="green">434</FONT>             * <a name="line.434"></a>
+<FONT color="green">435</FONT>             * @return {@link OverviewMapControlOptions}<a name="line.435"></a>
+<FONT color="green">436</FONT>             */<a name="line.436"></a>
+<FONT color="green">437</FONT>            public final native OverviewMapControlOptions getOverviewMapControlOptions() /*-{<a name="line.437"></a>
+<FONT color="green">438</FONT>                    return this.overviewMapControlOptions;<a name="line.438"></a>
+<FONT color="green">439</FONT>            }-*/;<a name="line.439"></a>
+<FONT color="green">440</FONT>    <a name="line.440"></a>
+<FONT color="green">441</FONT>            /**<a name="line.441"></a>
+<FONT color="green">442</FONT>             * The enabled/disabled state of the Pan control.<a name="line.442"></a>
+<FONT color="green">443</FONT>             * <a name="line.443"></a>
+<FONT color="green">444</FONT>             * @param panControl<a name="line.444"></a>
+<FONT color="green">445</FONT>             */<a name="line.445"></a>
+<FONT color="green">446</FONT>            public final native void setPanControl(boolean panControl) /*-{<a name="line.446"></a>
+<FONT color="green">447</FONT>                    this.panControl = panControl;<a name="line.447"></a>
+<FONT color="green">448</FONT>            }-*/;<a name="line.448"></a>
+<FONT color="green">449</FONT>    <a name="line.449"></a>
+<FONT color="green">450</FONT>            /**<a name="line.450"></a>
+<FONT color="green">451</FONT>             * get The enabled/disabled state of the Pan control.<a name="line.451"></a>
+<FONT color="green">452</FONT>             * <a name="line.452"></a>
+<FONT color="green">453</FONT>             * @return boolean<a name="line.453"></a>
+<FONT color="green">454</FONT>             */<a name="line.454"></a>
+<FONT color="green">455</FONT>            public final native boolean getPanControl() /*-{<a name="line.455"></a>
+<FONT color="green">456</FONT>                    return this.panControl;<a name="line.456"></a>
+<FONT color="green">457</FONT>            }-*/;<a name="line.457"></a>
+<FONT color="green">458</FONT>    <a name="line.458"></a>
+<FONT color="green">459</FONT>            /**<a name="line.459"></a>
+<FONT color="green">460</FONT>             * sets The display options for the Pan control.<a name="line.460"></a>
+<FONT color="green">461</FONT>             * <a name="line.461"></a>
+<FONT color="green">462</FONT>             * @param panControlOptions<a name="line.462"></a>
+<FONT color="green">463</FONT>             *            {@link PanControlOptions}<a name="line.463"></a>
+<FONT color="green">464</FONT>             */<a name="line.464"></a>
+<FONT color="green">465</FONT>            public final native void setPanControlOptions(<a name="line.465"></a>
+<FONT color="green">466</FONT>                            PanControlOptions panControlOptions) /*-{<a name="line.466"></a>
+<FONT color="green">467</FONT>                    this.panControlOptions = panControlOptions;<a name="line.467"></a>
+<FONT color="green">468</FONT>            }-*/;<a name="line.468"></a>
+<FONT color="green">469</FONT>    <a name="line.469"></a>
+<FONT color="green">470</FONT>            /**<a name="line.470"></a>
+<FONT color="green">471</FONT>             * gets The display options for the Pan control.<a name="line.471"></a>
+<FONT color="green">472</FONT>             * <a name="line.472"></a>
+<FONT color="green">473</FONT>             * @return {@link PanControlOptions}<a name="line.473"></a>
+<FONT color="green">474</FONT>             */<a name="line.474"></a>
+<FONT color="green">475</FONT>            public final native PanControlOptions getPanControlOptions() /*-{<a name="line.475"></a>
+<FONT color="green">476</FONT>                    return this.panControlOptions;<a name="line.476"></a>
+<FONT color="green">477</FONT>            }-*/;<a name="line.477"></a>
+<FONT color="green">478</FONT>    <a name="line.478"></a>
+<FONT color="green">479</FONT>            /**<a name="line.479"></a>
+<FONT color="green">480</FONT>             * set The enabled/disabled state of the Rotate control.<a name="line.480"></a>
+<FONT color="green">481</FONT>             * <a name="line.481"></a>
+<FONT color="green">482</FONT>             * @param rotateControl<a name="line.482"></a>
+<FONT color="green">483</FONT>             */<a name="line.483"></a>
+<FONT color="green">484</FONT>            public final native void setRotateControl(boolean rotateControl) /*-{<a name="line.484"></a>
+<FONT color="green">485</FONT>                    this.rotateControl = rotateControl;<a name="line.485"></a>
+<FONT color="green">486</FONT>            }-*/;<a name="line.486"></a>
+<FONT color="green">487</FONT>    <a name="line.487"></a>
+<FONT color="green">488</FONT>            /**<a name="line.488"></a>
+<FONT color="green">489</FONT>             * get The enabled/disabled state of the Rotate control.<a name="line.489"></a>
+<FONT color="green">490</FONT>             */<a name="line.490"></a>
+<FONT color="green">491</FONT>            public final native boolean getRotateControl() /*-{<a name="line.491"></a>
+<FONT color="green">492</FONT>                    return this.rotateControl;<a name="line.492"></a>
+<FONT color="green">493</FONT>            }-*/;<a name="line.493"></a>
+<FONT color="green">494</FONT>    <a name="line.494"></a>
+<FONT color="green">495</FONT>            /**<a name="line.495"></a>
+<FONT color="green">496</FONT>             * set The display options for the Rotate control.<a name="line.496"></a>
+<FONT color="green">497</FONT>             * <a name="line.497"></a>
+<FONT color="green">498</FONT>             * @param rotateControlOptions<a name="line.498"></a>
+<FONT color="green">499</FONT>             *            {@link RotateControlOptions}<a name="line.499"></a>
+<FONT color="green">500</FONT>             */<a name="line.500"></a>
+<FONT color="green">501</FONT>            public final native void setRotateControlOptions(<a name="line.501"></a>
+<FONT color="green">502</FONT>                            RotateControlOptions rotateControlOptions) /*-{<a name="line.502"></a>
+<FONT color="green">503</FONT>                    this.rotateControlOptions = rotateControlOptions;<a name="line.503"></a>
+<FONT color="green">504</FONT>            }-*/;<a name="line.504"></a>
+<FONT color="green">505</FONT>    <a name="line.505"></a>
+<FONT color="green">506</FONT>            /**<a name="line.506"></a>
+<FONT color="green">507</FONT>             * get set The display options for the Rotate control.<a name="line.507"></a>
+<FONT color="green">508</FONT>             * <a name="line.508"></a>
+<FONT color="green">509</FONT>             * @return {@link RotateControlOptions}<a name="line.509"></a>
+<FONT color="green">510</FONT>             */<a name="line.510"></a>
+<FONT color="green">511</FONT>            public final native RotateControlOptions getRotateControlOptions() /*-{<a name="line.511"></a>
+<FONT color="green">512</FONT>                    return this.rotateControlOptions;<a name="line.512"></a>
+<FONT color="green">513</FONT>            }-*/;<a name="line.513"></a>
+<FONT color="green">514</FONT>    <a name="line.514"></a>
+<FONT color="green">515</FONT>            /**<a name="line.515"></a>
+<FONT color="green">516</FONT>             * set The initial enabled/disabled state of the Scale control.<a name="line.516"></a>
+<FONT color="green">517</FONT>             * <a name="line.517"></a>
+<FONT color="green">518</FONT>             * @param scaleControl<a name="line.518"></a>
+<FONT color="green">519</FONT>             */<a name="line.519"></a>
+<FONT color="green">520</FONT>            public final native void setScaleControl(boolean scaleControl) /*-{<a name="line.520"></a>
+<FONT color="green">521</FONT>                    this.scaleControl = scaleControl;<a name="line.521"></a>
+<FONT color="green">522</FONT>            }-*/;<a name="line.522"></a>
+<FONT color="green">523</FONT>    <a name="line.523"></a>
+<FONT color="green">524</FONT>            /**<a name="line.524"></a>
+<FONT color="green">525</FONT>             * get The initial enabled/disabled state of the Scale control.<a name="line.525"></a>
+<FONT color="green">526</FONT>             * <a name="line.526"></a>
+<FONT color="green">527</FONT>             * @return boolean<a name="line.527"></a>
+<FONT color="green">528</FONT>             */<a name="line.528"></a>
+<FONT color="green">529</FONT>            public final native boolean getScaleControl() /*-{<a name="line.529"></a>
+<FONT color="green">530</FONT>                    return this.scaleControl;<a name="line.530"></a>
+<FONT color="green">531</FONT>            }-*/;<a name="line.531"></a>
+<FONT color="green">532</FONT>    <a name="line.532"></a>
+<FONT color="green">533</FONT>            /**<a name="line.533"></a>
+<FONT color="green">534</FONT>             * set The initial display options for the Scale control.<a name="line.534"></a>
+<FONT color="green">535</FONT>             * <a name="line.535"></a>
+<FONT color="green">536</FONT>             * @param scaleControlOptions<a name="line.536"></a>
+<FONT color="green">537</FONT>             *            {@link ScaleControlOptions}<a name="line.537"></a>
+<FONT color="green">538</FONT>             */<a name="line.538"></a>
+<FONT color="green">539</FONT>            public final native void setScaleControlOptions(<a name="line.539"></a>
+<FONT color="green">540</FONT>                            ScaleControlOptions scaleControlOptions) /*-{<a name="line.540"></a>
+<FONT color="green">541</FONT>                    this.scaleControlOptions = scaleControlOptions;<a name="line.541"></a>
+<FONT color="green">542</FONT>            }-*/;<a name="line.542"></a>
+<FONT color="green">543</FONT>    <a name="line.543"></a>
+<FONT color="green">544</FONT>            /**<a name="line.544"></a>
+<FONT color="green">545</FONT>             * get The initial display options for the Scale control.<a name="line.545"></a>
+<FONT color="green">546</FONT>             * <a name="line.546"></a>
+<FONT color="green">547</FONT>             * @return {@link ScaleControlOptions}<a name="line.547"></a>
+<FONT color="green">548</FONT>             */<a name="line.548"></a>
+<FONT color="green">549</FONT>            public final native ScaleControlOptions getScaleControlOptions() /*-{<a name="line.549"></a>
+<FONT color="green">550</FONT>                    return this.scaleOptions;<a name="line.550"></a>
+<FONT color="green">551</FONT>            }-*/;<a name="line.551"></a>
+<FONT color="green">552</FONT>    <a name="line.552"></a>
+<FONT color="green">553</FONT>            /**<a name="line.553"></a>
+<FONT color="green">554</FONT>             * set If false, disables scrollwheel zooming on the map. The scrollwheel is<a name="line.554"></a>
+<FONT color="green">555</FONT>             * enabled by default.<a name="line.555"></a>
+<FONT color="green">556</FONT>             * <a name="line.556"></a>
+<FONT color="green">557</FONT>             * @param scrollWheel<a name="line.557"></a>
+<FONT color="green">558</FONT>             */<a name="line.558"></a>
+<FONT color="green">559</FONT>            public final native void setScrollWheel(boolean scrollWheel) /*-{<a name="line.559"></a>
+<FONT color="green">560</FONT>                    this.scrollWheel = scrollWheel;<a name="line.560"></a>
+<FONT color="green">561</FONT>            }-*/;<a name="line.561"></a>
+<FONT color="green">562</FONT>    <a name="line.562"></a>
+<FONT color="green">563</FONT>            /**<a name="line.563"></a>
+<FONT color="green">564</FONT>             * get If false, disables scrollwheel zooming on the map. The scrollwheel is<a name="line.564"></a>
+<FONT color="green">565</FONT>             * enabled by default.<a name="line.565"></a>
+<FONT color="green">566</FONT>             */<a name="line.566"></a>
+<FONT color="green">567</FONT>            public final native boolean getScrollWheel() /*-{<a name="line.567"></a>
+<FONT color="green">568</FONT>                    return this.scrollWheel;<a name="line.568"></a>
+<FONT color="green">569</FONT>            }-*/;<a name="line.569"></a>
+<FONT color="green">570</FONT>    <a name="line.570"></a>
+<FONT color="green">571</FONT>            /**<a name="line.571"></a>
+<FONT color="green">572</FONT>             * set A StreetViewPanorama to display when the Street View Pegman is<a name="line.572"></a>
+<FONT color="green">573</FONT>             * dropped on the map. If no panorama is specified, a default<a name="line.573"></a>
+<FONT color="green">574</FONT>             * StreetViewPanorama will be displayed in the map's div when the pegman is<a name="line.574"></a>
+<FONT color="green">575</FONT>             * dropped.<a name="line.575"></a>
+<FONT color="green">576</FONT>             * <a name="line.576"></a>
+<FONT color="green">577</FONT>             * @param streetViewControl<a name="line.577"></a>
+<FONT color="green">578</FONT>             */<a name="line.578"></a>
+<FONT color="green">579</FONT>            public final native void setStreetViewControl(boolean streetViewControl) /*-{<a name="line.579"></a>
+<FONT color="green">580</FONT>                    this.streetViewControl = streetViewControl;<a name="line.580"></a>
+<FONT color="green">581</FONT>            }-*/;<a name="line.581"></a>
+<FONT color="green">582</FONT>    <a name="line.582"></a>
+<FONT color="green">583</FONT>            /**<a name="line.583"></a>
+<FONT color="green">584</FONT>             * get set A StreetViewPanorama to display when the Street View pegman is<a name="line.584"></a>
+<FONT color="green">585</FONT>             * dropped on the map. If no panorama is specified, a default<a name="line.585"></a>
+<FONT color="green">586</FONT>             * StreetViewPanorama will be displayed in the map's div when the pegman is<a name="line.586"></a>
+<FONT color="green">587</FONT>             * dropped.<a name="line.587"></a>
+<FONT color="green">588</FONT>             */<a name="line.588"></a>
+<FONT color="green">589</FONT>            public final native boolean getStreetViewControl() /*-{<a name="line.589"></a>
+<FONT color="green">590</FONT>                    return this.streetViewControl;<a name="line.590"></a>
+<FONT color="green">591</FONT>            }-*/;<a name="line.591"></a>
+<FONT color="green">592</FONT>    <a name="line.592"></a>
+<FONT color="green">593</FONT>            /**<a name="line.593"></a>
+<FONT color="green">594</FONT>             * The initial enabled/disabled state of the Street View Pegman control.<a name="line.594"></a>
+<FONT color="green">595</FONT>             * This control is part of the default UI, and should be set to false when<a name="line.595"></a>
+<FONT color="green">596</FONT>             * displaying a map type on which the Street View road overlay should not<a name="line.596"></a>
+<FONT color="green">597</FONT>             * appear (e.g. a non-Earth map type).<a name="line.597"></a>
+<FONT color="green">598</FONT>             * <a name="line.598"></a>
+<FONT color="green">599</FONT>             * @param streetViewControlOptions<a name="line.599"></a>
+<FONT color="green">600</FONT>             *            {@link StreetViewControlOptions}<a name="line.600"></a>
+<FONT color="green">601</FONT>             */<a name="line.601"></a>
+<FONT color="green">602</FONT>            public final native void setStreetViewControlOptions(<a name="line.602"></a>
+<FONT color="green">603</FONT>                            StreetViewControlOptions streetViewControlOptions) /*-{<a name="line.603"></a>
+<FONT color="green">604</FONT>                    this.streetViewControlOptions = streetViewControlOptions;<a name="line.604"></a>
+<FONT color="green">605</FONT>            }-*/;<a name="line.605"></a>
+<FONT color="green">606</FONT>    <a name="line.606"></a>
+<FONT color="green">607</FONT>            /**<a name="line.607"></a>
+<FONT color="green">608</FONT>             * get The initial enabled/disabled state of the Street View Pegman control.<a name="line.608"></a>
+<FONT color="green">609</FONT>             * This control is part of the default UI, and should be set to false when<a name="line.609"></a>
+<FONT color="green">610</FONT>             * displaying a map type on which the Street View road overlay should not<a name="line.610"></a>
+<FONT color="green">611</FONT>             * appear (e.g. a non-Earth map type).<a name="line.611"></a>
+<FONT color="green">612</FONT>             * <a name="line.612"></a>
+<FONT color="green">613</FONT>             * @return {@link StreetViewControlOptions}<a name="line.613"></a>
+<FONT color="green">614</FONT>             */<a name="line.614"></a>
+<FONT color="green">615</FONT>            public final native StreetViewControlOptions getStreetViewControlOptions() /*-{<a name="line.615"></a>
+<FONT color="green">616</FONT>                    return this.streetViewcontrolOptions;<a name="line.616"></a>
+<FONT color="green">617</FONT>            }-*/;<a name="line.617"></a>
+<FONT color="green">618</FONT>    <a name="line.618"></a>
+<FONT color="green">619</FONT>            public final void setMapTypeStyles(MapTypeStyle[] styles) {<a name="line.619"></a>
+<FONT color="green">620</FONT>                    JsArray&lt;MapTypeStyle&gt; arr = ArrayHelper.toJsArray(styles);<a name="line.620"></a>
+<FONT color="green">621</FONT>                    setMapTypeStyles(arr);<a name="line.621"></a>
+<FONT color="green">622</FONT>            }<a name="line.622"></a>
+<FONT color="green">623</FONT>    <a name="line.623"></a>
+<FONT color="green">624</FONT>            /**<a name="line.624"></a>
+<FONT color="green">625</FONT>             * set Styles to apply to each of the default map types. Note that styles<a name="line.625"></a>
+<FONT color="green">626</FONT>             * will apply only to the labels and geometry in Satellite/Hybrid and<a name="line.626"></a>
+<FONT color="green">627</FONT>             * Terrain modes.<a name="line.627"></a>
+<FONT color="green">628</FONT>             */<a name="line.628"></a>
+<FONT color="green">629</FONT>            private final native void setMapTypeStyles(JsArray&lt;MapTypeStyle&gt; styles) /*-{<a name="line.629"></a>
+<FONT color="green">630</FONT>                    this.styles = styles;<a name="line.630"></a>
+<FONT color="green">631</FONT>            }-*/;<a name="line.631"></a>
+<FONT color="green">632</FONT>    <a name="line.632"></a>
+<FONT color="green">633</FONT>            /**<a name="line.633"></a>
+<FONT color="green">634</FONT>             * get set Styles to apply to each of the default map types. Note that<a name="line.634"></a>
+<FONT color="green">635</FONT>             * styles will apply only to the labels and geometry in Satellite/Hybrid and<a name="line.635"></a>
+<FONT color="green">636</FONT>             * Terrain modes.<a name="line.636"></a>
+<FONT color="green">637</FONT>             */<a name="line.637"></a>
+<FONT color="green">638</FONT>            public final MapTypeStyle[] getMapTypeStyles() {<a name="line.638"></a>
+<FONT color="green">639</FONT>                    JsArray&lt;MapTypeStyle&gt; arr = getMapTypeStylesJs();<a name="line.639"></a>
+<FONT color="green">640</FONT>                    MapTypeStyle[] r = new MapTypeStyle[arr.length()];<a name="line.640"></a>
+<FONT color="green">641</FONT>                    for (int i = 0; i &lt; arr.length(); i++) {<a name="line.641"></a>
+<FONT color="green">642</FONT>                            r[i] = arr.get(i);<a name="line.642"></a>
+<FONT color="green">643</FONT>                    }<a name="line.643"></a>
+<FONT color="green">644</FONT>                    return r;<a name="line.644"></a>
+<FONT color="green">645</FONT>            }<a name="line.645"></a>
+<FONT color="green">646</FONT>    <a name="line.646"></a>
+<FONT color="green">647</FONT>            /**<a name="line.647"></a>
+<FONT color="green">648</FONT>             * get set Styles to apply to each of the default map types. Note that<a name="line.648"></a>
+<FONT color="green">649</FONT>             * styles will apply only to the labels and geometry in Satellite/Hybrid and<a name="line.649"></a>
+<FONT color="green">650</FONT>             * Terrain modes.<a name="line.650"></a>
+<FONT color="green">651</FONT>             */<a name="line.651"></a>
+<FONT color="green">652</FONT>            private final native JsArray&lt;MapTypeStyle&gt; getMapTypeStylesJs() /*-{<a name="line.652"></a>
+<FONT color="green">653</FONT>                    return this.styles;<a name="line.653"></a>
+<FONT color="green">654</FONT>            }-*/;<a name="line.654"></a>
+<FONT color="green">655</FONT>    <a name="line.655"></a>
+<FONT color="green">656</FONT>            /**<a name="line.656"></a>
+<FONT color="green">657</FONT>             * sets The angle of incidence of the map as measured in degrees from the<a name="line.657"></a>
+<FONT color="green">658</FONT>             * viewport plane to the map plane. The only currently supported values are<a name="line.658"></a>
+<FONT color="green">659</FONT>             * 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt<a name="line.659"></a>
+<FONT color="green">660</FONT>             * of 45&amp;deg;. 45&amp;deg; imagery is only available for SATELLITE and HYBRID<a name="line.660"></a>
+<FONT color="green">661</FONT>             * map types, within some locations, and at some zoom levels.<a name="line.661"></a>
+<FONT color="green">662</FONT>             */<a name="line.662"></a>
+<FONT color="green">663</FONT>            public final native void setTilt(int tilt) /*-{<a name="line.663"></a>
+<FONT color="green">664</FONT>                    this.tilt = tilt;<a name="line.664"></a>
+<FONT color="green">665</FONT>            }-*/;<a name="line.665"></a>
+<FONT color="green">666</FONT>    <a name="line.666"></a>
+<FONT color="green">667</FONT>            /**<a name="line.667"></a>
+<FONT color="green">668</FONT>             * gets The angle of incidence of the map as measured in degrees from the<a name="line.668"></a>
+<FONT color="green">669</FONT>             * viewport plane to the map plane. The only currently supported values are<a name="line.669"></a>
+<FONT color="green">670</FONT>             * 0, indicating no angle of incidence (no tilt), and 45, indicating a tilt<a name="line.670"></a>
+<FONT color="green">671</FONT>             * of 45&amp;deg;. 45&amp;deg; imagery is only available for SATELLITE and HYBRID<a name="line.671"></a>
+<FONT color="green">672</FONT>             * map types, within some locations, and at some zoom levels.<a name="line.672"></a>
+<FONT color="green">673</FONT>             */<a name="line.673"></a>
+<FONT color="green">674</FONT>            public final native int getTilt() /*-{<a name="line.674"></a>
+<FONT color="green">675</FONT>                    return this.tilt;<a name="line.675"></a>
+<FONT color="green">676</FONT>            }-*/;<a name="line.676"></a>
+<FONT color="green">677</FONT>    <a name="line.677"></a>
+<FONT color="green">678</FONT>            /**<a name="line.678"></a>
+<FONT color="green">679</FONT>             * The initial Map zoom level. Required.<a name="line.679"></a>
+<FONT color="green">680</FONT>             * <a name="line.680"></a>
+<FONT color="green">681</FONT>             * @param zoom<a name="line.681"></a>
+<FONT color="green">682</FONT>             */<a name="line.682"></a>
+<FONT color="green">683</FONT>            public final native void setZoom(int zoom) /*-{<a name="line.683"></a>
+<FONT color="green">684</FONT>                    this.zoom = zoom;<a name="line.684"></a>
+<FONT color="green">685</FONT>            }-*/;<a name="line.685"></a>
+<FONT color="green">686</FONT>    <a name="line.686"></a>
+<FONT color="green">687</FONT>            /**<a name="line.687"></a>
+<FONT color="green">688</FONT>             * get Map zoom level<a name="line.688"></a>
+<FONT color="green">689</FONT>             * <a name="line.689"></a>
+<FONT color="green">690</FONT>             * @return int<a name="line.690"></a>
+<FONT color="green">691</FONT>             */<a name="line.691"></a>
+<FONT color="green">692</FONT>            public final native int getZoom() /*-{<a name="line.692"></a>
+<FONT color="green">693</FONT>                    return this.zoom;<a name="line.693"></a>
+<FONT color="green">694</FONT>            }-*/;<a name="line.694"></a>
+<FONT color="green">695</FONT>    <a name="line.695"></a>
+<FONT color="green">696</FONT>            /**<a name="line.696"></a>
+<FONT color="green">697</FONT>             * sets The enabled/disabled state of the Zoom control.<a name="line.697"></a>
+<FONT color="green">698</FONT>             * <a name="line.698"></a>
+<FONT color="green">699</FONT>             * @param zoomControl<a name="line.699"></a>
+<FONT color="green">700</FONT>             */<a name="line.700"></a>
+<FONT color="green">701</FONT>            public final native void setZoomControl(boolean zoomControl) /*-{<a name="line.701"></a>
+<FONT color="green">702</FONT>                    this.zoomControl = zoomControl;<a name="line.702"></a>
+<FONT color="green">703</FONT>            }-*/;<a name="line.703"></a>
+<FONT color="green">704</FONT>    <a name="line.704"></a>
+<FONT color="green">705</FONT>            /**<a name="line.705"></a>
+<FONT color="green">706</FONT>             * gets The enabled/disabled state of the Zoom control.<a name="line.706"></a>
+<FONT color="green">707</FONT>             */<a name="line.707"></a>
+<FONT color="green">708</FONT>            public final native boolean getZoomControl() /*-{<a name="line.708"></a>
+<FONT color="green">709</FONT>                    return this.zoomControl;<a name="line.709"></a>
+<FONT color="green">710</FONT>            }-*/;<a name="line.710"></a>
+<FONT color="green">711</FONT>    <a name="line.711"></a>
+<FONT color="green">712</FONT>            /**<a name="line.712"></a>
+<FONT color="green">713</FONT>             * sets The display options for the Zoom control.<a name="line.713"></a>
+<FONT color="green">714</FONT>             * <a name="line.714"></a>
+<FONT color="green">715</FONT>             * @param zoomControlOptions<a name="line.715"></a>
+<FONT color="green">716</FONT>             */<a name="line.716"></a>
+<FONT color="green">717</FONT>            public final native void setZoomControlOptions(<a name="line.717"></a>
+<FONT color="green">718</FONT>                            ZoomControlOptions zoomControlOptions) /*-{<a name="line.718"></a>
+<FONT color="green">719</FONT>                    this.zoomControlOptions = zoomControlOptions;<a name="line.719"></a>
+<FONT color="green">720</FONT>            }-*/;<a name="line.720"></a>
+<FONT color="green">721</FONT>    <a name="line.721"></a>
+<FONT color="green">722</FONT>            /**<a name="line.722"></a>
+<FONT color="green">723</FONT>             * gets The display options for the Zoom control.<a name="line.723"></a>
+<FONT color="green">724</FONT>             */<a name="line.724"></a>
+<FONT color="green">725</FONT>            public final native ZoomControlOptions getZoomControlOptions() /*-{<a name="line.725"></a>
+<FONT color="green">726</FONT>                    return this.zoomControlOptions;<a name="line.726"></a>
+<FONT color="green">727</FONT>            }-*/;<a name="line.727"></a>
+<FONT color="green">728</FONT>    <a name="line.728"></a>
+<FONT color="green">729</FONT>            <a name="line.729"></a>
+<FONT color="green">730</FONT>            public final String toString2() {<a name="line.730"></a>
+<FONT color="green">731</FONT>                    return "Type:"+getMapTypeIdJs()+<a name="line.731"></a>
+<FONT color="green">732</FONT>                                    ", Styles:"+getMapTypeStyles();<a name="line.732"></a>
+<FONT color="green">733</FONT>            }<a name="line.733"></a>
+<FONT color="green">734</FONT>    }<a name="line.734"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

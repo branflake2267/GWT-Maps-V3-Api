@@ -1,0 +1,142 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package com.google.gwt.maps.client.overlays;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    import com.google.gwt.core.client.JavaScriptObject;<a name="line.3"></a>
+<FONT color="green">004</FONT>    import com.google.gwt.core.client.JsArrayInteger;<a name="line.4"></a>
+<FONT color="green">005</FONT>    <a name="line.5"></a>
+<FONT color="green">006</FONT>    /**<a name="line.6"></a>
+<FONT color="green">007</FONT>     * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties ° type and coord ° which define the general type of marker and coordinates specific to that type of marker.<a name="line.7"></a>
+<FONT color="green">008</FONT>     * &lt;br&gt;&lt;br&gt;<a name="line.8"></a>
+<FONT color="green">009</FONT>     * See &lt;a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerShape"&gt;MarkerShape API Doc&lt;/a&gt; <a name="line.9"></a>
+<FONT color="green">010</FONT>     */<a name="line.10"></a>
+<FONT color="green">011</FONT>    public class MarkerShape extends JavaScriptObject {<a name="line.11"></a>
+<FONT color="green">012</FONT>      <a name="line.12"></a>
+<FONT color="green">013</FONT>      /**<a name="line.13"></a>
+<FONT color="green">014</FONT>       * This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties ° type and coord ° which define the general type of marker and coordinates specific to that type of marker.<a name="line.14"></a>
+<FONT color="green">015</FONT>       * use newInstance();<a name="line.15"></a>
+<FONT color="green">016</FONT>       */<a name="line.16"></a>
+<FONT color="green">017</FONT>      protected MarkerShape() {}<a name="line.17"></a>
+<FONT color="green">018</FONT>      <a name="line.18"></a>
+<FONT color="green">019</FONT>      /**<a name="line.19"></a>
+<FONT color="green">020</FONT>       * creates This object defines the marker shape to use in determination of a marker's clickable region. The shape consists of two properties ° type and coord ° which define the general type of marker and coordinates specific to that type of marker.<a name="line.20"></a>
+<FONT color="green">021</FONT>       */<a name="line.21"></a>
+<FONT color="green">022</FONT>      public final static MarkerShape newInstance() {<a name="line.22"></a>
+<FONT color="green">023</FONT>        return JavaScriptObject.createObject().cast();<a name="line.23"></a>
+<FONT color="green">024</FONT>      }<a name="line.24"></a>
+<FONT color="green">025</FONT>      <a name="line.25"></a>
+<FONT color="green">026</FONT>      /**<a name="line.26"></a>
+<FONT color="green">027</FONT>       * sets The format of this attribute depends on the value of the type and follows the w3 AREA coords specification found at &lt;br&gt;&lt;br&gt;<a name="line.27"></a>
+<FONT color="green">028</FONT>     * See &lt;a href="http://www.w3.org/TR/REC-html40/struct/objects.html#adef-coords"&gt;adef-coords API Doc&lt;/a&gt;. <a name="line.28"></a>
+<FONT color="green">029</FONT>       * The coords attribute is an array of integers that specify the pixel position of the shape relative to the top-left corner of the target image. The coordinates depend on the value of type as follows: <a name="line.29"></a>
+<FONT color="green">030</FONT>       * - circle: coords is [x1,y1,r] where x1,y2 are the coordinates of the center of the circle, and r is the radius of the circle. <a name="line.30"></a>
+<FONT color="green">031</FONT>       * - poly: coords is [x1,y1,x2,y2...xn,yn] where each x,y pair contains the coordinates of one vertex of the polygon. <a name="line.31"></a>
+<FONT color="green">032</FONT>       * - rect: coords is [x1,y1,x2,y2] where x1,y1 are the coordinates of the upper-left corner of the rectangle and x2,y2 are the coordinates of the lower-right coordinates of the rectangle.<a name="line.32"></a>
+<FONT color="green">033</FONT>       * @param coords array of coords<a name="line.33"></a>
+<FONT color="green">034</FONT>       */<a name="line.34"></a>
+<FONT color="green">035</FONT>      public final native void setCoordinates(JsArrayInteger coords) /*-{<a name="line.35"></a>
+<FONT color="green">036</FONT>        this.coords = coords;<a name="line.36"></a>
+<FONT color="green">037</FONT>      }-*/;<a name="line.37"></a>
+<FONT color="green">038</FONT>      <a name="line.38"></a>
+<FONT color="green">039</FONT>      /**<a name="line.39"></a>
+<FONT color="green">040</FONT>       * gets coords (refer to setter)<a name="line.40"></a>
+<FONT color="green">041</FONT>       */<a name="line.41"></a>
+<FONT color="green">042</FONT>      public final native JsArrayInteger getCoordinates() /*-{<a name="line.42"></a>
+<FONT color="green">043</FONT>        return this.coords;<a name="line.43"></a>
+<FONT color="green">044</FONT>      }-*/;<a name="line.44"></a>
+<FONT color="green">045</FONT>      <a name="line.45"></a>
+<FONT color="green">046</FONT>      /**<a name="line.46"></a>
+<FONT color="green">047</FONT>       * sets Describes the shape's type and can be circle, poly or rect.<a name="line.47"></a>
+<FONT color="green">048</FONT>       * @param type<a name="line.48"></a>
+<FONT color="green">049</FONT>       */<a name="line.49"></a>
+<FONT color="green">050</FONT>      public final void setType(MarkerShapeType type) {<a name="line.50"></a>
+<FONT color="green">051</FONT>        setType(type.value());<a name="line.51"></a>
+<FONT color="green">052</FONT>      }<a name="line.52"></a>
+<FONT color="green">053</FONT>      <a name="line.53"></a>
+<FONT color="green">054</FONT>      /**<a name="line.54"></a>
+<FONT color="green">055</FONT>       * sets Describes the shape's type and can be circle, poly or rect.<a name="line.55"></a>
+<FONT color="green">056</FONT>       * @param type<a name="line.56"></a>
+<FONT color="green">057</FONT>       */<a name="line.57"></a>
+<FONT color="green">058</FONT>      private final native void setType(String type) /*-{<a name="line.58"></a>
+<FONT color="green">059</FONT>        this.type = type;<a name="line.59"></a>
+<FONT color="green">060</FONT>      }-*/;<a name="line.60"></a>
+<FONT color="green">061</FONT>      <a name="line.61"></a>
+<FONT color="green">062</FONT>      /**<a name="line.62"></a>
+<FONT color="green">063</FONT>       * gets gets Describes the shape's type and can be circle, poly or rect.<a name="line.63"></a>
+<FONT color="green">064</FONT>       */<a name="line.64"></a>
+<FONT color="green">065</FONT>      public final MarkerShapeType getType() {<a name="line.65"></a>
+<FONT color="green">066</FONT>        return MarkerShapeType.fromValue(getTypeImpl());<a name="line.66"></a>
+<FONT color="green">067</FONT>      }<a name="line.67"></a>
+<FONT color="green">068</FONT>      <a name="line.68"></a>
+<FONT color="green">069</FONT>      /**<a name="line.69"></a>
+<FONT color="green">070</FONT>       * gets Describes the shape's type and can be circle, poly or rect.<a name="line.70"></a>
+<FONT color="green">071</FONT>       */<a name="line.71"></a>
+<FONT color="green">072</FONT>      private final native String getTypeImpl() /*-{<a name="line.72"></a>
+<FONT color="green">073</FONT>        return this.type;<a name="line.73"></a>
+<FONT color="green">074</FONT>      }-*/;<a name="line.74"></a>
+<FONT color="green">075</FONT>    <a name="line.75"></a>
+<FONT color="green">076</FONT>    }<a name="line.76"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

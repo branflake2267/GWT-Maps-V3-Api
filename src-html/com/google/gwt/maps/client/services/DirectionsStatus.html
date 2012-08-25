@@ -1,0 +1,127 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package com.google.gwt.maps.client.services;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    /**<a name="line.3"></a>
+<FONT color="green">004</FONT>     * The status returned by the DirectionsService on the completion of a call to route().<a name="line.4"></a>
+<FONT color="green">005</FONT>     * &lt;br&gt;&lt;br&gt;<a name="line.5"></a>
+<FONT color="green">006</FONT>     * See &lt;a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsStatus"&gt;DirectionsStatus API Doc&lt;/a&gt;<a name="line.6"></a>
+<FONT color="green">007</FONT>     */<a name="line.7"></a>
+<FONT color="green">008</FONT>    public enum DirectionsStatus {<a name="line.8"></a>
+<FONT color="green">009</FONT>    <a name="line.9"></a>
+<FONT color="green">010</FONT>      /**<a name="line.10"></a>
+<FONT color="green">011</FONT>       * The DirectionsRequest provided was invalid.<a name="line.11"></a>
+<FONT color="green">012</FONT>       */<a name="line.12"></a>
+<FONT color="green">013</FONT>      INVALID_REQUEST,<a name="line.13"></a>
+<FONT color="green">014</FONT>      <a name="line.14"></a>
+<FONT color="green">015</FONT>      /**<a name="line.15"></a>
+<FONT color="green">016</FONT>       * Too many DirectionsWaypoints were provided in the DirectionsRequest. The total allowed waypoints is 8, plus the origin and destination.<a name="line.16"></a>
+<FONT color="green">017</FONT>       */<a name="line.17"></a>
+<FONT color="green">018</FONT>      MAX_WAYPOINTS_EXCEEDED,<a name="line.18"></a>
+<FONT color="green">019</FONT>      <a name="line.19"></a>
+<FONT color="green">020</FONT>      /**<a name="line.20"></a>
+<FONT color="green">021</FONT>       * At least one of the origin, destination, or waypoints could not be geocoded.<a name="line.21"></a>
+<FONT color="green">022</FONT>       */<a name="line.22"></a>
+<FONT color="green">023</FONT>      NOT_FOUND,<a name="line.23"></a>
+<FONT color="green">024</FONT>      <a name="line.24"></a>
+<FONT color="green">025</FONT>      /**<a name="line.25"></a>
+<FONT color="green">026</FONT>       * The response contains a valid DirectionsResult. <a name="line.26"></a>
+<FONT color="green">027</FONT>       */<a name="line.27"></a>
+<FONT color="green">028</FONT>      OK,<a name="line.28"></a>
+<FONT color="green">029</FONT>      <a name="line.29"></a>
+<FONT color="green">030</FONT>      /**<a name="line.30"></a>
+<FONT color="green">031</FONT>       * The webpage has gone over the requests limit in too short a period of time.<a name="line.31"></a>
+<FONT color="green">032</FONT>       */<a name="line.32"></a>
+<FONT color="green">033</FONT>      OVER_QUERY_LIMIT,<a name="line.33"></a>
+<FONT color="green">034</FONT>      <a name="line.34"></a>
+<FONT color="green">035</FONT>      /**<a name="line.35"></a>
+<FONT color="green">036</FONT>       * The webpage is not allowed to use the directions service.<a name="line.36"></a>
+<FONT color="green">037</FONT>       */<a name="line.37"></a>
+<FONT color="green">038</FONT>      REQUEST_DENIED,<a name="line.38"></a>
+<FONT color="green">039</FONT>      <a name="line.39"></a>
+<FONT color="green">040</FONT>      /**<a name="line.40"></a>
+<FONT color="green">041</FONT>       * A directions request could not be processed due to a server error. The request may succeed if you try again.<a name="line.41"></a>
+<FONT color="green">042</FONT>       */<a name="line.42"></a>
+<FONT color="green">043</FONT>      UNKNOWN_ERROR,<a name="line.43"></a>
+<FONT color="green">044</FONT>      <a name="line.44"></a>
+<FONT color="green">045</FONT>      /**<a name="line.45"></a>
+<FONT color="green">046</FONT>       * No route could be found between the origin and destination.<a name="line.46"></a>
+<FONT color="green">047</FONT>       */<a name="line.47"></a>
+<FONT color="green">048</FONT>      ZERO_RESULTS; <a name="line.48"></a>
+<FONT color="green">049</FONT>      <a name="line.49"></a>
+<FONT color="green">050</FONT>      public String value() {<a name="line.50"></a>
+<FONT color="green">051</FONT>        return name().toLowerCase();<a name="line.51"></a>
+<FONT color="green">052</FONT>      }<a name="line.52"></a>
+<FONT color="green">053</FONT>      <a name="line.53"></a>
+<FONT color="green">054</FONT>      public static DirectionsStatus fromValue(String type) {<a name="line.54"></a>
+<FONT color="green">055</FONT>        return valueOf(type.toUpperCase());<a name="line.55"></a>
+<FONT color="green">056</FONT>      }<a name="line.56"></a>
+<FONT color="green">057</FONT>    <a name="line.57"></a>
+<FONT color="green">058</FONT>      public String toString() {<a name="line.58"></a>
+<FONT color="green">059</FONT>        return name();<a name="line.59"></a>
+<FONT color="green">060</FONT>      }<a name="line.60"></a>
+<FONT color="green">061</FONT>    }<a name="line.61"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

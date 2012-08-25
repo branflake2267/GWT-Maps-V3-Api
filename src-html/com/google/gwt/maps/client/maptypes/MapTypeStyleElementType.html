@@ -1,0 +1,115 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    package com.google.gwt.maps.client.maptypes;<a name="line.1"></a>
+<FONT color="green">002</FONT>    <a name="line.2"></a>
+<FONT color="green">003</FONT>    /**<a name="line.3"></a>
+<FONT color="green">004</FONT>     * Each MapTypeStyleElementType distinguishes between the different representations of a feature.<a name="line.4"></a>
+<FONT color="green">005</FONT>     * &lt;br&gt;&lt;br&gt;<a name="line.5"></a>
+<FONT color="green">006</FONT>     * See &lt;a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleElementType"&gt;MapTypeStyleElementType API Doc&lt;/a&gt;<a name="line.6"></a>
+<FONT color="green">007</FONT>     */<a name="line.7"></a>
+<FONT color="green">008</FONT>    public enum MapTypeStyleElementType {<a name="line.8"></a>
+<FONT color="green">009</FONT>    <a name="line.9"></a>
+<FONT color="green">010</FONT>      /**<a name="line.10"></a>
+<FONT color="green">011</FONT>       * Apply the rule to all elements of the specified feature.<a name="line.11"></a>
+<FONT color="green">012</FONT>       */<a name="line.12"></a>
+<FONT color="green">013</FONT>      ALL,<a name="line.13"></a>
+<FONT color="green">014</FONT>      <a name="line.14"></a>
+<FONT color="green">015</FONT>      /**<a name="line.15"></a>
+<FONT color="green">016</FONT>       * Apply the rule to the feature's geometry.<a name="line.16"></a>
+<FONT color="green">017</FONT>       */<a name="line.17"></a>
+<FONT color="green">018</FONT>      GEOMETRY,<a name="line.18"></a>
+<FONT color="green">019</FONT>      <a name="line.19"></a>
+<FONT color="green">020</FONT>      /**<a name="line.20"></a>
+<FONT color="green">021</FONT>       * Apply the rule to the feature's labels.<a name="line.21"></a>
+<FONT color="green">022</FONT>       */<a name="line.22"></a>
+<FONT color="green">023</FONT>      LABELS;<a name="line.23"></a>
+<FONT color="green">024</FONT>      <a name="line.24"></a>
+<FONT color="green">025</FONT>      /**<a name="line.25"></a>
+<FONT color="green">026</FONT>       * return the enum value as a String<a name="line.26"></a>
+<FONT color="green">027</FONT>       * @return String<a name="line.27"></a>
+<FONT color="green">028</FONT>       */<a name="line.28"></a>
+<FONT color="green">029</FONT>      public String value() {<a name="line.29"></a>
+<FONT color="green">030</FONT>        return name().toLowerCase();<a name="line.30"></a>
+<FONT color="green">031</FONT>      }<a name="line.31"></a>
+<FONT color="green">032</FONT>    <a name="line.32"></a>
+<FONT color="green">033</FONT>      /**<a name="line.33"></a>
+<FONT color="green">034</FONT>       * convert a String value to enum Type<a name="line.34"></a>
+<FONT color="green">035</FONT>       * @param type<a name="line.35"></a>
+<FONT color="green">036</FONT>       * @return TYPE<a name="line.36"></a>
+<FONT color="green">037</FONT>       */<a name="line.37"></a>
+<FONT color="green">038</FONT>      public static MapTypeStyleElementType fromValue(String type) {<a name="line.38"></a>
+<FONT color="green">039</FONT>        return valueOf(type.toUpperCase());<a name="line.39"></a>
+<FONT color="green">040</FONT>      }<a name="line.40"></a>
+<FONT color="green">041</FONT>    <a name="line.41"></a>
+<FONT color="green">042</FONT>      /**<a name="line.42"></a>
+<FONT color="green">043</FONT>       * return the enum Type as a String<a name="line.43"></a>
+<FONT color="green">044</FONT>       */<a name="line.44"></a>
+<FONT color="green">045</FONT>      @Override<a name="line.45"></a>
+<FONT color="green">046</FONT>      public String toString() {<a name="line.46"></a>
+<FONT color="green">047</FONT>        return name().toLowerCase();<a name="line.47"></a>
+<FONT color="green">048</FONT>      }<a name="line.48"></a>
+<FONT color="green">049</FONT>    }<a name="line.49"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>
