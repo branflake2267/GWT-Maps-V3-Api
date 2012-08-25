@@ -11,6 +11,9 @@ We've already Mavenized this project, but are currently having it added to the C
 - [gwt-maps-api-v3-3.8.0-beta2-sources.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2-sources.jar)
 - [gwt-maps-api-v3-3.8.0-beta2.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2.jar)
 
+##Documentation
+
+[GWT-Maps-V3-API JavaDoc's (3.8.0)](http://branflake2267.github.com/GWT-Maps-V3-Api/javadoc/3.8.0/)
 
 ##To Build (with Maven)
 
