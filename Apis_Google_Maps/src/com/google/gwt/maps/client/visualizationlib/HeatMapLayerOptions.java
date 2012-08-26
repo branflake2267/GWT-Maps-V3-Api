@@ -1,6 +1,5 @@
 package com.google.gwt.maps.client.visualizationlib;
 
-import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.maps.client.MapImpl;

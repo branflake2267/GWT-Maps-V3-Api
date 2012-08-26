@@ -57,21 +57,25 @@ public class MapImplTest extends GWTTestCase {
 				LatLng sw = LatLng.newInstance(42.88679d, -19.927992d);
 				LatLngBounds left = LatLngBounds.newInstance(sw, ne);
 				o.fitBounds(left);
-				
 
 				// expected
 				LatLng expectedSW = LatLng.newInstance(30.792110d, -54.84306d);
 				LatLng expectedNE = LatLng.newInstance(51.64751d, -88.59306d);
+				@SuppressWarnings("unused")
 				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
-				
+
 				// test
 				LatLngBounds actual = o.getBounds();
-				
+
 				double delta = 1e-3;
-				assertEquals(expectedSW.getLatitude(), actual.getSouthWest().getLatitude(),delta);
-				assertEquals(expectedSW.getLongitude(), actual.getSouthWest().getLongitude(),delta);
-				assertEquals(expectedNE.getLatitude(), actual.getNorthEast().getLatitude(),delta);
-				assertEquals(expectedNE.getLongitude(), actual.getNorthEast().getLongitude(),delta);
+				assertEquals(expectedSW.getLatitude(), actual.getSouthWest()
+						.getLatitude(), delta);
+				assertEquals(expectedSW.getLongitude(), actual.getSouthWest()
+						.getLongitude(), delta);
+				assertEquals(expectedNE.getLatitude(), actual.getNorthEast()
+						.getLatitude(), delta);
+				assertEquals(expectedNE.getLongitude(), actual.getNorthEast()
+						.getLongitude(), delta);
 
 				finishTest();
 			}
@@ -100,39 +104,40 @@ public class MapImplTest extends GWTTestCase {
 	}
 
 	public void testJsoToWidgetConversion() {
-	  LoadApi.go(new Runnable() {
-		  public void run() {
-			  
-			  // make map
-			  FlowPanel fp = new FlowPanel();
-			  RootPanel.get().add(fp);
-			  fp.setSize("103px", "204px");
-			  Element element = fp.getElement();
-			  
-			  MapOptions options = MapOptions.newInstance();
-			  MapWidget widget = new MapWidget(options);
-			  widget.setSize("500px", "500px");
-		      RootPanel.get().add(widget);
-			  
-		      // use overlay to cast
-			  TrafficLayer layer = TrafficLayer.newInstance();
-			  
-			  // check null case
-			  MapWidget acutal = layer.getMap();
-			  assertNull(acutal);
-			  
-			  // now cast
-			  layer.setMap(widget);
-			  
-			  // maps should be same
-			  acutal = layer.getMap();
-			  assertEquals(widget.getCenter(), acutal.getCenter());
-			  
-			  finishTest();
-		  }
-	  }, false);
-	  delayTestFinish(ASYNC_DELAY_MS);
-  }
+		LoadApi.go(new Runnable() {
+			public void run() {
+
+				// make map
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				fp.setSize("103px", "204px");
+				@SuppressWarnings("unused")
+				Element element = fp.getElement();
+
+				MapOptions options = MapOptions.newInstance();
+				MapWidget widget = new MapWidget(options);
+				widget.setSize("500px", "500px");
+				RootPanel.get().add(widget);
+
+				// use overlay to cast
+				TrafficLayer layer = TrafficLayer.newInstance();
+
+				// check null case
+				MapWidget acutal = layer.getMap();
+				assertNull(acutal);
+
+				// now cast
+				layer.setMap(widget);
+
+				// maps should be same
+				acutal = layer.getMap();
+				assertEquals(widget.getCenter(), acutal.getCenter());
+
+				finishTest();
+			}
+		}, false);
+		delayTestFinish(ASYNC_DELAY_MS);
+	}
 
 	public void testGetHeading() {
 		LoadApi.go(new Runnable() {

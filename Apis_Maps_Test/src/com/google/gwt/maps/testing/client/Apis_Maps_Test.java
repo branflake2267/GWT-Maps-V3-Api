@@ -27,6 +27,7 @@ import com.google.gwt.maps.testing.client.maps.DirectionsServiceMapWidget;
 import com.google.gwt.maps.testing.client.maps.DrawingMapWidget;
 import com.google.gwt.maps.testing.client.maps.ElevationMapWidget;
 import com.google.gwt.maps.testing.client.maps.FusionTablesMapWidget;
+import com.google.gwt.maps.testing.client.maps.HeatMapLayerWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
@@ -62,6 +63,7 @@ public class Apis_Maps_Test implements EntryPoint {
 		loadLibraries.add(LoadLibrary.PANORAMIO);
 		loadLibraries.add(LoadLibrary.PLACES);
 		loadLibraries.add(LoadLibrary.WEATHER);
+		loadLibraries.add(LoadLibrary.VISUALIZATION);
 
 		Runnable onLoad = new Runnable() {
 			public void run() {
@@ -75,9 +77,11 @@ public class Apis_Maps_Test implements EntryPoint {
 	private void draw() {
 
 		HTML html = new HTML(
-				"<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
+				"<a href=\"Apis_Maps_Test_FullPage.html\">See FullScreen Map Demo</a><br/><br/>");
 		RootPanel.get().add(html);
 
+		drawHeatMap();
+		
 		drawPolylineMap();
 
 		drawDirections();
@@ -112,6 +116,11 @@ public class Apis_Maps_Test implements EntryPoint {
 
 		drawPanoramioMap();
 
+	}
+
+	private void drawHeatMap() {
+		HeatMapLayerWidget wMap = new HeatMapLayerWidget();
+		RootPanel.get().add(wMap);
 	}
 
 	private void drawWeatherMap() {
