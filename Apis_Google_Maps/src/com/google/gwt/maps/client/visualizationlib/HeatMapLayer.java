@@ -24,20 +24,27 @@ public class HeatMapLayer extends MVCObject<HeatMapLayer> {
 	}
 
 	/**
-	 * A layer that provides a client-side rendered heatmap, depicting the intensity of data at geographical points.
-	 * @param options {@link HeatMapLayerOptions} configuration for layer (data, rendering options)
+	 * A layer that provides a client-side rendered heatmap, depicting the
+	 * intensity of data at geographical points.
+	 * 
+	 * @param options
+	 *            {@link HeatMapLayerOptions} configuration for layer (data,
+	 *            rendering options)
 	 * @return new WeatherLayer instance
 	 */
 	public static final HeatMapLayer newInstance(HeatMapLayerOptions options) {
 		return createJso(options).cast();
 	}
 
-	private static final native JavaScriptObject createJso(HeatMapLayerOptions options) /*-{
+	private static final native JavaScriptObject createJso(
+			HeatMapLayerOptions options) /*-{
 		return new $wnd.google.maps.visualization.HeatmapLayer(options);
 	}-*/;
 
 	/**
-	 * Renders the heatmap on the specified map. If map is set to null, the heatmap will be removed.
+	 * Renders the heatmap on the specified map. If map is set to null, the
+	 * heatmap will be removed.
+	 * 
 	 * @param mapWidget
 	 */
 	public final void setMap(MapWidget mapWidget) {
@@ -54,6 +61,7 @@ public class HeatMapLayer extends MVCObject<HeatMapLayer> {
 
 	/**
 	 * Gets map layer is rendered to, or NULL if not associated with map.
+	 * 
 	 * @return
 	 */
 	public final MapWidget getMap() {
@@ -65,48 +73,60 @@ public class HeatMapLayer extends MVCObject<HeatMapLayer> {
 	}-*/;
 
 	/**
-	 * Sets the data points to be displayed by this heatmap.
+	 * Sets the data points to be displayed by this heatmap.<br>
+	 * <b>NOTE:</b> To clear the map points, set equal to an empty array.
+	 * 
 	 * @param dataPoints
 	 */
-	public final native void setDataWeighted(JsArray<WeightedLocation> dataPoints)/*-{
+	public final native void setDataWeighted(
+			JsArray<WeightedLocation> dataPoints)/*-{
 		this.setData(dataPoints);
 	}-*/;
-	
+
 	/**
-	 * Sets the data points to be displayed by this heatmap.
+	 * Sets the data points to be displayed by this heatmap.<br>
+	 * <b>NOTE:</b> To clear the map points, set equal to an empty array.
+	 * 
 	 * @param dataPoints
 	 */
-	public final native void setDataWeighted(MVCArray<WeightedLocation> dataPoints)/*-{
+	public final native void setDataWeighted(
+			MVCArray<WeightedLocation> dataPoints)/*-{
 		this.setData(dataPoints);
 	}-*/;
-	
+
 	/**
-	 * Sets the data points to be displayed by this heatmap.
+	 * Sets the data points to be displayed by this heatmap.<br>
+	 * <b>NOTE:</b> To clear the map points, set equal to an empty array.
+	 * 
 	 * @param dataPoints
 	 */
 	public final native void setData(JsArray<LatLng> dataPoints)/*-{
 		this.setData(dataPoints);
 	}-*/;
-	
+
 	/**
-	 * Sets the data points to be displayed by this heatmap.
+	 * Sets the data points to be displayed by this heatmap.<br>
+	 * <b>NOTE:</b> To clear the map points, set equal to an empty array.
+	 * 
 	 * @param dataPoints
 	 */
 	public final native void setData(MVCArray<LatLng> dataPoints)/*-{
 		this.setData(dataPoints);
 	}-*/;
-	
+
 	/**
 	 * Returns the data points currently displayed by this heatmap.
-	 * @returns  data points as MVCArray<LatLng>
+	 * 
+	 * @returns data points as MVCArray<LatLng>
 	 */
 	public final native MVCArray<LatLng> getData()/*-{
 		return this.getData();
 	}-*/;
-	
+
 	/**
 	 * Returns the data points currently displayed by this heatmap.
-	 * @returns  data points as MVCArray<LatLng>
+	 * 
+	 * @returns data points as MVCArray<LatLng>
 	 */
 	public final native MVCArray<WeightedLocation> getDataWeighted()/*-{
 		return this.getData();

@@ -22,9 +22,6 @@ public class MVCArrayTest extends GWTTestCase {
     return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
   }
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
   @SuppressWarnings("unused")
   public void testUse() {
     LoadApi.go(new Runnable() {

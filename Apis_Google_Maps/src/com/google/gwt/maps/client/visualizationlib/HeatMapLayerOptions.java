@@ -1,5 +1,6 @@
 package com.google.gwt.maps.client.visualizationlib;
 
+import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.maps.client.MapImpl;
@@ -26,7 +27,16 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	 * creates - This object defines the properties that can be set on a HeatmapLayer object.
 	 */
 	public static final HeatMapLayerOptions newInstance() {
-		return newInstanceDefault();
+		HeatMapLayerOptions options =  newInstanceDefault();
+		setDefaults(options);
+		return options;
+	}
+	
+	private static final void setDefaults(HeatMapLayerOptions options) {
+		options.setOpacity(0.6d);
+		options.setGradient(null);
+		//options.setData(null); // don't set data null, cannot be null or map won't init
+		options.setMap(null);
 	}
 
 	/**
@@ -41,11 +51,11 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	}
 	
 	/**
-	 * The data points to display. Required.
-	 * 
+	 * The data points to display. Required.<br>
+	 * <b>NOTE:</b> To clear the map points, set equal to an empty array.
 	 * @param dataPoints
 	 */
-	public final native void setData(MVCArray<LatLng> dataPoints) /*-{
+	public final native void setData(MVCArray<LatLng> dataPoints) /*-{	
 		this.data = dataPoints;
 	}-*/;
 	
@@ -107,7 +117,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
-		this.setMap(map);
+		this.map = map;
 	}-*/;
 
 	/**
@@ -119,7 +129,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	}
 
 	private final native MapImpl getMapImpl() /*-{
-		return this.getMap();
+		return this.map;
 	}-*/;
 	
 	/**
