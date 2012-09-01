@@ -27,12 +27,12 @@
 	</properties>
   
     <!-- To deploy into the my maven repo use command on next line ran in the pom.xml directory -->
-    <!-- "./mvn -DaltDeploymentRepository=snapshot-repo::default::file:../distribution/snapshots/ clean deploy" -->
+    <!-- ./"mvn -DaltDeploymentRepository=snapshot-repo::default::file:../distribution/snapshots/ clean deploy" -->
     <distributionManagement>
-      <repository>
-        <id>releases</id>
-        <url>https://github.com/branflake2267/GWT-Maps-V3-Api/raw/distribution/master/releases</url>
-      </repository>
+    <repository>
+      <id>releases</id>
+      <url>https://github.com/branflake2267/GWT-Maps-V3-Api/raw/distribution/master/releases</url>
+    </repository>
       <snapshotRepository>
         <id>snapshots</id>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api/raw/distribution/master/snapshots</url>
