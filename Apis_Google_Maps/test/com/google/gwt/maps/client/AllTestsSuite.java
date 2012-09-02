@@ -8,6 +8,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 import com.google.gwt.junit.tools.GWTTestSuite;
+import com.google.gwt.maps.client.main.LoadApiTest;
 
 import junit.framework.TestSuite;
 
@@ -15,6 +16,9 @@ public class AllTestsSuite extends GWTTestSuite {
 
   public static TestSuite suite() throws Exception {
     TestSuite suite = new TestSuite();
+    
+    // be sure the libs get loaded at the beginning b/c they won't want to add the libs during
+    suite.addTestSuite(LoadApiTest.class);
 
     Class[] classes = getClasses("com.google.gwt.maps.client");
     for (Class clazz : classes) {
