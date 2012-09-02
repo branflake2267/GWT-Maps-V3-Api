@@ -19,15 +19,9 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-/**
- * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
- */
 public class CustomControlsMapWidget extends Composite {
 
   private VerticalPanel pWidget;
-
   private MapWidget mapWidget;
 
   public CustomControlsMapWidget() {
@@ -38,18 +32,11 @@ public class CustomControlsMapWidget extends Composite {
   }
 
   private void draw() {
-
     pWidget.clear();
 
     pWidget.add(new HTML("<br>Custom Controls"));
 
     drawMap();
-    
-//    mapWidget.addTilesLoadedHandler(new TilesLoadedMapHandler() {
-//      public void onEvent(TilesLoadedMapEvent event) {
-//        drawControls();
-//      }
-//    });
     drawControls();
   }
   
@@ -72,7 +59,6 @@ public class CustomControlsMapWidget extends Composite {
   
   
   private void drawControls() {
-    
     Button button = new Button("B1");
     button.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
@@ -103,18 +89,13 @@ public class CustomControlsMapWidget extends Composite {
     widget.add(cb);
     widget.addStyleName("TestControls");
     
-    //TODO I'm not able to get the stylesheet to work.
-    // This works below
+    // TODO I'm not able to get the stylesheet to work, but this works below
     DOM.setStyleAttribute(widget.getElement(), "background", "white");
     DOM.setStyleAttribute(widget.getElement(), "padding", "5px");
     DOM.setStyleAttribute(widget.getElement(), "margin", "3px");
     DOM.setStyleAttribute(widget.getElement(), "border", "3px solid #FF0000");
    
     mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
-    
-    
   }
 
-  
-  
 }
