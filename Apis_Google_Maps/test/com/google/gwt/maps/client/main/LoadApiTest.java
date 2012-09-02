@@ -26,6 +26,7 @@ public class LoadApiTest extends GWTTestCase {
     loadLibraries.add(LoadLibrary.GEOMETRY);
     loadLibraries.add(LoadLibrary.PANORAMIO);
     loadLibraries.add(LoadLibrary.PLACES);
+    loadLibraries.add(LoadLibrary.WEATHER);
     
     LoadApi.go(new Runnable() {
       public void run() {

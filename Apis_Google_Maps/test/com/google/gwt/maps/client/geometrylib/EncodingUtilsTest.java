@@ -12,7 +12,7 @@ import com.google.gwt.maps.client.mvc.MVCArray;
 
 public class EncodingUtilsTest extends GWTTestCase {
 
-  public static final int ASYNC_DELAY_MS = 8000;
+  public static final int ASYNC_DELAY_MS = 15000;
 
   public String getModuleName() {
     return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
