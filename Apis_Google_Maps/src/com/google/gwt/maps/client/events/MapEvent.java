@@ -10,7 +10,7 @@ import com.google.gwt.event.shared.GwtEvent;
  * @param <H> {@link MapHandler}
  * @param <E> {@link MapEvent}
  */
-public abstract class MapEvent<H extends MapHandler<E>, E> extends GwtEvent<H> {
+public abstract class MapEvent<H extends MapHandler<E>, E extends MapEvent<H, E>> extends GwtEvent<H> {
 
   /**
    * properties from the map event call back
