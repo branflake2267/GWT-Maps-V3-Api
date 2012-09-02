@@ -11,7 +11,7 @@ import com.google.gwt.junit.tools.GWTTestSuite;
 
 import junit.framework.TestSuite;
 
-public class AlltestsSuite extends GWTTestSuite {
+public class AllTestsSuite extends GWTTestSuite {
 
   public static TestSuite suite() throws Exception {
     TestSuite suite = new TestSuite();
