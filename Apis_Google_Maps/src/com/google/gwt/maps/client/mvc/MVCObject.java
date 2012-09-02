@@ -118,4 +118,5 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
   public final native void unbindAll() /*-{
     this.unbindAll();
   }-*/;
+  
 }
