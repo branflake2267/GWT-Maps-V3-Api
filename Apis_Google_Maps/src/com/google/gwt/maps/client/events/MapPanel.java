@@ -24,4 +24,5 @@ public class MapPanel extends FlowPanel {
     onAttach();
     RootPanel.detachOnWindowClose(this);
   }
+  
 }

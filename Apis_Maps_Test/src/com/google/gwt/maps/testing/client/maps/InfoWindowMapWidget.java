@@ -1,6 +1,8 @@
 package com.google.gwt.maps.testing.client.maps;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -14,17 +16,15 @@ import com.google.gwt.maps.client.overlays.InfoWindow;
 import com.google.gwt.maps.client.overlays.InfoWindowOptions;
 import com.google.gwt.maps.client.overlays.Marker;
 import com.google.gwt.maps.client.overlays.MarkerOptions;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-/**
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
- */
 public class InfoWindowMapWidget extends Composite {
 
   private VerticalPanel pWidget;
-
   private MapWidget mapWidget;
 
   public InfoWindowMapWidget() {
@@ -36,13 +36,10 @@ public class InfoWindowMapWidget extends Composite {
 
   private void draw() {
     pWidget.clear();
-
     pWidget.add(new HTML("<br>Maps with Info Windows - click on marker"));
 
     drawMap();
-    
     drawInfoWindowOnMapCenter();
-    
     drawMarker1();
   }
   
@@ -80,11 +77,33 @@ public class InfoWindowMapWidget extends Composite {
     
     HTML html = new HTML("Why did you click on me? <br/> You clicked on: " + mouseEvent.getLatLng().getToString());
 
+    Button b1 = new Button("b1");
+    b1.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        Window.alert("b1 clicked");
+      }
+    });
+    
+    Button b2 = new Button("b2");
+    b2.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        Window.alert("b2 clicked");
+      }
+    });
+    
+    VerticalPanel vp = new VerticalPanel();
+    vp.add(html);
+    vp.add(b1);
+    vp.add(b2);
+    
     InfoWindowOptions options = InfoWindowOptions.newInstance();
-    options.setContent(html);
+    options.setContent(vp);
     
     InfoWindow iw = InfoWindow.newInstance(options);
     iw.open(mapWidget, marker);
+    
+    // If you want to clear widgets, Use options.clear() to remove the widgets from map
+    //options.clear();
   }
 
   private void drawMap() {
