@@ -27,7 +27,7 @@
 	</properties>
   
     <!-- To deploy into the my maven repo use command on next line ran in the pom.xml directory -->
-    <!-- ./"mvn -DaltDeploymentRepository=snapshot-repo::default::file:../distribution/snapshots/ clean deploy" -->
+    <!-- ./"mvn -DaltDeploymentRepository=snapshots::default::file:../distribution/snapshots/ clean deploy" -->
     <distributionManagement>
     <repository>
       <id>releases</id>
