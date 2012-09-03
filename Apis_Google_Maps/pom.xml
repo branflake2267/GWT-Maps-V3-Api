@@ -92,7 +92,8 @@
 						<additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
 					</additionalClasspathElements>
 					<useManifestOnlyJar>false</useManifestOnlyJar>
-					<forkMode>always</forkMode>
+					<forkMode>once</forkMode>
+                    <argLine>-Xmx1050M -XX:MaxPermSize=256M</argLine>
 					<systemProperties>
 						<property>
 							<name>gwt.args</name>
@@ -170,7 +171,6 @@
 						    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 						    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 						  })();
-						
 						</script>
 						
 						<div align="center">
@@ -185,8 +185,6 @@
 								height="30px"></iframe>
 						</div>
 					]]>
-					
-					
 					</header>
 					
 				</configuration>
