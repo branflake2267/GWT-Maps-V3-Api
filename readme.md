@@ -23,7 +23,7 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 ##Future Features
 1. GitHub host the maven repository for easier dependency adding. Branch of code in progress.
 
-##To Build (with Maven)
+##Maven Use
 1. Download the jar (only gwt-maps-api-v3-3.8.0-beta2.jar is needed)
 2. Add the jars to your local repo.
 3. Add the dependencies to your POM.
@@ -45,6 +45,16 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 	</dependency>
 	```
 4. Add the inherits statement to your module.gwt.xml.
+	
+	```xml
+	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
+	```
+
+##Eclipse Setup Using Source
+1. Clone the source with EGit.
+2. Add the project to your build path.
+3. Link the maps source "src" folder as src_maps in your build path.
+4. Inherit the module.
 	
 	```xml
 	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
