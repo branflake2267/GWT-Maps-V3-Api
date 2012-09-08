@@ -41,11 +41,6 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 
-/**
- * 
- * Super raw source!
- * 
- */
 public class Apis_Maps_Test implements EntryPoint {
 
 	@Override
@@ -56,7 +51,7 @@ public class Apis_Maps_Test implements EntryPoint {
 	private void loadMapApi() {
 		boolean sensor = true;
 
-		// load all the libs for use
+		// load all the libs for use in the maps
 		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
 		loadLibraries.add(LoadLibrary.ADSENSE);
 		loadLibraries.add(LoadLibrary.DRAWING);
@@ -75,8 +70,10 @@ public class Apis_Maps_Test implements EntryPoint {
 		LoadApi.go(onLoad, loadLibraries, sensor);
 	}
 
+	/**
+	 * See the map widgets for different map configurations
+	 */
 	private void draw() {
-
 		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
 		RootPanel.get().add(html);
 
@@ -206,75 +203,5 @@ public class Apis_Maps_Test implements EntryPoint {
 		AutocompletePlacesMapWidget wMap = new AutocompletePlacesMapWidget();
 		RootPanel.get().add(wMap);
 	}
-
-	private void drawMap() {
-		MapOptions options = MapOptions.newInstance();
-		MapWidget wMap = new MapWidget(options);
-		RootPanel.get().add(wMap);
-
-		wMap.addClickHandler(new ClickMapHandler() {
-			@Override
-			public void onEvent(ClickMapEvent event) {
-				MouseEvent me = event.getMouseEvent();
-				LatLng ll = me.getLatLng();
-				Window.alert("clicked on map: " + ll.getToString());
-			}
-		});
-
-		LatLng position = LatLng.newInstance(19.54, -155.43);
-		MarkerOptions optionsMarker = MarkerOptions.newInstance();
-		optionsMarker.setPosition(position);
-		Marker marker = Marker.newInstance(optionsMarker);
-		marker.setMap(wMap);
-
-		wMap.setSize("500px", "500px");
-		wMap.addStyleName("test1");
-	}
-
-	private void drawTestMap() {
-
-		MapTypeControlOptions mapTypeControlOptions = MapTypeControlOptions
-				.newInstance();
-		mapTypeControlOptions.setPosition(ControlPosition.BOTTOM_RIGHT);
-		mapTypeControlOptions.setMapTypeIds(MapTypeId.values());
-
-		MapOptions options = MapOptions.newInstance();
-		options.setBackgroundColor("#FFD300"); // works
-		options.setDisableDefaultUi(false);
-		options.setDisableDoubleClickZoom(true); // works
-		options.setDraggable(true); // true
-		options.setDraggingCursor("crosshair");
-		options.setHeading(45);
-		options.setKeyboardShortcuts(true); // works
-		options.setMapTypeControl(true);
-
-		options.setMapTypeControlOptions(mapTypeControlOptions);
-
-		FlowPanel fp = new FlowPanel();
-		RootPanel.get().add(fp);
-		fp.setSize("500px", "500px");
-		fp.addStyleName("test2");
-		testMap(fp.getElement(), options);
-	}
-
-	private static native JavaScriptObject testMap(Element element,
-			MapOptions options) /*-{
-
-		//var myOptions = {
-		//  zoom: 6,
-		//  center: myLatLng,
-		//  mapTypeId: $wnd.google.maps.MapTypeId[mapType]
-		//};
-
-		var map = new $wnd.google.maps.Map(element, options);
-
-		return map;
-	}-*/;
-
-	private final native int test2(String type) /*-{
-		//alert(type);
-		var test = eval("$wnd.google.maps.ControlPosition." + type);
-		return test;
-	}-*/;
 
 }

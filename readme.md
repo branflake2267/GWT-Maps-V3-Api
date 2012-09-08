@@ -15,6 +15,12 @@ We've already Mavenized this project, but are currently having it added to the C
 
 [GWT-Maps-V3-API JavaDoc's (3.8.0)](http://branflake2267.github.com/GWT-Maps-V3-Api/javadoc/3.8.0/)
 
+##New Features
+1. InfoWindow supports GWT widgets with events
+
+##Future Features
+1. GitHub host the maven repository for easier dependency adding. Branch of code in progress.
+
 ##To Build (with Maven)
 
 1. Download the jar (only gwt-maps-api-v3-3.8.0-beta2.jar is needed)

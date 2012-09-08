@@ -4,6 +4,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Size;
+import com.google.gwt.maps.client.events.MapPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /** 
@@ -12,6 +13,11 @@ import com.google.gwt.user.client.ui.Widget;
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#InfoWindowOptions">InfoWindowOptions API Doc</a>
  */
 public class InfoWindowOptions extends JavaScriptObject {
+
+  /**
+   * used for the removal of the gwt widgets from the map
+   */
+  private static MapPanel mapPanel;
 
   /**
    * use newInstance();
@@ -30,7 +36,14 @@ public class InfoWindowOptions extends JavaScriptObject {
    * @param widget
    */
   public final void setContent(Widget widget) {
+    mapPanel = new MapPanel();
+    mapPanel.add(widget);
+    
     setContent(widget.getElement());
+  }
+  
+  public final void clear() {
+    mapPanel.clear();
   }
   
   /**
