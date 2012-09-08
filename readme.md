@@ -50,11 +50,16 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
 	```
 
+##Jar Use
+1. Download jar
+2. Add jar to your /WEB-INF/lib
+3. Right click on the jar and goto Build path > add to build path
+
 ##Eclipse Setup Using Source
-1. Clone the source with EGit.
-2. Add the project to your build path.
-3. Link the maps source "src" folder as src_maps in your build path.
-4. Inherit the module.
+1. Clone the source with EGit
+2. Add the project to your build path
+3. Link the maps source "src" folder as src_maps in your build path
+4. Inherit the module
 	
 	```xml
 	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
