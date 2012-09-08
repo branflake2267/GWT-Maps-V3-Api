@@ -30,7 +30,6 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
    */
   public static final DirectionsRenderer newInstance(DirectionsRendererOptions options) {
     JavaScriptObject jso = createJso(options);
-    WorkAroundUtils.removeGwtObjectId(jso);
     return jso.cast();
   }
 
