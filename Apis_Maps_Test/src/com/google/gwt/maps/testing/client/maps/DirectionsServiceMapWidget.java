@@ -17,6 +17,7 @@ import com.google.gwt.maps.client.services.DirectionsResult;
 import com.google.gwt.maps.client.services.DirectionsResultHandler;
 import com.google.gwt.maps.client.services.DirectionsService;
 import com.google.gwt.maps.client.services.DirectionsStatus;
+import com.google.gwt.maps.client.services.DirectionsWaypoint;
 import com.google.gwt.maps.client.services.Distance;
 import com.google.gwt.maps.client.services.DistanceMatrixElementStatus;
 import com.google.gwt.maps.client.services.DistanceMatrixRequest;
@@ -34,19 +35,13 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
- * 
- * <br>
- * <br>
  * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
- * >FusionTables API Doc</a>
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
  */
 public class DirectionsServiceMapWidget extends Composite {
 
 	private VerticalPanel pWidget;
-
 	private MapWidget mapWidget;
-
 	private HTML htmlDistanceMatrixService = new HTML("&nbsp;");
 
 	public DirectionsServiceMapWidget() {
@@ -57,9 +52,7 @@ public class DirectionsServiceMapWidget extends Composite {
 	}
 
 	private void draw() {
-
 		pWidget.clear();
-
 		pWidget.add(new HTML("<br/>"));
 
 		HorizontalPanel hp = new HorizontalPanel();
@@ -68,8 +61,7 @@ public class DirectionsServiceMapWidget extends Composite {
 		hp.add(htmlDistanceMatrixService);
 
 		drawMap();
-
-		drawDirections();
+		drawDirectionsWithMidPoint();
 	}
 
 	private void drawMap() {
@@ -89,17 +81,10 @@ public class DirectionsServiceMapWidget extends Composite {
 		});
 	}
 
-	private void drawDirections() {
-
-		DirectionsRendererOptions options = DirectionsRendererOptions
-				.newInstance();
-		final DirectionsRenderer directionsDisplay = DirectionsRenderer
-				.newInstance(options);
+	private void drawDirectionsWithMidPoint() {
+		DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+		final DirectionsRenderer directionsDisplay = DirectionsRenderer.newInstance(options);
 		directionsDisplay.setMap(mapWidget);
-
-		// LatLng origin = LatLng.newInstance(37.7699298, -122.4469157);
-		// LatLng destination = LatLng.newInstance(37.7683909618184,
-		// -122.51089453697205);
 
 		String origin = "Arlington, WA";
 		String destination = "Seattle, WA";
@@ -108,11 +93,21 @@ public class DirectionsServiceMapWidget extends Composite {
 		request.setOrigin(origin);
 		request.setDestination(destination);
 		request.setTravelMode(TravelMode.DRIVING);
+		request.setOptimizeWaypoints(true);
+		
+		// Stop over
+		LatLng stopOverWayPoint = LatLng.newInstance(47.8587, -121.9697);
+		DirectionsWaypoint waypoint = DirectionsWaypoint.newInstance();
+		waypoint.setStopOver(true);
+    waypoint.setLocation(stopOverWayPoint);
+    
+    JsArray<DirectionsWaypoint> waypoints = JsArray.createArray().cast();
+    waypoints.push(waypoint);
+    request.setWaypoints(waypoints);
 
 		DirectionsService o = DirectionsService.newInstance();
 		o.route(request, new DirectionsResultHandler() {
-			public void onCallback(DirectionsResult result,
-					DirectionsStatus status) {
+			public void onCallback(DirectionsResult result, DirectionsStatus status) {
 				if (status == DirectionsStatus.OK) {
 					directionsDisplay.setDirections(result);
 					getDistance();
@@ -134,11 +129,9 @@ public class DirectionsServiceMapWidget extends Composite {
 
 			}
 		});
-
 	}
 
 	private void getDistance() {
-
 		String origin = "Arlington, WA";
 		String destination = "Seattle, WA";
 
@@ -157,9 +150,7 @@ public class DirectionsServiceMapWidget extends Composite {
 
 		DistanceMatrixService o = DistanceMatrixService.newInstance();
 		o.getDistanceMatrix(request, new DistanceMatrixRequestHandler() {
-			public void onCallback(DistanceMatrixResponse response,
-					DistanceMatrixStatus status) {
-
+			public void onCallback(DistanceMatrixResponse response, DistanceMatrixStatus status) {
 				GWT.log("status=" + status.value());
 
 				if (status == DistanceMatrixStatus.INVALID_REQUEST) {
@@ -174,13 +165,11 @@ public class DirectionsServiceMapWidget extends Composite {
 					JsArrayString dest = response.getDestinationAddresses();
 					@SuppressWarnings("unused")
 					JsArrayString org = response.getOriginAddresses();
-					JsArray<DistanceMatrixResponseRow> rows = response
-							.getRows();
+					JsArray<DistanceMatrixResponseRow> rows = response.getRows();
 
 					GWT.log("rows.length=" + rows.length());
 					DistanceMatrixResponseRow d = rows.get(0);
-					JsArray<DistanceMatrixResponseElement> elements = d
-							.getElements();
+					JsArray<DistanceMatrixResponseElement> elements = d.getElements();
 					for (int i = 0; i < elements.length(); i++) {
 						DistanceMatrixResponseElement e = elements.get(i);
 						Distance distance = e.getDistance();
@@ -188,14 +177,10 @@ public class DirectionsServiceMapWidget extends Composite {
 
 						@SuppressWarnings("unused")
 						DistanceMatrixElementStatus st = e.getStatus();
-						GWT.log("distance=" + distance.getText() + " value="
-								+ distance.getValue());
-						GWT.log("duration=" + duration.getText() + " value="
-								+ duration.getValue());
+						GWT.log("distance=" + distance.getText() + " value=" + distance.getValue());
+						GWT.log("duration=" + duration.getText() + " value=" + duration.getValue());
 
-						String html = "&nbsp;&nbsp;Distance="
-								+ distance.getText() + " Duration="
-								+ duration.getText() + " ";
+						String html = "&nbsp;&nbsp;Distance=" + distance.getText() + " Duration=" + duration.getText() + " ";
 						htmlDistanceMatrixService.setHTML(html);
 					}
 

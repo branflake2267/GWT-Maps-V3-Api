@@ -20,7 +20,6 @@ public class DirectionsService extends JavaScriptObject {
    */
   public static final DirectionsService newInstance() {
     JavaScriptObject jso = createJso();
-    WorkAroundUtils.removeGwtObjectId(jso);
     return jso.cast();
   }
 
@@ -38,25 +37,8 @@ public class DirectionsService extends JavaScriptObject {
    */
   public final native void route(DirectionsRequest request, DirectionsResultHandler handler) /*-{
     var callback = function(result, status) {
-      
-      // debug
-      //@com.google.gwt.maps.client.services.DirectionsService::test(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)("result=", result);
-      //@com.google.gwt.maps.client.services.DirectionsService::test(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)("status=", status);
-
-      // process callback
       @com.google.gwt.maps.client.services.DirectionsService::routeImpl(Lcom/google/gwt/maps/client/services/DirectionsResult;Ljava/lang/String;Lcom/google/gwt/maps/client/services/DirectionsResultHandler;)(result, status, handler);
     };
-    
-//    // this works - but the incoming request2 jso, matches exactly yet, won't work, ????
-//    var request2 = {
-//      origin: "Arlington, WA",
-//      destination: "Seattle, WA",
-//      travelMode: "DRIVING" // or is $wnd.google.maps.TravelMode.DRIVING
-//    };
-    
-    // output the object for debugging
-    //@com.google.gwt.maps.client.services.DirectionsService::test(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)("request", request);
-    //@com.google.gwt.maps.client.services.DirectionsService::test(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)("request2=", request2);
     
     this.route(request, callback);
   }-*/;
@@ -64,11 +46,5 @@ public class DirectionsService extends JavaScriptObject {
   private static final void routeImpl(DirectionsResult result, String status, DirectionsResultHandler handler) {
     handler.onCallback(result, DirectionsStatus.fromValue(status));
   }
-  
-//  public static final void test(String msg, JavaScriptObject jso) {
-//    JSONObject j = new JSONObject(jso);
-//    GWT.log("msg= "+ msg + " jso=" + j.toString());
-//  }
-//  
  
 }
