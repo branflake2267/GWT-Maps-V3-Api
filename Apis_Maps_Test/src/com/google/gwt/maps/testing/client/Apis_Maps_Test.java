@@ -43,6 +43,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class Apis_Maps_Test implements EntryPoint {
 
+  private String mapsContainer = "maps";
+  
 	@Override
 	public void onModuleLoad() {
 		loadMapApi();
@@ -75,7 +77,7 @@ public class Apis_Maps_Test implements EntryPoint {
 	 */
 	private void draw() {
 		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
-		RootPanel.get().add(html);
+		RootPanel.get(mapsContainer).add(html);
 
 		drawPolylineMap();
 
@@ -116,92 +118,92 @@ public class Apis_Maps_Test implements EntryPoint {
 
 	private void drawWeatherMap() {
 		WeatherLayersWidget wMap = new WeatherLayersWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 	
 	private void drawStyledMap() {
 		StyledMapWidget wMap = new StyledMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawElevation() {
 		ElevationMapWidget wMap = new ElevationMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawAdvancedLayers() {
 		AdvancedLayersWidget wMap = new AdvancedLayersWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawDirections() {
 		DirectionsServiceMapWidget wMap = new DirectionsServiceMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawCustomControlsMap() {
 		CustomControlsMapWidget wMap = new CustomControlsMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawInfoWindowMap() {
 		InfoWindowMapWidget wMap = new InfoWindowMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawStreetViewSideBySide() {
 		StreetViewSideBySideMapWidget wStreet = new StreetViewSideBySideMapWidget();
-		RootPanel.get().add(wStreet);
+		RootPanel.get(mapsContainer).add(wStreet);
 	}
 
 	private void drawStreetViewCustom() {
 		StreetViewCustomMapWidget wStreet = new StreetViewCustomMapWidget();
-		RootPanel.get().add(wStreet);
+		RootPanel.get(mapsContainer).add(wStreet);
 	}
 
 	private void drawStreetView() {
 		StreetViewMapWidget wStreet = new StreetViewMapWidget();
-		RootPanel.get().add(wStreet);
+		RootPanel.get(mapsContainer).add(wStreet);
 	}
 
 	private void drawDrawingMap() {
 		DrawingMapWidget wMap = new DrawingMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawPolylineMap() {
 		PolylineMapWidget plMap = new PolylineMapWidget();
-		RootPanel.get().add(plMap);
+		RootPanel.get(mapsContainer).add(plMap);
 	}
 
 	private void drawBasicMap() {
 		BasicMapWidget wMap = new BasicMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawFusionMap() {
 		FusionTablesMapWidget wMap = new FusionTablesMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawKmlMap() {
 		KmlMapWidget wMap = new KmlMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawMapWcontrols() {
 		ControlsMapWidget wMap = new ControlsMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawPanoramioMap() {
 		PanoramioMapWidget wMap = new PanoramioMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 	private void drawAutocomplete() {
 		AutocompletePlacesMapWidget wMap = new AutocompletePlacesMapWidget();
-		RootPanel.get().add(wMap);
+		RootPanel.get(mapsContainer).add(wMap);
 	}
 
 }

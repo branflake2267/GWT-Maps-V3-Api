@@ -1,0 +1,11 @@
+**.gwt-log
+**.classpath
+**.project
+**.settings
+gwt-unitCache**
+target**
+www-test**
+classes**
+apis_maps_test**
+lib**
+src_maps**
