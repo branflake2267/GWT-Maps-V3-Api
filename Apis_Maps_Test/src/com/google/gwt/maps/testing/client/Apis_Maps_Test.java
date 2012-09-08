@@ -77,8 +77,7 @@ public class Apis_Maps_Test implements EntryPoint {
 
 	private void draw() {
 
-		HTML html = new HTML(
-				"<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
+		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
 		RootPanel.get().add(html);
 
 		drawPolylineMap();
@@ -107,7 +106,6 @@ public class Apis_Maps_Test implements EntryPoint {
 
 		drawAutocomplete();
 
-
 		drawBasicMap();
 
 		drawFusionMap();
@@ -117,7 +115,6 @@ public class Apis_Maps_Test implements EntryPoint {
 		drawMapWcontrols();
 
 		drawPanoramioMap();
-
 	}
 
 	private void drawWeatherMap() {

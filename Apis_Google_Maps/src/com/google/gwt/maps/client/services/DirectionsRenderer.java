@@ -10,6 +10,7 @@ import com.google.gwt.maps.client.events.MapHandlerRegistration;
 import com.google.gwt.maps.client.events.directions.DirectionsChangeEventFormatter;
 import com.google.gwt.maps.client.events.directions.DirectionsChangeMapHandler;
 import com.google.gwt.maps.client.mvc.MVCObject;
+import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * Renders directions retrieved in the form of a DirectionsResult object retrieved from the DirectionsService. This class extends MVCObject. 
@@ -28,7 +29,9 @@ public class DirectionsRenderer extends MVCObject<DirectionsRenderer> {
    * @param options
    */
   public static final DirectionsRenderer newInstance(DirectionsRendererOptions options) {
-    return createJso(options).cast();
+    JavaScriptObject jso = createJso(options);
+    WorkAroundUtils.removeGwtObjectId(jso);
+    return jso.cast();
   }
 
   private static final native JavaScriptObject createJso(DirectionsRendererOptions options) /*-{
