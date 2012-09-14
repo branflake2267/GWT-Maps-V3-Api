@@ -1,6 +1,8 @@
 package com.google.gwt.maps.testing.client.maps;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -25,6 +27,7 @@ import com.google.gwt.maps.client.events.position.PositionChangeMapHandler;
 import com.google.gwt.maps.client.panoramiolib.PanoramioFeature;
 import com.google.gwt.maps.client.panoramiolib.PanoramioLayer;
 import com.google.gwt.maps.client.panoramiolib.PanoramioLayerOptions;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -39,10 +42,12 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class PanoramioMapWidget extends Composite {
 
-	private VerticalPanel pWidget;
+	private final VerticalPanel pWidget;
 
 	private MapWidget mapWidget;
-
+	
+	private PanoramioLayer panoramioLayer;
+	
 	public PanoramioMapWidget() {
 		pWidget = new VerticalPanel();
 		initWidget(pWidget);
@@ -55,12 +60,31 @@ public class PanoramioMapWidget extends Composite {
 		pWidget.clear();
 
 		pWidget.add(new HTML("<br>Panoramio"));
+		
+		final Button toggleButton =  new Button();
+		toggleButton.setText("Show Brandon's Pictures");
+		
+		// on click clear to show everyone, or set to a specific user
+		toggleButton.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				if(panoramioLayer.getUserId()==null) {
+					panoramioLayer.setUserId("2597317");
+					toggleButton.setText("Show Everyone's Pictures");
+				}
+				else {
+					panoramioLayer.setUserId(null);
+					toggleButton.setText("Show Brandon's Pictures");
+				}
+				
+			}
+		});
+		pWidget.add(toggleButton);
 
 		drawMap();
 
 		drawPanoramio();
-
-		// drawMapAds();
 	}
 
 	private void drawMap() {
@@ -75,6 +99,7 @@ public class PanoramioMapWidget extends Composite {
 		mapWidget.setSize("750px", "500px");
 
 		mapWidget.addClickHandler(new ClickMapHandler() {
+			@Override
 			public void onEvent(ClickMapEvent event) {
 				// TODO fix the event getting, getting ....
 				GWT.log("clicked on latlng="
@@ -89,10 +114,11 @@ public class PanoramioMapWidget extends Composite {
 		optionsPano.setMap(mapWidget);
 		optionsPano.setSuppressInfoWindows(false);
 		// optionsPano.setTag("hawaii");
-		optionsPano.setUserId("2597317");
-		PanoramioLayer pano = PanoramioLayer.newInstance(optionsPano);
+		// optionsPano.setUserId("2597317");
+		panoramioLayer = PanoramioLayer.newInstance(optionsPano);
 
-		pano.addClickHandler(new PanoramioMouseMapHandler() {
+		panoramioLayer.addClickHandler(new PanoramioMouseMapHandler() {
+			@Override
 			public void onEvent(PanoramioMouseMapEvent event) {
 
 				@SuppressWarnings("unused")
@@ -124,21 +150,25 @@ public class PanoramioMapWidget extends Composite {
 		AdUnitWidget adUnit = new AdUnitWidget(options);
 
 		adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
+			@Override
 			public void onEvent(ChannelNumberChangeMapEvent event) {
 			}
 		});
 
 		adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
+			@Override
 			public void onEvent(FormatChangeMapEvent event) {
 			}
 		});
 
 		adUnit.addMapChangeHandler(new MapChangeMapHandler() {
+			@Override
 			public void onEvent(MapChangeMapEvent event) {
 			}
 		});
 
 		adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
+			@Override
 			public void onEvent(PositionChangeMapEvent event) {
 			}
 		});
