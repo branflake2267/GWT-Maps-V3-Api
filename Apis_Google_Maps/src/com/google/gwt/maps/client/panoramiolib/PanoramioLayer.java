@@ -47,7 +47,7 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
-    this.map = map;
+    this.setMap(map);
   }-*/;
 
   /**
@@ -58,7 +58,7 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   }
 
   private final native MapImpl getMapImpl() /*-{
-    return this.map;
+    return this.getMap();
   }-*/;
   
   /**
@@ -81,14 +81,14 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
    * @param userId
    */
   public final native void setUserId(String userId) /*-{
-    this.userId = userId;
+    this.setUserId(userId);
   }-*/;
   
   /**
    * A Panoramio user ID. If provided, only photos by this user will be displayed on the map. If both a tag and user ID are provided, the tag will take precedence.
    */
   public final native String getUserId() /*-{
-    return this.userId;
+    return this.getUserId();
   }-*/;
   
   /**
@@ -96,7 +96,7 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
    * @param options
    */
   public final native void setOption(PanoramioLayerOptions options) /*-{
-    this.options = options;
+    this.setOptions(options);
   }-*/;
   
   /**
