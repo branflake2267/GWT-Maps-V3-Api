@@ -17,6 +17,7 @@ import com.google.gwt.maps.testing.client.maps.FusionTablesMapWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
+import com.google.gwt.maps.testing.client.maps.PlaceSearchMapWidget;
 import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
@@ -64,41 +65,43 @@ public class Apis_Maps_Test implements EntryPoint {
 		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
 		RootPanel.get(mapsContainer).add(html);
 
-		drawPolylineMap();
-
-		drawDirections();
-
-		drawWeatherMap();
-
-		drawStyledMap();
-
-		drawDrawingMap();
-
-		drawElevation();
-
-		drawAdvancedLayers();
-
-		drawCustomControlsMap();
-
-		drawInfoWindowMap();
-
-		drawStreetViewSideBySide();
-
-		drawStreetViewCustom();
-
-		drawStreetView();
-
-		drawAutocomplete();
-
-		drawBasicMap();
-
-		drawFusionMap();
-
-		drawKmlMap();
-
-		drawMapWcontrols();
-
-		drawPanoramioMap();
+//		drawPolylineMap();
+//
+//		drawDirections();
+//
+//		drawWeatherMap();
+//
+//		drawStyledMap();
+//
+//		drawDrawingMap();
+//
+//		drawElevation();
+//
+//		drawAdvancedLayers();
+//
+//		drawCustomControlsMap();
+//
+//		drawInfoWindowMap();
+//
+//		drawStreetViewSideBySide();
+//
+//		drawStreetViewCustom();
+//
+//		drawStreetView();
+//
+//		drawAutocomplete();
+//
+//		drawBasicMap();
+//
+//		drawFusionMap();
+//
+//		drawKmlMap();
+//
+//		drawMapWcontrols();
+//
+//		drawPanoramioMap();
+		
+		drawPlaceSearchRequest();
 	}
 
 	private void drawWeatherMap() {
@@ -191,4 +194,8 @@ public class Apis_Maps_Test implements EntryPoint {
 		RootPanel.get(mapsContainer).add(wMap);
 	}
 
+	private void drawPlaceSearchRequest() {
+	  PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
+	  RootPanel.get(mapsContainer).add(wMap);
+	}
 }

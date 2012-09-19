@@ -116,6 +116,10 @@ public class PlaceSearchRequest extends JavaScriptObject {
     setTypesImpl(a);
   }
   
+  public final void setTypes(JsArrayString types) {
+    setTypesImpl(types);
+  }
+  
   private final native void setTypesImpl(JsArrayString types) /*-{
     this.types = types;
   }-*/;
