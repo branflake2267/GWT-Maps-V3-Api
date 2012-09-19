@@ -19,18 +19,29 @@ public class PlacesService extends JavaScriptObject {
   protected PlacesService() {}
   
   /**
-   * Contains methods related to searching for Places and retrieving details about a Place.
+   * Creates a new instance of the PlacesService that renders attributions in the specified container.
    * @param attrContainer
    * @param mapWidget
    */
-  public static final PlacesService newInstance(Element attrContainer, MapWidget mapWidget) {
-    return createJso(attrContainer, mapWidget.getJso());
+  public static final PlacesService newInstance(MapWidget mapWidget) {
+    return createJso(mapWidget.getJso());
+  }
+  
+  /**
+   * Creates a new instance of the PlacesService that renders attributions in the specified container.
+   * @param htmlDivElement
+   */
+  public static final PlacesService newInstance(Element htmlDivElement) {
+    return createJso(htmlDivElement);
   }
 
-  private static final native PlacesService createJso(Element attrContainer, MapImpl map) /*-{
-    return new $wnd.google.maps.places.PlacesService(attrContainer, map);
+  private static final native PlacesService createJso(MapImpl map) /*-{
+    return new $wnd.google.maps.places.PlacesService(map);
   }-*/;
   
+  private static final native PlacesService createJso(Element element) /*-{
+    return new $wnd.google.maps.places.PlacesService(element);
+  }-*/;
   
   /**
    * Retrieves details about the Place identified by the given reference.
