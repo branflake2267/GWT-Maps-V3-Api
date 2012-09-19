@@ -1,5 +1,7 @@
 package com.google.gwt.maps.client.placeslib;
 
+import java.util.List;
+
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
@@ -115,6 +117,14 @@ public class PlaceSearchRequest extends JavaScriptObject {
     }
     JsArrayString a = ArrayHelper.toJsArrayString(stypes);
     setTypesImpl(a);
+  }
+  
+  public final void setTypes(List<String> types) {
+    setTypes((String[]) types.toArray());
+  }
+  
+  public final void setTypes(String... types) {
+    setTypes(ArrayHelper.toJsArrayString(types));
   }
   
   public final void setTypes(JsArrayString types) {
