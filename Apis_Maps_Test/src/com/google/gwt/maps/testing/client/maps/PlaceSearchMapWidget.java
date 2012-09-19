@@ -1,34 +1,13 @@
 package com.google.gwt.maps.testing.client.maps;
 
-import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.adsense.AdFormat;
-import com.google.gwt.maps.client.adsense.AdUnitOptions;
-import com.google.gwt.maps.client.adsense.AdUnitWidget;
 import com.google.gwt.maps.client.base.LatLng;
-import com.google.gwt.maps.client.controls.ControlPosition;
-import com.google.gwt.maps.client.events.MouseEvent;
-import com.google.gwt.maps.client.events.channelnumber.ChannelNumberChangeMapEvent;
-import com.google.gwt.maps.client.events.channelnumber.ChannelNumberChangeMapHandler;
 import com.google.gwt.maps.client.events.click.ClickMapEvent;
 import com.google.gwt.maps.client.events.click.ClickMapHandler;
-import com.google.gwt.maps.client.events.format.FormatChangeMapEvent;
-import com.google.gwt.maps.client.events.format.FormatChangeMapHandler;
-import com.google.gwt.maps.client.events.mapchange.MapChangeMapEvent;
-import com.google.gwt.maps.client.events.mapchange.MapChangeMapHandler;
-import com.google.gwt.maps.client.events.position.PositionChangeMapEvent;
-import com.google.gwt.maps.client.events.position.PositionChangeMapHandler;
-import com.google.gwt.maps.client.overlays.InfoWindow;
-import com.google.gwt.maps.client.overlays.InfoWindowOptions;
-import com.google.gwt.maps.client.overlays.Marker;
-import com.google.gwt.maps.client.overlays.MarkerOptions;
-import com.google.gwt.maps.client.placeslib.AutocompleteType;
 import com.google.gwt.maps.client.placeslib.PlaceResult;
 import com.google.gwt.maps.client.placeslib.PlaceSearchHandler;
 import com.google.gwt.maps.client.placeslib.PlaceSearchRequest;
@@ -59,17 +38,15 @@ public class PlaceSearchMapWidget extends Composite {
 	}
 
 	private void searchRequest(LatLng clickLocation) {
-	  String[] searchTypes = new String[1];
-	  searchTypes[0] = "establishment";
-	  
-	  JsArrayString searchJstypes = ArrayHelper.toJsArrayString(searchTypes);
+	  String[] types = new String[1];
+	  types[0] = "establishment";
 	  
 	  PlaceSearchRequest request = PlaceSearchRequest.newInstance(); 
     request.setLocation(clickLocation); 
     request.setRaidus(500); 
     // TODO add more AutocompleteTypes...
     //request.setTypes(AutocompleteType.ESTABLISHMENT);
-    request.setTypes(searchJstypes);
+    request.setTypes(types);
     
     PlacesService placeService = PlacesService.newInstance(mapWidget.getElement(), mapWidget);
     placeService.search(request, new PlaceSearchHandler() {                 
