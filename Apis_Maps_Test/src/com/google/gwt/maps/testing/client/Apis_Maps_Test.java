@@ -17,6 +17,7 @@ import com.google.gwt.maps.testing.client.maps.FusionTablesMapWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
+import com.google.gwt.maps.testing.client.maps.PlaceSearchMapWidget;
 import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
@@ -99,6 +100,8 @@ public class Apis_Maps_Test implements EntryPoint {
 		drawMapWcontrols();
 
 		drawPanoramioMap();
+		
+		drawPlaceSearchRequestMap();
 	}
 
 	private void drawWeatherMap() {
@@ -191,4 +194,8 @@ public class Apis_Maps_Test implements EntryPoint {
 		RootPanel.get(mapsContainer).add(wMap);
 	}
 
+	private void drawPlaceSearchRequestMap() {
+	  PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
+	  RootPanel.get(mapsContainer).add(wMap);
+	}
 }
