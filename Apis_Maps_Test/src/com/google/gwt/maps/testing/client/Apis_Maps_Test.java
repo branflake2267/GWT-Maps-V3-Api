@@ -65,41 +65,41 @@ public class Apis_Maps_Test implements EntryPoint {
 		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
 		RootPanel.get(mapsContainer).add(html);
 
-//		drawPolylineMap();
-//
-//		drawDirections();
-//
-//		drawWeatherMap();
-//
-//		drawStyledMap();
-//
-//		drawDrawingMap();
-//
-//		drawElevation();
-//
-//		drawAdvancedLayers();
-//
-//		drawCustomControlsMap();
-//
-//		drawInfoWindowMap();
-//
-//		drawStreetViewSideBySide();
-//
-//		drawStreetViewCustom();
-//
-//		drawStreetView();
-//
-//		drawAutocomplete();
-//
-//		drawBasicMap();
-//
-//		drawFusionMap();
-//
-//		drawKmlMap();
-//
-//		drawMapWcontrols();
-//
-//		drawPanoramioMap();
+		drawPolylineMap();
+
+		drawDirections();
+
+		drawWeatherMap();
+
+		drawStyledMap();
+
+		drawDrawingMap();
+
+		drawElevation();
+
+		drawAdvancedLayers();
+
+		drawCustomControlsMap();
+
+		drawInfoWindowMap();
+
+		drawStreetViewSideBySide();
+
+		drawStreetViewCustom();
+
+		drawStreetView();
+
+		drawAutocomplete();
+
+		drawBasicMap();
+
+		drawFusionMap();
+
+		drawKmlMap();
+
+		drawMapWcontrols();
+
+		drawPanoramioMap();
 		
 		drawPlaceSearchRequest();
 	}
