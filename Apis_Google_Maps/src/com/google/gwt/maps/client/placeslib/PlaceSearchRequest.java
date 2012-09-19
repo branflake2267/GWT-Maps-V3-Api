@@ -102,6 +102,7 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given <a href="https://developers.google.com/maps/documentation/places/supported_types">here</a>.
+   * TODO add more AutocompleteType enums down the road. Otherwise use the setTypes(JsArrayString)
    * @param types
    */
   public final void setTypes(AutocompleteType... types) {

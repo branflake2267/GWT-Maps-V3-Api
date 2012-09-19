@@ -1,7 +1,10 @@
 package com.google.gwt.maps.testing.client.maps;
 
+import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -56,15 +59,23 @@ public class PlaceSearchMapWidget extends Composite {
 	}
 
 	private void searchRequest(LatLng clickLocation) {
-	  PlaceSearchRequest req = PlaceSearchRequest.newInstance(); 
-    req.setLocation(clickLocation); 
-    req.setRaidus(500); 
-    req.setTypes(AutocompleteType.ESTABLISHMENT);
-
+	  String[] searchTypes = new String[1];
+	  searchTypes[0] = "establishment";
+	  
+	  JsArrayString searchJstypes = ArrayHelper.toJsArrayString(searchTypes);
+	  
+	  PlaceSearchRequest request = PlaceSearchRequest.newInstance(); 
+    request.setLocation(clickLocation); 
+    request.setRaidus(500); 
+    // TODO add more AutocompleteTypes...
+    //request.setTypes(AutocompleteType.ESTABLISHMENT);
+    request.setTypes(searchJstypes);
+    
     PlacesService placeService = PlacesService.newInstance(mapWidget.getElement(), mapWidget);
-    placeService.search(req, new PlaceSearchHandler() {                 
+    placeService.search(request, new PlaceSearchHandler() {                 
         @Override
         public void onCallback(JsArray<PlaceResult> results, PlacesServiceStatus status) {
+          // TODO add some popup to display the results
           Window.alert("I found this many places " + results.length());
         }
     });     
