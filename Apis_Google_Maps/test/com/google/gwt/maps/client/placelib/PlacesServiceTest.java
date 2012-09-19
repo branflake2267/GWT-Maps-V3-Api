@@ -9,6 +9,7 @@ import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.placeslib.PlaceDetailsHandler;
 import com.google.gwt.maps.client.placeslib.PlaceDetailsRequest;
 import com.google.gwt.maps.client.placeslib.PlaceResult;
@@ -47,8 +48,10 @@ public class PlacesServiceTest extends GWTTestCase {
         RootPanel.get().add(mapWidget);
         mapWidget.setSize("500px", "500px");
         
-        Element attrContainer = fp.getElement();
-        PlacesService o = PlacesService.newInstance(attrContainer, mapWidget);
+        PlacesService o = PlacesService.newInstance(mapWidget);
+        
+        Element htmlDivElement = fp.getElement();
+        PlacesService o1 = PlacesService.newInstance(htmlDivElement);
         
         finishTest();
       }
@@ -73,8 +76,7 @@ public class PlacesServiceTest extends GWTTestCase {
         RootPanel.get().add(mapWidget);
         mapWidget.setSize("500px", "500px");
         
-        Element attrContainer = fp.getElement();
-        PlacesService o = PlacesService.newInstance(attrContainer, mapWidget);
+        PlacesService o = PlacesService.newInstance(mapWidget);
         
         String reference = "CnRkAAAAGnBVNFDeQoOQHzgdOpOqJNV7K9-c5IQrWFUYD9TNhUmz5-aHhfqyKH0zmAcUlkqVCrpaKcV8ZjGQKzB6GXxtzUYcP-muHafGsmW-1CwjTPBCmK43AZpAwW0FRtQDQADj3H2bzwwHVIXlQAiccm7r4xIQmjt_Oqm2FejWpBxLWs3L_RoUbharABi5FMnKnzmRL2TGju6UA4k";
         PlaceDetailsRequest request = PlaceDetailsRequest.newInstance();
@@ -144,21 +146,19 @@ public class PlacesServiceTest extends GWTTestCase {
         RootPanel.get().add(mapWidget);
         mapWidget.setSize("500px", "500px");
         
-        Element attrContainer = fp.getElement();
-        PlacesService o = PlacesService.newInstance(attrContainer, mapWidget);
+        PlacesService placeService = PlacesService.newInstance(mapWidget);
         
         PlaceSearchRequest request = PlaceSearchRequest.newInstance();
         request.setName("Seattle");
         request.setBounds(mapWidget.getBounds());
+        //request.setLocation(LatLng.newInstance(47.6107, -122.3348));
         
-        o.search(request, new PlaceSearchHandler() {
+        placeService.search(request, new PlaceSearchHandler() {
           public void onCallback(JsArray<PlaceResult> results, PlacesServiceStatus status) {
-            
             System.out.println("status=" + status.toString());
             
             if (status == PlacesServiceStatus.OK) {
               System.out.println("OK");
-              
               assertTrue(true);
               
             } else if (status == PlacesServiceStatus.INVALID_REQUEST) {
@@ -180,15 +180,12 @@ public class PlacesServiceTest extends GWTTestCase {
             } else if (status == PlacesServiceStatus.ZERO_RESULTS) {
               System.out.println("ZERO_RESULTS");
               assertTrue(true);
-              
             }
             
             finishTest();   
-            
           }
         });
-        
-        
+
       }
     }, loadLibraries , sensor);
   }
