@@ -101,7 +101,7 @@ public class Apis_Maps_Test implements EntryPoint {
 
 		drawPanoramioMap();
 		
-		drawPlaceSearchRequest();
+		drawPlaceSearchRequestMap();
 	}
 
 	private void drawWeatherMap() {
@@ -194,7 +194,7 @@ public class Apis_Maps_Test implements EntryPoint {
 		RootPanel.get(mapsContainer).add(wMap);
 	}
 
-	private void drawPlaceSearchRequest() {
+	private void drawPlaceSearchRequestMap() {
 	  PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
 	  RootPanel.get(mapsContainer).add(wMap);
 	}
