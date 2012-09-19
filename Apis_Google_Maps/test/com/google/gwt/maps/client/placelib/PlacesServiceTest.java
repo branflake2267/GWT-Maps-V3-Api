@@ -47,8 +47,10 @@ public class PlacesServiceTest extends GWTTestCase {
         RootPanel.get().add(mapWidget);
         mapWidget.setSize("500px", "500px");
         
-        Element attrContainer = fp.getElement();
-        PlacesService o = PlacesService.newInstance(attrContainer, mapWidget);
+        PlacesService o = PlacesService.newInstance(mapWidget);
+        
+        Element htmlDivElement = fp.getElement();
+        PlacesService o1 = PlacesService.newInstance(htmlDivElement);
         
         finishTest();
       }
@@ -73,8 +75,7 @@ public class PlacesServiceTest extends GWTTestCase {
         RootPanel.get().add(mapWidget);
         mapWidget.setSize("500px", "500px");
         
-        Element attrContainer = fp.getElement();
-        PlacesService o = PlacesService.newInstance(attrContainer, mapWidget);
+        PlacesService o = PlacesService.newInstance(mapWidget);
         
         String reference = "CnRkAAAAGnBVNFDeQoOQHzgdOpOqJNV7K9-c5IQrWFUYD9TNhUmz5-aHhfqyKH0zmAcUlkqVCrpaKcV8ZjGQKzB6GXxtzUYcP-muHafGsmW-1CwjTPBCmK43AZpAwW0FRtQDQADj3H2bzwwHVIXlQAiccm7r4xIQmjt_Oqm2FejWpBxLWs3L_RoUbharABi5FMnKnzmRL2TGju6UA4k";
         PlaceDetailsRequest request = PlaceDetailsRequest.newInstance();
@@ -144,8 +145,7 @@ public class PlacesServiceTest extends GWTTestCase {
         RootPanel.get().add(mapWidget);
         mapWidget.setSize("500px", "500px");
         
-        Element attrContainer = fp.getElement();
-        PlacesService o = PlacesService.newInstance(attrContainer, mapWidget);
+        PlacesService o = PlacesService.newInstance(mapWidget);
         
         PlaceSearchRequest request = PlaceSearchRequest.newInstance();
         request.setName("Seattle");

@@ -48,7 +48,7 @@ public class PlaceSearchMapWidget extends Composite {
     //request.setTypes(AutocompleteType.ESTABLISHMENT);
     request.setTypes(types);
     
-    PlacesService placeService = PlacesService.newInstance(mapWidget.getElement(), mapWidget);
+    PlacesService placeService = PlacesService.newInstance(mapWidget);
     placeService.search(request, new PlaceSearchHandler() {                 
         @Override
         public void onCallback(JsArray<PlaceResult> results, PlacesServiceStatus status) {
