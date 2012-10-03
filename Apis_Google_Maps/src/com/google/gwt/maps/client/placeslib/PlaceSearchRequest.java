@@ -1,5 +1,7 @@
 package com.google.gwt.maps.client.placeslib;
 
+import java.util.List;
+
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
@@ -102,6 +104,7 @@ public class PlaceSearchRequest extends JavaScriptObject {
   
   /**
    * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given <a href="https://developers.google.com/maps/documentation/places/supported_types">here</a>.
+   * TODO add more AutocompleteType enums down the road. Otherwise use the setTypes(JsArrayString)
    * @param types
    */
   public final void setTypes(AutocompleteType... types) {
@@ -114,6 +117,18 @@ public class PlaceSearchRequest extends JavaScriptObject {
     }
     JsArrayString a = ArrayHelper.toJsArrayString(stypes);
     setTypesImpl(a);
+  }
+  
+  public final void setTypes(List<String> types) {
+    setTypes((String[]) types.toArray());
+  }
+  
+  public final void setTypes(String... types) {
+    setTypes(ArrayHelper.toJsArrayString(types));
+  }
+  
+  public final void setTypes(JsArrayString types) {
+    setTypesImpl(types);
   }
   
   private final native void setTypesImpl(JsArrayString types) /*-{

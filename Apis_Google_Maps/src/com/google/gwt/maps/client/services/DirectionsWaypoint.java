@@ -2,6 +2,7 @@ package com.google.gwt.maps.client.services;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.base.LatLng;
+import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
  * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed.
@@ -19,7 +20,9 @@ public class DirectionsWaypoint extends JavaScriptObject {
    * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed.
    */
   public static final DirectionsWaypoint newInstance() {
-    return JavaScriptObject.createObject().cast();
+    JavaScriptObject jso = JavaScriptObject.createObject();
+    WorkAroundUtils.removeGwtObjectId(jso);
+    return jso.cast();
   }
   
   /**
