@@ -57,7 +57,7 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
-    this.map = map;
+    this.setMap(map);
   }-*/;
 
   /**
@@ -68,7 +68,14 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
   }
 
   private final native MapImpl getMapImpl() /*-{
-    return this.map;
+    return this.getMap();
+  }-*/;
+  
+  /**
+   * Sets the opacity of this ground overlay.
+   */
+  public final native void setOpacity(double opacityValue) /*-{
+    this.setOpacity(opacityValue);
   }-*/;
   
   /**
