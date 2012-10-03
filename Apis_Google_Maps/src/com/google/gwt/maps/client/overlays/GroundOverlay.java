@@ -72,6 +72,13 @@ public class GroundOverlay extends MVCObject<GroundOverlay> {
   }-*/;
   
   /**
+   * Sets the opacity of this ground overlay.
+   */
+  public final native void setOpacity(double opacityValue) /*-{
+    this.setOpacity(opacityValue);
+  }-*/;
+  
+  /**
    * Gets the url of the projected image.
    */
   public final native String getUrl() /*-{
