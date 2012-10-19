@@ -47,7 +47,7 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
-    this.map = map;
+    this.setMap(map);
   }-*/;
   
   /**
@@ -58,7 +58,7 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   }
 
   private final native MapImpl getMapImpl() /*-{
-    return this.map;
+    return this.getMap();
   }-*/;
   
   /**
