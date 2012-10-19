@@ -142,7 +142,7 @@ public class MapHandlerRegistration {
 	 * @param listener
 	 */
 	private static native void removeHandlerImpl(JavaScriptObject listener) /*-{
-		$wnd.google.maps.MapsEventListener.addListener(listener);
+		$wnd.google.maps.event.removeListener(listener);
 	}-*/;
 
 	/**
