@@ -105,7 +105,7 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
-		this.map = map;
+		this.setMap(map);
 	}-*/;
 
 	/**
@@ -116,7 +116,7 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	}
 
 	private final native MapImpl getMapImpl() /*-{
-		return this.map;
+		return this.getMap();
 	}-*/;
 
 	/**
