@@ -1,5 +1,6 @@
 package com.google.gwt.maps.client.placeslib;
 
+import java.lang.Deprecated;
 import java.util.List;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
@@ -93,6 +94,7 @@ public class PlaceSearchRequest extends JavaScriptObject {
    * @deprecated
    * @see #setRadius(double)
    */
+  @Deprecated
   public final void setRaidus(double radius) {
     this.setRadius(radius);
   }
@@ -110,6 +112,7 @@ public class PlaceSearchRequest extends JavaScriptObject {
    * @deprecated
    * @see #getRadius()
    */
+  @Deprecated
   public final double getRaidus() {
     return this.getRadius();
   }
