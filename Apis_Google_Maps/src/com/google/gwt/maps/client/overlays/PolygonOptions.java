@@ -88,7 +88,7 @@ public class PolygonOptions extends JavaScriptObject {
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
-    this.setMap(map);
+    this.map = map;
   }-*/;
 
   /**
@@ -99,7 +99,7 @@ public class PolygonOptions extends JavaScriptObject {
   }
 
   private final native MapImpl getMapImpl() /*-{
-   return this.getMap();
+   return this.map;
  }-*/;
 
   /**

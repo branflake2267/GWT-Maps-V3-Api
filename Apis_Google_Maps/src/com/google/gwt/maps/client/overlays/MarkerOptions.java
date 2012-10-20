@@ -138,14 +138,14 @@ public class MarkerOptions extends JavaScriptObject {
    */
   public final void setMap(MapWidget mapWidget) {
     if (mapWidget == null) {
-      setMapImpl(null);
+      setMapImpl((MapImpl)null);
     } else {
       setMapImpl(mapWidget.getJso());
     }
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
-    this.setMap(map);
+    this.map = map;
   }-*/;
   
   /**
@@ -156,7 +156,7 @@ public class MarkerOptions extends JavaScriptObject {
   }
   
   private final native MapImpl getMapImpl() /*-{
-    return this.getMap();
+    return this.map;
   }-*/;
   
   public final void setMap(StreetViewPanoramaWidget streetViewPanoramaWidget) {
@@ -164,7 +164,7 @@ public class MarkerOptions extends JavaScriptObject {
   }
 
   private final native void setMapImpl(StreetViewPanoramaImpl map) /*-{
-    this.setMap(map);
+    this.map = map;
   }-*/;
   
   /**
@@ -175,7 +175,7 @@ public class MarkerOptions extends JavaScriptObject {
   }
   
   private final native StreetViewPanoramaImpl getMapImpl_Street() /*-{
-    return this.getMap();
+    return this.map;
   }-*/;
   
   /**
