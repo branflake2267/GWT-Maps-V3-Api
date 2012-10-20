@@ -109,7 +109,7 @@ public class PlaceResultTest extends GWTTestCase {
       public void run() {
         PlaceSearchRequest o = PlaceSearchRequest.newInstance();
         double left = 10.02;
-        o.setRaidus(left);
+        o.setRadius(left);
         double right = o.getRaidus();
         assertEquals(left, right);
         finishTest();

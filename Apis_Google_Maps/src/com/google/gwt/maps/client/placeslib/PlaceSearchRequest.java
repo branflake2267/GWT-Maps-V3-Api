@@ -1,5 +1,6 @@
 package com.google.gwt.maps.client.placeslib;
 
+import java.lang.Deprecated;
 import java.util.List;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
@@ -90,15 +91,36 @@ public class PlaceSearchRequest extends JavaScriptObject {
   /**
    * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
    * @param radius
+   * @deprecated
+   * @see #setRadius(double)
    */
-  public final native void setRaidus(double radius) /*-{
+  @Deprecated
+  public final void setRaidus(double radius) {
+    this.setRadius(radius);
+  }
+  
+  /**
+   * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
+   * @param radius
+   */
+  public final native void setRadius(double radius) /*-{
     this.radius = radius;
   }-*/;
   
   /**
    * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
+   * @deprecated
+   * @see #getRadius()
    */
-  public final native double getRaidus() /*-{
+  @Deprecated
+  public final double getRaidus() {
+    return this.getRadius();
+  }
+  
+  /**
+   * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
+   */
+  public final native double getRadius() /*-{
     return this.radius;
   }-*/;
   
