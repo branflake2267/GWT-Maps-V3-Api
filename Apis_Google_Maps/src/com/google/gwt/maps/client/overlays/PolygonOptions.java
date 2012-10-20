@@ -80,7 +80,11 @@ public class PolygonOptions extends JavaScriptObject {
    * @param mapWidget
    */
   public final void setMap(MapWidget mapWidget) {
-    setMapImpl(mapWidget.getJso());
+    if (mapWidget == null) {
+      setMapImpl(null);
+    } else {
+      setMapImpl(mapWidget.getJso());
+    }
   }
 
   private final native void setMapImpl(MapImpl map) /*-{

@@ -92,11 +92,15 @@ public class DirectionsRendererOptions extends JavaScriptObject {
    * @param mapWidget
    */
   public final void setMap(MapWidget mapWidget) {
-    setMapImpl(mapWidget.getJso());
+    if (mapWidget == null) {
+      setMapImpl(null);
+    } else {
+      setMapImpl(mapWidget.getJso());
+    }
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
-    this.map = map;
+    this.setMap(map);
   }-*/;
   
   /**
@@ -107,7 +111,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   }
   
   private final native MapImpl getMapImpl() /*-{
-    return this.map;
+    return this.getMap();
   }-*/;
   
   /**
