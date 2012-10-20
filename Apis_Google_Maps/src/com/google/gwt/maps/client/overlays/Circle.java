@@ -95,7 +95,7 @@ public class Circle extends MVCObject<Circle> {
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
-		this.map = map;
+		this.setMap(map);
 	}-*/;
 
 	/**
@@ -106,7 +106,7 @@ public class Circle extends MVCObject<Circle> {
 	}
 
 	private final native MapImpl getMapImpl() /*-{
-		return this.map;
+		return this.getMap();
 	}-*/;
 
 	/**
