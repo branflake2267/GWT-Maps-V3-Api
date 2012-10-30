@@ -97,11 +97,8 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	 * @param mapWidget
 	 */
 	public final void setMap(MapWidget mapWidget) {
-		if (mapWidget == null) {
-			setMapImpl(null);
-		} else {
-			setMapImpl(mapWidget.getJso());
-		}
+		MapImpl value = (mapWidget != null) ? mapWidget.getJso() : null;
+		setMapImpl(value);
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
