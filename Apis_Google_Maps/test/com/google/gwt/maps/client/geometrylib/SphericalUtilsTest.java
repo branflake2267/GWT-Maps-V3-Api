@@ -14,24 +14,22 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.GEOMETRY };
 	}
 
 	public void testComputeArea1() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				LatLng[] array = new LatLng[3];
+				LatLng[] array = new LatLng[4];
 				array[0] = LatLng.newInstance(49.496675, -102.65625);
 				array[1] = LatLng.newInstance(50.496675, -103.65625);
 				array[2] = LatLng.newInstance(51.496675, -104.65625);
+				array[3] = LatLng.newInstance(49.496675, -102.65625);
 				JsArray<LatLng> loop = ArrayHelper.toJsArray(array);
 				double area = SphericalUtils.computeArea(loop);
-				if (area > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Area should be positive", area > 0);
+
 				finishTest();
 			}
 		});
@@ -45,14 +43,12 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				LatLng[] array = new LatLng[3];
 				array[0] = LatLng.newInstance(49.496675, -102.65625);
 				array[1] = LatLng.newInstance(50.496675, -103.65625);
-				array[2] = LatLng.newInstance(51.496675, -104.65625);
+				array[2] = LatLng.newInstance(51.496675, -104.65625); // unclosed
+																		// loop
 				JsArray<LatLng> loop = ArrayHelper.toJsArray(array);
 				double area = SphericalUtils.computeArea(loop, 2006);
-				if (area > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Area should be positive", area > 0);
+
 				finishTest();
 			}
 		});
@@ -92,11 +88,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
 				MVCArray<LatLng> loop = MVCArray.newInstance(path);
 				double area = SphericalUtils.computeArea(loop, 2006);
-				if (area > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Area should be positive", area > 0);
+
 				finishTest();
 			}
 		});
@@ -111,11 +104,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				LatLng to = LatLng.newInstance(50.496675, -103.65625);
 				double distance = SphericalUtils.computeDistanceBetween(from,
 						to);
-				if (distance > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Distance should be > 0", distance > 0);
+
 				finishTest();
 			}
 		});
@@ -130,11 +120,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				LatLng to = LatLng.newInstance(50.496675, -103.65625);
 				double distance = SphericalUtils.computeDistanceBetween(from,
 						to, 2006);
-				if (distance > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Distance should be > 0", distance > 0);
+
 				finishTest();
 			}
 		});
@@ -169,11 +156,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				array[2] = LatLng.newInstance(51.496675, -104.65625);
 				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
 				double length = SphericalUtils.computeLength(path);
-				if (length > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Length should be > 0", length > 0);
+
 				finishTest();
 			}
 		});
@@ -190,11 +174,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				array[2] = LatLng.newInstance(51.496675, -104.65625);
 				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
 				double length = SphericalUtils.computeLength(path, 2006);
-				if (length > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Length should be > 0", length > 0);
+
 				finishTest();
 			}
 		});
@@ -202,8 +183,6 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 	}
 
 	public void testComputeLength2() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.GEOMETRY);
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
@@ -214,11 +193,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
 				MVCArray<LatLng> path2 = MVCArray.newInstance(path);
 				double length = SphericalUtils.computeLength(path2);
-				if (length > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Length should be > 0", length > 0);
+
 				finishTest();
 			}
 		});
@@ -236,11 +212,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
 				MVCArray<LatLng> path2 = MVCArray.newInstance(path);
 				double length = SphericalUtils.computeLength(path2, 2006);
-				if (length > 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Length should be > 0", length > 0);
+
 				finishTest();
 			}
 		});
@@ -249,9 +222,6 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 
 	@SuppressWarnings("unused")
 	public void testComputeOffset() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.GEOMETRY);
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
@@ -263,6 +233,7 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 						heading);
 				assertEquals("(49.50941554956089, -102.63662616512198)",
 						offset.getToString());
+
 				finishTest();
 			}
 		});
@@ -282,6 +253,7 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 						heading, 2006);
 				assertEquals("(52.87142257631697, -2.9751884784654976)",
 						offset.getToString());
+
 				finishTest();
 			}
 		});
@@ -298,11 +270,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				array[2] = LatLng.newInstance(51.496675, -104.65625);
 				JsArray<LatLng> loop = ArrayHelper.toJsArray(array);
 				double area = SphericalUtils.computeSignedArea(loop);
-				if (area < 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Area should be negative", area < 0);
+
 				finishTest();
 			}
 		});
@@ -357,9 +326,6 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 	}
 
 	public void testComputeSignedArea2_radius() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.GEOMETRY);
-
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
@@ -370,11 +336,8 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
 				MVCArray<LatLng> loop = MVCArray.newInstance(path);
 				double area = SphericalUtils.computeSignedArea(loop, 2006);
-				if (area < 0) {
-					assertTrue(true);
-				} else {
-					assertTrue(false);
-				}
+				assertTrue("Area should be negative", area < 0);
+
 				finishTest();
 			}
 		});
@@ -382,7 +345,6 @@ public class SphericalUtilsTest extends AbstractMapsGWTTest {
 	}
 
 	public void testInterpolate() {
-
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {

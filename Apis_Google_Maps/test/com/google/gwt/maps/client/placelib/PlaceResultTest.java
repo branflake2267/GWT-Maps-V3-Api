@@ -127,7 +127,6 @@ public class PlaceResultTest extends AbstractMapsGWTTest {
 				AutocompleteType left = AutocompleteType.ESTABLISHMENT;
 				o.setTypes(left);
 				AutocompleteType[] right = o.getTypes();
-				assertEquals(1, right[0].value());
 				assertEquals(left.value(), right[0].value());
 				finishTest();
 			}

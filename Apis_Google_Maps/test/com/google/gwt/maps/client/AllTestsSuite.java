@@ -20,12 +20,20 @@ public class AllTestsSuite extends GWTTestSuite {
 	public static TestSuite suite() throws Exception {
 		TestSuite suite = new TestSuite();
 
+		// list to prevent from running
+		List<String> ignoreTestList = new ArrayList<String>();
+		ignoreTestList.add(LoadApiTest.class.getName()); // already included
+		ignoreTestList.add(AbstractMapsGWTTest.class.getName()); // throws NoOp
+																	// error
+
 		// be sure the libs get loaded at the beginning b/c they won't want to
 		// add the libs during
 		suite.addTestSuite(LoadApiTest.class);
 
 		for (Class<? extends GWTTestCase> clazz : getClasses("com.google.gwt.maps.client")) {
+			// if (!ignoreTestList.contains(clazz.getName())) {
 			suite.addTestSuite(clazz);
+			// }
 		}
 
 		return suite;

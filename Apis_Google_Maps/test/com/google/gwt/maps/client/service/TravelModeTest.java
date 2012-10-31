@@ -35,9 +35,9 @@ public class TravelModeTest extends AbstractMapsGWTTest {
 			@Override
 			public void run() {
 				TravelMode o = TravelMode.BICYCLING;
-				assertEquals("bicycling", TravelMode.BICYCLING.value());
+				assertEquals("BICYCLING", TravelMode.BICYCLING.value());
 				assertEquals(TravelMode.BICYCLING,
-						TravelMode.fromValue("bicycling"));
+						TravelMode.fromValue("BICYCLING"));
 				finishTest();
 			}
 		});
@@ -49,9 +49,9 @@ public class TravelModeTest extends AbstractMapsGWTTest {
 			@Override
 			public void run() {
 				TravelMode o = TravelMode.DRIVING;
-				assertEquals("driving", TravelMode.DRIVING.value());
+				assertEquals("DRIVING", TravelMode.DRIVING.value());
 				assertEquals(TravelMode.DRIVING,
-						TravelMode.fromValue("driving"));
+						TravelMode.fromValue("DRIVING"));
 				finishTest();
 			}
 		});
@@ -63,9 +63,9 @@ public class TravelModeTest extends AbstractMapsGWTTest {
 			@Override
 			public void run() {
 				TravelMode o = TravelMode.WALKING;
-				assertEquals("walking", TravelMode.WALKING.value());
+				assertEquals("WALKING", TravelMode.WALKING.value());
 				assertEquals(TravelMode.WALKING,
-						TravelMode.fromValue("walking"));
+						TravelMode.fromValue("WALKING"));
 				finishTest();
 			}
 		});

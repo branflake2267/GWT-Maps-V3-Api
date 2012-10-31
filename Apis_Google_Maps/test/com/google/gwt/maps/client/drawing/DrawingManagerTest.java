@@ -13,7 +13,7 @@ public class DrawingManagerTest extends AbstractMapsGWTTest {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.DRAWING };
 	}
 
 	public void testDrawingMode() {

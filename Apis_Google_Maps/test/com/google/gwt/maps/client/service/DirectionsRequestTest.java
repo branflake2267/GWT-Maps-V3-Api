@@ -163,6 +163,7 @@ public class DirectionsRequestTest extends AbstractMapsGWTTest {
 				o.setTravelMode(left);
 				TravelMode right = o.getTravelMode();
 				assertEquals(left, right);
+
 				finishTest();
 			}
 		});

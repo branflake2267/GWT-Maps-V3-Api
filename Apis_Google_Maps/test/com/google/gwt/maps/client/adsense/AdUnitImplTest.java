@@ -10,15 +10,16 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class AdUnitImplTest extends AbstractMapsGWTTest {
-	
+
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.ADSENSE };
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 
 				MapOptions optionsMap = MapOptions.newInstance();

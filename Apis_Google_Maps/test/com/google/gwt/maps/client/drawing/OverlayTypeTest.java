@@ -8,7 +8,7 @@ public class OverlayTypeTest extends AbstractMapsGWTTest {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.DRAWING };
 	}
 
 	private native void reverseEngineer(String type) /*-{

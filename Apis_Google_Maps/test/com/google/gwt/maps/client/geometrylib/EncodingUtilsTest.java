@@ -11,7 +11,7 @@ public class EncodingUtilsTest extends AbstractMapsGWTTest {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.GEOMETRY };
 	}
 
 	public void testUse() {

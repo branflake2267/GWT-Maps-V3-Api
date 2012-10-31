@@ -15,7 +15,7 @@ import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 public abstract class AbstractMapsGWTTest extends GWTTestCase {
 
 	private int asyncDelayMs = 5000;
-
+	private final double equalsEpsilon = 1e-3;
 	private boolean sensor = false;
 
 	/**
@@ -102,9 +102,8 @@ public abstract class AbstractMapsGWTTest extends GWTTestCase {
 		this.sensor = sensor;
 	}
 
-	/** In case this is called as a test **/
-	public void testNoOp() {
-		// NOOP
+	public final double getEqualsEpsilon() {
+		return equalsEpsilon;
 	}
 
 }

@@ -7,11 +7,12 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.ADSENSE };
 	}
 
 	public void testReverseEngineer() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				reverseEngineer();
 				finishTest();
@@ -32,6 +33,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testUse() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				@SuppressWarnings("unused")
 				AdFormat o = AdFormat.BANNER;
@@ -42,6 +44,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum1() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.BANNER;
 				String left = "BANNER";
@@ -55,6 +58,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum2() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.BUTTON;
 				String left = "BUTTON";
@@ -68,6 +72,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum3() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.HALF_BANNER;
 				String left = "HALF_BANNER";
@@ -81,6 +86,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum4() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.LARGE_RECTANGLE;
 				String left = "LARGE_RECTANGLE";
@@ -94,6 +100,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum5() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.LEADERBOARD;
 				String left = "LEADERBOARD";
@@ -107,6 +114,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum6() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.MEDIUM_RECTANGLE;
 				String left = "MEDIUM_RECTANGLE";
@@ -120,6 +128,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum7() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.SKYSCRAPER;
 				String left = "SKYSCRAPER";
@@ -133,6 +142,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum8() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.SMALL_RECTANGLE;
 				String left = "SMALL_RECTANGLE";
@@ -146,6 +156,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum9() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.SMALL_SQUARE;
 				String left = "SMALL_SQUARE";
@@ -159,6 +170,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum10() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.SQUARE;
 				String left = "SQUARE";
@@ -172,6 +184,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum11() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.VERTICAL_BANNER;
 				String left = "VERTICAL_BANNER";
@@ -185,6 +198,7 @@ public class AdFormatTest extends AbstractMapsGWTTest {
 
 	public void testEnum12() {
 		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				AdFormat o = AdFormat.WIDE_SKYSCRAPER;
 				String left = "WIDE_SKYSCRAPER";

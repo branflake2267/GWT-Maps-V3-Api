@@ -12,7 +12,7 @@ public class AdUnitWidgetTest extends AbstractMapsGWTTest {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
-		return null;
+		return new LoadLibrary[] { LoadLibrary.ADSENSE };
 	}
 
 	public void testChannelNumber() {

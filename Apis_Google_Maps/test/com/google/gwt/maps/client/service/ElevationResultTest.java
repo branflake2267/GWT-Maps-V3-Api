@@ -31,7 +31,7 @@ public class ElevationResultTest extends AbstractMapsGWTTest {
 				int left = 10;
 				o.setElevation(left);
 				double right = o.getElevation();
-				assertEquals(left, right);
+				assertEquals(left, right, getEqualsEpsilon());
 				finishTest();
 			}
 		});
