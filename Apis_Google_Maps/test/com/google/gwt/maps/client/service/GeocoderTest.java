@@ -104,10 +104,16 @@ public class GeocoderTest extends AbstractMapsGWTTest {
 								assertNotNull(address);
 
 								GeocoderGeometry geo = result.getGeometry();
+
+								LatLng pointNE = LatLng.newInstance(
+										48.0582905d, -122.176957d);
+								LatLng pointSW = LatLng.newInstance(
+										48.0582905d, -122.176934d);
 								LatLngBounds bounds = geo.getBounds();
-								assertEquals(
-										"((48.0582905, -122.17695759999998), (48.0582905, -122.17693480000003))",
-										bounds.getToString());
+								assertLatLngEquals(bounds.getNorthEast(),
+										pointNE);
+								assertLatLngEquals(bounds.getSouthWest(),
+										pointSW);
 
 								GeocoderLocationType lt = geo
 										.getLocation_Type();

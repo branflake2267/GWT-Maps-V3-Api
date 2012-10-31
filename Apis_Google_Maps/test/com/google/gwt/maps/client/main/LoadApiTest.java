@@ -13,6 +13,24 @@ public class LoadApiTest extends AbstractMapsGWTTest {
 		return null;
 	}
 
+	/**
+	 * Must come first so that all API's are available for test suite or
+	 * failures will occur
+	 */
+	public void testLoadWLibs3() {
+		boolean sensor = true;
+		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
+		loadLibraries.addAll(java.util.Arrays.asList(LoadLibrary.values()));
+
+		LoadApi.go(new Runnable() {
+			@Override
+			public void run() {
+				finishTest();
+			}
+		}, loadLibraries, sensor);
+		delayTest();
+	}
+
 	public void testLoad() {
 		boolean sensor = false;
 		LoadApi.go(new Runnable() {
@@ -38,24 +56,6 @@ public class LoadApiTest extends AbstractMapsGWTTest {
 		boolean sensor = false;
 		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
 		loadLibraries.add(LoadLibrary.GEOMETRY);
-		LoadApi.go(new Runnable() {
-			@Override
-			public void run() {
-				finishTest();
-			}
-		}, loadLibraries, sensor);
-		delayTest();
-	}
-
-	public void testLoadWLibs3() {
-		boolean sensor = true;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.ADSENSE);
-		loadLibraries.add(LoadLibrary.DRAWING);
-		loadLibraries.add(LoadLibrary.GEOMETRY);
-		loadLibraries.add(LoadLibrary.PANORAMIO);
-		loadLibraries.add(LoadLibrary.PLACES);
-
 		LoadApi.go(new Runnable() {
 			@Override
 			public void run() {
@@ -128,12 +128,7 @@ public class LoadApiTest extends AbstractMapsGWTTest {
 	public void testUse1() {
 		boolean sensor = false;
 		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.ADSENSE);
-		loadLibraries.add(LoadLibrary.DRAWING);
-		loadLibraries.add(LoadLibrary.GEOMETRY);
-		loadLibraries.add(LoadLibrary.PANORAMIO);
-		loadLibraries.add(LoadLibrary.PLACES);
-		loadLibraries.add(LoadLibrary.WEATHER);
+		loadLibraries.addAll(java.util.Arrays.asList(LoadLibrary.values()));
 
 		LoadApi.go(new Runnable() {
 			@Override

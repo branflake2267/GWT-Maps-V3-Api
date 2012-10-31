@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
+import com.google.gwt.maps.client.base.LatLng;
 
 /**
  * Common actions taken when testing maps code
@@ -14,6 +15,7 @@ import com.google.gwt.maps.client.LoadApi.LoadLibrary;
  */
 public abstract class AbstractMapsGWTTest extends GWTTestCase {
 
+	private final String MODULE_NAME = "com.google.gwt.maps.Apis_Google_Maps_ForTests";
 	private int asyncDelayMs = 5000;
 	private final double equalsEpsilon = 1e-3;
 	private boolean sensor = false;
@@ -82,7 +84,7 @@ public abstract class AbstractMapsGWTTest extends GWTTestCase {
 
 	@Override
 	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+		return MODULE_NAME;
 	}
 
 	/**
@@ -104,6 +106,26 @@ public abstract class AbstractMapsGWTTest extends GWTTestCase {
 
 	public final double getEqualsEpsilon() {
 		return equalsEpsilon;
+	}
+
+	/** HELPERS **/
+
+	/**
+	 * Assert that two {@link LatLng} are equal within
+	 * {@link #getEqualsEpsilon()}.
+	 * 
+	 * @param point1
+	 * @param point2
+	 */
+	public final void assertLatLngEquals(LatLng point1, LatLng point2) {
+		assert point1 != null : "Point1 cannot be null in assertLatLngEquals()";
+		assert point2 != null : "Point2 cannot be null in assertLatLngEquals()";
+
+		assertEquals("Latitude not equal within epsilon", point1.getLatitude(),
+				point2.getLatitude(), getEqualsEpsilon());
+		assertEquals("Longitude not equal within epsilon",
+				point1.getLongitude(), point2.getLongitude(),
+				getEqualsEpsilon());
 	}
 
 }

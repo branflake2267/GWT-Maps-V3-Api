@@ -117,10 +117,12 @@ public class DirectionsRendererOptionsTest extends AbstractMapsGWTTest {
 				MapWidget left = new MapWidget(options);
 				left.setSize("500px", "500px");
 				RootPanel.get().add(left);
+
 				o.setMap(left);
-				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+				MapWidget right = o.getMap();
+
+				assertLatLngEquals(left.getCenter(), right.getCenter());
+
 				finishTest();
 			}
 		});

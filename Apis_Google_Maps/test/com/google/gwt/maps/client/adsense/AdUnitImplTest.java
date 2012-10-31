@@ -16,7 +16,6 @@ public class AdUnitImplTest extends AbstractMapsGWTTest {
 		return new LoadLibrary[] { LoadLibrary.ADSENSE };
 	}
 
-	@SuppressWarnings("unused")
 	public void testUse() {
 		asyncLibTest(new Runnable() {
 			@Override

@@ -91,6 +91,8 @@ public class DistanceMatrixRequestTest extends AbstractMapsGWTTest {
 				o.setDestinations(left);
 				JsArray<LatLng> right = o.getDestinations();
 				assertEquals(left.length(), right.length());
+
+				finishTest();
 			}
 		});
 	}
