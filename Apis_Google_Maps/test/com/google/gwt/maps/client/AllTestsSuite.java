@@ -31,9 +31,9 @@ public class AllTestsSuite extends GWTTestSuite {
 		suite.addTestSuite(LoadApiTest.class);
 
 		for (Class<? extends GWTTestCase> clazz : getClasses("com.google.gwt.maps.client")) {
-			// if (!ignoreTestList.contains(clazz.getName())) {
-			suite.addTestSuite(clazz);
-			// }
+			if (!ignoreTestList.contains(clazz.getName())) {
+				suite.addTestSuite(clazz);
+			}
 		}
 
 		return suite;
