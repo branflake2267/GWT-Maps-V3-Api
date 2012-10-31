@@ -1,87 +1,74 @@
 package com.google.gwt.maps.client.service;
 
-import java.util.ArrayList;
-
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.services.TravelMode;
 
-public class TravelModeTest extends GWTTestCase {
+public class TravelModeTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.PLACES };
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public void testReverseEngineer() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				reverseEngineer();
+				finishTest();
+			}
+		});
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	private native void reverseEngineer() /*-{
+		var array = [ "BICYCLING", "DRIVING", "WALKING" ]
+		for ( var i = 0; i < array.length; i++) {
+			var s = "$wnd.google.maps.TravelMode." + array[i];
+			alert(array[i] + "=" + eval(s));
+		}
+	}-*/;
 
-  public void testReverseEngineer() {
-    boolean sensor = false;
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.PLACES);   
-    LoadApi.go(new Runnable() {
-      public void run() {
-        reverseEngineer();
-        finishTest();
-      }
-    }, loadLibraries , sensor);
-  }
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				TravelMode o = TravelMode.BICYCLING;
+				assertEquals("bicycling", TravelMode.BICYCLING.value());
+				assertEquals(TravelMode.BICYCLING,
+						TravelMode.fromValue("bicycling"));
+				finishTest();
+			}
+		});
+	}
 
-  private native void reverseEngineer() /*-{
-    var array = ["BICYCLING", "DRIVING", "WALKING"]
-    for (var i=0; i < array.length; i++) {      
-      var s = "$wnd.google.maps.TravelMode." + array[i];
-      alert(array[i] + "=" + eval(s));
-    }
-  }-*/;
+	@SuppressWarnings("unused")
+	public void testUse2() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				TravelMode o = TravelMode.DRIVING;
+				assertEquals("driving", TravelMode.DRIVING.value());
+				assertEquals(TravelMode.DRIVING,
+						TravelMode.fromValue("driving"));
+				finishTest();
+			}
+		});
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    boolean sensor = false;
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.PLACES);   
-    LoadApi.go(new Runnable() {
-      public void run() {
-        TravelMode o = TravelMode.BICYCLING;
-        assertEquals("bicycling", TravelMode.BICYCLING.value());
-        assertEquals(TravelMode.BICYCLING, TravelMode.fromValue("bicycling"));
-        finishTest();
-      }
-    }, loadLibraries , sensor);
-  }
+	@SuppressWarnings("unused")
+	public void testUse3() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				TravelMode o = TravelMode.WALKING;
+				assertEquals("walking", TravelMode.WALKING.value());
+				assertEquals(TravelMode.WALKING,
+						TravelMode.fromValue("walking"));
+				finishTest();
+			}
+		});
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse2() {
-    boolean sensor = false;
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.PLACES);   
-    LoadApi.go(new Runnable() {
-      public void run() {
-        TravelMode o = TravelMode.DRIVING;
-        assertEquals("driving", TravelMode.DRIVING.value());
-        assertEquals(TravelMode.DRIVING, TravelMode.fromValue("driving"));
-        finishTest();
-      }
-    }, loadLibraries , sensor);
-  }
-
-  @SuppressWarnings("unused")
-  public void testUse3() {
-    boolean sensor = false;
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.PLACES);   
-    LoadApi.go(new Runnable() {
-      public void run() {
-        TravelMode o = TravelMode.WALKING;
-        assertEquals("walking", TravelMode.WALKING.value());
-        assertEquals(TravelMode.WALKING, TravelMode.fromValue("walking"));
-        finishTest();
-      }
-    }, loadLibraries , sensor);
-  }
-  
 }

@@ -1,48 +1,43 @@
 package com.google.gwt.maps.client.streetview;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.controls.ControlPosition;
 
-public class StreetViewAddressControlOptionsTest extends GWTTestCase {
+public class StreetViewAddressControlOptionsTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
-  
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        StreetViewAddressControlOptions options = StreetViewAddressControlOptions.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testPosition() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        StreetViewAddressControlOptions o = StreetViewAddressControlOptions.newInstance();
-        ControlPosition left = ControlPosition.TOP_CENTER;
-        o.setPosition(left);
-        ControlPosition right = o.getPosition();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  
-  
-  
-  
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewAddressControlOptions options = StreetViewAddressControlOptions
+						.newInstance();
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testPosition() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewAddressControlOptions o = StreetViewAddressControlOptions
+						.newInstance();
+				ControlPosition left = ControlPosition.TOP_CENTER;
+				o.setPosition(left);
+				ControlPosition right = o.getPosition();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
+
 }

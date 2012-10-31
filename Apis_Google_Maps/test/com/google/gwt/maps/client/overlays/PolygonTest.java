@@ -2,40 +2,37 @@ package com.google.gwt.maps.client.overlays;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.mvc.MVCArray;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class PolygonTest extends GWTTestCase {
+public class PolygonTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testEditable() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
@@ -45,12 +42,13 @@ public class PolygonTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testMap() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
@@ -73,15 +71,16 @@ public class PolygonTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	/**
 	 * this thows some red? not sure why. It runs ok by it self? Types?
 	 */
 	public void testPaths_JSArray() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
@@ -96,15 +95,16 @@ public class PolygonTest extends GWTTestCase {
 				// right.get(0).getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	/**
 	 * this thows some red? not sure why. It runs ok by it self? Types?
 	 */
 	public void testPathss_JSArray() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
@@ -130,12 +130,13 @@ public class PolygonTest extends GWTTestCase {
 				// right.get(0).get(0).getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testPaths_MVCArray() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
@@ -150,12 +151,13 @@ public class PolygonTest extends GWTTestCase {
 				// right.get(0).getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testPathss_MVCArray() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolygonOptions options = PolygonOptions.newInstance();
 				Polygon o = Polygon.newInstance(options);
@@ -181,8 +183,8 @@ public class PolygonTest extends GWTTestCase {
 				// right.get(0).get(0).getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 }

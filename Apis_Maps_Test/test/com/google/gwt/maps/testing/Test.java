@@ -4,17 +4,10 @@ import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.maps.client.LoadApi;
 
 // TODO Test will not run. Not sure why not. Need investigation
-public class Test extends GWTTestCase {
+public class Test extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
-  
-  public String getModuleName() {
-    return "com.google.gwt.maps.testing.Apis_Maps_Test";
-  }
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+
   
   public void testLoad() {
     LoadApi.go(new Runnable() {
@@ -22,7 +15,7 @@ public class Test extends GWTTestCase {
         finishTest();
       }
     }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
+
   }
   
   public void testReload2() {
@@ -35,7 +28,7 @@ public class Test extends GWTTestCase {
         }, false);
       }
     }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
+
   }
   
   public void testLoad3() {
@@ -44,7 +37,7 @@ public class Test extends GWTTestCase {
         finishTest();
       }
     }, true);
-    delayTestFinish(ASYNC_DELAY_MS);
+
   }
   
   public void testReload4() {
@@ -57,7 +50,7 @@ public class Test extends GWTTestCase {
         }, false);
       }
     }, true);
-    delayTestFinish(ASYNC_DELAY_MS);
+
   }
   
   

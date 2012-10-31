@@ -1,33 +1,33 @@
 package com.google.gwt.maps.client.controls;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapTypeId;
 
-public class MapTypeControlOptionsTest extends GWTTestCase {
-
-	public static final int ASYNC_DELAY_MS = 5000;
+public class MapTypeControlOptionsTest extends AbstractMapsGWTTest {
 
 	@Override
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		LoadApi.go(new Runnable() {
+	public void testPosition() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				MapTypeControlOptions options = MapTypeControlOptions
 						.newInstance();
+				ControlPosition left = ControlPosition.TOP_CENTER;
+				options.setPosition(left);
+				ControlPosition right = options.getPosition();
+				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testSetMapTypeIds() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				MapTypeControlOptions options = MapTypeControlOptions
@@ -35,7 +35,7 @@ public class MapTypeControlOptionsTest extends GWTTestCase {
 
 				// should be empty
 				assertNull(options.getMapTypeIds());
-				
+
 				MapTypeId[] left = new MapTypeId[4];
 				left[0] = MapTypeId.HYBRID; // 1
 				left[1] = MapTypeId.ROADMAP; // 2
@@ -60,55 +60,48 @@ public class MapTypeControlOptionsTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testSetMapTypeIdsString() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				MapTypeControlOptions options = MapTypeControlOptions
 						.newInstance();
-				
+
 				// should be empty
 				assertNull(options.getMapTypeIdsString());
-				
+
 				String fooType = "fooType";
-				
+
 				String[] left = new String[2];
 				left[0] = MapTypeId.HYBRID.toString(); // 1
 				left[1] = fooType; // 2
 				options.setMapTypeIds(left);
-				
+
 				String[] right = options.getMapTypeIdsString();
-				
+
 				String type1 = right[0];
 				assertEquals(MapTypeId.HYBRID.toString(), type1);
-				
+
 				String type2 = right[1];
 				assertEquals(fooType, type2);
-				
+
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
-	
-	public void testPosition() {
-		LoadApi.go(new Runnable() {
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				MapTypeControlOptions options = MapTypeControlOptions
 						.newInstance();
-				ControlPosition left = ControlPosition.TOP_CENTER;
-				options.setPosition(left);
-				ControlPosition right = options.getPosition();
-				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
-
 }

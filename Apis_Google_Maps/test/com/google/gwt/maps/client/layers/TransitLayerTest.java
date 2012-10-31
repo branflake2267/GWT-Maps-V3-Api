@@ -1,7 +1,7 @@
 package com.google.gwt.maps.client.layers;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -13,31 +13,16 @@ import com.google.gwt.user.client.ui.RootPanel;
  * "https://developers.google.com/maps/documentation/javascript/reference#TransitLayer"
  * >TransitLayer API Doc</a>
  */
-public class TransitLayerTest extends GWTTestCase {
+public class TransitLayerTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
-	}
-
-	public void testLoadNewInstance() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				@SuppressWarnings("unused")
-				TransitLayer o = TransitLayer.newInstance();
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	public void testLayerOnMap() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				LatLng center = LatLng.newInstance(49.496675, -102.65625);
 				MapOptions opts = MapOptions.newInstance();
@@ -66,7 +51,19 @@ public class TransitLayerTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
+	}
+
+	public void testLoadNewInstance() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				@SuppressWarnings("unused")
+				TransitLayer o = TransitLayer.newInstance();
+				finishTest();
+			}
+		});
+
 	}
 }
