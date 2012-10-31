@@ -84,11 +84,11 @@ public class AdUnitWidgetTest extends AbstractMapsGWTTest {
 				options.setMap(mapWidget);
 				options.setPublisherId("pub-0032065764310410");
 				options.setChannelNumber("4000893900");
-				AdUnitWidget o = new AdUnitWidget(options);
 
+				AdUnitWidget o = new AdUnitWidget(options);
 				AdFormat right = o.getFormat();
-				String sright = right.toString();
-				assertEquals("", sright);
+
+				assertEquals(options.getFormat(), right);
 
 				finishTest();
 			}

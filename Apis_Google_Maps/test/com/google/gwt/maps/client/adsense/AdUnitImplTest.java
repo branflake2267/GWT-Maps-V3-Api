@@ -37,6 +37,13 @@ public class AdUnitImplTest extends AbstractMapsGWTTest {
 				Element element = fp.getElement();
 				AdUnitImpl o = AdUnitImpl.newInstance(element, options);
 
+				assertEquals(options.getMap().getElement(), o.getMap()
+						.getElement());
+				assertEquals(options.getPublisherId(), o.getPublisherId());
+				assertEquals(options.getChannelNumber(), o.getChannelNumber());
+				assertEquals(options.getFormat(), o.getFormat());
+				assertNotNull(o.getContainer());
+
 				finishTest();
 			}
 		});
