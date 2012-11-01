@@ -1,9 +1,6 @@
 package com.google.gwt.maps.client.drawing;
 
-import java.util.ArrayList;
-
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
@@ -17,51 +14,16 @@ import com.google.gwt.maps.client.overlays.PolylineOptions;
 import com.google.gwt.maps.client.overlays.RectangleOptions;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class DrawingManagerOptionsTest extends GWTTestCase {
+public class DrawingManagerOptionsTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	@SuppressWarnings("unused")
-	public void testUse() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
-			public void run() {
-				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
-				finishTest();
-			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-	
-	public void testDefault() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
-			public void run() {
-				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
-				
-				assertTrue("Should be TRUE by default", o.getDrawingControl());
-				
-				finishTest();
-			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	public void testCircleOptions() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				CircleOptions left = CircleOptions.newInstance();
@@ -71,17 +33,29 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 				assertEquals(left.getClickable(), right.getClickable());
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
+	}
+
+	public void testDefault() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
+
+				assertTrue("Should be TRUE by default", o.getDrawingControl());
+
+				finishTest();
+			}
+		});
+
 	}
 
 	@SuppressWarnings("unused")
 	public void testDrawingControl() {
 		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				boolean left = true;
@@ -89,16 +63,13 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 				boolean right = o.getDrawingControl();
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testDrawingControlOptions() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				DrawingControlOptions left = DrawingControlOptions
@@ -110,16 +81,13 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 						right.getDrawingModes().length);
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testMap() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.ADSENSE);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 
 				MapOptions optionsMap = MapOptions.newInstance();
@@ -136,18 +104,15 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testMarkerOptions() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
-				
+
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				MarkerOptions left = MarkerOptions.newInstance();
 				left.setClickable(true);
@@ -156,16 +121,13 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 				assertEquals(left.getClickable(), right.getClickable());
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testPolygonOptions() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				PolygonOptions left = PolygonOptions.newInstance();
@@ -175,16 +137,13 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 				assertEquals(left.getClickable(), right.getClickable());
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testPolylineOptions() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				PolylineOptions left = PolylineOptions.newInstance();
@@ -194,16 +153,13 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 				assertEquals(left.getClickable(), right.getClickable());
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testRectangleOptions() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
 				RectangleOptions left = RectangleOptions.newInstance();
@@ -213,8 +169,19 @@ public class DrawingManagerOptionsTest extends GWTTestCase {
 				assertEquals(left.getClickable(), right.getClickable());
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				DrawingManagerOptions o = DrawingManagerOptions.newInstance();
+				finishTest();
+			}
+		});
+
 	}
 }

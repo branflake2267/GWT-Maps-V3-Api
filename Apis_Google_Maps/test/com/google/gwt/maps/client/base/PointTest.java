@@ -1,37 +1,22 @@
 package com.google.gwt.maps.client.base;
 
 import com.google.gwt.i18n.client.NumberFormat;
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class PointTest extends GWTTestCase {
-
-	public static final int ASYNC_DELAY_MS = 5000;
+public class PointTest extends AbstractMapsGWTTest {
 
 	public static final double MOCK_X = 2.2d;
 	public static final double MOCK_Y = 3.3d;
 
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
-	}
-
-	@SuppressWarnings("unused")
-	public void testUse() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				Point p = Point.newInstance(MOCK_X, MOCK_Y);
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	public void testEquals() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				Point p = Point.newInstance(MOCK_X, MOCK_Y);
 				Point p2 = Point.newInstance(MOCK_X, MOCK_Y);
@@ -39,12 +24,12 @@ public class PointTest extends GWTTestCase {
 				assertEquals(true, b);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testNotEquals() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				Point p = Point.newInstance(MOCK_X, MOCK_Y);
 				Point p2 = Point.newInstance(MOCK_X, MOCK_Y + 1);
@@ -52,28 +37,44 @@ public class PointTest extends GWTTestCase {
 				assertEquals(false, b);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testToString() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				Point p = Point.newInstance(MOCK_X, MOCK_Y);
-		    	
-		        String xStr = NumberFormat.getFormat("#.#").format(MOCK_X);
-		    	String yStr = NumberFormat.getFormat("#.#").format(MOCK_Y);
-		        String expected = "("+xStr+", "+yStr+")"; // oddly trailing zeros are truncated in API toString
-		       
+
+				String xStr = NumberFormat.getFormat("#.#").format(MOCK_X);
+				String yStr = NumberFormat.getFormat("#.#").format(MOCK_Y);
+				String expected = "(" + xStr + ", " + yStr + ")"; // oddly
+																	// trailing
+																	// zeros are
+																	// truncated
+																	// in API
+																	// toString
+
 				assertEquals(expected, p.getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				Point p = Point.newInstance(MOCK_X, MOCK_Y);
+				finishTest();
+			}
+		});
 	}
 
 	public void testXandY() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 
 				Point p = Point.newInstance(MOCK_X, MOCK_Y);
@@ -81,7 +82,6 @@ public class PointTest extends GWTTestCase {
 				assertEquals(MOCK_Y, p.getY());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 }

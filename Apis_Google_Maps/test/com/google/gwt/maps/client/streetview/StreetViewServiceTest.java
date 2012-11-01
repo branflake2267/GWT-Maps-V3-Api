@@ -1,9 +1,6 @@
 package com.google.gwt.maps.client.streetview;
 
-import java.util.ArrayList;
-
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.user.client.Timer;
@@ -11,102 +8,101 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * 
- * See <a href="https://developers.google.com/maps/documentation/javascript/streetview">StreetView API Doc</a>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/streetview"
+ * >StreetView API Doc</a>
  */
-public class StreetViewServiceTest extends GWTTestCase {
+public class StreetViewServiceTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 8000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.ADSENSE, LoadLibrary.DRAWING,
+				LoadLibrary.GEOMETRY, LoadLibrary.PANORAMIO, LoadLibrary.PLACES };
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+				final StreetViewService service = StreetViewService
+						.newInstnace();
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.ADSENSE);
-    loadLibraries.add(LoadLibrary.DRAWING);
-    loadLibraries.add(LoadLibrary.GEOMETRY);
-    loadLibraries.add(LoadLibrary.PANORAMIO);
-    loadLibraries.add(LoadLibrary.PLACES);
-    
-    LoadApi.go(new Runnable() {
-      public void run() {
+				LatLng position = LatLng.newInstance(21.271525, -157.822731);
 
-        final StreetViewService service = StreetViewService.newInstnace();
+				StreetViewPov pov = StreetViewPov.newInstance();
+				pov.setHeading(250);
+				pov.setZoom(1);
+				pov.setPitch(10);
 
-        LatLng position = LatLng.newInstance(21.271525, -157.822731);
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
+						.newInstance();
+				options.setPosition(position);
+				options.setStreeViewPov(pov);
 
-        StreetViewPov pov = StreetViewPov.newInstance();
-        pov.setHeading(250);
-        pov.setZoom(1);
-        pov.setPitch(10);
+				final StreetViewPanoramaWidget wStreetPano = new StreetViewPanoramaWidget(
+						options);
+				RootPanel.get().add(wStreetPano);
+				wStreetPano.setSize("375px", "500px");
 
-        StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
-        options.setPosition(position);
-        options.setStreeViewPov(pov);
+				Timer t = new Timer() {
+					@Override
+					public void run() {
+						String pano = wStreetPano.getPano();
 
-        final StreetViewPanoramaWidget wStreetPano = new StreetViewPanoramaWidget(options);
-        RootPanel.get().add(wStreetPano);
-        wStreetPano.setSize("375px", "500px");
+						// TODO this will have to be a selenium test.
+						// assertNotNull(pano);
 
-        Timer t = new Timer() {
-          public void run() {
-            String pano = wStreetPano.getPano();
+						// service.getPanoramaById(pano, new PanoramaIdHandler()
+						// {
+						// public void onCallback(StreetViewPanoramaData data,
+						// StreetViewStatus status) {
+						// LatLng latlng = wStreetPano.getPosition();
+						//
+						// assertEquals(StreetViewStatus.OK, status);
+						// assertNotNull(data);
+						//
+						// finishTest();
+						// }
+						// });
+						finishTest();
+					}
+				};
+				t.schedule(1500);
 
-            // TODO this will have to be a selenium test. 
-            //assertNotNull(pano);
+			}
+		});
 
-//            service.getPanoramaById(pano, new PanoramaIdHandler() {
-//              public void onCallback(StreetViewPanoramaData data, StreetViewStatus status) {
-//                LatLng latlng = wStreetPano.getPosition();
-//
-//                assertEquals(StreetViewStatus.OK, status);
-//                assertNotNull(data);
-//                
-//                finishTest();
-//              }
-//            });
-            finishTest();
-          }
-        };
-        t.schedule(1500);
+	}
 
-        
-      }
-    }, loadLibraries, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-//  public void testUse2() {
-//    LoadApi.go(new Runnable() {
-//      public void run() {
-//
-//        final StreetViewService service = StreetViewService.newInstnace();
-//
-//        LatLng position = LatLng.newInstance(21.271525, -157.822731);
-//
-//        StreetViewPov pov = StreetViewPov.newInstance();
-//        pov.setHeading(250);
-//        pov.setZoom(1);
-//        pov.setPitch(10);
-//
-//        StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
-//        options.setPosition(position);
-//        options.setStreeViewPov(pov);
-//
-//        final StreetViewPanoramaWidget wStreetPano = new StreetViewPanoramaWidget(options);
-//        RootPanel.get().add(wStreetPano);
-//        wStreetPano.setSize("375px", "500px");
-//
-//       
-//
-//      }
-//    }, false);
-//    delayTestFinish(ASYNC_DELAY_MS);
-//  }
+	// public void testUse2() {
+	// asyncLibTest(new Runnable() {
+	// public void run() {
+	//
+	// final StreetViewService service = StreetViewService.newInstnace();
+	//
+	// LatLng position = LatLng.newInstance(21.271525, -157.822731);
+	//
+	// StreetViewPov pov = StreetViewPov.newInstance();
+	// pov.setHeading(250);
+	// pov.setZoom(1);
+	// pov.setPitch(10);
+	//
+	// StreetViewPanoramaOptions options =
+	// StreetViewPanoramaOptions.newInstance();
+	// options.setPosition(position);
+	// options.setStreeViewPov(pov);
+	//
+	// final StreetViewPanoramaWidget wStreetPano = new
+	// StreetViewPanoramaWidget(options);
+	// RootPanel.get().add(wStreetPano);
+	// wStreetPano.setSize("375px", "500px");
+	//
+	//
+	//
+	// }
+	// }, false);
+
+	// }
 }

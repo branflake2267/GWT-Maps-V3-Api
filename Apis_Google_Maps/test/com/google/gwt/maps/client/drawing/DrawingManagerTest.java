@@ -1,9 +1,6 @@
 package com.google.gwt.maps.client.drawing;
 
-import java.util.ArrayList;
-
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
@@ -12,36 +9,16 @@ import com.google.gwt.maps.client.drawinglib.DrawingManagerOptions;
 import com.google.gwt.maps.client.drawinglib.OverlayType;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class DrawingManagerTest extends GWTTestCase {
+public class DrawingManagerTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	@SuppressWarnings("unused")
-	public void testUse() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
-			public void run() {
-				DrawingManagerOptions options = DrawingManagerOptions
-						.newInstance();
-				DrawingManager o = DrawingManager.newInstance(options);
-				finishTest();
-			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.DRAWING };
 	}
 
 	public void testDrawingMode() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				DrawingManagerOptions options = DrawingManagerOptions
 						.newInstance();
@@ -56,45 +33,40 @@ public class DrawingManagerTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
-	
+
 	public void testDrawingMode_null() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
-				
+
 				DrawingManagerOptions options = DrawingManagerOptions
 						.newInstance();
-				
+
 				// ensure we can set it null
 				DrawingManager o = DrawingManager.newInstance(options);
 				o.setDrawingMode(null);
 				OverlayType actual = o.getDrawingMode();
-				assertNull("DrawingMode should have been set null",actual);
-				
+				assertNull("DrawingMode should have been set null", actual);
+
 				// ensure we can reset it
-				OverlayType expectd = OverlayType.MARKER; 
+				OverlayType expectd = OverlayType.MARKER;
 				o.setDrawingMode(expectd);
 				actual = o.getDrawingMode();
-				assertEquals("DrawingMode should have been set not null", expectd, actual);
-				
+				assertEquals("DrawingMode should have been set not null",
+						expectd, actual);
+
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testMap() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions optionsMap = MapOptions.newInstance();
 				MapWidget left = new MapWidget(optionsMap);
@@ -113,34 +85,44 @@ public class DrawingManagerTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
-	
+
 	public void testMap_null() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.DRAWING);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions optionsMap = MapOptions.newInstance();
 				MapWidget expected = new MapWidget(optionsMap);
 				RootPanel.get().add(expected);
 				expected.setSize("500px", "500px");
-				
+
 				DrawingManagerOptions options = DrawingManagerOptions
 						.newInstance();
 				DrawingManager o = DrawingManager.newInstance(options);
 				o.setMap(null);
-				
+
 				MapWidget actual = o.getMap();
-				assertNull("Map should be null now",actual);
-				
+				assertNull("Map should be null now", actual);
+
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				DrawingManagerOptions options = DrawingManagerOptions
+						.newInstance();
+				DrawingManager o = DrawingManager.newInstance(options);
+				finishTest();
+			}
+		});
+
 	}
 }

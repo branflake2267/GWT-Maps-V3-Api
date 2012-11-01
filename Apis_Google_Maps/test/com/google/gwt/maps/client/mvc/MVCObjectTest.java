@@ -1,138 +1,132 @@
 package com.google.gwt.maps.client.mvc;
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class MVCObjectTest extends GWTTestCase {
+public class MVCObjectTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@SuppressWarnings("unused")
+	public void testBindTo() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+				finishTest();
+			}
+		});
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject(); 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	}
 
-  
-  // TODO add all the bindtos...
-  
-  @SuppressWarnings("unused")
-  public void testBindTo() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+	// TODO add all the bindtos...
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testChanged() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	@SuppressWarnings("unused")
+	public void testChanged() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
 
-  @SuppressWarnings("unused")
-  public void testGet() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testNotify() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testSet() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testSetValues() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testUnbind() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testUnbindAll() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
-        
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  
-  
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testGet() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testNotify() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testSet() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testSetValues() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUnbind() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUnbindAll() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MVCObject<Element> o = MVCObject.createInstanceOfMVCObject();
+				finishTest();
+			}
+		});
+
+	}
+
 }

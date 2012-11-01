@@ -1,43 +1,40 @@
 package com.google.gwt.maps.client.layers;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class FusionTablesHeatmapTest extends GWTTestCase {
+public class FusionTablesHeatmapTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public void testEnabled() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTableHeatmap o = FusionTableHeatmap.newInstance();
+				boolean left = true;
+				o.setEnabled(left);
+				boolean right = o.getEnabled();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTableHeatmap o = FusionTableHeatmap.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-   
-  public void testEnabled() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTableHeatmap o = FusionTableHeatmap.newInstance();
-        boolean left = true;
-        o.setEnabled(left);
-        boolean right = o.getEnabled();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTableHeatmap o = FusionTableHeatmap.newInstance();
+				finishTest();
+			}
+		});
+
+	}
+
 }

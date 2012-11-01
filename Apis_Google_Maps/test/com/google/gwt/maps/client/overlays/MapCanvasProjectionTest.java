@@ -1,89 +1,90 @@
 package com.google.gwt.maps.client.overlays;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class MapCanvasProjectionTest extends GWTTestCase {
+public class MapCanvasProjectionTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapCanvasProjection o = MapCanvasProjection.newInstance();
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+				finishTest();
+			}
+		});
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapCanvasProjection o = MapCanvasProjection.newInstance();
+	}
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testfromContainerPixelToLatLng() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapCanvasProjection o = MapCanvasProjection.newInstance();
+	@SuppressWarnings("unused")
+	public void testfromContainerPixelToLatLng() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapCanvasProjection o = MapCanvasProjection.newInstance();
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testfromDivPixelToLatLng() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapCanvasProjection o = MapCanvasProjection.newInstance();
+				finishTest();
+			}
+		});
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testfromLatLngToContainerPixel() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapCanvasProjection o = MapCanvasProjection.newInstance();
+	}
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	@SuppressWarnings("unused")
+	public void testfromDivPixelToLatLng() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapCanvasProjection o = MapCanvasProjection.newInstance();
 
-  @SuppressWarnings("unused")
-  public void testfromLatLngToDivPixel() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapCanvasProjection o = MapCanvasProjection.newInstance();
+				finishTest();
+			}
+		});
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testgetWorldWidth() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapCanvasProjection o = MapCanvasProjection.newInstance();
+	}
 
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	@SuppressWarnings("unused")
+	public void testfromLatLngToContainerPixel() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapCanvasProjection o = MapCanvasProjection.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testfromLatLngToDivPixel() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapCanvasProjection o = MapCanvasProjection.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testgetWorldWidth() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapCanvasProjection o = MapCanvasProjection.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
 }

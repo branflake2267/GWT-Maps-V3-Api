@@ -20,6 +20,8 @@ public class MapHandlerRegistration {
 	 * @param handler
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	public static <E extends MapEvent> HandlerRegistration addHandler(
 			JavaScriptObject jso, MapEventType eventType,
 			MapHandler<E> handler, MapEventFormatter<E> formatter) {
@@ -42,6 +44,8 @@ public class MapHandlerRegistration {
 	 * @param handler
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	public static <E extends MapEvent> HandlerRegistration addHandlerMvc(
 			JavaScriptObject jso, MapEventType eventType,
 			MapHandler<E> handler, MapEventFormatter<E> formatter) {
@@ -64,6 +68,8 @@ public class MapHandlerRegistration {
 	 * @param handler
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	public static <E extends MapEvent> HandlerRegistration addHandlerDrawing(
 			JavaScriptObject jso, MapEventType eventType,
 			MapHandler<E> handler, MapEventFormatter<E> formatter) {
@@ -87,6 +93,8 @@ public class MapHandlerRegistration {
 	 * @param handler
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	private static native <E extends MapEvent> JavaScriptObject addHandlerImpl(
 			JavaScriptObject jso, String eventName, MapHandler<E> handler,
 			MapEventFormatter<E> formatter) /*-{
@@ -104,6 +112,8 @@ public class MapHandlerRegistration {
 	 * @param handler
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	private static native <E extends MapEvent> JavaScriptObject addHandlerImplMvc(
 			JavaScriptObject jso, String eventName, MapHandler<E> handler,
 			MapEventFormatter<E> formatter) /*-{
@@ -124,6 +134,8 @@ public class MapHandlerRegistration {
 	 * @param handler
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	private static native <E extends MapEvent> JavaScriptObject addHandlerImplDrawing(
 			JavaScriptObject jso, String eventName, MapHandler<E> handler,
 			MapEventFormatter<E> formatter) /*-{
@@ -152,6 +164,8 @@ public class MapHandlerRegistration {
 	 * @param properties
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	protected static <E extends MapEvent> void onCallback(
 			final MapHandler<E> handler, final Properties properties,
 			final MapEventFormatter<E> formatter) {
@@ -169,6 +183,8 @@ public class MapHandlerRegistration {
 	 * @param properties
 	 * @param formatter
 	 */
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	private static <E extends MapEvent> void formatEvent(MapHandler<E> handler,
 			Properties properties, MapEventFormatter<E> formatter) {
 		E event = formatter.createEvent(properties);
@@ -241,6 +257,8 @@ public class MapHandlerRegistration {
 				capture);
 	}-*/;
 
+	@SuppressWarnings("rawtypes")
+	// is ugly, but is a cyclic generic type, so suppressed
 	private static void addDomListenerImpl(Properties properties,
 			MapHandler<MapEvent> handler) {
 		MapChangeEventFormatter formatter = new MapChangeEventFormatter();

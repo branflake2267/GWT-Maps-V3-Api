@@ -1,27 +1,21 @@
 package com.google.gwt.maps.client.weatherlib;
 
-import java.util.ArrayList;
-
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class WeatherLayerOptionsTest extends GWTTestCase {
+public class WeatherLayerOptionsTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.WEATHER };
 	}
 
 	public void testValueOf() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.WEATHER);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 
 				WeatherLayerOptions opts = WeatherLayerOptions.newInstance();
@@ -62,17 +56,17 @@ public class WeatherLayerOptionsTest extends GWTTestCase {
 				assertNull(opts.getMap());
 				// apply to map and read back
 				opts.setMap(mapWidget);
-				assertEquals(mapWidget.getCenter().getToString(), mapWidget.getCenter()
-						.getToString());
-				
+				assertEquals(mapWidget.getCenter().getToString(), mapWidget
+						.getCenter().getToString());
+
 				// test clearing from map
 				opts.setMap(null);
 				assertNull(opts.getMap());
-				
+
 				finishTest();
 			}
-		}, loadLibraries, sensor);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 }
