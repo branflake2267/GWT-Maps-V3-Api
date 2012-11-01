@@ -2,7 +2,7 @@ package com.google.gwt.maps.client.service;
 
 import java.util.ArrayList;
 
-import com.google.gwt.junit.client.GWTTestCase;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
@@ -20,99 +20,95 @@ import com.google.gwt.maps.client.services.TravelMode;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class DirectionsServiceTest extends GWTTestCase {
+public class DirectionsServiceTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 7000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.PLACES };
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@SuppressWarnings("unused")
+	public void testUse1() {
+		boolean sensor = false;
+		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
+		loadLibraries.add(LoadLibrary.PLACES);
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				DirectionsService o = DirectionsService.newInstance();
+				finishTest();
+			}
+		});
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	public void testRoute() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
 
-  @SuppressWarnings("unused")
-  public void testUse1() {
-    boolean sensor = false;
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.PLACES);   
-    LoadApi.go(new Runnable() {
-      public void run() {
-        DirectionsService o = DirectionsService.newInstance();
-        finishTest();
-      }
-    }, loadLibraries , sensor);
-  }
- 
-  public void testRoute() {
-    boolean sensor = false;
-    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-    loadLibraries.add(LoadLibrary.PLACES);   
-    LoadApi.go(new Runnable() {
-      public void run() {
-        
-        LatLng center = LatLng.newInstance(37.7699298, -122.4469157);
-        
-        MapOptions optionsMap = MapOptions.newInstance();
-        optionsMap.setCenter(center);
-        optionsMap.setZoom(14);
-        optionsMap.setMapTypeId(MapTypeId.ROADMAP);
-        
-        MapWidget mapWidget = new MapWidget(optionsMap);
-        RootPanel.get().add(mapWidget);
-       
+				LatLng center = LatLng.newInstance(37.7699298, -122.4469157);
 
-        
-        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
-        final DirectionsRenderer directionsDisplay = DirectionsRenderer.newInstance(options);
-        directionsDisplay.setMap(mapWidget);
-        
-        //LatLng origin = LatLng.newInstance(37.7699298, -122.4469157);
-        //LatLng destination = LatLng.newInstance(37.7683909618184, -122.51089453697205);
-        
-        String origin = "Arlington, WA";
-        String destination = "Seattle, WA";
-        
-        DirectionsRequest request = DirectionsRequest.newInstance();
-        request.setOrigin(origin);
-        request.setDestination(destination);
-        request.setTravelMode(TravelMode.DRIVING);
-        
-        DirectionsService o = DirectionsService.newInstance();
-        
-        // fix for debugging mode
-        WorkAroundUtils.removeGwtObjectId(o);
-        WorkAroundUtils.removeGwtObjectId(request);
-        
-        o.route(request, new DirectionsResultHandler() {
-          public void onCallback(DirectionsResult result, DirectionsStatus status) {
-            if (status == DirectionsStatus.OK) {
-              directionsDisplay.setDirections(result);
-              assertTrue(true);
-              
-            } else if (status == DirectionsStatus.INVALID_REQUEST) {
-              fail();
-            } else if (status == DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {
-              fail();
-            } else if (status == DirectionsStatus.NOT_FOUND) {
-              fail();
-            } else if (status == DirectionsStatus.OVER_QUERY_LIMIT) {
-              fail();
-            } else if (status == DirectionsStatus.REQUEST_DENIED) {
-              fail();
-            } else if (status == DirectionsStatus.UNKNOWN_ERROR) {
-              fail();
-            } else if (status == DirectionsStatus.ZERO_RESULTS) {
-              fail();
-            }
-          
-            finishTest();
-          }
-        });
-        
-        
-      }
-    }, loadLibraries , sensor);
-  }
+				MapOptions optionsMap = MapOptions.newInstance();
+				optionsMap.setCenter(center);
+				optionsMap.setZoom(14);
+				optionsMap.setMapTypeId(MapTypeId.ROADMAP);
+
+				MapWidget mapWidget = new MapWidget(optionsMap);
+				RootPanel.get().add(mapWidget);
+
+				DirectionsRendererOptions options = DirectionsRendererOptions
+						.newInstance();
+				final DirectionsRenderer directionsDisplay = DirectionsRenderer
+						.newInstance(options);
+				directionsDisplay.setMap(mapWidget);
+
+				// LatLng origin = LatLng.newInstance(37.7699298, -122.4469157);
+				// LatLng destination = LatLng.newInstance(37.7683909618184,
+				// -122.51089453697205);
+
+				String origin = "Arlington, WA";
+				String destination = "Seattle, WA";
+
+				DirectionsRequest request = DirectionsRequest.newInstance();
+				request.setOrigin(origin);
+				request.setDestination(destination);
+				request.setTravelMode(TravelMode.DRIVING);
+
+				DirectionsService o = DirectionsService.newInstance();
+
+				// fix for debugging mode
+				WorkAroundUtils.removeGwtObjectId(o);
+				WorkAroundUtils.removeGwtObjectId(request);
+
+				o.route(request, new DirectionsResultHandler() {
+					@Override
+					public void onCallback(DirectionsResult result,
+							DirectionsStatus status) {
+						if (status == DirectionsStatus.OK) {
+							directionsDisplay.setDirections(result);
+							assertTrue(true);
+
+						} else if (status == DirectionsStatus.INVALID_REQUEST) {
+							fail();
+						} else if (status == DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {
+							fail();
+						} else if (status == DirectionsStatus.NOT_FOUND) {
+							fail();
+						} else if (status == DirectionsStatus.OVER_QUERY_LIMIT) {
+							fail();
+						} else if (status == DirectionsStatus.REQUEST_DENIED) {
+							fail();
+						} else if (status == DirectionsStatus.UNKNOWN_ERROR) {
+							fail();
+						} else if (status == DirectionsStatus.ZERO_RESULTS) {
+							fail();
+						}
+
+						finishTest();
+					}
+				});
+
+			}
+		});
+	}
 }

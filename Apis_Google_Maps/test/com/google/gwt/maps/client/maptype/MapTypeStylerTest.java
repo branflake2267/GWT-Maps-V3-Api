@@ -1,37 +1,31 @@
 package com.google.gwt.maps.client.maptype;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.maptypes.MapTypeStyler;
 
-public class MapTypeStylerTest extends GWTTestCase {
-
-	public static final int ASYNC_DELAY_MS = 5000;
+public class MapTypeStylerTest extends AbstractMapsGWTTest {
 
 	@Override
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				MapTypeStyler options = MapTypeStyler.newGammaStyler(44.4);
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testGamma() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				double left = 0.01f;
@@ -41,42 +35,43 @@ public class MapTypeStylerTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testHue() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				String left = "#ff0000";
 				MapTypeStyler options = MapTypeStyler.newHueStyler(left);
-				
+
 				String right = options.getHue();
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testInvertLightness() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				boolean left = true;
-				MapTypeStyler options = MapTypeStyler.newInvertLightnessStyler(left);
+				MapTypeStyler options = MapTypeStyler
+						.newInvertLightnessStyler(left);
 
 				boolean right = options.getInvertLightness();
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testLightness() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				int left = -10;
@@ -86,12 +81,12 @@ public class MapTypeStylerTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testSaturation() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				int left = -20;
@@ -101,12 +96,12 @@ public class MapTypeStylerTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testVisibility() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				String left = "simplifed";
@@ -116,8 +111,8 @@ public class MapTypeStylerTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 }

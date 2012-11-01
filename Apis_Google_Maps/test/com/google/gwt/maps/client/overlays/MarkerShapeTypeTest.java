@@ -1,32 +1,28 @@
 package com.google.gwt.maps.client.overlays;
 
-import com.google.gwt.junit.client.GWTTestCase;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class MarkerShapeTypeTest extends GWTTestCase {
+public class MarkerShapeTypeTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
-  
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
-  
-  public void testUse1() {
-    MarkerShapeType type = MarkerShapeType.CIRCLE;
-    assertEquals("circle", type.value());
-  }
-  
-  public void testUse2() {
-    MarkerShapeType type = MarkerShapeType.POLY;
-    assertEquals("poly", type.value());
-  }
-  
-  public void testUse3() {
-    MarkerShapeType type = MarkerShapeType.RECT;
-    assertEquals("rect", type.value());
-  }
- 
+	public void testUse1() {
+		MarkerShapeType type = MarkerShapeType.CIRCLE;
+		assertEquals("circle", type.value());
+	}
+
+	public void testUse2() {
+		MarkerShapeType type = MarkerShapeType.POLY;
+		assertEquals("poly", type.value());
+	}
+
+	public void testUse3() {
+		MarkerShapeType type = MarkerShapeType.RECT;
+		assertEquals("rect", type.value());
+	}
+
 }

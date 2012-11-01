@@ -1,47 +1,38 @@
 package com.google.gwt.maps.client.controls;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class PanControlOptionsTest extends GWTTestCase {
+public class PanControlOptionsTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public void testPosition() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PanControlOptions options = PanControlOptions.newInstance();
+				ControlPosition left = ControlPosition.TOP_CENTER;
+				options.setPosition(left);
+				ControlPosition right = options.getPosition();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
-
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PanControlOptions options = PanControlOptions.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-
-  public void testPosition() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        PanControlOptions options = PanControlOptions.newInstance();
-        ControlPosition left = ControlPosition.TOP_CENTER;
-        options.setPosition(left);
-        ControlPosition right = options.getPosition();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-
-
-
-
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PanControlOptions options = PanControlOptions.newInstance();
+				finishTest();
+			}
+		});
+	}
 
 }

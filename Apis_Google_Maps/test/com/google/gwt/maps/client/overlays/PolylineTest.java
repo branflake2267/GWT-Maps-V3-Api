@@ -2,41 +2,38 @@ package com.google.gwt.maps.client.overlays;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.mvc.MVCArray;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class PolylineTest extends GWTTestCase {
+public class PolylineTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolylineOptions options = PolylineOptions.newInstance();
 				Polyline o = Polyline.newInstance(options);
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testEditable() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolylineOptions options = PolylineOptions.newInstance();
 				Polyline o = Polyline.newInstance(options);
@@ -46,12 +43,13 @@ public class PolylineTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testMap() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolylineOptions options = PolylineOptions.newInstance();
 				Polyline o = Polyline.newInstance(options);
@@ -74,12 +72,13 @@ public class PolylineTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testPath_JsArray() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolylineOptions options = PolylineOptions.newInstance();
 				Polyline o = Polyline.newInstance(options);
@@ -92,12 +91,13 @@ public class PolylineTest extends GWTTestCase {
 				// fail and it will throw
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testPath_MVCArray() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				PolylineOptions options = PolylineOptions.newInstance();
 				Polyline o = Polyline.newInstance(options);
@@ -110,8 +110,8 @@ public class PolylineTest extends GWTTestCase {
 				// fail and it will throw
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 }

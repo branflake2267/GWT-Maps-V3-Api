@@ -1,72 +1,70 @@
 package com.google.gwt.maps.client.layers;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class KmlAuthorTest extends GWTTestCase {
+public class KmlAuthorTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public void testEmail() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				KmlAuthor o = KmlAuthor.newInstance();
+				String left = "test";
+				o.setEmail(left);
+				String right = o.getEmail();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {        
-        KmlAuthor o = KmlAuthor.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	public void testName() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				KmlAuthor o = KmlAuthor.newInstance();
+				String left = "test";
+				o.setName(left);
+				String right = o.getName();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
 
-  public void testEmail() {
-    LoadApi.go(new Runnable() {
-      public void run() {        
-        KmlAuthor o = KmlAuthor.newInstance();
-        String left = "test";
-        o.setEmail(left);
-        String right = o.getEmail();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testName() {
-    LoadApi.go(new Runnable() {
-      public void run() {        
-        KmlAuthor o = KmlAuthor.newInstance();
-        String left = "test";
-        o.setName(left);
-        String right = o.getName();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testUri() {
-    LoadApi.go(new Runnable() {
-      public void run() {        
-        KmlAuthor o = KmlAuthor.newInstance();
-        String left = "test";
-        o.setUri(left);
-        String right = o.getUri();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  
+	}
+
+	public void testUri() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				KmlAuthor o = KmlAuthor.newInstance();
+				String left = "test";
+				o.setUri(left);
+				String right = o.getUri();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				KmlAuthor o = KmlAuthor.newInstance();
+				finishTest();
+			}
+		});
+
+	}
+
 }

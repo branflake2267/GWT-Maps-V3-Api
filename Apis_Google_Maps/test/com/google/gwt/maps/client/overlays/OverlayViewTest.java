@@ -1,102 +1,103 @@
 package com.google.gwt.maps.client.overlays;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class OverlayViewTest extends GWTTestCase {
+public class OverlayViewTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
+				finishTest();
+			}
+		});
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	@SuppressWarnings("unused")
+	public void testDraw() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
 
-  @SuppressWarnings("unused")
-  public void testDraw() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testMapWidget() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testProjection() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testOnAdd() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testOnRemove() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testOnStreetViewPanoWidget() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        OverlayView o = OverlayView.newInstance();
-        
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testMapWidget() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testProjection() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testOnAdd() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testOnRemove() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testOnStreetViewPanoWidget() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				OverlayView o = OverlayView.newInstance();
+
+				finishTest();
+			}
+		});
+
+	}
+
 }
