@@ -28,48 +28,6 @@ public class MapImplTest extends AbstractMapsGWTTest {
 		return null;
 	}
 
-	/**
-	 * fitBounds() getBounds()
-	 */
-	public void testFitBounds() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				LatLng ne = LatLng.newInstance(41.239045d, -13.508142d);
-				LatLng sw = LatLng.newInstance(42.88679d, -19.927992d);
-				LatLngBounds left = LatLngBounds.newInstance(sw, ne);
-				o.fitBounds(left);
-
-				// expected
-				LatLng expectedSW = LatLng.newInstance(30.792110d, -180d);
-				LatLng expectedNE = LatLng.newInstance(51.64751d, 180d);
-				@SuppressWarnings("unused")
-				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
-
-				// test
-				LatLngBounds actual = o.getBounds();
-
-				double delta = 1e-3;
-				assertEquals(expectedSW.getLatitude(), actual.getSouthWest()
-						.getLatitude(), delta);
-				assertEquals(expectedSW.getLongitude(), actual.getSouthWest()
-						.getLongitude(), delta);
-				assertEquals(expectedNE.getLatitude(), actual.getNorthEast()
-						.getLatitude(), delta);
-				assertEquals(expectedNE.getLongitude(), actual.getNorthEast()
-						.getLongitude(), delta);
-
-				finishTest();
-			}
-		});
-
-	}
-
 	public void testGetDiv() {
 		asyncLibTest(new Runnable() {
 			@Override
@@ -88,6 +46,68 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				Element e = o.getDiv();
 
 				assertEquals(testClassName, e.getClassName());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testPanTo() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				LatLng latLng = LatLng.newInstance(35.3d, 38.5d);
+
+				LatLngBounds actual = o.getBounds();
+				assertNotNull("non-null bounds expected", actual);
+
+				o.panTo(latLng);
+				LatLng latlng = o.getCenter();
+				LatLng expected = LatLng.newInstance(35.299999d, 38.499999d);
+				assertLatLngEquals(expected, latlng);
+
+				finishTest();
+			}
+		});
+	}
+
+	/**
+	 * fitBounds() getBounds()
+	 */
+	public void testFitBounds() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+
+				// test we have good bounds
+				LatLngBounds actual = o.getBounds();
+				assertNotNull("Map bounds should be non-null", actual);
+
+				LatLng ne = LatLng.newInstance(41.239045d, -13.508142d);
+				LatLng sw = LatLng.newInstance(42.88679d, -19.927992d);
+				LatLngBounds left = LatLngBounds.newInstance(sw, ne);
+				o.fitBounds(left);
+
+				// expected
+				LatLng expectedSW = LatLng.newInstance(30.792110d, -180d);
+				LatLng expectedNE = LatLng.newInstance(51.64751d, 180d);
+
+				// test
+				actual = o.getBounds();
+				assertNotNull("Map bounds should be non-null", actual);
+
+				assertLatLngEquals(expectedSW, actual.getSouthWest());
+				assertLatLngEquals(expectedNE, actual.getNorthEast());
 
 				finishTest();
 			}
@@ -320,26 +340,6 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				acutal = layer.getMap();
 				assertEquals(widget.getCenter(), acutal.getCenter());
 
-				finishTest();
-			}
-		});
-
-	}
-
-	public void testPanTo() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				LatLng latLng = LatLng.newInstance(35.3d, 38.5d);
-				o.panTo(latLng);
-				LatLng latlng = o.getCenter();
-				assertEquals("(35.29999999999999, 38.49999999999994)",
-						latlng.getToString());
 				finishTest();
 			}
 		});
