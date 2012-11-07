@@ -106,7 +106,7 @@
 					<perCoreThreadCount>true</perCoreThreadCount>
 					<!-- Only run the GWTTests -->
 					<includes>
-						<include>**/*Suite.java</include>
+						<include>**/*Test.java</include>
 					</includes>
 				</configuration>
 			</plugin>

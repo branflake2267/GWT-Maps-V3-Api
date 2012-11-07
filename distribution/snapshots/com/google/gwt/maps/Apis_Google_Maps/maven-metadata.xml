@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.gwt.maps</groupId>
+  <artifactId>Apis_Google_Maps</artifactId>
+  <versioning>
+    <versions>
+      <version>3.8.0-beta2-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20120916232453</lastUpdated>
+  </versioning>
+</metadata>

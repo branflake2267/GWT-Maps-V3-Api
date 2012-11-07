@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry including="**/*.java" kind="src" output="war/WEB-INF/classes" path="src"/>
-	<classpathentry kind="src" output="target/test-classes" path="test"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="test"/>
+	<classpathentry kind="src" path="src_maps"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar" sourcepath="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/branflake2267/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/gwt/google-apis/gwt-ajaxloader/1.1.0/gwt-ajaxloader-1.1.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-dev/2.4.0/gwt-dev-2.4.0.jar" sourcepath="M2_REPO/com/google/gwt/gwt-dev/2.4.0/gwt-dev-2.4.0-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/branflake2267/.m2/repository/com/google/gwt/gwt-dev/2.4.0/gwt-dev-2.4.0-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0.jar" sourcepath="M2_REPO/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/branflake2267/.m2/repository/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/4.8.1/junit-4.8.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Apis_Google_Maps"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/gwt-user.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/gwt-dev.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/validation-api-1.0.0.GA.jar" sourcepath="/Applications/eclipse4/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
