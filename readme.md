@@ -1,8 +1,8 @@
 #GWT-Maps-V3-Api   
 This library provides Java language bindings for the Google maps Javascript api. 
 
-##Use Google Maps V3 in GWT  
-![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
+##Demo
+# ![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
 
 ##Implementers
 - [Live Showcase](http://gonevertical-apis.appspot.com)
