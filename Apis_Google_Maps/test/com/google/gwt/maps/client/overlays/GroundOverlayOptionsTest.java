@@ -25,6 +25,41 @@ public class GroundOverlayOptionsTest extends AbstractMapsGWTTest {
 
 	}
 
+	public void testDefaults() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				GroundOverlayOptions o = GroundOverlayOptions.newInstance();
+
+				assertNull("Should have NULL map by default", o.getMap());
+				assertTrue("Should be clickable by default", o.getClickable());
+				assertEquals("Should be visible by default", 1d, o.getOpacity(), 1e-3);
+
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testOpacity() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				GroundOverlayOptions o = GroundOverlayOptions.newInstance();
+
+				assertEquals("Should be visible by default", 1d, o.getOpacity(), 1e-3);
+
+				double expected = 0.232d;
+				o.setOpacity(expected);
+				assertEquals("Should have the new opacity value we set", expected, o.getOpacity(),
+						1.e-3);
+
+				finishTest();
+			}
+		});
+
+	}
+
 	public void testClickable() {
 		asyncLibTest(new Runnable() {
 			@Override
@@ -50,13 +85,29 @@ public class GroundOverlayOptionsTest extends AbstractMapsGWTTest {
 				left.setSize("500px", "500px");
 				RootPanel.get().add(left);
 				o.setMap(left);
+				@SuppressWarnings("deprecation")
 				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+				assertLatLngEquals(left.getCenter(), right.getCenter());
 				finishTest();
 			}
 		});
+	}
 
+	public void testMap() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				GroundOverlayOptions o = GroundOverlayOptions.newInstance();
+				MapOptions opts = MapOptions.newInstance();
+				MapWidget left = new MapWidget(opts);
+				left.setSize("500px", "500px");
+				RootPanel.get().add(left);
+				o.setMap(left);
+				MapWidget right = o.getMap();
+				assertLatLngEquals(left.getCenter(), right.getCenter());
+				finishTest();
+			}
+		});
 	}
 
 }

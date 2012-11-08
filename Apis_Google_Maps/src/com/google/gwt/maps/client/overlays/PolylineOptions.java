@@ -35,9 +35,9 @@ public class PolylineOptions extends JavaScriptObject {
 	 * Set expected defaults
 	 */
 	private void setDefaults() {
-		this.setGeodesic(false);
-		this.setVisible(true);
-		this.setClickable(true);
+		setGeodesic(false);
+		setVisible(true);
+		setClickable(true);
 	}
 
 	/**
@@ -98,10 +98,21 @@ public class PolylineOptions extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * gets Map on which to display Polyline.
+	 * Gets Map on which to display Polyline.
 	 */
+	public final MapWidget getMap() {
+		MapImpl obj = getMapImpl();
+		return obj != null ? MapWidget.newInstance(obj) : null;
+	}
+
+	/**
+	 * Gets Map on which to display Polyline. <br>
+	 * See {@link #getMap()}
+	 */
+	@Deprecated
 	public final MapWidget getMapWidget() {
-		return MapWidget.newInstance(getMapImpl());
+		MapImpl obj = getMapImpl();
+		return obj != null ? MapWidget.newInstance(obj) : null;
 	}
 
 	private final native MapImpl getMapImpl() /*-{

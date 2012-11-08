@@ -57,29 +57,31 @@ public class Polyline extends MVCObject<Polyline> {
 	public static final Polyline newInstance(PolylineOptions options) {
 		return createJso(options).cast();
 	}
-	
+
 	private static native JavaScriptObject createJso(PolylineOptions options) /*-{
 		return new $wnd.google.maps.Polyline(options);
 	}-*/;
 
 	/**
 	 * Hides this polyline if set to <code>false</code>.
+	 * 
 	 * @param isVisible
 	 */
-	public final native void setVisible(boolean isVisible) /*-{
-		this.setVisible(isVisible);
+	public final native void setVisible(boolean visible) /*-{
+		this.setVisible(visible);
 	}-*/;
 
 	/**
 	 * Returns whether this polyline is visible on the map.<br>
-	 * Do not call unless first associated with a map as undefined return will cause error.
+	 * Do not call unless first associated with a map as undefined return will
+	 * cause error.
 	 * 
 	 * @param isVisible
 	 */
 	public final native boolean getVisible() /*-{
 		return this.getVisible();
 	}-*/;
-	
+
 	/**
 	 * Returns whether this shape can be edited by the user.
 	 */
@@ -166,8 +168,8 @@ public class Polyline extends MVCObject<Polyline> {
 	 * @param handler
 	 */
 	public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.CLICK,
-				handler, new ClickEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler,
+				new ClickEventFormatter());
 	}
 
 	/**
@@ -175,10 +177,9 @@ public class Polyline extends MVCObject<Polyline> {
 	 * 
 	 * @param handler
 	 */
-	public final HandlerRegistration addDblClickHandler(
-			DblClickMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK,
-				handler, new DblClickEventFormatter());
+	public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler,
+				new DblClickEventFormatter());
 	}
 
 	/**
@@ -187,10 +188,9 @@ public class Polyline extends MVCObject<Polyline> {
 	 * 
 	 * @param handler
 	 */
-	public final HandlerRegistration addMouseDownHandler(
-			MouseDownMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN,
-				handler, new MouseDownEventFormatter());
+	public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler,
+				new MouseDownEventFormatter());
 	}
 
 	/**
@@ -199,10 +199,9 @@ public class Polyline extends MVCObject<Polyline> {
 	 * 
 	 * @param handler
 	 */
-	public final HandlerRegistration addMouseMoveHandler(
-			MouseMoveMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE,
-				handler, new MouseMoveEventFormatter());
+	public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler,
+				new MouseMoveEventFormatter());
 	}
 
 	/**
@@ -210,10 +209,9 @@ public class Polyline extends MVCObject<Polyline> {
 	 * 
 	 * @param handler
 	 */
-	public final HandlerRegistration addMouseOutMoveHandler(
-			MouseOutMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT,
-				handler, new MouseOutEventFormatter());
+	public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler,
+				new MouseOutEventFormatter());
 	}
 
 	/**
@@ -221,10 +219,9 @@ public class Polyline extends MVCObject<Polyline> {
 	 * 
 	 * @param handler
 	 */
-	public final HandlerRegistration addMouseOverHandler(
-			MouseOverMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER,
-				handler, new MouseOverEventFormatter());
+	public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler,
+				new MouseOverEventFormatter());
 	}
 
 	/**
@@ -233,8 +230,8 @@ public class Polyline extends MVCObject<Polyline> {
 	 * @param handler
 	 */
 	public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP,
-				handler, new MouseUpEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler,
+				new MouseUpEventFormatter());
 	}
 
 	/**
@@ -242,10 +239,9 @@ public class Polyline extends MVCObject<Polyline> {
 	 * 
 	 * @param handler
 	 */
-	public final HandlerRegistration addRightClickHandler(
-			RightClickMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK,
-				handler, new RightClickEventFormatter());
+	public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler,
+				new RightClickEventFormatter());
 	}
 
 }
