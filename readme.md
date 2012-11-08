@@ -8,12 +8,12 @@ This library provides Java language bindings for the Google maps Javascript api.
 - [Live Showcase](http://gonevertical-apis.appspot.com)
 - [Cycling the Alps](http://www.cyclingthealps.com)
 
-##Downloads (Last Build 24 Aug 2012)
+##Downloads (Last Build 7 Nov 2012)
 Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenized this project, but are currently having it added to the Central Repo. Until then, here are the current jars.
 
-- [gwt-maps-api-v3-3.8.0-beta2-javadoc.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2-javadoc.jar)
-- [gwt-maps-api-v3-3.8.0-beta2-sources.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2-sources.jar)
-- [gwt-maps-api-v3-3.8.0-beta2.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2.jar)
+- [gwt-maps-api-v3-3.8.1-javadoc.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1-javadoc.jar)
+- [gwt-maps-api-v3-3.8.1-sources.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1-sources.jar)
+- [gwt-maps-api-v3-3.8.1.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1.jar)
 
 ##Documentation
 
