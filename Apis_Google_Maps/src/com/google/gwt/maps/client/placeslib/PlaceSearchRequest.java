@@ -1,5 +1,8 @@
 package com.google.gwt.maps.client.placeslib;
 
+import java.lang.Deprecated;
+import java.util.List;
+
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
@@ -88,20 +91,42 @@ public class PlaceSearchRequest extends JavaScriptObject {
   /**
    * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
    * @param radius
+   * @deprecated
+   * @see #setRadius(double)
    */
-  public final native void setRaidus(double radius) /*-{
+  @Deprecated
+  public final void setRaidus(double radius) {
+    this.setRadius(radius);
+  }
+  
+  /**
+   * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
+   * @param radius
+   */
+  public final native void setRadius(double radius) /*-{
     this.radius = radius;
   }-*/;
   
   /**
    * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
+   * @deprecated
+   * @see #getRadius()
    */
-  public final native double getRaidus() /*-{
+  @Deprecated
+  public final double getRaidus() {
+    return this.getRadius();
+  }
+  
+  /**
+   * The distance from the given location within which to search for Places, in meters. The maximum allowed value is 50000
+   */
+  public final native double getRadius() /*-{
     return this.radius;
   }-*/;
   
   /**
    * Restricts the Place search results to Places with a type matching at least one of the specified types in this array. Valid types are given <a href="https://developers.google.com/maps/documentation/places/supported_types">here</a>.
+   * TODO add more AutocompleteType enums down the road. Otherwise use the setTypes(JsArrayString)
    * @param types
    */
   public final void setTypes(AutocompleteType... types) {
@@ -114,6 +139,18 @@ public class PlaceSearchRequest extends JavaScriptObject {
     }
     JsArrayString a = ArrayHelper.toJsArrayString(stypes);
     setTypesImpl(a);
+  }
+  
+  public final void setTypes(List<String> types) {
+    setTypes((String[]) types.toArray());
+  }
+  
+  public final void setTypes(String... types) {
+    setTypes(ArrayHelper.toJsArrayString(types));
+  }
+  
+  public final void setTypes(JsArrayString types) {
+    setTypesImpl(types);
   }
   
   private final native void setTypesImpl(JsArrayString types) /*-{

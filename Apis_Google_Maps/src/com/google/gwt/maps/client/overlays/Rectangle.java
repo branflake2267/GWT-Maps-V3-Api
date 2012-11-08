@@ -86,7 +86,7 @@ public class Rectangle extends MVCObject<Rectangle> {
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{
-		this.map = map;
+		this.setMap(map);
 	}-*/;
 
 	/**
@@ -97,7 +97,7 @@ public class Rectangle extends MVCObject<Rectangle> {
 	}
 
 	private final native MapImpl getMapImpl() /*-{
-		return this.map;
+		return this.getMap();
 	}-*/;
 
 	/**

@@ -46,7 +46,7 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	/**
 	 * Sets the color of labels on the weather layer. If this is not explicitly set, the label color is chosen automatically depending on the map type.
 	 * 
-	 * @param clickable
+	 * @param labelColor
 	 */
 	public final native void setLabelColor(LabelColor labelColor) /*-{
 		this.labelColor = labelColor;
@@ -62,7 +62,7 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	/**
 	 * Sets the units to use for temperature.
 	 * 
-	 * @param clickable
+	 * @param temperatureUnits
 	 */
 	public final native void setTemperatureUnits(TemperatureUnit temperatureUnits) /*-{
 		this.temperatureUnits = temperatureUnits;
@@ -78,7 +78,7 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	/**
 	 * Sets the units to use for wind speed.
 	 * 
-	 * @param clickable
+	 * @param windSpeedUnits
 	 */
 	public final native void setWindSpeedUnits(WindSpeedUnit windSpeedUnits) /*-{
 		this.windSpeedUnits = windSpeedUnits;
@@ -97,11 +97,8 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	 * @param mapWidget
 	 */
 	public final void setMap(MapWidget mapWidget) {
-		if (mapWidget == null) {
-			setMapImpl(null);
-		} else {
-			setMapImpl(mapWidget.getJso());
-		}
+		MapImpl value = (mapWidget != null) ? mapWidget.getJso() : null;
+		setMapImpl(value);
 	}
 
 	private final native void setMapImpl(MapImpl map) /*-{

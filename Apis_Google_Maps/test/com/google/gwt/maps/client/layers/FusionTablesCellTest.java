@@ -1,56 +1,54 @@
 package com.google.gwt.maps.client.layers;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class FusionTablesCellTest extends GWTTestCase {
+public class FusionTablesCellTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public void testColumnName() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesCell o = FusionTablesCell.newInstance();
+				String left = "test";
+				o.setColumnName(left);
+				String right = o.getColumnName();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesCell o = FusionTablesCell.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testColumnName() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesCell o = FusionTablesCell.newInstance();
-        String left = "test";
-        o.setColumnName(left);
-        String right = o.getColumnName();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesCell o = FusionTablesCell.newInstance();
+				finishTest();
+			}
+		});
 
-  public void testValue() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesCell o = FusionTablesCell.newInstance();
-        String left = "test";
-        o.setValue(left);
-        String right = o.getValue();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
+	}
+
+	public void testValue() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesCell o = FusionTablesCell.newInstance();
+				String left = "test";
+				o.setValue(left);
+				String right = o.getValue();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
 }

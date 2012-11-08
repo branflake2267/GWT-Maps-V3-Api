@@ -1,8 +1,10 @@
 package com.google.gwt.maps.client.main;
 
+import com.google.gwt.ajaxloader.client.ArrayHelper;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -10,49 +12,89 @@ import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.base.Point;
+import com.google.gwt.maps.client.controls.MapTypeStyle;
 import com.google.gwt.maps.client.layers.TrafficLayer;
+import com.google.gwt.maps.client.maptypes.MapTypeRegistry;
 import com.google.gwt.maps.client.maptypes.Projection;
+import com.google.gwt.maps.client.maptypes.StyledMapType;
+import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class MapImplTest extends GWTTestCase {
+public class MapImplTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
-	public void testWorks() {
-		assertEquals(true, true);
+	public void testGetDiv() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+
+				Element container = fp.getElement();
+				String testClassName = "TestClassName";
+				container.addClassName(testClassName);
+
+				fp.setSize("103px", "204px");
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				Element e = o.getDiv();
+
+				assertEquals(testClassName, e.getClassName());
+
+				finishTest();
+			}
+		});
 	}
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		LoadApi.go(new Runnable() {
+	public void testPanTo() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
 				Element element = fp.getElement();
 				MapOptions options = MapOptions.newInstance();
 				MapImpl o = MapImpl.newInstance(element, options);
+				LatLng latLng = LatLng.newInstance(35.3d, 38.5d);
+
+				LatLngBounds actual = o.getBounds();
+				assertNotNull("non-null bounds expected", actual);
+
+				o.panTo(latLng);
+				LatLng latlng = o.getCenter();
+				LatLng expected = LatLng.newInstance(35.299999d, 38.499999d);
+				assertLatLngEquals(expected, latlng);
+
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	/**
 	 * fitBounds() getBounds()
 	 */
 	public void testFitBounds() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
 				Element element = fp.getElement();
 				MapOptions options = MapOptions.newInstance();
 				MapImpl o = MapImpl.newInstance(element, options);
+				o.setCenter(LatLng.newInstance(41.239045d, -13.508142d));
+				o.setZoom(8);
+				
+				// test we have good bounds
+				LatLngBounds actual = o.getBounds();
+				assertNotNull("Map bounds should be non-null", actual);
+
 				LatLng ne = LatLng.newInstance(41.239045d, -13.508142d);
 				LatLng sw = LatLng.newInstance(42.88679d, -19.927992d);
 				LatLngBounds left = LatLngBounds.newInstance(sw, ne);
@@ -63,48 +105,216 @@ public class MapImplTest extends GWTTestCase {
 				LatLng expectedNE = LatLng.newInstance(51.64751d, -88.59306d);
 				@SuppressWarnings("unused")
 				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
-
 				// test
-				LatLngBounds actual = o.getBounds();
+				actual = o.getBounds();
+				assertNotNull("Map bounds should be non-null", actual);
 
-				double delta = 1e-3;
-				assertEquals(expectedSW.getLatitude(), actual.getSouthWest()
-						.getLatitude(), delta);
-				assertEquals(expectedSW.getLongitude(), actual.getSouthWest()
-						.getLongitude(), delta);
-				assertEquals(expectedNE.getLatitude(), actual.getNorthEast()
-						.getLatitude(), delta);
-				assertEquals(expectedNE.getLongitude(), actual.getNorthEast()
-						.getLongitude(), delta);
+				assertLatLngEquals(expectedSW, actual.getSouthWest());
+				assertLatLngEquals(expectedNE, actual.getNorthEast());
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
-	public void testGetDiv() {
-		LoadApi.go(new Runnable() {
+
+	public void testGetHeading() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
-				fp.setSize("103px", "204px");
 				Element element = fp.getElement();
 				MapOptions options = MapOptions.newInstance();
 				MapImpl o = MapImpl.newInstance(element, options);
-				Element e = o.getDiv();
-				int right = e.getAbsoluteRight();
-				int bottom = e.getAbsoluteBottom();
-				assertEquals(111, right);
-				assertEquals(312, bottom);
+
+				// TODO should this return null?
+				// try {
+				// int heading1 = o.getHeading();
+				// } catch (Exception e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+
+				o.setHeading(45);
+				int heading2 = o.getHeading();
+				assertEquals(45, heading2);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
+	}
+
+	public void testgetMapTypeId() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				MapTypeId left = MapTypeId.HYBRID;
+				o.setMapTypeId(left);
+				MapTypeId right = o.getMapTypeId();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testGetMapTypeRegistry() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				MapTypeId left = MapTypeId.HYBRID;
+				o.setMapTypeId(left);
+
+				// custom map to add
+				JsArray<MapTypeStyle> styles = ArrayHelper
+						.toJsArray(new MapTypeStyle[] {}); // JS needs JSArray,
+															// convert
+				StyledMapTypeOptions opt2 = StyledMapTypeOptions.newInstance();
+				opt2.setName("My Eyes are Bleeding!");// the name that appears
+														// on map controls
+				StyledMapType customMapType = StyledMapType.newInstance(styles,
+						opt2); // apply to new styled map
+
+				// if it worked we should be able to set it
+				MapTypeRegistry reg = o.getMapTypeRegistry();
+				reg.set("SomeNewMapType", customMapType);
+
+				// we're just making sure nothing broke - all methods are obf
+				// and private, so we cannot inspect
+
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testGetPanBy() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				o.panBy(50, 52);
+				LatLng latlng = o.getCenter();
+				assertEquals("(-41.53468367361192, 61.31250000000003)",
+						latlng.getToString());
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testGetProjection() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				Projection projection = o.getProjection();
+				boolean nowrap = false;
+				Point pixel = Point.newInstance(10d, 10d);
+				Point a = projection.fromPointToLatLng(pixel, nowrap);
+				assertEquals("(83.67694304841554, -165.9375)", a.getToString());
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testGetTilt() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				int tilt = o.getTilt();
+				assertEquals(0, tilt);
+				o.setTilt(20); // TODO Find out what i need to do for mapOptions
+								// to get this workable?
+				int t = o.getTilt();
+				assertEquals(0, t);
+				finishTest();
+			}
+		});
+
+	}
+
+	// /**
+	// * TODO come back and finish this when I have some street view properties
+	// to add
+	// */
+	// public void testStreetView() {
+	// asyncLibTest(new Runnable() {
+	// public void run() {
+	// FlowPanel fpSv = new FlowPanel();
+	// RootPanel.get().add(fpSv);
+	//
+	// FlowPanel fp = new FlowPanel();
+	// RootPanel.get().add(fp);
+	// Element element = fp.getElement();
+	// MapOptions options = MapOptions.newInstance();
+	// MapImpl o = MapImpl.newInstance(element, options);
+	//
+	// StreetViewPanoramaOptions svOptions =
+	// StreetViewPanoramaOptions.newInstance();
+	// svOptions.setPano("testingPano");
+	//
+	// StreetViewPanorama left =
+	// StreetViewPanorama.newInstance(fpSv.getElement(), svOptions );
+	// o.setStreetView(left);
+	//
+	// StreetViewPanorama right = o.getStreetView();
+	//
+	// assertEquals(left.getPano(), right.getPano());
+	//
+	// finishTest();
+	// }
+	// });
+
+	// }
+
+	public void testGetZoom() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				int zoom = o.getZoom();
+				assertEquals(0, zoom);
+				o.setZoom(5);
+				assertEquals(5, o.getZoom());
+				finishTest();
+			}
+		});
+
 	}
 
 	public void testJsoToWidgetConversion() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 
 				// make map
@@ -135,184 +345,13 @@ public class MapImplTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
+		});
 
-	public void testGetHeading() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-
-				// TODO should this return null?
-				// try {
-				// int heading1 = o.getHeading();
-				// } catch (Exception e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-
-				o.setHeading(45);
-				int heading2 = o.getHeading();
-				assertEquals(45, heading2);
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-
-	public void testgetMapTypeId() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				MapTypeId left = MapTypeId.HYBRID;
-				o.setMapTypeId(left);
-				MapTypeId right = o.getMapTypeId();
-				assertEquals(left, right);
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-
-	public void testGetProjection() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				Projection projection = o.getProjection();
-				boolean nowrap = false;
-				Point pixel = Point.newInstance(10d, 10d);
-				Point a = projection.fromPointToLatLng(pixel, nowrap);
-				assertEquals("(83.67694304841554, -165.9375)", a.getToString());
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-
-	// /**
-	// * TODO come back and finish this when I have some street view properties
-	// to add
-	// */
-	// public void testStreetView() {
-	// LoadApi.go(new Runnable() {
-	// public void run() {
-	// FlowPanel fpSv = new FlowPanel();
-	// RootPanel.get().add(fpSv);
-	//
-	// FlowPanel fp = new FlowPanel();
-	// RootPanel.get().add(fp);
-	// Element element = fp.getElement();
-	// MapOptions options = MapOptions.newInstance();
-	// MapImpl o = MapImpl.newInstance(element, options);
-	//
-	// StreetViewPanoramaOptions svOptions =
-	// StreetViewPanoramaOptions.newInstance();
-	// svOptions.setPano("testingPano");
-	//
-	// StreetViewPanorama left =
-	// StreetViewPanorama.newInstance(fpSv.getElement(), svOptions );
-	// o.setStreetView(left);
-	//
-	// StreetViewPanorama right = o.getStreetView();
-	//
-	// assertEquals(left.getPano(), right.getPano());
-	//
-	// finishTest();
-	// }
-	// }, false);
-	// delayTestFinish(ASYNC_DELAY_MS);
-	// }
-
-	public void testGetTilt() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				int tilt = o.getTilt();
-				assertEquals(0, tilt);
-				o.setTilt(20); // TODO Find out what i need to do for mapOptions
-								// to get this workable?
-				int t = o.getTilt();
-				assertEquals(0, t);
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-
-	public void testGetZoom() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				int zoom = o.getZoom();
-				assertEquals(0, zoom);
-				o.setZoom(5);
-				assertEquals(5, o.getZoom());
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-
-	public void testGetPanBy() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				o.panBy(50, 52);
-				LatLng latlng = o.getCenter();
-				assertEquals("(-41.53468367361192, 61.31250000000003)",
-						latlng.getToString());
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
-	}
-
-	public void testPanTo() {
-		LoadApi.go(new Runnable() {
-			public void run() {
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				Element element = fp.getElement();
-				MapOptions options = MapOptions.newInstance();
-				MapImpl o = MapImpl.newInstance(element, options);
-				LatLng latLng = LatLng.newInstance(35.3d, 38.5d);
-				o.panTo(latLng);
-				LatLng latlng = o.getCenter();
-				assertEquals("(35.29999999999999, 38.49999999999994)",
-						latlng.getToString());
-				finishTest();
-			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
 	}
 
 	public void testPanToBounds() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -328,12 +367,13 @@ public class MapImplTest extends GWTTestCase {
 						center.getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testSetCenter() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				FlowPanel fp = new FlowPanel();
 				RootPanel.get().add(fp);
@@ -346,8 +386,24 @@ public class MapImplTest extends GWTTestCase {
 						.getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				Element element = fp.getElement();
+				MapOptions options = MapOptions.newInstance();
+				MapImpl o = MapImpl.newInstance(element, options);
+				finishTest();
+			}
+		});
+
 	}
 
 	// /**
@@ -355,7 +411,7 @@ public class MapImplTest extends GWTTestCase {
 	// * getControls
 	// */
 	// public void testSetControls() {
-	// LoadApi.go(new Runnable() {
+	// asyncLibTest(new Runnable() {
 	// public void run() {
 	// FlowPanel fp = new FlowPanel();
 	// RootPanel.get().add(fp);
@@ -368,12 +424,12 @@ public class MapImplTest extends GWTTestCase {
 	//
 	// finishTest();
 	// }
-	// }, false);
-	// delayTestFinish(ASYNC_DELAY_MS);
+	// });
+
 	// }
 
 	// public void testMapTypesRegistry() {
-	// LoadApi.go(new Runnable() {
+	// asyncLibTest(new Runnable() {
 	// public void run() {
 	// FlowPanel fp = new FlowPanel();
 	// RootPanel.get().add(fp);
@@ -384,12 +440,12 @@ public class MapImplTest extends GWTTestCase {
 	//
 	// finishTest();
 	// }
-	// }, false);
-	// delayTestFinish(ASYNC_DELAY_MS);
+	// });
+
 	// }
 
 	// public void testSetOverlayMapTypes() {
-	// LoadApi.go(new Runnable() {
+	// asyncLibTest(new Runnable() {
 	// public void run() {
 	// FlowPanel fp = new FlowPanel();
 	// RootPanel.get().add(fp);
@@ -400,7 +456,7 @@ public class MapImplTest extends GWTTestCase {
 	//
 	// finishTest();
 	// }
-	// }, false);
-	// delayTestFinish(ASYNC_DELAY_MS);
+	// });
+
 	// }
 }

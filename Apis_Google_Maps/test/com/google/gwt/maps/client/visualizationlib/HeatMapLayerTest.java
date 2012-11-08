@@ -1,73 +1,71 @@
 package com.google.gwt.maps.client.visualizationlib;
 
-import java.util.ArrayList;
-
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.mvc.MVCArray;
-import com.google.gwt.maps.client.testutil.AbstractTest;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class HeatMapLayerTest extends AbstractTest {
+public class HeatMapLayerTest extends AbstractMapsGWTTest {
 
-	
-	public void testUse() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);
-		LoadApi.go(new Runnable() {
-			public void run() {
-				
-				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
-				@SuppressWarnings("unused")
-				HeatMapLayer layer = HeatMapLayer.newInstance(options);
-				finishTest();
-			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[]{LoadLibrary.VISUALIZATION};
 	}
-
+	
 	public void testGetMap() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);  
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
 				mapWidget.setSize("500px", "500px");
 				RootPanel.get().add(mapWidget);
-
+				
 				HeatMapLayerOptions layerOptions = HeatMapLayerOptions.newInstance();
 				HeatMapLayer layer = HeatMapLayer.newInstance(layerOptions);
-
+				
 				// test getting null map
 				assertNull(layer.getMap());
-
+				
 				// ensure we can read back the map value and that it is correct
 				layer.setMap(mapWidget);
 				MapWidget right = layer.getMap();
-
+				
 				assertEquals(mapWidget.getCenter().getToString(), right
 						.getCenter().getToString());
-
+				
 				// test clearing from map
 				layer.setMap(null);
 				assertNull(layer.getMap());
+				
+				finishTest();
+			}
+		});
+	}
+	
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				
+				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
+				@SuppressWarnings("unused")
+				HeatMapLayer layer = HeatMapLayer.newInstance(options);
 
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
+
 	public void testSetDataLatLngMVCArray() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);  
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
@@ -99,14 +97,12 @@ public class HeatMapLayerTest extends AbstractTest {
 
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 	
 	public void testSetDataWeightedLocationMVCArray() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);  
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
@@ -138,17 +134,15 @@ public class HeatMapLayerTest extends AbstractTest {
 
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 	
 	/**
 	 * Note that you can only GET as MVCArray, but you can set as JsArray
 	 */
 	public void testSetDataLatLngJsArray() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);  
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
@@ -180,17 +174,14 @@ public class HeatMapLayerTest extends AbstractTest {
 				actual = layer.getData();
 				assertEquals(0, actual.getLength());
 */
-
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 	
 	public void testSetDataWeightedLocationJsArray() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);  
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
@@ -205,7 +196,7 @@ public class HeatMapLayerTest extends AbstractTest {
 				assertEquals(0, actual.getLength());
 				
 
-				// TODO Fix unepected test error here
+				// TODO Fix unexpected test error here
 /*				// ensure we can read back the map value and that it is correct
 				
 				// foo data
@@ -224,8 +215,7 @@ public class HeatMapLayerTest extends AbstractTest {
 
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 	
 	/**

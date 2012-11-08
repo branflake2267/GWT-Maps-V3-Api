@@ -1,36 +1,33 @@
 package com.google.gwt.maps.client.layers;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class BicyclingLayerTest extends GWTTestCase {
+public class BicyclingLayerTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				BicyclingLayer o = BicyclingLayer.newInstance();
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testUse2() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
@@ -54,7 +51,7 @@ public class BicyclingLayerTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 }

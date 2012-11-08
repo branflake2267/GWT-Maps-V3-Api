@@ -31,7 +31,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class ElevationMapWidget extends Composite {
 
-	private VerticalPanel pWidget;
+	private final VerticalPanel pWidget;
 
 	private MapWidget mapWidget;
 
@@ -50,6 +50,8 @@ public class ElevationMapWidget extends Composite {
 
 		drawMap();
 
+		// trigger an info window popup so people can see it on map render
+		findElevation(LatLng.newInstance(39.43d, -106.66d));
 	}
 
 	private void drawMap() {
@@ -64,20 +66,20 @@ public class ElevationMapWidget extends Composite {
 		mapWidget.setSize("750px", "500px");
 
 		mapWidget.addClickHandler(new ClickMapHandler() {
+			@Override
 			public void onEvent(ClickMapEvent event) {
-				// TODO fix the event getting, getting ....
 				GWT.log("clicked on latlng="
 						+ event.getMouseEvent().getLatLng());
-
-				findElevation(event);
+				
+				LatLng point = event.getMouseEvent().getLatLng();
+				findElevation(point);
 			}
 		});
 	}
 
-	private void findElevation(ClickMapEvent event) {
+	private void findElevation(LatLng point) {
 
-		LatLng[] a = new LatLng[1];
-		a[0] = event.getMouseEvent().getLatLng();
+		LatLng[] a = new LatLng[]{point};
 
 		JsArray<LatLng> locations = ArrayHelper.toJsArray(a);
 
@@ -87,6 +89,7 @@ public class ElevationMapWidget extends Composite {
 
 		ElevationService o = ElevationService.newInstance();
 		o.getElevationForLocations(request, new ElevationServiceHandler() {
+			@Override
 			public void onCallback(JsArray<ElevationResult> result,
 					ElevationStatus status) {
 

@@ -1,110 +1,58 @@
 package com.google.gwt.maps.client.maptype;
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
-import com.google.gwt.maps.client.base.Point;
-import com.google.gwt.maps.client.base.Size;
-import com.google.gwt.maps.client.maptypes.MapType;
+import com.google.gwt.ajaxloader.client.ArrayHelper;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
+import com.google.gwt.maps.client.controls.MapTypeStyle;
 import com.google.gwt.maps.client.maptypes.MapTypeRegistry;
-import com.google.gwt.maps.client.maptypes.Projection;
+import com.google.gwt.maps.client.maptypes.StyledMapType;
+import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
 
-public class MapTypeRegistryTest extends GWTTestCase {
+public class MapTypeRegistryTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
-  
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapTypeRegistry o = MapTypeRegistry.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testSet() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        MapTypeRegistry o = MapTypeRegistry.newInstance();
-        String id = "myId";
-        o.set(id, new MapType() {
-          
-          @Override
-          public void setTileSize(Size tileSize) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void setRadius(int radius) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void setProjection(Projection projection) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void setName(String name) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void setMinZoom(int minZoom) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void setMaxZoom(int maxZoom) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void setAlt(String alt) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public void releaseTile(Element tile) {
-            // TODO Auto-generated method stub
-            
-          }
-          
-          @Override
-          public Element getTile(Point tileCoord, int zoom, Document ownerDocument) {
-            // TODO Auto-generated method stub
-            return null;
-          }
-          
-          @Override
-          public String getAlt() {
-            // TODO Auto-generated method stub
-            return null;
-          }
-        });
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapTypeRegistry o = MapTypeRegistry.newInstance();
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testSet() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MapTypeRegistry o = MapTypeRegistry.newInstance();
+				assertNotNull(o);
+
+				String id = "myId";
+
+				MapTypeStyle[] array = new MapTypeStyle[3];
+				array[0] = MapTypeStyle.newInstance();
+				array[1] = MapTypeStyle.newInstance();
+				array[2] = MapTypeStyle.newInstance();
+				JsArray<MapTypeStyle> styles = ArrayHelper.toJsArray(array);
+				StyledMapTypeOptions options = StyledMapTypeOptions
+						.newInstance();
+				StyledMapType styledType = StyledMapType.newInstance(styles,
+						options);
+
+				o.set(id, styledType);
+
+				finishTest();
+			}
+		});
+
+	}
 
 }

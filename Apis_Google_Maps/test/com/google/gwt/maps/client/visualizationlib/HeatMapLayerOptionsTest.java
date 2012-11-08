@@ -1,40 +1,39 @@
 package com.google.gwt.maps.client.visualizationlib;
 
-import java.util.ArrayList;
-
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArrayString;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.mvc.MVCArray;
-import com.google.gwt.maps.client.testutil.AbstractTest;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class HeatMapLayerOptionsTest extends AbstractTest {
+public class HeatMapLayerOptionsTest extends AbstractMapsGWTTest {
 
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.VISUALIZATION };
+	}
+	
 	public void testUse() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
-
 				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
 				@SuppressWarnings("unused")
 				HeatMapLayer layer = HeatMapLayer.newInstance(options);
 				finishTest();
+				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testGetSetMap() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
 				assertNotNull(options);
@@ -55,15 +54,14 @@ public class HeatMapLayerOptionsTest extends AbstractTest {
 				options.setMap(null);
 				assertNull(options.getMap());
 				finishTest();
+				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testGetSetData() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
 				assertNotNull(options);
@@ -88,15 +86,14 @@ public class HeatMapLayerOptionsTest extends AbstractTest {
 				assertEquals(0, actual.getLength());
 
 				finishTest();
+				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 
 	public void testGetSetOthers() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.VISUALIZATION);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
 				assertNotNull(options);
@@ -134,8 +131,8 @@ public class HeatMapLayerOptionsTest extends AbstractTest {
 				assertEquals(expectedRadius, options.getRadius());
 
 				finishTest();
+				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
 	}
 }

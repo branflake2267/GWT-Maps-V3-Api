@@ -1,44 +1,35 @@
 package com.google.gwt.maps.client.weatherlib;
 
-import java.util.ArrayList;
-
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.LoadApi.LoadLibrary;
-import com.google.gwt.maps.client.weatherlib.CloudLayer;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class CloudLayerTest extends GWTTestCase {
+public class CloudLayerTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return new LoadLibrary[] { LoadLibrary.WEATHER };
 	}
 
-	public void testWorks() {
-		assertEquals(true, true);
-	}
-
-	@SuppressWarnings("unused")
 	public void testUse() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.WEATHER);
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				CloudLayer o = CloudLayer.newInstance();
+				assertNotNull("CloudLayer should have been created.", o);
+
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testCloudLayer() {
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.WEATHER);  
-		LoadApi.go(new Runnable() {
+
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				MapOptions options = MapOptions.newInstance();
 				MapWidget mapWidget = new MapWidget(options);
@@ -62,7 +53,7 @@ public class CloudLayerTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, loadLibraries, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 }

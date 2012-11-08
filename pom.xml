@@ -6,7 +6,7 @@
 	<!-- Artifact details that people will use search for this project -->
 	<groupId>com.google.gwt.maps</groupId>
 	<artifactId>gwt-maps-api-v3</artifactId>
-	<version>3.8.0-beta2-SNAPSHOT</version>
+	<version>3.8.1</version>
 	<packaging>pom</packaging> <!-- b/c is a parent POM, others are jars/wars -->
 
 
@@ -83,6 +83,7 @@
 	
 		<!-- Google maps props -->
 		<gmapsApiVersion>3.8.0</gmapsApiVersion>
+		<gwt.style>OBF</gwt.style>
 
 		<!-- Java props -->
 		<javaVersion>1.6</javaVersion>
@@ -115,7 +116,9 @@
 					<version>${gwt.version}</version>
 
 					<!-- project level .gwt.xml files defined in sub-projects -->
-					<configuration></configuration>
+					<configuration>
+						<style>${gwt.style}</style>
+					</configuration>
 
 					<executions>
 						<execution>

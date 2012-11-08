@@ -1,71 +1,70 @@
 package com.google.gwt.maps.client.layers;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class FusionTablesQueryTest extends GWTTestCase {
+public class FusionTablesQueryTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	public void testFrom() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+				String left = "test123";
+				o.setFrom(left);
+				String right = o.getFrom();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
+	}
 
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesQuery o = FusionTablesQuery.newInstance();
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testFrom() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesQuery o = FusionTablesQuery.newInstance();
-        String left = "test123";
-        o.setFrom(left);
-        String right = o.getFrom();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testSelect() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesQuery o = FusionTablesQuery.newInstance();
-        String left = "test123";
-        o.setSelect(left);
-        String right = o.getSelect();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testWhere() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        FusionTablesQuery o = FusionTablesQuery.newInstance();
-        String left = "test123";
-        o.setWhere(left);
-        String right = o.getWhere();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
+	public void testSelect() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+				String left = "test123";
+				o.setSelect(left);
+				String right = o.getSelect();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+				finishTest();
+			}
+		});
+
+	}
+
+	public void testWhere() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+				String left = "test123";
+				o.setWhere(left);
+				String right = o.getWhere();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
+
 }

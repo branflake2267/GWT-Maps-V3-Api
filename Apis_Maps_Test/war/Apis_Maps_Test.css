@@ -14,6 +14,28 @@ body {
     /* border:1px solid blue; */
 }
 
+/* Styled maps example */
+.styledExample {
+	margin-bottom:5px;	
+}
+
+.styledExample span {
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	padding:3px;
+	color:white;
+}
+.styledExample span:nth-child(1) {
+	background-color:blue;
+}
+.styledExample span:nth-child(2) {
+	background-color:black;
+}
+.styledExample span:nth-child(3) {
+	background-color:red;
+}
+
 .test1 {
   border:1px solid #FF0000;
 }

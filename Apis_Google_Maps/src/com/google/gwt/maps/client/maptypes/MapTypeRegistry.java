@@ -26,9 +26,9 @@ public class MapTypeRegistry extends JavaScriptObject {
   /**
    * Sets the registry to associate the passed string identifier with the passed MapType.
    * @param id
-   * @param mapType
+   * @param mapType is Object because of limitations of JSO's and interfaces in GWT
    */
-  public final native void set(String id, MapType mapType) /*-{
+  public final native void set(String id, Object mapType) /*-{
     this.set(id, mapType);
   }-*/;
   

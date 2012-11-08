@@ -1,39 +1,36 @@
 package com.google.gwt.maps.client.overlays;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class RectangleTest extends GWTTestCase {
+public class RectangleTest extends AbstractMapsGWTTest {
 
-	public static final int ASYNC_DELAY_MS = 5000;
-
-	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-	}
-
-	public void testWorks() {
-		assertEquals(true, true);
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
 	}
 
 	@SuppressWarnings("unused")
 	public void testUse() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				RectangleOptions options = RectangleOptions.newInstance();
 				Rectangle o = Rectangle.newInstance(options);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testBounds() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				RectangleOptions options = RectangleOptions.newInstance();
 				LatLng sw = LatLng.newInstance(-31.203405d, 125.244141d);
@@ -56,12 +53,13 @@ public class RectangleTest extends GWTTestCase {
 
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testEditable() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				RectangleOptions options = RectangleOptions.newInstance();
 				Rectangle o = Rectangle.newInstance(options);
@@ -71,12 +69,13 @@ public class RectangleTest extends GWTTestCase {
 				assertEquals(left, right);
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 	public void testMap() {
-		LoadApi.go(new Runnable() {
+		asyncLibTest(new Runnable() {
+			@Override
 			public void run() {
 				RectangleOptions options = RectangleOptions.newInstance();
 				Rectangle o = Rectangle.newInstance(options);
@@ -90,8 +89,8 @@ public class RectangleTest extends GWTTestCase {
 						.getToString());
 				finishTest();
 			}
-		}, false);
-		delayTestFinish(ASYNC_DELAY_MS);
+		});
+
 	}
 
 }

@@ -1,43 +1,39 @@
 package com.google.gwt.maps.client.controls;
 
-import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class ScaleControlStyleTest extends GWTTestCase {
+public class ScaleControlStyleTest extends AbstractMapsGWTTest {
 
-  public static final int ASYNC_DELAY_MS = 5000;
-  
-  public String getModuleName() {
-    return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
-  }
+	@Override
+	public LoadLibrary[] getLibraries() {
+		return null;
+	}
 
-  public void testWorks() {
-    assertEquals(true, true);
-  }
-  
-  @SuppressWarnings("unused")
-  public void testUse() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        ScaleControlStyle type = ScaleControlStyle.DEFAULT;
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  public void testEnum1() {
-    LoadApi.go(new Runnable() {
-      public void run() {
-        ScaleControlStyle type = ScaleControlStyle.DEFAULT;
-        String left = "DEFAULT";
-        String right = type.value();
-        assertEquals(left, right);
-        finishTest();
-      }
-    }, false);
-    delayTestFinish(ASYNC_DELAY_MS);
-  }
-  
-  
+	public void testEnum1() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				ScaleControlStyle type = ScaleControlStyle.DEFAULT;
+				String left = "DEFAULT";
+				String right = type.value();
+				assertEquals(left, right);
+				finishTest();
+			}
+		});
+
+	}
+
+	@SuppressWarnings("unused")
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				ScaleControlStyle type = ScaleControlStyle.DEFAULT;
+				finishTest();
+			}
+		});
+
+	}
+
 }
