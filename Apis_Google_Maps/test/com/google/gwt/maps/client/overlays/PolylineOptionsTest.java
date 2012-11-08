@@ -26,7 +26,22 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
+	}
+	
+	public void testDefaults() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolygonOptions o = PolygonOptions.newInstance();
+				
+				assertFalse("Should not be editable by default", o.getEditable());
+				assertTrue("Should be clickable by default", o.getClickable());
+				assertTrue("Should be visible by default", o.getVisible());
+				assertFalse("Should not be geodesic by default", o.getGeodesic());
+				
+				finishTest();
+			}
+		});
 	}
 
 	public void testClickable() {
@@ -41,7 +56,22 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+	}
+	
+	public void testVisible() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolylineOptions o = PolylineOptions.newInstance();
 
+				assertTrue("Should be visible by default", o.getVisible());
+				
+				o.setVisible(false);
+				assertFalse("Should not be visible", o.getVisible());
+				
+				finishTest();
+			}
+		});
 	}
 
 	public void testGeodesic() {

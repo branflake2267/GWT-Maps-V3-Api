@@ -46,6 +46,26 @@ public class PolylineTest extends AbstractMapsGWTTest {
 		});
 
 	}
+	
+	public void testVisible() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolylineOptions options = PolylineOptions.newInstance();
+				Polyline o = Polyline.newInstance(options);
+				
+
+				o.setVisible(false);
+				assertFalse("Polyline should not be visible",o.getVisible());
+				
+				o.setVisible(true);
+				assertTrue("Polyline should be visible",o.getVisible());
+				
+				finishTest();
+			}
+		});
+		
+	}
 
 	public void testMap() {
 		asyncLibTest(new Runnable() {

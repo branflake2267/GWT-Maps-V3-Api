@@ -57,11 +57,29 @@ public class Polyline extends MVCObject<Polyline> {
 	public static final Polyline newInstance(PolylineOptions options) {
 		return createJso(options).cast();
 	}
-
+	
 	private static native JavaScriptObject createJso(PolylineOptions options) /*-{
 		return new $wnd.google.maps.Polyline(options);
 	}-*/;
 
+	/**
+	 * Hides this polyline if set to <code>false</code>.
+	 * @param isVisible
+	 */
+	public final native void setVisible(boolean isVisible) /*-{
+		this.setVisible(isVisible);
+	}-*/;
+
+	/**
+	 * Returns whether this polyline is visible on the map.<br>
+	 * Do not call unless first associated with a map as undefined return will cause error.
+	 * 
+	 * @param isVisible
+	 */
+	public final native boolean getVisible() /*-{
+		return this.getVisible();
+	}-*/;
+	
 	/**
 	 * Returns whether this shape can be edited by the user.
 	 */

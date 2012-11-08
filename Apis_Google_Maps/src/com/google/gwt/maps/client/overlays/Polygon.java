@@ -64,6 +64,24 @@ public class Polygon extends MVCObject<Polygon> {
 	}-*/;
 
 	/**
+	 * Hides this poly if set to <code>false</code>.
+	 * @param isVisible
+	 */
+	public final native void setVisible(boolean isVisible) /*-{
+		this.setVisible(isVisible);
+	}-*/;
+
+	/**
+	 * Returns whether this poly is visible on the map.<br>
+	 * Do not call unless first associated with a map as undefined return will cause error.
+	 * 
+	 * @param isVisible
+	 */
+	public final native boolean getVisible() /*-{
+		return this.getVisible();
+	}-*/;
+	
+	/**
 	 * Returns whether this shape can be edited by the user.
 	 */
 	public final native boolean getEditable() /*-{
