@@ -90,7 +90,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- GWT props -->
-		<gwt.version>2.4.0</gwt.version>
+		<gwt.version>2.5.0</gwt.version>
 		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
 	</properties>
 
