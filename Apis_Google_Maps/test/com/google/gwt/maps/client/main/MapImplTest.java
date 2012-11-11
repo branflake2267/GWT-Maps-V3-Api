@@ -101,8 +101,8 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				o.fitBounds(left);
 
 				// expected
-				LatLng expectedSW = LatLng.newInstance(30.792110d, -54.84306d);
-				LatLng expectedNE = LatLng.newInstance(51.64751d, -88.59306d);
+				LatLng expectedSW = LatLng.newInstance(30.792110d, -180.0d);
+				LatLng expectedNE = LatLng.newInstance(51.64751d, 180.0d);
 				@SuppressWarnings("unused")
 				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
 				// test

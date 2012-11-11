@@ -61,7 +61,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	/**
 	 * Get the data points to display. Required.
 	 * 
-	 * @returns dataPoints
+	 * @return dataPoints
 	 */
 	public final native MVCArray<LatLng> getData() /*-{
 		return this.data;
@@ -79,7 +79,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	/**
 	 * Get the dissipating property
 	 * 
-	 * @returns dissipating state
+	 * @return dissipating state
 	 */
 	public final native boolean getDissipating() /*-{
 		return this.dissipating;
@@ -97,7 +97,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	/**
 	 * Get color gradient of the heatmap.
 	 * 
-	 * @returns gradient
+	 * @return gradient
 	 */
 	public final native JsArrayString getGradient() /*-{
 		return this.gradient;
@@ -121,7 +121,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 
 	/**
 	 * Gets map layer is rendered to, or NULL if not associated with map.
-	 * @return
+	 * @return NULL if not associated with map
 	 */
 	public final MapWidget getMap() {
 		return MapWidget.newInstance(getMapImpl());
@@ -143,7 +143,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	/**
 	 * Get maximum intensity
 	 * 
-	 * @returns maxIntensity
+	 * @return maxIntensity
 	 */
 	public final native double getMaxIntensity() /*-{
 		return this.maxIntensity;
@@ -161,7 +161,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	/**
 	 * Get layer opacity
 	 * 
-	 * @returns opacity
+	 * @return opacity
 	 */
 	public final native double getOpacity() /*-{
 		return this.opacity;
@@ -179,7 +179,7 @@ public class HeatMapLayerOptions extends JavaScriptObject {
 	/**
 	 * Get data point influence in pixels.
 	 * 
-	 * @returns radius (pixels)
+	 * @return radius (pixels)
 	 */
 	public final native double getRadius() /*-{
 		return this.radius;

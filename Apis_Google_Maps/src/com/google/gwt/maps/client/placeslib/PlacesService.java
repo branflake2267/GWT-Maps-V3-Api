@@ -20,7 +20,6 @@ public class PlacesService extends JavaScriptObject {
   
   /**
    * Creates a new instance of the PlacesService that renders attributions in the specified container.
-   * @param attrContainer
    * @param mapWidget
    */
   public static final PlacesService newInstance(MapWidget mapWidget) {

@@ -17,6 +17,20 @@ public class HeatMapLayerTest extends AbstractMapsGWTTest {
 		return new LoadLibrary[]{LoadLibrary.VISUALIZATION};
 	}
 	
+	public void testUse() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				
+				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
+				@SuppressWarnings("unused")
+				HeatMapLayer layer = HeatMapLayer.newInstance(options);
+
+				finishTest();
+			}
+		});
+	}
+	
 	public void testGetMap() {
 		asyncLibTest(new Runnable() {
 			@Override
@@ -32,37 +46,18 @@ public class HeatMapLayerTest extends AbstractMapsGWTTest {
 				// test getting null map
 				assertNull(layer.getMap());
 				
-				// ensure we can read back the map value and that it is correct
-				layer.setMap(mapWidget);
-				MapWidget right = layer.getMap();
-				
-				assertEquals(mapWidget.getCenter().getToString(), right
-						.getCenter().getToString());
-				
 				// test clearing from map
 				layer.setMap(null);
 				assertNull(layer.getMap());
+
+				// ensure we can read back the map value and that it is correct
+				layer.setMap(mapWidget);				
 				
 				finishTest();
 			}
 		});
 	}
 	
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				
-				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
-				@SuppressWarnings("unused")
-				HeatMapLayer layer = HeatMapLayer.newInstance(options);
-
-				finishTest();
-			}
-		});
-	}
-
-
 	public void testSetDataLatLngMVCArray() {
 		asyncLibTest(new Runnable() {
 			@Override

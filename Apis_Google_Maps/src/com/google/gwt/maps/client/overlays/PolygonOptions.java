@@ -48,7 +48,7 @@ public class PolygonOptions extends JavaScriptObject {
 	/**
 	 * If set to true, the user can edit this shape by dragging the control points shown at the vertices and on each segment. Defaults to false.
 	 * 
-	 * @param isVisible
+	 * @param isEditable
 	 */
 	public final native void setEditable(boolean isEditable) /*-{
 		this.editable = isEditable;

@@ -74,8 +74,6 @@ public class Polygon extends MVCObject<Polygon> {
 	/**
 	 * Returns whether this poly is visible on the map.<br>
 	 * Do not call unless first associated with a map as undefined return will cause error.
-	 * 
-	 * @param isVisible
 	 */
 	public final native boolean getVisible() /*-{
 		return this.getVisible();

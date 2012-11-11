@@ -62,7 +62,7 @@ public class HeatMapLayer extends MVCObject<HeatMapLayer> {
 	/**
 	 * Gets map layer is rendered to, or NULL if not associated with map.
 	 * 
-	 * @return
+	 * @return NULL if no associated map
 	 */
 	public final MapWidget getMap() {
 		return MapWidget.newInstance(getMapImpl());
@@ -117,7 +117,7 @@ public class HeatMapLayer extends MVCObject<HeatMapLayer> {
 	/**
 	 * Returns the data points currently displayed by this heatmap.
 	 * 
-	 * @returns data points as MVCArray<LatLng>
+	 * @return data points as MVCArray<LatLng>
 	 */
 	public final native MVCArray<LatLng> getData()/*-{
 		return this.getData();
@@ -126,7 +126,7 @@ public class HeatMapLayer extends MVCObject<HeatMapLayer> {
 	/**
 	 * Returns the data points currently displayed by this heatmap.
 	 * 
-	 * @returns data points as MVCArray<LatLng>
+	 * @return data points as MVCArray<LatLng>
 	 */
 	public final native MVCArray<WeightedLocation> getDataWeighted()/*-{
 		return this.getData();

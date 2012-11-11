@@ -73,8 +73,6 @@ public class Polyline extends MVCObject<Polyline> {
 	/**
 	 * Returns whether this polyline is visible on the map.<br>
 	 * Do not call unless first associated with a map as undefined return will cause error.
-	 * 
-	 * @param isVisible
 	 */
 	public final native boolean getVisible() /*-{
 		return this.getVisible();

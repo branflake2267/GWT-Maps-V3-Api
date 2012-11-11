@@ -72,7 +72,7 @@ public class WeightedLocation extends JavaScriptObject {
 
 	/**
 	 * Get location of the data point.
-	 * @returns location
+	 * @return location
 	 */
 	public final native LatLng getLocation()/*-{
 		return this.location;
