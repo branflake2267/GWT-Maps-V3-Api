@@ -48,14 +48,23 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	 * 
 	 * @param labelColor
 	 */
-	public final native void setLabelColor(LabelColor labelColor) /*-{
+	public final void setLabelColor(LabelColor labelColor) {
+		setLabelColorImpl(labelColor.value());
+	}
+	
+	private final native void setLabelColorImpl(String labelColor) /*-{
 		this.labelColor = labelColor;
 	}-*/;
 	
 	/**
 	 * Sets the color of labels on the weather layer.
 	 */
-	public final native LabelColor getLabelColor() /*-{
+	public final LabelColor getLabelColor() {
+		String val = getLabelColorImpl();
+		return (val==null) ? null : LabelColor.fromValue(val);
+	}
+
+	private final native String getLabelColorImpl() /*-{
 		return this.labelColor;
 	}-*/;
 	
@@ -64,14 +73,23 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	 * 
 	 * @param temperatureUnits
 	 */
-	public final native void setTemperatureUnits(TemperatureUnit temperatureUnits) /*-{
+	public final void setTemperatureUnits(TemperatureUnit temperatureUnits) {
+		setTemperatureUnitsImpl(temperatureUnits.value());
+	}
+	
+	private final native void setTemperatureUnitsImpl(String temperatureUnits) /*-{
 		this.temperatureUnits = temperatureUnits;
 	}-*/;
 	
 	/**
 	 * Gets the units to use for temperature.
 	 */
-	public final native TemperatureUnit getTemperatureUnits() /*-{
+	public final TemperatureUnit getTemperatureUnits() {
+		String val = getTemperatureUnitsImpl();
+		return (val==null) ? null : TemperatureUnit.valueOf(val);
+	}
+
+	private final native String getTemperatureUnitsImpl() /*-{
 		return this.temperatureUnits;
 	}-*/;
 	
@@ -80,14 +98,23 @@ public class WeatherLayerOptions extends JavaScriptObject {
 	 * 
 	 * @param windSpeedUnits
 	 */
-	public final native void setWindSpeedUnits(WindSpeedUnit windSpeedUnits) /*-{
+	public final void setWindSpeedUnits(WindSpeedUnit windSpeedUnits) {
+		setWindSpeedUnitsImpl(windSpeedUnits.value());
+	}
+	
+	private final native void setWindSpeedUnitsImpl(String windSpeedUnits) /*-{
 		this.windSpeedUnits = windSpeedUnits;
 	}-*/;
 	
 	/**
 	 * Gets the units to use for wind speed.
 	 */
-	public final native WindSpeedUnit getWindSpeedUnits() /*-{
+	public final WindSpeedUnit getWindSpeedUnits() {
+		String val = getWindSpeedUnitsImpl();
+		return (val==null) ? null : WindSpeedUnit.valueOf(val);
+	}
+	
+	public final native String getWindSpeedUnitsImpl() /*-{
 		return this.windSpeedUnits;
 	}-*/;
 

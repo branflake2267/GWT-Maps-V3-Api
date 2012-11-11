@@ -1,8 +1,13 @@
 package com.google.gwt.maps.client.weatherlib;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.events.MapEventType;
+import com.google.gwt.maps.client.events.MapHandlerRegistration;
+import com.google.gwt.maps.client.events.weatherlibmouse.WeatherMouseEventFormatter;
+import com.google.gwt.maps.client.events.weatherlibmouse.WeatherMouseMapHandler;
 import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
@@ -37,6 +42,12 @@ public class WeatherLayer extends MVCObject<WeatherLayer> {
 		return new $wnd.google.maps.weather.WeatherLayer(options);
 	}-*/;
 
+	/**
+	 * Renders the layer on the specified map. If map is set to NULL, the layer
+	 * will be removed.
+	 * 
+	 * @param mapWidget
+	 */
 	public final void setMap(MapWidget mapWidget) {
 		if (mapWidget == null) {
 			setMapImpl(null);
@@ -49,6 +60,18 @@ public class WeatherLayer extends MVCObject<WeatherLayer> {
 		this.setMap(map);
 	}-*/;
 
+	/**
+	 * Sets the WeatherLayer's options.
+	 */
+	public final native void setOptions(WeatherLayerOptions options) /*-{
+		this.setOptions(options);
+	}-*/;
+
+	/**
+	 * Returns the map on which this layer is displayed.
+	 * 
+	 * @return NULL if not on any map
+	 */
 	public final MapWidget getMap() {
 		return MapWidget.newInstance(getMapImpl());
 	}
@@ -57,4 +80,14 @@ public class WeatherLayer extends MVCObject<WeatherLayer> {
 		return this.getMap();
 	}-*/;
 
+	/**
+	 * This event is fired when a feature in the layer is clicked.
+	 * 
+	 * @param handler
+	 */
+	public final HandlerRegistration addClickHandler(
+			WeatherMouseMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.CLICK,
+				handler, new WeatherMouseEventFormatter());
+	}
 }

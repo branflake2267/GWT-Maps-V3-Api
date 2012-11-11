@@ -7,6 +7,8 @@ import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.controls.ControlPosition;
+import com.google.gwt.maps.client.events.weatherlibmouse.WeatherMouseMapEvent;
+import com.google.gwt.maps.client.events.weatherlibmouse.WeatherMouseMapHandler;
 import com.google.gwt.maps.client.weatherlib.CloudLayer;
 import com.google.gwt.maps.client.weatherlib.LabelColor;
 import com.google.gwt.maps.client.weatherlib.TemperatureUnit;
@@ -30,9 +32,12 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class WeatherLayersWidget extends Composite {
 
-	private VerticalPanel pWidget;
+	private final VerticalPanel pWidget;
 	private MapWidget mapWidget;
 
+	private WeatherLayer weatherLayer;
+	private CloudLayer cloudLayer;
+	
 	public WeatherLayersWidget() {
 		pWidget = new VerticalPanel();
 		initWidget(pWidget);
@@ -45,9 +50,9 @@ public class WeatherLayersWidget extends Composite {
 	 */
 	private void drawLayerControls() {
 
-		final CloudLayer cloudLayer = CloudLayer.newInstance();
 		final Button button = new Button("Clouds");
 		button.addClickHandler(new ClickHandler() {
+			@Override
 			public void onClick(ClickEvent event) {
 				if (cloudLayer.getMap() == null) {
 					cloudLayer.setMap(mapWidget);
@@ -58,11 +63,25 @@ public class WeatherLayersWidget extends Composite {
 				}
 			}
 		});
+		final Button button2 = new Button("Forecast");
+		button2.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				if (weatherLayer.getMap() == null) {
+					weatherLayer.setMap(mapWidget);
+					button.getElement().getStyle().setColor("red");
+				} else {
+					weatherLayer.setMap(null);
+					button.getElement().getStyle().setColor("black");
+				}
+			}
+		});
 
 		FlowPanel widget = new FlowPanel();
 		widget.add(button);
 		widget.add(new HTML("Weather Layers"));
 		widget.add(button);
+		widget.add(button2);
 
 		DOM.setStyleAttribute(widget.getElement(), "background", "white");
 		DOM.setStyleAttribute(widget.getElement(), "padding", "5px");
@@ -72,20 +91,25 @@ public class WeatherLayersWidget extends Composite {
 
 		mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
 
-		// apply clouds
-		cloudLayer.setMap(mapWidget);
 		button.getElement().getStyle().setColor("red");
+		button2.getElement().getStyle().setColor("red");
 	}
 
 	private void draw() {
 
 		pWidget.clear();
-		pWidget.add(new HTML("<br>Weather Map Layers Example"));
+		pWidget.add(new HTML("<br>Weather Map Layers Example - Can configure Imperial/Metric units"));
 
 		drawMap();
 		drawLayerControls();
 	}
 
+	private final native void ConsoleLog(Object msg) /*-{
+		if($wnd.console) {
+			$wnd.console.log(msg);
+		}
+	}-*/;
+	
 	private void drawMap() {
 		// zoom out for the clouds
 		LatLng center = LatLng.newInstance(47.11, -4.91);
@@ -98,13 +122,47 @@ public class WeatherLayersWidget extends Composite {
 		pWidget.add(mapWidget);
 		mapWidget.setSize("750px", "500px");
 
+
+
 		// add weather conditions layer
+		WeatherLayerOptions options2 = WeatherLayerOptions.newInstance();
+		options2.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
+		options2.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
+		options2.setLabelColor(LabelColor.BLACK);
+		
 		WeatherLayerOptions options = WeatherLayerOptions.newInstance();
 		options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
 		options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
 		options.setLabelColor(LabelColor.BLACK);
 
-		WeatherLayer weatherLayer = WeatherLayer.newInstance(options);
+		weatherLayer = WeatherLayer.newInstance(options);
 		weatherLayer.setMap(mapWidget);
+		
+		// apply clouds
+		cloudLayer = CloudLayer.newInstance();
+		cloudLayer.setMap(mapWidget);
+		
+		// add custom handler for clicks on weather markers
+		// NOTE: this is just being cat'd to the console as an 
+		// example of the information you get from the event
+		weatherLayer.addClickHandler(new WeatherMouseMapHandler() {
+			
+			@Override
+			public void onEvent(WeatherMouseMapEvent event) {
+				ConsoleLog(event.getPixelOffset().getHeight());		
+				ConsoleLog(event.getLatLng().getLatitude());		
+				ConsoleLog(event.getInfoWindowHtml());		
+				ConsoleLog(event.getFeatureDetails().getCurrent());		
+				ConsoleLog(event.getFeatureDetails().getForecast().get(0));		
+				ConsoleLog(event.getFeatureDetails().getLocation());		
+				ConsoleLog(event.getFeatureDetails().getTemperatureUnits().value());		
+				ConsoleLog(event.getFeatureDetails().getWindSpeedUnits().value());
+				
+				// ideally you'd intercept the propagation of the event her so you could
+				// display your own custom popup, not the default one
+			}
+		});
+		
+		
 	}
 }
