@@ -26,6 +26,9 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+<<<<<<< HEAD
+
+=======
 	}
 	
 	public void testDefaults() {
@@ -42,6 +45,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+>>>>>>> e3ec9a7
 	}
 
 	public void testClickable() {
@@ -58,6 +62,8 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 		});
 
 	}
+<<<<<<< HEAD
+=======
 	
 	public void testEditable() {
 		asyncLibTest(new Runnable() {
@@ -90,6 +96,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 			}
 		});
 	}
+>>>>>>> e3ec9a7
 
 	public void testFillColor() {
 		asyncLibTest(new Runnable() {

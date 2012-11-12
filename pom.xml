@@ -13,7 +13,6 @@
 	<modules>
 		<module>Apis_Google_Maps</module>
 		<module>Apis_Maps_Test</module>
-		<!-- <module>gwt-maps-api-v3-core</module> <module>gwt-maps-api-v3-demo</module> -->
 	</modules>
 
 
@@ -90,7 +89,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- GWT props -->
-		<gwt.version>2.4.0</gwt.version>
+		<gwt.version>2.5.0</gwt.version>
+        <gae.version>1.7.2</gae.version>
 		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
 	</properties>
 

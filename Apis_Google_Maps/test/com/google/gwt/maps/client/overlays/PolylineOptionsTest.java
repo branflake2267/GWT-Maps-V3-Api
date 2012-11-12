@@ -26,6 +26,9 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+<<<<<<< HEAD
+
+=======
 	}
 	
 	public void testDefaults() {
@@ -42,6 +45,7 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+>>>>>>> e3ec9a7
 	}
 
 	public void testClickable() {
@@ -56,6 +60,9 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+<<<<<<< HEAD
+
+=======
 	}
 	
 	public void testVisible() {
@@ -72,6 +79,7 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+>>>>>>> e3ec9a7
 	}
 
 	public void testGeodesic() {

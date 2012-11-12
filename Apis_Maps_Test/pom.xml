@@ -167,7 +167,10 @@
 		<dependency>
 			<groupId>com.google.gwt.maps</groupId>
 			<artifactId>Apis_Google_Maps</artifactId>
+<<<<<<< HEAD
+=======
 			<!-- <artifactId>gwt-maps-api-v3-core</artifactId> -->
+>>>>>>> e3ec9a7
 			<version>3.8.1</version>
 			<scope>compile</scope>
 		</dependency>
@@ -177,6 +180,7 @@
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
 		</dependency>
+        
 		<!-- Just the necessary GWT bits -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
@@ -186,6 +190,31 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
 		</dependency>
+        
+        <!-- Google App Engine dependencies -->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>${gae.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-labs</artifactId>
+            <version>${gae.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>${gae.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>${gae.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
 		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>

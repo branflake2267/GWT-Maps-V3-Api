@@ -64,9 +64,14 @@ public class Apis_Maps_Test implements EntryPoint {
 	 * See the map widgets for different map configurations
 	 */
 	private void draw() {
+<<<<<<< HEAD
+		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
+		RootPanel.get(mapsContainer).add(html);
+=======
 		HTML html = new HTML(
 				"<a href=\"Apis_Maps_Test_FullPage.html\">See FullScreen Map Demo</a><br/><br/>");
 		RootPanel.get().add(html);
+>>>>>>> e3ec9a7
 
 
 		drawHeatMap();
@@ -108,11 +113,14 @@ public class Apis_Maps_Test implements EntryPoint {
 		drawPanoramioMap();
 		
 		drawPlaceSearchRequestMap();
+<<<<<<< HEAD
+=======
 	}
 
 	private void drawHeatMap() {
 		HeatMapLayerWidget wMap = new HeatMapLayerWidget();
 		RootPanel.get().add(wMap);
+>>>>>>> e3ec9a7
 	}
 
 	private void drawWeatherMap() {
