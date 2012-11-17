@@ -104,19 +104,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
 
 	/**
 	 * The distance from the given location within which to search for Places,
-	 * in meters. The maximum allowed value is 50000 <br>
-	 * See #setRadius(double)
-	 * 
-	 * @param radius
-	 * 
-	 */
-	@Deprecated
-	public final void setRaidus(double radius) {
-		setRadius(radius);
-	}
-
-	/**
-	 * The distance from the given location within which to search for Places,
 	 * in meters. The maximum allowed value is 50000
 	 * 
 	 * @param radius
@@ -124,17 +111,6 @@ public class PlaceSearchRequest extends JavaScriptObject {
 	public final native void setRadius(double radius) /*-{
 		this.radius = radius;
 	}-*/;
-
-	/**
-	 * The distance from the given location within which to search for Places,
-	 * in meters. The maximum allowed value is 50000
-	 * 
-	 * @see #getRadius()
-	 */
-	@Deprecated
-	public final double getRaidus() {
-		return getRadius();
-	}
 
 	/**
 	 * The distance from the given location within which to search for Places,

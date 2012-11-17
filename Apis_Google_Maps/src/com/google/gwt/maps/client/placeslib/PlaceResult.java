@@ -116,49 +116,64 @@ public class PlaceResult extends JavaScriptObject {
   }-*/;
   
   /**
-   * A unique identifier denoting this Place. This identifier may not be used to retrieve information about this Place, and to verify the identity of a Place across separate searches. As ids can occasionally change, it is recommended that the stored id for a Place be compared with the id returned in later Details requests for the same Place, and updated if necessary.
-   * @param id
+   * A unique identifier denoting this Place. This identifier may not be used to
+   * retrieve information about this Place, and to verify the identity of a
+   * Place across separate searches. As ids can occasionally change, it is
+   * recommended that the stored id for a Place be compared with the id returned
+   * in later Details requests for the same Place, and updated if necessary.
    */
   public final native void setId(String id) /*-{
     this.id = id;
   }-*/;
-  
+
   /**
-   * A unique identifier denoting this Place. This identifier may not be used to retrieve information about this Place, and to verify the identity of a Place across separate searches. As ids can occasionally change, it is recommended that the stored id for a Place be compared with the id returned in later Details requests for the same Place, and updated if necessary.
+   * A unique identifier denoting this Place. This identifier may not be used to
+   * retrieve information about this Place, and to verify the identity of a
+   * Place across separate searches. As ids can occasionally change, it is
+   * recommended that the stored id for a Place be compared with the id returned
+   * in later Details requests for the same Place, and updated if necessary.
    */
   public final native String getId() /*-{
     return this.id;
   }-*/;
   
   /**
-   * The Place's phone number in international format. International format includes the country code, and is prefixed with the plus (+) sign.
-   * @param international_phone_number
+   * The Place's phone number in international format. International format
+   * includes the country code, and is prefixed with the plus (+) sign.
    */
   public final native void setInternational_Phone_Number(String international_phone_number) /*-{
     this.international_phone_number = international_phone_number;
   }-*/;
   
   /**
-   * The Place's phone number in international format. International format includes the country code, and is prefixed with the plus (+) sign.
+   * The Place's phone number in international format. International format
+   * includes the country code, and is prefixed with the plus (+) sign.
    */
   public final native String getInternational_Phone_Number() /*-{
     return this.international_phone_number;
   }-*/;
   
   /**
-   * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks.
-   * <br><br>
-   * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code Injection</a>
-   * @param name
+   * The Place's name. Note: In the case of user entered Places, this is the raw
+   * text, as typed by the user. Please exercise caution when using this data,
+   * as malicious users may try to use it as a vector for code injection
+   * attacks. <br>
+   * <br>
+   * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code
+   * Injection</a>
    */
   public final native void setName(String name) /*-{
     this.name = name;
   }-*/;
   
   /**
-   * The Place's name. Note: In the case of user entered Places, this is the raw text, as typed by the user. Please exercise caution when using this data, as malicious users may try to use it as a vector for code injection attacks.
-   * <br><br>
-   * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code Injection</a>
+   * The Place's name. Note: In the case of user entered Places, this is the raw
+   * text, as typed by the user. Please exercise caution when using this data,
+   * as malicious users may try to use it as a vector for code injection
+   * attacks. <br>
+   * <br>
+   * See <a href="http://en.wikipedia.org/wiki/Code_injection">Code
+   * Injection</a>
    */
   public final native String getName() /*-{
     return this.name;
@@ -180,15 +195,26 @@ public class PlaceResult extends JavaScriptObject {
   }-*/;
   
   /**
-   * An opaque string that may be used to retrieve up-to-date information about this Place (via PlacesService.getDetails()). reference contains a unique token that you can use to retrieve additional information about this Place in a Place Details request. You can store this token and use it at any time in future to refresh cached data about this Place, but the same token is not guaranteed to be returned for any given Place across different searches.
-   * @param reference
+   * An opaque string that may be used to retrieve up-to-date information about
+   * this Place (via PlacesService.getDetails()). reference contains a unique
+   * token that you can use to retrieve additional information about this Place
+   * in a Place Details request. You can store this token and use it at any time
+   * in future to refresh cached data about this Place, but the same token is
+   * not guaranteed to be returned for any given Place across different
+   * searches.
    */
   public final native void setReference(String reference) /*-{
     this.reference = reference;
   }-*/;
   
   /**
-   * An opaque string that may be used to retrieve up-to-date information about this Place (via PlacesService.getDetails()). reference contains a unique token that you can use to retrieve additional information about this Place in a Place Details request. You can store this token and use it at any time in future to refresh cached data about this Place, but the same token is not guaranteed to be returned for any given Place across different searches.
+   * An opaque string that may be used to retrieve up-to-date information about
+   * this Place (via PlacesService.getDetails()). reference contains a unique
+   * token that you can use to retrieve additional information about this Place
+   * in a Place Details request. You can store this token and use it at any time
+   * in future to refresh cached data about this Place, but the same token is
+   * not guaranteed to be returned for any given Place across different
+   * searches.
    */
   public final native String getReference() /*-{
     return this.reference;
@@ -264,10 +290,18 @@ public class PlaceResult extends JavaScriptObject {
     return this.utc_offset;
   }-*/;
 
+  /**
+   * Opening Hours contains the establishment's hours
+   */
   public final native PlaceResultOpeningHours getOpeningHours() /*-{
     return this.opening_hours;
   }-*/;
 
-  // TODO getReviews()... 
+  /**
+   * Reviews an array of up to five reviews. Each review consists of several components:
+   */
+  public final native JsArray<PlaceRequestReview> getReviews() /*-{
+    return this.reviews;
+  }-*/; 
   
 }
