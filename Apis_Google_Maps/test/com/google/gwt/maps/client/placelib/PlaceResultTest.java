@@ -200,4 +200,5 @@ public class PlaceResultTest extends AbstractMapsGWTTest {
       }
     });
 	}
+	
 }
