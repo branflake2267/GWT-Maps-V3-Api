@@ -267,5 +267,7 @@ public class PlaceResult extends JavaScriptObject {
   public final native PlaceResultOpeningHours getOpeningHours() /*-{
     return this.opening_hours;
   }-*/;
+
+  // TODO getReviews()... 
   
 }

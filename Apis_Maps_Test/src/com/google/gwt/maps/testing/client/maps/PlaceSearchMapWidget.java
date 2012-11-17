@@ -2,6 +2,7 @@ package com.google.gwt.maps.testing.client.maps;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -63,6 +64,9 @@ public class PlaceSearchMapWidget extends Composite {
   				  PlaceResult result = results.get(0);
   				  String reference = result.getReference();
   				  getPlaceDetails(reference);
+  				  
+  				  String json = new JSONObject(result).toString();
+            System.out.println("details=" + json);
 				  }
 				} else {
 				  Window.alert("Status is: status=" + status);
@@ -86,7 +90,9 @@ public class PlaceSearchMapWidget extends Composite {
         if (status == PlacesServiceStatus.OK) {
           Window.alert("Found place details: name=" + result.getName());
         } else {
-          Window.alert("Status is: status=" + status);
+          String json = new JSONObject(result).toString();
+          System.out.println("details=" + json);
+          Window.alert("Status is: status=" + status + " ::: " + json);
         }
       }
     });
