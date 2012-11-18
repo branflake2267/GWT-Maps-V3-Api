@@ -173,7 +173,11 @@ public class PlaceResultTest extends AbstractMapsGWTTest {
             String s3 = new JSONObject(result.getOpeningHours().getPeriods().get(0).getOpen()).toString();
             System.out.println(s3);
             
+            String s4 = new JSONObject(result.getReviews()).toString();
+            System.out.println(s4);
+            
             assertEquals(-480, result.getUtcOffset());
+            
             assertTrue(result.getOpeningHours() != null);
             assertTrue(result.getOpeningHours().getPeriods().length() > 0);
             assertTrue(result.getOpeningHours().getPeriods().get(0).getOpen() != null);
@@ -182,10 +186,19 @@ public class PlaceResultTest extends AbstractMapsGWTTest {
             assertTrue(result.getOpeningHours().getPeriods().get(0).getClose().getTime() != null);
             assertTrue(result.getOpeningHours().getPeriods().get(0).getOpen().getMinutes() == 0);
             
+            assertTrue(result.getReviews().length() > 0);
+            assertTrue(result.getReviews().get(0).getAspects().length() > 0);
+            assertTrue(result.getReviews().get(0).getAspects().get(0).getRating() > 0);
+            assertTrue(result.getReviews().get(0).getAspects().get(0).getType() != null);
+            assertTrue(result.getReviews().get(0).getAuthorUrl() != null);
+            assertTrue(result.getReviews().get(0).getAuthorName() != null);
+            assertTrue(result.getReviews().get(0).getText() != null);
+            
             finishTest();
           }
         });       
       }
     });
 	}
+	
 }
