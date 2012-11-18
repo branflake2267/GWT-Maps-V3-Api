@@ -26,26 +26,22 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-<<<<<<< HEAD
-
-=======
 	}
-	
+
 	public void testDefaults() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				PolygonOptions o = PolygonOptions.newInstance();
-				
+
 				assertFalse("Should not be editable by default", o.getEditable());
 				assertTrue("Should be clickable by default", o.getClickable());
 				assertTrue("Should be visible by default", o.getVisible());
 				assertFalse("Should not be geodesic by default", o.getGeodesic());
-				
+
 				finishTest();
 			}
 		});
->>>>>>> e3ec9a7
 	}
 
 	public void testClickable() {
@@ -62,17 +58,15 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 		});
 
 	}
-<<<<<<< HEAD
-=======
-	
+
 	public void testEditable() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				PolygonOptions o = PolygonOptions.newInstance();
-				
+
 				assertFalse("Should not be editable by default", o.getEditable());
-				
+
 				o.setEditable(true);
 				assertTrue("Should be editable", o.getEditable());
 
@@ -80,23 +74,22 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 			}
 		});
 	}
-	
+
 	public void testVisible() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				PolygonOptions o = PolygonOptions.newInstance();
-				
+
 				assertTrue("Should be visible by default", o.getVisible());
-				
+
 				o.setVisible(false);
 				assertFalse("Should not be visible", o.getVisible());
-				
+
 				finishTest();
 			}
 		});
 	}
->>>>>>> e3ec9a7
 
 	public void testFillColor() {
 		asyncLibTest(new Runnable() {
@@ -154,8 +147,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				RootPanel.get().add(left);
 				o.setMap(left);
 				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+				assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
 				finishTest();
 			}
 		});
@@ -177,8 +169,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> left = ArrayHelper.toJsArray(a);
 				o.setPaths(left);
 				JsArray<LatLng> right = o.getPaths_JsArray();
-				assertEquals(left.get(0).getToString(), right.get(0)
-						.getToString());
+				assertEquals(left.get(0).getToString(), right.get(0).getToString());
 				finishTest();
 			}
 		});
@@ -211,8 +202,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 
 				o.setPathss(left);
 				JsArray<JsArray<LatLng>> right = o.getPathss_JsArray();
-				assertEquals(left.get(0).get(0).getToString(), right.get(0)
-						.get(0).getToString());
+				assertEquals(left.get(0).get(0).getToString(), right.get(0).get(0).getToString());
 				finishTest();
 			}
 		});
@@ -231,8 +221,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				MVCArray<LatLng> left = MVCArray.newInstance(a);
 				o.setPaths(left);
 				MVCArray<LatLng> right = o.getPaths_MVCArray();
-				assertEquals(left.get(0).getToString(), right.get(0)
-						.getToString());
+				assertEquals(left.get(0).getToString(), right.get(0).getToString());
 				finishTest();
 			}
 		});

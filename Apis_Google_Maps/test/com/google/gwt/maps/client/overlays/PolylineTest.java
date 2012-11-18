@@ -44,30 +44,24 @@ public class PolylineTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
-<<<<<<< HEAD
-=======
 	}
-	
+
 	public void testVisible() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				PolylineOptions options = PolylineOptions.newInstance();
 				Polyline o = Polyline.newInstance(options);
-				
 
 				o.setVisible(false);
-				assertFalse("Polyline should not be visible",o.getVisible());
-				
+				assertFalse("Polyline should not be visible", o.getVisible());
+
 				o.setVisible(true);
-				assertTrue("Polyline should be visible",o.getVisible());
-				
+				assertTrue("Polyline should be visible", o.getVisible());
+
 				finishTest();
 			}
 		});
-		
->>>>>>> e3ec9a7
 	}
 
 	public void testMap() {
@@ -86,8 +80,7 @@ public class PolylineTest extends AbstractMapsGWTTest {
 				RootPanel.get().add(left);
 				o.setMap(left);
 				MapWidget right = o.getMap();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+				assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
 
 				// test clearing from map
 				o.setMap(null);

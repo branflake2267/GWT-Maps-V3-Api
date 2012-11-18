@@ -26,26 +26,22 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-<<<<<<< HEAD
-
-=======
 	}
-	
+
 	public void testDefaults() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
 				PolygonOptions o = PolygonOptions.newInstance();
-				
+
 				assertFalse("Should not be editable by default", o.getEditable());
 				assertTrue("Should be clickable by default", o.getClickable());
 				assertTrue("Should be visible by default", o.getVisible());
 				assertFalse("Should not be geodesic by default", o.getGeodesic());
-				
+
 				finishTest();
 			}
 		});
->>>>>>> e3ec9a7
 	}
 
 	public void testClickable() {
@@ -60,11 +56,8 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-<<<<<<< HEAD
-
-=======
 	}
-	
+
 	public void testVisible() {
 		asyncLibTest(new Runnable() {
 			@Override
@@ -72,14 +65,13 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				PolylineOptions o = PolylineOptions.newInstance();
 
 				assertTrue("Should be visible by default", o.getVisible());
-				
+
 				o.setVisible(false);
 				assertFalse("Should not be visible", o.getVisible());
-				
+
 				finishTest();
 			}
 		});
->>>>>>> e3ec9a7
 	}
 
 	public void testGeodesic() {
@@ -108,8 +100,7 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				RootPanel.get().add(left);
 				o.setMap(left);
 				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+				assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
 				finishTest();
 			}
 		});
@@ -128,8 +119,7 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				MVCArray<LatLng> left = MVCArray.newInstance(a);
 				o.setPath(left);
 				MVCArray<LatLng> right = o.getPath_MVCArray();
-				assertEquals(left.get(0).getToString(), right.get(0)
-						.getToString());
+				assertEquals(left.get(0).getToString(), right.get(0).getToString());
 				finishTest();
 			}
 		});
@@ -151,8 +141,7 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> left = ArrayHelper.toJsArray(a);
 				o.setPath(left);
 				JsArray<LatLng> right = o.getPath_JsArray();
-				assertEquals(left.get(0).getToString(), right.get(0)
-						.getToString());
+				assertEquals(left.get(0).getToString(), right.get(0).getToString());
 				finishTest();
 			}
 		});

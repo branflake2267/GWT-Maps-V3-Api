@@ -167,10 +167,8 @@
 		<dependency>
 			<groupId>com.google.gwt.maps</groupId>
 			<artifactId>Apis_Google_Maps</artifactId>
-<<<<<<< HEAD
-=======
 			<!-- <artifactId>gwt-maps-api-v3-core</artifactId> -->
->>>>>>> e3ec9a7
+
 			<version>3.8.1</version>
 			<scope>compile</scope>
 		</dependency>

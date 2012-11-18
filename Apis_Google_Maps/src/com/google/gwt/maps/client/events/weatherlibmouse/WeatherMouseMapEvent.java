@@ -37,7 +37,7 @@ public class WeatherMouseMapEvent extends
 	/**
 	 * The position at which to anchor an info window on the clicked feature.
 	 * 
-	 * @return
+	 * @return clicked position
 	 */
 	public final LatLng getLatLng() {
 		LatLng latLng = null;
@@ -51,7 +51,7 @@ public class WeatherMouseMapEvent extends
 	/**
 	 * The offset to apply to an info window anchored on the clicked feature.
 	 * 
-	 * @return
+	 * @return pixel offset of info window anchor
 	 */
 	public final Size getPixelOffset() {
 		Size size = null;
@@ -76,7 +76,7 @@ public class WeatherMouseMapEvent extends
 	/**
 	 * The offset to apply to an info window anchored on the clicked feature.
 	 * 
-	 * @return
+	 * @return weather information for the clicked location
 	 */
 	public final WeatherFeature getFeatureDetails() {
 		WeatherFeature feature = null;
