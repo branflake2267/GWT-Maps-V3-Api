@@ -37,7 +37,51 @@ public class FusionTablesQueryTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+	}
 
+	public void testLimit() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+
+				int expected = 234;
+				o.setLimit(expected);
+				assertEquals(expected, o.getLimit());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testOffset() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+
+				int expected = 234;
+				o.setOffset(expected);
+				assertEquals(expected, o.getOffset());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testOrderBy() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				FusionTablesQuery o = FusionTablesQuery.newInstance();
+
+				String expected = "dim2 ASC";
+				o.setOrderBy(expected);
+				assertEquals(expected, o.getOrderBy());
+
+				finishTest();
+			}
+		});
 	}
 
 	@SuppressWarnings("unused")
@@ -49,7 +93,6 @@ public class FusionTablesQueryTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testWhere() {
@@ -64,7 +107,6 @@ public class FusionTablesQueryTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
 	}
 
 }

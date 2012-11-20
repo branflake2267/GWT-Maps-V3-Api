@@ -64,8 +64,9 @@ public class Apis_Maps_Test implements EntryPoint {
 	 * See the map widgets for different map configurations
 	 */
 	private void draw() {
-		HTML html = new HTML("<a href=\"Apis_Maps_Test_FullPage.html\">See 100% Map Demo</a><br/><br/>");
-		RootPanel.get(mapsContainer).add(html);
+		HTML html = new HTML(
+				"<a href=\"Apis_Maps_Test_FullPage.html\">See FullScreen Map Demo</a><br/><br/>");
+		RootPanel.get().add(html);
 
 		drawHeatMap();
 		
