@@ -17,45 +17,49 @@ public class PolygonOptions extends JavaScriptObject {
 		obj.setDefaults();
 		return obj;
 	}
-	
+
 	/**
 	 * Set expected defaults
 	 */
 	private void setDefaults() {
-		this.setEditable(false);
-		this.setGeodesic(false);
-		this.setVisible(true);
-		this.setClickable(true);
+		setEditable(false);
+		setGeodesic(false);
+		setVisible(true);
+		setClickable(true);
 	}
 
 	/**
-	 * Whether this polygon is visible on the map. Defaults to <code>true</code>.
+	 * Whether this polygon is visible on the map. Defaults to <code>true</code>
+	 * .
 	 * 
 	 * @param isVisible
 	 */
-	public final native void setVisible(boolean isVisible) /*-{
-		this.visible = isVisible;
+	public final native void setVisible(boolean visible) /*-{
+		this.visible = visible;
 	}-*/;
 
 	/**
-	 * Whether this polygon is visible on the map. Defaults to <code>true</code>.
+	 * Whether this polygon is visible on the map. Defaults to <code>true</code>
+	 * .
 	 * 
 	 */
 	public final native boolean getVisible() /*-{
 		return this.visible;
 	}-*/;
-	
+
 	/**
-	 * If set to true, the user can edit this shape by dragging the control points shown at the vertices and on each segment. Defaults to false.
+	 * If set to true, the user can edit this shape by dragging the control
+	 * points shown at the vertices and on each segment. Defaults to false.
 	 * 
 	 * @param isEditable
 	 */
 	public final native void setEditable(boolean isEditable) /*-{
 		this.editable = isEditable;
 	}-*/;
-	
+
 	/**
-	 * Whether the user can edit this shape by dragging the control points shown at the vertices and on each segment.
+	 * Whether the user can edit this shape by dragging the control points shown
+	 * at the vertices and on each segment.
 	 * 
 	 */
 	public final native boolean getEditable() /*-{
@@ -154,10 +158,21 @@ public class PolygonOptions extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * gets Map on which to display Polyline.
+	 * Gets Map on which to display Polyline.
 	 */
+	public final MapWidget getMap() {
+		MapImpl obj = getMapImpl();
+		return obj != null ? MapWidget.newInstance(obj) : null;
+	}
+
+	/**
+	 * Gets Map on which to display Polyline. <br>
+	 * See {@link #getMap()}
+	 */
+	@Deprecated
 	public final MapWidget getMapWidget() {
-		return MapWidget.newInstance(getMapImpl());
+		MapImpl obj = getMapImpl();
+		return obj != null ? MapWidget.newInstance(obj) : null;
 	}
 
 	private final native MapImpl getMapImpl() /*-{

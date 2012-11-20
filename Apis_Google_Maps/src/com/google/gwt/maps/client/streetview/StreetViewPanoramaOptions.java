@@ -290,9 +290,20 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 	/**
 	 * sets If true, the Street View panorama is visible on load.
 	 * 
+	 * @See {@link #setVisible(boolean)}
 	 * @param visible
 	 */
+	@Deprecated
 	public final native void setVisibile(boolean visible) /*-{
+		this.visible = visible;
+	}-*/;
+
+	/**
+	 * sets If true, the Street View panorama is visible on load.
+	 * 
+	 * @param visible
+	 */
+	public final native void setVisible(boolean visible) /*-{
 		this.visible = visible;
 	}-*/;
 

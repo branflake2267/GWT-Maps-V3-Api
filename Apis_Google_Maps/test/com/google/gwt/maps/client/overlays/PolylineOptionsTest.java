@@ -99,12 +99,31 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				left.setSize("500px", "500px");
 				RootPanel.get().add(left);
 				o.setMap(left);
+				@SuppressWarnings("deprecation")
 				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
+
+				assertLatLngEquals(left.getCenter(), right.getCenter());
+
 				finishTest();
 			}
 		});
+	}
 
+	public void testMap() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolylineOptions o = PolylineOptions.newInstance();
+				MapOptions opts = MapOptions.newInstance();
+				MapWidget left = new MapWidget(opts);
+				left.setSize("500px", "500px");
+				RootPanel.get().add(left);
+				o.setMap(left);
+				MapWidget right = o.getMap();
+				assertLatLngEquals(left.getCenter(), right.getCenter());
+				finishTest();
+			}
+		});
 	}
 
 	public void testPath_MVCArray() {

@@ -4,6 +4,6 @@ import com.google.gwt.core.client.JsArray;
 
 public interface PlaceSearchHandler {
 
-  public void onCallback(JsArray<PlaceResult> results, PlacesServiceStatus status); 
+  public void onCallback(JsArray<PlaceResult> results, PlaceSearchPagination pagination, PlacesServiceStatus status); 
   
 }
