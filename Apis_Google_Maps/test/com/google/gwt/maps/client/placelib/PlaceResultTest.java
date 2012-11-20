@@ -2,13 +2,22 @@ package com.google.gwt.maps.client.placelib;
 
 import java.util.ArrayList;
 
+import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi;
+import com.google.gwt.maps.client.MapOptions;
+import com.google.gwt.maps.client.MapTypeId;
+import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.placeslib.AutocompleteType;
+import com.google.gwt.maps.client.placeslib.PlaceDetailsHandler;
+import com.google.gwt.maps.client.placeslib.PlaceDetailsRequest;
+import com.google.gwt.maps.client.placeslib.PlaceResult;
 import com.google.gwt.maps.client.placeslib.PlaceSearchRequest;
+import com.google.gwt.maps.client.placeslib.PlacesService;
+import com.google.gwt.maps.client.placeslib.PlacesServiceStatus;
 
 public class PlaceResultTest extends AbstractMapsGWTTest {
 
@@ -132,4 +141,64 @@ public class PlaceResultTest extends AbstractMapsGWTTest {
 			}
 		});
 	}
+	
+	public void testGetDetailsPlaceResult() {
+	  asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(47.60346, -122.33571);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(16);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.HYBRID);
+        MapWidget mapWidget = new MapWidget(opts);
+        
+        PlacesService placeService = PlacesService.newInstance(mapWidget);
+        PlaceDetailsRequest request = PlaceDetailsRequest.newInstance();
+        request.setReference("CpQBjgAAAFCaT73TRgKBKFaeNsvq-wGNIErZoG1kSxvtgrDH6TDaDNBZsb2PDKKxWqmKHZr8kIo_JIzK8CEFgGb" +
+        		"Luyt1BsdUR20ZiCg3CAXkkLxh2Q08mAzNN7Ai7WzUixXOHjnbnlm6WV-NpFhbJyTPgsV_2l-AfUlyt_SbleAsUUWtdxJTp0HPHWEnQ" +
+        		"ZNPvcnmQ-lpRRIQZfKps0iYL5VOEBD5dQDF9xoUGgMSwqd1H9CNcwZsbVo1IY4BU44");
+
+        placeService.getDetails(request, new PlaceDetailsHandler() {
+          public void onCallback(PlaceResult result, PlacesServiceStatus status) {
+            String s = new JSONObject(result).toString();
+            System.out.println(s);
+            
+            String s1 = new JSONObject(result.getOpeningHours()).toString();
+            System.out.println(s1);
+            
+            String s2 = new JSONObject(result.getOpeningHours().getPeriods().get(0)).toString();
+            System.out.println(s2);
+            
+            String s3 = new JSONObject(result.getOpeningHours().getPeriods().get(0).getOpen()).toString();
+            System.out.println(s3);
+            
+            String s4 = new JSONObject(result.getReviews()).toString();
+            System.out.println(s4);
+            
+            assertEquals(-480, result.getUtcOffset());
+            
+            assertTrue(result.getOpeningHours() != null);
+            assertTrue(result.getOpeningHours().getPeriods().length() > 0);
+            assertTrue(result.getOpeningHours().getPeriods().get(0).getOpen() != null);
+            assertTrue(result.getOpeningHours().getPeriods().get(0).getClose() != null);
+            assertTrue(result.getOpeningHours().getPeriods().get(0).getOpen().getDay() == 0);
+            assertTrue(result.getOpeningHours().getPeriods().get(0).getClose().getTime() != null);
+            assertTrue(result.getOpeningHours().getPeriods().get(0).getOpen().getMinutes() == 0);
+            
+            assertTrue(result.getReviews().length() > 0);
+            assertTrue(result.getReviews().get(0).getAspects().length() > 0);
+            assertTrue(result.getReviews().get(0).getAspects().get(0).getRating() > 0);
+            assertTrue(result.getReviews().get(0).getAspects().get(0).getType() != null);
+            assertTrue(result.getReviews().get(0).getAuthorUrl() != null);
+            assertTrue(result.getReviews().get(0).getAuthorName() != null);
+            assertTrue(result.getReviews().get(0).getText() != null);
+            
+            finishTest();
+          }
+        });       
+      }
+    });
+	}
+	
 }

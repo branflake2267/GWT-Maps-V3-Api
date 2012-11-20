@@ -1,25 +1,6 @@
 package com.google.gwt.maps.client.main;
 
-import com.google.gwt.ajaxloader.client.ArrayHelper;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
-import com.google.gwt.maps.client.LoadApi.LoadLibrary;
-import com.google.gwt.maps.client.MapImpl;
-import com.google.gwt.maps.client.MapOptions;
-import com.google.gwt.maps.client.MapTypeId;
-import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.base.LatLng;
-import com.google.gwt.maps.client.base.LatLngBounds;
-import com.google.gwt.maps.client.base.Point;
-import com.google.gwt.maps.client.controls.MapTypeStyle;
-import com.google.gwt.maps.client.layers.TrafficLayer;
-import com.google.gwt.maps.client.maptypes.MapTypeRegistry;
-import com.google.gwt.maps.client.maptypes.Projection;
-import com.google.gwt.maps.client.maptypes.StyledMapType;
-import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.RootPanel;
+import test.com.google.gwt.maps.client.AbstractMapsGWTTest;
 
 public class MapImplTest extends AbstractMapsGWTTest {
 
@@ -89,6 +70,9 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				MapOptions options = MapOptions.newInstance();
 				MapImpl o = MapImpl.newInstance(element, options);
 
+				o.setCenter(LatLng.newInstance(41.239045d, -13.508142d));
+				o.setZoom(8);
+
 				// test we have good bounds
 				LatLngBounds actual = o.getBounds();
 				assertNotNull("Map bounds should be non-null", actual);
@@ -99,8 +83,10 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				o.fitBounds(left);
 
 				// expected
-				LatLng expectedSW = LatLng.newInstance(30.792110d, -180d);
-				LatLng expectedNE = LatLng.newInstance(51.64751d, 180d);
+				LatLng expectedSW = LatLng.newInstance(30.792110d, -180.0d);
+				LatLng expectedNE = LatLng.newInstance(51.64751d, 180.0d);
+				@SuppressWarnings("unused")
+				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
 
 				// test
 				actual = o.getBounds();
@@ -112,7 +98,6 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testGetHeading() {
@@ -174,14 +159,18 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				o.setMapTypeId(left);
 
 				// custom map to add
-				JsArray<MapTypeStyle> styles = ArrayHelper
-						.toJsArray(new MapTypeStyle[] {}); // JS needs JSArray,
-															// convert
+				JsArray<MapTypeStyle> styles = ArrayHelper.toJsArray(new MapTypeStyle[] {}); // JS
+																								// needs
+																								// JSArray,
+																								// convert
 				StyledMapTypeOptions opt2 = StyledMapTypeOptions.newInstance();
 				opt2.setName("My Eyes are Bleeding!");// the name that appears
 														// on map controls
-				StyledMapType customMapType = StyledMapType.newInstance(styles,
-						opt2); // apply to new styled map
+				StyledMapType customMapType = StyledMapType.newInstance(styles, opt2); // apply
+																						// to
+																						// new
+																						// styled
+																						// map
 
 				// if it worked we should be able to set it
 				MapTypeRegistry reg = o.getMapTypeRegistry();
@@ -207,8 +196,7 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				MapImpl o = MapImpl.newInstance(element, options);
 				o.panBy(50, 52);
 				LatLng latlng = o.getCenter();
-				assertEquals("(-41.53468367361192, 61.31250000000003)",
-						latlng.getToString());
+				assertEquals("(-41.53468367361192, 61.31250000000003)", latlng.getToString());
 				finishTest();
 			}
 		});
@@ -360,8 +348,7 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				LatLngBounds left = LatLngBounds.newInstance(sw, ne);
 				o.panToBounds(left);
 				LatLng center = o.getCenter();
-				assertEquals("(32.92888675928454, -8.999999999999968)",
-						center.getToString());
+				assertEquals("(32.92888675928454, -8.999999999999968)", center.getToString());
 				finishTest();
 			}
 		});
@@ -379,8 +366,7 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				MapImpl o = MapImpl.newInstance(element, options);
 				LatLng center = LatLng.newInstance(41.239045d, -73.508142d);
 				o.setCenter(center);
-				assertEquals("(41.239045, -73.50814200000002)", o.getCenter()
-						.getToString());
+				assertEquals("(41.239045, -73.50814200000002)", o.getCenter().getToString());
 				finishTest();
 			}
 		});

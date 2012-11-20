@@ -17,20 +17,62 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				finishTest();
 			}
 		});
+	}
 
+	public void testDefaults() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				assertTrue("Should be visible by default", options.getVisible());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testDefaults() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				assertTrue(options.getsScrollWheel());
+				assertFalse(options.getEnableCloseButton());
+				assertFalse(options.getDisableDoubleClickZoom());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testImageDateControl() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				options.setImageDateControl(false);
+				assertFalse(options.getImageDateControl());
+
+				options.setImageDateControl(true);
+				assertTrue(options.getImageDateControl());
+
+				finishTest();
+			}
+		});
 	}
 
 	public void testAddressControl() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				boolean left = true;
 				options.setAddressControl(left);
 				boolean right = options.getAddressControl();
@@ -38,21 +80,52 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+	}
 
+	public void testClickToGo() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				options.setClickToGo(true);
+				assertTrue("Should be enabled", options.getClickToGo());
+
+				options.setClickToGo(false);
+				assertFalse("Should be disabled", options.getClickToGo());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testImageDateControl() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				options.setImageDateControl(true);
+				assertTrue("Should be enabled", options.getImageDateControl());
+
+				options.setImageDateControl(false);
+				assertFalse("Should be disabled", options.getImageDateControl());
+
+				finishTest();
+			}
+		});
 	}
 
 	public void testAddressControlOptions() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				StreetViewAddressControlOptions left = StreetViewAddressControlOptions
 						.newInstance();
 				left.setPosition(ControlPosition.BOTTOM_CENTER);
 				options.setAddressControlOptions(left);
-				StreetViewAddressControlOptions right = options
-						.getAddressControlOptions();
+				StreetViewAddressControlOptions right = options.getAddressControlOptions();
 				assertEquals(left.getPosition(), right.getPosition());
 				finishTest();
 			}
@@ -64,8 +137,7 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				boolean left = true;
 				options.setDisableDoubleClickZoom(left);
 				boolean right = options.getDisableDoubleClickZoom();
@@ -80,8 +152,7 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				boolean left = true;
 				options.setEnableCloseButton(left);
 				boolean right = options.getEnableCloseButton();
@@ -96,8 +167,7 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				boolean left = true;
 				options.setLinksControl(left);
 				boolean right = options.getLinksControl();
@@ -112,8 +182,7 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				boolean left = true;
 				options.setPanControl(left);
 				boolean right = options.getPanControl();
@@ -128,8 +197,7 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				PanControlOptions left = PanControlOptions.newInstance();
 				left.setPosition(ControlPosition.BOTTOM_CENTER);
 				options.setPanControlOptions(left);
@@ -145,8 +213,7 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				String left = "test";
 				options.setPano(left);
 				String right = options.getPano();
@@ -164,12 +231,11 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				options.setPanoProvider(new StreetViewPanoramaProvider() {
 					@Override
-					public StreetViewPanoramaData getPanoData(String pano,
-							int zoom, int tileX, int tileY) {
+					public StreetViewPanoramaData getPanoData(String pano, int zoom, int tileX,
+							int tileY) {
 						// TODO
 						return null;
 					}

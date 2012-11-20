@@ -30,10 +30,25 @@ public enum WindSpeedUnit {
 		this.value = value;
 	}
 	
+	/**
+	 * Maps the value to an instance of the enum
+	 * @param type
+	 * @return NULL if not matched
+	 */
+	public static WindSpeedUnit fromValue(String type) {
+		for(WindSpeedUnit val : values()) {
+			if(val.value().equals(type)) {
+				return val;
+			}
+		}
+		return null;
+	}
+	
 	public String value() {
 		return value;
 	}
 
+	@Override
 	public String toString() {
 		return name();
 	}

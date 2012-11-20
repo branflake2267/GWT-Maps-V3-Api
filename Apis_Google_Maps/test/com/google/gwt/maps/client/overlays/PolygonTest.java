@@ -30,6 +30,27 @@ public class PolygonTest extends AbstractMapsGWTTest {
 
 	}
 
+	public void testSetVisible() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolygonOptions options = PolygonOptions.newInstance();
+				Polygon o = Polygon.newInstance(options);
+				
+				// set value
+				o.setVisible(false);
+				assertFalse("Polygon should NOT be visible", o.getVisible());
+				
+				// set back to default
+				o.setVisible(true);
+				assertTrue("Polygon should be visible", o.getVisible());
+				
+				finishTest();
+			}
+		});
+		
+	}
+	
 	public void testEditable() {
 		asyncLibTest(new Runnable() {
 			@Override

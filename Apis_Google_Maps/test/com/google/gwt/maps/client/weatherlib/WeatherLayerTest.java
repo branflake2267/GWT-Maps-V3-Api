@@ -31,6 +31,30 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 
 	}
 
+	public void testSetOptions() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+
+				WeatherLayerOptions options = WeatherLayerOptions.newInstance();
+				options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
+				options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
+				options.setLabelColor(LabelColor.BLACK);
+
+				WeatherLayer o = WeatherLayer.newInstance(options);
+
+				// now set different options
+				WeatherLayerOptions options2 = WeatherLayerOptions.newInstance();
+				options.setTemperatureUnits(TemperatureUnit.CELSIUS);
+				options.setWindSpeedUnits(WindSpeedUnit.METERS_PER_SECOND);
+				options.setLabelColor(LabelColor.WHITE);
+				o.setOptions(options2);
+
+				finishTest();
+			}
+		});
+	}
+
 	public void testWeatherLayerOnMap() {
 		asyncLibTest(new Runnable() {
 			@Override
@@ -53,8 +77,7 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 				o.setMap(mapWidget);
 				MapWidget right = o.getMap();
 
-				assertEquals(mapWidget.getCenter().getToString(), right
-						.getCenter().getToString());
+				assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
 
 				// test clearing from map
 				o.setMap(null);
