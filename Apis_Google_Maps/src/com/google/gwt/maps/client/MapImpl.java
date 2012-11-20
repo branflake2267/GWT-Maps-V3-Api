@@ -91,8 +91,7 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            - dom element id
 	 * @param {@link MapOptions}
 	 */
-	private final static native MapImpl createJso(Element element,
-			MapOptions options) /*-{
+	private final static native MapImpl createJso(Element element, MapOptions options) /*-{
 		return new $wnd.google.maps.Map(element, options);
 	}-*/;
 
@@ -264,6 +263,15 @@ public class MapImpl extends MVCObject<MapImpl> {
 		setMapTypeIdImpl(mapTypeId.name());
 	}
 
+	/**
+	 * set MapTypeId
+	 * 
+	 * @param mapTypeId
+	 */
+	public final void setMapTypeId(String mapTypeId) {
+		setMapTypeIdImpl(mapTypeId);
+	}
+
 	private final native void setMapTypeIdImpl(String mapTypeId) /*-{
 		this.setMapTypeId(mapTypeId);
 	}-*/;
@@ -329,8 +337,7 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @param controlPosition
 	 * @param element
 	 */
-	public final void setControls(ControlPosition controlPosition,
-			Element element) {
+	public final void setControls(ControlPosition controlPosition, Element element) {
 		setControls(controlPosition.value(), element);
 	}
 
@@ -362,8 +369,7 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @param mapTypeId
 	 * @param styledType
 	 */
-	public final native void setCustomMapType(String mapTypeId,
-			StyledMapType styledType) /*-{
+	public final native void setCustomMapType(String mapTypeId, StyledMapType styledType) /*-{
 		this.mapTypes.set(mapTypeId, styledType);
 	}-*/;
 
@@ -379,8 +385,7 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * 
 	 * @param overlayMapTypes
 	 */
-	public final native void setOverlayMapTypes(
-			MVCArray<JavaScriptObject> overlayMapTypes) /*-{
+	public final native void setOverlayMapTypes(MVCArray<JavaScriptObject> overlayMapTypes) /*-{
 		this.overlayMapTypes = overlayMapTypes;
 	}-*/;
 
@@ -398,10 +403,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link BoundsChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addBoundsChangeHandler(
-			BoundsChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.BOUNDS_CHANGED, handler,
+	public final HandlerRegistration addBoundsChangeHandler(BoundsChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.BOUNDS_CHANGED, handler,
 				new BoundsChangeEventFormatter());
 	}
 
@@ -412,10 +415,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link CenterChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addCenterChangeHandler(
-			CenterChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.CENTER_CHANGED, handler,
+	public final HandlerRegistration addCenterChangeHandler(CenterChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.CENTER_CHANGED, handler,
 				new CenterChangeEventFormatter());
 	}
 
@@ -428,8 +429,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @return {@link MapHandlerRegistration}
 	 */
 	public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.CLICK,
-				handler, new ClickEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler,
+				new ClickEventFormatter());
 	}
 
 	/**
@@ -440,10 +441,9 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link DblClickMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addDblClickHandler(
-			DblClickMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK,
-				handler, new DblClickEventFormatter());
+	public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler,
+				new DblClickEventFormatter());
 	}
 
 	/**
@@ -454,8 +454,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @return {@link MapHandlerRegistration}
 	 */
 	public final HandlerRegistration addDragHandler(DragMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.DRAG,
-				handler, new DragEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.DRAG, handler,
+				new DragEventFormatter());
 	}
 
 	/**
@@ -466,8 +466,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @return {@link MapHandlerRegistration}
 	 */
 	public final HandlerRegistration addDragEndHandler(DragEndMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.DRAGEND,
-				handler, new DragEndEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.DRAGEND, handler,
+				new DragEndEventFormatter());
 	}
 
 	/**
@@ -477,10 +477,9 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link DragStartMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addDragStartHandler(
-			DragStartMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.DRAGSTART,
-				handler, new DragStartEventFormatter());
+	public final HandlerRegistration addDragStartHandler(DragStartMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.DRAGSTART, handler,
+				new DragStartEventFormatter());
 	}
 
 	/**
@@ -490,10 +489,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link HeadingChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addHeadingChangeHandler(
-			HeadingChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.HEADING_CHANGED, handler,
+	public final HandlerRegistration addHeadingChangeHandler(HeadingChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.HEADING_CHANGED, handler,
 				new HeadingChangeEventFormatter());
 	}
 
@@ -505,8 +502,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @return {@link MapHandlerRegistration}
 	 */
 	public final HandlerRegistration addIdleHandler(IdleMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.IDLE,
-				handler, new IdleEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.IDLE, handler,
+				new IdleEventFormatter());
 	}
 
 	/**
@@ -516,10 +513,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link MapTypeIdChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addMapTypeIdChangeHandler(
-			MapTypeIdChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.MAPTYPEID_CHANGED, handler,
+	public final HandlerRegistration addMapTypeIdChangeHandler(MapTypeIdChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MAPTYPEID_CHANGED, handler,
 				new MapTypeIdChangeEventFormatter());
 	}
 
@@ -531,10 +526,9 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link MouseMoveMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addMouseMoveHandler(
-			MouseMoveMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE,
-				handler, new MouseMoveEventFormatter());
+	public final HandlerRegistration addMouseMoveHandler(MouseMoveMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEMOVE, handler,
+				new MouseMoveEventFormatter());
 	}
 
 	/**
@@ -544,10 +538,9 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link MouseOutMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addMouseOutMoveHandler(
-			MouseOutMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT,
-				handler, new MouseOutEventFormatter());
+	public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler,
+				new MouseOutEventFormatter());
 	}
 
 	/**
@@ -557,10 +550,9 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link MouseOverMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addMouseOverHandler(
-			MouseOverMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER,
-				handler, new MouseOverEventFormatter());
+	public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler,
+				new MouseOverEventFormatter());
 	}
 
 	/**
@@ -570,10 +562,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link ProjectionChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addProjectionChangeHandler(
-			ProjectionChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.PROJECTION_CHANGED, handler,
+	public final HandlerRegistration addProjectionChangeHandler(ProjectionChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.PROJECTION_CHANGED, handler,
 				new ProjectionChangeEventFormatter());
 	}
 
@@ -586,8 +576,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @return {@link MapHandlerRegistration}
 	 */
 	public final HandlerRegistration addResizeHandler(ResizeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.RESIZE,
-				handler, new ResizeEventFormatter());
+		return MapHandlerRegistration.addHandler(this, MapEventType.RESIZE, handler,
+				new ResizeEventFormatter());
 	}
 
 	/**
@@ -598,10 +588,9 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link RightClickMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addRightClickHandler(
-			RightClickMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK,
-				handler, new RightClickEventFormatter());
+	public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler,
+				new RightClickEventFormatter());
 	}
 
 	/**
@@ -611,10 +600,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link TilesLoadedMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addTilesLoadedHandler(
-			TilesLoadedMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.TILESLOADED, handler,
+	public final HandlerRegistration addTilesLoadedHandler(TilesLoadedMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.TILESLOADED, handler,
 				new TilesLoadedEventFormatter());
 	}
 
@@ -625,10 +612,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link TiltChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addTiltChangeHandler(
-			TiltChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.TILT_CHANGED, handler,
+	public final HandlerRegistration addTiltChangeHandler(TiltChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.TILT_CHANGED, handler,
 				new TiltChangeEventFormatter());
 	}
 
@@ -639,10 +624,8 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 *            {@link ZoomChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public final HandlerRegistration addZoomChangeHandler(
-			ZoomChangeMapHandler handler) {
-		return MapHandlerRegistration.addHandler(this,
-				MapEventType.ZOOM_CHANGED, handler,
+	public final HandlerRegistration addZoomChangeHandler(ZoomChangeMapHandler handler) {
+		return MapHandlerRegistration.addHandler(this, MapEventType.ZOOM_CHANGED, handler,
 				new ZoomChangeEventFormatter());
 	}
 
