@@ -44,9 +44,6 @@ public class PolylineTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
-<<<<<<< HEAD
-=======
 	}
 	
 	public void testVisible() {
@@ -66,8 +63,6 @@ public class PolylineTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-		
->>>>>>> e3ec9a7
 	}
 
 	public void testMap() {

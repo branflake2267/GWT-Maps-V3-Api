@@ -17,8 +17,6 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 	public void testWeatherLayerUse() {
 		asyncLibTest(new Runnable() {
 			@Override
-<<<<<<< HEAD
-=======
 			public void run() {
 
 				WeatherLayerOptions options = WeatherLayerOptions.newInstance();
@@ -36,7 +34,6 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 	public void testSetOptions() {
 		asyncLibTest(new Runnable() {
 			@Override
->>>>>>> e3ec9a7
 			public void run() {
 
 				WeatherLayerOptions options = WeatherLayerOptions.newInstance();
@@ -56,11 +53,6 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> e3ec9a7
 	}
 
 	public void testWeatherLayerOnMap() {

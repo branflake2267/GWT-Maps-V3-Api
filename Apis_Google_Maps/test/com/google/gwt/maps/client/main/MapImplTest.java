@@ -88,13 +88,10 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				Element element = fp.getElement();
 				MapOptions options = MapOptions.newInstance();
 				MapImpl o = MapImpl.newInstance(element, options);
-<<<<<<< HEAD
-
-=======
 				o.setCenter(LatLng.newInstance(41.239045d, -13.508142d));
 				o.setZoom(8);
 				
->>>>>>> e3ec9a7
+
 				// test we have good bounds
 				LatLngBounds actual = o.getBounds();
 				assertNotNull("Map bounds should be non-null", actual);
@@ -105,16 +102,11 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				o.fitBounds(left);
 
 				// expected
-<<<<<<< HEAD
-				LatLng expectedSW = LatLng.newInstance(30.792110d, -180d);
-				LatLng expectedNE = LatLng.newInstance(51.64751d, 180d);
-
-=======
 				LatLng expectedSW = LatLng.newInstance(30.792110d, -180.0d);
 				LatLng expectedNE = LatLng.newInstance(51.64751d, 180.0d);
 				@SuppressWarnings("unused")
 				LatLngBounds expected = LatLngBounds.newInstance(sw, ne);
->>>>>>> e3ec9a7
+
 				// test
 				actual = o.getBounds();
 				assertNotNull("Map bounds should be non-null", actual);
@@ -125,13 +117,7 @@ public class MapImplTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-<<<<<<< HEAD
-
 	}
-=======
-	}
-
->>>>>>> e3ec9a7
 
 	public void testGetHeading() {
 		asyncLibTest(new Runnable() {

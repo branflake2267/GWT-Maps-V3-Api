@@ -135,6 +135,25 @@ public class MarkerOptionsTest extends AbstractMapsGWTTest {
 
 	}
 
+	public void testIconMapWidget() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				MarkerOptions o = MarkerOptions.newInstance();
+				MapOptions options = MapOptions.newInstance();
+				FlowPanel fp = new FlowPanel();
+				RootPanel.get().add(fp);
+				MapWidget left = new MapWidget(options);
+				o.setMap(left);
+				@SuppressWarnings("deprecation")
+				MapWidget right = o.getMapWidget();
+				assertLatLngEquals(left.getCenter(), right.getCenter());
+				finishTest();
+			}
+		});
+
+	}
+
 	public void testIconMap() {
 		asyncLibTest(new Runnable() {
 			@Override
@@ -145,13 +164,11 @@ public class MarkerOptionsTest extends AbstractMapsGWTTest {
 				RootPanel.get().add(fp);
 				MapWidget left = new MapWidget(options);
 				o.setMap(left);
-				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+				MapWidget right = o.getMap();
+				assertLatLngEquals(left.getCenter(), right.getCenter());
 				finishTest();
 			}
 		});
-
 	}
 
 	@SuppressWarnings("unused")
@@ -161,14 +178,11 @@ public class MarkerOptionsTest extends AbstractMapsGWTTest {
 			public void run() {
 				MarkerOptions o = MarkerOptions.newInstance();
 				FlowPanel fp = new FlowPanel();
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
 				options.setPano("testing");
-				StreetViewPanoramaWidget left = new StreetViewPanoramaWidget(
-						options);
+				StreetViewPanoramaWidget left = new StreetViewPanoramaWidget(options);
 				o.setMap(left);
-				StreetViewPanoramaWidget right = o
-						.getMapStreetViewPanoramaWidget();
+				StreetViewPanoramaWidget right = o.getMapStreetViewPanoramaWidget();
 				assertEquals(left.getPano(), right.getPano());
 				finishTest();
 			}

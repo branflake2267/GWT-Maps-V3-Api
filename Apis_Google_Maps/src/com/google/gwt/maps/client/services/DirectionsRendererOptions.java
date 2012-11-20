@@ -135,17 +135,19 @@ public class DirectionsRendererOptions extends JavaScriptObject {
 	 * Map on which to display the directions.
 	 */
 	public final MapWidget getMap() {
-		return MapWidget.newInstance(getMapImpl());
+		MapImpl obj = getMapImpl();
+		return obj != null ? MapWidget.newInstance(obj) : null;
 	}
 
 	/**
-	 * Map on which to display the directions.
+	 * Map on which to display the directions. <br>
 	 * 
-	 * @deprecated See {@link #getMap()}
+	 * @See {@link #getMap()}
 	 */
 	@Deprecated
 	public final MapWidget getMapWidget() {
-		return MapWidget.newInstance(getMapImpl());
+		MapImpl obj = getMapImpl();
+		return obj != null ? MapWidget.newInstance(obj) : null;
 	}
 
 	private final native MapImpl getMapImpl() /*-{
@@ -248,8 +250,7 @@ public class DirectionsRendererOptions extends JavaScriptObject {
 	 * 
 	 * @param suppressBicyclingLayer
 	 */
-	public final native void setSuppressBicyclingLayer(
-			boolean suppressBicyclingLayer) /*-{
+	public final native void setSuppressBicyclingLayer(boolean suppressBicyclingLayer) /*-{
 		this.suppressBicyclingLayer = suppressBicyclingLayer;
 	}-*/;
 
