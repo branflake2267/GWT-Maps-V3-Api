@@ -2,11 +2,17 @@ package com.google.gwt.maps.client.maptype;
 
 import com.google.gwt.maps.client.AbstractMapsGWTTest;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
+import com.google.gwt.maps.client.MapOptions;
+import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Point;
 import com.google.gwt.maps.client.base.Size;
+import com.google.gwt.maps.client.events.tiles.TilesLoadedMapEvent;
+import com.google.gwt.maps.client.events.tiles.TilesLoadedMapHandler;
 import com.google.gwt.maps.client.maptypes.ImageMapType;
 import com.google.gwt.maps.client.maptypes.ImageMapTypeOptions;
 import com.google.gwt.maps.client.maptypes.TileUrlCallBack;
+import com.google.gwt.user.client.ui.RootPanel;
 
 public class ImageMapTypeTest extends AbstractMapsGWTTest {
 
@@ -24,7 +30,6 @@ public class ImageMapTypeTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
 	}
 
 	@SuppressWarnings("unused")
@@ -66,9 +71,8 @@ public class ImageMapTypeTest extends AbstractMapsGWTTest {
 				options.setTileUrl(new TileUrlCallBack() {
 					@Override
 					public String getTileUrl(Point point, int zoomLevel) {
-						return "http://mt3.google.com/mapstt?zoom=" + zoomLevel
-								+ "&x=" + point.getX() + "&y=" + point.getY()
-								+ "&client=api";
+						return "http://mt3.google.com/mapstt?zoom=" + zoomLevel + "&x="
+								+ point.getX() + "&y=" + point.getY() + "&client=api";
 					}
 				});
 				ImageMapType o = ImageMapType.newInstance(options);
@@ -134,8 +138,7 @@ public class ImageMapTypeTest extends AbstractMapsGWTTest {
 
 	}
 
-	@SuppressWarnings("unused")
-	public void testOpacity() {
+	public void testOpacityOptions() {
 		asyncLibTest(new Runnable() {
 			@Override
 			public void run() {
@@ -144,11 +147,35 @@ public class ImageMapTypeTest extends AbstractMapsGWTTest {
 				options.setOpacity(left);
 				double right = options.getOpacity();
 				assertEquals(left, right);
-				ImageMapType o = ImageMapType.newInstance(options);
+				ImageMapType.newInstance(options);
+
 				finishTest();
 			}
 		});
+	}
 
+	public void testOpacity() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				ImageMapTypeOptions options = ImageMapTypeOptions.newInstance();
+				double expected = .51d;
+				options.setOpacity(expected);
+				ImageMapType o = ImageMapType.newInstance(options);
+
+				// test
+				double actual = o.getOpacity();
+				assertEquals(expected, actual, 1e-3);
+
+				// change and confirm changed
+				double expected2 = 1.0d;
+				o.setOpacity(expected2);
+				double actual2 = o.getOpacity();
+				assertEquals(expected2, actual2, 1e-3);
+
+				finishTest();
+			}
+		});
 	}
 
 	@SuppressWarnings("unused")
@@ -165,7 +192,139 @@ public class ImageMapTypeTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
-
 	}
 
+	// example adapted from
+	// https://developers.google.com/maps/documentation/javascript/maptypes
+	public void testFullTest() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				String customTypeName = "Moon";
+
+				ImageMapTypeOptions options = ImageMapTypeOptions.newInstance();
+				options.setAlt("To the moon!");
+				options.setMaxZoom(9);
+				options.setMinZoom(0);
+				options.setName(customTypeName);
+				options.setTileSize(Size.newInstance(256d, 256d));
+				options.setTileUrl(new TileUrlCallBack() {
+
+					@Override
+					public String getTileUrl(Point point, int zoomLevel) {
+						Point normalizedCoord = getNormalizedCoord(point, zoomLevel);
+						if (normalizedCoord == null) {
+							return null;
+						}
+
+						double bound = Math.pow(2, zoomLevel);
+						return "http://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw"
+								+ "/" + zoomLevel + "/" + normalizedCoord.getX() + "/"
+								+ (bound - normalizedCoord.getY() - 1) + ".jpg";
+					}
+				});
+
+				// testing that we can add it, but not that it runs, not thrown
+				// here
+				ImageMapType moonType = ImageMapType.newInstance(options);
+
+				// add to a map
+				MapOptions opts = MapOptions.newInstance();
+				MapWidget mapWidget = new MapWidget(opts);
+				mapWidget.setSize("500px", "500px");
+				mapWidget.setCenter(LatLng.newInstance(0d, 0d));
+				mapWidget.setZoom(1);
+
+				// custom type, the moon
+				mapWidget.getMapTypeRegistry().set(customTypeName, moonType);
+				mapWidget.setMapTypeId(customTypeName);
+
+				RootPanel.get().add(mapWidget);
+
+				finishTest();
+			}
+		});
+	}
+
+	// example adapted from
+	// https://developers.google.com/maps/documentation/javascript/maptypes
+	public void testTilesLoadedEvent() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				String customTypeName = "Moon";
+
+				ImageMapTypeOptions options = ImageMapTypeOptions.newInstance();
+				options.setAlt("To the moon!");
+				options.setMaxZoom(9);
+				options.setMinZoom(0);
+				options.setName(customTypeName);
+				options.setTileSize(Size.newInstance(256d, 256d));
+				options.setTileUrl(new TileUrlCallBack() {
+
+					@Override
+					public String getTileUrl(Point point, int zoomLevel) {
+						Point normalizedCoord = getNormalizedCoord(point, zoomLevel);
+						if (normalizedCoord == null) {
+							return null;
+						}
+
+						double bound = Math.pow(2, zoomLevel);
+						return "http://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw"
+								+ "/" + zoomLevel + "/" + normalizedCoord.getX() + "/"
+								+ (bound - normalizedCoord.getY() - 1) + ".jpg";
+					}
+				});
+
+				// testing that we can add it, but not that it runs, not thrown
+				// here
+				ImageMapType moonType = ImageMapType.newInstance(options);
+				moonType.addClickHandler(new TilesLoadedMapHandler() {
+
+					@Override
+					public void onEvent(TilesLoadedMapEvent event) {
+						// should fire when these tiles load
+						finishTest();
+					}
+
+				});
+
+				// add to a map
+				MapOptions opts = MapOptions.newInstance();
+				MapWidget mapWidget = new MapWidget(opts);
+				mapWidget.setSize("500px", "500px");
+				mapWidget.setCenter(LatLng.newInstance(0d, 0d));
+				mapWidget.setZoom(1);
+
+				// custom type, the moon
+				mapWidget.getMapTypeRegistry().set(customTypeName, moonType);
+				mapWidget.setMapTypeId(customTypeName);
+
+				RootPanel.get().add(mapWidget);
+			}
+		});
+	}
+
+	// Normalizes the coords that tiles repeat across the x axis (horizontally)
+	// like the standard Google map tiles.
+	private Point getNormalizedCoord(Point coord, int zoom) {
+		double y = coord.getY();
+		double x = coord.getX();
+
+		// tile range in one direction range is dependent on zoom level
+		// 0 = 1 tile, 1 = 2 tiles, 2 = 4 tiles, 3 = 8 tiles, etc
+		double tileRange = 1 << zoom;
+
+		// don't repeat across y-axis (vertically)
+		if (y < 0 || y >= tileRange) {
+			return null;
+		}
+
+		// repeat across x-axis
+		if (x < 0 || x >= tileRange) {
+			x = (x % tileRange + tileRange) % tileRange;
+		}
+
+		return Point.newInstance(x, y);
+	}
 }

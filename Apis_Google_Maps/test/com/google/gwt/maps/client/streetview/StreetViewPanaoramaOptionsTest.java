@@ -36,6 +36,38 @@ public class StreetViewPanaoramaOptionsTest extends AbstractMapsGWTTest {
 		});
 	}
 
+	public void testDefaults() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				assertTrue(options.getsScrollWheel());
+				assertFalse(options.getEnableCloseButton());
+				assertFalse(options.getDisableDoubleClickZoom());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testImageDateControl() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+
+				options.setImageDateControl(false);
+				assertFalse(options.getImageDateControl());
+
+				options.setImageDateControl(true);
+				assertTrue(options.getImageDateControl());
+
+				finishTest();
+			}
+		});
+	}
+
 	public void testAddressControl() {
 		asyncLibTest(new Runnable() {
 			@Override

@@ -68,7 +68,6 @@ public class Apis_Maps_Test implements EntryPoint {
 				"<a href=\"Apis_Maps_Test_FullPage.html\">See FullScreen Map Demo</a><br/><br/>");
 		RootPanel.get().add(html);
 
-
 		drawHeatMap();
 		
 		drawPolylineMap();

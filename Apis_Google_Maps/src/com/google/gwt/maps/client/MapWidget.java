@@ -289,6 +289,15 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	}
 
 	/**
+	 * set MapTypeId (custom id if not in standard enum)
+	 * 
+	 * @param mapTypeId
+	 */
+	public final void setMapTypeId(String mapTypeId) {
+		impl.setMapTypeId(mapTypeId);
+	}
+
+	/**
 	 * set MapOptions
 	 * 
 	 * @param options
@@ -455,8 +464,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 *            {@link BoundsChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public HandlerRegistration addBoundsChangeHandler(
-			BoundsChangeMapHandler handler) {
+	public HandlerRegistration addBoundsChangeHandler(BoundsChangeMapHandler handler) {
 		return impl.addBoundsChangeHandler(handler);
 	}
 
@@ -467,8 +475,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 *            {@link CenterChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public HandlerRegistration addCenterChangeHandler(
-			CenterChangeMapHandler handler) {
+	public HandlerRegistration addCenterChangeHandler(CenterChangeMapHandler handler) {
 		return impl.addCenterChangeHandler(handler);
 	}
 
@@ -536,8 +543,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 *            {@link HeadingChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public HandlerRegistration addHeadingChangeHandler(
-			HeadingChangeMapHandler handler) {
+	public HandlerRegistration addHeadingChangeHandler(HeadingChangeMapHandler handler) {
 		return impl.addHeadingChangeHandler(handler);
 	}
 
@@ -559,8 +565,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 *            {@link MapTypeIdChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public HandlerRegistration addMapTypeIdChangeHandler(
-			MapTypeIdChangeMapHandler handler) {
+	public HandlerRegistration addMapTypeIdChangeHandler(MapTypeIdChangeMapHandler handler) {
 		return impl.addMapTypeIdChangeHandler(handler);
 	}
 
@@ -605,8 +610,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 *            {@link ProjectionChangeMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public HandlerRegistration addProjectionChangeHandler(
-			ProjectionChangeMapHandler handler) {
+	public HandlerRegistration addProjectionChangeHandler(ProjectionChangeMapHandler handler) {
 		return impl.addProjectionChangeHandler(handler);
 	}
 
@@ -641,8 +645,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 *            {@link TilesLoadedMapHandler}
 	 * @return {@link MapHandlerRegistration}
 	 */
-	public HandlerRegistration addTilesLoadedHandler(
-			TilesLoadedMapHandler handler) {
+	public HandlerRegistration addTilesLoadedHandler(TilesLoadedMapHandler handler) {
 		return impl.addTilesLoadedHandler(handler);
 	}
 

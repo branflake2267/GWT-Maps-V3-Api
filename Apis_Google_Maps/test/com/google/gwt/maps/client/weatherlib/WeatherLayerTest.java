@@ -42,7 +42,7 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 				options.setLabelColor(LabelColor.BLACK);
 
 				WeatherLayer o = WeatherLayer.newInstance(options);
-				
+
 				// now set different options
 				WeatherLayerOptions options2 = WeatherLayerOptions.newInstance();
 				options.setTemperatureUnits(TemperatureUnit.CELSIUS);
@@ -77,8 +77,7 @@ public class WeatherLayerTest extends AbstractMapsGWTTest {
 				o.setMap(mapWidget);
 				MapWidget right = o.getMap();
 
-				assertEquals(mapWidget.getCenter().getToString(), right
-						.getCenter().getToString());
+				assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
 
 				// test clearing from map
 				o.setMap(null);

@@ -115,8 +115,7 @@ public class LoadApi {
 	 * @param sensor
 	 *            derive location [true|false]
 	 */
-	public static void go(Runnable onLoad,
-			ArrayList<LoadLibrary> loadLibraries, boolean sensor) {
+	public static void go(Runnable onLoad, ArrayList<LoadLibrary> loadLibraries, boolean sensor) {
 		load(onLoad, sensor, loadLibraries, null);
 	}
 
@@ -130,8 +129,7 @@ public class LoadApi {
 	 * @param sensor
 	 *            derive location [true|false]
 	 */
-	public static void go(Runnable onLoad, LoadLibrary[] loadLibraries,
-			boolean sensor) {
+	public static void go(Runnable onLoad, LoadLibrary[] loadLibraries, boolean sensor) {
 		ArrayList<LoadLibrary> loadLibrariesList = new ArrayList<LoadLibrary>(
 				Arrays.asList(loadLibraries));
 		load(onLoad, sensor, loadLibrariesList, null);
@@ -163,8 +161,7 @@ public class LoadApi {
 	 * @param otherParams
 	 *            add additional params. like "key=YOUR_API_KEY"
 	 */
-	public static void go(Runnable onLoad,
-			ArrayList<LoadLibrary> loadLibraries, boolean sensor,
+	public static void go(Runnable onLoad, ArrayList<LoadLibrary> loadLibraries, boolean sensor,
 			String otherParams) {
 		load(onLoad, sensor, loadLibraries, otherParams);
 	}
@@ -177,8 +174,8 @@ public class LoadApi {
 	 * @param loadLibraries
 	 * @param otherParams
 	 */
-	private static void load(Runnable onLoad, boolean sensor,
-			ArrayList<LoadLibrary> loadLibraries, String otherParams) {
+	private static void load(Runnable onLoad, boolean sensor, ArrayList<LoadLibrary> loadLibraries,
+			String otherParams) {
 
 		String op = "sensor=" + sensor;
 		if (otherParams != null) {

@@ -31,50 +31,20 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 		JavaScriptObject jso = JavaScriptObject.createObject();
 		WorkAroundUtils.removeGwtObjectId(jso);
 		StreetViewPanoramaOptions obj = jso.cast();
-		obj.setDefaults();
+		obj.setDefaults(obj);
 		return obj;
 	}
 
 	/**
-	 * Set expected default values
+	 * Set defaults to those expected from documentation
+	 * 
+	 * @param obj
 	 */
-	private void setDefaults() {
-		setVisible(true);
+	private void setDefaults(StreetViewPanoramaOptions obj) {
+		obj.setScrollWheel(true);
+		obj.setDisableDoubleClickZoom(false);
+		obj.setEnableCloseButton(false);
 	}
-
-	/**
-	 * The enabled/disabled state of the imagery acquisition date control.
-	 * 
-	 * @param imageDateControl
-	 */
-	public final native void setImageDateControl(boolean imageDateControl) /*-{
-		this.imageDateControl = imageDateControl
-	}-*/;
-
-	/**
-	 * The enabled/disabled state of the imagery acquisition date control.
-	 * 
-	 */
-	public final native boolean getImageDateControl() /*-{
-		return this.imageDateControl;
-	}-*/;
-
-	/**
-	 * The enabled/disabled state of click-to-go.
-	 * 
-	 * @param clickToGo
-	 */
-	public final native void setClickToGo(boolean clickToGo) /*-{
-		this.clickToGo = clickToGo
-	}-*/;
-
-	/**
-	 * The enabled/disabled state of click-to-go.
-	 * 
-	 */
-	public final native boolean getClickToGo() /*-{
-		return this.clickToGo;
-	}-*/;
 
 	/**
 	 * sets The enabled/disabled state of the address control.
@@ -90,6 +60,22 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 	 */
 	public final native boolean getAddressControl() /*-{
 		return this.addressControl;
+	}-*/;
+
+	/**
+	 * Set the enabled/disabled state of the imagery acquisition date control.
+	 * 
+	 * @param addressControl
+	 */
+	public final native void setImageDateControl(boolean imageDateControl) /*-{
+		this.imageDateControl = imageDateControl
+	}-*/;
+
+	/**
+	 * Get the enabled/disabled state of the imagery acquisition date control.
+	 */
+	public final native boolean getImageDateControl() /*-{
+		return this.imageDateControl;
 	}-*/;
 
 	/**

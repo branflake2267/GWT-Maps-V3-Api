@@ -1,14 +1,6 @@
 package com.google.gwt.maps.client.overlays;
 
-import com.google.gwt.ajaxloader.client.ArrayHelper;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
-import com.google.gwt.maps.client.LoadApi.LoadLibrary;
-import com.google.gwt.maps.client.MapOptions;
-import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.base.LatLng;
-import com.google.gwt.maps.client.mvc.MVCArray;
-import com.google.gwt.user.client.ui.RootPanel;
+import test.com.google.gwt.maps.client.AbstractMapsGWTTest;
 
 public class PolygonOptionsTest extends AbstractMapsGWTTest {
 
@@ -148,6 +140,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				o.setMap(left);
 				@SuppressWarnings("deprecation")
 				MapWidget right = o.getMapWidget();
+
 				assertLatLngEquals(left.getCenter(), right.getCenter());
 				finishTest();
 			}

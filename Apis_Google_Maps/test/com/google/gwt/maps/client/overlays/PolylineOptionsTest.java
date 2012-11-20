@@ -101,7 +101,9 @@ public class PolylineOptionsTest extends AbstractMapsGWTTest {
 				o.setMap(left);
 				@SuppressWarnings("deprecation")
 				MapWidget right = o.getMapWidget();
+
 				assertLatLngEquals(left.getCenter(), right.getCenter());
+
 				finishTest();
 			}
 		});
