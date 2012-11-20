@@ -167,6 +167,8 @@
 		<dependency>
 			<groupId>com.google.gwt.maps</groupId>
 			<artifactId>Apis_Google_Maps</artifactId>
+			<!-- <artifactId>gwt-maps-api-v3-core</artifactId> -->
+
 			<version>3.8.1</version>
 			<scope>compile</scope>
 		</dependency>

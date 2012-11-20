@@ -68,9 +68,8 @@ public class ElevationMapWidget extends Composite {
 		mapWidget.addClickHandler(new ClickMapHandler() {
 			@Override
 			public void onEvent(ClickMapEvent event) {
-				GWT.log("clicked on latlng="
-						+ event.getMouseEvent().getLatLng());
-				
+				GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+
 				LatLng point = event.getMouseEvent().getLatLng();
 				findElevation(point);
 			}
@@ -79,19 +78,17 @@ public class ElevationMapWidget extends Composite {
 
 	private void findElevation(LatLng point) {
 
-		LatLng[] a = new LatLng[]{point};
+		LatLng[] a = new LatLng[] { point };
 
 		JsArray<LatLng> locations = ArrayHelper.toJsArray(a);
 
-		LocationElevationRequest request = LocationElevationRequest
-				.newInstance();
+		LocationElevationRequest request = LocationElevationRequest.newInstance();
 		request.setLocations(locations);
 
 		ElevationService o = ElevationService.newInstance();
 		o.getElevationForLocations(request, new ElevationServiceHandler() {
 			@Override
-			public void onCallback(JsArray<ElevationResult> result,
-					ElevationStatus status) {
+			public void onCallback(JsArray<ElevationResult> result, ElevationStatus status) {
 
 				if (status == ElevationStatus.INVALID_REQUEST) {
 
@@ -119,12 +116,13 @@ public class ElevationMapWidget extends Composite {
 	}
 
 	protected void drawInfoWindow(LatLng position, double elevation) {
-		
-		NumberFormat format = NumberFormat.getFormat("###.##");
+
+		NumberFormat format = NumberFormat.getFormat("###");
 		String elevationStr = format.format(elevation);
-		String latlngStr = "[ "+format.format(position.getLatitude()) + ", "+format.format(position.getLongitude())+" ]";
-		String message = "Elevation is "+elevationStr+"m @ "+latlngStr;
-				
+		String latlngStr = "[ " + format.format(position.getLatitude()) + ", "
+				+ format.format(position.getLongitude()) + " ]";
+		String message = "Elevation " + elevationStr + "m @ " + latlngStr;
+
 		HTML html = new HTML(message);
 		InfoWindowOptions options = InfoWindowOptions.newInstance();
 		options.setContent(html);

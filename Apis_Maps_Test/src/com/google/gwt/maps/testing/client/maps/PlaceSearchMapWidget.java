@@ -2,14 +2,18 @@ package com.google.gwt.maps.testing.client.maps;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.events.click.ClickMapEvent;
 import com.google.gwt.maps.client.events.click.ClickMapHandler;
+import com.google.gwt.maps.client.placeslib.PlaceDetailsHandler;
+import com.google.gwt.maps.client.placeslib.PlaceDetailsRequest;
 import com.google.gwt.maps.client.placeslib.PlaceResult;
 import com.google.gwt.maps.client.placeslib.PlaceSearchHandler;
+import com.google.gwt.maps.client.placeslib.PlaceSearchPagination;
 import com.google.gwt.maps.client.placeslib.PlaceSearchRequest;
 import com.google.gwt.maps.client.placeslib.PlacesService;
 import com.google.gwt.maps.client.placeslib.PlacesServiceStatus;
@@ -50,20 +54,61 @@ public class PlaceSearchMapWidget extends Composite {
 		request.setTypes(types);
 
 		PlacesService placeService = PlacesService.newInstance(mapWidget);
-		placeService.search(request, new PlaceSearchHandler() {
+		placeService.nearbySearch(request, new PlaceSearchHandler() {
+
 			@Override
 			public void onCallback(JsArray<PlaceResult> results,
+					PlaceSearchPagination pagination, PlacesServiceStatus status) {
+
+				if (status == PlacesServiceStatus.OK) {
+					Window.alert("I found this many places " + results.length());
+
+					// look up the details for the first place
+					if (results.length() > 0) {
+						PlaceResult result = results.get(0);
+						String reference = result.getReference();
+						getPlaceDetails(reference);
+
+						String json = new JSONObject(result).toString();
+						GWT.log("details=" + json);
+					}
+				} else {
+					Window.alert("Status is: status=" + status);
+				}
+			}
+
+		});
+	}
+
+	private void getPlaceDetails(String reference) {
+		if (reference == null || reference.isEmpty()) {
+			return;
+		}
+
+		PlacesService placeService = PlacesService.newInstance(mapWidget);
+		PlaceDetailsRequest request = PlaceDetailsRequest.newInstance();
+		request.setReference(reference);
+
+		placeService.getDetails(request, new PlaceDetailsHandler() {
+			@Override
+			public void onCallback(PlaceResult result,
 					PlacesServiceStatus status) {
-				// TODO add some popup to display the results
-				Window.alert("I found this many places " + results.length());
+				if (status == PlacesServiceStatus.OK) {
+					Window.alert("Found place details: name="
+							+ result.getName());
+				} else {
+					String json = new JSONObject(result).toString();
+					System.out.println("details=" + json);
+					Window.alert("Status is: status=" + status + " ::: " + json);
+				}
 			}
 		});
 	}
 
 	private void drawMap() {
-		LatLng center = LatLng.newInstance(49.496675, -102.65625);
+		LatLng center = LatLng.newInstance(47.60346, -122.33571);
 		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(4);
+		opts.setZoom(16);
 		opts.setCenter(center);
 		opts.setMapTypeId(MapTypeId.HYBRID);
 

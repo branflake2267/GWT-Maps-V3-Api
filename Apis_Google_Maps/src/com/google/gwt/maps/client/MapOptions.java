@@ -741,7 +741,7 @@ public class MapOptions extends JavaScriptObject {
 	
 	/**
 	 * Gets Map Maker usage. 
-	 * @returns True if Map Maker tiles are used instead of regular tiles.
+	 * @return True if Map Maker tiles are used instead of regular tiles.
 	 */
 	public final native boolean getMapMaker() /*-{
 		return this.mapMaker;

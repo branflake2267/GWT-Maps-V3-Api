@@ -1,5 +1,6 @@
 package com.google.gwt.maps.client.weatherlib;
 
+
 /**
  * The color of the labels displayed on the weather layer. <br>
  * <br>
@@ -12,23 +13,22 @@ public enum LabelColor {
 	/**
 	 * Weather labels will be displayed as black text with a white border.
 	 */
-	BLACK("black"),
+	BLACK,
 
 	/**
 	 * Weather labels will be displayed as white text with a black border.
 	 */
-	WHITE("white");
-
-	private final String value;
-	
-	private LabelColor(String value) {
-		this.value = value;
-	}
+	WHITE;
 
 	public String value() {
-		return value;
+		return name().toLowerCase();
 	}
 
+	public static LabelColor fromValue(String type) {
+		return valueOf(type.toUpperCase());
+	}
+
+	@Override
 	public String toString() {
 		return name();
 	}

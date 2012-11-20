@@ -1,14 +1,6 @@
 package com.google.gwt.maps.client.overlays;
 
-import com.google.gwt.ajaxloader.client.ArrayHelper;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
-import com.google.gwt.maps.client.LoadApi.LoadLibrary;
-import com.google.gwt.maps.client.MapOptions;
-import com.google.gwt.maps.client.MapWidget;
-import com.google.gwt.maps.client.base.LatLng;
-import com.google.gwt.maps.client.mvc.MVCArray;
-import com.google.gwt.user.client.ui.RootPanel;
+import test.com.google.gwt.maps.client.AbstractMapsGWTTest;
 
 public class PolygonOptionsTest extends AbstractMapsGWTTest {
 
@@ -26,7 +18,22 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				finishTest();
 			}
 		});
+	}
 
+	public void testDefaults() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolygonOptions o = PolygonOptions.newInstance();
+
+				assertFalse("Should not be editable by default", o.getEditable());
+				assertTrue("Should be clickable by default", o.getClickable());
+				assertTrue("Should be visible by default", o.getVisible());
+				assertFalse("Should not be geodesic by default", o.getGeodesic());
+
+				finishTest();
+			}
+		});
 	}
 
 	public void testClickable() {
@@ -42,6 +49,38 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 			}
 		});
 
+	}
+
+	public void testEditable() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolygonOptions o = PolygonOptions.newInstance();
+
+				assertFalse("Should not be editable by default", o.getEditable());
+
+				o.setEditable(true);
+				assertTrue("Should be editable", o.getEditable());
+
+				finishTest();
+			}
+		});
+	}
+
+	public void testVisible() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolygonOptions o = PolygonOptions.newInstance();
+
+				assertTrue("Should be visible by default", o.getVisible());
+
+				o.setVisible(false);
+				assertFalse("Should not be visible", o.getVisible());
+
+				finishTest();
+			}
+		});
 	}
 
 	public void testFillColor() {
@@ -99,13 +138,30 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				left.setSize("500px", "500px");
 				RootPanel.get().add(left);
 				o.setMap(left);
+				@SuppressWarnings("deprecation")
 				MapWidget right = o.getMapWidget();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+
+				assertLatLngEquals(left.getCenter(), right.getCenter());
 				finishTest();
 			}
 		});
+	}
 
+	public void testMap() {
+		asyncLibTest(new Runnable() {
+			@Override
+			public void run() {
+				PolygonOptions o = PolygonOptions.newInstance();
+				MapOptions opts = MapOptions.newInstance();
+				MapWidget left = new MapWidget(opts);
+				left.setSize("500px", "500px");
+				RootPanel.get().add(left);
+				o.setMap(left);
+				MapWidget right = o.getMap();
+				assertLatLngEquals(left.getCenter(), right.getCenter());
+				finishTest();
+			}
+		});
 	}
 
 	/**
@@ -123,8 +179,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				JsArray<LatLng> left = ArrayHelper.toJsArray(a);
 				o.setPaths(left);
 				JsArray<LatLng> right = o.getPaths_JsArray();
-				assertEquals(left.get(0).getToString(), right.get(0)
-						.getToString());
+				assertEquals(left.get(0).getToString(), right.get(0).getToString());
 				finishTest();
 			}
 		});
@@ -157,8 +212,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 
 				o.setPathss(left);
 				JsArray<JsArray<LatLng>> right = o.getPathss_JsArray();
-				assertEquals(left.get(0).get(0).getToString(), right.get(0)
-						.get(0).getToString());
+				assertEquals(left.get(0).get(0).getToString(), right.get(0).get(0).getToString());
 				finishTest();
 			}
 		});
@@ -177,8 +231,7 @@ public class PolygonOptionsTest extends AbstractMapsGWTTest {
 				MVCArray<LatLng> left = MVCArray.newInstance(a);
 				o.setPaths(left);
 				MVCArray<LatLng> right = o.getPaths_MVCArray();
-				assertEquals(left.get(0).getToString(), right.get(0)
-						.getToString());
+				assertEquals(left.get(0).getToString(), right.get(0).getToString());
 				finishTest();
 			}
 		});
