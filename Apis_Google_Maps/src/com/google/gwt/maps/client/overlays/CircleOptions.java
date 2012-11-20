@@ -122,8 +122,8 @@ public class CircleOptions extends JavaScriptObject {
 
 	/**
 	 * Gets Map on which to display Polyline. <br>
-	 * 
-	 * @See {@link #getMap()}
+	 * <br>
+	 * See {@link #getMap()}
 	 */
 	@Deprecated
 	public final MapWidget getMapWidget() {

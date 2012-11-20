@@ -41,7 +41,7 @@ public class ImageMapType extends MVCObject<ImageMapType> {
 	 * Returns the opacity level (0 (transparent) to 1.0) of the
 	 * {@link ImageMapType} tiles.
 	 * 
-	 * @return
+	 * @return current opacity
 	 */
 	public final native double getOpacity() /*-{
 		return this.getOpacity();

@@ -150,7 +150,7 @@ public class MarkerOptions extends JavaScriptObject {
 	 */
 	public final void setMap(MapWidget mapWidget) {
 		if (mapWidget == null) {
-			setMapImpl((MapImpl) null);
+			setMapImpl(null);
 		} else {
 			setMapImpl(mapWidget.getJso());
 		}
@@ -165,18 +165,18 @@ public class MarkerOptions extends JavaScriptObject {
 	 */
 	public final MapWidget getMap() {
 		MapImpl obj = getMapImpl();
-		return obj != null ? null : MapWidget.newInstance(obj);
+		return obj != null ? MapWidget.newInstance(obj) : null;
 	}
 
 	/**
 	 * Gets Map on which to display Polyline. <br>
-	 * 
-	 * @See {@link #getMap()}
+	 * <br>
+	 * See {@link #getMap()}
 	 */
 	@Deprecated
 	public final MapWidget getMapWidget() {
 		MapImpl obj = getMapImpl();
-		return obj != null ? null : MapWidget.newInstance(obj);
+		return obj != null ? MapWidget.newInstance(obj) : null;
 	}
 
 	private final native MapImpl getMapImpl() /*-{
@@ -184,10 +184,10 @@ public class MarkerOptions extends JavaScriptObject {
 	}-*/;
 
 	public final void setMap(StreetViewPanoramaWidget streetViewPanoramaWidget) {
-		setMapImpl(streetViewPanoramaWidget.getJso());
+		setStreetViewMapImpl(streetViewPanoramaWidget.getJso());
 	}
 
-	private final native void setMapImpl(StreetViewPanoramaImpl map) /*-{
+	private final native void setStreetViewMapImpl(StreetViewPanoramaImpl map) /*-{
 		this.map = map;
 	}-*/;
 

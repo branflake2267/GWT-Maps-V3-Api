@@ -65,7 +65,7 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 	/**
 	 * Set the enabled/disabled state of the imagery acquisition date control.
 	 * 
-	 * @param addressControl
+	 * @param imageDateControl
 	 */
 	public final native void setImageDateControl(boolean imageDateControl) /*-{
 		this.imageDateControl = imageDateControl
@@ -128,6 +128,22 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 	 */
 	public final native boolean getEnableCloseButton() /*-{
 		return this.enableCloseButton;
+	}-*/;
+	
+	/**
+	 * Set the enabled/disabled state of click-to-go.
+	 * 
+	 * @param clickToGo
+	 */
+	public final native void setClickToGo(boolean clickToGo) /*-{
+		this.clickToGo = clickToGo;
+	}-*/;
+	
+	/**
+	 * Get the enabled/disabled state of click-to-go.
+	 */
+	public final native boolean getClickToGo() /*-{
+		return this.clickToGo;
 	}-*/;
 
 	/**
@@ -211,7 +227,6 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 			var z = zoom ? zoom : -1;
 			var x = tileX ? tileX : -1;
 			var y = tileY ? tileY : -1;
-			//alert('panoProvider= pano' + pano + ' zoom=' + z + ' tileX=' + x + ' tileY=' + y);
 			return @com.google.gwt.maps.client.streetview.StreetViewPanoramaOptions::setPanoProviderImpl(Ljava/lang/String;IIILcom/google/gwt/maps/client/streetview/StreetViewPanoramaProvider;)(pano, z, x, y, provider);
 		}
 	}-*/;
@@ -290,8 +305,8 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
 	/**
 	 * sets If true, the Street View panorama is visible on load.
 	 * 
-	 * @See {@link #setVisible(boolean)}
 	 * @param visible
+	 * See {@link #setVisible(boolean)}
 	 */
 	@Deprecated
 	public final native void setVisibile(boolean visible) /*-{

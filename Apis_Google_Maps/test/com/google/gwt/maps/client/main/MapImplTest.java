@@ -1,6 +1,25 @@
 package com.google.gwt.maps.client.main;
 
-import test.com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.ajaxloader.client.ArrayHelper;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.LoadApi.LoadLibrary;
+import com.google.gwt.maps.client.MapImpl;
+import com.google.gwt.maps.client.MapOptions;
+import com.google.gwt.maps.client.MapTypeId;
+import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.base.LatLng;
+import com.google.gwt.maps.client.base.LatLngBounds;
+import com.google.gwt.maps.client.base.Point;
+import com.google.gwt.maps.client.controls.MapTypeStyle;
+import com.google.gwt.maps.client.layers.TrafficLayer;
+import com.google.gwt.maps.client.maptypes.MapTypeRegistry;
+import com.google.gwt.maps.client.maptypes.Projection;
+import com.google.gwt.maps.client.maptypes.StyledMapType;
+import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 
 public class MapImplTest extends AbstractMapsGWTTest {
 

@@ -50,7 +50,6 @@ public class GroundOverlayOptions extends JavaScriptObject {
 	/**
 	 * The opacity of the overlay, expressed as a number between 0 and 1.
 	 * 
-	 * @param opacity
 	 */
 	public final native double getOpacity() /*-{
 		return this.opacity;
@@ -101,8 +100,8 @@ public class GroundOverlayOptions extends JavaScriptObject {
 
 	/**
 	 * gets Map on which to display Polyline. <br>
-	 * 
-	 * @See {@link #getMap()}
+	 * <br>
+	 * See {@link #getMap()}
 	 */
 	@Deprecated
 	public final MapWidget getMapWidget() {

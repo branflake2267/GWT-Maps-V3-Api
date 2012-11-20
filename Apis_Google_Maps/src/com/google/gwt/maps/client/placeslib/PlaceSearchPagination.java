@@ -4,7 +4,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * An object used to fetch additional pages of Places results.
- * @See https://developers.google.com/maps/documentation/javascript/reference#PlaceSearchPagination
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#PlaceSearchPagination">PlaceSearchPagination API Doc</a>
  */
 public class PlaceSearchPagination extends JavaScriptObject {
   

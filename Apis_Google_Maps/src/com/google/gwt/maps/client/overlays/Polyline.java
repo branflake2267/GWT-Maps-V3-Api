@@ -65,7 +65,7 @@ public class Polyline extends MVCObject<Polyline> {
 	/**
 	 * Hides this polyline if set to <code>false</code>.
 	 * 
-	 * @param isVisible
+	 * @param visible
 	 */
 	public final native void setVisible(boolean visible) /*-{
 		this.setVisible(visible);

@@ -18,7 +18,7 @@ public class PolyUtils {
 	 * 
 	 * @param point
 	 * @param polygon
-	 * @return
+	 * @return whether the polygon contains the point
 	 */
 	public final static native boolean containsLocation(LatLng point, Polygon polygon) /*-{
 		return $wnd.google.maps.geometry.poly.containsLocation(point, polygon);
@@ -32,7 +32,7 @@ public class PolyUtils {
 	 *            test point
 	 * @param polygon
 	 *            within this polygon
-	 * @return
+	 * @return whether location is on edge
 	 */
 	public final static native boolean isLocationOnEdge(LatLng point, Polygon polygon) /*-{
 		return $wnd.google.maps.geometry.poly.isLocationOnEdge(point, polygon);
@@ -46,7 +46,7 @@ public class PolyUtils {
 	 *            test point
 	 * @param polyline
 	 *            along this polyline
-	 * @return
+	 * @return whether location is on edge
 	 */
 	public final static native boolean isLocationOnEdge(LatLng point, Polyline polyline) /*-{
 		return $wnd.google.maps.geometry.poly.isLocationOnEdge(point, polyline);
@@ -62,7 +62,7 @@ public class PolyUtils {
 	 *            within tolerance of this polygon
 	 * @param tolerance
 	 *            degrees from edge
-	 * @return
+	 * @return whether point is on edge
 	 */
 	public final static native boolean isLocationOnEdge(LatLng point, Polygon polygon,
 			double tolerance) /*-{
@@ -80,7 +80,7 @@ public class PolyUtils {
 	 *            within tolerance of this line
 	 * @param tolerance
 	 *            degrees from edge
-	 * @return
+	 * @return whether point is on edge
 	 */
 	public final static native boolean isLocationOnEdge(LatLng point, Polyline polyline,
 			double tolerance) /*-{

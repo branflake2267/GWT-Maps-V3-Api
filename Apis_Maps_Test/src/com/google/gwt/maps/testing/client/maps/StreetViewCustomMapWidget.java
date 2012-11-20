@@ -22,7 +22,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class StreetViewCustomMapWidget extends Composite {
 
-  private VerticalPanel pWidget;
+  private final VerticalPanel pWidget;
 
   public StreetViewCustomMapWidget() {
     pWidget = new VerticalPanel();
@@ -54,10 +54,11 @@ public class StreetViewCustomMapWidget extends Composite {
     StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
     options.setPosition(position);
     options.setStreeViewPov(pov);
-    options.setVisibile(true);
+    options.setVisible(true);
     
     options.setPanoProvider(new StreetViewPanoramaProvider() {
-      public StreetViewPanoramaData getPanoData(String pano, int zoom, int tileX, int tileY) {
+      @Override
+	public StreetViewPanoramaData getPanoData(String pano, int zoom, int tileX, int tileY) {
         
         StreetViewLocation location = StreetViewLocation.newInstance();
         location.setDescription("Diamond Head Lookout");
@@ -72,7 +73,8 @@ public class StreetViewCustomMapWidget extends Composite {
         tiles.setTileSize(tileSize);
         tiles.setWorldSize(worldSize);
         tiles.getTileUrl(pano, zoom, tileX, tileY, new TileUrlHandler() {
-          public String getTileUrl(String pano, int zoom, int tileX, int tileY) {
+          @Override
+		public String getTileUrl(String pano, int zoom, int tileX, int tileY) {
             zoom = 0; // TODO make a better tiled pano for testing
             String url = "http://gonevertical-hr.appspot.com/serve?pano=99330&z=" + zoom + "&y=" + tileY + "&x=" + tileX;
             GWT.log("Got StreetView Tile from URL: "+url);

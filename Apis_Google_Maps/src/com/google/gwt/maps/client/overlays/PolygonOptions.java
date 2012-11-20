@@ -30,9 +30,8 @@ public class PolygonOptions extends JavaScriptObject {
 
 	/**
 	 * Whether this polygon is visible on the map. Defaults to <code>true</code>
-	 * .
 	 * 
-	 * @param isVisible
+	 * @param visible
 	 */
 	public final native void setVisible(boolean visible) /*-{
 		this.visible = visible;

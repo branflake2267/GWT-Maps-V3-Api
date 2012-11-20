@@ -114,7 +114,7 @@ public class KmlLayer extends MVCObject<KmlLayer> {
 	/**
 	 * Get the URL of the geographic markup which is being displayed.
 	 * 
-	 * @return
+	 * @return url
 	 */
 	public final native String getUrl() /*-{
 		return this.getUrl();
