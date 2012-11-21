@@ -6,7 +6,7 @@
 	<groupId>com.github.branflake2267</groupId>
 	<artifactId>gwt-maps</artifactId>
 	<version>3.9.0</version>
-        <!-- b/c is a parent POM, others are jars/wars -->
+    <!-- b/c is a parent POM, others are jars/wars -->
 	<packaging>pom</packaging> 
 
 	<modules>
@@ -72,13 +72,13 @@
 	<properties>
 		<!-- Faster Build -->
 		<javadocs.skip>true</javadocs.skip>
+        <java.version>1.6</java.version>
 	
 		<!-- Google maps props -->
 		<gmapsApiVersion>3.8.0</gmapsApiVersion>
 		<gwt.style>OBF</gwt.style>
 
 		<!-- Java props -->
-		<javaVersion>1.6</javaVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- GWT props -->
