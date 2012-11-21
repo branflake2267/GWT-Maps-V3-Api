@@ -18,6 +18,7 @@
 
 	<build>
 		<plugins>
+            <!-- Build using java 1.6. GWT requires at least Java 1.5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
