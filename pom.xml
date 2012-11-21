@@ -4,17 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Artifact details that people will use search for this project -->
-	<groupId>com.google.gwt.maps</groupId>
-	<artifactId>gwt-maps-api-v3</artifactId>
-	<version>3.8.1</version>
+	<groupId>com.github.branflake2267</groupId>
+	<artifactId>gwt-maps</artifactId>
+	<version>3.9.0</version>
 	<packaging>pom</packaging> <!-- b/c is a parent POM, others are jars/wars -->
-
 
 	<modules>
 		<module>Apis_Google_Maps</module>
 		<module>Apis_Maps_Test</module>
 	</modules>
-
 
 	<name>GWT Maps API V3</name>
 	<description>GWT library to access Google Maps javascript API</description>

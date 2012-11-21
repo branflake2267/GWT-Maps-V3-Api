@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
 	<modelVersion>4.0.0</modelVersion>
 
 	<scm>
@@ -10,25 +9,21 @@
 	</scm>
 
 	<!-- Artifact details that people will use search for this project -->
-	<artifactId>Apis_Google_Maps</artifactId>
-	<!-- <artifactId>gwt-maps-api-v3-core</artifactId> -->
+	<artifactId>gwt-maps-api</artifactId>
 	<name>GWT Maps API V3 - Core</name>
-	<packaging>jar</packaging>
 
 	<!-- Link to parent -->
 	<parent>
-		<groupId>com.google.gwt.maps</groupId>
-		<artifactId>gwt-maps-api-v3</artifactId>
-		<version>3.8.1</version>
+		<groupId>com.github.branflake2267</groupId>
+		<artifactId>gwt-maps</artifactId>
+		<version>3.9.0</version>
 	</parent>
 
 	<properties>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 	</properties>
 
-	<!-- Actual build instructions and sequences -->
 	<build>
-
 		<!-- Generate compiled stuff in the folder used for developing mode -->
 		<outputDirectory>${basedir}/target/classes</outputDirectory>
 		<testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>

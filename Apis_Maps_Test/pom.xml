@@ -1,109 +1,116 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Artifact details that people will use search for this project -->
-	<artifactId>Apis_Maps_Test</artifactId>
-	<!-- <artifactId>gwt-maps-api-v3-demo</artifactId> -->
-	<name>GWT Maps API V3 - Demo Web App</name>
-	<packaging>war</packaging>
+	<artifactId>gwt-maps-showcase</artifactId>
+	<name>GWT Maps API V3 - ShowCase</name>
+
 
 	<!-- Link to parent -->
 	<parent>
-		<groupId>com.google.gwt.maps</groupId>
-		<artifactId>gwt-maps-api-v3</artifactId>
-		<version>3.8.1</version>
+		<groupId>com.github.branflake2267</groupId>
+		<artifactId>gwt-maps</artifactId>
+		<version>3.9.0</version>
 	</parent>
 
 	<properties>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 	</properties>
 
-	<!-- Actual build instructions and sequences -->
 	<build>
-
-		<!-- Generate compiled stuff in the folder used for developing mode -->
-		<!--<outputDirectory>${project.build.directory}/war/WEB-INF/classes</outputDirectory> -->
-		<outputDirectory>${basedir}/war/WEB-INF/classes</outputDirectory>
-		<testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>
-
-		<!-- Build this code -->
-		<sourceDirectory>${basedir}/src</sourceDirectory>
-		<testSourceDirectory>${basedir}/test</testSourceDirectory>
-
-		<!-- Add java sources and *.gwt.xml to the jar (necessary for GWT) -->
-		<resources>
-			<resource>
-				<directory>${basedir}/src/</directory>
-				<includes>
-					<include>**/*.java</include>
-					<include>**/*.gwt.xml</include>
-				</includes>
-			</resource>
-		</resources>
-
-		<!-- Plugins needed for building -->
 		<plugins>
-			<!-- Build and package module as GWT war -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>gwt-maven-plugin</artifactId>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${target.jdk}</source>
+                    <target>${target.jdk}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
 
-				<configuration>
-					<style>${gwt.style}</style>
-				</configuration>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <webappDirectory>${webappDirectory}</webappDirectory>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp/WEB-INF</directory>
+                            <filtering>true</filtering>
+                            <includes>
+                                <include>appengine-web.xml</include>
+                            </includes>
 
-			</plugin>
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
 
-			<!-- Don't test GWTTestCases, just the suite -->
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<additionalClasspathElements>
-						<additionalClasspathElement>${project.build.sourceDirectory}</additionalClasspathElement>
-						<additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
-					</additionalClasspathElements>
-					<useManifestOnlyJar>false</useManifestOnlyJar>
-					<forkMode>always</forkMode>
-					<systemProperties>
-						<property>
-							<name>gwt.args</name>
-							<value>-out ${webappDirectory}</value>
-						</property>
-					</systemProperties>
-					<!-- Only run the suite -->
-					<includes>
-						<include>**/*TestSuite.java</include>
-					</includes>
-				</configuration>
-			</plugin>
-			<!-- Build using java 1.6. GWT requires at least Java 1.5 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-			<!-- For building war file if desired -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.2</version>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*GwtTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
 
-				<executions>
-					<execution>
-						<id>Building War File</id>
-						<goals>
-							<goal>war</goal>
-						</goals>
-					</execution>
-				</executions>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <appEngineVersion>${gae.version}</appEngineVersion>
+                    <appEngineHome>${gae.home}</appEngineHome>
+                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
 
-				<configuration>
-					<webXml>war/WEB-INF/web.xml</webXml>
-				</configuration>
-			</plugin>
+                    <hostedWebapp>${webappDirectory}</hostedWebapp>
+                    <runTarget>shozon.html</runTarget>
 
+                    <testTimeOut>180</testTimeOut>
+                    <extraJvmArgs>-Xmx512m</extraJvmArgs>
+
+                    <compileReport>${gwt.compileReport}</compileReport>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-user</artifactId>
+                        <version>${gwt.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-codeserver</artifactId>
+                        <version>${gwt.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>net.kindleit</groupId>
+                <artifactId>maven-gae-plugin</artifactId>
+                <version>0.9.5</version>
+                <configuration>
+                    <serverId>gonevertical-apis</serverId>
+                    <splitJars>true</splitJars>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 
 		<pluginManagement>
