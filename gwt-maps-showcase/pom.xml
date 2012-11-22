@@ -72,7 +72,7 @@
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
 
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    <runTarget>shozon.html</runTarget>
+                    <runTarget>Apis_Maps_Test.html</runTarget>
 
                     <testTimeOut>180</testTimeOut>
                     <extraJvmArgs>-Xmx512m</extraJvmArgs>
