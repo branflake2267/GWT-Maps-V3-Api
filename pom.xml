@@ -1,20 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Artifact details that people will use search for this project -->
-	<groupId>com.google.gwt.maps</groupId>
-	<artifactId>gwt-maps-api-v3</artifactId>
-	<version>3.8.1</version>
-	<packaging>pom</packaging> <!-- b/c is a parent POM, others are jars/wars -->
-
+	<groupId>com.github.branflake2267</groupId>
+	<artifactId>gwt-maps</artifactId>
+	<version>3.9.0</version>
+    <!-- b/c is a parent POM, others are jars/wars -->
+	<packaging>pom</packaging> 
 
 	<modules>
-		<module>Apis_Google_Maps</module>
-		<module>Apis_Maps_Test</module>
+		<module>gwt-maps-api</module>
+		<module>gwt-maps-showcase</module>
 	</modules>
-
 
 	<name>GWT Maps API V3</name>
 	<description>GWT library to access Google Maps javascript API</description>
@@ -36,17 +34,12 @@
 		<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
 	</issueManagement>
 
-	<mailingLists>
-		<!-- Todo, add a group -->
-	</mailingLists>
-
 	<scm>
 		<connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
 		<developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
 		<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
 	</scm>
 
-	<!-- Dev info -->
 	<developers>
 		<developer>
 			<id>branflake2267</id>
@@ -79,13 +72,13 @@
 	<properties>
 		<!-- Faster Build -->
 		<javadocs.skip>true</javadocs.skip>
+        <java.version>1.6</java.version>
 	
 		<!-- Google maps props -->
 		<gmapsApiVersion>3.8.0</gmapsApiVersion>
 		<gwt.style>OBF</gwt.style>
 
 		<!-- Java props -->
-		<javaVersion>1.6</javaVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- GWT props -->
@@ -104,8 +97,8 @@
 					<version>2.3.2</version>
 
 					<configuration>
-						<source>${javaVersion}</source>
-						<target>${javaVersion}</target>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
 					</configuration>
 				</plugin>
 
@@ -144,6 +137,7 @@
 				<version>1.1.0</version>
 				<scope>compile</scope>
 			</dependency>
+            
 			<!-- Just the necessary GWT bits -->
 			<dependency>
 				<groupId>com.google.gwt</groupId>
@@ -157,6 +151,7 @@
 				<version>${gwt.version}</version>
 				<scope>provided</scope> <!-- don't copy to jar -->
 			</dependency>
+            
 			<!-- Testing -->
 			<dependency>
 				<groupId>junit</groupId>
