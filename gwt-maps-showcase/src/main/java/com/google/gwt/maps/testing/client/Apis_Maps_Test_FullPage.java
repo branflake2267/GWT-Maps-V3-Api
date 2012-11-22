@@ -41,10 +41,8 @@ public class Apis_Maps_Test_FullPage implements EntryPoint {
 
   
   private void draw() {
-    
     FullPageMapWidget wMap = new FullPageMapWidget();
     RootPanel.get().add(wMap);
-    
   }
   
 }
