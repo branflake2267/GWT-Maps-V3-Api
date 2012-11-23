@@ -59,21 +59,21 @@ public class OverlayView extends MVCObject<OverlayView> {
 	}-*/;
 
 	/**
-	 * Gets Map on which to display Polyline.
-	 */
-	public final MapWidget getMap() {
-		MapImpl obj = getMapImpl();
-		return obj != null ? MapWidget.newInstance(obj) : null;
-	}
-
-	/**
-	 * Gets Map on which to display Polyline. <br>
-	 * See {@link #getMap()}
+	 * get mapWidget
+	 * 
+	 * @see #getMap();
 	 */
 	@Deprecated
 	public final MapWidget getMapWidget() {
-		MapImpl obj = getMapImpl();
-		return obj != null ? MapWidget.newInstance(obj) : null;
+		return getMap();
+	}
+
+	/**
+	 * get mapWidget
+	 */
+	public final MapWidget getMap() {
+		MapImpl val = getMapImpl();
+		return val == null ? null : MapWidget.newInstance(val);
 	}
 
 	private final native MapImpl getMapImpl() /*-{
@@ -136,7 +136,11 @@ public class OverlayView extends MVCObject<OverlayView> {
 	 * @param streetViewPanoramaWdiget
 	 */
 	public final void setMap(StreetViewPanoramaWidget streetViewPanoramaWdiget) {
-		setMapImpl(streetViewPanoramaWdiget.getJso());
+		if (streetViewPanoramaWdiget == null) {
+			setMapImpl((MapImpl) null);
+		} else {
+			setMapImpl(streetViewPanoramaWdiget.getJso());
+		}
 	}
 
 	private final native void setMapImpl(StreetViewPanoramaImpl pano) /*-{
