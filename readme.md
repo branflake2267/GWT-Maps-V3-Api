@@ -26,6 +26,7 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 1. Added waypoint to directions example
 2. InfoWindow supports GWT widgets with events
 3. Added PlaceSearchRequest map example
+4. 3.9.0 code now in master has the place result with pagination search
 
 ##Future Features
 1. GitHub host the maven repository for easier dependency adding. Branch of code in progress.
