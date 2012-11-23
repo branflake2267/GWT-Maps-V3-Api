@@ -52,7 +52,7 @@
 				<configuration>
 					<!-- Include *.gwt.xml files in the jar because is inheritable library -->
 					<compileSourcesArtifacts>
-						<compileSourcesArtifact>com.google.gwt.maps:Apis_Google_Maps</compileSourcesArtifact>
+						<compileSourcesArtifact>com.google.gwt.maps:Maps</compileSourcesArtifact>
 					</compileSourcesArtifacts>
 
 					<strict>true</strict>

@@ -33,8 +33,9 @@ public abstract class AbstractTest extends GWTTestCase {
 	public static final int ASYNC_DELAY_MS = 5000;
 	public static final boolean HAS_SENSOR = false;
 
+	@Override
 	public String getModuleName() {
-		return "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+		return "com.google.gwt.maps.MapsForTests";
 	}
 
 }
