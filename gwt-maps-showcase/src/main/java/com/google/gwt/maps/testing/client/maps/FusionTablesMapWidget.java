@@ -18,8 +18,11 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class FusionTablesMapWidget extends Composite {
 
@@ -80,16 +83,16 @@ public class FusionTablesMapWidget extends Composite {
     FusionTablesLayer layer = FusionTablesLayer.newInstance(options);
     layer.addClickHandler(new FusionTablesMouseMapHandler() {
       public void onEvent(FusionTablesMouseMapEvent event) {
-    	  
+
         @SuppressWarnings("unused")
-		String infoWindowHtml = event.getInfoWindowHtml();
+        String infoWindowHtml = event.getInfoWindowHtml();
         LatLng latlng = event.getLatLng();
-        
+
         @SuppressWarnings("unused")
-		Size pixelOffset = event.getPixelOffset();
-        
+        Size pixelOffset = event.getPixelOffset();
+
         @SuppressWarnings("unused")
-		JavaScriptObject jso = event.getRow();
+        JavaScriptObject jso = event.getRow();
         String json = event.getRowAsJson();
         GWT.log("click on " + latlng.getToString() + "  json=" + json);
       }

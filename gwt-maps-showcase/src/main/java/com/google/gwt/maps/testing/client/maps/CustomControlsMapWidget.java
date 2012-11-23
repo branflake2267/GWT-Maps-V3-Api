@@ -39,25 +39,24 @@ public class CustomControlsMapWidget extends Composite {
     drawMap();
     drawControls();
   }
-  
+
   private void drawMap() {
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(4);
     opts.setCenter(center);
     opts.setMapTypeId(MapTypeId.HYBRID);
-    
+
     mapWidget = new MapWidget(opts);
     pWidget.add(mapWidget);
     mapWidget.setSize("750px", "500px");
-    
+
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
       }
     });
   }
-  
-  
+
   private void drawControls() {
     Button button = new Button("B1");
     button.addClickHandler(new ClickHandler() {
@@ -72,15 +71,15 @@ public class CustomControlsMapWidget extends Composite {
         Window.alert("Button 2 Clicked ");
       }
     });
-    
+
     final CheckBox cb = new CheckBox();
     cb.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-    	GWT.log("Button 2 Clicked");
+        GWT.log("Button 2 Clicked");
         Window.alert("CheckBox is " + cb.getValue());
       }
     });
-    
+
     FlowPanel widget = new FlowPanel();
     widget.add(button);
     widget.add(new HTML("Custom Controls"));
@@ -88,13 +87,13 @@ public class CustomControlsMapWidget extends Composite {
     widget.add(button2);
     widget.add(cb);
     widget.addStyleName("TestControls");
-    
+
     // TODO I'm not able to get the stylesheet to work, but this works below
     DOM.setStyleAttribute(widget.getElement(), "background", "white");
     DOM.setStyleAttribute(widget.getElement(), "padding", "5px");
     DOM.setStyleAttribute(widget.getElement(), "margin", "3px");
     DOM.setStyleAttribute(widget.getElement(), "border", "3px solid #FF0000");
-   
+
     mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
   }
 

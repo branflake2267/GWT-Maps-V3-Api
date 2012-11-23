@@ -42,14 +42,14 @@ public class InfoWindowMapWidget extends Composite {
     drawInfoWindowOnMapCenter();
     drawMarker1();
   }
-  
+
   private void drawInfoWindowOnMapCenter() {
     HTML html = new HTML("Center: " + mapWidget.getCenter().getToString());
-    
+
     InfoWindowOptions options = InfoWindowOptions.newInstance();
     options.setContent(html);
     options.setPosition(mapWidget.getCenter());
-    
+
     InfoWindow iw = InfoWindow.newInstance(options);
     iw.open(mapWidget);
   }
@@ -59,22 +59,22 @@ public class InfoWindowMapWidget extends Composite {
     MarkerOptions options = MarkerOptions.newInstance();
     options.setPosition(center);
     options.setTitle("Hello World");
-    
+
     final Marker marker = Marker.newInstance(options);
     marker.setMap(mapWidget);
-    
+
     marker.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         drawInfoWindow(marker, event.getMouseEvent());
       }
     });
   }
-  
+
   protected void drawInfoWindow(final Marker marker, MouseEvent mouseEvent) {
     if (marker == null || mouseEvent == null) {
       return;
     }
-    
+
     HTML html = new HTML("Why did you click on me? <br/> You clicked on: " + mouseEvent.getLatLng().getToString());
 
     Button b1 = new Button("b1");
@@ -83,51 +83,52 @@ public class InfoWindowMapWidget extends Composite {
         Window.alert("b1 clicked");
       }
     });
-    
+
     Button b2 = new Button("b2");
     b2.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         Window.alert("b2 clicked");
       }
     });
-    
+
     VerticalPanel vp = new VerticalPanel();
     vp.add(html);
     vp.add(b1);
     vp.add(b2);
-    
+
     InfoWindowOptions options = InfoWindowOptions.newInstance();
     options.setContent(vp);
-    
+
     InfoWindow iw = InfoWindow.newInstance(options);
     iw.open(mapWidget, marker);
-    
-    // If you want to clear widgets, Use options.clear() to remove the widgets from map
-    //options.clear();
+
+    // If you want to clear widgets, Use options.clear() to remove the widgets
+    // from map
+    // options.clear();
   }
 
   private void drawMap() {
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(4);
     opts.setCenter(center);
     opts.setMapTypeId(MapTypeId.HYBRID);
-    
+
     mapWidget = new MapWidget(opts);
     pWidget.add(mapWidget);
     mapWidget.setSize("750px", "500px");
-    
+
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
-    
+
     mapWidget.addTilesLoadedHandler(new TilesLoadedMapHandler() {
       public void onEvent(TilesLoadedMapEvent event) {
         // Load something after the tiles load
       }
     });
   }
-  
+
 }

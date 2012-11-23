@@ -42,137 +42,135 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class PanoramioMapWidget extends Composite {
 
-	private final VerticalPanel pWidget;
+  private final VerticalPanel pWidget;
 
-	private MapWidget mapWidget;
-	
-	private PanoramioLayer panoramioLayer;
-	
-	public PanoramioMapWidget() {
-		pWidget = new VerticalPanel();
-		initWidget(pWidget);
+  private MapWidget mapWidget;
 
-		draw();
-	}
+  private PanoramioLayer panoramioLayer;
 
-	private void draw() {
+  public PanoramioMapWidget() {
+    pWidget = new VerticalPanel();
+    initWidget(pWidget);
 
-		pWidget.clear();
+    draw();
+  }
 
-		pWidget.add(new HTML("<br>Panoramio"));
-		
-		final Button toggleButton =  new Button();
-		toggleButton.setText("Show Brandon's Pictures");
-		
-		// on click clear to show everyone, or set to a specific user
-		toggleButton.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				if(panoramioLayer.getUserId()==null) {
-					panoramioLayer.setUserId("2597317");
-					toggleButton.setText("Show Everyone's Pictures");
-				}
-				else {
-					panoramioLayer.setUserId(null);
-					toggleButton.setText("Show Brandon's Pictures");
-				}
-				
-			}
-		});
-		pWidget.add(toggleButton);
+  private void draw() {
 
-		drawMap();
+    pWidget.clear();
 
-		drawPanoramio();
-	}
+    pWidget.add(new HTML("<br>Panoramio"));
 
-	private void drawMap() {
-		LatLng center = LatLng.newInstance(48.11, -123.24);
-		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(8);
-		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.HYBRID);
+    final Button toggleButton = new Button();
+    toggleButton.setText("Show Brandon's Pictures");
 
-		mapWidget = new MapWidget(opts);
-		pWidget.add(mapWidget);
-		mapWidget.setSize("750px", "500px");
+    // on click clear to show everyone, or set to a specific user
+    toggleButton.addClickHandler(new ClickHandler() {
 
-		mapWidget.addClickHandler(new ClickMapHandler() {
-			@Override
-			public void onEvent(ClickMapEvent event) {
-				// TODO fix the event getting, getting ....
-				GWT.log("clicked on latlng="
-						+ event.getMouseEvent().getLatLng());
-			}
-		});
-	}
+      @Override
+      public void onClick(ClickEvent event) {
+        if (panoramioLayer.getUserId() == null) {
+          panoramioLayer.setUserId("2597317");
+          toggleButton.setText("Show Everyone's Pictures");
+        } else {
+          panoramioLayer.setUserId(null);
+          toggleButton.setText("Show Brandon's Pictures");
+        }
 
-	private void drawPanoramio() {
-		PanoramioLayerOptions optionsPano = PanoramioLayerOptions.newInstance();
-		optionsPano.setClickable(true);
-		optionsPano.setMap(mapWidget);
-		optionsPano.setSuppressInfoWindows(false);
-		// optionsPano.setTag("hawaii");
-		// optionsPano.setUserId("2597317");
-		panoramioLayer = PanoramioLayer.newInstance(optionsPano);
+      }
+    });
+    pWidget.add(toggleButton);
 
-		panoramioLayer.addClickHandler(new PanoramioMouseMapHandler() {
-			@Override
-			public void onEvent(PanoramioMouseMapEvent event) {
+    drawMap();
 
-				@SuppressWarnings("unused")
-				PanoramioFeature feature = event.getFeatureDetails();
+    drawPanoramio();
+  }
 
-				@SuppressWarnings("unused")
-				String info = event.getInfoWindowHtml();
+  private void drawMap() {
+    LatLng center = LatLng.newInstance(48.11, -123.24);
+    MapOptions opts = MapOptions.newInstance();
+    opts.setZoom(8);
+    opts.setCenter(center);
+    opts.setMapTypeId(MapTypeId.HYBRID);
 
-				@SuppressWarnings("unused")
-				LatLng latlng = event.getLatLng();
+    mapWidget = new MapWidget(opts);
+    pWidget.add(mapWidget);
+    mapWidget.setSize("750px", "500px");
 
-				@SuppressWarnings("unused")
-				Size pixeloffset = event.getPixelOffset();
-			}
-		});
-	}
+    mapWidget.addClickHandler(new ClickMapHandler() {
+      @Override
+      public void onEvent(ClickMapEvent event) {
+        // TODO fix the event getting, getting ....
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+      }
+    });
+  }
 
-	// TODO implement this or drop the code
-	@SuppressWarnings("unused")
-	private void drawMapAds() {
+  private void drawPanoramio() {
+    PanoramioLayerOptions optionsPano = PanoramioLayerOptions.newInstance();
+    optionsPano.setClickable(true);
+    optionsPano.setMap(mapWidget);
+    optionsPano.setSuppressInfoWindows(false);
+    // optionsPano.setTag("hawaii");
+    // optionsPano.setUserId("2597317");
+    panoramioLayer = PanoramioLayer.newInstance(optionsPano);
 
-		AdUnitOptions options = AdUnitOptions.newInstance();
-		options.setFormat(AdFormat.HALF_BANNER);
-		options.setPosition(ControlPosition.RIGHT_CENTER);
-		options.setMap(mapWidget);
-		options.setPublisherId("pub-0032065764310410");
-		options.setChannelNumber("4000893900");
+    panoramioLayer.addClickHandler(new PanoramioMouseMapHandler() {
+      @Override
+      public void onEvent(PanoramioMouseMapEvent event) {
 
-		AdUnitWidget adUnit = new AdUnitWidget(options);
+        @SuppressWarnings("unused")
+        PanoramioFeature feature = event.getFeatureDetails();
 
-		adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
-			@Override
-			public void onEvent(ChannelNumberChangeMapEvent event) {
-			}
-		});
+        @SuppressWarnings("unused")
+        String info = event.getInfoWindowHtml();
 
-		adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
-			@Override
-			public void onEvent(FormatChangeMapEvent event) {
-			}
-		});
+        @SuppressWarnings("unused")
+        LatLng latlng = event.getLatLng();
 
-		adUnit.addMapChangeHandler(new MapChangeMapHandler() {
-			@Override
-			public void onEvent(MapChangeMapEvent event) {
-			}
-		});
+        @SuppressWarnings("unused")
+        Size pixeloffset = event.getPixelOffset();
+      }
+    });
+  }
 
-		adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
-			@Override
-			public void onEvent(PositionChangeMapEvent event) {
-			}
-		});
+  // TODO implement this or drop the code
+  @SuppressWarnings("unused")
+  private void drawMapAds() {
 
-	}
+    AdUnitOptions options = AdUnitOptions.newInstance();
+    options.setFormat(AdFormat.HALF_BANNER);
+    options.setPosition(ControlPosition.RIGHT_CENTER);
+    options.setMap(mapWidget);
+    options.setPublisherId("pub-0032065764310410");
+    options.setChannelNumber("4000893900");
+
+    AdUnitWidget adUnit = new AdUnitWidget(options);
+
+    adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
+      @Override
+      public void onEvent(ChannelNumberChangeMapEvent event) {
+      }
+    });
+
+    adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
+      @Override
+      public void onEvent(FormatChangeMapEvent event) {
+      }
+    });
+
+    adUnit.addMapChangeHandler(new MapChangeMapHandler() {
+      @Override
+      public void onEvent(MapChangeMapEvent event) {
+      }
+    });
+
+    adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
+      @Override
+      public void onEvent(PositionChangeMapEvent event) {
+      }
+    });
+
+  }
 
 }

@@ -36,165 +36,166 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class DirectionsServiceMapWidget extends Composite {
 
-	private VerticalPanel pWidget;
-	private MapWidget mapWidget;
-	private HTML htmlDistanceMatrixService = new HTML("&nbsp;");
+  private VerticalPanel pWidget;
+  private MapWidget mapWidget;
+  private HTML htmlDistanceMatrixService = new HTML("&nbsp;");
 
-	public DirectionsServiceMapWidget() {
-		pWidget = new VerticalPanel();
-		initWidget(pWidget);
+  public DirectionsServiceMapWidget() {
+    pWidget = new VerticalPanel();
+    initWidget(pWidget);
 
-		draw();
-	}
+    draw();
+  }
 
-	private void draw() {
-		pWidget.clear();
-		pWidget.add(new HTML("<br/>"));
+  private void draw() {
+    pWidget.clear();
+    pWidget.add(new HTML("<br/>"));
 
-		HorizontalPanel hp = new HorizontalPanel();
-		pWidget.add(hp);
-		hp.add(new HTML("Directions Service&nbsp;&nbsp;&nbsp;&nbsp;"));
-		hp.add(htmlDistanceMatrixService);
+    HorizontalPanel hp = new HorizontalPanel();
+    pWidget.add(hp);
+    hp.add(new HTML("Directions Service&nbsp;&nbsp;&nbsp;&nbsp;"));
+    hp.add(htmlDistanceMatrixService);
 
-		drawMap();
-		drawDirectionsWithMidPoint();
-	}
+    drawMap();
+    drawDirectionsWithMidPoint();
+  }
 
-	private void drawMap() {
-		LatLng center = LatLng.newInstance(48.11, -123.24);
-		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(8);
-		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.HYBRID);
+  private void drawMap() {
+    LatLng center = LatLng.newInstance(48.11, -123.24);
+    MapOptions opts = MapOptions.newInstance();
+    opts.setZoom(8);
+    opts.setCenter(center);
+    opts.setMapTypeId(MapTypeId.HYBRID);
 
-		mapWidget = new MapWidget(opts);
-		pWidget.add(mapWidget);
-		mapWidget.setSize("750px", "500px");
+    mapWidget = new MapWidget(opts);
+    pWidget.add(mapWidget);
+    mapWidget.setSize("750px", "500px");
 
-		mapWidget.addClickHandler(new ClickMapHandler() {
-			public void onEvent(ClickMapEvent event) {
-			}
-		});
-	}
+    mapWidget.addClickHandler(new ClickMapHandler() {
+      public void onEvent(ClickMapEvent event) {
+      }
+    });
+  }
 
-	private void drawDirectionsWithMidPoint() {
-		DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
-		final DirectionsRenderer directionsDisplay = DirectionsRenderer.newInstance(options);
-		directionsDisplay.setMap(mapWidget);
+  private void drawDirectionsWithMidPoint() {
+    DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+    final DirectionsRenderer directionsDisplay = DirectionsRenderer.newInstance(options);
+    directionsDisplay.setMap(mapWidget);
 
-		String origin = "Arlington, WA";
-		String destination = "Seattle, WA";
+    String origin = "Arlington, WA";
+    String destination = "Seattle, WA";
 
-		DirectionsRequest request = DirectionsRequest.newInstance();
-		request.setOrigin(origin);
-		request.setDestination(destination);
-		request.setTravelMode(TravelMode.DRIVING);
-		request.setOptimizeWaypoints(true);
-		
-		// Stop over
-		LatLng stopOverWayPoint = LatLng.newInstance(47.8587, -121.9697);
-		DirectionsWaypoint waypoint = DirectionsWaypoint.newInstance();
-		waypoint.setStopOver(true);
+    DirectionsRequest request = DirectionsRequest.newInstance();
+    request.setOrigin(origin);
+    request.setDestination(destination);
+    request.setTravelMode(TravelMode.DRIVING);
+    request.setOptimizeWaypoints(true);
+
+    // Stop over
+    LatLng stopOverWayPoint = LatLng.newInstance(47.8587, -121.9697);
+    DirectionsWaypoint waypoint = DirectionsWaypoint.newInstance();
+    waypoint.setStopOver(true);
     waypoint.setLocation(stopOverWayPoint);
-    
+
     JsArray<DirectionsWaypoint> waypoints = JsArray.createArray().cast();
     waypoints.push(waypoint);
     request.setWaypoints(waypoints);
 
-		DirectionsService o = DirectionsService.newInstance();
-		o.route(request, new DirectionsResultHandler() {
-			public void onCallback(DirectionsResult result, DirectionsStatus status) {
-				if (status == DirectionsStatus.OK) {
-					directionsDisplay.setDirections(result);
-					getDistance();
-				} else if (status == DirectionsStatus.INVALID_REQUEST) {
+    DirectionsService o = DirectionsService.newInstance();
+    o.route(request, new DirectionsResultHandler() {
+      public void onCallback(DirectionsResult result, DirectionsStatus status) {
+        if (status == DirectionsStatus.OK) {
+          directionsDisplay.setDirections(result);
+          getDistance();
+        } else if (status == DirectionsStatus.INVALID_REQUEST) {
 
-				} else if (status == DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {
+        } else if (status == DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {
 
-				} else if (status == DirectionsStatus.NOT_FOUND) {
+        } else if (status == DirectionsStatus.NOT_FOUND) {
 
-				} else if (status == DirectionsStatus.OVER_QUERY_LIMIT) {
+        } else if (status == DirectionsStatus.OVER_QUERY_LIMIT) {
 
-				} else if (status == DirectionsStatus.REQUEST_DENIED) {
+        } else if (status == DirectionsStatus.REQUEST_DENIED) {
 
-				} else if (status == DirectionsStatus.UNKNOWN_ERROR) {
+        } else if (status == DirectionsStatus.UNKNOWN_ERROR) {
 
-				} else if (status == DirectionsStatus.ZERO_RESULTS) {
+        } else if (status == DirectionsStatus.ZERO_RESULTS) {
 
-				}
+        }
 
-			}
-		});
-	}
+      }
+    });
+  }
 
-	private void getDistance() {
-		String origin = "Arlington, WA";
-		String destination = "Seattle, WA";
+  private void getDistance() {
+    String origin = "Arlington, WA";
+    String destination = "Seattle, WA";
 
-		String[] ao = new String[1];
-		ao[0] = origin;
-		JsArrayString origins = ArrayHelper.toJsArrayString(ao);
+    String[] ao = new String[1];
+    ao[0] = origin;
+    JsArrayString origins = ArrayHelper.toJsArrayString(ao);
 
-		String[] ad = new String[1];
-		ad[0] = destination;
-		JsArrayString destinations = ArrayHelper.toJsArrayString(ad);
+    String[] ad = new String[1];
+    ad[0] = destination;
+    JsArrayString destinations = ArrayHelper.toJsArrayString(ad);
 
-		DistanceMatrixRequest request = DistanceMatrixRequest.newInstance();
-		request.setOrigins(origins);
-		request.setDestinations(destinations);
-		request.setTravelMode(TravelMode.DRIVING);
+    DistanceMatrixRequest request = DistanceMatrixRequest.newInstance();
+    request.setOrigins(origins);
+    request.setDestinations(destinations);
+    request.setTravelMode(TravelMode.DRIVING);
 
-		DistanceMatrixService o = DistanceMatrixService.newInstance();
-		o.getDistanceMatrix(request, new DistanceMatrixRequestHandler() {
-			public void onCallback(DistanceMatrixResponse response, DistanceMatrixStatus status) {
-				GWT.log("status=" + status.value());
+    DistanceMatrixService o = DistanceMatrixService.newInstance();
+    o.getDistanceMatrix(request, new DistanceMatrixRequestHandler() {
+      public void onCallback(DistanceMatrixResponse response, DistanceMatrixStatus status) {
+        GWT.log("status=" + status.value());
 
-				if (status == DistanceMatrixStatus.INVALID_REQUEST) {
+        if (status == DistanceMatrixStatus.INVALID_REQUEST) {
 
-				} else if (status == DistanceMatrixStatus.MAX_DIMENSIONS_EXCEEDED) {
+        } else if (status == DistanceMatrixStatus.MAX_DIMENSIONS_EXCEEDED) {
 
-				} else if (status == DistanceMatrixStatus.MAX_ELEMENTS_EXCEEDED) {
+        } else if (status == DistanceMatrixStatus.MAX_ELEMENTS_EXCEEDED) {
 
-				} else if (status == DistanceMatrixStatus.OK) {
+        } else if (status == DistanceMatrixStatus.OK) {
 
-					@SuppressWarnings("unused")
-					JsArrayString dest = response.getDestinationAddresses();
-					@SuppressWarnings("unused")
-					JsArrayString org = response.getOriginAddresses();
-					JsArray<DistanceMatrixResponseRow> rows = response.getRows();
+          @SuppressWarnings("unused")
+          JsArrayString dest = response.getDestinationAddresses();
+          @SuppressWarnings("unused")
+          JsArrayString org = response.getOriginAddresses();
+          JsArray<DistanceMatrixResponseRow> rows = response.getRows();
 
-					GWT.log("rows.length=" + rows.length());
-					DistanceMatrixResponseRow d = rows.get(0);
-					JsArray<DistanceMatrixResponseElement> elements = d.getElements();
-					for (int i = 0; i < elements.length(); i++) {
-						DistanceMatrixResponseElement e = elements.get(i);
-						Distance distance = e.getDistance();
-						Duration duration = e.getDuration();
+          GWT.log("rows.length=" + rows.length());
+          DistanceMatrixResponseRow d = rows.get(0);
+          JsArray<DistanceMatrixResponseElement> elements = d.getElements();
+          for (int i = 0; i < elements.length(); i++) {
+            DistanceMatrixResponseElement e = elements.get(i);
+            Distance distance = e.getDistance();
+            Duration duration = e.getDuration();
 
-						@SuppressWarnings("unused")
-						DistanceMatrixElementStatus st = e.getStatus();
-						GWT.log("distance=" + distance.getText() + " value=" + distance.getValue());
-						GWT.log("duration=" + duration.getText() + " value=" + duration.getValue());
+            @SuppressWarnings("unused")
+            DistanceMatrixElementStatus st = e.getStatus();
+            GWT.log("distance=" + distance.getText() + " value=" + distance.getValue());
+            GWT.log("duration=" + duration.getText() + " value=" + duration.getValue());
 
-						String html = "&nbsp;&nbsp;Distance=" + distance.getText() + " Duration=" + duration.getText() + " ";
-						htmlDistanceMatrixService.setHTML(html);
-					}
+            String html = "&nbsp;&nbsp;Distance=" + distance.getText() + " Duration=" + duration.getText() + " ";
+            htmlDistanceMatrixService.setHTML(html);
+          }
 
-				} else if (status == DistanceMatrixStatus.OVER_QUERY_LIMIT) {
+        } else if (status == DistanceMatrixStatus.OVER_QUERY_LIMIT) {
 
-				} else if (status == DistanceMatrixStatus.REQUEST_DENIED) {
+        } else if (status == DistanceMatrixStatus.REQUEST_DENIED) {
 
-				} else if (status == DistanceMatrixStatus.UNKNOWN_ERROR) {
+        } else if (status == DistanceMatrixStatus.UNKNOWN_ERROR) {
 
-				}
+        }
 
-			}
-		});
+      }
+    });
 
-	}
+  }
 
 }
