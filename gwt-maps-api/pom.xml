@@ -58,10 +58,6 @@
 					<strict>true</strict>
 					<style>${gwt.style}</style>
 
-					<module>
-                        <inherits name="com.google.gwt.user.User" />
-                        <source path="com.google.gwt.maps.Apis_Google_Maps" />
-                    </module>
 				</configuration>
 			</plugin>
 
