@@ -95,8 +95,8 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 
 	@Override
 	protected void onDetach() {
-		removeControls();
 		super.onDetach();
+		removeControls();
 	}
 
 	private void removeControls() {

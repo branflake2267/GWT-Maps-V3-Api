@@ -21,7 +21,7 @@
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
   <application>gonevertical-apis</application>
-  <version>48</version>
+  <version>49</version>
 
   <!--
     By default, App Engine sends requests serially to a given web server.

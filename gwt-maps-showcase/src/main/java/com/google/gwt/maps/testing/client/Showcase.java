@@ -48,6 +48,7 @@ import com.google.gwt.maps.testing.client.maps.StyledMapWidget;
 import com.google.gwt.maps.testing.client.maps.WeatherLayersWidget;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public class Showcase implements EntryPoint {
 
@@ -132,108 +133,118 @@ public class Showcase implements EntryPoint {
 		drawPlaceSearchRequestMap();
 	}
 
+	/**
+	 * Add the widget to the demos
+	 * 
+	 * @param widget
+	 *            map
+	 */
+	private void addMapWidget(Widget widget) {
+		RootPanel.get(mapsContainer).add(widget);
+	}
+
 	private void drawHeatMap() {
 		HeatMapLayerWidget wMap = new HeatMapLayerWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawImageMapType() {
 		ImageMapTypeWidget wMap = new ImageMapTypeWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawWeatherMap() {
 		WeatherLayersWidget wMap = new WeatherLayersWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawStyledMap() {
 		StyledMapWidget wMap = new StyledMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawElevation() {
 		ElevationMapWidget wMap = new ElevationMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawAdvancedLayers() {
 		AdvancedLayersWidget wMap = new AdvancedLayersWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawDirections() {
 		DirectionsServiceMapWidget wMap = new DirectionsServiceMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawCustomControlsMap() {
 		CustomControlsMapWidget wMap = new CustomControlsMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawInfoWindowMap() {
 		InfoWindowMapWidget wMap = new InfoWindowMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawStreetViewSideBySide() {
 		StreetViewSideBySideMapWidget wStreet = new StreetViewSideBySideMapWidget();
-		RootPanel.get(mapsContainer).add(wStreet);
+		addMapWidget(wStreet);
 	}
 
 	private void drawStreetViewCustom() {
 		StreetViewCustomMapWidget wStreet = new StreetViewCustomMapWidget();
-		RootPanel.get(mapsContainer).add(wStreet);
+		addMapWidget(wStreet);
 	}
 
 	private void drawStreetView() {
 		StreetViewMapWidget wStreet = new StreetViewMapWidget();
-		RootPanel.get(mapsContainer).add(wStreet);
+		addMapWidget(wStreet);
 	}
 
 	private void drawDrawingMap() {
 		DrawingMapWidget wMap = new DrawingMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawPolylineMap() {
 		PolylineMapWidget plMap = new PolylineMapWidget();
-		RootPanel.get(mapsContainer).add(plMap);
+		addMapWidget(plMap);
 	}
 
 	private void drawBasicMap() {
 		BasicMapWidget wMap = new BasicMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawFusionMap() {
 		FusionTablesMapWidget wMap = new FusionTablesMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawKmlMap() {
 		KmlMapWidget wMap = new KmlMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawMapWcontrols() {
 		ControlsMapWidget wMap = new ControlsMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawPanoramioMap() {
 		PanoramioMapWidget wMap = new PanoramioMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawAutocomplete() {
 		AutocompletePlacesMapWidget wMap = new AutocompletePlacesMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 
 	private void drawPlaceSearchRequestMap() {
 		PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
-		RootPanel.get(mapsContainer).add(wMap);
+		addMapWidget(wMap);
 	}
 }
