@@ -24,7 +24,12 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class PlacesServiceTest extends AbstractMapsGWTTest {
-
+  
+  /**
+   * Used for nearby search
+   */
+  private int page;
+  
   @Override
   public LoadLibrary[] getLibraries() {
     return new LoadLibrary[] { LoadLibrary.PLACES };
@@ -258,6 +263,49 @@ public class PlacesServiceTest extends AbstractMapsGWTTest {
             finishTest();
           }
         });
+      }
+    });
+  }
+  
+  public void testSearchNearBy() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(47.60346, -122.33571);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(16);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.HYBRID);
+        MapWidget mapWidget = new MapWidget(opts);
+        
+        PlaceSearchRequest request = PlaceSearchRequest.newInstance();
+        request.setLocation(center);
+        request.setRadius(5000);
+        request.setTypes("store");
+        
+        PlacesService placeService = PlacesService.newInstance(mapWidget);
+        placeService.nearbySearch(request, new PlaceSearchHandler() {
+          @Override
+          public void onCallback(JsArray<PlaceResult> results, 
+              PlaceSearchPagination pagination, PlacesServiceStatus status) {
+            String s = new JSONObject(results).toString();
+            System.out.println(s);
+            
+            System.out.println("pagination hasNextPage=" + pagination.hasNextPage());
+            
+            assertEquals(PlacesServiceStatus.OK, status);
+            
+            assertTrue(pagination.hasNextPage());
+           
+            // Since this should use the same callback
+            if (page == 0) {
+              page++;
+              pagination.nextPage();
+            } else if (page == 1) {
+              finishTest();
+            }
+          }
+        });        
       }
     });
   }
