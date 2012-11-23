@@ -2,9 +2,7 @@
 This library provides Java language bindings for the Google maps Javascript api. 
 
 #NOTE 3.9.0+
-11/22/2012: 3.9.0+ is coming soon, and we will be changing the module naming 
-so we can include it in sonatype maven repository. If you download and link to the source it 
-has now been modified and the directions below don't match 3.9.0 yet. 
+11/22/2012: 3.9.0+ is coming soon. We will be changing the module naming in the future for 3.9.0. 
 
 ##Demo
 # ![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
