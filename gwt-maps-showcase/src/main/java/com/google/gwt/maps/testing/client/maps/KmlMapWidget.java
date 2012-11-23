@@ -18,15 +18,18 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class KmlMapWidget extends Composite {
 
   private VerticalPanel pWidget;
 
   private MapWidget mapWidget;
-  
+
   public KmlMapWidget() {
     pWidget = new VerticalPanel();
     initWidget(pWidget);
@@ -47,14 +50,14 @@ public class KmlMapWidget extends Composite {
 
     drawMap();
 
-    //draw kmls
-    //changeKmlState();
-    
+    // draw kmls
+    // changeKmlState();
+
     drawKml2();
   }
 
   private void drawMap() {
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(4);
     opts.setCenter(center);
@@ -67,9 +70,11 @@ public class KmlMapWidget extends Composite {
 
   private void drawKml2() {
 
-    //String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-    
-    // TODO this won't work in devmode but works in production, can't point to localhost. 
+    // String url =
+    // "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+
+    // TODO this won't work in devmode but works in production, can't point to
+    // localhost.
     String base = GWT.getHostPageBaseURL();
     String url = base + "/kmlgenerator?id=120234&pass=1345&msg=hi";
 
@@ -79,29 +84,29 @@ public class KmlMapWidget extends Composite {
     o.addClickHandler(new KmlMouseMapHandler() {
       public void onEvent(KmlMouseMapEvent event) {
         KmlFeatureData featureData = event.getFeatureData();
-        
+
         @SuppressWarnings("unused")
-		LatLng latlng = event.getLatLng();
-        
+        LatLng latlng = event.getLatLng();
+
         @SuppressWarnings("unused")
-		Size size = event.getPixelOffset();
+        Size size = event.getPixelOffset();
         GWT.log("clicked featureData=" + featureData.getToString());
       }
     });
 
     // TODO I need a better link with more meta data
     @SuppressWarnings("unused")
-	KmlLayerMetadata metaData = o.getMetadata();
-    //    KmlAuthor author = metaData.getAuthor();
-    //    String authName = author.getName();
-    //    String authEmail = author.getEmail();
-    //    String authUri = author.getUri();
-    //    
-    //    String desc = metaData.getDescription();
-    //    String name = metaData.getName();
-    //    String snippet = metaData.getSnippet();
+    KmlLayerMetadata metaData = o.getMetadata();
+    // KmlAuthor author = metaData.getAuthor();
+    // String authName = author.getName();
+    // String authEmail = author.getEmail();
+    // String authUri = author.getUri();
+    //
+    // String desc = metaData.getDescription();
+    // String name = metaData.getName();
+    // String snippet = metaData.getSnippet();
 
-    //GWT.log("work? authName=" + authName);
+    // GWT.log("work? authName=" + authName);
 
   }
 

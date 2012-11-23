@@ -25,7 +25,9 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * See <a href="https://developers.google.com/maps/documentation/javascript/streetview">StreetView API Doc</a>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/streetview"
+ * >StreetView API Doc</a>
  */
 public class StreetViewSideBySideMapWidget extends Composite {
 
@@ -44,7 +46,7 @@ public class StreetViewSideBySideMapWidget extends Composite {
     initWidget(pWidget);
 
     setup();
-    
+
     draw();
   }
 
@@ -67,14 +69,15 @@ public class StreetViewSideBySideMapWidget extends Composite {
     drawMap();
 
     drawStreeView();
-    
+
     // allow for things to setup, otherwise getting pano gets null
     Timer t = new Timer() {
       public void run() {
         setupStartingMarker();
       }
     };
-    t.schedule(1500); // b/c this widget is first and I have so many loading on page. 
+    t.schedule(1500); // b/c this widget is first and I have so many loading on
+                      // page.
   }
 
   /**
@@ -93,7 +96,7 @@ public class StreetViewSideBySideMapWidget extends Composite {
 
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
-    	GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
         processClick(event.getMouseEvent().getLatLng());
       }
     });
@@ -113,7 +116,7 @@ public class StreetViewSideBySideMapWidget extends Composite {
     StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
     options.setPosition(position);
     options.setStreeViewPov(pov);
-    
+
     wStreetPano = new StreetViewPanoramaWidget(options);
     hp.add(wStreetPano);
     wStreetPano.setSize("375px", "500px");
@@ -135,11 +138,12 @@ public class StreetViewSideBySideMapWidget extends Composite {
 
   /**
    * get pano data for nearest position
+   * 
    * @param latlng
    */
   private void processClick(final LatLng latlng) {
     double radius = 50;
-    
+
     service.getPanoramaByLocation(latlng, radius, new PanoramaByLocationHandler() {
       public void onCallback(StreetViewPanoramaData data, StreetViewStatus status) {
         processPanoSearch(latlng, data, status);
@@ -173,7 +177,7 @@ public class StreetViewSideBySideMapWidget extends Composite {
         moveStreetView(data);
       }
     });
-    
+
     // move
     moveStreetView(data);
   }
@@ -190,8 +194,5 @@ public class StreetViewSideBySideMapWidget extends Composite {
     wStreetPano.setPov(pov);
     wStreetPano.setVisible(true);
   }
-
-
-
 
 }

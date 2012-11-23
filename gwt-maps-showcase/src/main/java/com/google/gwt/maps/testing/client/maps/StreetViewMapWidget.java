@@ -9,7 +9,9 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
- * See <a href="https://developers.google.com/maps/documentation/javascript/streetview">StreetView API Doc</a>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/streetview"
+ * >StreetView API Doc</a>
  */
 public class StreetViewMapWidget extends Composite {
 
@@ -29,25 +31,25 @@ public class StreetViewMapWidget extends Composite {
     pWidget.add(new HTML("<br>Street View"));
 
     drawStreeView();
-   
+
   }
-  
+
   private void drawStreeView() {
-   
+
     LatLng position = LatLng.newInstance(21.271525d, -157.822731d);
-    
+
     StreetViewPov pov = StreetViewPov.newInstance();
     pov.setHeading(250);
     pov.setZoom(1);
     pov.setPitch(10);
-    
+
     StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
     options.setPosition(position);
     options.setStreeViewPov(pov);
-    
+
     StreetViewPanoramaWidget wStreet = new StreetViewPanoramaWidget(options);
     pWidget.add(wStreet);
     wStreet.setSize("750px", "500px");
-  
+
   }
 }

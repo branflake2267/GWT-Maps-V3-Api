@@ -26,8 +26,11 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class AutocompletePlacesMapWidget extends Composite {
 
@@ -47,15 +50,15 @@ public class AutocompletePlacesMapWidget extends Composite {
   private void draw() {
 
     pWidget.clear();
-    
+
     HTML html = new HTML("<br><br>Map with autocomplete places &nbsp;&nbsp;");
     tbPlaces = new TextBox();
     tbPlaces.setWidth("350px");
-    
+
     HorizontalPanel hp = new HorizontalPanel();
     hp.add(html);
     hp.add(tbPlaces);
-    
+
     pWidget.add(hp);
 
     hp.setCellVerticalAlignment(tbPlaces, HorizontalPanel.ALIGN_BOTTOM);
@@ -66,7 +69,7 @@ public class AutocompletePlacesMapWidget extends Composite {
   }
 
   private void drawMap() {
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(8);
     opts.setCenter(center);
@@ -79,42 +82,40 @@ public class AutocompletePlacesMapWidget extends Composite {
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
-    	  GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
   }
 
-
   private void drawAutoComplete() {
 
     Element element = tbPlaces.getElement();
-    
+
     AutocompleteType[] types = new AutocompleteType[2];
     types[0] = AutocompleteType.ESTABLISHMENT;
     types[1] = AutocompleteType.GEOCODE;
-    
+
     AutocompleteOptions options = AutocompleteOptions.newInstance();
     options.setTypes(types);
     options.setBounds(mapWidget.getBounds());
-    
+
     final Autocomplete autoComplete = Autocomplete.newInstance(element, options);
-    
+
     autoComplete.addPlaceChangeHandler(new PlaceChangeMapHandler() {
-      public void onEvent(PlaceChangeMapEvent event) {        
-        
+      public void onEvent(PlaceChangeMapEvent event) {
+
         PlaceResult result = autoComplete.getPlace();
-        
+
         PlaceGeometry geomtry = result.getGeometry();
         LatLng center = geomtry.getLocation();
-        
+
         mapWidget.panTo(center);
-        //mapWidget.setZoom(8);
-        
+        // mapWidget.setZoom(8);
+
         GWT.log("place changed center=" + center);
       }
     });
-    
-    
+
     mapWidget.addBoundsChangeHandler(new BoundsChangeMapHandler() {
       public void onEvent(BoundsChangeMapEvent event) {
         LatLngBounds bounds = mapWidget.getBounds();
@@ -122,9 +123,5 @@ public class AutocompletePlacesMapWidget extends Composite {
       }
     });
   }
-
-
-
-  
 
 }

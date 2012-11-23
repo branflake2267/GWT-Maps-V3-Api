@@ -48,224 +48,219 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class DrawingMapWidget extends Composite {
 
-	private final VerticalPanel pWidget;
+  private final VerticalPanel pWidget;
 
-	private MapWidget mapWidget;
+  private MapWidget mapWidget;
 
-	public DrawingMapWidget() {
-		pWidget = new VerticalPanel();
-		initWidget(pWidget);
+  public DrawingMapWidget() {
+    pWidget = new VerticalPanel();
+    initWidget(pWidget);
 
-		draw();
-		drawShapes();
-	}
+    draw();
+    drawShapes();
+  }
 
-	public final native void browserLog(Object obj)/*-{
-		$wnd.console.log(obj);
-	}-*/;
+  public final native void browserLog(Object obj)/*-{
+                                                 $wnd.console.log(obj);
+                                                 }-*/;
 
-	private void drawShapes() {
-		// add some draw shapes for folks
-		CircleOptions cOpts = CircleOptions.newInstance();
-		cOpts.setCenter(LatLng.newInstance(52.62d, -119.95d));
-		cOpts.setFillColor("#FF0000");
-		cOpts.setStrokeColor("CCFF44");
-		cOpts.setFillOpacity(0.5d);
-		cOpts.setStrokeOpacity(0.9d);
-		cOpts.setStrokeWeight(3);
-		cOpts.setRadius(1000000d);
-		cOpts.setMap(mapWidget);
-		@SuppressWarnings("unused")
-		Circle circle = Circle.newInstance(cOpts);
-		
-		cOpts = CircleOptions.newInstance();
-		cOpts.setCenter(LatLng.newInstance(40.569d, -82.7929d));
-		cOpts.setFillColor("#00FF00");
-		cOpts.setStrokeColor("FFCCFF");
-		cOpts.setFillOpacity(0.7d);
-		cOpts.setStrokeOpacity(0.9d);
-		cOpts.setStrokeWeight(10);
-		cOpts.setRadius(300000d);
-		cOpts.setMap(mapWidget);
-		@SuppressWarnings("unused")
-		Circle circle2 = Circle.newInstance(cOpts);
+  private void drawShapes() {
+    // add some draw shapes for folks
+    CircleOptions cOpts = CircleOptions.newInstance();
+    cOpts.setCenter(LatLng.newInstance(52.62d, -119.95d));
+    cOpts.setFillColor("#FF0000");
+    cOpts.setStrokeColor("CCFF44");
+    cOpts.setFillOpacity(0.5d);
+    cOpts.setStrokeOpacity(0.9d);
+    cOpts.setStrokeWeight(3);
+    cOpts.setRadius(1000000d);
+    cOpts.setMap(mapWidget);
+    @SuppressWarnings("unused")
+    Circle circle = Circle.newInstance(cOpts);
 
-        LatLng[] a = new LatLng[18];
-        a[0] = LatLng.newInstance(49.02824580511537,-104.0899658203125);
-        a[1] = LatLng.newInstance(43.009982694835784,-104.0679931640625);
-        a[2] = LatLng.newInstance(43.026047765621,-98.5528564453125);
-        a[3] = LatLng.newInstance(42.73623356449312,-98.0255126953125);
-        a[4] = LatLng.newInstance(42.89740952345494,-97.9156494140625);
-        a[5] = LatLng.newInstance(42.83298955227273,-97.3883056640625);
-        a[6] = LatLng.newInstance(42.52607693975099,-96.5753173828125);
-        a[7] = LatLng.newInstance(43.20248609768505,-96.4654541015625);
-        a[8] = LatLng.newInstance(43.521979415112206,-96.6192626953125);
-        a[9] = LatLng.newInstance(43.69698341176971,-96.5093994140625);
-        a[10] = LatLng.newInstance(45.32638440880054,-96.4215087890625);
-        a[11] = LatLng.newInstance(45.54224714353031,-96.9708251953125);
-        a[12] = LatLng.newInstance(45.757284242039375,-96.6851806640625);
-        a[13] = LatLng.newInstance(46.23050041945144,-96.5533447265625);
-        a[14] = LatLng.newInstance(46.714738770992284,-96.9049072265625);
-        a[15] = LatLng.newInstance(47.67030090972658,-96.8170166015625);
-        a[16] = LatLng.newInstance(47.98009843932673,-97.1466064453125);
-        a[17] = LatLng.newInstance(48.97058369834937,-97.2125244140625);
-        JsArray<LatLng> paths = ArrayHelper.toJsArray(a);
-		
-		PolygonOptions pOpts = PolygonOptions.newInstance();
-		pOpts.setFillColor("#0000FF");
-		pOpts.setStrokeColor("FFFFFF");
-		pOpts.setFillOpacity(0.4d);
-		pOpts.setStrokeOpacity(0.9d);
-		pOpts.setStrokeWeight(6);
-		pOpts.setPaths(paths);
-		pOpts.setMap(mapWidget);
-		@SuppressWarnings("unused")
-		Polygon polygon = Polygon.newInstance(pOpts);
-	}
+    cOpts = CircleOptions.newInstance();
+    cOpts.setCenter(LatLng.newInstance(40.569d, -82.7929d));
+    cOpts.setFillColor("#00FF00");
+    cOpts.setStrokeColor("FFCCFF");
+    cOpts.setFillOpacity(0.7d);
+    cOpts.setStrokeOpacity(0.9d);
+    cOpts.setStrokeWeight(10);
+    cOpts.setRadius(300000d);
+    cOpts.setMap(mapWidget);
+    @SuppressWarnings("unused")
+    Circle circle2 = Circle.newInstance(cOpts);
 
-	private void draw() {
+    LatLng[] a = new LatLng[18];
+    a[0] = LatLng.newInstance(49.02824580511537, -104.0899658203125);
+    a[1] = LatLng.newInstance(43.009982694835784, -104.0679931640625);
+    a[2] = LatLng.newInstance(43.026047765621, -98.5528564453125);
+    a[3] = LatLng.newInstance(42.73623356449312, -98.0255126953125);
+    a[4] = LatLng.newInstance(42.89740952345494, -97.9156494140625);
+    a[5] = LatLng.newInstance(42.83298955227273, -97.3883056640625);
+    a[6] = LatLng.newInstance(42.52607693975099, -96.5753173828125);
+    a[7] = LatLng.newInstance(43.20248609768505, -96.4654541015625);
+    a[8] = LatLng.newInstance(43.521979415112206, -96.6192626953125);
+    a[9] = LatLng.newInstance(43.69698341176971, -96.5093994140625);
+    a[10] = LatLng.newInstance(45.32638440880054, -96.4215087890625);
+    a[11] = LatLng.newInstance(45.54224714353031, -96.9708251953125);
+    a[12] = LatLng.newInstance(45.757284242039375, -96.6851806640625);
+    a[13] = LatLng.newInstance(46.23050041945144, -96.5533447265625);
+    a[14] = LatLng.newInstance(46.714738770992284, -96.9049072265625);
+    a[15] = LatLng.newInstance(47.67030090972658, -96.8170166015625);
+    a[16] = LatLng.newInstance(47.98009843932673, -97.1466064453125);
+    a[17] = LatLng.newInstance(48.97058369834937, -97.2125244140625);
+    JsArray<LatLng> paths = ArrayHelper.toJsArray(a);
 
-		pWidget.clear();
+    PolygonOptions pOpts = PolygonOptions.newInstance();
+    pOpts.setFillColor("#0000FF");
+    pOpts.setStrokeColor("FFFFFF");
+    pOpts.setFillOpacity(0.4d);
+    pOpts.setStrokeOpacity(0.9d);
+    pOpts.setStrokeWeight(6);
+    pOpts.setPaths(paths);
+    pOpts.setMap(mapWidget);
+    @SuppressWarnings("unused")
+    Polygon polygon = Polygon.newInstance(pOpts);
+  }
 
-		pWidget.add(new HTML("<br>Map with Drawing"));
+  private void draw() {
 
-		drawMap();
+    pWidget.clear();
 
-		drawDrawing();
+    pWidget.add(new HTML("<br>Map with Drawing"));
 
-		// drawMapAds();
-	}
+    drawMap();
 
-	private void drawMap() {
-		LatLng center = LatLng.newInstance(49.496675, -102.65625);
-		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(4);
-		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.HYBRID);
+    drawDrawing();
 
-		mapWidget = new MapWidget(opts);
-		pWidget.add(mapWidget);
-		mapWidget.setSize("750px", "500px");
+    // drawMapAds();
+  }
 
-		mapWidget.addClickHandler(new ClickMapHandler() {
-			@Override
-			public void onEvent(ClickMapEvent event) {
-				GWT.log("clicked on latlng="
-						+ event.getMouseEvent().getLatLng());
-			}
-		});
-	}
+  private void drawMap() {
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
+    MapOptions opts = MapOptions.newInstance();
+    opts.setZoom(4);
+    opts.setCenter(center);
+    opts.setMapTypeId(MapTypeId.HYBRID);
 
-	private void drawDrawing() {
+    mapWidget = new MapWidget(opts);
+    pWidget.add(mapWidget);
+    mapWidget.setSize("750px", "500px");
 
-		DrawingControlOptions drawingControlOptions = DrawingControlOptions
-				.newInstance();
-		drawingControlOptions.setPosition(ControlPosition.TOP_CENTER);
-		drawingControlOptions.setDrawingModes(OverlayType.values());
+    mapWidget.addClickHandler(new ClickMapHandler() {
+      @Override
+      public void onEvent(ClickMapEvent event) {
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+      }
+    });
+  }
 
-		CircleOptions circleOptions = CircleOptions.newInstance();
-		// circleOptions.setFillColor("FF6633");
+  private void drawDrawing() {
 
-		DrawingManagerOptions options = DrawingManagerOptions.newInstance();
-		options.setMap(mapWidget);
-		options.setDrawingMode(OverlayType.CIRCLE);
-		options.setCircleOptions(circleOptions);
+    DrawingControlOptions drawingControlOptions = DrawingControlOptions.newInstance();
+    drawingControlOptions.setPosition(ControlPosition.TOP_CENTER);
+    drawingControlOptions.setDrawingModes(OverlayType.values());
 
-		options.setDrawingControlOptions(drawingControlOptions);
+    CircleOptions circleOptions = CircleOptions.newInstance();
+    // circleOptions.setFillColor("FF6633");
 
-		DrawingManager o = DrawingManager.newInstance(options);
+    DrawingManagerOptions options = DrawingManagerOptions.newInstance();
+    options.setMap(mapWidget);
+    options.setDrawingMode(OverlayType.CIRCLE);
+    options.setCircleOptions(circleOptions);
 
-		o.addCircleCompleteHandler(new CircleCompleteMapHandler() {
-			@Override
-			public void onEvent(CircleCompleteMapEvent event) {
-				Circle circle = event.getCircle();
-				GWT.log("circle completed radius=" + circle.getRadius());
-			}
-		});
+    options.setDrawingControlOptions(drawingControlOptions);
 
-		o.addMarkerCompleteHandler(new MarkerCompleteMapHandler() {
-			@Override
-			public void onEvent(MarkerCompleteMapEvent event) {
-				Marker marker = event.getMarker();
-				GWT.log("marker completed position=" + marker.getPosition());
-			}
-		});
+    DrawingManager o = DrawingManager.newInstance(options);
 
-		o.addOverlayCompleteHandler(new OverlayCompleteMapHandler() {
-			@Override
-			public void onEvent(OverlayCompleteMapEvent event) {
-				OverlayType ot = event.getOverlayType();
-				GWT.log("marker completed OverlayType=" + ot.toString());
+    o.addCircleCompleteHandler(new CircleCompleteMapHandler() {
+      @Override
+      public void onEvent(CircleCompleteMapEvent event) {
+        Circle circle = event.getCircle();
+        GWT.log("circle completed radius=" + circle.getRadius());
+      }
+    });
 
-				if (ot == OverlayType.CIRCLE) {
-					Circle circle = event.getCircle();
-					GWT.log("radius=" + circle.getRadius());
-					GWT.log("center=" + circle.getBounds().getCenter());
-				}
+    o.addMarkerCompleteHandler(new MarkerCompleteMapHandler() {
+      @Override
+      public void onEvent(MarkerCompleteMapEvent event) {
+        Marker marker = event.getMarker();
+        GWT.log("marker completed position=" + marker.getPosition());
+      }
+    });
 
-				if (ot == OverlayType.MARKER) {
-					Marker marker = event.getMarker();
-					GWT.log("position=" + marker.getPosition());
-					GWT.log("center=" + marker.getPosition());
-				}
+    o.addOverlayCompleteHandler(new OverlayCompleteMapHandler() {
+      @Override
+      public void onEvent(OverlayCompleteMapEvent event) {
+        OverlayType ot = event.getOverlayType();
+        GWT.log("marker completed OverlayType=" + ot.toString());
 
-				if (ot == OverlayType.POLYGON) {
-					Polygon polygon = event.getPolygon();
-					GWT.log("paths=" + polygon.getPaths().toString());
+        if (ot == OverlayType.CIRCLE) {
+          Circle circle = event.getCircle();
+          GWT.log("radius=" + circle.getRadius());
+          GWT.log("center=" + circle.getBounds().getCenter());
+        }
 
-						// print path points
-					MVCArray<LatLng> points = polygon.getPath();
-					for(int g=0; g<points.getLength(); g++) {
-						LatLng p = points.get(g);
-						GWT.log("["+p.getLatitude()+","+p.getLongitude()+"]");
-					}
-					
-					GWT.log("center=" + polygon.getPath());
-				}
+        if (ot == OverlayType.MARKER) {
+          Marker marker = event.getMarker();
+          GWT.log("position=" + marker.getPosition());
+          GWT.log("center=" + marker.getPosition());
+        }
 
-				if (ot == OverlayType.POLYLINE) {
-					Polyline polyline = event.getPolyline();
-					GWT.log("paths=" + polyline.getPath().toString());
-					GWT.log("center=" + polyline.getPath());
-				}
+        if (ot == OverlayType.POLYGON) {
+          Polygon polygon = event.getPolygon();
+          GWT.log("paths=" + polygon.getPaths().toString());
 
-				if (ot == OverlayType.RECTANGLE) {
-					Rectangle rectangle = event.getRectangle();
-					GWT.log("bounds=" + rectangle.getBounds());
-					GWT.log("center=" + rectangle.getBounds().getCenter());
-				}
+          // print path points
+          MVCArray<LatLng> points = polygon.getPath();
+          for (int g = 0; g < points.getLength(); g++) {
+            LatLng p = points.get(g);
+            GWT.log("[" + p.getLatitude() + "," + p.getLongitude() + "]");
+          }
 
-				GWT.log("marker completed OverlayType=" + ot.toString());
-			}
-		});
+          GWT.log("center=" + polygon.getPath());
+        }
 
-		o.addPolygonCompleteHandler(new PolygonCompleteMapHandler() {
-			@Override
-			public void onEvent(PolygonCompleteMapEvent event) {
-				Polygon polygon = event.getPolygon();
-				GWT.log("Polygon completed paths="
-						+ polygon.getPath().toString());
-			}
-		});
+        if (ot == OverlayType.POLYLINE) {
+          Polyline polyline = event.getPolyline();
+          GWT.log("paths=" + polyline.getPath().toString());
+          GWT.log("center=" + polyline.getPath());
+        }
 
-		o.addPolylineCompleteHandler(new PolylineCompleteMapHandler() {
-			@Override
-			public void onEvent(PolylineCompleteMapEvent event) {
-				Polyline polyline = event.getPolyline();
-				GWT.log("Polyline completed paths="
-						+ polyline.getPath().toString());
-			}
-		});
+        if (ot == OverlayType.RECTANGLE) {
+          Rectangle rectangle = event.getRectangle();
+          GWT.log("bounds=" + rectangle.getBounds());
+          GWT.log("center=" + rectangle.getBounds().getCenter());
+        }
 
-		o.addRectangleCompleteHandler(new RectangleCompleteMapHandler() {
-			@Override
-			public void onEvent(RectangleCompleteMapEvent event) {
-				Rectangle rectangle = event.getRectangle();
-				GWT.log("Rectangle completed bounds="
-						+ rectangle.getBounds().getToString());
-			}
-		});
+        GWT.log("marker completed OverlayType=" + ot.toString());
+      }
+    });
 
-	}
+    o.addPolygonCompleteHandler(new PolygonCompleteMapHandler() {
+      @Override
+      public void onEvent(PolygonCompleteMapEvent event) {
+        Polygon polygon = event.getPolygon();
+        GWT.log("Polygon completed paths=" + polygon.getPath().toString());
+      }
+    });
+
+    o.addPolylineCompleteHandler(new PolylineCompleteMapHandler() {
+      @Override
+      public void onEvent(PolylineCompleteMapEvent event) {
+        Polyline polyline = event.getPolyline();
+        GWT.log("Polyline completed paths=" + polyline.getPath().toString());
+      }
+    });
+
+    o.addRectangleCompleteHandler(new RectangleCompleteMapHandler() {
+      @Override
+      public void onEvent(RectangleCompleteMapEvent event) {
+        Rectangle rectangle = event.getRectangle();
+        GWT.log("Rectangle completed bounds=" + rectangle.getBounds().getToString());
+      }
+    });
+
+  }
 
 }

@@ -31,104 +31,104 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class ElevationMapWidget extends Composite {
 
-	private final VerticalPanel pWidget;
+  private final VerticalPanel pWidget;
 
-	private MapWidget mapWidget;
+  private MapWidget mapWidget;
 
-	public ElevationMapWidget() {
-		pWidget = new VerticalPanel();
-		initWidget(pWidget);
+  public ElevationMapWidget() {
+    pWidget = new VerticalPanel();
+    initWidget(pWidget);
 
-		draw();
-	}
+    draw();
+  }
 
-	private void draw() {
+  private void draw() {
 
-		pWidget.clear();
+    pWidget.clear();
 
-		pWidget.add(new HTML("<br>ElevationService. Click for elevation:"));
+    pWidget.add(new HTML("<br>ElevationService. Click for elevation:"));
 
-		drawMap();
+    drawMap();
 
-		// trigger an info window popup so people can see it on map render
-		findElevation(LatLng.newInstance(39.43d, -106.66d));
-	}
+    // trigger an info window popup so people can see it on map render
+    findElevation(LatLng.newInstance(39.43d, -106.66d));
+  }
 
-	private void drawMap() {
-		LatLng center = LatLng.newInstance(39.31, -106.02);
-		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(8);
-		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.TERRAIN);
+  private void drawMap() {
+    LatLng center = LatLng.newInstance(39.31, -106.02);
+    MapOptions opts = MapOptions.newInstance();
+    opts.setZoom(8);
+    opts.setCenter(center);
+    opts.setMapTypeId(MapTypeId.TERRAIN);
 
-		mapWidget = new MapWidget(opts);
-		pWidget.add(mapWidget);
-		mapWidget.setSize("750px", "500px");
+    mapWidget = new MapWidget(opts);
+    pWidget.add(mapWidget);
+    mapWidget.setSize("750px", "500px");
 
-		mapWidget.addClickHandler(new ClickMapHandler() {
-			@Override
-			public void onEvent(ClickMapEvent event) {
-				GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+    mapWidget.addClickHandler(new ClickMapHandler() {
+      @Override
+      public void onEvent(ClickMapEvent event) {
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
 
-				LatLng point = event.getMouseEvent().getLatLng();
-				findElevation(point);
-			}
-		});
-	}
+        LatLng point = event.getMouseEvent().getLatLng();
+        findElevation(point);
+      }
+    });
+  }
 
-	private void findElevation(LatLng point) {
+  private void findElevation(LatLng point) {
 
-		LatLng[] a = new LatLng[] { point };
+    LatLng[] a = new LatLng[] { point };
 
-		JsArray<LatLng> locations = ArrayHelper.toJsArray(a);
+    JsArray<LatLng> locations = ArrayHelper.toJsArray(a);
 
-		LocationElevationRequest request = LocationElevationRequest.newInstance();
-		request.setLocations(locations);
+    LocationElevationRequest request = LocationElevationRequest.newInstance();
+    request.setLocations(locations);
 
-		ElevationService o = ElevationService.newInstance();
-		o.getElevationForLocations(request, new ElevationServiceHandler() {
-			@Override
-			public void onCallback(JsArray<ElevationResult> result, ElevationStatus status) {
+    ElevationService o = ElevationService.newInstance();
+    o.getElevationForLocations(request, new ElevationServiceHandler() {
+      @Override
+      public void onCallback(JsArray<ElevationResult> result, ElevationStatus status) {
 
-				if (status == ElevationStatus.INVALID_REQUEST) {
+        if (status == ElevationStatus.INVALID_REQUEST) {
 
-				} else if (status == ElevationStatus.OK) {
-					ElevationResult e = result.get(0);
-					double elevation = e.getElevation();
-					LatLng location = e.getLocation();
-					@SuppressWarnings("unused")
-					double res = e.getResolution();
+        } else if (status == ElevationStatus.OK) {
+          ElevationResult e = result.get(0);
+          double elevation = e.getElevation();
+          LatLng location = e.getLocation();
+          @SuppressWarnings("unused")
+          double res = e.getResolution();
 
-					GWT.log("worked elevation=" + elevation);
-					drawInfoWindow(location, elevation);
+          GWT.log("worked elevation=" + elevation);
+          drawInfoWindow(location, elevation);
 
-				} else if (status == ElevationStatus.OVER_QUERY_LIMIT) {
+        } else if (status == ElevationStatus.OVER_QUERY_LIMIT) {
 
-				} else if (status == ElevationStatus.REQUEST_DENIED) {
+        } else if (status == ElevationStatus.REQUEST_DENIED) {
 
-				} else if (status == ElevationStatus.UNKNOWN_ERROR) {
+        } else if (status == ElevationStatus.UNKNOWN_ERROR) {
 
-				}
+        }
 
-				GWT.log("elevation request finished");
-			}
-		});
-	}
+        GWT.log("elevation request finished");
+      }
+    });
+  }
 
-	protected void drawInfoWindow(LatLng position, double elevation) {
+  protected void drawInfoWindow(LatLng position, double elevation) {
 
-		NumberFormat format = NumberFormat.getFormat("###");
-		String elevationStr = format.format(elevation);
-		String latlngStr = "[ " + format.format(position.getLatitude()) + ", "
-				+ format.format(position.getLongitude()) + " ]";
-		String message = "Elevation " + elevationStr + "m @ " + latlngStr;
+    NumberFormat format = NumberFormat.getFormat("###");
+    String elevationStr = format.format(elevation);
+    String latlngStr = "[ " + format.format(position.getLatitude()) + ", " + format.format(position.getLongitude())
+        + " ]";
+    String message = "Elevation " + elevationStr + "m @ " + latlngStr;
 
-		HTML html = new HTML(message);
-		InfoWindowOptions options = InfoWindowOptions.newInstance();
-		options.setContent(html);
-		InfoWindow iw = InfoWindow.newInstance(options);
-		iw.setPosition(position);
-		iw.open(mapWidget);
-	}
+    HTML html = new HTML(message);
+    InfoWindowOptions options = InfoWindowOptions.newInstance();
+    options.setContent(html);
+    InfoWindow iw = InfoWindow.newInstance(options);
+    iw.setPosition(position);
+    iw.open(mapWidget);
+  }
 
 }

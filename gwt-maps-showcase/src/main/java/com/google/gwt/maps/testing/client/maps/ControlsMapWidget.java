@@ -26,8 +26,11 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class ControlsMapWidget extends Composite {
 
@@ -49,66 +52,66 @@ public class ControlsMapWidget extends Composite {
     pWidget.add(new HTML("<br>Basic Map Controls Position Example"));
 
     drawMap();
-    
+
     drawMapAds();
   }
 
   private void drawMap() {
-    
+
     MapTypeControlOptions controlOptions = MapTypeControlOptions.newInstance();
     controlOptions.setMapTypeIds(MapTypeId.values()); // use all of them
     controlOptions.setPosition(ControlPosition.RIGHT_CENTER);
-    
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
+
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions options = MapOptions.newInstance();
     options.setZoom(4);
     options.setCenter(center);
     options.setMapTypeId(MapTypeId.HYBRID);
     options.setMapTypeControlOptions(controlOptions);
-    
+
     mapWidget = new MapWidget(options);
     pWidget.add(mapWidget);
     mapWidget.setSize("750px", "500px");
-    
+
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
-    	GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
   }
 
   private void drawMapAds() {
-    
+
     AdUnitOptions options = AdUnitOptions.newInstance();
     options.setFormat(AdFormat.LEADERBOARD);
     options.setPosition(ControlPosition.BOTTOM_CENTER);
     options.setMap(mapWidget);
     options.setPublisherId("pub-0032065764310410");
     options.setChannelNumber("4000893900");
-    
+
     AdUnitWidget adUnit = new AdUnitWidget(options);
-    
+
     adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
-      public void onEvent(ChannelNumberChangeMapEvent event) { 
+      public void onEvent(ChannelNumberChangeMapEvent event) {
       }
     });
-    
+
     adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
       public void onEvent(FormatChangeMapEvent event) {
       }
     });
-    
+
     adUnit.addMapChangeHandler(new MapChangeMapHandler() {
       public void onEvent(MapChangeMapEvent event) {
       }
     });
-    
+
     adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
       public void onEvent(PositionChangeMapEvent event) {
       }
     });
 
   }
-  
+
 }
