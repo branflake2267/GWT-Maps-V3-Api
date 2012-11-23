@@ -5,61 +5,97 @@ import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Point;
 
 /**
- * This object is made available to the OverlayView from within the draw method. It is not guaranteed to be initialized until draw is called.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapCanvasProjection">MapCanvasProjection API Doc</a> 
+ * This object is made available to the OverlayView from within the draw method.
+ * It is not guaranteed to be initialized until draw is called. <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/reference#MapCanvasProjection"
+ * >MapCanvasProjection API Doc</a>
  */
 public class MapCanvasProjection extends JavaScriptObject {
 
-  /**
-   * returns from another object only
-   */
-  protected MapCanvasProjection() {}
-  
-  /**
-   * returns from another object only
-   */
-  public final static MapCanvasProjection newInstance() {
-    return JavaScriptObject.createObject().cast();
-  }
-  
-  /**
-   * Computes the geographical coordinates from pixel coordinates in the map's container.
-   * @param pixel
-   */
-  public final native LatLng fromContainerPixelToLatLng(Point pixel) /*-{
-    return this.fromContainerPixelToLatLng(pixel);
-  }-*/; 
-  
-  /**
-   * Computes the geographical coordinates from pixel coordinates in the div that holds the draggable map.
-   * @param pixel
-   */
-  public final native LatLng fromDivPixelToLatLng(Point pixel) /*-{
-    this.fromDivPixelToLatLng(pixel);
-  }-*/;
-  
-  /**
-   * Computes the pixel coordinates of the given geographical location in the DOM element the map's outer container.
-   * @param latlng
-   */
-  public final native Point fromLatLngToContainerPixel(LatLng latlng) /*-{
-    this.fromLatLngToContainerPixel(latlng);
-  }-*/;
-  
-  /**
-   * Computes the pixel coordinates of the given geographical location in the DOM element that holds the draggable map.
-   * @param latlng
-   */
-  public final native void fromLatLngToDivPixel(LatLng latlng) /*-{
-    this.fromLatLngToDivPixel(latlng);
-  }-*/;
-  
-  /**
-   * The width of the world in pixels in the current zoom level. For projections with a heading angle of either 90 or 270 degress, this corresponds to the pixel span in the Y-axis.
-   */
-  public final native int getWorldWidth() /*-{
-    return this.getWorldWidth();
-  }-*/;
-  
+	/**
+	 * returns from another object only
+	 */
+	protected MapCanvasProjection() {
+	}
+
+	/**
+	 * returns from another object only
+	 */
+	public final static MapCanvasProjection newInstance() {
+		return JavaScriptObject.createObject().cast();
+	}
+
+	/**
+	 * Computes the geographical coordinates from pixel coordinates in the map's
+	 * container.
+	 * 
+	 * @param pixel
+	 */
+	public final native LatLng fromContainerPixelToLatLng(Point pixel) /*-{
+		return this.fromContainerPixelToLatLng(pixel);
+	}-*/;
+
+	/**
+	 * Computes the geographical coordinates from pixel coordinates in the map's
+	 * container.
+	 * 
+	 * @param pixel
+	 * @param noWrap
+	 */
+	public final native LatLng fromContainerPixelToLatLng(Point pixel, boolean noWrap) /*-{
+		return this.fromContainerPixelToLatLng(pixel, noWrap);
+	}-*/;
+
+	/**
+	 * Computes the geographical coordinates from pixel coordinates in the div
+	 * that holds the draggable map.
+	 * 
+	 * @param pixel
+	 */
+	public final native LatLng fromDivPixelToLatLng(Point pixel) /*-{
+		return this.fromDivPixelToLatLng(pixel);
+	}-*/;
+
+	/**
+	 * Computes the geographical coordinates from pixel coordinates in the div
+	 * that holds the draggable map.
+	 * 
+	 * @param pixel
+	 * @param noWrap
+	 */
+	public final native LatLng fromDivPixelToLatLng(Point pixel, boolean noWrap) /*-{
+		return this.fromDivPixelToLatLng(pixel, noWrap);
+	}-*/;
+
+	/**
+	 * Computes the pixel coordinates of the given geographical location in the
+	 * DOM element the map's outer container.
+	 * 
+	 * @param latlng
+	 */
+	public final native Point fromLatLngToContainerPixel(LatLng latlng) /*-{
+		return this.fromLatLngToContainerPixel(latlng);
+	}-*/;
+
+	/**
+	 * Computes the pixel coordinates of the given geographical location in the
+	 * DOM element that holds the draggable map.
+	 * 
+	 * @param latlng
+	 */
+	public final native Point fromLatLngToDivPixel(LatLng latlng) /*-{
+		return this.fromLatLngToDivPixel(latlng);
+	}-*/;
+
+	/**
+	 * The width of the world in pixels in the current zoom level. For
+	 * projections with a heading angle of either 90 or 270 degrees, this
+	 * corresponds to the pixel span in the Y-axis.
+	 */
+	public final native double getWorldWidth() /*-{
+		return this.getWorldWidth();
+	}-*/;
+
 }
