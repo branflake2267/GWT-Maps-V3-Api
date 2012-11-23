@@ -24,8 +24,11 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
  * 
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables">FusionTables API Doc</a>
+ * <br>
+ * <br>
+ * See <a href=
+ * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
+ * >FusionTables API Doc</a>
  */
 public class FullPageMapWidget extends Composite {
 
@@ -34,35 +37,35 @@ public class FullPageMapWidget extends Composite {
   private MapWidget mapWidget;
 
   public FullPageMapWidget() {
-    
+
     pWidget = new FlowPanel();
-    
+
     initWidget(pWidget);
 
     pWidget.setSize("100%", "100%");
-    //pWidget.addStyleName("test3");
-    
+    // pWidget.addStyleName("test3");
+
     draw();
   }
 
   private void draw() {
 
     drawMap();
-    
+
     drawMapAds();
   }
 
   private void drawMap() {
-    LatLng center = LatLng.newInstance(49.496675,-102.65625);
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(4);
     opts.setCenter(center);
     opts.setMapTypeId(MapTypeId.HYBRID);
-    
+
     mapWidget = new MapWidget(opts);
     pWidget.add(mapWidget);
     mapWidget.setSize("100%", "100%");
-    
+
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
@@ -71,37 +74,37 @@ public class FullPageMapWidget extends Composite {
     });
   }
 
- private void drawMapAds() {
-    
+  private void drawMapAds() {
+
     AdUnitOptions options = AdUnitOptions.newInstance();
     options.setFormat(AdFormat.LEADERBOARD);
     options.setPosition(ControlPosition.TOP_CENTER);
     options.setMap(mapWidget);
     options.setPublisherId("pub-0032065764310410");
     options.setChannelNumber("4000893900");
-    
+
     AdUnitWidget adUnit = new AdUnitWidget(options);
-    
+
     adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
-      public void onEvent(ChannelNumberChangeMapEvent event) { 
+      public void onEvent(ChannelNumberChangeMapEvent event) {
       }
     });
-    
+
     adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
       public void onEvent(FormatChangeMapEvent event) {
       }
     });
-    
+
     adUnit.addMapChangeHandler(new MapChangeMapHandler() {
       public void onEvent(MapChangeMapEvent event) {
       }
     });
-    
+
     adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
       public void onEvent(PositionChangeMapEvent event) {
       }
     });
 
   }
-  
+
 }

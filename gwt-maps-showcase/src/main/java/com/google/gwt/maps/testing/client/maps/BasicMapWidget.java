@@ -38,129 +38,127 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class BasicMapWidget extends Composite {
 
-	private final VerticalPanel pWidget;
+  private final VerticalPanel pWidget;
 
-	private MapWidget mapWidget;
+  private MapWidget mapWidget;
 
-	public BasicMapWidget() {
-		pWidget = new VerticalPanel();
-		initWidget(pWidget);
+  public BasicMapWidget() {
+    pWidget = new VerticalPanel();
+    initWidget(pWidget);
 
-		draw();
-	}
+    draw();
+  }
 
-	private void draw() {
+  private void draw() {
 
-		pWidget.clear();
+    pWidget.clear();
 
-		pWidget.add(new HTML("<br>Basic Map Example. With an AdUnit"));
+    pWidget.add(new HTML("<br>Basic Map Example. With an AdUnit"));
 
-		drawMap();
+    drawMap();
 
-		drawMapAds();
+    drawMapAds();
 
-		drawMarker();
-	}
+    drawMarker();
+  }
 
-	private void drawMarker() {
-		LatLng center = LatLng.newInstance(47.8, -121.4);
-		MarkerOptions options = MarkerOptions.newInstance();
-		options.setPosition(center);
-		options.setTitle("Hello World");
+  private void drawMarker() {
+    LatLng center = LatLng.newInstance(47.8, -121.4);
+    MarkerOptions options = MarkerOptions.newInstance();
+    options.setPosition(center);
+    options.setTitle("Hello World");
 
-		final Marker marker = Marker.newInstance(options);
-		marker.setMap(mapWidget);
+    final Marker marker = Marker.newInstance(options);
+    marker.setMap(mapWidget);
 
-		marker.addClickHandler(new ClickMapHandler() {
-			@Override
-			public void onEvent(ClickMapEvent event) {
-				drawInfoWindow(marker, event.getMouseEvent());
-			}
-		});
-	}
+    marker.addClickHandler(new ClickMapHandler() {
+      @Override
+      public void onEvent(ClickMapEvent event) {
+        drawInfoWindow(marker, event.getMouseEvent());
+      }
+    });
+  }
 
-	// TODO implement this method or drop it
-	@SuppressWarnings("unused")
-	private void drawMarker2() {
-		LatLng center = LatLng.newInstance(47.8, -121.4);
-		MarkerOptions options = MarkerOptions.newInstance();
-		options.setPosition(center);
-		options.setTitle("Hello World");
+  // TODO implement this method or drop it
+  @SuppressWarnings("unused")
+  private void drawMarker2() {
+    LatLng center = LatLng.newInstance(47.8, -121.4);
+    MarkerOptions options = MarkerOptions.newInstance();
+    options.setPosition(center);
+    options.setTitle("Hello World");
 
-		final Marker marker = Marker.newInstance(options);
+    final Marker marker = Marker.newInstance(options);
 
-	}
+  }
 
-	protected void drawInfoWindow(Marker marker, MouseEvent mouseEvent) {
-		if (marker == null || mouseEvent == null) {
-			return;
-		}
+  protected void drawInfoWindow(Marker marker, MouseEvent mouseEvent) {
+    if (marker == null || mouseEvent == null) {
+      return;
+    }
 
-		HTML html = new HTML("You clicked on: "
-				+ mouseEvent.getLatLng().getToString());
+    HTML html = new HTML("You clicked on: " + mouseEvent.getLatLng().getToString());
 
-		InfoWindowOptions options = InfoWindowOptions.newInstance();
-		options.setContent(html);
-		InfoWindow iw = InfoWindow.newInstance(options);
-		iw.open(mapWidget, marker);
-	}
+    InfoWindowOptions options = InfoWindowOptions.newInstance();
+    options.setContent(html);
+    InfoWindow iw = InfoWindow.newInstance(options);
+    iw.open(mapWidget, marker);
+  }
 
-	private void drawMap() {
-		LatLng center = LatLng.newInstance(49.496675, -102.65625);
-		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(4);
-		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.HYBRID);
+  private void drawMap() {
+    LatLng center = LatLng.newInstance(49.496675, -102.65625);
+    MapOptions opts = MapOptions.newInstance();
+    opts.setZoom(4);
+    opts.setCenter(center);
+    opts.setMapTypeId(MapTypeId.HYBRID);
 
-		mapWidget = new MapWidget(opts);
-		pWidget.add(mapWidget);
-		mapWidget.setSize("750px", "500px");
+    mapWidget = new MapWidget(opts);
+    pWidget.add(mapWidget);
+    mapWidget.setSize("750px", "500px");
 
-		mapWidget.addClickHandler(new ClickMapHandler() {
-			@Override
-			public void onEvent(ClickMapEvent event) {
-				// TODO fix the event getting, getting ....
-				GWT.log("clicked on latlng="
-						+ event.getMouseEvent().getLatLng());
-			}
-		});
-	}
+    mapWidget.addClickHandler(new ClickMapHandler() {
+      @Override
+      public void onEvent(ClickMapEvent event) {
+        // TODO fix the event getting, getting ....
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+      }
+    });
+  }
 
-	private void drawMapAds() {
+  private void drawMapAds() {
 
-		AdUnitOptions options = AdUnitOptions.newInstance();
-		options.setFormat(AdFormat.HALF_BANNER);
-		options.setPosition(ControlPosition.RIGHT_CENTER);
-		options.setMap(mapWidget);
-		options.setPublisherId("pub-0032065764310410");
-		options.setChannelNumber("4000893900");
+    AdUnitOptions options = AdUnitOptions.newInstance();
+    options.setFormat(AdFormat.HALF_BANNER);
+    options.setPosition(ControlPosition.RIGHT_CENTER);
+    options.setMap(mapWidget);
+    options.setPublisherId("pub-0032065764310410");
+    options.setChannelNumber("4000893900");
 
-		AdUnitWidget adUnit = new AdUnitWidget(options);
+    AdUnitWidget adUnit = new AdUnitWidget(options);
 
-		adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
-			@Override
-			public void onEvent(ChannelNumberChangeMapEvent event) {
-			}
-		});
+    adUnit.addChannelNumberChangeHandler(new ChannelNumberChangeMapHandler() {
+      @Override
+      public void onEvent(ChannelNumberChangeMapEvent event) {
+      }
+    });
 
-		adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
-			@Override
-			public void onEvent(FormatChangeMapEvent event) {
-			}
-		});
+    adUnit.addFormatChangeHandler(new FormatChangeMapHandler() {
+      @Override
+      public void onEvent(FormatChangeMapEvent event) {
+      }
+    });
 
-		adUnit.addMapChangeHandler(new MapChangeMapHandler() {
-			@Override
-			public void onEvent(MapChangeMapEvent event) {
-			}
-		});
+    adUnit.addMapChangeHandler(new MapChangeMapHandler() {
+      @Override
+      public void onEvent(MapChangeMapEvent event) {
+      }
+    });
 
-		adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
-			@Override
-			public void onEvent(PositionChangeMapEvent event) {
-			}
-		});
+    adUnit.addPositionChangeHandler(new PositionChangeMapHandler() {
+      @Override
+      public void onEvent(PositionChangeMapEvent event) {
+      }
+    });
 
-	}
+  }
 
 }

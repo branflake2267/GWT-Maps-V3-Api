@@ -30,111 +30,109 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class AdvancedLayersWidget extends Composite {
 
-	private VerticalPanel pWidget;
-	private MapWidget mapWidget;
+  private VerticalPanel pWidget;
+  private MapWidget mapWidget;
 
-	public AdvancedLayersWidget() {
-		pWidget = new VerticalPanel();
-		initWidget(pWidget);
+  public AdvancedLayersWidget() {
+    pWidget = new VerticalPanel();
+    initWidget(pWidget);
 
-		draw();
-	}
+    draw();
+  }
 
-	/**
-	 * Buttons for toggling layers
-	 */
-	private void drawLayerControls() {
+  /**
+   * Buttons for toggling layers
+   */
+  private void drawLayerControls() {
 
-		final TrafficLayer trafficLayer = TrafficLayer.newInstance();
-		final Button button = new Button("Traffic");
-		button.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				if (trafficLayer.getMap() == null) {
-					trafficLayer.setMap(mapWidget);
-					button.getElement().getStyle().setColor("red");
-				} else {
-					trafficLayer.setMap(null);
-					button.getElement().getStyle().setColor("black");
-				}
-			}
-		});
+    final TrafficLayer trafficLayer = TrafficLayer.newInstance();
+    final Button button = new Button("Traffic");
+    button.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (trafficLayer.getMap() == null) {
+          trafficLayer.setMap(mapWidget);
+          button.getElement().getStyle().setColor("red");
+        } else {
+          trafficLayer.setMap(null);
+          button.getElement().getStyle().setColor("black");
+        }
+      }
+    });
 
-		final TransitLayer transitLayer = TransitLayer.newInstance();
-		final Button button2 = new Button("Transit");
-		button2.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				if (transitLayer.getMap() == null) {
-					transitLayer.setMap(mapWidget);
-					button2.getElement().getStyle().setColor("red");
-				} else {
-					transitLayer.setMap(null);
-					button2.getElement().getStyle().setColor("black");
-				}
-			}
-		});
+    final TransitLayer transitLayer = TransitLayer.newInstance();
+    final Button button2 = new Button("Transit");
+    button2.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (transitLayer.getMap() == null) {
+          transitLayer.setMap(mapWidget);
+          button2.getElement().getStyle().setColor("red");
+        } else {
+          transitLayer.setMap(null);
+          button2.getElement().getStyle().setColor("black");
+        }
+      }
+    });
 
-		final BicyclingLayer bikeLayer = BicyclingLayer.newInstance();
-		final Button button3 = new Button("Bicycle");
-		button3.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				if (bikeLayer.getMap() == null) {
-					bikeLayer.setMap(mapWidget);
-					button3.getElement().getStyle().setColor("red");
-				} else {
-					bikeLayer.setMap(null);
-					button3.getElement().getStyle().setColor("black");
-				}
-			}
-		});
+    final BicyclingLayer bikeLayer = BicyclingLayer.newInstance();
+    final Button button3 = new Button("Bicycle");
+    button3.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (bikeLayer.getMap() == null) {
+          bikeLayer.setMap(mapWidget);
+          button3.getElement().getStyle().setColor("red");
+        } else {
+          bikeLayer.setMap(null);
+          button3.getElement().getStyle().setColor("black");
+        }
+      }
+    });
 
-		FlowPanel widget = new FlowPanel();
-		widget.add(button);
-		widget.add(new HTML("Advanced Layers"));
-		widget.add(button);
-		widget.add(button2);
-		widget.add(button3);
+    FlowPanel widget = new FlowPanel();
+    widget.add(button);
+    widget.add(new HTML("Advanced Layers"));
+    widget.add(button);
+    widget.add(button2);
+    widget.add(button3);
 
-		DOM.setStyleAttribute(widget.getElement(), "background", "white");
-		DOM.setStyleAttribute(widget.getElement(), "padding", "5px");
-		DOM.setStyleAttribute(widget.getElement(), "margin", "3px");
-		DOM.setStyleAttribute(widget.getElement(), "border",
-				"3px solid darkgray");
+    DOM.setStyleAttribute(widget.getElement(), "background", "white");
+    DOM.setStyleAttribute(widget.getElement(), "padding", "5px");
+    DOM.setStyleAttribute(widget.getElement(), "margin", "3px");
+    DOM.setStyleAttribute(widget.getElement(), "border", "3px solid darkgray");
 
-		mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
+    mapWidget.setControls(ControlPosition.RIGHT_CENTER, widget);
 
-		// apply button so people can see more interesting map
-		trafficLayer.setMap(mapWidget);
-		button.getElement().getStyle().setColor("red");
-	}
+    // apply button so people can see more interesting map
+    trafficLayer.setMap(mapWidget);
+    button.getElement().getStyle().setColor("red");
+  }
 
-	private void draw() {
+  private void draw() {
 
-		pWidget.clear();
+    pWidget.clear();
 
-		pWidget.add(new HTML("<br>Advanced Map Layers Example"));
+    pWidget.add(new HTML("<br>Advanced Map Layers Example"));
 
-		drawMap();
-		drawLayerControls();
-	}
+    drawMap();
+    drawLayerControls();
+  }
 
-	private void drawMap() {
-		LatLng center = LatLng.newInstance(42.35, -71.07);
-		MapOptions opts = MapOptions.newInstance();
-		opts.setZoom(14);
-		opts.setCenter(center);
-		opts.setMapTypeId(MapTypeId.ROADMAP);
+  private void drawMap() {
+    LatLng center = LatLng.newInstance(42.35, -71.07);
+    MapOptions opts = MapOptions.newInstance();
+    opts.setZoom(14);
+    opts.setCenter(center);
+    opts.setMapTypeId(MapTypeId.ROADMAP);
 
-		mapWidget = new MapWidget(opts);
-		pWidget.add(mapWidget);
-		mapWidget.setSize("750px", "500px");
+    mapWidget = new MapWidget(opts);
+    pWidget.add(mapWidget);
+    mapWidget.setSize("750px", "500px");
 
-		mapWidget.addClickHandler(new ClickMapHandler() {
-			public void onEvent(ClickMapEvent event) {
-				// TODO fix the event getting, getting ....
-				GWT.log("clicked on latlng="
-						+ event.getMouseEvent().getLatLng());
-			}
-		});
-	}
+    mapWidget.addClickHandler(new ClickMapHandler() {
+      public void onEvent(ClickMapEvent event) {
+        // TODO fix the event getting, getting ....
+        GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
+      }
+    });
+  }
 
 }
