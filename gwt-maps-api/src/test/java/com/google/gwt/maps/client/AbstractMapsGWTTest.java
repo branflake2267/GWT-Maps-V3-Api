@@ -36,7 +36,7 @@ import com.google.gwt.maps.client.base.LatLng;
  */
 public abstract class AbstractMapsGWTTest extends GWTTestCase {
 
-	private final String MODULE_NAME = "com.google.gwt.maps.Apis_Google_Maps_ForTests";
+	private final String MODULE_NAME = "com.google.gwt.maps.MapsForTests";
 	private int asyncDelayMs = 30000;
 	private final double equalsEpsilon = 1e-3;
 	private boolean sensor = false;
