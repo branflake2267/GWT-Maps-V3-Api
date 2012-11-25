@@ -180,6 +180,12 @@
 		<dependency>
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.gwt</groupId>
+					<artifactId>gwt-dev</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Just the necessary GWT bits -->
