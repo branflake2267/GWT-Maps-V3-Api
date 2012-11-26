@@ -72,7 +72,7 @@
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
 
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    <runTarget>Apis_Maps_Test.html</runTarget>
+                    <runTarget>index.html</runTarget>
 
                     <testTimeOut>180</testTimeOut>
                     <extraJvmArgs>-Xmx512m</extraJvmArgs>
@@ -114,7 +114,7 @@
 
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -175,13 +175,13 @@
             <version>3.9.0</version>
             <scope>provided</scope>
         </dependency>
-                
+
 		<!-- GWT Google Apis Core -->
 		<dependency>
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
 		</dependency>
-        
+
 		<!-- Just the necessary GWT bits -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
@@ -191,7 +191,7 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
 		</dependency>
-        
+
         <!-- Google App Engine dependencies -->
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -215,7 +215,7 @@
             <version>${gae.version}</version>
             <scope>test</scope>
         </dependency>
-        
+
 		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
