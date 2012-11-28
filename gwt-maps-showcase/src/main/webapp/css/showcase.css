@@ -79,3 +79,14 @@ body {
 .test8 {
   border:1px solid #FFFF00;
 }
+.dialogTour {
+	background-color: rgba(244, 228, 73, 1.0);
+	color: black;
+	border: 0;
+	padding: 0;
+	margin-left: 5px;
+	margin-top: 5px;
+	font-family: 'Didact Gothic', serif;
+	font-size: 13px;
+	
+}
