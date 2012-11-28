@@ -28,7 +28,6 @@ import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.controls.ControlPosition;
 import com.google.gwt.maps.client.layers.KmlLayer;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
@@ -36,23 +35,16 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-/**
- * 
- * <br>
- * <br>
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
- * >FusionTables API Doc</a>
- */
+
 public class MultipleKmlMapWidget extends Composite {
 
 	private VerticalPanel pWidget;
 
 	private MapWidget mapWidget;
 
-	static KmlLayer layers;
+	private KmlLayer layers;
 
-	private VerticalPanel tour2012Stages = new VerticalPanel();
+	private VerticalPanel pRoutes = new VerticalPanel();
 
 	private KmlLayer route1 = KmlLayer.newInstance("http://www.cyclingthealps.com/tour2012/stage14.kmz");
 	private KmlLayer route2 = KmlLayer.newInstance("http://www.cyclingthealps.com/tour2012/stage15.kmz");
@@ -65,7 +57,6 @@ public class MultipleKmlMapWidget extends Composite {
 	public MultipleKmlMapWidget() {
 		pWidget = new VerticalPanel();
 		initWidget(pWidget);
-
 		draw();
 	}
 
@@ -76,7 +67,7 @@ public class MultipleKmlMapWidget extends Composite {
 		pWidget.add(new HTML("&nbsp;"));
 
 		HorizontalPanel hp = new HorizontalPanel();
-		hp.add(new HTML("Multiple Kml Example --- See this used on <a href='http://www.cyclingthealps.com'>www.cyclingthealps.com</a>"));
+		hp.add(new HTML("Multiple Kml Example --- See this used on <a href='http://www.cyclingthealps.com/#tour-de-france-2012-stages'>www.cyclingthealps.com</a>"));
 
 		pWidget.add(hp);
 
@@ -104,8 +95,10 @@ public class MultipleKmlMapWidget extends Composite {
 
 		VerticalPanel dialogContents = new VerticalPanel();
 		addRoutes();
-		dialogContents.add(tour2012Stages);
+		dialogContents.add(pRoutes);
+		// sets the panel on top of the map in the upper left corner
 		mapWidget.setControls(ControlPosition.LEFT_TOP, dialogContents);
+		// the dialogTour CSS setting can be found in the showcase.css file
 		dialogContents.setStyleName("dialogTour");
 
 	}
@@ -118,15 +111,15 @@ public class MultipleKmlMapWidget extends Composite {
 		final CheckBox check5 = new CheckBox();
 		final CheckBox check6 = new CheckBox();
 		final CheckBox check7 = new CheckBox();
+		
 		// Introduction
-		HorizontalPanel introductionPanel = new HorizontalPanel();
+		HorizontalPanel pTitle = new HorizontalPanel();
+		Label lTitle = new Label("Enable Disable Routes");
+		pTitle.add(lTitle);
 
-		Label introductionLabel = new Label("Enable Disable Routes");
-		introductionPanel.add(introductionLabel);
-
-		HorizontalPanel emptyStringPanel = new HorizontalPanel();
-		Label emptyStringLabel = new Label("--------------------------");
-		emptyStringPanel.add(emptyStringLabel);
+		HorizontalPanel pDevider = new HorizontalPanel();
+		Label lDevider = new Label("--------------------------");
+		pDevider.add(lDevider);
 
 		// stage 1
 		HorizontalPanel stage1 = new HorizontalPanel();
@@ -247,16 +240,16 @@ public class MultipleKmlMapWidget extends Composite {
 		stage7.add(check7);
 		stage7.add(stage7Label);
 
-		// Adding all horizontal panels to the vertical panel
-		tour2012Stages.add(introductionPanel);
-		tour2012Stages.add(emptyStringPanel);
-		tour2012Stages.add(stage1);
-		tour2012Stages.add(stage2);
-		tour2012Stages.add(stage3);
-		tour2012Stages.add(stage4);
-		tour2012Stages.add(stage5);
-		tour2012Stages.add(stage6);
-		tour2012Stages.add(stage7);
+		// Adding all horizontal panels to the vertical panel pRoutes
+		pRoutes.add(pTitle);
+		pRoutes.add(pDevider);
+		pRoutes.add(stage1);
+		pRoutes.add(stage2);
+		pRoutes.add(stage3);
+		pRoutes.add(stage4);
+		pRoutes.add(stage5);
+		pRoutes.add(stage6);
+		pRoutes.add(stage7);
 
 	}
 	/*
