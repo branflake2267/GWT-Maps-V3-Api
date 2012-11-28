@@ -131,6 +131,7 @@ public class Showcase implements EntryPoint {
 		drawPanoramioMap();
 
 		drawPlaceSearchRequestMap();
+		
 	}
 
 	/**
