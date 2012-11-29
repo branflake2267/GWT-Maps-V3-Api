@@ -38,6 +38,7 @@ import com.google.gwt.maps.testing.client.maps.HeatMapLayerWidget;
 import com.google.gwt.maps.testing.client.maps.ImageMapTypeWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
+import com.google.gwt.maps.testing.client.maps.MultipleKmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
 import com.google.gwt.maps.testing.client.maps.PlaceSearchMapWidget;
 import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
@@ -131,6 +132,8 @@ public class Showcase implements EntryPoint {
 		drawPanoramioMap();
 
 		drawPlaceSearchRequestMap();
+		
+		drawMultipleKmlMap();
 	}
 
 	/**
@@ -245,6 +248,10 @@ public class Showcase implements EntryPoint {
 
 	private void drawPlaceSearchRequestMap() {
 		PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
+		addMapWidget(wMap);
+	}
+	private void drawMultipleKmlMap() {
+		MultipleKmlMapWidget wMap = new MultipleKmlMapWidget();
 		addMapWidget(wMap);
 	}
 }
