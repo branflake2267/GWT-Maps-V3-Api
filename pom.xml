@@ -162,7 +162,7 @@
 		
 		
 		<plugins>
-		<!-- Custom license headers for all files -->
+		    <!-- Custom license headers for all files -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -233,4 +233,17 @@
 		</dependencies>
 	</dependencyManagement>
 
+    <!-- Run by using: mvn clean deploy -->
+    <!-- https://issues.sonatype.org/browse/OSSRH-4661 -->
+    <!-- Build a local maven repo: mvn -DaltDeploymentRepository=snapshot-repo::default::file:./distribution/snapshots clean deploy -->
+    <distributionManagement>
+        <repository>
+            <id>sona-nexus-deploy</id> <!-- Add to settings.xml <server><id>sona-nexus-deploy</id> -->
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sona-nexus-deploy</id> 
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement> 
 </project>
