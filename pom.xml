@@ -162,7 +162,7 @@
 		
 		
 		<plugins>
-		    <!-- Custom license headers for all files -->
+            <!-- Custom license headers for all files -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
