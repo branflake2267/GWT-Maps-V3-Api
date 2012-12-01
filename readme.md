@@ -3,8 +3,6 @@
 This library provides Java language bindings for the Google maps Javascript api. 
 
 #NOTE 3.9.0+
-[![Build Status](https://travis-ci.org/rwl/GWT-Maps-V3-Api.png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
-
 11/22/2012: 3.9.0+ is coming soon (see [milestone](https://github.com/branflake2267/GWT-Maps-V3-Api/issues/milestones)). We will be changing the module naming in the future for 3.9.0. 
 
 ##Demo
