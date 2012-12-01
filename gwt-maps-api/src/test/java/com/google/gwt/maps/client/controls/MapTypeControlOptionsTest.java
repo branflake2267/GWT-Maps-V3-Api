@@ -20,11 +20,11 @@ package com.google.gwt.maps.client.controls;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapTypeId;
 
-public class MapTypeControlOptionsTest extends AbstractMapsGWTTest {
+public class MapTypeControlOptionsTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

@@ -21,7 +21,7 @@ package com.google.gwt.maps.client.adsense;
  */
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
@@ -29,7 +29,7 @@ import com.google.gwt.maps.client.controls.ControlPosition;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class AdUnitImplTest extends AbstractMapsGWTTest {
+public class AdUnitImplTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

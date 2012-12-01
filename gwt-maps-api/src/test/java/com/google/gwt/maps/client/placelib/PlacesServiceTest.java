@@ -23,7 +23,7 @@ package com.google.gwt.maps.client.placelib;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -43,7 +43,7 @@ import com.google.gwt.maps.client.services.GeocoderAddressComponent;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class PlacesServiceTest extends AbstractMapsGWTTest {
+public class PlacesServiceTest extends AbstractMapsGWTTestHelper {
   
   /**
    * Used for nearby search

@@ -23,7 +23,7 @@ package com.google.gwt.maps.client.mvc;
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.events.insertat.InsertAtMapEvent;
 import com.google.gwt.maps.client.events.insertat.InsertAtMapHandler;
@@ -34,7 +34,7 @@ import com.google.gwt.maps.client.events.setat.SetAtMapHandler;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 
-public class MVCArrayTest extends AbstractMapsGWTTest {
+public class MVCArrayTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

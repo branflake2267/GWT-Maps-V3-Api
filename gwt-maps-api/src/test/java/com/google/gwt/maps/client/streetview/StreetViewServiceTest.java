@@ -20,7 +20,7 @@ package com.google.gwt.maps.client.streetview;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.user.client.Timer;
@@ -32,7 +32,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  * "https://developers.google.com/maps/documentation/javascript/streetview"
  * >StreetView API Doc</a>
  */
-public class StreetViewServiceTest extends AbstractMapsGWTTest {
+public class StreetViewServiceTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

@@ -21,10 +21,10 @@ package com.google.gwt.maps.client.mvc;
  */
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class MVCObjectTest extends AbstractMapsGWTTest {
+public class MVCObjectTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

@@ -20,13 +20,13 @@ package com.google.gwt.maps.client.layers;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class BicyclingLayerTest extends AbstractMapsGWTTest {
+public class BicyclingLayerTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

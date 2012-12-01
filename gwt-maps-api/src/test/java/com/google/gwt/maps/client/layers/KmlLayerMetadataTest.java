@@ -20,10 +20,10 @@ package com.google.gwt.maps.client.layers;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class KmlLayerMetadataTest extends AbstractMapsGWTTest {
+public class KmlLayerMetadataTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

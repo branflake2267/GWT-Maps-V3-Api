@@ -20,10 +20,10 @@ package com.google.gwt.maps.client.layers;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class FusionTablesStyleTest extends AbstractMapsGWTTest {
+public class FusionTablesStyleTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

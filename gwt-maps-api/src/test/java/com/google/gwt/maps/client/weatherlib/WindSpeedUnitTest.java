@@ -20,10 +20,10 @@ package com.google.gwt.maps.client.weatherlib;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class WindSpeedUnitTest extends AbstractMapsGWTTest {
+public class WindSpeedUnitTest extends AbstractMapsGWTTestHelper {
 	@Override
 	public LoadLibrary[] getLibraries() {
 		return new LoadLibrary[] { LoadLibrary.WEATHER };

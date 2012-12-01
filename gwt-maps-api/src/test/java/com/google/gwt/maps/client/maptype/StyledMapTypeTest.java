@@ -22,13 +22,13 @@ package com.google.gwt.maps.client.maptype;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.controls.MapTypeStyle;
 import com.google.gwt.maps.client.maptypes.StyledMapType;
 import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
 
-public class StyledMapTypeTest extends AbstractMapsGWTTest {
+public class StyledMapTypeTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

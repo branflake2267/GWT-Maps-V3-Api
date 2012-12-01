@@ -22,11 +22,11 @@ package com.google.gwt.maps.client.main;
 
 import java.util.ArrayList;
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class LoadApiTest extends AbstractMapsGWTTest {
+public class LoadApiTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

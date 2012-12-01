@@ -34,7 +34,7 @@ import com.google.gwt.maps.client.base.LatLng;
  * @author Joseph Lust
  * 
  */
-public abstract class AbstractMapsGWTTest extends GWTTestCase {
+public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
 
 	private final String MODULE_NAME = "com.google.gwt.maps.MapsForTests";
 	private int asyncDelayMs = 30000;

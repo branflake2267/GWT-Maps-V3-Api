@@ -21,12 +21,12 @@ package com.google.gwt.maps.client.streetview;
  */
 
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class StreetViewPanoramaWidgetTest extends AbstractMapsGWTTest {
+public class StreetViewPanoramaWidgetTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

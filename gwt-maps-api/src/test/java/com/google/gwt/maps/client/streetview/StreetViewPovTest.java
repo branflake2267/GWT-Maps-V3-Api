@@ -20,10 +20,10 @@ package com.google.gwt.maps.client.streetview;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class StreetViewPovTest extends AbstractMapsGWTTest {
+public class StreetViewPovTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

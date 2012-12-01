@@ -20,13 +20,13 @@ package com.google.gwt.maps.client.drawing;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.controls.ControlPosition;
 import com.google.gwt.maps.client.drawinglib.DrawingControlOptions;
 import com.google.gwt.maps.client.drawinglib.OverlayType;
 
-public class DrawingControlOptionsTest extends AbstractMapsGWTTest {
+public class DrawingControlOptionsTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

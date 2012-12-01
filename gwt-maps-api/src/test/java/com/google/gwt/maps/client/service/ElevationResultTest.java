@@ -20,12 +20,12 @@ package com.google.gwt.maps.client.service;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.services.ElevationResult;
 
-public class ElevationResultTest extends AbstractMapsGWTTest {
+public class ElevationResultTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

@@ -20,12 +20,12 @@ package com.google.gwt.maps.client.overlays;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.Point;
 import com.google.gwt.maps.client.base.Size;
 
-public class MarkerImageTest extends AbstractMapsGWTTest {
+public class MarkerImageTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

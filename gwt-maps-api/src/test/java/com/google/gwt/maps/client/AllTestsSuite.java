@@ -48,7 +48,7 @@ public class AllTestsSuite extends GWTTestSuite {
 		// don't run these twice
 		ArrayList<String> ignoreTestList = new ArrayList<String>();
 		ignoreTestList.add(LoadApiTest.class.getName());
-		ignoreTestList.add(AbstractMapsGWTTest.class.getName());
+		ignoreTestList.add(AbstractMapsGWTTestHelper.class.getName());
 
 		// make sure this test is run first to prime all library loads
 		suite.addTestSuite(LoadApiTest.class);

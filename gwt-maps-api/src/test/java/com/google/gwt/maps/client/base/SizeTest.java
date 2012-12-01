@@ -21,10 +21,10 @@ package com.google.gwt.maps.client.base;
  */
 
 import com.google.gwt.i18n.client.NumberFormat;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class SizeTest extends AbstractMapsGWTTest {
+public class SizeTest extends AbstractMapsGWTTestHelper {
 
 	public static final double MOCK_H = 100d;
 	public static final double MOCK_W = 250d;

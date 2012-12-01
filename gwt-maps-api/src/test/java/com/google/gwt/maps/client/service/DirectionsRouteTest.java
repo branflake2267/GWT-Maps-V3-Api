@@ -26,7 +26,7 @@ import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayString;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
@@ -34,7 +34,7 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.services.DirectionsLeg;
 import com.google.gwt.maps.client.services.DirectionsRoute;
 
-public class DirectionsRouteTest extends AbstractMapsGWTTest {
+public class DirectionsRouteTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

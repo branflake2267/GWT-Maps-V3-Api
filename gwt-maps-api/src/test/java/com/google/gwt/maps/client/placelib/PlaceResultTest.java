@@ -23,7 +23,7 @@ package com.google.gwt.maps.client.placelib;
 import java.util.ArrayList;
 
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -39,7 +39,7 @@ import com.google.gwt.maps.client.placeslib.PlaceSearchRequest;
 import com.google.gwt.maps.client.placeslib.PlacesService;
 import com.google.gwt.maps.client.placeslib.PlacesServiceStatus;
 
-public class PlaceResultTest extends AbstractMapsGWTTest {
+public class PlaceResultTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

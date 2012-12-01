@@ -20,7 +20,7 @@ package com.google.gwt.maps.client.layers;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -36,7 +36,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  * "https://developers.google.com/maps/documentation/javascript/layers.html#KMLLayers"
  * >KMLLayers API Doc</a>
  */
-public class TrafficLayerTest extends AbstractMapsGWTTest {
+public class TrafficLayerTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

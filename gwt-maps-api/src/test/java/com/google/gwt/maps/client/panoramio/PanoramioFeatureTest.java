@@ -20,11 +20,11 @@ package com.google.gwt.maps.client.panoramio;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.panoramiolib.PanoramioFeature;
 
-public class PanoramioFeatureTest extends AbstractMapsGWTTest {
+public class PanoramioFeatureTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

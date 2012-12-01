@@ -22,7 +22,7 @@ package com.google.gwt.maps.client.service;
 
 import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.services.DirectionsLeg;
@@ -30,7 +30,7 @@ import com.google.gwt.maps.client.services.DirectionsStep;
 import com.google.gwt.maps.client.services.Distance;
 import com.google.gwt.maps.client.services.Duration;
 
-public class DirectionsLegTest extends AbstractMapsGWTTest {
+public class DirectionsLegTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

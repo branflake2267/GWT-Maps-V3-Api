@@ -20,11 +20,11 @@ package com.google.gwt.maps.client.adsense;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.controls.ControlPosition;
 
-public class AdUnitOptionsTest extends AbstractMapsGWTTest {
+public class AdUnitOptionsTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

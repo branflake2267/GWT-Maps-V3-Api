@@ -20,7 +20,7 @@ package com.google.gwt.maps.client.panoramio;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
@@ -33,7 +33,7 @@ import com.google.gwt.maps.client.panoramiolib.PanoramioLayer;
 import com.google.gwt.maps.client.panoramiolib.PanoramioLayerOptions;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class PanoramioLayerTest extends AbstractMapsGWTTest {
+public class PanoramioLayerTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

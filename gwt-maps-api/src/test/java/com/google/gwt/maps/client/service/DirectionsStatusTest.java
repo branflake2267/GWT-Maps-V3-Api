@@ -20,11 +20,11 @@ package com.google.gwt.maps.client.service;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.services.DirectionsStatus;
 
-public class DirectionsStatusTest extends AbstractMapsGWTTest {
+public class DirectionsStatusTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

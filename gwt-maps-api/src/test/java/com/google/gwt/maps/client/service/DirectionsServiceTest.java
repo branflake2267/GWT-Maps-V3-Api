@@ -22,7 +22,7 @@ package com.google.gwt.maps.client.service;
 
 import java.util.ArrayList;
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
@@ -40,7 +40,7 @@ import com.google.gwt.maps.client.services.TravelMode;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class DirectionsServiceTest extends AbstractMapsGWTTest {
+public class DirectionsServiceTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

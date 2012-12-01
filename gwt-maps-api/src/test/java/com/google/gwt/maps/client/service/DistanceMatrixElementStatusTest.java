@@ -20,11 +20,11 @@ package com.google.gwt.maps.client.service;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.services.DistanceMatrixElementStatus;
 
-public class DistanceMatrixElementStatusTest extends AbstractMapsGWTTest {
+public class DistanceMatrixElementStatusTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

@@ -20,7 +20,7 @@ package com.google.gwt.maps.client.overlays;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
@@ -28,7 +28,7 @@ import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaOptions;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 
-public class MarkerTest extends AbstractMapsGWTTest {
+public class MarkerTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

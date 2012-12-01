@@ -22,7 +22,7 @@ package com.google.gwt.maps.client;
 
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class SandboxTest extends AbstractMapsGWTTest {
+public class SandboxTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

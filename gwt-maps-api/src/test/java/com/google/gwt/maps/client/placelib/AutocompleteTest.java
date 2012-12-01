@@ -21,7 +21,7 @@ package com.google.gwt.maps.client.placelib;
  */
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
@@ -34,7 +34,7 @@ import com.google.gwt.maps.client.placeslib.PlaceResult;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class AutocompleteTest extends AbstractMapsGWTTest {
+public class AutocompleteTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

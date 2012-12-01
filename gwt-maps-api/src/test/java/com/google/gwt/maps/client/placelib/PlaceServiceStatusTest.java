@@ -20,11 +20,11 @@ package com.google.gwt.maps.client.placelib;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.placeslib.PlacesServiceStatus;
 
-public class PlaceServiceStatusTest extends AbstractMapsGWTTest {
+public class PlaceServiceStatusTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {

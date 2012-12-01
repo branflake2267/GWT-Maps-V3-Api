@@ -20,10 +20,10 @@ package com.google.gwt.maps.client.base;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
-public class LatLngTest extends AbstractMapsGWTTest {
+public class LatLngTest extends AbstractMapsGWTTestHelper {
 
 	public static final double MOCK_LAT = 38.0d;
 	public static final double MOCK_LNG = 35.5d;

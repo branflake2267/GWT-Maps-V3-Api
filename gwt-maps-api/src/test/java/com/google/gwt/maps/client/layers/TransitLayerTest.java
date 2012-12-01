@@ -20,7 +20,7 @@ package com.google.gwt.maps.client.layers;
  * #L%
  */
 
-import com.google.gwt.maps.client.AbstractMapsGWTTest;
+import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
@@ -33,7 +33,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  * "https://developers.google.com/maps/documentation/javascript/reference#TransitLayer"
  * >TransitLayer API Doc</a>
  */
-public class TransitLayerTest extends AbstractMapsGWTTest {
+public class TransitLayerTest extends AbstractMapsGWTTestHelper {
 
 	@Override
 	public LoadLibrary[] getLibraries() {
