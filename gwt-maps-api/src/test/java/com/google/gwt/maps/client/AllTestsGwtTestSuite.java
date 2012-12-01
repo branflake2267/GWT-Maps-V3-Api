@@ -33,7 +33,7 @@ import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.junit.tools.GWTTestSuite;
 import com.google.gwt.maps.client.main.LoadApiGwtTest;
 
-public class AllTestsSuite extends GWTTestSuite {
+public class AllTestsGwtTestSuite extends GWTTestSuite {
 
 	public static final String TARGET_CLASS_SUFFIX = "Test";
 
