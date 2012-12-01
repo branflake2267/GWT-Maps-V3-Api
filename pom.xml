@@ -70,21 +70,18 @@
 	</ciManagement>
 
 	<properties>
-		<!-- Faster Build -->
-		<javadocs.skip>true</javadocs.skip>
-        <java.version>1.6</java.version>
-	
-		<!-- Google maps props -->
-		<gmapsApiVersion>3.8.0</gmapsApiVersion>
-		<gwt.style>OBF</gwt.style>
-
+		<!-- Faster build props -->
+		<javadocs.skip>true</javadocs.skip>        
+        
 		<!-- Java props -->
+        <java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- GWT props -->
 		<gwt.version>2.5.0</gwt.version>
         <gae.version>1.7.2</gae.version>
 		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
+        <gwt.style>OBF</gwt.style>
 	</properties>
 
 	<build>
@@ -162,7 +159,7 @@
 		
 		
 		<plugins>
-		<!-- Custom license headers for all files -->
+            <!-- Custom license headers for all files -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -233,4 +230,17 @@
 		</dependencies>
 	</dependencyManagement>
 
+    <!-- Run by using: mvn clean deploy -->
+    <!-- https://issues.sonatype.org/browse/OSSRH-4661 -->
+    <!-- Build a local maven repo: mvn -DaltDeploymentRepository=snapshot-repo::default::file:./distribution/snapshots clean deploy -->
+    <distributionManagement>
+        <repository>
+            <id>sona-nexus-deploy</id> <!-- Add to settings.xml <server><id>sona-nexus-deploy</id> -->
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sona-nexus-deploy</id> 
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement> 
 </project>
