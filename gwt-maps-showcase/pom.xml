@@ -170,9 +170,9 @@
 	<dependencies>
         <!-- gwt-maps-api core api -->
         <dependency>
-            <groupId>com.github.branflake2267</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>gwt-maps-api</artifactId>
-            <version>3.9.0</version>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
 
