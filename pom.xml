@@ -70,21 +70,18 @@
 	</ciManagement>
 
 	<properties>
-		<!-- Faster Build -->
-		<javadocs.skip>true</javadocs.skip>
-        <java.version>1.6</java.version>
-	
-		<!-- Google maps props -->
-		<gmapsApiVersion>3.8.0</gmapsApiVersion>
-		<gwt.style>OBF</gwt.style>
-
+		<!-- Faster build props -->
+		<javadocs.skip>true</javadocs.skip>        
+        
 		<!-- Java props -->
+        <java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- GWT props -->
 		<gwt.version>2.5.0</gwt.version>
         <gae.version>1.7.2</gae.version>
 		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
+        <gwt.style>OBF</gwt.style>
 	</properties>
 
 	<build>
