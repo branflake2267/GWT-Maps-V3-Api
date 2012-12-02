@@ -18,17 +18,6 @@
 
 	<build>
 		<plugins>
-            <!-- Build using java 1.6. GWT requires at least Java 1.5 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -63,21 +52,22 @@
                 </configuration>
             </plugin>
 
+            <!-- GWT -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt.version}</version>
                 <configuration>
+                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
+                    <includes>**/*GwtTest.java,**/*GwtTestSuite.java</includes>
+                    <mode>htmlunit</mode>
+                    <testTimeOut>180</testTimeOut>
+                    <strict>true</strict>
+                    <style>${gwt.style}</style>
+                    <compileReport>${gwt.compileReport}</compileReport>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
-
-                    <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    <runTarget>index.html</runTarget>
-
-                    <testTimeOut>180</testTimeOut>
-                    <extraJvmArgs>-Xmx512m</extraJvmArgs>
-
-                    <compileReport>${gwt.compileReport}</compileReport>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -85,6 +75,11 @@
                         <artifactId>gwt-user</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
+                    <!-- <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-dev</artifactId>
+                        <version>${gwt.version}</version>
+                    </dependency> -->
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-codeserver</artifactId>
@@ -156,19 +151,17 @@
 						<port>3030</port>
 						<warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
 					</configuration>
-
 					<goals>
 						<goal>run-war</goal>
 					</goals>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<!-- External project dependencies -->
 	<dependencies>
-        <!-- gwt-maps-api core api -->
+        <!-- Include Core gwt-maps-api -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>gwt-maps-api</artifactId>
@@ -176,13 +169,13 @@
             <scope>provided</scope>
         </dependency>
 
-		<!-- GWT Google Apis Core -->
+		<!-- GWT Apis - Used for loading the Google maps javascript api -->
 		<dependency>
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
 		</dependency>
 
-		<!-- Just the necessary GWT bits -->
+		<!-- GWT -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
