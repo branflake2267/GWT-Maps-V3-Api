@@ -30,7 +30,8 @@
                 <version>${gwt.maven.version}</version>
                 <configuration>
                     <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
-                    <includes>**/*GwtTest.java,**/*GwtTestSuite.java</includes>
+                    <includes>**/*GwtTestSuite.java</includes>
+                    <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
                     <testTimeOut>180</testTimeOut>
                     
