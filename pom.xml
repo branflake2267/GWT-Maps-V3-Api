@@ -195,7 +195,7 @@
 				<groupId>com.google.gwt</groupId>
 				<artifactId>gwt-dev</artifactId>
 				<version>${gwt.version}</version>
-				<scope>provided</scope> <!-- don't copy to jar -->
+				<scope>test</scope> <!-- don't copy to jar -->
 			</dependency>
             
 			<!-- Testing -->
