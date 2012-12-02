@@ -12,6 +12,13 @@
 	<name>GWT Maps API V3 - Showcase</name>
     <packaging>war</packaging>
 
+    <properties>
+     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <gae.home>
+            ${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
+        </gae.home>
+    </properties>
+
 	<build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
         
@@ -52,6 +59,10 @@
 
             <!-- GWT -->
             <!-- 'mvn gwt:run' - runs development mode -->
+            <!-- 'mvn gwt:debug' - runs debug mode -->
+            <!-- 'mvn gwt:compile' - compiles gwt -->
+            <!-- 'mvn integration-test' - runs the gwt tests (*GwtTest.java) -->
+            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to gae & sona with out running tests -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -67,14 +78,14 @@
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
                     
-                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
-                    <hostedWebapp>${webappDirectory}</hostedWebapp>
                     <copyWebapp>true</copyWebapp>
+                    <hostedWebapp>${webappDirectory}</hostedWebapp>
+
+                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
                     
-                    <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    <runTarget>index.html</runTarget>
+                    <runTarget>showcase.html</runTarget>
                     <module>com.google.gwt.maps.testing.Showcase</module>
                     
                     <!-- <compileReport>${gwt.compileReport}</compileReport> -->
