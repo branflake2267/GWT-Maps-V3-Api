@@ -180,7 +180,7 @@
 	<!-- External project dependencies -->
 	<dependencies>
 
-		<!-- Google -->
+		<!-- GWT Apis -->
 		<dependency>
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
