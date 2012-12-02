@@ -12,11 +12,9 @@
 	<name>GWT Maps API V3 - Showcase</name>
     <packaging>war</packaging>
 
-	<properties>
-		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-	</properties>
-
 	<build>
+        <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+        
 		<plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -53,21 +51,33 @@
             </plugin>
 
             <!-- GWT -->
+            <!-- 'mvn gwt:run' - runs development mode -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
                 <version>${gwt.version}</version>
                 <configuration>
-                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
-                    <includes>**/*GwtTest.java,**/*GwtTestSuite.java</includes>
-                    <mode>htmlunit</mode>
-                    <testTimeOut>180</testTimeOut>
                     <strict>true</strict>
+                    
+                    <testTimeOut>180</testTimeOut>
+                    <includes>**/*GwtTest.java</includes> <!-- ,**/*GwtTestSuite.java -->
+                    <mode>htmlunit</mode>
+                    
+                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
+                    <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
-                    <compileReport>${gwt.compileReport}</compileReport>
+                    
+                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+                    <hostedWebapp>${webappDirectory}</hostedWebapp>
+                    <copyWebapp>true</copyWebapp>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
-                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+                    
+                    <hostedWebapp>${webappDirectory}</hostedWebapp>
+                    <runTarget>index.html</runTarget>
+                    <module>com.google.gwt.maps.testing.Showcase</module>
+                    
+                    <!-- <compileReport>${gwt.compileReport}</compileReport> -->
                 </configuration>
                 <dependencies>
                     <dependency>

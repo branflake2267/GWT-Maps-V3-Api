@@ -83,6 +83,9 @@
         <gwt.maven.version>2.5.0</gwt.maven.version>
         <gae.version>1.7.2</gae.version>
         <gwt.style>OBF</gwt.style>
+        
+        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
 	</properties>
 
 	<build>
