@@ -12,23 +12,17 @@
 	<name>GWT Maps API V3 - Showcase</name>
     <packaging>war</packaging>
 
-	<properties>
-		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-	</properties>
+    <properties>
+     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <gae.home>
+            ${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
+        </gae.home>
+    </properties>
 
 	<build>
+        <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+        
 		<plugins>
-            <!-- Build using java 1.6. GWT requires at least Java 1.5 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -63,21 +57,38 @@
                 </configuration>
             </plugin>
 
+            <!-- GWT -->
+            <!-- 'mvn gwt:run' - runs development mode -->
+            <!-- 'mvn gwt:debug' - runs debug mode -->
+            <!-- 'mvn gwt:compile' - compiles gwt -->
+            <!-- 'mvn integration-test' - runs the gwt tests (*GwtTest.java) -->
+            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to gae & sona with out running tests -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt.version}</version>
                 <configuration>
+                    <strict>true</strict>
+                    
+                    <testTimeOut>180</testTimeOut>
+                    <includes>**/*GwtTest.java</includes> <!-- ,**/*GwtTestSuite.java -->
+                    <mode>htmlunit</mode>
+                    
+                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
+                    <logLevel>INFO</logLevel>
+                    <style>${gwt.style}</style>
+                    
+                    <copyWebapp>true</copyWebapp>
+                    <hostedWebapp>${webappDirectory}</hostedWebapp>
+
+                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
-                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
-
-                    <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    <runTarget>index.html</runTarget>
-
-                    <testTimeOut>180</testTimeOut>
-                    <extraJvmArgs>-Xmx512m</extraJvmArgs>
-
-                    <compileReport>${gwt.compileReport}</compileReport>
+                    
+                    <runTarget>showcase.html</runTarget>
+                    <module>com.google.gwt.maps.testing.Showcase</module>
+                    
+                    <!-- <compileReport>${gwt.compileReport}</compileReport> -->
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -85,6 +96,11 @@
                         <artifactId>gwt-user</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
+                    <!-- <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-dev</artifactId>
+                        <version>${gwt.version}</version>
+                    </dependency> -->
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-codeserver</artifactId>
@@ -156,19 +172,17 @@
 						<port>3030</port>
 						<warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
 					</configuration>
-
 					<goals>
 						<goal>run-war</goal>
 					</goals>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<!-- External project dependencies -->
 	<dependencies>
-        <!-- gwt-maps-api core api -->
+        <!-- Include Core gwt-maps-api -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>gwt-maps-api</artifactId>
@@ -176,13 +190,13 @@
             <scope>provided</scope>
         </dependency>
 
-		<!-- GWT Google Apis Core -->
+		<!-- GWT Apis - Used for loading the Google maps javascript api -->
 		<dependency>
 			<groupId>com.google.gwt.google-apis</groupId>
 			<artifactId>gwt-ajaxloader</artifactId>
 		</dependency>
 
-		<!-- Just the necessary GWT bits -->
+		<!-- GWT -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
