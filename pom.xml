@@ -66,8 +66,8 @@
 	</developers>
 
 	<ciManagement>
-		<system>Team City 7</system>
-        <url>http://teamcity.gonevertical.org</url>
+		<system>Team City 7.0.3</system>
+        <url>http://teamcity.codebetter.com/viewType.html?tab&#62;buildTypeStatusDiv&amp;buildTypeId=bt833</url>
 	</ciManagement>
 
 	<properties>
