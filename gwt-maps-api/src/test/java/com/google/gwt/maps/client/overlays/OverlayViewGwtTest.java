@@ -53,7 +53,13 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
     asyncLibTest(new Runnable() {
       @Override
       public void run() {
+        MapOptions options = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
+
         OverlayView o = OverlayView.newInstance();
+        o.setMap(mapWidget);
 
         // TODO - is prototype - not easily tested
         o.draw();
