@@ -23,6 +23,7 @@
         </resources>
     
 		<plugins>
+		
             <!-- GWT -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -80,6 +81,21 @@
                 </configuration>
             </plugin>
 
+			<!-- Deploy source code in the repository -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<!-- Deploy javadoc in the repository -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
