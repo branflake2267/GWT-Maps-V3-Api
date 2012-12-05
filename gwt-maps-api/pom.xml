@@ -70,16 +70,31 @@
               </dependencies>
             </plugin>
  
-            <!-- JUnit Testing -->
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                  <excludes>
-                    <exclude>**/*GwtTest.java</exclude>
-                  </excludes>
-                </configuration>
-            </plugin>
+			<!-- JUnit Testing -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<additionalClasspathElements>
+						<additionalClasspathElement>${project.build.sourceDirectory}</additionalClasspathElement>
+						<additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
+					</additionalClasspathElements>
+					<useManifestOnlyJar>false</useManifestOnlyJar>
+					<forkMode>always</forkMode>
+
+					<!-- Multi-thread -->
+					<parallel>classes</parallel>
+					<threadCount>4</threadCount>
+					<perCoreThreadCount>true</perCoreThreadCount>
+					<!-- Only run the GWTTests -->
+					<includes>
+						<include>**/*Suite.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/*GwtTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 
 			<!-- Deploy source code in the repository -->
 			<plugin>
