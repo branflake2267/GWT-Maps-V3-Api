@@ -23,8 +23,11 @@ package com.google.gwt.maps.client.overlays;
 import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
+import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
+import com.google.gwt.maps.client.base.LatLngBounds;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaOptions;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 import com.google.gwt.maps.client.streetview.StreetViewPov;
@@ -53,18 +56,33 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
     asyncLibTest(new Runnable() {
       @Override
       public void run() {
+        LatLng sw = LatLng.newInstance(40.716216,-74.213393);
+        LatLng ne = LatLng.newInstance(40.765641,-74.139235);
+        LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
+        String imageUrl = "http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg";
+        
+        LatLng center = LatLng.newInstance(40.740, -74.18);
         MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
+        
         MapWidget mapWidget = new MapWidget(options);
         mapWidget.setSize("500px", "500px");
         RootPanel.get().add(mapWidget);
 
-        OverlayView o = OverlayView.newInstance();
-        o.setMap(mapWidget);
+        OverlayView o = OverlayView.newInstance(bounds, imageUrl, mapWidget);
+        //o.setMap(mapWidget);
 
-        // TODO - is prototype - not easily tested
-        o.draw();
-
-        finishTest();
+        o.draw(new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw() {
+            assertTrue(true);
+            finishTest();
+          }
+        });
+        
+        mapWidget.setZoom(5);
       }
     });
 
@@ -180,7 +198,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
         OverlayView o = OverlayView.newInstance();
 
         // TODO - is prototype - not easily tested
-        o.onAdd();
+        //o.onAdd();
 
         finishTest();
       }
@@ -195,7 +213,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
         OverlayView o = OverlayView.newInstance();
 
         // TODO - is prototype - not easily tested
-        o.onRemove();
+        //o.onRemove();
 
         finishTest();
       }

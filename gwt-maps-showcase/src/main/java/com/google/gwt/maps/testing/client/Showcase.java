@@ -39,6 +39,7 @@ import com.google.gwt.maps.testing.client.maps.ImageMapTypeWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.MultipleKmlMapWidget;
+import com.google.gwt.maps.testing.client.maps.OverlayViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
 import com.google.gwt.maps.testing.client.maps.PlaceSearchMapWidget;
 import com.google.gwt.maps.testing.client.maps.PolylineMapWidget;
@@ -91,49 +92,51 @@ public class Showcase implements EntryPoint {
 
 		RootPanel.get(mapsContainer).add(html);
 
-		drawHeatMap();
-
-		drawImageMapType();
-
-		drawWeatherMap();
-
-		drawStyledMap();
-
-		drawDrawingMap();
-
-		drawPolylineMap();
-
-		drawDirections();
-
-		drawElevation();
-
-		drawAdvancedLayers();
-
-		drawCustomControlsMap();
-
-		drawInfoWindowMap();
-
-		drawStreetViewSideBySide();
-
-		drawStreetViewCustom();
-
-		drawStreetView();
-
-		drawAutocomplete();
-
-		drawBasicMap();
-
-		drawFusionMap();
-
-		drawKmlMap();
-
-		drawMapWcontrols();
-
-		drawPanoramioMap();
-
-		drawPlaceSearchRequestMap();
+//		drawHeatMap();
+//
+//		drawImageMapType();
+//
+//		drawWeatherMap();
+//
+//		drawStyledMap();
+//
+//		drawDrawingMap();
+//
+//		drawPolylineMap();
+//
+//		drawDirections();
+//
+//		drawElevation();
+//
+//		drawAdvancedLayers();
+//
+//		drawCustomControlsMap();
+//
+//		drawInfoWindowMap();
+//
+//		drawStreetViewSideBySide();
+//
+//		drawStreetViewCustom();
+//
+//		drawStreetView();
+//
+//		drawAutocomplete();
+//
+//		drawBasicMap();
+//
+//		drawFusionMap();
+//
+//		drawKmlMap();
+//
+//		drawMapWcontrols();
+//
+//		drawPanoramioMap();
+//
+//		drawPlaceSearchRequestMap();
+//		
+//		drawMultipleKmlMap();
 		
-		drawMultipleKmlMap();
+		drawOverlayViewMap();
 	}
 
 	/**
@@ -250,8 +253,14 @@ public class Showcase implements EntryPoint {
 		PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
 		addMapWidget(wMap);
 	}
+	
 	private void drawMultipleKmlMap() {
 		MultipleKmlMapWidget wMap = new MultipleKmlMapWidget();
 		addMapWidget(wMap);
+	}
+	
+	private void drawOverlayViewMap() {
+	  OverlayViewMapWidget wMap = new OverlayViewMapWidget();
+	  addMapWidget(wMap);
 	}
 }

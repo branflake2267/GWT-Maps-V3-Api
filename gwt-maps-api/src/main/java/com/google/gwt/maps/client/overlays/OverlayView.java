@@ -23,7 +23,11 @@ package com.google.gwt.maps.client.overlays;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.mvc.MVCObject;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaImpl;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 
@@ -60,11 +64,36 @@ public class OverlayView extends MVCObject<OverlayView> {
 	 * @return {@link OverlayView}
 	 */
 	public final static OverlayView newInstance() {
-		return createJso().cast();
+	  return createJso().cast();
+	}
+	
+	public final static OverlayView newInstance(LatLngBounds bounds, String imageUrl, MapWidget mapWidget) {
+		return createJso(bounds, imageUrl, mapWidget.getJso()).cast();
 	}
 
-	private final static native JavaScriptObject createJso() /*-{
-		return new $wnd.google.maps.OverlayView();
+  private final static native JavaScriptObject createJso() /*-{
+    return new new $wnd.google.maps.OverlayView();
+  }-*/;
+
+	private final static native JavaScriptObject createJso(LatLngBounds bounds, String image, MapImpl map) /*-{
+	  function MapOverlay(bounds, image, map) {
+  	  // Now initialize all properties.
+      this.bounds_ = bounds;
+      this.image_ = image;
+      this.map_ = map;
+    
+      // We define a property to hold the image's
+      // div. We'll actually create this div
+      // upon receipt of the add() method so we'll
+      // leave it null for now.
+      this.div_ = null;
+      
+      // Explicitly call setMap() on this overlay
+      this.setMap(map);
+	  }
+	  
+	  MapOverlay.prototype = new $wnd.google.maps.OverlayView();
+		return MapOverlay;
 	}-*/;
 
 	/**
@@ -74,10 +103,16 @@ public class OverlayView extends MVCObject<OverlayView> {
 	 * LatLng. This can happen on change of zoom, center, or map type. It is not
 	 * necessarily called on drag or resize.
 	 */
-	public final native void draw() /*-{
-		this.draw();
+	public final native void draw(OverlayViewOnDrawHandler handler) /*-{
+		this.prototype.draw = function() {
+		  $entry(@com.google.gwt.maps.client.overlays.OverlayView::onDrawCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnDrawHandler;)(handler));
+		}
 	}-*/;
 
+	private final static void onDrawCallback(OverlayViewOnDrawHandler handler) {
+	  handler.onDraw();
+	}
+	
 	/**
 	 * get mapWidget
 	 * 
@@ -121,17 +156,29 @@ public class OverlayView extends MVCObject<OverlayView> {
 	 * is called once after setMap() is called with a valid map. At this point,
 	 * panes and projection will have been initialized.
 	 */
-	public final native void onAdd() /*-{
-		this.onAdd();
+	public final native void onAdd(OverlayViewOnAddHandler handler) /*-{
+		this.prototype.onAdd = function() {
+		  $entry(@com.google.gwt.maps.client.overlays.OverlayView::onAddCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnAddHandler;)(handler));
+		}
 	}-*/;
+	
+	private final static void onAddCallback(OverlayViewOnAddHandler handler) {
+	  handler.onAdd();
+	}
 
 	/**
 	 * Implement this method to remove your elements from the DOM. This method
 	 * is called once following a call to setMap(null).
 	 */
-	public final native void onRemove() /*-{
-		this.onRemove();
+	public final native void onRemove(OverlayViewOnRemoveHandler handler) /*-{
+		this.prototype.onRemove = function() {
+		  $entry(@com.google.gwt.maps.client.overlays.OverlayView::onRemoveCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnRemoveHandler;)(handler));
+		}
 	}-*/;
+	
+	private final static void onRemoveCallback(OverlayViewOnRemoveHandler handler) {
+	  handler.onRemove();
+	}
 
 	/**
 	 * Adds the overlay to the map or panorama.
