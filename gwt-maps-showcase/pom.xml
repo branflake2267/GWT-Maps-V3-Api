@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.github.branflake2267</groupId>
@@ -8,21 +8,21 @@
         <version>3.9.0</version>
     </parent>
 
-	<artifactId>gwt-maps-showcase</artifactId>
-	<name>GWT Maps API V3 - Showcase</name>
+    <artifactId>gwt-maps-showcase</artifactId>
+    <name>GWT Maps API V3 - Showcase</name>
     <packaging>war</packaging>
 
     <properties>
-     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <gae.home>
             ${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
         </gae.home>
     </properties>
 
-	<build>
+    <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
-        
-		<plugins>
+
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -62,32 +62,33 @@
             <!-- 'mvn gwt:debug' - runs debug mode -->
             <!-- 'mvn gwt:compile' - compiles gwt -->
             <!-- 'mvn integration-test' - runs the gwt tests (*GwtTest.java) -->
-            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to gae & sona with out running tests -->
+            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to 
+                gae & sona with out running tests -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
                 <version>${gwt.version}</version>
                 <configuration>
                     <strict>true</strict>
-                    
+
                     <testTimeOut>180</testTimeOut>
                     <includes>**/*GwtTest.java</includes> <!-- ,**/*GwtTestSuite.java -->
                     <mode>htmlunit</mode>
-                    
+
                     <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
-                    
+
                     <copyWebapp>true</copyWebapp>
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
 
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
-                    
+
                     <runTarget>showcase.html</runTarget>
                     <module>com.google.gwt.maps.testing.Showcase</module>
-                    
+
                     <!-- <compileReport>${gwt.compileReport}</compileReport> -->
                 </configuration>
                 <dependencies>
@@ -96,11 +97,8 @@
                         <artifactId>gwt-user</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
-                    <!-- <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-dev</artifactId>
-                        <version>${gwt.version}</version>
-                    </dependency> -->
+                    <!-- <dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId> 
+                        <version>${gwt.version}</version> </dependency> -->
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-codeserver</artifactId>
@@ -126,62 +124,62 @@
                     </execution>
                 </executions>
             </plugin>
-		</plugins>
+        </plugins>
 
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											gwt-maven-plugin
-										</artifactId>
-										<versionRange>
-											[2.4.0,)
-										</versionRange>
-										<goals>
-											<goal>resources</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse 
+                    m2e settings only. It has no influence on the Maven build itself. -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.codehaus.mojo
+                                        </groupId>
+                                        <artifactId>
+                                            gwt-maven-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [2.4.0,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>resources</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
 
-				<!-- Used for local tomcat debugging -->
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>tomcat-maven-plugin</artifactId>
-					<version>1.1</version>
-					<configuration>
-						<port>3030</port>
-						<warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
-					</configuration>
-					<goals>
-						<goal>run-war</goal>
-					</goals>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+                <!-- Used for local tomcat debugging -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>tomcat-maven-plugin</artifactId>
+                    <version>1.1</version>
+                    <configuration>
+                        <port>3030</port>
+                        <warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
+                    </configuration>
+                    <goals>
+                        <goal>run-war</goal>
+                    </goals>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
-	<!-- External project dependencies -->
-	<dependencies>
+    <!-- External project dependencies -->
+    <dependencies>
         <!-- Include Core gwt-maps-api -->
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -190,21 +188,21 @@
             <scope>provided</scope>
         </dependency>
 
-		<!-- GWT Apis - Used for loading the Google maps javascript api -->
-		<dependency>
-			<groupId>com.google.gwt.google-apis</groupId>
-			<artifactId>gwt-ajaxloader</artifactId>
-		</dependency>
+        <!-- GWT Apis - Used for loading the Google maps javascript api -->
+        <dependency>
+            <groupId>com.google.gwt.google-apis</groupId>
+            <artifactId>gwt-ajaxloader</artifactId>
+        </dependency>
 
-		<!-- GWT -->
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-user</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-dev</artifactId>
-		</dependency>
+        <!-- GWT -->
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+        </dependency>
 
         <!-- Google App Engine dependencies -->
         <dependency>
@@ -230,12 +228,12 @@
             <scope>test</scope>
         </dependency>
 
-		<!-- Testing -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
+        <!-- Testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>
