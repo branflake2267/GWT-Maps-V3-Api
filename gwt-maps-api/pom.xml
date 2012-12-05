@@ -1,30 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-    
-	<parent>
-		<groupId>com.github.branflake2267</groupId>
-		<artifactId>gwt-maps</artifactId>
-		<version>3.9.0</version>
-	</parent>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.branflake2267</groupId>
+        <artifactId>gwt-maps</artifactId>
+        <version>3.9.0</version>
+    </parent>
 
     <artifactId>gwt-maps-api</artifactId>
     <name>GWT Maps API V3 - Core API</name>
 
-	<build>
+    <build>
         <resources>
-          <resource>
-            <directory>src/main/java</directory>
-            <includes>
-              <include>**/*.java</include>
-              <include>**/*.gwt.xml</include>
-            </includes>
-          </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.java</include>
+                    <include>**/*.gwt.xml</include>
+                </includes>
+            </resource>
         </resources>
-    
-		<plugins>
-		
+
+        <plugins>
+            <!-- JUnit Testing -->
+            <!-- run 'mvn test' for running JUnit Tests -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*GwtTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
             <!-- GWT -->
+            <!-- run 'mvn integration-test' for running the GwtTestSuite -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -35,10 +47,10 @@
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
                     <testTimeOut>180</testTimeOut>
-                    
+
                     <strict>true</strict>
                     <style>${gwt.style}</style>
-                    
+
                     <compileSourcesArtifacts>
                         <compileSourcesArtifact>com.google.gwt.maps:Maps</compileSourcesArtifact>
                     </compileSourcesArtifacts>
@@ -57,88 +69,59 @@
                         <artifactId>gwt-user</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
-                    <!-- <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-dev</artifactId>
-                        <version>${gwt.version}</version>
-                    </dependency> -->
+                    <!-- <dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId> 
+                        <version>${gwt.version}</version> </dependency> -->
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-servlet</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
-              </dependencies>
+                </dependencies>
             </plugin>
- 
-			<!-- JUnit Testing -->
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<additionalClasspathElements>
-						<additionalClasspathElement>${project.build.sourceDirectory}</additionalClasspathElement>
-						<additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
-					</additionalClasspathElements>
-					<useManifestOnlyJar>false</useManifestOnlyJar>
-					<forkMode>always</forkMode>
 
-					<!-- Multi-thread -->
-					<parallel>classes</parallel>
-					<threadCount>4</threadCount>
-					<perCoreThreadCount>true</perCoreThreadCount>
-					<!-- Only run the GWTTests -->
-					<includes>
-						<include>**/*Suite.java</include>
-					</includes>
-					<excludes>
-						<exclude>**/*GwtTest.java</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
+            <!-- Deploy source code in the repository -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<!-- Deploy source code in the repository -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-			<!-- Deploy javadoc in the repository -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.8.1</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<locale>en</locale>
-					<linksource>true</linksource>
-					<validateLinks>true</validateLinks>
-					<links>
-						<link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.4</link>
-					</links>
-					<quiet>true</quiet>
-					<serialwarn>true</serialwarn>
-					<skip>{$javadocs.skip}</skip>
-					<stylesheet>maven</stylesheet>
-					
-					<!-- GA Tracking code -->
-					<header>
+            <!-- Deploy javadoc in the repository -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <locale>en</locale>
+                    <linksource>true</linksource>
+                    <validateLinks>true</validateLinks>
+                    <links>
+                        <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.4</link>
+                    </links>
+                    <quiet>true</quiet>
+                    <serialwarn>true</serialwarn>
+                    <skip>{$javadocs.skip}</skip>
+                    <stylesheet>maven</stylesheet>
+
+                    <!-- GA Tracking code -->
+                    <header>
 					<![CDATA[
 						<script type="text/javascript">
 						  var _gaq = _gaq || [];
@@ -165,71 +148,71 @@
 								height="30px"></iframe>
 						</div>
 					]]>
-					</header>
-				</configuration>
-			</plugin>
-		</plugins>
+                    </header>
+                </configuration>
+            </plugin>
+        </plugins>
 
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											gwt-maven-plugin
-										</artifactId>
-										<versionRange>
-											[2.4.0,)
-										</versionRange>
-										<goals>
-											<goal>resources</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-        
-	</build>
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse 
+                    m2e settings only. It has no influence on the Maven build itself. -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.codehaus.mojo
+                                        </groupId>
+                                        <artifactId>
+                                            gwt-maven-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [2.4.0,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>resources</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 
-	<!-- External project dependencies -->
-	<dependencies>
+    </build>
 
-		<!-- GWT Apis -->
-		<dependency>
-			<groupId>com.google.gwt.google-apis</groupId>
-			<artifactId>gwt-ajaxloader</artifactId>
-		</dependency>
-        
-		<!-- GWT -->
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-user</artifactId>
-		</dependency>
-        
-		<!-- Testing -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
+    <!-- External project dependencies -->
+    <dependencies>
 
-	</dependencies>
+        <!-- GWT Apis -->
+        <dependency>
+            <groupId>com.google.gwt.google-apis</groupId>
+            <artifactId>gwt-ajaxloader</artifactId>
+        </dependency>
+
+        <!-- GWT -->
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>
