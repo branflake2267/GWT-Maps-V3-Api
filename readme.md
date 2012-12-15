@@ -4,6 +4,7 @@
 ##Implementers
 - [Live Showcase](http://gonevertical-apis.appspot.com)
 - [Cycling the Alps](http://www.cyclingthealps.com)
+- [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 
 ##Downloads (Last Build 24 Aug 2012)
 Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenized this project, but are currently having it added to the Central Repo. Until then, here are the current jars.
