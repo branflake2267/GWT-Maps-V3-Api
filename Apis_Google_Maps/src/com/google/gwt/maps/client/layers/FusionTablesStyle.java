@@ -33,7 +33,7 @@ public class FusionTablesStyle extends JavaScriptObject {
    * gets Options which control the appearance of point features.
    */
   public final native FusionTablesMarkerOptions getMarkerOptions() /*-{
-    return this.markerOptions;l
+    return this.markerOptions;
   }-*/;
   
   /**
