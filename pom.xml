@@ -1,170 +1,230 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<modelVersion>4.0.0</modelVersion>
+    <!-- Artifact details that people will use search for this project -->
+    <groupId>com.github.branflake2267</groupId>
+    <artifactId>gwt-maps</artifactId>
+    <version>3.9.0</version>
+    <!-- b/c is a parent POM, others are jars/wars -->
+    <packaging>pom</packaging>
 
-	<!-- Artifact details that people will use search for this project -->
-	<groupId>com.google.gwt.maps</groupId>
-	<artifactId>gwt-maps-api-v3</artifactId>
-	<version>3.8.0-beta2-SNAPSHOT</version>
-	<packaging>pom</packaging> <!-- b/c is a parent POM, others are jars/wars -->
+    <modules>
+        <module>gwt-maps-api</module>
+        <module>gwt-maps-showcase</module>
+    </modules>
 
+    <name>GWT Maps API V3</name>
+    <description>GWT library to access Google Maps javascript API</description>
+    <url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
+    <inceptionYear>2011</inceptionYear>
+    <organization>
+        <name>GWT Maps API V3</name>
+    </organization>
 
-	<modules>
-		<module>Apis_Google_Maps</module>
-		<module>Apis_Maps_Test</module>
-		<!-- <module>gwt-maps-api-v3-core</module> <module>gwt-maps-api-v3-demo</module> -->
-	</modules>
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
 
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
+    </issueManagement>
 
-	<name>GWT Maps API V3</name>
-	<description>GWT library to access Google Maps javascript API</description>
-	<url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
-	<inceptionYear>2011</inceptionYear>
-	<organization>
-		<name>Gone Vertical LLC</name>
-	</organization>
+    <scm>
+        <connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
+        <developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+        <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
+    </scm>
 
-	<licenses>
-		<license>
-			<name>Apache License 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
-		</license>
-	</licenses>
+    <developers>
+        <developer>
+            <id>branflake2267</id>
+            <name>Brandon Donnelson</name>
+            <email>branflake2267@gmail.com</email>
+            <organization>Gone Vertical LLC</organization>
+            <organizationUrl>http://gonevertical.com</organizationUrl>
+            <roles>
+                <role>Lead developer</role>
+            </roles>
+            <timezone>-8</timezone>
+        </developer>
+        <developer>
+            <id>twistedpair</id>
+            <name>Joseph Lust</name>
+            <organization>Lauf Labs LLC</organization>
+            <email>lauflabs@gmail.com</email>
+            <organizationUrl>http://www.lustforge.com/</organizationUrl>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
 
-	<issueManagement>
-		<system>github</system>
-		<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
-	</issueManagement>
+    <!-- Create a account and request access for permissions to modify -->
+    <!-- Purpose Automatic snapshot deployment, Automatic Showcase Deployment -->
+    <ciManagement>
+        <system>Team City 7.1.2</system>
+        <url>http://teamcity.gonevertical.org/viewType.html?buildTypeId=bt5</url>
+    </ciManagement>
 
-	<mailingLists>
-		<!-- Todo, add a group -->
-	</mailingLists>
+    <properties>
+        <!-- Faster build props -->
+        <javadocs.skip>true</javadocs.skip>
 
-	<scm>
-		<connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
-		<developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
-		<url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
-	</scm>
+        <!-- Java props -->
+        <java.version>1.6</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-	<!-- Dev info -->
-	<developers>
-		<developer>
-			<id>branflake2267</id>
-			<name>Brandon Donnelson</name>
-			<email>branflake2267@gmail.com</email>
-			<organization>Gone Vertical LLC</organization>
-			<organizationUrl>http://gonevertical.com</organizationUrl>
-			<roles>
-				<role>Lead developer</role>
-			</roles>
-			<timezone>-8</timezone>
-		</developer>
-		<developer>
-			<id>twistedpair</id>
-			<name>Joseph Lust</name>
-			<organization>Lauf Labs LLC</organization>
-			<email>lauflabs@gmail.com</email>
-			<organizationUrl>http://www.lustforge.com/</organizationUrl>
-			<roles>
-				<role>Developer</role>
-			</roles>
-			<timezone>-5</timezone>
-		</developer>
-	</developers>
+        <!-- GWT props -->
+        <gwt.version>2.5.0</gwt.version>
+        <gwt.maven.version>2.5.0</gwt.maven.version>
+        <gae.version>1.7.2</gae.version>
+        <gwt.style>OBF</gwt.style>
 
-	<ciManagement>
-		<system>Team City 7</system>
-	</ciManagement>
+        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
+    </properties>
 
-	<properties>
-		<!-- Faster Build -->
-		<javadocs.skip>true</javadocs.skip>
-	
-		<!-- Google maps props -->
-		<gmapsApiVersion>3.8.0</gmapsApiVersion>
-		<gwt.style>OBF</gwt.style>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Build the core app -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
 
-		<!-- Java props -->
-		<javaVersion>1.6</javaVersion>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <!-- Custom license headers for all files -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>1.3</version>
+                    <executions>
+                        <execution>
+                            <id>Add License Headers</id>
+                            <configuration>
+                                <licenseName>apache_v2</licenseName>
+                                <roots>
+                                    <root>src</root>
+                                    <root>target/generated-sources</root>
+                                    <root>target/processed-sources</root>
+                                    <!-- Included because HTML/CSS/KML files 
+                                        are here -->
+                                    <root>war</root>
+                                </roots>
+                                <!-- Don't touch these compiler generated 
+                                    files -->
+                                <excludes>
+                                    <exclude>**/*.cache.html</exclude>
+                                    <exclude>**/*.nocache.html</exclude>
+                                    <exclude>**/*.properties</exclude>
+                                </excludes>
+                            </configuration>
 
-		<!-- GWT props -->
-		<gwt.version>2.4.0</gwt.version>
-		<gwt.extraJvmArgs>-Xmx1024m -Xss8m</gwt.extraJvmArgs>
-	</properties>
+                            <!-- Bound to run at last phase before compile -->
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>update-file-header</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<!-- Build the core app -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.3.2</version>
+                <!--This plugin's configuration is used to store Eclipse 
+                    m2e settings only. It has no influence on the Maven build itself. -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.codehaus.mojo
+                                        </groupId>
+                                        <artifactId>
+                                            license-maven-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [1.3,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>
+                                                update-file-header
+                                            </goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
-					<configuration>
-						<source>${javaVersion}</source>
-						<target>${javaVersion}</target>
-					</configuration>
-				</plugin>
+    <dependencyManagement>
+        <dependencies>
+            <!-- Google -->
+            <dependency>
+                <groupId>com.google.gwt.google-apis</groupId>
+                <artifactId>gwt-ajaxloader</artifactId>
+                <version>1.1.0</version>
+                <scope>compile</scope>
+            </dependency>
 
-				<!-- Build the GWT -->
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>gwt-maven-plugin</artifactId>
-					<version>${gwt.version}</version>
+            <!-- GWT -->
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-user</artifactId>
+                <version>${gwt.version}</version>
+                <scope>provided</scope> <!-- don't copy to jar -->
+            </dependency>
+            <!-- GWT needed for mvn integration-test -->
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-dev</artifactId>
+                <version>${gwt.version}</version>
+                <scope>test</scope> <!-- don't copy to jar -->
+            </dependency>
 
-					<!-- project level .gwt.xml files defined in sub-projects -->
-					<configuration>
-						<style>${gwt.style}</style>
-					</configuration>
+            <!-- Testing -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.8.1</version>
+                <scope>test</scope> <!-- don't copy to jar -->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-					<executions>
-						<execution>
-							<goals>
-								<goal>compile</goal>
-								<goal>test</goal>
-								<goal>resources</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-			</plugins>
-		</pluginManagement>
-	</build>
-
-	<dependencyManagement>
-		<dependencies>
-			<!-- Other Google -->
-			<dependency>
-				<groupId>com.google.gwt.google-apis</groupId>
-				<artifactId>gwt-ajaxloader</artifactId>
-				<version>1.1.0</version>
-				<scope>compile</scope>
-			</dependency>
-			<!-- Just the necessary GWT bits -->
-			<dependency>
-				<groupId>com.google.gwt</groupId>
-				<artifactId>gwt-user</artifactId>
-				<version>${gwt.version}</version>
-				<scope>provided</scope> <!-- don't copy to jar -->
-			</dependency>
-			<dependency>
-				<groupId>com.google.gwt</groupId>
-				<artifactId>gwt-dev</artifactId>
-				<version>${gwt.version}</version>
-				<scope>provided</scope> <!-- don't copy to jar -->
-			</dependency>
-			<!-- Testing -->
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.8.1</version>
-				<scope>test</scope> <!-- don't copy to jar -->
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
+    <!-- Run by using: mvn clean integration-test deploy -->
+    <!-- https://issues.sonatype.org/browse/OSSRH-4661 -->
+    <!-- Build a local maven repo: mvn -DaltDeploymentRepository=snapshot-repo::default::file:./distribution/snapshots 
+        clean deploy -->
+    <distributionManagement>
+        <repository>
+            <id>sona-nexus-deploy</id> <!-- Add to settings.xml <server><id>sona-nexus-deploy</id> -->
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sona-nexus-deploy</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

@@ -1,0 +1,61 @@
+<?xml version="1.0" standalone="yes"?>
+<!--
+  #%L
+  GWT Maps API V3 - Showcase
+  %%
+  Copyright (C) 2011 - 2012 GWT Maps API V3
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<kml xmlns="http://earth.google.com/kml/2.2">
+  <Document>
+    <name><![CDATA[<b>Demonstration of <br>multiple data files <br>on one map</b>]]></name>
+    <Folder>
+      
+      <NetworkLink>
+        <Link>
+          <href>31.gonevertical-apis.appspot.com/kml/1.kmz</href>
+        </Link>
+      </NetworkLink>
+      
+      <NetworkLink>
+        <Link>
+          <href>31.gonevertical-apis.appspot.com/kml/2.kmz</href>
+        </Link>
+      </NetworkLink>
+    
+      <NetworkLink>
+        <Link>
+          <href>31.gonevertical-apis.appspot.com/kml/3.kmz</href>
+        </Link>
+      </NetworkLink>
+      
+      <NetworkLink>
+        <Link>
+          <href>31.gonevertical-apis.appspot.com/kml/4.kmz</href>
+        </Link>
+      </NetworkLink>
+      
+      <NetworkLink>
+        <Link>
+          <href>31.gonevertical-apis.appspot.com/kml/5.kmz</href>
+        </Link>
+      </NetworkLink>
+
+    </Folder>
+  </Document>
+</kml>
+
+

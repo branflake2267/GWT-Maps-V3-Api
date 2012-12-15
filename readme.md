@@ -1,17 +1,27 @@
-#GWT-Maps-V3-Api   
-##Use Google Maps V3 in GWT  ![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
+#GWT-Maps-V3-Api
+
+This library provides Java language bindings for the Google maps Javascript api. 
+
+#NOTE 3.9.0+
+
+See the build progress on TeamCity [here](http://teamcity.codebetter.com/viewType.html?tab=buildTypeStatusDiv&buildTypeId=bt833).
+
+11/31/2012: 3.9.0+ is coming soon (see [milestone](https://github.com/branflake2267/GWT-Maps-V3-Api/issues/milestones)). We will be changing the module naming in the future for 3.9.0. 
+
+##Demo
+# ![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
 
 ##Implementers
 - [Live Showcase](http://gonevertical-apis.appspot.com)
 - [Cycling the Alps](http://www.cyclingthealps.com)
 - [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 
-##Downloads (Last Build 24 Aug 2012)
+##Downloads (Last Build 7 Nov 2012)
 Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenized this project, but are currently having it added to the Central Repo. Until then, here are the current jars.
 
-- [gwt-maps-api-v3-3.8.0-beta2-javadoc.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2-javadoc.jar)
-- [gwt-maps-api-v3-3.8.0-beta2-sources.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2-sources.jar)
-- [gwt-maps-api-v3-3.8.0-beta2.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.0-beta2.jar)
+- [gwt-maps-api-v3-3.8.1-javadoc.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1-javadoc.jar)
+- [gwt-maps-api-v3-3.8.1-sources.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1-sources.jar)
+- [gwt-maps-api-v3-3.8.1.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1.jar)
 
 ##Documentation
 
@@ -21,6 +31,7 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 1. Added waypoint to directions example
 2. InfoWindow supports GWT widgets with events
 3. Added PlaceSearchRequest map example
+4. 3.9.0 code now in master has the place result with pagination search
 
 ##Future Features
 1. GitHub host the maven repository for easier dependency adding. Branch of code in progress.

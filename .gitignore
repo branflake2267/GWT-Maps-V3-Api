@@ -9,3 +9,5 @@ classes**
 apis_maps_test**
 lib**
 src_maps**
+**/bin**
+**/.gwt**
