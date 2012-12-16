@@ -19,6 +19,10 @@ public class OverlayViewMethods extends JavaScriptObject {
     return this.getProjection();
   }-*/;
   
+  public final native JavaScriptObject getJso() /*-{
+    return this;
+  }-*/;
+  
   public final MapWidget getMap() {
     MapImpl val = getMapImpl();
     return val == null ? null : MapWidget.newInstance(val);
