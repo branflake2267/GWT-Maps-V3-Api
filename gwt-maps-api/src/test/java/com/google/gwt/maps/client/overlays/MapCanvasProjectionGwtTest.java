@@ -209,11 +209,13 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
 		RootPanel.get().add(mapWidget);
 
 		// no map - confirm null
-		OverlayView o = OverlayView.newInstance();
-		o.setMap(mapWidget);
+		// TODO
+//		OverlayView o = OverlayView.newInstance();
+		
 
-		MapCanvasProjection projection = o.getProjection();
+//		MapCanvasProjection projection = o.getProjection();
 
-		return projection;
+		// TODO
+		return null;
 	}
 }

@@ -1,5 +1,5 @@
 package com.google.gwt.maps.client.overlays.overlayhandlers;
 
 public interface OverlayViewOnAddHandler {
-  void onAdd();
+  void onAdd(OverlayViewMethods methods);
 }

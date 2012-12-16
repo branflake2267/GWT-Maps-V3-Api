@@ -27,6 +27,12 @@ import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.overlays.GroundOverlay;
 import com.google.gwt.maps.client.overlays.GroundOverlayOptions;
+import com.google.gwt.maps.client.overlays.MapCanvasProjection;
+import com.google.gwt.maps.client.overlays.OverlayView;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -54,7 +60,8 @@ public class OverlayViewMapWidget extends Composite {
     pWidget.add(new HTML("<br>Custom Overlay View."));
 
     drawMap();
-    drawOverlay1();
+    //drawOverlay1();
+    drawOverlay2();
   }
 
   private void drawMap() {
@@ -78,6 +85,36 @@ public class OverlayViewMapWidget extends Composite {
     
     GroundOverlay groundOverlay = GroundOverlay.newInstance(url, bounds, options);
     groundOverlay.setMap(mapWidget);
+  }
+  
+  private void drawOverlay2() {    
+    OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+      @Override
+      public void onDraw(OverlayViewMethods methods) {
+        MapCanvasProjection projection = methods.getProjection();
+        
+        //Window.alert("OverlayView draw() called...");
+        System.out.println("OverlayView draw() called...");
+      }
+    };
+    
+    OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+      @Override
+      public void onAdd(OverlayViewMethods methods) {
+        //Window.alert("OverlayView add() called...");
+        System.out.println("OverlayView add() called...");
+      }
+    };
+    
+    OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+      @Override
+      public void onRemove(OverlayViewMethods methods) {
+        //Window.alert("OverlayView remove() called...");
+        System.out.println("OverlayView remove() called...");
+      }
+    };
+    
+    OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
   }
   
 }

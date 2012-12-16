@@ -1,5 +1,5 @@
 package com.google.gwt.maps.client.overlays.overlayhandlers;
 
 public interface OverlayViewOnRemoveHandler {
-  void onRemove();
+  void onRemove(OverlayViewMethods methods);
 }
