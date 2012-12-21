@@ -3,9 +3,7 @@
 This library provides Java language bindings for the Google maps Javascript api. 
 
 #NOTE 3.9.0+
-
-See the build progress on TeamCity [here](http://teamcity.codebetter.com/viewType.html?tab=buildTypeStatusDiv&buildTypeId=bt833).
-
+12/20/2012: Active progress is being made on the next version...
 11/31/2012: 3.9.0+ is coming soon (see [milestone](https://github.com/branflake2267/GWT-Maps-V3-Api/issues/milestones)). We will be changing the module naming in the future for 3.9.0. 
 
 ##Demo
@@ -79,7 +77,8 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 	```
 
 ##Contribute
-Learn about contributing under [Eclipse Contributor Setup](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Eclipse-Contributor-Setup)
+* Learn about contributing under [Eclipse Contributor Setup](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Eclipse-Contributor-Setup)
+* [Build Server](http://teamcity.gonevertical.org/)
 
 ##Thanks to
 [![Arcbees.com](http://arcbees-ads.appspot.com/images/1.png)](http://arcbees.com)
