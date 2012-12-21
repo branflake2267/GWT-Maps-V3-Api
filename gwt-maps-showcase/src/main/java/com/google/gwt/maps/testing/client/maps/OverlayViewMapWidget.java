@@ -24,15 +24,12 @@ import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
-import com.google.gwt.maps.client.base.LatLngBounds;
-import com.google.gwt.maps.client.overlays.GroundOverlay;
-import com.google.gwt.maps.client.overlays.GroundOverlayOptions;
 import com.google.gwt.maps.client.overlays.MapCanvasProjection;
 import com.google.gwt.maps.client.overlays.OverlayView;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
-import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -76,16 +73,16 @@ public class OverlayViewMapWidget extends Composite {
     mapWidget.setSize("750px", "500px");
   }
 
-  private void drawOverlay1() {
-    String url = "http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg";
-    LatLng sw = LatLng.newInstance(40.716216,-74.213393);
-    LatLng ne = LatLng.newInstance(40.765641,-74.139235);
-    LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
-    GroundOverlayOptions options = GroundOverlayOptions.newInstance(); 
-    
-    GroundOverlay groundOverlay = GroundOverlay.newInstance(url, bounds, options);
-    groundOverlay.setMap(mapWidget);
-  }
+//  private void drawOverlay1() {
+//    String url = "http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg";
+//    LatLng sw = LatLng.newInstance(40.716216,-74.213393);
+//    LatLng ne = LatLng.newInstance(40.765641,-74.139235);
+//    LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
+//    GroundOverlayOptions options = GroundOverlayOptions.newInstance(); 
+//    
+//    GroundOverlay groundOverlay = GroundOverlay.newInstance(url, bounds, options);
+//    groundOverlay.setMap(mapWidget);
+//  }
   
   private void drawOverlay2() {    
     OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
