@@ -92,49 +92,49 @@ public class Showcase implements EntryPoint {
 
 		RootPanel.get(mapsContainer).add(html);
 
-//		drawHeatMap();
-//
-//		drawImageMapType();
-//
-//		drawWeatherMap();
-//
-//		drawStyledMap();
-//
-//		drawDrawingMap();
-//
-//		drawPolylineMap();
-//
-//		drawDirections();
-//
-//		drawElevation();
-//
-//		drawAdvancedLayers();
-//
-//		drawCustomControlsMap();
-//
-//		drawInfoWindowMap();
-//
-//		drawStreetViewSideBySide();
-//
-//		drawStreetViewCustom();
-//
-//		drawStreetView();
-//
-//		drawAutocomplete();
-//
-//		drawBasicMap();
-//
-//		drawFusionMap();
-//
-//		drawKmlMap();
-//
-//		drawMapWcontrols();
-//
-//		drawPanoramioMap();
-//
-//		drawPlaceSearchRequestMap();
-//		
-//		drawMultipleKmlMap();
+		drawHeatMap();
+
+		drawImageMapType();
+
+		drawWeatherMap();
+
+		drawStyledMap();
+
+		drawDrawingMap();
+
+		drawPolylineMap();
+
+		drawDirections();
+
+		drawElevation();
+
+		drawAdvancedLayers();
+
+		drawCustomControlsMap();
+
+		drawInfoWindowMap();
+
+		drawStreetViewSideBySide();
+
+		drawStreetViewCustom();
+
+		drawStreetView();
+
+		drawAutocomplete();
+
+		drawBasicMap();
+
+		drawFusionMap();
+
+		drawKmlMap();
+
+		drawMapWcontrols();
+
+		drawPanoramioMap();
+
+		drawPlaceSearchRequestMap();
+		
+		drawMultipleKmlMap();
 		
 		drawOverlayViewMap();
 	}
