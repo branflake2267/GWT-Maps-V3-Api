@@ -23,197 +23,488 @@ package com.google.gwt.maps.client.overlays;
 import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 import com.google.gwt.maps.client.MapOptions;
+import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Point;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return LoadLibrary.values();
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = MapCanvasProjection.newInstance();
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
 
-				finishTest();
-			}
-		});
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-	}
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
+            finishTest();
+          }
+        };
 
-	public void testfromContainerPixelToLatLng() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+          }
+        };
 
-				Point pixel = Point.newInstance(100d, 110d);
-				LatLng actual = o.fromContainerPixelToLatLng(pixel);
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+          }
+        };
 
-				assertEquals(10d, actual.getLatitude());
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
 
-				finishTest();
-			}
-		});
-	}
+  public void testfromContainerPixelToLatLng() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
 
-	public void testfromContainerPixelToLatLng_noWrap_true() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				Point pixel = Point.newInstance(100d, 110d);
-				LatLng actual = o.fromContainerPixelToLatLng(pixel, true);
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
 
-				assertEquals(-74.221d, actual.getLatitude(), 1e-3);
+            Point pixel = Point.newInstance(100d, 110d);
+            LatLng actual = o.fromContainerPixelToLatLng(pixel);
 
-				finishTest();
-			}
-		});
-	}
+            LatLng expected = LatLng.newInstance(40.75820649610606, -74.20574920654298);
+            
+            assertLatLngEquals(expected, actual);
+            finishTest();
+          }
+        };
 
-	public void testfromContainerPixelToLatLng_noWrap_false() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				Point pixel = Point.newInstance(100d, 110d);
-				LatLng actual = o.fromContainerPixelToLatLng(pixel, false);
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				assertEquals(-74.221d, actual.getLatitude(), 1e-3);
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
 
-				finishTest();
-			}
-		});
-	}
+  public void testfromContainerPixelToLatLng_noWrap_true() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
 
-	public void testfromDivPixelToLatLng() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				Point pixel = Point.newInstance(100d, 110d);
-				LatLng actual = o.fromDivPixelToLatLng(pixel);
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
 
-				LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
-				assertLatLngEquals(expected, actual);
+            Point pixel = Point.newInstance(100d, 110d);
+            LatLng actual = o.fromContainerPixelToLatLng(pixel, true);
 
-				finishTest();
-			}
-		});
-	}
+            LatLng expected = LatLng.newInstance(40.75820649610606, -74.20574920654298);
+            
+            assertLatLngEquals(expected, actual);
+            finishTest();
+          }
+        };
 
-	public void testfromDivPixelToLatLng_noWap_true() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				Point pixel = Point.newInstance(100d, 110d);
-				LatLng actual = o.fromDivPixelToLatLng(pixel, true);
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
-				assertLatLngEquals(expected, actual);
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
 
-				finishTest();
-			}
-		});
-	}
+  public void testfromContainerPixelToLatLng_noWrap_false() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
 
-	public void testfromDivPixelToLatLng_noWrap_false() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				Point pixel = Point.newInstance(100d, 110d);
-				LatLng actual = o.fromDivPixelToLatLng(pixel, false);
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
 
-				LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
-				assertLatLngEquals(expected, actual);
+            Point pixel = Point.newInstance(100d, 110d);
+            LatLng actual = o.fromContainerPixelToLatLng(pixel, false);
 
-				finishTest();
-			}
-		});
-	}
+            LatLng expected = LatLng.newInstance(40.75820649610606, -74.20574920654298);
+            
+            assertLatLngEquals(expected, actual);
+            finishTest();
+          }
+        };
 
-	public void testfromLatLngToContainerPixel() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				LatLng testLatLng = LatLng.newInstance(34.4344d, -89.2433d);
-				Point actual = o.fromLatLngToContainerPixel(testLatLng);
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				assertEquals(-57.062d, actual.getX(), 1e-2);
-				assertEquals(3.366d, actual.getY(), 1e-2);
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
 
-				finishTest();
-			}
-		});
-	}
+  public void testfromDivPixelToLatLng() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
 
-	public void testfromLatLngToDivPixel() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = MapCanvasProjection.newInstance();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				LatLng testPt = LatLng.newInstance(34.4344d, -89.2433d);
-				Point actual = o.fromLatLngToDivPixel(testPt);
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
 
-				assertEquals(10d, actual.getX());
+            Point pixel = Point.newInstance(100d, 110d);
+            LatLng actual = o.fromDivPixelToLatLng(pixel);
 
-				finishTest();
-			}
-		});
-	}
+            LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
+            
+            assertLatLngEquals(expected, actual);
+            finishTest();
+          }
+        };
 
-	public void testgetWorldWidth() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapCanvasProjection o = getSampleMapCanvasProjection();
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				double actual = o.getWorldWidth();
-				double expected = 256;
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
 
-				assertEquals(expected, actual, 1e-2);
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
 
-				finishTest();
-			}
-		});
-	}
+  public void testfromDivPixelToLatLng_noWap_true() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
 
-	/**
-	 * Make a projection for testing
-	 * 
-	 * @return
-	 */
-	private MapCanvasProjection getSampleMapCanvasProjection() {
-		// set a map
-		MapOptions options = MapOptions.newInstance();
-		MapWidget mapWidget = new MapWidget(options);
-		mapWidget.setSize("500px", "500px");
-		RootPanel.get().add(mapWidget);
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-		// no map - confirm null
-		OverlayView o = OverlayView.newInstance();
-		o.setMap(mapWidget);
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
 
-		MapCanvasProjection projection = o.getProjection();
+            Point pixel = Point.newInstance(100d, 110d);
+            LatLng actual = o.fromDivPixelToLatLng(pixel, true);
 
-		return projection;
-	}
+            LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
+            
+            assertLatLngEquals(expected, actual);
+            finishTest();
+          }
+        };
+
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
+
+  public void testfromDivPixelToLatLng_noWrap_false() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
+
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
+
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
+
+            Point pixel = Point.newInstance(100d, 110d);
+            LatLng actual = o.fromDivPixelToLatLng(pixel, false);
+
+            LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
+            
+            assertLatLngEquals(expected, actual);
+            finishTest();
+          }
+        };
+
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
+
+  public void testfromLatLngToContainerPixel() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
+
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
+
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
+
+            LatLng testLatLng = LatLng.newInstance(34.4344d, -89.2433d);
+            Point actual = o.fromLatLngToContainerPixel(testLatLng);
+
+            // actual -87500.08256000001, 46656.067931791535
+            assertEquals(Double.doubleToLongBits(-87500.08256000001), Double.doubleToLongBits(actual.getX()));
+            assertEquals(Double.doubleToLongBits(46656.067931791535), Double.doubleToLongBits(actual.getY())); 
+            finishTest();
+          }
+        };
+
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
+
+  public void testfromLatLngToDivPixel() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
+
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
+
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
+
+            LatLng testPt = LatLng.newInstance(34.4344d, -89.2433d);
+            Point actual = o.fromLatLngToDivPixel(testPt);
+
+            assertEquals(10d, actual.getX());
+            finishTest();
+          }
+        };
+
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
+
+  public void testgetWorldWidth() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(40.740, -74.18);
+        MapOptions options = MapOptions.newInstance();
+        options.setZoom(13);
+        options.setCenter(center);
+        options.setMapTypeId(MapTypeId.HYBRID);
+
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
+
+        OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
+          @Override
+          public void onDraw(OverlayViewMethods methods) {
+            MapCanvasProjection o = methods.getProjection();
+
+            double actual = o.getWorldWidth();
+            double expected = 256;
+
+            assertEquals(expected, actual, 1e-2);
+            finishTest();
+          }
+        };
+
+        OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
+          @Override
+          public void onAdd(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayViewOnRemoveHandler onRemoveHnadler = new OverlayViewOnRemoveHandler() {
+          @Override
+          public void onRemove(OverlayViewMethods methods) {
+            finishTest();
+          }
+        };
+
+        OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+      }
+    });
+  }
 }
