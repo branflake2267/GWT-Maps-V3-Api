@@ -26,13 +26,14 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 [GWT-Maps-V3-API JavaDoc's (3.8.0)](http://branflake2267.github.com/GWT-Maps-V3-Api/javadoc/3.8.0/)
 
 ##New Features
-1. Added waypoint to directions example
-2. InfoWindow supports GWT widgets with events
-3. Added PlaceSearchRequest map example
-4. 3.9.0 code now in master has the place result with pagination search
+* Custom overlay view added 12/20/2012
+* Added waypoint to directions example
+* InfoWindow supports GWT widgets with events
+* Added PlaceSearchRequest map example
+* 3.9.0 code now in master has the place result with pagination search
 
 ##Future Features
-1. GitHub host the maven repository for easier dependency adding. Branch of code in progress.
+* GitHub host the maven repository for easier dependency adding. Branch of code in progress.
 
 ##Maven Use
 1. Download the jar (only gwt-maps-api-v3-3.8.0-beta2.jar is needed)
