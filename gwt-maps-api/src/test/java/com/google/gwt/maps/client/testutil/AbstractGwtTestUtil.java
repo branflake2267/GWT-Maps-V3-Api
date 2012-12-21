@@ -28,7 +28,7 @@ import com.google.gwt.junit.client.GWTTestCase;
  * @author Joseph Lust
  * 
  */
-public abstract class AbstractGwtTest extends GWTTestCase {
+public abstract class AbstractGwtTestUtil extends GWTTestCase {
 
 	public static final int ASYNC_DELAY_MS = 5000;
 	public static final boolean HAS_SENSOR = false;
