@@ -26,7 +26,6 @@ import com.google.gwt.junit.client.GWTTestCase;
  * Test template for testing GMaps objects.
  * 
  * @author Joseph Lust
- * 
  */
 public abstract class AbstractGwtTestUtil extends GWTTestCase {
 
@@ -35,7 +34,7 @@ public abstract class AbstractGwtTestUtil extends GWTTestCase {
 
 	@Override
 	public String getModuleName() {
-		return "com.google.gwt.maps.MapsForTests";
+		return "com.google.gwt.maps.MapsForTests"; 
 	}
 
 }
