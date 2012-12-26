@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Artifact details that people will use search for this project -->
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0.a1</version>
+    <version>3.9.0-SNAPSHOT</version>
     <!-- b/c is a parent POM, others are jars/wars -->
     <packaging>pom</packaging>
 
@@ -17,7 +18,7 @@
     <description>GWT library to access Google Maps javascript API</description>
     <url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
     <inceptionYear>2011</inceptionYear>
-    
+
     <organization>
         <name>GWT Maps API V3</name>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api.git</url>
@@ -249,6 +250,67 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- Deploy javadoc in the repository -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.8.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <encoding>${project.build.sourceEncoding}</encoding>
+                            <locale>en</locale>
+                            <linksource>true</linksource>
+                            <validateLinks>true</validateLinks>
+                            <links>
+                                <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.4</link>
+                            </links>
+                            <quiet>true</quiet>
+                            <serialwarn>true</serialwarn>
+                            <!-- <skip>{$javadocs.skip}</skip> -->
+                            <stylesheet>maven</stylesheet>
+
+                            <!-- GA Tracking code -->
+                            <header>
+                                <![CDATA[
+                                    <script type="text/javascript">
+                                      var _gaq = _gaq || [];
+                                      _gaq.push(['_setAccount', 'UA-34327650-1']);
+                                      _gaq.push(['_trackPageview']);
+                                    
+                                      (function() {
+                                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                                      })();
+                                    
+                                    </script>
+                                    
+                                    <div align="center">
+                                        <br> <span class="gh-section">Follow us on GitHub</span>
+                                        <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+                                            height="30px"></iframe>
+                                        <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+                                            height="30px"></iframe>
+                                    </div>
+                                ]]>
+                            </header>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
