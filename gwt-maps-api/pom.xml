@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.github.branflake2267</groupId>
         <artifactId>gwt-maps</artifactId>
-        <version>3.9.0</version>
+        <version>3.9.0.a1</version>
     </parent>
 
     <artifactId>gwt-maps-api</artifactId>
@@ -217,11 +217,9 @@
                                     
                                     <div align="center">
                                         <br> <span class="gh-section">Follow us on GitHub</span>
-                                        <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large"
-                                            allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+                                        <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px"
                                             height="30px"></iframe>
-                                        <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large"
-                                            allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+                                        <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px"
                                             height="30px"></iframe>
                                     </div>
                                 ]]>
