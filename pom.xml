@@ -5,7 +5,7 @@
     <!-- Artifact details that people will use search for this project -->
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0</version>
+    <version>3.9.0-SNAPSHOT</version>
     <!-- b/c is a parent POM, others are jars/wars -->
     <packaging>pom</packaging>
 
@@ -35,8 +35,8 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
-        <developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+        <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
+        <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
     </scm>
 
@@ -73,18 +73,15 @@
     </ciManagement>
 
     <properties>
-        <!-- Faster build props -->
-        <javadocs.skip>true</javadocs.skip>
+        <!-- GWT props -->
+        <gwt.version>2.5.0</gwt.version>
+        <gwt.maven.version>2.5.0</gwt.maven.version>
+        <gae.version>1.7.4</gae.version>
+        <gwt.style>OBF</gwt.style>
 
         <!-- Java props -->
         <java.version>1.6</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- GWT props -->
-        <gwt.version>2.5.0</gwt.version>
-        <gwt.maven.version>2.5.0</gwt.maven.version>
-        <gae.version>1.7.2</gae.version>
-        <gwt.style>OBF</gwt.style>
 
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
@@ -227,4 +224,33 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

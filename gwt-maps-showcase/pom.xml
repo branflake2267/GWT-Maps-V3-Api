@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.github.branflake2267</groupId>
         <artifactId>gwt-maps</artifactId>
-        <version>3.9.0</version>
+        <version>3.9.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>gwt-maps-showcase</artifactId>
@@ -36,7 +36,6 @@
                             <includes>
                                 <include>appengine-web.xml</include>
                             </includes>
-
                             <targetPath>WEB-INF</targetPath>
                         </resource>
                     </webResources>
@@ -123,6 +122,15 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            
+            <!-- skip deploying to sonatype -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
 
@@ -233,7 +241,5 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-
     </dependencies>
-
 </project>
