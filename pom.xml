@@ -18,8 +18,10 @@
     <description>GWT library to access Google Maps javascript API</description>
     <url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
     <inceptionYear>2011</inceptionYear>
+    
     <organization>
         <name>GWT Maps API V3</name>
+        <url>https://github.com/branflake2267/GWT-Maps-V3-Api.git</url>
     </organization>
 
     <licenses>
@@ -35,8 +37,8 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
-        <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+        <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</connection>
+        <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</developerConnection>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
     </scm>
 
