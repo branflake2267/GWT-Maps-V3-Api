@@ -4,7 +4,7 @@
     <!-- Artifact details that people will use search for this project -->
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0a10</version>
+    <version>3.9.0a11-SNAPSHOT</version>
     <!-- b/c is a parent POM, others are jars/wars -->
     <packaging>pom</packaging>
 
