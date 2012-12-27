@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0a13-SNAPSHOT</version>
+    <version>3.9.0a13</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -37,8 +38,8 @@
         <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</connection>
         <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</developerConnection>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
-      <tag>gwt-maps-3.9.0a13</tag>
-  </scm>
+        <tag>gwt-maps-3.9.0a13</tag>
+    </scm>
 
     <developers>
         <developer>
@@ -248,6 +249,33 @@
 
     <profiles>
         <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
             <id>release</id>
             <activation>
                 <property>
@@ -255,7 +283,7 @@
                     <value>true</value>
                 </property>
             </activation>
-            <build>                
+            <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -284,31 +312,6 @@
             </build>
         </profile>
 
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+
     </profiles>
 </project>
