@@ -234,7 +234,7 @@
         </dependency>
     </dependencies>
 
-    <!-- <profiles>
+    <profiles>
         <profile>
             <id>release-sign-artifacts</id>
             <build>
@@ -264,5 +264,5 @@
                 </plugins>
             </build>
         </profile>
-    </profiles> -->
+    </profiles>
 </project>
