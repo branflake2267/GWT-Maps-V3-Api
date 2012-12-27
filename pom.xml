@@ -1,11 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Artifact details that people will use search for this project -->
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0a13</version>
-    <!-- b/c is a parent POM, others are jars/wars -->
+    <version>3.9.0a13-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -257,34 +255,32 @@
                     <value>true</value>
                 </property>
             </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-javadoc-plugin</artifactId>
-                            <version>${maven-javadoc-plugin.version}</version>
-                            <executions>
-                                <execution>
-                                    <id>attach-javadocs</id>
-                                    <goals>
-                                        <goal>jar</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
-                            <configuration>
-                                <source>${java.version}</source>
-                                <failOnError>true</failOnError>
-                                <quiet>true</quiet>
-                                <links>
-                                    <link>http://download.oracle.com/javase/6/docs/api/</link>
-                                    <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/</link>
-                                    <link>http://aopalliance.sourceforge.net/doc/</link>
-                                </links>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
+            <build>                
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <source>${java.version}</source>
+                            <failOnError>true</failOnError>
+                            <quiet>true</quiet>
+                            <links>
+                                <link>http://download.oracle.com/javase/6/docs/api/</link>
+                                <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/</link>
+                                <link>http://aopalliance.sourceforge.net/doc/</link>
+                            </links>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
 
