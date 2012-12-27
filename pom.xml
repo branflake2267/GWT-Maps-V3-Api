@@ -262,7 +262,6 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
-                            lifecycle-mapping
                             <version>${maven-javadoc-plugin.version}</version>
                             <executions>
                                 <execution>
