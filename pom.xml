@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Artifact details that people will use search for this project -->
@@ -90,55 +91,74 @@
     </properties>
 
     <build>
+        <plugins>
+            <!-- Build the core app -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Custom license headers for all files -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>Add License Headers</id>
+                        <configuration>
+                            <licenseName>apache_v2</licenseName>
+                            <roots>
+                                <root>src</root>
+                                <root>target/generated-sources</root>
+                                <root>target/processed-sources</root>
+                                <!-- Included because HTML/CSS/KML files 
+                                    are here -->
+                                <root>war</root>
+                            </roots>
+                            <!-- Don't touch these compiler generated files -->
+                            <excludes>
+                                <exclude>**/*.cache.html</exclude>
+                                <exclude>**/*.nocache.html</exclude>
+                                <exclude>**/*.properties</exclude>
+                            </excludes>
+                        </configuration>
+
+                        <!-- Bound to run at last phase before compile -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <arguments>-Psonatype-oss-release -Prelease
+                        -Dgpg.passphrase=${gpg.passphrase}</arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+
         <pluginManagement>
             <plugins>
-                <!-- Build the core app -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                    </configuration>
-                </plugin>
-
-                <!-- Custom license headers for all files -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>1.3</version>
-                    <executions>
-                        <execution>
-                            <id>Add License Headers</id>
-                            <configuration>
-                                <licenseName>apache_v2</licenseName>
-                                <roots>
-                                    <root>src</root>
-                                    <root>target/generated-sources</root>
-                                    <root>target/processed-sources</root>
-                                    <!-- Included because HTML/CSS/KML files 
-                                        are here -->
-                                    <root>war</root>
-                                </roots>
-                                <!-- Don't touch these compiler generated 
-                                    files -->
-                                <excludes>
-                                    <exclude>**/*.cache.html</exclude>
-                                    <exclude>**/*.nocache.html</exclude>
-                                    <exclude>**/*.properties</exclude>
-                                </excludes>
-                            </configuration>
-
-                            <!-- Bound to run at last phase before compile -->
-                            <phase>process-resources</phase>
-                            <goals>
-                                <goal>update-file-header</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
                 <!--This plugin's configuration is used to store Eclipse 
                     m2e settings only. It has no influence on the Maven build itself. -->
                 <plugin>
@@ -171,24 +191,6 @@
                                 </pluginExecution>
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>2.2.1</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <configuration>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                        <useReleaseProfile>false</useReleaseProfile>
-                        <releaseProfiles>release</releaseProfiles>
-                        <arguments>-Psonatype-oss-release -Prelease
-                            -Dgpg.passphrase=${gpg.passphrase}</arguments>
                     </configuration>
                 </plugin>
             </plugins>
@@ -260,6 +262,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
+                            lifecycle-mapping
                             <version>${maven-javadoc-plugin.version}</version>
                             <executions>
                                 <execution>
