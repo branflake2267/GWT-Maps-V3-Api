@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -70,7 +71,8 @@
                     <strict>true</strict>
 
                     <testTimeOut>180</testTimeOut>
-                    <includes>**/*GwtTest.java</includes> <!-- ,**/*GwtTestSuite.java -->
+                    <includes>**/*GwtTestSuite.java</includes>
+                    <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
 
                     <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
@@ -86,17 +88,20 @@
 
                     <runTarget>showcase.html</runTarget>
                     <module>com.google.gwt.maps.testing.Showcase</module>
-
-                    <!-- <compileReport>${gwt.compileReport}</compileReport> -->
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-user</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
-                    <!-- <dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId> 
-                        <version>${gwt.version}</version> </dependency> -->
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-codeserver</artifactId>
@@ -122,7 +127,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
 
         <pluginManagement>
@@ -258,7 +262,7 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
-                           <skip>true</skip>
+                            <skip>true</skip>
                         </configuration>
                     </plugin>
                 </plugins>

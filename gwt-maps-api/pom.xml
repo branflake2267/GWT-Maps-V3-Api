@@ -46,10 +46,8 @@
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
                     <testTimeOut>180</testTimeOut>
-
                     <strict>true</strict>
                     <style>${gwt.style}</style>
-
                     <compileSourcesArtifacts>
                         <compileSourcesArtifact>com.google.gwt.maps:Maps</compileSourcesArtifact>
                     </compileSourcesArtifacts>
@@ -61,15 +59,12 @@
                         </goals>
                     </execution>
                 </executions>
-
                 <dependencies>
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-user</artifactId>
                         <version>${gwt.version}</version>
                     </dependency>
-                    <!-- <dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId> 
-                        <version>${gwt.version}</version> </dependency> -->
                     <dependency>
                         <groupId>com.google.gwt</groupId>
                         <artifactId>gwt-servlet</artifactId>
@@ -82,7 +77,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -145,7 +139,6 @@
 
     <!-- External project dependencies -->
     <dependencies>
-
         <!-- GWT Apis -->
         <dependency>
             <groupId>com.google.gwt.google-apis</groupId>
