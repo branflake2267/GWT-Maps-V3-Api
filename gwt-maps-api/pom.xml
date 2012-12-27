@@ -130,7 +130,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
     </build>
 
     <!-- External project dependencies -->
@@ -153,7 +152,5 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-
     </dependencies>
-
 </project>
