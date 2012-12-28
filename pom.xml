@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,7 +9,7 @@
 
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0-alpha-16-SNAPSHOT</version>
+    <version>3.9.0-alpha-16</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -292,17 +291,6 @@
                                     <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/</link>
                                     <link>http://aopalliance.sourceforge.net/doc/</link>
                                 </links>
-                            </configuration>
-                        </plugin>
-
-                        <plugin>
-                            <groupId>com.github.github</groupId>
-                            <artifactId>downloads-maven-plugin</artifactId>
-                            <version>0.6</version>
-                            <configuration>
-                                <description>${project.version} release of ${project.name}</description>
-                                <override>true</override>
-                                <includeAttached>true</includeAttached>
                             </configuration>
                         </plugin>
                     </plugins>
