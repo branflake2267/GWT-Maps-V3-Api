@@ -9,7 +9,7 @@
 
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0-alpha-16</version>
+    <version>3.9.0-alpha-16-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -43,7 +43,6 @@
         <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</connection>
         <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</developerConnection>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
-        <tag>gwt-maps-3.9.0a13</tag>
     </scm>
 
     <developers>
@@ -100,7 +99,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -155,8 +154,7 @@
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
-                    <arguments>-Psonatype-oss-release -Prelease
-                        -Dgpg.passphrase=${gpg.passphrase}</arguments>
+                    <arguments>-Psonatype-oss-release -Prelease -Dgpg.passphrase=${gpg.passphrase}</arguments>
                 </configuration>
             </plugin>
         </plugins>

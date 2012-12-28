@@ -21,8 +21,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 * Added PlaceSearchRequest map example
 * 3.9.0 code now in master has the place result with pagination search
 
-##Current Maven Release and Setup	
-1. Add maven dependencies	
+##Current Maven Release	
+1. Add Maven dependencies	
 	```xml
 	<!-- GWT Maps API V3 -->
 	<dependency>
@@ -40,7 +40,42 @@ This library provides Java language bindings for the Google maps Javascript api.
 	</dependency>
 	```
 	
-4. Add the inherits statement to your module.gwt.xml.	
+2. Add the inherits statement to your module.gwt.xml.	
+	```xml
+	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
+	```
+
+##Current Maven Snapshots
+1. Add Maven dependencies	
+	```xml
+	<repositories>
+    		<repository>
+        		<id>sonatype.snapshots</id>
+        		<name>Sonatype snapshot repository</name>
+        		<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        		<snapshots>
+            			<enabled>true</enabled>
+        		</snapshots>
+    		</repository>
+	</repositories>
+
+	<!-- GWT Maps API V3 -->
+	<dependency>
+		<groupId>com.github.branflake2267</groupId>
+		<artifactId>gwt-maps</artifactId>
+		<version>3.9.0-alpha-15-SNAPSHOT</version>
+		<type>pom</type>
+	</dependency>
+
+	<!-- Other GWT Maps Dependency from Google -->
+	<dependency>
+		<groupId>com.google.gwt.google-apis</groupId>
+		<artifactId>gwt-ajaxloader</artifactId>
+		<version>1.1.0</version>
+	</dependency>
+	```
+	
+2. Add the inherits statement to your module.gwt.xml.	
 	```xml
 	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
 	```
