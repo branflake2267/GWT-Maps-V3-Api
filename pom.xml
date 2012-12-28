@@ -1,12 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Artifact details that people will use search for this project -->
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0</version>
-    <!-- b/c is a parent POM, others are jars/wars -->
+    <version>3.9.0-alpha-16</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -18,8 +21,10 @@
     <description>GWT library to access Google Maps javascript API</description>
     <url>https://github.com/branflake2267/GWT-Maps-V3-Api/</url>
     <inceptionYear>2011</inceptionYear>
+
     <organization>
         <name>GWT Maps API V3</name>
+        <url>https://github.com/branflake2267/GWT-Maps-V3-Api.git</url>
     </organization>
 
     <licenses>
@@ -35,9 +40,10 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</connection>
-        <developerConnection>scm:git:ssh://github.com/branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+        <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</connection>
+        <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</developerConnection>
         <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
+        <tag>gwt-maps-3.9.0a13</tag>
     </scm>
 
     <developers>
@@ -73,73 +79,90 @@
     </ciManagement>
 
     <properties>
-        <!-- Faster build props -->
-        <javadocs.skip>true</javadocs.skip>
+        <!-- GWT props -->
+        <gwt.version>2.5.0</gwt.version>
+        <gwt.maven.version>2.5.0</gwt.maven.version>
+        <gae.version>1.7.4</gae.version>
+        <gwt.style>OBF</gwt.style>
 
         <!-- Java props -->
         <java.version>1.6</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- GWT props -->
-        <gwt.version>2.5.0</gwt.version>
-        <gwt.maven.version>2.5.0</gwt.maven.version>
-        <gae.version>1.7.2</gae.version>
-        <gwt.style>OBF</gwt.style>
+        <maven-javadoc-plugin.version>2.9</maven-javadoc-plugin.version>
 
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
     </properties>
 
     <build>
+        <plugins>
+            <!-- Build the core app -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Custom license headers for all files -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>Add License Headers</id>
+                        <configuration>
+                            <licenseName>apache_v2</licenseName>
+                            <roots>
+                                <root>src</root>
+                                <root>target/generated-sources</root>
+                                <root>target/processed-sources</root>
+                                <!-- Included because HTML/CSS/KML files 
+                                    are here -->
+                                <root>war</root>
+                            </roots>
+                            <!-- Don't touch these compiler generated files -->
+                            <excludes>
+                                <exclude>**/*.cache.html</exclude>
+                                <exclude>**/*.nocache.html</exclude>
+                                <exclude>**/*.properties</exclude>
+                            </excludes>
+                        </configuration>
+
+                        <!-- Bound to run at last phase before compile -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <arguments>-Psonatype-oss-release -Prelease
+                        -Dgpg.passphrase=${gpg.passphrase}</arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+
         <pluginManagement>
             <plugins>
-                <!-- Build the core app -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                    </configuration>
-                </plugin>
-
-                <!-- Custom license headers for all files -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>1.3</version>
-                    <executions>
-                        <execution>
-                            <id>Add License Headers</id>
-                            <configuration>
-                                <licenseName>apache_v2</licenseName>
-                                <roots>
-                                    <root>src</root>
-                                    <root>target/generated-sources</root>
-                                    <root>target/processed-sources</root>
-                                    <!-- Included because HTML/CSS/KML files 
-                                        are here -->
-                                    <root>war</root>
-                                </roots>
-                                <!-- Don't touch these compiler generated 
-                                    files -->
-                                <excludes>
-                                    <exclude>**/*.cache.html</exclude>
-                                    <exclude>**/*.nocache.html</exclude>
-                                    <exclude>**/*.properties</exclude>
-                                </excludes>
-                            </configuration>
-
-                            <!-- Bound to run at last phase before compile -->
-                            <phase>process-resources</phase>
-                            <goals>
-                                <goal>update-file-header</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
                 <!--This plugin's configuration is used to store Eclipse 
                     m2e settings only. It has no influence on the Maven build itself. -->
                 <plugin>
@@ -167,7 +190,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore></ignore>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -227,4 +250,81 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>sonatype-oss-release</id>
+            <modules>
+                <module>gwt-maps-api</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>${maven-javadoc-plugin.version}</version>
+                            <executions>
+                                <execution>
+                                    <id>attach-javadocs</id>
+                                    <goals>
+                                        <goal>jar</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <source>${target.jdk}</source>
+                                <failOnError>true</failOnError>
+                                <quiet>true</quiet>
+                                <links>
+                                    <link>http://download.oracle.com/javase/6/docs/api/</link>
+                                    <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/</link>
+                                    <link>http://aopalliance.sourceforge.net/doc/</link>
+                                </links>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-gpg-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>sign-artifacts</id>
+                                    <phase>verify</phase>
+                                    <goals>
+                                        <goal>sign</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
 </project>
