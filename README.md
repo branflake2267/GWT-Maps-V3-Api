@@ -42,7 +42,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	
 2. Add the inherits statement to your module.gwt.xml.	
 	```xml
-	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
+	<inherits name='com.google.gwt.maps.Maps' />
 	```
 
 ##Current Maven Snapshots
@@ -77,7 +77,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	
 2. Add the inherits statement to your module.gwt.xml.	
 	```xml
-	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
+	<inherits name='com.google.gwt.maps.Maps' />
 	```
 
 ##Previous Versions
