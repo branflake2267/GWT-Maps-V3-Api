@@ -138,6 +138,13 @@ public class OverlayView extends MVCObject<OverlayView> {
     this.setMap();
   }-*/;
   
+  /**
+   * Invokes this.setMap()
+   */
+  public final native void clear() /*-{
+    this.setMap();
+  }-*/;
+  
   private final native void setMapImpl(MapImpl map) /*-{
     this.setMap(map);
   }-*/;

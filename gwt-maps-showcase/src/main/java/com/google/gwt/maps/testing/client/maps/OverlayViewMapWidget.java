@@ -20,6 +20,8 @@ package com.google.gwt.maps.testing.client.maps;
  * #L%
  */
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -33,9 +35,11 @@ import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
@@ -48,6 +52,8 @@ public class OverlayViewMapWidget extends Composite {
   private final VerticalPanel pWidget;
   private MapWidget mapWidget;
   private HTML htmlOverlayMessage;
+  
+  private OverlayView overlayView;
 
   public OverlayViewMapWidget() {
     pWidget = new VerticalPanel();
@@ -57,14 +63,32 @@ public class OverlayViewMapWidget extends Composite {
   }
 
   private void draw() {
-    htmlOverlayMessage = new HTML("&nbsp;");
+    // This is just ot show the effect of behind the scenes
+    Button setMapButton = new Button("Clear OverlayView");
+    setMapButton.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        String message = "Removing overlayView from map. Reload page to see this OverlayView calls.";
+        htmlOverlayMessage.setText(message);
+        if (overlayView != null) {
+          overlayView.clear();
+        }
+      }
+    });
+    
+    HorizontalPanel hp = new HorizontalPanel();
+    hp.add(new HTML("<br>Custom Overlay View."));
+    hp.add(setMapButton);
+    hp.setCellVerticalAlignment(setMapButton, VerticalPanel.ALIGN_BOTTOM);
+    
     pWidget.clear();
-    pWidget.add(new HTML("<br>Custom Overlay View."));
+    pWidget.add(hp);
+    
+    htmlOverlayMessage = new HTML("&nbsp;");
     pWidget.add(htmlOverlayMessage);
 
     drawMap();
-    drawOverlay1_GroundOverlay();
-    drawOverlay2_CustomOverlay();
+    drawOverlay_Generic_OverlayView();
+    drawOverlay_GroundOverlay();
   }
 
   private void drawMap() {
@@ -79,7 +103,7 @@ public class OverlayViewMapWidget extends Composite {
     mapWidget.setSize("750px", "500px");
   }
   
-  private void drawOverlay1_GroundOverlay() {    
+  private void drawOverlay_Generic_OverlayView() {    
     OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
       @Override
       public void onDraw(OverlayViewMethods methods) {
@@ -110,10 +134,10 @@ public class OverlayViewMapWidget extends Composite {
       }
     };
     
-    OverlayView overlay = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
+    overlayView = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHnadler);
   }
   
-  private void drawOverlay2_CustomOverlay() {
+  private void drawOverlay_GroundOverlay() {
     String url = "http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg";
     LatLng sw = LatLng.newInstance(40.716216,-74.213393);
     LatLng ne = LatLng.newInstance(40.765641,-74.139235);
