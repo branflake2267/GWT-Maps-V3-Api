@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.github.branflake2267</groupId>
         <artifactId>gwt-maps</artifactId>
-        <version>3.9.0-alpha-16-SNAPSHOT</version>
+        <version>3.9.0-build-16-SNAPSHOT</version>
     </parent>
 
     <artifactId>gwt-maps-api</artifactId>
