@@ -25,7 +25,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 * 3.9.0 code now in master has the place result with pagination search
 
 ##Maven Versions Available
-* 3.9.0-alpha-16 - Release
+* 3.9.0-build-16 - Release
 * 3.9.0-build-17-SNAPSHOT - Snapshot 
 
 ##Current Maven Release	
@@ -35,7 +35,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps</artifactId>
-		<version>3.9.0-alpha-16</version>
+		<version>3.9.0-build-16</version>
 		<type>pom</type>
 	</dependency>
 
