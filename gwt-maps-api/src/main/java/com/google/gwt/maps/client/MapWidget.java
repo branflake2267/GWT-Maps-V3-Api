@@ -433,7 +433,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 */
 	public MVCArray<Element> getControls() {
 		return impl.getControls();
-	};
+	}
 
     /**
      * returns all controls for a controlPosition
@@ -442,7 +442,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
      */
     public MVCArray<Element> getControls(ControlPosition controlPosition) {
         return impl.getControls(controlPosition);
-    };
+    }
 
     /**
 	 * TODO sets A registry of MapType instances by string ID.
