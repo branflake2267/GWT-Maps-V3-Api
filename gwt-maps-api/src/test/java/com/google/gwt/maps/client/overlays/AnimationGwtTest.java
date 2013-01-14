@@ -32,12 +32,17 @@ public class AnimationGwtTest extends AbstractMapsGWTTestHelper {
 
 	public void testUse1() {
 		Animation type = Animation.BOUNCE;
-		assertEquals("bounce", type.value());
+		assertEquals(new Integer(1), type.value());
 	}
 
 	public void testUse2() {
 		Animation type = Animation.DROP;
-		assertEquals("drop", type.value());
+		assertEquals(new Integer(2), type.value());
 	}
+	
+	public void testUse3() {
+    Animation type = Animation.STOPANIMATION;
+    assertEquals(null, type.value());
+  }
 
 }

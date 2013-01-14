@@ -773,7 +773,7 @@ public class MapOptions extends JavaScriptObject {
 	 * @param zoomControlOptions
 	 */
 	public final native void setZoomControlOptions(
-			ZoomControlOptions zoomControlOptions) /*-{
+	  ZoomControlOptions zoomControlOptions) /*-{
 		this.zoomControlOptions = zoomControlOptions;
 	}-*/;
 
