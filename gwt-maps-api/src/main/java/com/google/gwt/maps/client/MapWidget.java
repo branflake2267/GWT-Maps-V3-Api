@@ -435,7 +435,17 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 		return impl.getControls();
 	};
 
-	/**
+    /**
+     * returns all controls for a controlPosition
+     * @param controlPosition
+     * @return
+     */
+    public MVCArray<Element> getControls(ControlPosition controlPosition) {
+        return impl.getControls(controlPosition);
+    };
+
+
+    /**
 	 * TODO sets A registry of MapType instances by string ID.
 	 * 
 	 * @param mapTypes

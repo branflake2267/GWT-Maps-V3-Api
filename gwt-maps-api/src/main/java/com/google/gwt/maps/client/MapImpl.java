@@ -371,10 +371,29 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * corresponding to the ControlPosition where it should be rendered.
 	 */
 	public final native MVCArray<Element> getControls() /*-{
-		return controls;
+		return this.controls;
 	}-*/;
 
-	/**
+    /**
+     * returns all controls for a controlPosition
+     * @param controlPosition
+     * @return
+     */
+    public final MVCArray<Element> getControls(ControlPosition controlPosition) {
+        return getControls(controlPosition.value());
+    }
+
+    /**
+     * returns all controls for a controlPosition
+     * @param controlPosition
+     * @return
+     */
+    private final native MVCArray<Element> getControls(int controlPosition) /*-{
+        return this.controls[controlPosition];
+    }-*/;
+
+
+    /**
 	 * TODO sets A registry of MapType instances by string ID.
 	 * 
 	 * @param mapTypes
