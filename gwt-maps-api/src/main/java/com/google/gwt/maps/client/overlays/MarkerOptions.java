@@ -49,12 +49,16 @@ public class MarkerOptions extends JavaScriptObject {
 		return JavaScriptObject.createObject().cast();
 	}
 
+	public final void setAnimation(Animation animation) {
+	  setAnimationJsni(animation.value());
+	}
+	
 	/**
 	 * sets Which animation to play when marker is added to a map.
 	 * 
 	 * @param animation
 	 */
-	public final native void setAnimation(Animation animation) /*-{
+	private final native void setAnimationJsni(Integer animation) /*-{
 		this.animation = animation;
 	}-*/;
 

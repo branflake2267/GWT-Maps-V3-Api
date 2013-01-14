@@ -231,10 +231,14 @@ public class Marker extends MVCObject<Marker> {
    * @param animation
    */
   public final void setAnimation(Animation animation) {
-    setAnimationImpl(animation.value());
+    if (animation == null) {
+      setAnimation(animation);
+    } else {
+      setAnimationImpl(animation.value());  
+    }
   }
   
-  private final native void setAnimationImpl(String animation) /*-{
+  private final native void setAnimationImpl(Integer animation) /*-{
     this.setAnimation(animation);
   }-*/;
   
@@ -562,9 +566,16 @@ public class Marker extends MVCObject<Marker> {
   }
 
   /**
-   * close the marker 
+   * Close the marker. Clear the marker from the map. 
    */
   public final native void close() /*-{
+    this.setMap();
+  }-*/;
+  
+  /**
+   * Close the marker. Clear the marker from the map. 
+   */
+  public final native void clear() /*-{
     this.setMap();
   }-*/;
   

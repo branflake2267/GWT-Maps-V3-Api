@@ -20,27 +20,51 @@ package com.google.gwt.maps.client.overlays;
  * #L%
  */
 
+/**
+ * Start an animation. Any ongoing animation will be cancelled. Currently
+ * supported animations are: BOUNCE, DROP. Passing in null will cause any
+ * animation to stop.
+ */
 public enum Animation {
+
+  BOUNCE(1), 
   
-  BOUNCE,
+  DROP(2), 
   
-  DROP;
+  /**
+   * Same as set Animation to null. This will stop the animation
+   */
+  STOPANIMATION(null);
+
+  private Integer value;
+  
+  Animation(Integer value) {
+    this.value = value;
+  }
   
   /**
    * return the enum value as a String
+   * 
    * @return String
    */
-  public String value() {
-    return name().toLowerCase();
+  public Integer value() {
+    return value;
   }
 
   /**
    * convert a String value to enum Type
+   * 
    * @param type
    * @return TYPE
    */
   public static Animation fromValue(String type) {
-    return valueOf(type.toUpperCase());
+    Animation animation = Animation.STOPANIMATION;
+    if (type.toLowerCase().contains("bounce") || type.contains("1")) {
+      animation = BOUNCE;
+    } else if (type.toLowerCase().contains("drop") || type.contains("2")) {
+      animation = DROP;
+    }
+    return animation;
   }
 
   /**
@@ -50,5 +74,5 @@ public enum Animation {
   public String toString() {
     return name();
   }
-  
+
 }
