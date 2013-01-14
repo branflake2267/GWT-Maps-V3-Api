@@ -25,6 +25,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 * 3.9.0 code now in master has the place result with pagination search
 
 ##Maven Versions Available
+* [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
 * 3.9.0-build-16 - Release
 * 3.9.0-build-17-SNAPSHOT - Snapshot 
 
