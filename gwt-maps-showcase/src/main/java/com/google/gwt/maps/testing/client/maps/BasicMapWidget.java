@@ -21,6 +21,8 @@ package com.google.gwt.maps.testing.client.maps;
  */
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
@@ -40,28 +42,26 @@ import com.google.gwt.maps.client.events.mapchange.MapChangeMapEvent;
 import com.google.gwt.maps.client.events.mapchange.MapChangeMapHandler;
 import com.google.gwt.maps.client.events.position.PositionChangeMapEvent;
 import com.google.gwt.maps.client.events.position.PositionChangeMapHandler;
+import com.google.gwt.maps.client.overlays.Animation;
 import com.google.gwt.maps.client.overlays.InfoWindow;
 import com.google.gwt.maps.client.overlays.InfoWindowOptions;
 import com.google.gwt.maps.client.overlays.Marker;
 import com.google.gwt.maps.client.overlays.MarkerOptions;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-/**
- * 
- * <br>
- * <br>
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
- * >FusionTables API Doc</a>
- */
 public class BasicMapWidget extends Composite {
 
   private final VerticalPanel pWidget;
-
   private MapWidget mapWidget;
 
+  private Marker markerBasic;
+  private Marker markerBouncing;
+  private Marker markerDrop;
+  
   public BasicMapWidget() {
     pWidget = new VerticalPanel();
     initWidget(pWidget);
@@ -70,45 +70,116 @@ public class BasicMapWidget extends Composite {
   }
 
   private void draw() {
+    Button addBounceMarkerButton = new Button("Add Marker with Bounce");
+    addBounceMarkerButton.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (markerBouncing != null) {
+          markerBouncing.clear();
+        }
+        drawMarkerWithBounceAnimation();
+      }
+    });
+    
+    Button addDropMarkerButton = new Button("Add Marker with Drop");
+    addDropMarkerButton.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (markerDrop != null) {
+          markerDrop.clear();
+        }
+        drawMarkerWithDropAnimation();
+      }
+    });
+    
+    Button stopAnimationsButton = new Button("Stop Animations");
+    stopAnimationsButton.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (markerBasic != null) {
+          markerBasic.setAnimation(Animation.STOPANIMATION);
+        }
+        if (markerBouncing != null) {
+          markerBouncing.setAnimation(Animation.STOPANIMATION);
+        }
+        if (markerDrop != null) {
+          markerDrop.setAnimation(Animation.STOPANIMATION);
+        }
+      }
+    });
+    
+    Button startAnimationsButton = new Button("Start Animations");
+    startAnimationsButton.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        if (markerBasic != null) {
+          markerBasic.setAnimation(Animation.BOUNCE);
+        }
+        if (markerBouncing != null) {
+          markerBouncing.setAnimation(Animation.BOUNCE);
+        }
+        if (markerDrop != null) { 
+          markerDrop.setAnimation(Animation.DROP);
+        }
+      }
+    });
+    
+    // basic controls to test markers
+    HorizontalPanel hp = new HorizontalPanel();
+    hp.add(new HTML("<br>Basic Map Example. With an AdUnit"));
+    hp.add(addBounceMarkerButton);
+    hp.add(new HTML("&nbsp;"));
+    hp.add(addDropMarkerButton);
+    hp.add(new HTML("&nbsp;"));
+    hp.add(startAnimationsButton);
+    hp.add(new HTML("&nbsp;"));
+    hp.add(stopAnimationsButton);
+    hp.setCellVerticalAlignment(addBounceMarkerButton, VerticalPanel.ALIGN_BOTTOM);
+    hp.setCellVerticalAlignment(addDropMarkerButton, VerticalPanel.ALIGN_BOTTOM);
+    hp.setCellVerticalAlignment(startAnimationsButton, VerticalPanel.ALIGN_BOTTOM);
+    hp.setCellVerticalAlignment(stopAnimationsButton, VerticalPanel.ALIGN_BOTTOM);
 
     pWidget.clear();
-
-    pWidget.add(new HTML("<br>Basic Map Example. With an AdUnit"));
+    pWidget.add(hp);
 
     drawMap();
-
     drawMapAds();
-
-    drawMarker();
+    drawBasicMarker();
   }
 
-  private void drawMarker() {
+  private void drawBasicMarker() {
     LatLng center = LatLng.newInstance(47.8, -121.4);
     MarkerOptions options = MarkerOptions.newInstance();
     options.setPosition(center);
     options.setTitle("Hello World");
 
-    final Marker marker = Marker.newInstance(options);
-    marker.setMap(mapWidget);
+    markerBasic = Marker.newInstance(options);
+    markerBasic.setMap(mapWidget);
 
-    marker.addClickHandler(new ClickMapHandler() {
+    markerBasic.addClickHandler(new ClickMapHandler() {
       @Override
       public void onEvent(ClickMapEvent event) {
-        drawInfoWindow(marker, event.getMouseEvent());
+        drawInfoWindow(markerBasic, event.getMouseEvent());
       }
     });
   }
 
-  // TODO implement this method or drop it
-  @SuppressWarnings("unused")
-  private void drawMarker2() {
-    LatLng center = LatLng.newInstance(47.8, -121.4);
+  private void drawMarkerWithBounceAnimation() {
+    LatLng center = LatLng.newInstance(46.33, -113.81);
     MarkerOptions options = MarkerOptions.newInstance();
     options.setPosition(center);
-    options.setTitle("Hello World");
+    options.setTitle("Hi I'm marker 2. Thanks for clicking on me.");
+    options.setAnimation(Animation.BOUNCE);
 
-    final Marker marker = Marker.newInstance(options);
+    markerBouncing = Marker.newInstance(options);
+    markerBouncing.setMap(mapWidget);
+  }
+  
+  private void drawMarkerWithDropAnimation() {
+    LatLng center = LatLng.newInstance(42.33, -120.81);
+    MarkerOptions options = MarkerOptions.newInstance();
+    options.setPosition(center);
+    options.setTitle("Thanks for clicking on me.");
+    options.setAnimation(Animation.DROP);
 
+    markerDrop = Marker.newInstance(options);
+    markerDrop.setMap(mapWidget);
   }
 
   protected void drawInfoWindow(Marker marker, MouseEvent mouseEvent) {
@@ -145,7 +216,6 @@ public class BasicMapWidget extends Composite {
   }
 
   private void drawMapAds() {
-
     AdUnitOptions options = AdUnitOptions.newInstance();
     options.setFormat(AdFormat.HALF_BANNER);
     options.setPosition(ControlPosition.RIGHT_CENTER);
@@ -178,7 +248,6 @@ public class BasicMapWidget extends Composite {
       public void onEvent(PositionChangeMapEvent event) {
       }
     });
-
   }
 
 }

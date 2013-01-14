@@ -46,7 +46,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testAnimation() {
@@ -61,7 +60,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testClickable() {
@@ -76,7 +74,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testCursor() {
@@ -91,7 +88,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testDraggable() {
@@ -106,7 +102,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testFlat() {
@@ -121,7 +116,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testIcon() {
@@ -136,7 +130,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testIconAsMarkerImage() {
@@ -152,7 +145,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testIconMapWidget() {
@@ -171,7 +163,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testIconMap() {
@@ -207,7 +198,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testOptimized() {
@@ -222,7 +212,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testPosition() {
@@ -237,7 +226,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testRaiseOnDrag() {
@@ -267,7 +255,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testShadowMarkerImage() {
@@ -282,7 +269,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testShape() {
@@ -298,7 +284,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testTitle() {
@@ -313,7 +298,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testVisible() {
@@ -328,7 +312,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
 
 	public void testZIndex() {
@@ -343,7 +326,6 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 				finishTest();
 			}
 		});
-
 	}
-
+	
 }

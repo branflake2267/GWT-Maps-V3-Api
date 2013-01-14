@@ -15,11 +15,18 @@ This library provides Java language bindings for the Google maps Javascript api.
 * [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 
 ##New Features
+* Switching from alpha to build b/c it is stable 1/13/2013 (3.9.0-build-16-SNAPSHOT)
+* Fixed Marker Animation and added marker animation controls to examples 1/13/2013
+* Fixed Custom overlay setMap 1/13/2013
 * Custom overlay view added 12/20/2012
 * Added waypoint to directions example
 * InfoWindow supports GWT widgets with events
 * Added PlaceSearchRequest map example
 * 3.9.0 code now in master has the place result with pagination search
+
+##Maven Versions Available
+* 3.9.0-alpha-15 - Release
+* 3.9.0-build-16-SNAPSHOT - Snapshot 
 
 ##Current Maven Release	
 1. Add Maven dependencies	
@@ -63,7 +70,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps</artifactId>
-		<version>3.9.0-alpha-15-SNAPSHOT</version>
+		<version>3.9.0-build-16-SNAPSHOT</version>
 		<type>pom</type>
 	</dependency>
 
