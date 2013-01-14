@@ -2,10 +2,6 @@
 
 This library provides Java language bindings for the Google maps Javascript api. 
 
-#NOTE 3.9.0+
-* 12/20/2012: Active progress is being made on the next version...
-* 11/31/2012: 3.9.0+ is coming soon (see [milestone](https://github.com/branflake2267/GWT-Maps-V3-Api/issues/milestones)). We will be changing the module naming in the future for 3.9.0. 
-
 ##Demo
 # ![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
 
@@ -15,9 +11,10 @@ This library provides Java language bindings for the Google maps Javascript api.
 * [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 
 ##New Features
-* Switching from alpha to build b/c it is stable 1/13/2013 (3.9.0-build-16-SNAPSHOT)
-* Fixed Marker Animation and added marker animation controls to examples 1/13/2013
-* Fixed Custom overlay setMap 1/13/2013
+* v16 released to sonatype `3.9.0-build-16` 1/13/2013
+* v16 Switching from alpha to build b/c it is stable 1/13/2013 (3.9.0-build-16-SNAPSHOT)
+* v16 Fixed Marker Animation and added marker animation controls to examples 1/13/2013
+* v15 Fixed Custom overlay setMap 1/13/2013
 * Custom overlay view added 12/20/2012
 * Added waypoint to directions example
 * InfoWindow supports GWT widgets with events
@@ -25,8 +22,9 @@ This library provides Java language bindings for the Google maps Javascript api.
 * 3.9.0 code now in master has the place result with pagination search
 
 ##Maven Versions Available
-* 3.9.0-alpha-15 - Release
-* 3.9.0-build-16-SNAPSHOT - Snapshot 
+* [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
+* 3.9.0-build-16 - Release
+* 3.9.0-build-17-SNAPSHOT - Snapshot 
 
 ##Current Maven Release	
 1. Add Maven dependencies	
@@ -35,7 +33,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps</artifactId>
-		<version>3.9.0-alpha-15</version>
+		<version>3.9.0-build-16</version>
 		<type>pom</type>
 	</dependency>
 
@@ -70,7 +68,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps</artifactId>
-		<version>3.9.0-build-16-SNAPSHOT</version>
+		<version>3.9.0-build-17-SNAPSHOT</version>
 		<type>pom</type>
 	</dependency>
 
