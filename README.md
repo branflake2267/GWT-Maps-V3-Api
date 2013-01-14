@@ -15,6 +15,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 * [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 
 ##New Features
+* v16 released to sonatype `3.9.0-build-16` 1/13/2013
 * v16 Switching from alpha to build b/c it is stable 1/13/2013 (3.9.0-build-16-SNAPSHOT)
 * v16 Fixed Marker Animation and added marker animation controls to examples 1/13/2013
 * v15 Fixed Custom overlay setMap 1/13/2013
