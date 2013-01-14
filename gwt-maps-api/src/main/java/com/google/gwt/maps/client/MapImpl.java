@@ -392,7 +392,6 @@ public class MapImpl extends MVCObject<MapImpl> {
         return this.controls[controlPosition];
     }-*/;
 
-
     /**
 	 * TODO sets A registry of MapType instances by string ID.
 	 * 

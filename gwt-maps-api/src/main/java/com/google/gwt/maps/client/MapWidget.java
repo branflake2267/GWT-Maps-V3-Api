@@ -444,7 +444,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
         return impl.getControls(controlPosition);
     };
 
-
     /**
 	 * TODO sets A registry of MapType instances by string ID.
 	 * 
