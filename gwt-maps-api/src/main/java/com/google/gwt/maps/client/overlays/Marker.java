@@ -105,14 +105,14 @@ public class Marker extends MVCObject<Marker> {
    * get animation
    */
   public final Animation getAnimation() {
-    String animation = getAnimationImpl();
+    Integer animation = getAnimationImpl();
     if (animation == null) {
       return null;
     }
     return Animation.fromValue(animation);
   }
   
-  private final native String getAnimationImpl() /*-{
+  private final native Integer getAnimationImpl() /*-{
     return this.getAnimation();
   }-*/;
   

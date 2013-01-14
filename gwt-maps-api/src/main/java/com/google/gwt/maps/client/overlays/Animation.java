@@ -54,17 +54,25 @@ public enum Animation {
   /**
    * convert a String value to enum Type
    * 
-   * @param type
+   * @param value
    * @return TYPE
    */
-  public static Animation fromValue(String type) {
+  public static Animation fromValue(String value) {
     Animation animation = Animation.STOPANIMATION;
-    if (type.toLowerCase().contains("bounce") || type.contains("1")) {
+    if (value.toLowerCase().contains("bounce") || value.contains("1")) {
       animation = BOUNCE;
-    } else if (type.toLowerCase().contains("drop") || type.contains("2")) {
+    } else if (value.toLowerCase().contains("drop") || value.contains("2")) {
       animation = DROP;
     }
     return animation;
+  }
+  
+  public static Animation fromValue(Integer value) {
+    if (value == null) {
+      return Animation.STOPANIMATION;
+    } else {
+      return fromValue(Integer.toString(value));
+    }
   }
 
   /**

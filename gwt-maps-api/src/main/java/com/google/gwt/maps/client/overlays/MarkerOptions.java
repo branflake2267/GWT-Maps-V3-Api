@@ -62,10 +62,14 @@ public class MarkerOptions extends JavaScriptObject {
 		this.animation = animation;
 	}-*/;
 
+	public final Animation getAnimation() {
+	  return Animation.fromValue(getAnimationJsni());
+	}
+	
 	/**
 	 * gets Which animation to play when marker is added to a map.
 	 */
-	public final native Animation getAnimation() /*-{
+	private final native Integer getAnimationJsni() /*-{
 		return this.animation;
 	}-*/;
 
