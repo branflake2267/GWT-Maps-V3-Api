@@ -116,6 +116,7 @@
                 <configuration>
                     <serverId>gonevertical-apis</serverId>
                     <splitJars>true</splitJars>
+                    <sdkDir>${gae.home}</sdkDir>
                 </configuration>
                 <executions>
                     <execution>
