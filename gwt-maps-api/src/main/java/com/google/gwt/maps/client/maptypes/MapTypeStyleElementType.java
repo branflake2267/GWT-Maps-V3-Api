@@ -76,7 +76,7 @@ public enum MapTypeStyleElementType {
    * @return String
    */
   public String value() {
-      return name().replaceAll("__", ".").toLowerCase();
+    return name().replaceAll("__", ".").toLowerCase();
   }
 
   /**
@@ -85,8 +85,8 @@ public enum MapTypeStyleElementType {
    * @return TYPE
    */
   public static MapTypeStyleElementType fromValue(String type) {
-      type = type.replaceAll("\\.", "__");
-      return valueOf(type.toUpperCase());
+    type = type.replaceAll("\\.", "__");
+    return valueOf(type.toUpperCase());
   }
 
   /**
@@ -94,6 +94,6 @@ public enum MapTypeStyleElementType {
    */
   @Override
   public String toString() {
-      return name().replaceAll("__", ".").toLowerCase();
+    return name().replaceAll("__", ".").toLowerCase();
   }
 }

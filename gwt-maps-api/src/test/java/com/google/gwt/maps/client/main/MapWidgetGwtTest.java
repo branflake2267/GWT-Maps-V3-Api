@@ -391,40 +391,40 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
 
 	// }
 
-    public void testGetControl() {
-        asyncLibTest(new Runnable() {
-      			@Override
-      			public void run() {
-                      FlowPanel fp = new FlowPanel();
-      				  RootPanel.get().add(fp);
+  public void testGetControl() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        FlowPanel fp = new FlowPanel();
+        RootPanel.get().add(fp);
 
-      				  MapOptions options = MapOptions.newInstance();
-      				  MapWidget o = new MapWidget(options);
-                      Label label = new Label("test");
-                      assertEquals(0, o.getControls(ControlPosition.TOP_CENTER).getLength());
-                      o.setControls(ControlPosition.TOP_CENTER, label);
-                      assertEquals(1, o.getControls(ControlPosition.TOP_CENTER).getLength());
-                      finishTest();
-      			}
-      		});
-   	}
+        MapOptions options = MapOptions.newInstance();
+        MapWidget o = new MapWidget(options);
+        Label label = new Label("test");
+        assertEquals(0, o.getControls(ControlPosition.TOP_CENTER).getLength());
+        o.setControls(ControlPosition.TOP_CENTER, label);
+        assertEquals(1, o.getControls(ControlPosition.TOP_CENTER).getLength());
+        finishTest();
+      }
+    });
+  }
 
-    public void testResize() {
-        asyncLibTest(new Runnable() {
-      			@Override
-      			public void run() {
-                      FlowPanel fp = new FlowPanel();
-      				  RootPanel.get().add(fp);
+  public void testResize() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        FlowPanel fp = new FlowPanel();
+        RootPanel.get().add(fp);
 
-      				  MapOptions options = MapOptions.newInstance();
-      				  MapWidget o = new MapWidget(options);
-                      LatLng center = o.getCenter();
-                      o.resizeMap();
-                      assertEquals(center.getLatitude(), o.getCenter().getLatitude());
-                      assertEquals(center.getLongitude(), o.getCenter().getLongitude());
-                      finishTest();
-      			}
-      		});
-   	}
+        MapOptions options = MapOptions.newInstance();
+        MapWidget o = new MapWidget(options);
+        LatLng center = o.getCenter();
+        o.resizeMap();
+        assertEquals(center.getLatitude(), o.getCenter().getLatitude());
+        assertEquals(center.getLongitude(), o.getCenter().getLongitude());
+        finishTest();
+      }
+    });
+  }
 
 }
