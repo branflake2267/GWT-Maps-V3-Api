@@ -79,6 +79,16 @@ public enum MapTypeStyleFeatureType {
   LANDSCAPE__NATURAL,
 
   /**
+   * Apply the rule to landcover.
+   */
+  LANDSCAPE__NATURAL__LANDCOVER,
+
+  /**
+   * Apply the rule to terrain.
+   */
+  LANDSCAPE__NATURAL__TERRAIN,
+
+  /**
    *  Apply the rule to points of interest.
    */
   POI,
@@ -137,6 +147,11 @@ public enum MapTypeStyleFeatureType {
    * Apply the rule to highways.
    */
   ROAD__HIGHWAY,
+
+  /**
+   * Apply the rule to controlled-access highways.
+   */
+  ROAD__HIGHWAY__CONTROLLED_ACCESS,
 
   /**
    * Apply the rule to local roads.
