@@ -33,12 +33,11 @@ import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.junit.tools.GWTTestSuite;
 import com.google.gwt.maps.client.main.LoadApiGwtTest;
 
-public class AllTestsGwtTestSuite extends GWTTestSuite {
+public class RunAllTestsGwtTestSuite extends GWTTestSuite {
 
   public static final String TARGET_CLASS_SUFFIX = "Test";
 
   public static TestSuite suite() throws Exception {
-
     GWTTestSuite suite = new GWTTestSuite();
 
     // be sure the libs get loaded at the beginning b/c they won't want to
@@ -58,7 +57,6 @@ public class AllTestsGwtTestSuite extends GWTTestSuite {
         suite.addTestSuite(clazz);
       }
     }
-
     return suite;
   }
 
@@ -124,4 +122,5 @@ public class AllTestsGwtTestSuite extends GWTTestSuite {
     }
     return classes;
   }
+  
 }

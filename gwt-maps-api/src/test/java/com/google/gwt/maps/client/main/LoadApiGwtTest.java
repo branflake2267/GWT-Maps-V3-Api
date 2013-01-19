@@ -30,7 +30,7 @@ public class LoadApiGwtTest extends AbstractMapsGWTTestHelper {
 
   @Override
   public LoadLibrary[] getLibraries() {
-    return null;
+    return LoadLibrary.values();
   }
 
   /**

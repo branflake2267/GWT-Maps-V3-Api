@@ -24,10 +24,10 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.MapImpl;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.mvc.MVCObject;
+import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
-import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 
 /**
  * You can implement this class if you want to display custom types of overlay objects on the map. This class extends
