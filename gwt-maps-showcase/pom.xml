@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -109,17 +110,26 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
+            
+            <!-- App Engine -->
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
                 <version>0.9.5</version>
                 <configuration>
+                    <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
                     <serverId>gonevertical-apis</serverId>
                     <splitJars>true</splitJars>
                     <sdkDir>${gae.home}</sdkDir>
                 </configuration>
                 <executions>
+                    <execution>
+                        <id>install-server-jar</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>deploy</id>
                         <goals>
@@ -127,7 +137,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>    
         </plugins>
 
         <pluginManagement>
@@ -177,6 +187,45 @@
                     <goals>
                         <goal>run-war</goal>
                     </goals>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-war-plugin</artifactId>
+                                        <versionRange>2.1.1</versionRange>
+                                        <goals>
+                                            <goal>exploded</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <execute />
+                                    </action>
+                                </pluginExecution>
+
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>net.kindleit</groupId>
+                                        <artifactId>maven-gae-plugin</artifactId>
+                                        <versionRange>[0.7.0,)</versionRange>
+                                        <goals>
+                                            <goal>unpack</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <execute />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -424,7 +424,7 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
         MapOptions options = MapOptions.newInstance();
         MapWidget o = new MapWidget(options);
         LatLng center = o.getCenter();
-        o.resizeMap();
+        o.triggerResize();
         assertEquals(center.getLatitude(), o.getCenter().getLatitude());
         assertEquals(center.getLongitude(), o.getCenter().getLongitude());
         finishTest();
