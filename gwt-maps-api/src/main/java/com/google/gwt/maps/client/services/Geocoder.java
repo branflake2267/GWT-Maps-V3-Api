@@ -53,7 +53,7 @@ public class Geocoder extends JavaScriptObject {
    */
   public final native void geocode(GeocoderRequest request, GeocoderRequestHandler handler) /*-{
     var callback = function(results, status) {
-      @com.google.gwt.maps.client.services.Geocoder::geocodeImpl(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/GeocoderRequestHandler;)(results, status, handler);
+      $entry(@com.google.gwt.maps.client.services.Geocoder::geocodeImpl(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/GeocoderRequestHandler;)(results, status, handler));
     };
     this.geocode(request, callback);
   }-*/;
