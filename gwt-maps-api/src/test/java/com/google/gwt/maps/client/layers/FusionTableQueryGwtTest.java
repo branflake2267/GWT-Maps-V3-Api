@@ -28,43 +28,41 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class FusionTableQueryGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				FusionTablesLayerOptions options = FusionTablesLayerOptions
-						.newInstance();
-				FusionTablesLayer o = FusionTablesLayer.newInstance(options);
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        FusionTablesLayerOptions options = FusionTablesLayerOptions.newInstance();
+        FusionTablesLayer o = FusionTablesLayer.newInstance(options);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testUse2() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions options = MapOptions.newInstance();
-				MapWidget mapWidget = new MapWidget(options);
-				mapWidget.setSize("500px", "500px");
-				RootPanel.get().add(mapWidget);
+  public void testUse2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions options = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				BicyclingLayer o = BicyclingLayer.newInstance();
-				o.setMap(mapWidget);
-				MapWidget right = o.getMap();
+        BicyclingLayer o = BicyclingLayer.newInstance();
+        o.setMap(mapWidget);
+        MapWidget right = o.getMap();
 
-				assertEquals(mapWidget.getCenter().getToString(), right
-						.getCenter().getToString());
-				finishTest();
-			}
-		});
+        assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
+        finishTest();
+      }
+    });
 
-	}
+  }
 }

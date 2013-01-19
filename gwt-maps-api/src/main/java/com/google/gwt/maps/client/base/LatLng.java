@@ -25,10 +25,12 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * LatLng is a point in geographical coordinates, latitude and longitude.
  * 
- * Notice that although usual map projections associate longitude with the x-coordinate of the map, and latitude with the y-coordinate, the latitude coordinate is always written first, followed by the longitude.
- * Notice also that you cannot modify the coordinates of a LatLng. If you want to compute another point, you have to create a new one.
+ * Notice that although usual map projections associate longitude with the x-coordinate of the map, and latitude with
+ * the y-coordinate, the latitude coordinate is always written first, followed by the longitude. Notice also that you
+ * cannot modify the coordinates of a LatLng. If you want to compute another point, you have to create a new one.
  * 
- * <br><br>
+ * <br>
+ * <br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#LatLng">LatLng API Doc</a>
  */
 public class LatLng extends JavaScriptObject {
@@ -36,10 +38,14 @@ public class LatLng extends JavaScriptObject {
   /**
    * LatLng is a point in geographical coordinates, latitude and longitude.
    */
-  protected LatLng() {}
-  
+  protected LatLng() {
+  }
+
   /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90&deg; and +90 &deg;, and longitude will be wrapped to lie between -180 &deg; and +180 &deg;.
+   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed,
+   * otherwise latitude will be clamped to lie between -90&deg; and +90 &deg;, and longitude will be wrapped to lie
+   * between -180 &deg; and +180 &deg;.
+   * 
    * @param lat
    * @param lng
    */
@@ -48,7 +54,10 @@ public class LatLng extends JavaScriptObject {
   }
 
   /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90&deg; and +90 &deg;, and longitude will be wrapped to lie between -180 &deg; and +180 &deg;.
+   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed,
+   * otherwise latitude will be clamped to lie between -90&deg; and +90 &deg;, and longitude will be wrapped to lie
+   * between -180 &deg; and +180 &deg;.
+   * 
    * @param lat
    * @param lng
    * @param noWrap
@@ -58,8 +67,10 @@ public class LatLng extends JavaScriptObject {
   }
 
   /**
-   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed, otherwise latitude will be clamped to lie between -90&deg; and +90&deg;, and longitude will be wrapped to lie between -180&deg; and +180&deg;.
-   * LatLng(lat:number, lng:number, noWrap?:boolean)
+   * Notice the ordering of latitude and longitude. If the noWrap flag is true, then the numbers will be used as passed,
+   * otherwise latitude will be clamped to lie between -90&deg; and +90&deg;, and longitude will be wrapped to lie
+   * between -180&deg; and +180&deg;. LatLng(lat:number, lng:number, noWrap?:boolean)
+   * 
    * @return LatLng
    */
   private static native LatLng createJso(double lat, double lng, boolean noWrap) /*-{
@@ -68,6 +79,7 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * is equal?
+   * 
    * @param other
    */
   public final native boolean equals(LatLng other) /*-{
@@ -76,14 +88,16 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * get latitude
+   * 
    * @return double
    */
   public final double getLatitude() {
-     return getLat();
+    return getLat();
   }
 
   /**
    * Returns the latitude in degrees.
+   * 
    * @return double
    */
   private final native double getLat() /*-{
@@ -92,6 +106,7 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * Returns the longitude in degrees.
+   * 
    * @return double
    */
   public final double getLongitude() {
@@ -100,6 +115,7 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * Returns the latitude in degrees.
+   * 
    * @return double
    */
   private final native double getLng() /*-{
@@ -115,6 +131,7 @@ public class LatLng extends JavaScriptObject {
 
   /**
    * Returns a string of the form "lat,lng" for this LatLng. We round the lat/lng values to 6 decimal places by default.
+   * 
    * @param precision
    * @return String
    */

@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class BoundsChangeMapEvent extends MapEvent<BoundsChangeMapHandler, BoundsChangeMapEvent> {
 
   public static Type<BoundsChangeMapHandler> TYPE = new Type<BoundsChangeMapHandler>();
-  
+
   public BoundsChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class BoundsChangeMapEvent extends MapEvent<BoundsChangeMapHandler, Bound
   protected void dispatch(BoundsChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

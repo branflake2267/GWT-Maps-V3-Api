@@ -25,48 +25,47 @@ import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
 public class TemperatureUnitGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.WEATHER };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.WEATHER };
+  }
 
-	public void testValueOf() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testValueOf() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				for (TemperatureUnit windUnit : TemperatureUnit.values()) {
-					assertEquals(windUnit,
-							TemperatureUnit.valueOf(windUnit.toString()));
-				}
+        for (TemperatureUnit windUnit : TemperatureUnit.values()) {
+          assertEquals(windUnit, TemperatureUnit.valueOf(windUnit.toString()));
+        }
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testReverseEngineer() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				reverseEngineerValues();
-				finishTest();
-			}
-		});
+  public void testReverseEngineer() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        reverseEngineerValues();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	protected void reverseEngineerValues() {
+  protected void reverseEngineerValues() {
 
-		for (TemperatureUnit tempUnit : TemperatureUnit.values()) {
-			String expected = reverseEngineer(tempUnit.toString());
-			assertEquals(expected, tempUnit.value());
-		}
-	}
+    for (TemperatureUnit tempUnit : TemperatureUnit.values()) {
+      String expected = reverseEngineer(tempUnit.toString());
+      assertEquals(expected, tempUnit.value());
+    }
+  }
 
-	private native String reverseEngineer(String type) /*-{
-		return $wnd.google.maps.weather.TemperatureUnit.valueOf()[type];
-	}-*/;
+  private native String reverseEngineer(String type) /*-{
+                                                     return $wnd.google.maps.weather.TemperatureUnit.valueOf()[type];
+                                                     }-*/;
 
 }

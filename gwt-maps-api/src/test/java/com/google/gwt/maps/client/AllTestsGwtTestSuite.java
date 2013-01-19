@@ -35,104 +35,93 @@ import com.google.gwt.maps.client.main.LoadApiGwtTest;
 
 public class AllTestsGwtTestSuite extends GWTTestSuite {
 
-	public static final String TARGET_CLASS_SUFFIX = "Test";
+  public static final String TARGET_CLASS_SUFFIX = "Test";
 
-	public static TestSuite suite() throws Exception {
+  public static TestSuite suite() throws Exception {
 
-		GWTTestSuite suite = new GWTTestSuite();
+    GWTTestSuite suite = new GWTTestSuite();
 
-		// be sure the libs get loaded at the beginning b/c they won't want to
-		// add the libs during
-		suite.addTestSuite(LoadApiGwtTest.class);
+    // be sure the libs get loaded at the beginning b/c they won't want to
+    // add the libs during
+    suite.addTestSuite(LoadApiGwtTest.class);
 
-		// don't run these twice
-		ArrayList<String> ignoreTestList = new ArrayList<String>();
-		ignoreTestList.add(LoadApiGwtTest.class.getName());
-		ignoreTestList.add(AbstractMapsGWTTestHelper.class.getName());
+    // don't run these twice
+    ArrayList<String> ignoreTestList = new ArrayList<String>();
+    ignoreTestList.add(LoadApiGwtTest.class.getName());
+    ignoreTestList.add(AbstractMapsGWTTestHelper.class.getName());
 
-		// make sure this test is run first to prime all library loads
-		suite.addTestSuite(LoadApiGwtTest.class);
+    // make sure this test is run first to prime all library loads
+    suite.addTestSuite(LoadApiGwtTest.class);
 
-		for (Class<? extends GWTTestCase> clazz : getClasses("com.google.gwt.maps.client")) {
-			if (!ignoreTestList.contains(clazz.getName())) {
-				suite.addTestSuite(clazz);
-			}
-		}
+    for (Class<? extends GWTTestCase> clazz : getClasses("com.google.gwt.maps.client")) {
+      if (!ignoreTestList.contains(clazz.getName())) {
+        suite.addTestSuite(clazz);
+      }
+    }
 
-		return suite;
-	}
+    return suite;
+  }
 
-	/**
-	 * Scans all classes accessible from the context class loader which belong
-	 * to the given package and sub-packages.
-	 * 
-	 * @param packageName
-	 *            The base package
-	 * @return The classes
-	 * @throws ClassNotFoundException
-	 * @throws IOException
-	 */
-	@SuppressWarnings("unchecked")
-	private static List<Class<? extends GWTTestCase>> getClasses(
-			String packageName) throws ClassNotFoundException, IOException {
-		ClassLoader classLoader = Thread.currentThread()
-				.getContextClassLoader();
-		assert classLoader != null;
-		String path = packageName.replace('.', '/');
-		Enumeration<URL> resources = classLoader.getResources(path);
-		List<File> dirs = new ArrayList<File>();
-		while (resources.hasMoreElements()) {
-			URL resource = resources.nextElement();
-			dirs.add(new File(resource.getFile()));
-		}
-		List<Class<? extends GWTTestCase>> classes = new ArrayList<Class<? extends GWTTestCase>>();
-		for (File directory : dirs) {
+  /**
+   * Scans all classes accessible from the context class loader which belong to the given package and sub-packages.
+   * 
+   * @param packageName The base package
+   * @return The classes
+   * @throws ClassNotFoundException
+   * @throws IOException
+   */
+  @SuppressWarnings("unchecked")
+  private static List<Class<? extends GWTTestCase>> getClasses(String packageName) throws ClassNotFoundException,
+      IOException {
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    assert classLoader != null;
+    String path = packageName.replace('.', '/');
+    Enumeration<URL> resources = classLoader.getResources(path);
+    List<File> dirs = new ArrayList<File>();
+    while (resources.hasMoreElements()) {
+      URL resource = resources.nextElement();
+      dirs.add(new File(resource.getFile()));
+    }
+    List<Class<? extends GWTTestCase>> classes = new ArrayList<Class<? extends GWTTestCase>>();
+    for (File directory : dirs) {
 
-			for (@SuppressWarnings("rawtypes")
-			Class dirClazz : findClasses(directory, packageName)) {
+      for (@SuppressWarnings("rawtypes")
+      Class dirClazz : findClasses(directory, packageName)) {
 
-				if (GWTTestCase.class.isAssignableFrom(dirClazz)) {
-					classes.add(dirClazz);
-				}
-			}
-		}
-		return classes;
-	}
+        if (GWTTestCase.class.isAssignableFrom(dirClazz)) {
+          classes.add(dirClazz);
+        }
+      }
+    }
+    return classes;
+  }
 
-	/**
-	 * Recursive method used to find all classes in a given directory and
-	 * subdirs.
-	 * 
-	 * @param directory
-	 *            The base directory
-	 * @param packageName
-	 *            The package name for classes found inside the base directory
-	 * @return The classes
-	 * @throws ClassNotFoundException
-	 */
-	@SuppressWarnings("rawtypes")
-	private static List<Class> findClasses(File directory, String packageName)
-			throws ClassNotFoundException {
+  /**
+   * Recursive method used to find all classes in a given directory and subdirs.
+   * 
+   * @param directory The base directory
+   * @param packageName The package name for classes found inside the base directory
+   * @return The classes
+   * @throws ClassNotFoundException
+   */
+  @SuppressWarnings("rawtypes")
+  private static List<Class> findClasses(File directory, String packageName) throws ClassNotFoundException {
 
-		final String targetSuffix = TARGET_CLASS_SUFFIX + ".class";
+    final String targetSuffix = TARGET_CLASS_SUFFIX + ".class";
 
-		List<Class> classes = new ArrayList<Class>();
-		if (!directory.exists()) {
-			return classes;
-		}
-		File[] files = directory.listFiles();
-		for (File file : files) {
-			if (file.isDirectory()) {
-				assert !file.getName().contains(".");
-				classes.addAll(findClasses(file,
-						packageName + "." + file.getName()));
-			} else if (file.getName().endsWith(targetSuffix)) {
-				classes.add(Class.forName(packageName
-						+ '.'
-						+ file.getName().substring(0,
-								file.getName().length() - 6)));
-			}
-		}
-		return classes;
-	}
+    List<Class> classes = new ArrayList<Class>();
+    if (!directory.exists()) {
+      return classes;
+    }
+    File[] files = directory.listFiles();
+    for (File file : files) {
+      if (file.isDirectory()) {
+        assert !file.getName().contains(".");
+        classes.addAll(findClasses(file, packageName + "." + file.getName()));
+      } else if (file.getName().endsWith(targetSuffix)) {
+        classes.add(Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
+      }
+    }
+    return classes;
+  }
 }

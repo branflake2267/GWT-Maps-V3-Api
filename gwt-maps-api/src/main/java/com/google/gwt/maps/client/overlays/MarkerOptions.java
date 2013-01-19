@@ -30,364 +30,353 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 /**
  * create Marker Options <br>
  * <br>
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions"
- * >MarkerOptions API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions" >MarkerOptions API
+ * Doc</a>
  */
 public class MarkerOptions extends JavaScriptObject {
 
-	/**
-	 * create Marker Options use newInstance();
-	 */
-	protected MarkerOptions() {
-	}
+  /**
+   * create Marker Options use newInstance();
+   */
+  protected MarkerOptions() {
+  }
 
-	/**
-	 * create Marker Options
-	 */
-	public final static MarkerOptions newInstance() {
-		return JavaScriptObject.createObject().cast();
-	}
+  /**
+   * create Marker Options
+   */
+  public final static MarkerOptions newInstance() {
+    return JavaScriptObject.createObject().cast();
+  }
 
-	public final void setAnimation(Animation animation) {
-	  setAnimationJsni(animation.value());
-	}
-	
-	/**
-	 * sets Which animation to play when marker is added to a map.
-	 * 
-	 * @param animation
-	 */
-	private final native void setAnimationJsni(Integer animation) /*-{
-		this.animation = animation;
-	}-*/;
+  public final void setAnimation(Animation animation) {
+    setAnimationJsni(animation.value());
+  }
 
-	public final Animation getAnimation() {
-	  return Animation.fromValue(getAnimationJsni());
-	}
-	
-	/**
-	 * gets Which animation to play when marker is added to a map.
-	 */
-	private final native Integer getAnimationJsni() /*-{
-		return this.animation;
-	}-*/;
+  /**
+   * sets Which animation to play when marker is added to a map.
+   * 
+   * @param animation
+   */
+  private final native void setAnimationJsni(Integer animation) /*-{
+    this.animation = animation;
+  }-*/;
 
-	/**
-	 * sets If true, the marker receives mouse and touch events. Default value
-	 * is true.
-	 * 
-	 * @param clickable
-	 */
-	public final native void setClickable(boolean clickable) /*-{
-		this.clickable = clickable;
-	}-*/;
+  public final Animation getAnimation() {
+    return Animation.fromValue(getAnimationJsni());
+  }
 
-	/**
-	 * gets If true, the marker receives mouse and touch events. Default value
-	 * is true.
-	 */
-	public final native boolean getClickable() /*-{
-		return this.clickable;
-	}-*/;
+  /**
+   * gets Which animation to play when marker is added to a map.
+   */
+  private final native Integer getAnimationJsni() /*-{
+    return this.animation;
+  }-*/;
 
-	/**
-	 * sets Mouse cursor to show on hover
-	 * 
-	 * @param cursor
-	 */
-	public final native void setCursor(String cursor) /*-{
-		this.cursor = cursor;
-	}-*/;
+  /**
+   * sets If true, the marker receives mouse and touch events. Default value is true.
+   * 
+   * @param clickable
+   */
+  public final native void setClickable(boolean clickable) /*-{
+    this.clickable = clickable;
+  }-*/;
 
-	/**
-	 * gets Mouse cursor to show on hover
-	 */
-	public final native String getCursor() /*-{
-		return this.cursor;
-	}-*/;
+  /**
+   * gets If true, the marker receives mouse and touch events. Default value is true.
+   */
+  public final native boolean getClickable() /*-{
+    return this.clickable;
+  }-*/;
 
-	/**
-	 * sets If true, the marker can be dragged. Default value is false.
-	 * 
-	 * @param draggable
-	 */
-	public final native void setDraggable(boolean draggable) /*-{
-		this.draggable = draggable;
-	}-*/;
+  /**
+   * sets Mouse cursor to show on hover
+   * 
+   * @param cursor
+   */
+  public final native void setCursor(String cursor) /*-{
+    this.cursor = cursor;
+  }-*/;
 
-	/**
-	 * gets If true, the marker can be dragged. Default value is false.
-	 */
-	public final native boolean getDraggable() /*-{
-		return this.draggable;
-	}-*/;
+  /**
+   * gets Mouse cursor to show on hover
+   */
+  public final native String getCursor() /*-{
+    return this.cursor;
+  }-*/;
 
-	/**
-	 * sets If true, the marker shadow will not be displayed.
-	 * 
-	 * @param flat
-	 */
-	public final native void setFlat(boolean flat) /*-{
-		this.flat = flat;
-	}-*/;
+  /**
+   * sets If true, the marker can be dragged. Default value is false.
+   * 
+   * @param draggable
+   */
+  public final native void setDraggable(boolean draggable) /*-{
+    this.draggable = draggable;
+  }-*/;
 
-	/**
-	 * gets If true, the marker shadow will not be displayed.
-	 */
-	public final native boolean getFlat() /*-{
-		return this.flat;
-	}-*/;
+  /**
+   * gets If true, the marker can be dragged. Default value is false.
+   */
+  public final native boolean getDraggable() /*-{
+    return this.draggable;
+  }-*/;
 
-	/**
-	 * sets Icon for the foreground
-	 * 
-	 * @param icon
-	 */
-	public final native void setIcon(String icon) /*-{
-		this.icon = icon;
-	}-*/;
+  /**
+   * sets If true, the marker shadow will not be displayed.
+   * 
+   * @param flat
+   */
+  public final native void setFlat(boolean flat) /*-{
+    this.flat = flat;
+  }-*/;
 
-	/**
-	 * gets Icon for the foreground
-	 */
-	public final native String getIcon_String() /*-{
-		return this.icon;
-	}-*/;
+  /**
+   * gets If true, the marker shadow will not be displayed.
+   */
+  public final native boolean getFlat() /*-{
+    return this.flat;
+  }-*/;
 
-	/**
-	 * sets Map on which to display Marker.
-	 * 
-	 * @param icon
-	 */
-	public final native void setIcon(MarkerImage icon) /*-{
-		this.icon = icon;
-	}-*/;
+  /**
+   * sets Icon for the foreground
+   * 
+   * @param icon
+   */
+  public final native void setIcon(String icon) /*-{
+    this.icon = icon;
+  }-*/;
 
-	/**
-	 * gets Map on which to display Marker.
-	 */
-	public final native MarkerImage getIcon_MarkerImage() /*-{
-		return this.icon;
-	}-*/;
+  /**
+   * gets Icon for the foreground
+   */
+  public final native String getIcon_String() /*-{
+    return this.icon;
+  }-*/;
 
-	/**
-	 * sets Map on which to display Polyline.
-	 * 
-	 * @param mapWidget
-	 */
-	public final void setMap(MapWidget mapWidget) {
-		if (mapWidget == null) {
-			setMapImpl(null);
-		} else {
-			setMapImpl(mapWidget.getJso());
-		}
-	}
+  /**
+   * sets Map on which to display Marker.
+   * 
+   * @param icon
+   */
+  public final native void setIcon(MarkerImage icon) /*-{
+    this.icon = icon;
+  }-*/;
 
-	private final native void setMapImpl(MapImpl map) /*-{
-		this.map = map;
-	}-*/;
+  /**
+   * gets Map on which to display Marker.
+   */
+  public final native MarkerImage getIcon_MarkerImage() /*-{
+    return this.icon;
+  }-*/;
 
-	/**
-	 * Gets Map on which to display Polyline.
-	 */
-	public final MapWidget getMap() {
-		MapImpl obj = getMapImpl();
-		return obj != null ? MapWidget.newInstance(obj) : null;
-	}
+  /**
+   * sets Map on which to display Polyline.
+   * 
+   * @param mapWidget
+   */
+  public final void setMap(MapWidget mapWidget) {
+    if (mapWidget == null) {
+      setMapImpl(null);
+    } else {
+      setMapImpl(mapWidget.getJso());
+    }
+  }
 
-	/**
-	 * Gets Map on which to display Polyline. <br>
-	 * <br>
-	 * See {@link #getMap()}
-	 */
-	@Deprecated
-	public final MapWidget getMapWidget() {
-		MapImpl obj = getMapImpl();
-		return obj != null ? MapWidget.newInstance(obj) : null;
-	}
+  private final native void setMapImpl(MapImpl map) /*-{
+    this.map = map;
+  }-*/;
 
-	private final native MapImpl getMapImpl() /*-{
-		return this.map;
-	}-*/;
+  /**
+   * Gets Map on which to display Polyline.
+   */
+  public final MapWidget getMap() {
+    MapImpl obj = getMapImpl();
+    return obj != null ? MapWidget.newInstance(obj) : null;
+  }
 
-	public final void setMap(StreetViewPanoramaWidget streetViewPanoramaWidget) {
-		setStreetViewMapImpl(streetViewPanoramaWidget.getJso());
-	}
+  /**
+   * Gets Map on which to display Polyline. <br>
+   * <br>
+   * See {@link #getMap()}
+   */
+  @Deprecated
+  public final MapWidget getMapWidget() {
+    MapImpl obj = getMapImpl();
+    return obj != null ? MapWidget.newInstance(obj) : null;
+  }
 
-	private final native void setStreetViewMapImpl(StreetViewPanoramaImpl map) /*-{
-		this.map = map;
-	}-*/;
+  private final native MapImpl getMapImpl() /*-{
+    return this.map;
+  }-*/;
 
-	/**
-	 * gets Map on which to display Marker.
-	 */
-	public final StreetViewPanoramaWidget getMapStreetViewPanoramaWidget() {
-		return StreetViewPanoramaWidget.newInstance(getMapImpl_Street());
-	}
+  public final void setMap(StreetViewPanoramaWidget streetViewPanoramaWidget) {
+    setStreetViewMapImpl(streetViewPanoramaWidget.getJso());
+  }
 
-	private final native StreetViewPanoramaImpl getMapImpl_Street() /*-{
-		return this.map;
-	}-*/;
+  private final native void setStreetViewMapImpl(StreetViewPanoramaImpl map) /*-{
+    this.map = map;
+  }-*/;
 
-	/**
-	 * sets Optimization renders many markers as a single static element.
-	 * Optimized rendering is enabled by default. Disable optimized rendering
-	 * for animated GIFs or PNGs, or when each marker must be rendered as a
-	 * separate DOM element (advanced usage only).
-	 * 
-	 * @param optimized
-	 */
-	public final native void setOptimized(boolean optimized) /*-{
-		this.optimized = optimized;
-	}-*/;
+  /**
+   * gets Map on which to display Marker.
+   */
+  public final StreetViewPanoramaWidget getMapStreetViewPanoramaWidget() {
+    return StreetViewPanoramaWidget.newInstance(getMapImpl_Street());
+  }
 
-	/**
-	 * gets Optimization renders many markers as a single static element.
-	 * Optimized rendering is enabled by default. Disable optimized rendering
-	 * for animated GIFs or PNGs, or when each marker must be rendered as a
-	 * separate DOM element (advanced usage only).
-	 */
-	public final native boolean getOptimized() /*-{
-		return this.optimized;
-	}-*/;
+  private final native StreetViewPanoramaImpl getMapImpl_Street() /*-{
+    return this.map;
+  }-*/;
 
-	/**
-	 * sets Marker position. Required.
-	 * 
-	 * @param position
-	 */
-	public final native void setPosition(LatLng position) /*-{
-		this.position = position;
-	}-*/;
+  /**
+   * sets Optimization renders many markers as a single static element. Optimized rendering is enabled by default.
+   * Disable optimized rendering for animated GIFs or PNGs, or when each marker must be rendered as a separate DOM
+   * element (advanced usage only).
+   * 
+   * @param optimized
+   */
+  public final native void setOptimized(boolean optimized) /*-{
+    this.optimized = optimized;
+  }-*/;
 
-	/**
-	 * gets Marker position. Required.
-	 */
-	public final native LatLng getPosition() /*-{
-		return this.position;
-	}-*/;
+  /**
+   * gets Optimization renders many markers as a single static element. Optimized rendering is enabled by default.
+   * Disable optimized rendering for animated GIFs or PNGs, or when each marker must be rendered as a separate DOM
+   * element (advanced usage only).
+   */
+  public final native boolean getOptimized() /*-{
+    return this.optimized;
+  }-*/;
 
-	/**
-	 * sets If false, disables raising and lowering the marker on drag. This
-	 * option is true by default.
-	 * 
-	 * @param raiseOnDrag
-	 */
-	public final native void setRaiseOnDrag(boolean raiseOnDrag) /*-{
-		this.raiseOnDrag = raiseOnDrag;
-	}-*/;
+  /**
+   * sets Marker position. Required.
+   * 
+   * @param position
+   */
+  public final native void setPosition(LatLng position) /*-{
+    this.position = position;
+  }-*/;
 
-	/**
-	 * gets If false, disables raising and lowering the marker on drag. This
-	 * option is true by default.
-	 */
-	public final native boolean getRaiseOnDrag() /*-{
-		return this.raiseOnDrag;
-	}-*/;
+  /**
+   * gets Marker position. Required.
+   */
+  public final native LatLng getPosition() /*-{
+    return this.position;
+  }-*/;
 
-	/**
-	 * sets Shadow image
-	 * 
-	 * @param shadow
-	 */
-	public final native void setShadow(String shadow) /*-{
-		this.shadow = shadow;
-	}-*/;
+  /**
+   * sets If false, disables raising and lowering the marker on drag. This option is true by default.
+   * 
+   * @param raiseOnDrag
+   */
+  public final native void setRaiseOnDrag(boolean raiseOnDrag) /*-{
+    this.raiseOnDrag = raiseOnDrag;
+  }-*/;
 
-	/**
-	 * gets Shadow image
-	 */
-	public final native String getShadow_String() /*-{
-		return this.shadow;
-	}-*/;
+  /**
+   * gets If false, disables raising and lowering the marker on drag. This option is true by default.
+   */
+  public final native boolean getRaiseOnDrag() /*-{
+    return this.raiseOnDrag;
+  }-*/;
 
-	/**
-	 * sets Shadow image
-	 * 
-	 * @param shadow
-	 */
-	public final native void setShadow(MarkerImage shadow) /*-{
-		this.shadow = shadow;
-	}-*/;
+  /**
+   * sets Shadow image
+   * 
+   * @param shadow
+   */
+  public final native void setShadow(String shadow) /*-{
+    this.shadow = shadow;
+  }-*/;
 
-	/**
-	 * gets Shadow image
-	 */
-	public final native MarkerImage getShadow_MarkerImage() /*-{
-		return this.shadow;
-	}-*/;
+  /**
+   * gets Shadow image
+   */
+  public final native String getShadow_String() /*-{
+    return this.shadow;
+  }-*/;
 
-	/**
-	 * sets Image map region definition used for drag/click.
-	 * 
-	 * @param shape
-	 */
-	public final native void setShape(MarkerShape shape) /*-{
-		this.shape = shape;
-	}-*/;
+  /**
+   * sets Shadow image
+   * 
+   * @param shadow
+   */
+  public final native void setShadow(MarkerImage shadow) /*-{
+    this.shadow = shadow;
+  }-*/;
 
-	/**
-	 * gets Image map region definition used for drag/click.
-	 */
-	public final native MarkerShape getShape() /*-{
-		return this.shape;
-	}-*/;
+  /**
+   * gets Shadow image
+   */
+  public final native MarkerImage getShadow_MarkerImage() /*-{
+    return this.shadow;
+  }-*/;
 
-	/**
-	 * sets Rollover text
-	 * 
-	 * @param title
-	 */
-	public final native void setTitle(String title) /*-{
-		this.title = title;
-	}-*/;
+  /**
+   * sets Image map region definition used for drag/click.
+   * 
+   * @param shape
+   */
+  public final native void setShape(MarkerShape shape) /*-{
+    this.shape = shape;
+  }-*/;
 
-	/**
-	 * gets Rollover text
-	 */
-	public final native String getTitle() /*-{
-		return this.title;
-	}-*/;
+  /**
+   * gets Image map region definition used for drag/click.
+   */
+  public final native MarkerShape getShape() /*-{
+    return this.shape;
+  }-*/;
 
-	/**
-	 * sets If true, the marker is visible
-	 * 
-	 * @param visible
-	 */
-	public final native void setVisible(boolean visible) /*-{
-		this.visible = visible;
-	}-*/;
+  /**
+   * sets Rollover text
+   * 
+   * @param title
+   */
+  public final native void setTitle(String title) /*-{
+    this.title = title;
+  }-*/;
 
-	/**
-	 * gets If true, the marker is visible
-	 */
-	public final native boolean getVisible() /*-{
-		return this.visible;
-	}-*/;
+  /**
+   * gets Rollover text
+   */
+  public final native String getTitle() /*-{
+    return this.title;
+  }-*/;
 
-	/**
-	 * sets All markers are displayed on the map in order of their zIndex, with
-	 * higher values displaying in front of markers with lower values. By
-	 * default, markers are displayed according to their vertical position on
-	 * screen, with lower markers appearing in front of markers further up the
-	 * screen.
-	 * 
-	 * @param zIndex
-	 */
-	public final native void setZindex(int zIndex) /*-{
-		this.zIndex = zIndex;
-	}-*/;
+  /**
+   * sets If true, the marker is visible
+   * 
+   * @param visible
+   */
+  public final native void setVisible(boolean visible) /*-{
+    this.visible = visible;
+  }-*/;
 
-	/**
-	 * gets All markers are displayed on the map in order of their zIndex, with
-	 * higher values displaying in front of markers with lower values. By
-	 * default, markers are displayed according to their vertical position on
-	 * screen, with lower markers appearing in front of markers further up the
-	 * screen.
-	 */
-	public final native int getZindex() /*-{
-		return this.zIndex;
-	}-*/;
+  /**
+   * gets If true, the marker is visible
+   */
+  public final native boolean getVisible() /*-{
+    return this.visible;
+  }-*/;
+
+  /**
+   * sets All markers are displayed on the map in order of their zIndex, with higher values displaying in front of
+   * markers with lower values. By default, markers are displayed according to their vertical position on screen, with
+   * lower markers appearing in front of markers further up the screen.
+   * 
+   * @param zIndex
+   */
+  public final native void setZindex(int zIndex) /*-{
+    this.zIndex = zIndex;
+  }-*/;
+
+  /**
+   * gets All markers are displayed on the map in order of their zIndex, with higher values displaying in front of
+   * markers with lower values. By default, markers are displayed according to their vertical position on screen, with
+   * lower markers appearing in front of markers further up the screen.
+   */
+  public final native int getZindex() /*-{
+    return this.zIndex;
+  }-*/;
 
 }

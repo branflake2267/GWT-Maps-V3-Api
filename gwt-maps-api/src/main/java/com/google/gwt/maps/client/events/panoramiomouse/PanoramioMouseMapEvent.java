@@ -47,7 +47,8 @@ public class PanoramioMouseMapEvent extends MapEvent<PanoramioMouseMapHandler, P
 
   /**
    * A PanoramioFeature object containing information about the clicked feature.
-   * @return {@link PanoramioFeature} 
+   * 
+   * @return {@link PanoramioFeature}
    */
   public PanoramioFeature getFeatureDetails() {
     PanoramioFeature feature = null;
@@ -56,16 +57,16 @@ public class PanoramioMouseMapEvent extends MapEvent<PanoramioMouseMapHandler, P
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return feature ;
+    return feature;
   }
-  
+
   /**
    * Pre-rendered HTML content, as placed in the infowindow by the default UI.
    */
   public String getInfoWindowHtml() {
     String infoWindowHtml = null;
     try {
-      infoWindowHtml  = properties.getString("infoWindowHtml");
+      infoWindowHtml = properties.getString("infoWindowHtml");
     } catch (TypeException e) {
       e.printStackTrace();
     }
@@ -74,6 +75,7 @@ public class PanoramioMouseMapEvent extends MapEvent<PanoramioMouseMapHandler, P
 
   /**
    * The position at which to anchor an infowindow on the clicked feature.
+   * 
    * @return {@link LatLng}
    */
   public LatLng getLatLng() {
@@ -98,5 +100,5 @@ public class PanoramioMouseMapEvent extends MapEvent<PanoramioMouseMapHandler, P
     }
     return pixelOffset;
   }
-  
+
 }

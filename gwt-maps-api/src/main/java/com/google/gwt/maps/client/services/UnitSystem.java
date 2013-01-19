@@ -21,8 +21,8 @@ package com.google.gwt.maps.client.services;
  */
 
 /**
- * The valid unit systems that can be specified in a DirectionsRequest.
- * <br><br>
+ * The valid unit systems that can be specified in a DirectionsRequest. <br>
+ * <br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#UnitSystem">UnitSystem API Doc</a>
  */
 public enum UnitSystem {
@@ -63,5 +63,5 @@ public enum UnitSystem {
   public String toString() {
     return name() + "(" + type + ")";
   }
-  
+
 }

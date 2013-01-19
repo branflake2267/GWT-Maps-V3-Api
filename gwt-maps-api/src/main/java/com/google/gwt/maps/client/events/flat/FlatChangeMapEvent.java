@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class FlatChangeMapEvent extends MapEvent<FlatChangeMapHandler, FlatChangeMapEvent> {
 
   public static Type<FlatChangeMapHandler> TYPE = new Type<FlatChangeMapHandler>();
-  
+
   public FlatChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class FlatChangeMapEvent extends MapEvent<FlatChangeMapHandler, FlatChang
   protected void dispatch(FlatChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

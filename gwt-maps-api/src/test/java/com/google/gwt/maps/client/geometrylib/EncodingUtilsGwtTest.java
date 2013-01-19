@@ -29,53 +29,53 @@ import com.google.gwt.maps.client.mvc.MVCArray;
 
 public class EncodingUtilsGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.GEOMETRY };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.GEOMETRY };
+  }
 
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng[] array = new LatLng[3];
-				array[0] = LatLng.newInstance(49.496675, -102.65625);
-				array[1] = LatLng.newInstance(50.496675, -103.65625);
-				array[2] = LatLng.newInstance(51.496675, -104.65625);
-				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
-				String encodedPath = EncodingUtils.encodePath(path);
-				assertEquals("gibmHp`qqR_ibE~hbE_ibE~hbE", encodedPath);
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng[] array = new LatLng[3];
+        array[0] = LatLng.newInstance(49.496675, -102.65625);
+        array[1] = LatLng.newInstance(50.496675, -103.65625);
+        array[2] = LatLng.newInstance(51.496675, -104.65625);
+        JsArray<LatLng> path = ArrayHelper.toJsArray(array);
+        String encodedPath = EncodingUtils.encodePath(path);
+        assertEquals("gibmHp`qqR_ibE~hbE_ibE~hbE", encodedPath);
 
-				JsArray<LatLng> array2 = EncodingUtils.decodePath(encodedPath);
-				assertEquals(array.length, array2.length());
+        JsArray<LatLng> array2 = EncodingUtils.decodePath(encodedPath);
+        assertEquals(array.length, array2.length());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testUse2() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng[] array = new LatLng[3];
-				array[0] = LatLng.newInstance(49.496675, -102.65625);
-				array[1] = LatLng.newInstance(50.496675, -103.65625);
-				array[2] = LatLng.newInstance(51.496675, -104.65625);
+  public void testUse2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng[] array = new LatLng[3];
+        array[0] = LatLng.newInstance(49.496675, -102.65625);
+        array[1] = LatLng.newInstance(50.496675, -103.65625);
+        array[2] = LatLng.newInstance(51.496675, -104.65625);
 
-				JsArray<LatLng> path = ArrayHelper.toJsArray(array);
-				MVCArray<LatLng> path2 = MVCArray.newInstance(path);
-				String encodedPath = EncodingUtils.encodePath(path2);
-				assertEquals("gibmHp`qqR_ibE~hbE_ibE~hbE", encodedPath);
+        JsArray<LatLng> path = ArrayHelper.toJsArray(array);
+        MVCArray<LatLng> path2 = MVCArray.newInstance(path);
+        String encodedPath = EncodingUtils.encodePath(path2);
+        assertEquals("gibmHp`qqR_ibE~hbE_ibE~hbE", encodedPath);
 
-				JsArray<LatLng> array2 = EncodingUtils.decodePath(encodedPath);
-				assertEquals(array.length, array2.length());
+        JsArray<LatLng> array2 = EncodingUtils.decodePath(encodedPath);
+        assertEquals(array.length, array2.length());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
 }

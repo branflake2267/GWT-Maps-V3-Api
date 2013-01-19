@@ -51,7 +51,7 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
   public String getInfoWindowHtml() {
     String infoWindowHtml = null;
     try {
-      infoWindowHtml  = properties.getString("infoWindowHtml");
+      infoWindowHtml = properties.getString("infoWindowHtml");
     } catch (TypeException e) {
       e.printStackTrace();
     }
@@ -60,6 +60,7 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
 
   /**
    * The position at which to anchor an infowindow on the clicked feature.
+   * 
    * @return {@link LatLng}
    */
   public LatLng getLatLng() {
@@ -86,14 +87,17 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
   }
 
   /**
-   * returns A collection of FusionTablesCell objects, indexed by column name, representing the contents of the table row which included the clicked feature.
+   * returns A collection of FusionTablesCell objects, indexed by column name, representing the contents of the table
+   * row which included the clicked feature.
    */
   public JavaScriptObject getRow() {
     return parseRow();
   }
-  
+
   /**
-   * A collection of FusionTablesCell objects, indexed by column name, representing the contents of the table row which included the clicked feature.
+   * A collection of FusionTablesCell objects, indexed by column name, representing the contents of the table row which
+   * included the clicked feature.
+   * 
    * @return as JSON string
    */
   public String getRowAsJson() {
@@ -101,17 +105,18 @@ public class FusionTablesMouseMapEvent extends MapEvent<FusionTablesMouseMapHand
   }
 
   /**
-   * returns a jso that would read possibly 
-   *    like ({station:{columnName:"station", value:"Chicago"}, address:{columnName:"address", value:"800 N. State St., Chicago, IL"}, ridership:{columnName:"ridership", value:"13531"}})
+   * returns a jso that would read possibly like ({station:{columnName:"station", value:"Chicago"},
+   * address:{columnName:"address", value:"800 N. State St., Chicago, IL"}, ridership:{columnName:"ridership",
+   * value:"13531"}})
    */
   private JavaScriptObject parseRow() {
     JavaScriptObject row = null;
-    try { 
+    try {
       row = properties.getObject("row");
     } catch (TypeException e) {
       e.printStackTrace();
     }
     return row;
   }
-  
+
 }

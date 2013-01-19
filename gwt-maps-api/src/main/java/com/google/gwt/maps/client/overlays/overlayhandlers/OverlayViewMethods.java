@@ -27,22 +27,21 @@ import com.google.gwt.maps.client.overlays.MapCanvasProjection;
 import com.google.gwt.maps.client.overlays.MapPanes;
 
 public class OverlayViewMethods extends JavaScriptObject {
-  
+
   protected OverlayViewMethods() {
   }
-  
+
   /**
-   * Returns the MapCanvasProjection object associated with this OverlayView.
-   * Only available after draw has been called.
+   * Returns the MapCanvasProjection object associated with this OverlayView. Only available after draw has been called.
    */
   public final native MapCanvasProjection getProjection() /*-{
     return this.getProjection();
   }-*/;
-  
+
   public final native JavaScriptObject getJso() /*-{
     return this;
   }-*/;
-  
+
   public final MapWidget getMap() {
     MapImpl val = getMapImpl();
     return val == null ? null : MapWidget.newInstance(val);
@@ -53,11 +52,10 @@ public class OverlayViewMethods extends JavaScriptObject {
   }-*/;
 
   /**
-   * Returns the panes in which this OverlayView can be rendered. Only
-   * available after draw has been called.
+   * Returns the panes in which this OverlayView can be rendered. Only available after draw has been called.
    */
   public final native MapPanes getPanes() /*-{
     return this.getPanes();
   }-*/;
-  
+
 }

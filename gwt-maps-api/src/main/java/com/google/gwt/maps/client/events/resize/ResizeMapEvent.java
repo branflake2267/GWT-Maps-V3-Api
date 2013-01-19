@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ResizeMapEvent extends MapEvent<ResizeMapHandler, ResizeMapEvent> {
 
   public static Type<ResizeMapHandler> TYPE = new Type<ResizeMapHandler>();
-  
+
   public ResizeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ResizeMapEvent extends MapEvent<ResizeMapHandler, ResizeMapEvent> {
   protected void dispatch(ResizeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

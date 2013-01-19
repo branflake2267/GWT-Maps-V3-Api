@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ChannelNumberChangeMapEvent extends MapEvent<ChannelNumberChangeMapHandler, ChannelNumberChangeMapEvent> {
 
   public static Type<ChannelNumberChangeMapHandler> TYPE = new Type<ChannelNumberChangeMapHandler>();
-  
+
   public ChannelNumberChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ChannelNumberChangeMapEvent extends MapEvent<ChannelNumberChangeMap
   protected void dispatch(ChannelNumberChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

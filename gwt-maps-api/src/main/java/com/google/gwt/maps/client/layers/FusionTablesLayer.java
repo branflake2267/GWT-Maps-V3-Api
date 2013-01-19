@@ -31,19 +31,25 @@ import com.google.gwt.maps.client.events.fusiontablemouse.FusionTablesMouseMapHa
 import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
- * A FusionTablesLayer allows you to display data from a Google Fusion Table on a map, as a rendered layer. (See <a href="https://developers.google.com/fusiontables/">Fusion Table site</a>). Table data can be queried using the same query language as is used in the Fusion Tables API. This class extends MVCObject.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesLayer">FusionTablesLayer API Doc</a>
+ * A FusionTablesLayer allows you to display data from a Google Fusion Table on a map, as a rendered layer. (See <a
+ * href="https://developers.google.com/fusiontables/">Fusion Table site</a>). Table data can be queried using the same
+ * query language as is used in the Fusion Tables API. This class extends MVCObject. <br>
+ * <br>
+ * See <a
+ * href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesLayer">FusionTablesLayer API
+ * Doc</a>
  */
 public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
-  
+
   /**
    * use newInstance();
    */
-  protected FusionTablesLayer() {}
+  protected FusionTablesLayer() {
+  }
 
   /**
    * A layer that displays data from a Fusion Table.
+   * 
    * @param options
    */
   public final static FusionTablesLayer newInstance(FusionTablesLayerOptions options) {
@@ -53,9 +59,10 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   private static native JavaScriptObject createJso(FusionTablesLayerOptions options) /*-{
     return new $wnd.google.maps.FusionTablesLayer(options);
   }-*/;
-  
+
   /**
    * Renders the layer on the specified map. If map is set to null, the layer will be removed.
+   * 
    * @param mapWidget
    */
   public final void setMap(MapWidget mapWidget) {
@@ -69,7 +76,7 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   private final native void setMapImpl(MapImpl map) /*-{
     this.setMap(map);
   }-*/;
-  
+
   /**
    * Returns the map on which this layer is displayed.
    */
@@ -80,17 +87,19 @@ public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   private final native MapImpl getMapImpl() /*-{
     return this.getMap();
   }-*/;
-  
+
   /**
    * set Options
+   * 
    * @param options
    */
   public final native void setOptions(FusionTablesLayerOptions options) /*-{
     this.setOptions(options);
   }-*/;
-  
+
   /**
    * This event is fired when a feature in the layer is clicked.
+   * 
    * @param handler
    */
   public final HandlerRegistration addClickHandler(FusionTablesMouseMapHandler handler) {

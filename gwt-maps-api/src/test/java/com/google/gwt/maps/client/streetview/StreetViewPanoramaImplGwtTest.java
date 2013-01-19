@@ -28,37 +28,35 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class StreetViewPanoramaImplGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng position = LatLng.newInstance(21.271525, -157.822731);
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng position = LatLng.newInstance(21.271525, -157.822731);
 
-				StreetViewPov pov = StreetViewPov.newInstance();
-				pov.setHeading(250);
-				pov.setZoom(1);
-				pov.setPitch(10);
+        StreetViewPov pov = StreetViewPov.newInstance();
+        pov.setHeading(250);
+        pov.setZoom(1);
+        pov.setPitch(10);
 
-				StreetViewPanoramaOptions options = StreetViewPanoramaOptions
-						.newInstance();
-				options.setPosition(position);
-				options.setStreeViewPov(pov);
+        StreetViewPanoramaOptions options = StreetViewPanoramaOptions.newInstance();
+        options.setPosition(position);
+        options.setStreeViewPov(pov);
 
-				FlowPanel fp = new FlowPanel();
-				RootPanel.get().add(fp);
-				StreetViewPanoramaImpl wStreet = StreetViewPanoramaImpl
-						.newInstance(fp.getElement(), options);
+        FlowPanel fp = new FlowPanel();
+        RootPanel.get().add(fp);
+        StreetViewPanoramaImpl wStreet = StreetViewPanoramaImpl.newInstance(fp.getElement(), options);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
 }

@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ShadowChangeMapEvent extends MapEvent<ShadowChangeMapHandler, ShadowChangeMapEvent> {
 
   public static Type<ShadowChangeMapHandler> TYPE = new Type<ShadowChangeMapHandler>();
-  
+
   public ShadowChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ShadowChangeMapEvent extends MapEvent<ShadowChangeMapHandler, Shado
   protected void dispatch(ShadowChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

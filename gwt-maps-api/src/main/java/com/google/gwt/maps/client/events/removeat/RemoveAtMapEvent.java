@@ -27,7 +27,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class RemoveAtMapEvent extends MapEvent<RemoveAtMapHandler, RemoveAtMapEvent> {
 
   public static Type<RemoveAtMapHandler> TYPE = new Type<RemoveAtMapHandler>();
-  
+
   public RemoveAtMapEvent(Properties properties) {
     super(properties);
   }
@@ -41,7 +41,7 @@ public class RemoveAtMapEvent extends MapEvent<RemoveAtMapHandler, RemoveAtMapEv
   protected void dispatch(RemoveAtMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
   public int getIndex() {
     int index = -1;
     try {
@@ -50,5 +50,5 @@ public class RemoveAtMapEvent extends MapEvent<RemoveAtMapHandler, RemoveAtMapEv
     }
     return index;
   }
-  
+
 }

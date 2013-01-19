@@ -42,93 +42,90 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class DirectionsServiceGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.PLACES };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.PLACES };
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse1() {
-		boolean sensor = false;
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.PLACES);
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DirectionsService o = DirectionsService.newInstance();
-				finishTest();
-			}
-		});
-	}
+  @SuppressWarnings("unused")
+  public void testUse1() {
+    boolean sensor = false;
+    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
+    loadLibraries.add(LoadLibrary.PLACES);
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DirectionsService o = DirectionsService.newInstance();
+        finishTest();
+      }
+    });
+  }
 
-	public void testRoute() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testRoute() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				LatLng center = LatLng.newInstance(37.7699298, -122.4469157);
+        LatLng center = LatLng.newInstance(37.7699298, -122.4469157);
 
-				MapOptions optionsMap = MapOptions.newInstance();
-				optionsMap.setCenter(center);
-				optionsMap.setZoom(14);
-				optionsMap.setMapTypeId(MapTypeId.ROADMAP);
+        MapOptions optionsMap = MapOptions.newInstance();
+        optionsMap.setCenter(center);
+        optionsMap.setZoom(14);
+        optionsMap.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(optionsMap);
-				RootPanel.get().add(mapWidget);
+        MapWidget mapWidget = new MapWidget(optionsMap);
+        RootPanel.get().add(mapWidget);
 
-				DirectionsRendererOptions options = DirectionsRendererOptions
-						.newInstance();
-				final DirectionsRenderer directionsDisplay = DirectionsRenderer
-						.newInstance(options);
-				directionsDisplay.setMap(mapWidget);
+        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+        final DirectionsRenderer directionsDisplay = DirectionsRenderer.newInstance(options);
+        directionsDisplay.setMap(mapWidget);
 
-				// LatLng origin = LatLng.newInstance(37.7699298, -122.4469157);
-				// LatLng destination = LatLng.newInstance(37.7683909618184,
-				// -122.51089453697205);
+        // LatLng origin = LatLng.newInstance(37.7699298, -122.4469157);
+        // LatLng destination = LatLng.newInstance(37.7683909618184,
+        // -122.51089453697205);
 
-				String origin = "Arlington, WA";
-				String destination = "Seattle, WA";
+        String origin = "Arlington, WA";
+        String destination = "Seattle, WA";
 
-				DirectionsRequest request = DirectionsRequest.newInstance();
-				request.setOrigin(origin);
-				request.setDestination(destination);
-				request.setTravelMode(TravelMode.DRIVING);
+        DirectionsRequest request = DirectionsRequest.newInstance();
+        request.setOrigin(origin);
+        request.setDestination(destination);
+        request.setTravelMode(TravelMode.DRIVING);
 
-				DirectionsService o = DirectionsService.newInstance();
+        DirectionsService o = DirectionsService.newInstance();
 
-				// fix for debugging mode
-				WorkAroundUtils.removeGwtObjectId(o);
-				WorkAroundUtils.removeGwtObjectId(request);
+        // fix for debugging mode
+        WorkAroundUtils.removeGwtObjectId(o);
+        WorkAroundUtils.removeGwtObjectId(request);
 
-				o.route(request, new DirectionsResultHandler() {
-					@Override
-					public void onCallback(DirectionsResult result,
-							DirectionsStatus status) {
-						if (status == DirectionsStatus.OK) {
-							directionsDisplay.setDirections(result);
-							assertTrue(true);
+        o.route(request, new DirectionsResultHandler() {
+          @Override
+          public void onCallback(DirectionsResult result, DirectionsStatus status) {
+            if (status == DirectionsStatus.OK) {
+              directionsDisplay.setDirections(result);
+              assertTrue(true);
 
-						} else if (status == DirectionsStatus.INVALID_REQUEST) {
-							fail();
-						} else if (status == DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {
-							fail();
-						} else if (status == DirectionsStatus.NOT_FOUND) {
-							fail();
-						} else if (status == DirectionsStatus.OVER_QUERY_LIMIT) {
-							fail();
-						} else if (status == DirectionsStatus.REQUEST_DENIED) {
-							fail();
-						} else if (status == DirectionsStatus.UNKNOWN_ERROR) {
-							fail();
-						} else if (status == DirectionsStatus.ZERO_RESULTS) {
-							fail();
-						}
+            } else if (status == DirectionsStatus.INVALID_REQUEST) {
+              fail();
+            } else if (status == DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {
+              fail();
+            } else if (status == DirectionsStatus.NOT_FOUND) {
+              fail();
+            } else if (status == DirectionsStatus.OVER_QUERY_LIMIT) {
+              fail();
+            } else if (status == DirectionsStatus.REQUEST_DENIED) {
+              fail();
+            } else if (status == DirectionsStatus.UNKNOWN_ERROR) {
+              fail();
+            } else if (status == DirectionsStatus.ZERO_RESULTS) {
+              fail();
+            }
 
-						finishTest();
-					}
-				});
+            finishTest();
+          }
+        });
 
-			}
-		});
-	}
+      }
+    });
+  }
 }

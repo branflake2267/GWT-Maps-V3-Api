@@ -27,7 +27,7 @@ import com.google.gwt.maps.client.events.MouseEvent;
 public class DblClickMapEvent extends MapEvent<DblClickMapHandler, DblClickMapEvent> {
 
   public static Type<DblClickMapHandler> TYPE = new Type<DblClickMapHandler>();
-  
+
   public DblClickMapEvent(Properties properties) {
     super(properties);
   }
@@ -45,5 +45,5 @@ public class DblClickMapEvent extends MapEvent<DblClickMapHandler, DblClickMapEv
   public MouseEvent getMouseEvent() {
     return new MouseEvent(properties);
   }
-  
+
 }

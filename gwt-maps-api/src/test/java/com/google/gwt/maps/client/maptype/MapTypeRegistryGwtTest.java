@@ -31,48 +31,46 @@ import com.google.gwt.maps.client.maptypes.StyledMapTypeOptions;
 
 public class MapTypeRegistryGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapTypeRegistry o = MapTypeRegistry.newInstance();
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapTypeRegistry o = MapTypeRegistry.newInstance();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testSet() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapTypeRegistry o = MapTypeRegistry.newInstance();
-				assertNotNull(o);
+  public void testSet() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapTypeRegistry o = MapTypeRegistry.newInstance();
+        assertNotNull(o);
 
-				String id = "myId";
+        String id = "myId";
 
-				MapTypeStyle[] array = new MapTypeStyle[3];
-				array[0] = MapTypeStyle.newInstance();
-				array[1] = MapTypeStyle.newInstance();
-				array[2] = MapTypeStyle.newInstance();
-				JsArray<MapTypeStyle> styles = ArrayHelper.toJsArray(array);
-				StyledMapTypeOptions options = StyledMapTypeOptions
-						.newInstance();
-				StyledMapType styledType = StyledMapType.newInstance(styles,
-						options);
+        MapTypeStyle[] array = new MapTypeStyle[3];
+        array[0] = MapTypeStyle.newInstance();
+        array[1] = MapTypeStyle.newInstance();
+        array[2] = MapTypeStyle.newInstance();
+        JsArray<MapTypeStyle> styles = ArrayHelper.toJsArray(array);
+        StyledMapTypeOptions options = StyledMapTypeOptions.newInstance();
+        StyledMapType styledType = StyledMapType.newInstance(styles, options);
 
-				o.set(id, styledType);
+        o.set(id, styledType);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
 }

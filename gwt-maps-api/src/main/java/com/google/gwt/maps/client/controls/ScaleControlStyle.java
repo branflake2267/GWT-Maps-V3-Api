@@ -21,19 +21,22 @@ package com.google.gwt.maps.client.controls;
  */
 
 /**
- * Identifiers for scale control ids.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ScaleControlStyle">ScaleControlStyle API Doc</a> 
+ * Identifiers for scale control ids. <br>
+ * <br>
+ * See <a
+ * href="https://developers.google.com/maps/documentation/javascript/reference#ScaleControlStyle">ScaleControlStyle API
+ * Doc</a>
  */
 public enum ScaleControlStyle {
-  
+
   /**
    * The standard scale control.
    */
   DEFAULT;
-  
+
   /**
    * return the enum value as a String
+   * 
    * @return String
    */
   public String value() {
@@ -42,6 +45,7 @@ public enum ScaleControlStyle {
 
   /**
    * convert a String value to enum Type
+   * 
    * @param type
    * @return TYPE
    */
@@ -56,5 +60,5 @@ public enum ScaleControlStyle {
   public String toString() {
     return name();
   }
-  
+
 }

@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class TilesLoadedMapEvent extends MapEvent<TilesLoadedMapHandler, TilesLoadedMapEvent> {
 
   public static Type<TilesLoadedMapHandler> TYPE = new Type<TilesLoadedMapHandler>();
-  
+
   public TilesLoadedMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class TilesLoadedMapEvent extends MapEvent<TilesLoadedMapHandler, TilesLo
   protected void dispatch(TilesLoadedMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

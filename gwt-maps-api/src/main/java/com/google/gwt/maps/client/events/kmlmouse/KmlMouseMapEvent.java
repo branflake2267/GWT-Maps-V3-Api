@@ -32,7 +32,7 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
   public static Type<KmlMouseMapHandler> TYPE = new Type<KmlMouseMapHandler>();
 
   public KmlMouseMapEvent(Properties properties) {
-    super(properties); 
+    super(properties);
   }
 
   @Override
@@ -44,7 +44,7 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
   protected void dispatch(KmlMouseMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
   /**
    * get A KmlFeatureData object, containing information about the clicked feature.
    */
@@ -64,7 +64,7 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
   public LatLng getLatLng() {
     LatLng latLng = null;
     try {
-      latLng  = (LatLng) properties.getObject("latLng");
+      latLng = (LatLng) properties.getObject("latLng");
     } catch (TypeException e) {
       e.printStackTrace();
     }
@@ -77,11 +77,11 @@ public class KmlMouseMapEvent extends MapEvent<KmlMouseMapHandler, KmlMouseMapEv
   public Size getPixelOffset() {
     Size pixelOffset = null;
     try {
-      pixelOffset  = (Size) properties.getObject("pixelOffset");
+      pixelOffset = (Size) properties.getObject("pixelOffset");
     } catch (TypeException e) {
       e.printStackTrace();
     }
     return pixelOffset;
   }
-  
+
 }

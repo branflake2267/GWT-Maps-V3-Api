@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class DirectionsChangeMapEvent extends MapEvent<DirectionsChangeMapHandler, DirectionsChangeMapEvent> {
 
   public static Type<DirectionsChangeMapHandler> TYPE = new Type<DirectionsChangeMapHandler>();
-  
+
   public DirectionsChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class DirectionsChangeMapEvent extends MapEvent<DirectionsChangeMapHandle
   protected void dispatch(DirectionsChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

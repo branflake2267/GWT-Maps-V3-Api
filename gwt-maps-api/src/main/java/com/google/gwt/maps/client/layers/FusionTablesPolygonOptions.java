@@ -23,16 +23,18 @@ package com.google.gwt.maps.client.layers;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Options which control the appearance of polygons in a FusionTablesLayer.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolygonOptions">FusionTablesPolygonOptions API Doc</a>
+ * Options which control the appearance of polygons in a FusionTablesLayer. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolygonOptions">
+ * FusionTablesPolygonOptions API Doc</a>
  */
 public class FusionTablesPolygonOptions extends JavaScriptObject {
 
   /**
    * use newInstance();
    */
-  protected FusionTablesPolygonOptions() {}
+  protected FusionTablesPolygonOptions() {
+  }
 
   /**
    * Options which control the appearance of polygons in a FusionTablesLayer.
@@ -40,9 +42,10 @@ public class FusionTablesPolygonOptions extends JavaScriptObject {
   public final static FusionTablesPolygonOptions newInstance() {
     return JavaScriptObject.createObject().cast();
   }
-  
+
   /**
    * sets The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
+   * 
    * @param fillColor
    */
   public final native void setFillColor(String fillColor) /*-{
@@ -58,10 +61,11 @@ public class FusionTablesPolygonOptions extends JavaScriptObject {
 
   /**
    * sets The fill opacity between 0.0 and 1.0.
+   * 
    * @param fillOpacity
    */
   public final native void setFillOpacity(double fillOpacity) /*-{
-   this.fillOpacity = fillOpacity;
+    this.fillOpacity = fillOpacity;
   }-*/;
 
   /**
@@ -73,6 +77,7 @@ public class FusionTablesPolygonOptions extends JavaScriptObject {
 
   /**
    * sets The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
+   * 
    * @param strokeColor
    */
   public final native void setStrokeColor(String strokeColor) /*-{
@@ -88,6 +93,7 @@ public class FusionTablesPolygonOptions extends JavaScriptObject {
 
   /**
    * sets The stroke opacity between 0.0 and 1.0.
+   * 
    * @param strokeOpacity
    */
   public final native void setStrokeOpacity(double strokeOpacity) /*-{
@@ -103,6 +109,7 @@ public class FusionTablesPolygonOptions extends JavaScriptObject {
 
   /**
    * sets The stroke width in pixels, between 0 and 10.
+   * 
    * @param strokeWeight
    */
   public final native void setStrokeWeight(int strokeWeight) /*-{

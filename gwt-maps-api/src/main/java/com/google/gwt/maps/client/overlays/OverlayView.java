@@ -30,12 +30,11 @@ import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHa
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 
 /**
- * You can implement this class if you want to display custom types of overlay
- * objects on the map. This class extends MVCObject. <br>
+ * You can implement this class if you want to display custom types of overlay objects on the map. This class extends
+ * MVCObject. <br>
  * <br>
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/reference#OverlayView"
- * >OverlayView API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#OverlayView" >OverlayView API
+ * Doc</a>
  */
 public class OverlayView extends MVCObject<OverlayView> {
 
@@ -46,31 +45,24 @@ public class OverlayView extends MVCObject<OverlayView> {
   }
 
   /**
-   * You should inherit from this class by setting your overlay's prototype to
-   * new OverlayView.prototype. You must implement three methods: onAdd(),
-   * draw(), and onRemove(). In the add() method, you should create DOM objects
-   * and append them as children of the panes. In the draw() method, you should
-   * position these elements. In the onRemove() method, you should remove the
-   * objects from the DOM. You must call setMap() with a valid Map object to
-   * trigger the call to the onAdd() method and setMap(null) in order to trigger
-   * the onRemove() method. The setMap() method can be called at the time of
-   * construction or at any point afterward when the overlay should be re-shown
-   * after removing. The draw() method will then be called whenever a map
-   * property changes that could change the position of the element, such as
-   * zoom, center, or map type.
+   * You should inherit from this class by setting your overlay's prototype to new OverlayView.prototype. You must
+   * implement three methods: onAdd(), draw(), and onRemove(). In the add() method, you should create DOM objects and
+   * append them as children of the panes. In the draw() method, you should position these elements. In the onRemove()
+   * method, you should remove the objects from the DOM. You must call setMap() with a valid Map object to trigger the
+   * call to the onAdd() method and setMap(null) in order to trigger the onRemove() method. The setMap() method can be
+   * called at the time of construction or at any point afterward when the overlay should be re-shown after removing.
+   * The draw() method will then be called whenever a map property changes that could change the position of the
+   * element, such as zoom, center, or map type.
    * 
-   * draw(): Implement this method to draw or update the overlay. This method is
-   * called after onAdd() and when the position from
-   * projection.fromLatLngToPixel() would return a new value for a given LatLng.
-   * This can happen on change of zoom, center, or map type. It is not
-   * necessarily called on drag or resize.
+   * draw(): Implement this method to draw or update the overlay. This method is called after onAdd() and when the
+   * position from projection.fromLatLngToPixel() would return a new value for a given LatLng. This can happen on change
+   * of zoom, center, or map type. It is not necessarily called on drag or resize.
    * 
-   * onAdd(): Implement this method to initialize the overlay DOM elements. This
-   * method is called once after setMap() is called with a valid map. At this
-   * point, panes and projection will have been initialized.
+   * onAdd(): Implement this method to initialize the overlay DOM elements. This method is called once after setMap() is
+   * called with a valid map. At this point, panes and projection will have been initialized.
    * 
-   * onRemove(): Implement this method to remove your elements from the DOM.
-   * This method is called once following a call to setMap(null).
+   * onRemove(): Implement this method to remove your elements from the DOM. This method is called once following a call
+   * to setMap(null).
    * 
    * @return {@link OverlayView}
    */
@@ -80,31 +72,31 @@ public class OverlayView extends MVCObject<OverlayView> {
   }
 
   private final static native JavaScriptObject createJso() /*-{
-        return new new $wnd.google.maps.OverlayView();
+    return new new $wnd.google.maps.OverlayView();
   }-*/;
 
   private final static native JavaScriptObject createJso(MapImpl map, OverlayViewOnDrawHandler onDrawHandler,
       OverlayViewOnAddHandler onAddHandler, OverlayViewOnRemoveHandler onRemoveHandler) /*-{
-        function MapOverlay(map) {
-            this.setMap(map);
-        }
+    function MapOverlay(map) {
+      this.setMap(map);
+    }
 
-        MapOverlay.prototype = new $wnd.google.maps.OverlayView();
+    MapOverlay.prototype = new $wnd.google.maps.OverlayView();
 
-        MapOverlay.prototype.onAdd = function() {
-            $entry(@com.google.gwt.maps.client.overlays.OverlayView::onAddCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnAddHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onAddHandler, this));
-        };
+    MapOverlay.prototype.onAdd = function() {
+      $entry(@com.google.gwt.maps.client.overlays.OverlayView::onAddCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnAddHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onAddHandler, this));
+    };
 
-        MapOverlay.prototype.onRemove = function() {
-            $entry(@com.google.gwt.maps.client.overlays.OverlayView::onRemoveCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnRemoveHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onRemoveHandler, this));
-        };
+    MapOverlay.prototype.onRemove = function() {
+      $entry(@com.google.gwt.maps.client.overlays.OverlayView::onRemoveCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnRemoveHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onRemoveHandler, this));
+    };
 
-        MapOverlay.prototype.draw = function() {
-            $entry(@com.google.gwt.maps.client.overlays.OverlayView::onDrawCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnDrawHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onDrawHandler, this));
-        };
+    MapOverlay.prototype.draw = function() {
+      $entry(@com.google.gwt.maps.client.overlays.OverlayView::onDrawCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnDrawHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onDrawHandler, this));
+    };
 
-        var jso = new MapOverlay(map);
-        return jso;
+    var jso = new MapOverlay(map);
+    return jso;
   }-*/;
 
   private final static void onDrawCallback(OverlayViewOnDrawHandler handler, OverlayViewMethods methods) {
@@ -121,6 +113,7 @@ public class OverlayView extends MVCObject<OverlayView> {
 
   /**
    * set Map
+   * 
    * @param mapWidget
    */
   public final void setMap(MapWidget mapWidget) {
@@ -130,23 +123,23 @@ public class OverlayView extends MVCObject<OverlayView> {
       setMapImpl(mapWidget.getJso());
     }
   }
-  
+
   /**
    * Invokes this.setMap()
    */
   public final native void close() /*-{
     this.setMap();
   }-*/;
-  
+
   /**
    * Invokes this.setMap()
    */
   public final native void clear() /*-{
     this.setMap();
   }-*/;
-  
+
   private final native void setMapImpl(MapImpl map) /*-{
     this.setMap(map);
   }-*/;
-  
+
 }

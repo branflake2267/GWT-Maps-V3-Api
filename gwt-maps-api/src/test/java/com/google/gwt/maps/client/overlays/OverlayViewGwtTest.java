@@ -164,7 +164,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
           @Override
           public void onDraw(OverlayViewMethods methods) {
             System.out.println("OverlayView draw() called...");
-            
+
             assertTrue(true);
             finishTest();
           }
@@ -174,7 +174,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
           @Override
           public void onAdd(OverlayViewMethods methods) {
             System.out.println("OverlayView add() called...");
-            
+
             assertTrue(true);
             finishTest();
           }
@@ -215,7 +215,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
           @Override
           public void onDraw(OverlayViewMethods methods) {
             System.out.println("OverlayView draw() called...");
-            
+
             assertTrue(true);
             finishTest();
           }
@@ -225,7 +225,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
           @Override
           public void onAdd(OverlayViewMethods methods) {
             System.out.println("OverlayView add() called...");
-            
+
             assertTrue(true);
             finishTest();
           }
@@ -310,7 +310,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
           @Override
           public void onDraw(OverlayViewMethods methods) {
             System.out.println("OverlayView draw() called...");
-            
+
             assertTrue(true);
             finishTest();
           }
@@ -320,7 +320,7 @@ public class OverlayViewGwtTest extends AbstractMapsGWTTestHelper {
           @Override
           public void onAdd(OverlayViewMethods methods) {
             System.out.println("OverlayView add() called...");
-            
+
             assertTrue(true);
             finishTest();
           }

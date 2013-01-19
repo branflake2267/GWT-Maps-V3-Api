@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class LinksChangeMapEvent extends MapEvent<LinksChangeMapHandler, LinksChangeMapEvent> {
 
   public static Type<LinksChangeMapHandler> TYPE = new Type<LinksChangeMapHandler>();
-  
+
   public LinksChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class LinksChangeMapEvent extends MapEvent<LinksChangeMapHandler, LinksCh
   protected void dispatch(LinksChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

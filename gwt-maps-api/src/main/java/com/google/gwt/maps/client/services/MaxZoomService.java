@@ -24,17 +24,19 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.base.LatLng;
 
 /**
- *  A service for obtaining the highest zoom level at which satellite imagery is available for a given location.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MaxZoomService">MaxZoomService API Doc</a>
+ * A service for obtaining the highest zoom level at which satellite imagery is available for a given location. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MaxZoomService">MaxZoomService API
+ * Doc</a>
  */
 public class MaxZoomService extends JavaScriptObject {
 
   /**
    * use newInstance();
    */
-  protected MaxZoomService() {}
-  
+  protected MaxZoomService() {
+  }
+
   /**
    * A service for obtaining the highest zoom level at which satellite imagery is available for a given location.
    */
@@ -45,9 +47,12 @@ public class MaxZoomService extends JavaScriptObject {
   private static final native JavaScriptObject createJso() /*-{
     return new $wnd.google.maps.MaxZoomService();
   }-*/;
-  
+
   /**
-   * Returns the maximum zoom level available at a particular LatLng for the Satellite map type. As this request is asynchronous, you must pass a callback function which will be executed upon completion of the request, being passed a MaxZoomResult.
+   * Returns the maximum zoom level available at a particular LatLng for the Satellite map type. As this request is
+   * asynchronous, you must pass a callback function which will be executed upon completion of the request, being passed
+   * a MaxZoomResult.
+   * 
    * @param latlng
    * @param handler
    */
@@ -57,9 +62,9 @@ public class MaxZoomService extends JavaScriptObject {
     };
     this.getMaxZoomAtLatLng(latlng, callback);
   }-*/;
-  
+
   private static final void getMaxZoomAtLatLngImpl(MaxZoomResult result, MaxZoomServiceHandler handler) {
     handler.onCallback(result);
   }
-  
+
 }

@@ -21,15 +21,16 @@ package com.google.gwt.maps.client.overlays;
  */
 
 public enum MarkerShapeType {
-  
+
   CIRCLE,
-  
+
   POLY,
-  
+
   RECT;
-  
+
   /**
    * return the enum value as a String
+   * 
    * @return String
    */
   public String value() {
@@ -38,6 +39,7 @@ public enum MarkerShapeType {
 
   /**
    * convert a String value to enum Type
+   * 
    * @param type
    * @return TYPE
    */
@@ -52,5 +54,5 @@ public enum MarkerShapeType {
   public String toString() {
     return name().toLowerCase();
   }
-  
+
 }

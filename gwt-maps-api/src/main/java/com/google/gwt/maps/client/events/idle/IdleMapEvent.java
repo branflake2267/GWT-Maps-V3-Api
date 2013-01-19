@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class IdleMapEvent extends MapEvent<IdleMapHandler, IdleMapEvent> {
 
   public static Type<IdleMapHandler> TYPE = new Type<IdleMapHandler>();
-  
+
   public IdleMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class IdleMapEvent extends MapEvent<IdleMapHandler, IdleMapEvent> {
   protected void dispatch(IdleMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

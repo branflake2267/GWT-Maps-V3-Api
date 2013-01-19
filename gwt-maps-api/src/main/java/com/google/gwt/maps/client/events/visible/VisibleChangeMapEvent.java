@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class VisibleChangeMapEvent extends MapEvent<VisibleChangeMapHandler, VisibleChangeMapEvent> {
 
   public static Type<VisibleChangeMapHandler> TYPE = new Type<VisibleChangeMapHandler>();
-  
+
   public VisibleChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class VisibleChangeMapEvent extends MapEvent<VisibleChangeMapHandler, Vis
   protected void dispatch(VisibleChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

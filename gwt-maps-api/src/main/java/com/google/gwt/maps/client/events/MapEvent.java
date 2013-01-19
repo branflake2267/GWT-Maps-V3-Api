@@ -26,20 +26,20 @@ import com.google.gwt.event.shared.GwtEvent;
 
 /**
  * Inherit this into unique Map Event
- *
+ * 
  * @param <H> {@link MapHandler}
  * @param <E> {@link MapEvent}
  */
 public abstract class MapEvent<H extends MapHandler<E>, E> extends GwtEvent<H> {
 
   /**
-   * properties from the map event call back
-   * {@link com.google.gwt.ajaxloader.client.Properties}
+   * properties from the map event call back {@link com.google.gwt.ajaxloader.client.Properties}
    */
   protected Properties properties;
 
   /**
    * create a new map event
+   * 
    * @param properties
    */
   public MapEvent(Properties properties) {
@@ -48,6 +48,7 @@ public abstract class MapEvent<H extends MapHandler<E>, E> extends GwtEvent<H> {
 
   /**
    * get the raw properties
+   * 
    * @return {@link com.google.gwt.ajaxloader.client.Properties}
    */
   public Properties getProperties() {
@@ -68,10 +69,11 @@ public abstract class MapEvent<H extends MapHandler<E>, E> extends GwtEvent<H> {
 
   /**
    * get property object as json
+   * 
    * @param jso
    */
   protected native String getAsJson(JavaScriptObject jso) /*-{
     return jso.toSource ? jso.toSource() : "NO SOURCE";
   }-*/;
-  
+
 }

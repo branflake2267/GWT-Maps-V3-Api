@@ -26,42 +26,42 @@ import com.google.gwt.maps.client.base.LatLng;
 
 public class WeightedLocationGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.VISUALIZATION };
-	}
-	
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				
-				@SuppressWarnings("unused")
-				WeightedLocation location =  WeightedLocation.newInstance( LatLng.newInstance(37.782551d, -122.445368d), 9d);
-				
-				finishTest();
-			}
-		});
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.VISUALIZATION };
+  }
 
-	public void testGetSetValue() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				
-				LatLng expectedLatLng = LatLng.newInstance(37.782551d, -122.445368d);
-				double expectedWeight = 9.4d;
-				
-				WeightedLocation location =  WeightedLocation.newInstance( expectedLatLng, expectedWeight);
-				assertNotNull(location);
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				// test get/set
-				assertEquals(expectedLatLng.toString(), location.getLocation().toString());
-				assertEquals(expectedWeight, location.getWeight(), 1e-5);
+        @SuppressWarnings("unused")
+        WeightedLocation location = WeightedLocation.newInstance(LatLng.newInstance(37.782551d, -122.445368d), 9d);
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
+
+  public void testGetSetValue() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+
+        LatLng expectedLatLng = LatLng.newInstance(37.782551d, -122.445368d);
+        double expectedWeight = 9.4d;
+
+        WeightedLocation location = WeightedLocation.newInstance(expectedLatLng, expectedWeight);
+        assertNotNull(location);
+
+        // test get/set
+        assertEquals(expectedLatLng.toString(), location.getLocation().toString());
+        assertEquals(expectedWeight, location.getWeight(), 1e-5);
+
+        finishTest();
+      }
+    });
+  }
 
 }

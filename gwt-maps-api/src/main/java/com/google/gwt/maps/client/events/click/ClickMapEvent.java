@@ -27,7 +27,7 @@ import com.google.gwt.maps.client.events.MouseEvent;
 public class ClickMapEvent extends MapEvent<ClickMapHandler, ClickMapEvent> {
 
   public static Type<ClickMapHandler> TYPE = new Type<ClickMapHandler>();
-  
+
   public ClickMapEvent(Properties properties) {
     super(properties);
   }
@@ -45,5 +45,5 @@ public class ClickMapEvent extends MapEvent<ClickMapHandler, ClickMapEvent> {
   public MouseEvent getMouseEvent() {
     return new MouseEvent(properties);
   }
-  
+
 }

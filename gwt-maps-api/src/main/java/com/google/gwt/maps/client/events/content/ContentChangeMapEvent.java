@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ContentChangeMapEvent extends MapEvent<ContentChangeMapHandler, ContentChangeMapEvent> {
 
   public static Type<ContentChangeMapHandler> TYPE = new Type<ContentChangeMapHandler>();
-  
+
   public ContentChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ContentChangeMapEvent extends MapEvent<ContentChangeMapHandler, Con
   protected void dispatch(ContentChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

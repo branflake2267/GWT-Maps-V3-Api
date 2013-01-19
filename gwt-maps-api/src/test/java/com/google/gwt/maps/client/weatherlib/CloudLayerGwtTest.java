@@ -28,52 +28,51 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class CloudLayerGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.WEATHER };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.WEATHER };
+  }
 
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CloudLayer o = CloudLayer.newInstance();
-				assertNotNull("CloudLayer should have been created.", o);
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CloudLayer o = CloudLayer.newInstance();
+        assertNotNull("CloudLayer should have been created.", o);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testCloudLayer() {
+  public void testCloudLayer() {
 
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions options = MapOptions.newInstance();
-				MapWidget mapWidget = new MapWidget(options);
-				mapWidget.setSize("500px", "500px");
-				RootPanel.get().add(mapWidget);
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions options = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				CloudLayer o = CloudLayer.newInstance();
+        CloudLayer o = CloudLayer.newInstance();
 
-				// test getting null map
-				assertNull(o.getMap());
+        // test getting null map
+        assertNull(o.getMap());
 
-				o.setMap(mapWidget);
-				MapWidget right = o.getMap();
+        o.setMap(mapWidget);
+        MapWidget right = o.getMap();
 
-				assertEquals(mapWidget.getCenter().getToString(), right
-						.getCenter().getToString());
+        assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
 
-				// test clearing from map
-				o.setMap(null);
-				assertNull(o.getMap());
+        // test clearing from map
+        o.setMap(null);
+        assertNull(o.getMap());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 }

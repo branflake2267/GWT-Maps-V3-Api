@@ -25,17 +25,20 @@ import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
- * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsWaypoint">DirectionsWaypoint API Doc</a>
+ * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed. <br>
+ * <br>
+ * See <a
+ * href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsWaypoint">DirectionsWaypoint
+ * API Doc</a>
  */
 public class DirectionsWaypoint extends JavaScriptObject {
-  
+
   /**
    * use newInstance();
    */
-  protected DirectionsWaypoint() {}
-  
+  protected DirectionsWaypoint() {
+  }
+
   /**
    * A DirectionsWaypoint represents a location between origin and destination through which the trip should be routed.
    */
@@ -44,50 +47,55 @@ public class DirectionsWaypoint extends JavaScriptObject {
     WorkAroundUtils.removeGwtObjectId(jso);
     return jso.cast();
   }
-  
+
   /**
    * Waypoint location. Can be an address string or LatLng. Optional.
+   * 
    * @param location
    */
   public final native void setLocation(String location) /*-{
     this.location = location;
   }-*/;
-  
+
   /**
    * Waypoint location. Can be an address string or LatLng. Optional.
    */
   public final native String getLocation_String() /*-{
     return this.location;
   }-*/;
-  
+
   /**
    * Waypoint location. Can be an address string or LatLng. Optional.
+   * 
    * @param location
    */
   public final native void setLocation(LatLng location) /*-{
     this.location = location;
   }-*/;
-  
+
   /**
    * Waypoint location. Can be an address string or LatLng. Optional.
    */
   public final native LatLng getLocation_LatLng() /*-{
     return this.location;
   }-*/;
-  
+
   /**
-   * If true, indicates that this waypoint is a stop between the origin and destination. This has the effect of splitting the route into two. This value is true by default. Optional.
+   * If true, indicates that this waypoint is a stop between the origin and destination. This has the effect of
+   * splitting the route into two. This value is true by default. Optional.
+   * 
    * @param stopover
    */
   public final native void setStopOver(boolean stopover) /*-{
     this.stopover = stopover;
   }-*/;
-  
+
   /**
-   * If true, indicates that this waypoint is a stop between the origin and destination. This has the effect of splitting the route into two. This value is true by default. Optional.
+   * If true, indicates that this waypoint is a stop between the origin and destination. This has the effect of
+   * splitting the route into two. This value is true by default. Optional.
    */
   public final native boolean getStopOver() /*-{
     return this.stopover;
   }-*/;
-  
+
 }
