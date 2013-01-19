@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ProjectionChangeMapEvent extends MapEvent<ProjectionChangeMapHandler, ProjectionChangeMapEvent> {
 
   public static Type<ProjectionChangeMapHandler> TYPE = new Type<ProjectionChangeMapHandler>();
-  
+
   public ProjectionChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ProjectionChangeMapEvent extends MapEvent<ProjectionChangeMapHandle
   protected void dispatch(ProjectionChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

@@ -28,84 +28,84 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class WeatherLayerGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.WEATHER };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.WEATHER };
+  }
 
-	@SuppressWarnings("unused")
-	public void testWeatherLayerUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  @SuppressWarnings("unused")
+  public void testWeatherLayerUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				WeatherLayerOptions options = WeatherLayerOptions.newInstance();
-				options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
-				options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
-				options.setLabelColor(LabelColor.BLACK);
+        WeatherLayerOptions options = WeatherLayerOptions.newInstance();
+        options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
+        options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
+        options.setLabelColor(LabelColor.BLACK);
 
-				WeatherLayer o = WeatherLayer.newInstance(options);
-				finishTest();
-			}
-		});
+        WeatherLayer o = WeatherLayer.newInstance(options);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testSetOptions() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testSetOptions() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				WeatherLayerOptions options = WeatherLayerOptions.newInstance();
-				options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
-				options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
-				options.setLabelColor(LabelColor.BLACK);
+        WeatherLayerOptions options = WeatherLayerOptions.newInstance();
+        options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
+        options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
+        options.setLabelColor(LabelColor.BLACK);
 
-				WeatherLayer o = WeatherLayer.newInstance(options);
+        WeatherLayer o = WeatherLayer.newInstance(options);
 
-				// now set different options
-				WeatherLayerOptions options2 = WeatherLayerOptions.newInstance();
-				options.setTemperatureUnits(TemperatureUnit.CELSIUS);
-				options.setWindSpeedUnits(WindSpeedUnit.METERS_PER_SECOND);
-				options.setLabelColor(LabelColor.WHITE);
-				o.setOptions(options2);
+        // now set different options
+        WeatherLayerOptions options2 = WeatherLayerOptions.newInstance();
+        options.setTemperatureUnits(TemperatureUnit.CELSIUS);
+        options.setWindSpeedUnits(WindSpeedUnit.METERS_PER_SECOND);
+        options.setLabelColor(LabelColor.WHITE);
+        o.setOptions(options2);
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 
-	public void testWeatherLayerOnMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions opts = MapOptions.newInstance();
-				MapWidget mapWidget = new MapWidget(opts);
-				mapWidget.setSize("500px", "500px");
-				RootPanel.get().add(mapWidget);
+  public void testWeatherLayerOnMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions opts = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(opts);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				WeatherLayerOptions options = WeatherLayerOptions.newInstance();
-				options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
-				options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
-				options.setLabelColor(LabelColor.BLACK);
+        WeatherLayerOptions options = WeatherLayerOptions.newInstance();
+        options.setTemperatureUnits(TemperatureUnit.FAHRENHEIT);
+        options.setWindSpeedUnits(WindSpeedUnit.MILES_PER_HOUR);
+        options.setLabelColor(LabelColor.BLACK);
 
-				WeatherLayer o = WeatherLayer.newInstance(options);
+        WeatherLayer o = WeatherLayer.newInstance(options);
 
-				// test getting null map
-				assertNull(o.getMap());
+        // test getting null map
+        assertNull(o.getMap());
 
-				o.setMap(mapWidget);
-				MapWidget right = o.getMap();
+        o.setMap(mapWidget);
+        MapWidget right = o.getMap();
 
-				assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
+        assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
 
-				// test clearing from map
-				o.setMap(null);
-				assertNull(o.getMap());
+        // test clearing from map
+        o.setMap(null);
+        assertNull(o.getMap());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 }

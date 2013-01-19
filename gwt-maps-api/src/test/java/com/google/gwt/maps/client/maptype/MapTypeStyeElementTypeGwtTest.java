@@ -26,62 +26,62 @@ import com.google.gwt.maps.client.maptypes.MapTypeStyleElementType;
 
 public class MapTypeStyeElementTypeGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapTypeStyleElementType type = MapTypeStyleElementType.ALL;
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapTypeStyleElementType type = MapTypeStyleElementType.ALL;
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testEnum1() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapTypeStyleElementType type = MapTypeStyleElementType.ALL;
-				String left = "all";
-				String right = type.value();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testEnum1() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapTypeStyleElementType type = MapTypeStyleElementType.ALL;
+        String left = "all";
+        String right = type.value();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testEnum2() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapTypeStyleElementType type = MapTypeStyleElementType.GEOMETRY;
-				String left = "geometry";
-				String right = type.value();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testEnum2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapTypeStyleElementType type = MapTypeStyleElementType.GEOMETRY;
+        String left = "geometry";
+        String right = type.value();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testEnum3() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapTypeStyleElementType type = MapTypeStyleElementType.LABELS;
-				String left = "labels";
-				String right = type.value();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testEnum3() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapTypeStyleElementType type = MapTypeStyleElementType.LABELS;
+        String left = "labels";
+        String right = type.value();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 }

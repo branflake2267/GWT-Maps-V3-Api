@@ -30,5 +30,7 @@ import com.google.gwt.ajaxloader.client.Properties;
 @SuppressWarnings("rawtypes")
 // is ugly, but is a cyclic generic type, so suppressed
 public interface MapEventFormatter<E extends MapEvent> {
-	public E createEvent(Properties properties);
+  
+  public E createEvent(Properties properties);
+  
 }

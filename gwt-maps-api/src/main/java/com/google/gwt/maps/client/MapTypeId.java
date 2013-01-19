@@ -23,15 +23,12 @@ package com.google.gwt.maps.client;
 /**
  * Identifiers for common MapTypes <br>
  * <br>
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/reference#MapTypeId"
- * >MapTypeId API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#MapTypeId" >MapTypeId API Doc</a>
  */
 public enum MapTypeId {
 
   /**
-   * This map type displays a transparent layer of major streets on satellite
-   * images.
+   * This map type displays a transparent layer of major streets on satellite images.
    */
   HYBRID,
 
@@ -46,8 +43,7 @@ public enum MapTypeId {
   SATELLITE,
 
   /**
-   * This map type displays maps with physical features such as terrain and
-   * vegetation.
+   * This map type displays maps with physical features such as terrain and vegetation.
    */
   TERRAIN;
 

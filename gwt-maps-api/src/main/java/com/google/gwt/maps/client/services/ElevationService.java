@@ -25,16 +25,18 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
- * Defines a service class that talks directly to Google servers for requesting elevation data.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ElevationService">ElevationService API Doc</a>
+ * Defines a service class that talks directly to Google servers for requesting elevation data. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#ElevationService">ElevationService
+ * API Doc</a>
  */
 public class ElevationService extends JavaScriptObject {
-  
+
   /**
    * use newInstance();
    */
-  protected ElevationService() {}
+  protected ElevationService() {
+  }
 
   /**
    * Creates a new instance of a ElevationService that sends elevation queries to Google servers.
@@ -50,7 +52,9 @@ public class ElevationService extends JavaScriptObject {
   }-*/;
 
   /**
-   * Makes an elevation request along a path, where the elevation data are returned as distance-based samples along that path.
+   * Makes an elevation request along a path, where the elevation data are returned as distance-based samples along that
+   * path.
+   * 
    * @param request
    * @param handler
    */
@@ -60,9 +64,10 @@ public class ElevationService extends JavaScriptObject {
     };
     this.getElevationAlongPath(request, callback);
   }-*/;
-    
+
   /**
    * Makes an elevation request for a list of discrete locations.
+   * 
    * @param request
    * @param handler
    */
@@ -72,9 +77,10 @@ public class ElevationService extends JavaScriptObject {
     };
     this.getElevationForLocations(request, callback);
   }-*/;
-  
-  private final static void processHandler(JsArray<ElevationResult> result, String status, ElevationServiceHandler handler) {
+
+  private final static void processHandler(JsArray<ElevationResult> result, String status,
+      ElevationServiceHandler handler) {
     handler.onCallback(result, ElevationStatus.fromValue(status));
   }
-  
+
 }

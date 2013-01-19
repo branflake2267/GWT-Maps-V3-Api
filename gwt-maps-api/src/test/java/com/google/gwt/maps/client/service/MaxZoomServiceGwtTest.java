@@ -30,49 +30,48 @@ import com.google.gwt.maps.client.services.MaxZoomStatus;
 
 public class MaxZoomServiceGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.PLACES };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.PLACES };
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MaxZoomService o = MaxZoomService.newInstance();
-				finishTest();
-			}
-		});
-	}
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MaxZoomService o = MaxZoomService.newInstance();
+        finishTest();
+      }
+    });
+  }
 
-	public void testGet() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MaxZoomService o = MaxZoomService.newInstance();
-				LatLng latlng = LatLng.newInstance(25, 26);
-				o.getMaxZoomAtLatLng(latlng, new MaxZoomServiceHandler() {
-					@Override
-					public void onCallback(MaxZoomResult result) {
-						if (result == null) {
-							fail();
-						}
+  public void testGet() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MaxZoomService o = MaxZoomService.newInstance();
+        LatLng latlng = LatLng.newInstance(25, 26);
+        o.getMaxZoomAtLatLng(latlng, new MaxZoomServiceHandler() {
+          @Override
+          public void onCallback(MaxZoomResult result) {
+            if (result == null) {
+              fail();
+            }
 
-						if (result.getStatus() == MaxZoomStatus.OK) {
-							System.out.println("result.zoom="
-									+ result.getZoom());
-							assertEquals(16, result.getZoom());
+            if (result.getStatus() == MaxZoomStatus.OK) {
+              System.out.println("result.zoom=" + result.getZoom());
+              assertEquals(16, result.getZoom());
 
-						} else if (result.getStatus() == MaxZoomStatus.ERROR) {
-							fail();
-						}
-						finishTest();
-					}
-				});
+            } else if (result.getStatus() == MaxZoomStatus.ERROR) {
+              fail();
+            }
+            finishTest();
+          }
+        });
 
-			}
-		});
-	}
+      }
+    });
+  }
 
 }

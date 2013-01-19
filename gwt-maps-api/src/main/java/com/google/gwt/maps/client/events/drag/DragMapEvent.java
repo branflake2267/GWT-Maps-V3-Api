@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class DragMapEvent extends MapEvent<DragMapHandler, DragMapEvent> {
 
   public static Type<DragMapHandler> TYPE = new Type<DragMapHandler>();
-  
+
   public DragMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class DragMapEvent extends MapEvent<DragMapHandler, DragMapEvent> {
   protected void dispatch(DragMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

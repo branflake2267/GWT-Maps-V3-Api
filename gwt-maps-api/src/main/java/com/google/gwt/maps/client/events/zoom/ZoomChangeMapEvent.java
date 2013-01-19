@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ZoomChangeMapEvent extends MapEvent<ZoomChangeMapHandler, ZoomChangeMapEvent> {
 
   public static Type<ZoomChangeMapHandler> TYPE = new Type<ZoomChangeMapHandler>();
-  
+
   public ZoomChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ZoomChangeMapEvent extends MapEvent<ZoomChangeMapHandler, ZoomChang
   protected void dispatch(ZoomChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

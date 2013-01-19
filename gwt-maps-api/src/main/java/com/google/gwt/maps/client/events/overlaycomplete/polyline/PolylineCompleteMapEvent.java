@@ -50,7 +50,7 @@ public class PolylineCompleteMapEvent extends MapEvent<PolylineCompleteMapHandle
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
 }

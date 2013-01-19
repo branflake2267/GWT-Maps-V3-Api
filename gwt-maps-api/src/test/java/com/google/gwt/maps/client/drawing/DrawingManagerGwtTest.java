@@ -31,118 +31,111 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class DrawingManagerGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.DRAWING };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.DRAWING };
+  }
 
-	public void testDrawingMode() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DrawingManagerOptions options = DrawingManagerOptions
-						.newInstance();
-				OverlayType left = OverlayType.CIRCLE;
-				options.setDrawingMode(left);
-				DrawingManager o = DrawingManager.newInstance(options);
-				OverlayType right = o.getDrawingMode();
-				assertEquals(left, right);
-				o.setDrawingMode(OverlayType.MARKER);
-				right = o.getDrawingMode();
-				assertEquals(OverlayType.MARKER, right);
+  public void testDrawingMode() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DrawingManagerOptions options = DrawingManagerOptions.newInstance();
+        OverlayType left = OverlayType.CIRCLE;
+        options.setDrawingMode(left);
+        DrawingManager o = DrawingManager.newInstance(options);
+        OverlayType right = o.getDrawingMode();
+        assertEquals(left, right);
+        o.setDrawingMode(OverlayType.MARKER);
+        right = o.getDrawingMode();
+        assertEquals(OverlayType.MARKER, right);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testDrawingMode_null() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testDrawingMode_null() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				DrawingManagerOptions options = DrawingManagerOptions
-						.newInstance();
+        DrawingManagerOptions options = DrawingManagerOptions.newInstance();
 
-				// ensure we can set it null
-				DrawingManager o = DrawingManager.newInstance(options);
-				o.setDrawingMode(null);
-				OverlayType actual = o.getDrawingMode();
-				assertNull("DrawingMode should have been set null", actual);
+        // ensure we can set it null
+        DrawingManager o = DrawingManager.newInstance(options);
+        o.setDrawingMode(null);
+        OverlayType actual = o.getDrawingMode();
+        assertNull("DrawingMode should have been set null", actual);
 
-				// ensure we can reset it
-				OverlayType expectd = OverlayType.MARKER;
-				o.setDrawingMode(expectd);
-				actual = o.getDrawingMode();
-				assertEquals("DrawingMode should have been set not null",
-						expectd, actual);
+        // ensure we can reset it
+        OverlayType expectd = OverlayType.MARKER;
+        o.setDrawingMode(expectd);
+        actual = o.getDrawingMode();
+        assertEquals("DrawingMode should have been set not null", expectd, actual);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions optionsMap = MapOptions.newInstance();
-				MapWidget left = new MapWidget(optionsMap);
-				RootPanel.get().add(left);
-				left.setSize("500px", "500px");
+  public void testMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions optionsMap = MapOptions.newInstance();
+        MapWidget left = new MapWidget(optionsMap);
+        RootPanel.get().add(left);
+        left.setSize("500px", "500px");
 
-				DrawingManagerOptions options = DrawingManagerOptions
-						.newInstance();
-				options.setDrawingMode(OverlayType.CIRCLE);
-				DrawingManager o = DrawingManager.newInstance(options);
-				o.setMap(left);
+        DrawingManagerOptions options = DrawingManagerOptions.newInstance();
+        options.setDrawingMode(OverlayType.CIRCLE);
+        DrawingManager o = DrawingManager.newInstance(options);
+        o.setMap(left);
 
-				MapWidget right = o.getMap();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+        MapWidget right = o.getMap();
+        assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testMap_null() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions optionsMap = MapOptions.newInstance();
-				MapWidget expected = new MapWidget(optionsMap);
-				RootPanel.get().add(expected);
-				expected.setSize("500px", "500px");
+  public void testMap_null() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions optionsMap = MapOptions.newInstance();
+        MapWidget expected = new MapWidget(optionsMap);
+        RootPanel.get().add(expected);
+        expected.setSize("500px", "500px");
 
-				DrawingManagerOptions options = DrawingManagerOptions
-						.newInstance();
-				DrawingManager o = DrawingManager.newInstance(options);
-				o.setMap(null);
+        DrawingManagerOptions options = DrawingManagerOptions.newInstance();
+        DrawingManager o = DrawingManager.newInstance(options);
+        o.setMap(null);
 
-				MapWidget actual = o.getMap();
-				assertNull("Map should be null now", actual);
+        MapWidget actual = o.getMap();
+        assertNull("Map should be null now", actual);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DrawingManagerOptions options = DrawingManagerOptions
-						.newInstance();
-				DrawingManager o = DrawingManager.newInstance(options);
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DrawingManagerOptions options = DrawingManagerOptions.newInstance();
+        DrawingManager o = DrawingManager.newInstance(options);
+        finishTest();
+      }
+    });
 
-	}
+  }
 }

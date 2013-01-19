@@ -26,23 +26,22 @@ import com.google.gwt.maps.client.layers.KmlLayerStatus;
 
 public class KmlLayerStatusGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] {};
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] {};
+  }
 
-	public void testUse1() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testUse1() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				for (KmlLayerStatus status : KmlLayerStatus.values()) {
-					assertEquals("value and from value should match", status,
-							KmlLayerStatus.fromValue(status.value()));
-				}
+        for (KmlLayerStatus status : KmlLayerStatus.values()) {
+          assertEquals("value and from value should match", status, KmlLayerStatus.fromValue(status.value()));
+        }
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 }

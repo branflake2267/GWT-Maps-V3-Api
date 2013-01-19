@@ -33,91 +33,84 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class DirectionsRendererGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.PLACES };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.PLACES };
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DirectionsRendererOptions options = DirectionsRendererOptions
-						.newInstance();
-				DirectionsRenderer o = DirectionsRenderer.newInstance(options);
-				finishTest();
-			}
-		});
-	}
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+        DirectionsRenderer o = DirectionsRenderer.newInstance(options);
+        finishTest();
+      }
+    });
+  }
 
-	public void testDirections() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DirectionsRendererOptions options = DirectionsRendererOptions
-						.newInstance();
-				DirectionsRenderer o = DirectionsRenderer.newInstance(options);
-				DirectionsResult left = DirectionsResult.newInstance();
-				o.setDirections(left);
-				DirectionsResult right = o.getDirections();
-				assertEquals(left.getRoutes().length(), right.getRoutes()
-						.length());
-				finishTest();
-			}
-		});
-	}
+  public void testDirections() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+        DirectionsRenderer o = DirectionsRenderer.newInstance(options);
+        DirectionsResult left = DirectionsResult.newInstance();
+        o.setDirections(left);
+        DirectionsResult right = o.getDirections();
+        assertEquals(left.getRoutes().length(), right.getRoutes().length());
+        finishTest();
+      }
+    });
+  }
 
-	public void testMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DirectionsRendererOptions options = DirectionsRendererOptions
-						.newInstance();
-				DirectionsRenderer o = DirectionsRenderer.newInstance(options);
-				MapOptions opts = MapOptions.newInstance();
-				MapWidget left = new MapWidget(opts);
-				RootPanel.get().add(left);
-				o.setMap(left);
-				MapWidget right = o.getMap();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
-				finishTest();
-			}
-		});
-	}
+  public void testMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+        DirectionsRenderer o = DirectionsRenderer.newInstance(options);
+        MapOptions opts = MapOptions.newInstance();
+        MapWidget left = new MapWidget(opts);
+        RootPanel.get().add(left);
+        o.setMap(left);
+        MapWidget right = o.getMap();
+        assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
+        finishTest();
+      }
+    });
+  }
 
-	public void testPanel() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DirectionsRendererOptions options = DirectionsRendererOptions
-						.newInstance();
-				DirectionsRenderer o = DirectionsRenderer.newInstance(options);
-				FlowPanel fp = new FlowPanel();
-				Element left = fp.getElement();
-				o.setPanel(left);
-				Element right = o.getPanel();
-				assertEquals(left.toString(), right.toString());
-				finishTest();
-			}
-		});
-	}
+  public void testPanel() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+        DirectionsRenderer o = DirectionsRenderer.newInstance(options);
+        FlowPanel fp = new FlowPanel();
+        Element left = fp.getElement();
+        o.setPanel(left);
+        Element right = o.getPanel();
+        assertEquals(left.toString(), right.toString());
+        finishTest();
+      }
+    });
+  }
 
-	public void testRouteIndex() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				DirectionsRendererOptions options = DirectionsRendererOptions
-						.newInstance();
-				DirectionsRenderer o = DirectionsRenderer.newInstance(options);
-				int left = 5;
-				o.setRouteIndex(left);
-				int right = o.getRouteIndex();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
-	}
+  public void testRouteIndex() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        DirectionsRendererOptions options = DirectionsRendererOptions.newInstance();
+        DirectionsRenderer o = DirectionsRenderer.newInstance(options);
+        int left = 5;
+        o.setRouteIndex(left);
+        int right = o.getRouteIndex();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
+  }
 
 }

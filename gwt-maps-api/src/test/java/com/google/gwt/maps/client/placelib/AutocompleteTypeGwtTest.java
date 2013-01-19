@@ -26,24 +26,24 @@ import com.google.gwt.maps.client.placeslib.AutocompleteType;
 
 public class AutocompleteTypeGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.PLACES };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.PLACES };
+  }
 
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				AutocompleteType o = AutocompleteType.ESTABLISHMENT;
-				assertEquals("establishment", o.value());
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteType o = AutocompleteType.ESTABLISHMENT;
+        assertEquals("establishment", o.value());
 
-				AutocompleteType o2 = AutocompleteType.GEOCODE;
-				assertEquals("geocode", o2.value());
+        AutocompleteType o2 = AutocompleteType.GEOCODE;
+        assertEquals("geocode", o2.value());
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 
 }

@@ -41,13 +41,12 @@ public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
   private boolean sensor = false;
 
   /**
-   * Runs the test with libraries defined by the {@link #getLibraries()}
-   * override loaded and fails if not complete by {@link #getAsyncDelayMs()}.<br>
+   * Runs the test with libraries defined by the {@link #getLibraries()} override loaded and fails if not complete by
+   * {@link #getAsyncDelayMs()}.<br>
    * <br>
    * <b>NOTE:</b> You must call {@link #finishTest()} or test will fail.
    * 
-   * @param test
-   *          code to run
+   * @param test code to run
    */
   public final void asyncLibTest(Runnable test) {
     // handle the nulls
@@ -59,15 +58,12 @@ public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
   }
 
   /**
-   * Runs the test with the given libraries loaded and fails if not complete by
-   * {@link #getAsyncDelayMs()}.<br>
+   * Runs the test with the given libraries loaded and fails if not complete by {@link #getAsyncDelayMs()}.<br>
    * <br>
    * <b>NOTE:</b> You must call {@link #finishTest()} or test will fail.
    * 
-   * @param test
-   *          code to run
-   * @param libs
-   *          libraries to have loaded
+   * @param test code to run
+   * @param libs libraries to have loaded
    */
   public final void asyncLibTest(Runnable test, LoadLibrary... libs) {
     // pack
@@ -95,8 +91,7 @@ public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
   }
 
   /**
-   * Returns the libraries that will be loaded before the test is run if the no
-   * library method overload is called.
+   * Returns the libraries that will be loaded before the test is run if the no library method overload is called.
    * 
    * @return
    */
@@ -131,8 +126,7 @@ public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
   /** HELPERS **/
 
   /**
-   * Assert that two {@link LatLng} are equal within {@link #getEqualsEpsilon()}
-   * .
+   * Assert that two {@link LatLng} are equal within {@link #getEqualsEpsilon()} .
    * 
    * @param expected
    * @param actual
@@ -141,12 +135,13 @@ public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
     assert expected != null : "Point1 cannot be null in assertLatLngEquals()";
     assert actual != null : "Point2 cannot be null in assertLatLngEquals()";
 
-//    assertEquals("Latitude not equal within epsilon", expected.getLatitude(), actual.getLatitude(), getEqualsEpsilon());
-//    assertEquals("Longitude not equal within epsilon", expected.getLongitude(), actual.getLongitude(),
-//        getEqualsEpsilon());
-    
+    // assertEquals("Latitude not equal within epsilon", expected.getLatitude(), actual.getLatitude(),
+    // getEqualsEpsilon());
+    // assertEquals("Longitude not equal within epsilon", expected.getLongitude(), actual.getLongitude(),
+    // getEqualsEpsilon());
+
     assertEquals(Double.doubleToLongBits(expected.getLatitude()), Double.doubleToLongBits(actual.getLatitude()));
-    assertEquals(Double.doubleToLongBits(expected.getLongitude()), Double.doubleToLongBits(actual.getLongitude())); 
+    assertEquals(Double.doubleToLongBits(expected.getLongitude()), Double.doubleToLongBits(actual.getLongitude()));
   }
 
 }

@@ -27,7 +27,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class InsertAtMapEvent extends MapEvent<InsertAtMapHandler, InsertAtMapEvent> {
 
   public static Type<InsertAtMapHandler> TYPE = new Type<InsertAtMapHandler>();
-  
+
   public InsertAtMapEvent(Properties properties) {
     super(properties);
   }
@@ -41,7 +41,7 @@ public class InsertAtMapEvent extends MapEvent<InsertAtMapHandler, InsertAtMapEv
   protected void dispatch(InsertAtMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
   public int getIndex() {
     int index = -1;
     try {
@@ -50,5 +50,5 @@ public class InsertAtMapEvent extends MapEvent<InsertAtMapHandler, InsertAtMapEv
     }
     return index;
   }
-  
+
 }

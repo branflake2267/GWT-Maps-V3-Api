@@ -50,7 +50,7 @@ public class PolygonCompleteMapEvent extends MapEvent<PolygonCompleteMapHandler,
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
 }

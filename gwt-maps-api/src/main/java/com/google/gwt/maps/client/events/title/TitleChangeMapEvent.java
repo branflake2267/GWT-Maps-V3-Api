@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class TitleChangeMapEvent extends MapEvent<TitleChangeMapHandler, TitleChangeMapEvent> {
 
   public static Type<TitleChangeMapHandler> TYPE = new Type<TitleChangeMapHandler>();
-  
+
   public TitleChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class TitleChangeMapEvent extends MapEvent<TitleChangeMapHandler, TitleCh
   protected void dispatch(TitleChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

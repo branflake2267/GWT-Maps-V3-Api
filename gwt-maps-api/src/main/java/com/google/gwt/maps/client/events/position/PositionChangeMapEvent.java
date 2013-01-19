@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class PositionChangeMapEvent extends MapEvent<PositionChangeMapHandler, PositionChangeMapEvent> {
 
   public static Type<PositionChangeMapHandler> TYPE = new Type<PositionChangeMapHandler>();
-  
+
   public PositionChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class PositionChangeMapEvent extends MapEvent<PositionChangeMapHandler, P
   protected void dispatch(PositionChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

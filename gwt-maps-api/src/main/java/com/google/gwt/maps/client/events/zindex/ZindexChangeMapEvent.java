@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ZindexChangeMapEvent extends MapEvent<ZindexChangeMapHandler, ZindexChangeMapEvent> {
 
   public static Type<ZindexChangeMapHandler> TYPE = new Type<ZindexChangeMapHandler>();
-  
+
   public ZindexChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ZindexChangeMapEvent extends MapEvent<ZindexChangeMapHandler, Zinde
   protected void dispatch(ZindexChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

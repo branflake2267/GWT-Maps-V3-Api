@@ -25,35 +25,33 @@ import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
 public class OverviewMapControlOptionsGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	public void testOpened() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				OverviewMapControlOptions options = OverviewMapControlOptions
-						.newInstance();
-				boolean left = true;
-				options.setOpened(left);
-				boolean right = options.getOpened();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
-	}
+  public void testOpened() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        OverviewMapControlOptions options = OverviewMapControlOptions.newInstance();
+        boolean left = true;
+        options.setOpened(left);
+        boolean right = options.getOpened();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				OverviewMapControlOptions options = OverviewMapControlOptions
-						.newInstance();
-				finishTest();
-			}
-		});
-	}
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        OverviewMapControlOptions options = OverviewMapControlOptions.newInstance();
+        finishTest();
+      }
+    });
+  }
 }

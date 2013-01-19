@@ -21,9 +21,10 @@ package com.google.gwt.maps.client.maptypes;
  */
 
 /**
- * Each MapTypeStyleElementType distinguishes between the different representations of a feature.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleElementType">MapTypeStyleElementType API Doc</a>
+ * Each MapTypeStyleElementType distinguishes between the different representations of a feature. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleElementType">
+ * MapTypeStyleElementType API Doc</a>
  */
 public enum MapTypeStyleElementType {
 
@@ -31,7 +32,7 @@ public enum MapTypeStyleElementType {
    * Apply the rule to all elements of the specified feature.
    */
   ALL,
-  
+
   /**
    * Apply the rule to the feature's geometry.
    */
@@ -53,7 +54,7 @@ public enum MapTypeStyleElementType {
   LABELS,
 
   /**
-   * 	Apply the rule to icons within the feature's labels.
+   * Apply the rule to icons within the feature's labels.
    */
   LABELS__ICON,
 
@@ -73,6 +74,7 @@ public enum MapTypeStyleElementType {
   LABELS__TEXT__STROKE;
   /**
    * return the enum value as a String
+   * 
    * @return String
    */
   public String value() {
@@ -81,6 +83,7 @@ public enum MapTypeStyleElementType {
 
   /**
    * convert a String value to enum Type
+   * 
    * @param type
    * @return TYPE
    */
@@ -96,4 +99,5 @@ public enum MapTypeStyleElementType {
   public String toString() {
     return name().replaceAll("__", ".").toLowerCase();
   }
+
 }

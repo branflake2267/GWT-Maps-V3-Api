@@ -31,133 +31,133 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class InfoWindowGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				InfoWindow o = InfoWindow.newInstance(options);
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        InfoWindow o = InfoWindow.newInstance(options);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testClose() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				InfoWindow o = InfoWindow.newInstance(options);
-				o.close();
-				finishTest();
-			}
-		});
+  public void testClose() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        InfoWindow o = InfoWindow.newInstance(options);
+        o.close();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testContentString() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				InfoWindow o = InfoWindow.newInstance(options);
-				String left = "test123";
-				o.setContent(left);
-				String right = o.getContent_String();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testContentString() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        InfoWindow o = InfoWindow.newInstance(options);
+        String left = "test123";
+        o.setContent(left);
+        String right = o.getContent_String();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testContentElement() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				InfoWindow o = InfoWindow.newInstance(options);
-				FlowPanel fp = new FlowPanel();
-				Element left = fp.getElement();
-				o.setContent(left);
-				Element right = o.getContent_Node();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testContentElement() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        InfoWindow o = InfoWindow.newInstance(options);
+        FlowPanel fp = new FlowPanel();
+        Element left = fp.getElement();
+        o.setContent(left);
+        Element right = o.getContent_Node();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testPosition() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				InfoWindow o = InfoWindow.newInstance(options);
-				LatLng left = LatLng.newInstance(35, 38);
-				o.setPosition(left);
-				LatLng right = o.getPosition();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testPosition() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        InfoWindow o = InfoWindow.newInstance(options);
+        LatLng left = LatLng.newInstance(35, 38);
+        o.setPosition(left);
+        LatLng right = o.getPosition();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testZindex() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				InfoWindow o = InfoWindow.newInstance(options);
-				int left = 2;
-				o.setZindex(left);
-				int right = o.getZindex();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testZindex() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        InfoWindow o = InfoWindow.newInstance(options);
+        int left = 2;
+        o.setZindex(left);
+        int right = o.getZindex();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testOpenMapwidget() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions mopts = MapOptions.newInstance();
-				MapWidget mapWidget = new MapWidget(mopts);
-				mapWidget.setSize("500px", "500px");
-				RootPanel.get().add(mapWidget);
+  public void testOpenMapwidget() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions mopts = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(mopts);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				LatLng center = mapWidget.getCenter();
+        LatLng center = mapWidget.getCenter();
 
-				InfoWindowOptions options = InfoWindowOptions.newInstance();
-				options.setContent("test123");
-				options.setPosition(center);
+        InfoWindowOptions options = InfoWindowOptions.newInstance();
+        options.setContent("test123");
+        options.setPosition(center);
 
-				InfoWindow o = InfoWindow.newInstance(options);
+        InfoWindow o = InfoWindow.newInstance(options);
 
-				o.open(mapWidget);
+        o.open(mapWidget);
 
-				// TODO add to render testing
+        // TODO add to render testing
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	// TODO open mapwidget anchor
+  // TODO open mapwidget anchor
 
-	// TODO open streetviewpanoramawidget
+  // TODO open streetviewpanoramawidget
 
-	// TODO open streetviewpanoramawidget anchor
+  // TODO open streetviewpanoramawidget anchor
 
 }

@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class CloseClickMapEvent extends MapEvent<CloseClickMapHandler, CloseClickMapEvent> {
 
   public static Type<CloseClickMapHandler> TYPE = new Type<CloseClickMapHandler>();
-  
+
   public CloseClickMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class CloseClickMapEvent extends MapEvent<CloseClickMapHandler, CloseClic
   protected void dispatch(CloseClickMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

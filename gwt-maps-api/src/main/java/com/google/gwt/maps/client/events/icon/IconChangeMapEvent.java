@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class IconChangeMapEvent extends MapEvent<IconChangeMapHandler, IconChangeMapEvent> {
 
   public static Type<IconChangeMapHandler> TYPE = new Type<IconChangeMapHandler>();
-  
+
   public IconChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class IconChangeMapEvent extends MapEvent<IconChangeMapHandler, IconChang
   protected void dispatch(IconChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

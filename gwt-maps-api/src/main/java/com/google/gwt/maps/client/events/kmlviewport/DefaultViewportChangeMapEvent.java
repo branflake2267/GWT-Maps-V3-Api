@@ -23,10 +23,11 @@ package com.google.gwt.maps.client.events.kmlviewport;
 import com.google.gwt.ajaxloader.client.Properties;
 import com.google.gwt.maps.client.events.MapEvent;
 
-public class DefaultViewportChangeMapEvent extends MapEvent<DefaultViewportChangeMapHandler, DefaultViewportChangeMapEvent> {
+public class DefaultViewportChangeMapEvent extends
+    MapEvent<DefaultViewportChangeMapHandler, DefaultViewportChangeMapEvent> {
 
   public static Type<DefaultViewportChangeMapHandler> TYPE = new Type<DefaultViewportChangeMapHandler>();
-  
+
   public DefaultViewportChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +41,5 @@ public class DefaultViewportChangeMapEvent extends MapEvent<DefaultViewportChang
   protected void dispatch(DefaultViewportChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

@@ -20,11 +20,13 @@ package com.google.gwt.maps.client.maptypes;
  * #L%
  */
 
-
 /**
- * Possible values for feature types. Specify these values as strings, i.e. 'administrative' or 'poi.park'. Stylers applied to a parent feature type automatically apply to all child feature types. Note however that parent features may include some additional features that are not included in one of their child feature types.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleFeatureType">MapTypeStyleFeatureType API Doc</a> 
+ * Possible values for feature types. Specify these values as strings, i.e. 'administrative' or 'poi.park'. Stylers
+ * applied to a parent feature type automatically apply to all child feature types. Note however that parent features
+ * may include some additional features that are not included in one of their child feature types. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleFeatureType">
+ * MapTypeStyleFeatureType API Doc</a>
  */
 public enum MapTypeStyleFeatureType {
 
@@ -69,7 +71,7 @@ public enum MapTypeStyleFeatureType {
   LANDSCAPE,
 
   /**
-   *  Apply the rule to man made structures.
+   * Apply the rule to man made structures.
    */
   LANDSCAPE__MAN_MADE,
 
@@ -89,7 +91,7 @@ public enum MapTypeStyleFeatureType {
   LANDSCAPE__NATURAL__TERRAIN,
 
   /**
-   *  Apply the rule to points of interest.
+   * Apply the rule to points of interest.
    */
   POI,
 
@@ -99,7 +101,7 @@ public enum MapTypeStyleFeatureType {
   POI__ATTRACTION,
 
   /**
-   *   Apply the rule to businesses.
+   * Apply the rule to businesses.
    */
   POI__BUSINESS,
 
@@ -114,7 +116,7 @@ public enum MapTypeStyleFeatureType {
   POI__MEDICAL,
 
   /**
-   *  Apply the rule to parks.
+   * Apply the rule to parks.
    */
   POI__PARK,
 
@@ -124,7 +126,7 @@ public enum MapTypeStyleFeatureType {
   POI__PLACE_OF_WORSHIP,
 
   /**
-   * Apply the rule to schools. 
+   * Apply the rule to schools.
    */
   POI__SCHOOL,
 
@@ -195,6 +197,7 @@ public enum MapTypeStyleFeatureType {
 
   /**
    * return the enum value as a String
+   * 
    * @return String
    */
   public String value() {
@@ -203,6 +206,7 @@ public enum MapTypeStyleFeatureType {
 
   /**
    * convert a String value to enum Type
+   * 
    * @param type
    * @return TYPE
    */

@@ -26,8 +26,9 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class WorkAroundUtils {
 
   /**
-   * When a third party api complains about this extra element in the object. This only happens in DevMode 
-   * The JSO carries an __gwt_ObjectId in devMode, which needs to be removed in some cases.
+   * When a third party api complains about this extra element in the object. This only happens in DevMode The JSO
+   * carries an __gwt_ObjectId in devMode, which needs to be removed in some cases.
+   * 
    * @param jso
    */
   public final static void removeGwtObjectId(JavaScriptObject jso) {
@@ -38,10 +39,9 @@ public class WorkAroundUtils {
       removeGwtObjectIdImpl(jso);
     }
   }
-  
+
   private final static native void removeGwtObjectIdImpl(JavaScriptObject jso) /*-{
     delete jso['__gwt_ObjectId'];
   }-*/;
-  
-}
 
+}

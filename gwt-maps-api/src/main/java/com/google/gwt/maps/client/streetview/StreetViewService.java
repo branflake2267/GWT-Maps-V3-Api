@@ -24,16 +24,19 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.base.LatLng;
 
 /**
- * A StreetViewService object performs searches for Street View data.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewService">StreetViewService API Doc</a>
+ * A StreetViewService object performs searches for Street View data. <br>
+ * <br>
+ * See <a
+ * href="https://developers.google.com/maps/documentation/javascript/reference#StreetViewService">StreetViewService API
+ * Doc</a>
  */
 public class StreetViewService extends JavaScriptObject {
-  
+
   /**
    * use newInstance();
    */
-  protected StreetViewService() {}
+  protected StreetViewService() {
+  }
 
   /**
    * A StreetViewService object performs searches for Street View data.
@@ -45,25 +48,32 @@ public class StreetViewService extends JavaScriptObject {
   private static final native JavaScriptObject createJso() /*-{
     return new $wnd.google.maps.StreetViewService();
   }-*/;
-  
+
   /**
-   * Retrieves the data for the given pano id and passes it to the provided callback as a StreetViewPanoramaData object. Pano ids are unique per panorama and stable for the lifetime of a session, but are liable to change between sessions.
+   * Retrieves the data for the given pano id and passes it to the provided callback as a StreetViewPanoramaData object.
+   * Pano ids are unique per panorama and stable for the lifetime of a session, but are liable to change between
+   * sessions.
+   * 
    * @param pano
    * @param handler
    */
-  public final native void getPanoramaById(String pano, PanoramaIdHandler handler) /*-{ // 
+  public final native void getPanoramaById(String pano, PanoramaIdHandler handler) /*-{
+    // 
     var callback = function(data, status) {
       @com.google.gwt.maps.client.streetview.StreetViewService::getPanoramaByIdImpl(Lcom/google/gwt/maps/client/streetview/StreetViewPanoramaData;Ljava/lang/String;Lcom/google/gwt/maps/client/streetview/PanoramaIdHandler;)(data, status, handler);
     };
     this.getPanoramaById(pano, callback);
   }-*/;
-  
+
   private static final void getPanoramaByIdImpl(StreetViewPanoramaData data, String status, PanoramaIdHandler handler) {
     handler.onCallback(data, StreetViewStatus.fromValue(status));
   }
-  
+
   /**
-   * Retrieves the StreetViewPanoramaData for a panorama within a given radius of the given LatLng. The StreetViewPanoramaData is passed to the provided callback. If the radius is less than 50 meters, the nearest panorama will be returned.
+   * Retrieves the StreetViewPanoramaData for a panorama within a given radius of the given LatLng. The
+   * StreetViewPanoramaData is passed to the provided callback. If the radius is less than 50 meters, the nearest
+   * panorama will be returned.
+   * 
    * @param latlng
    * @param radius
    * @param handler
@@ -74,9 +84,10 @@ public class StreetViewService extends JavaScriptObject {
     };
     this.getPanoramaByLocation(latlng, radius, callback);
   }-*/;
-  
-  private static final void getPanoramaByLocationImpl(StreetViewPanoramaData data, String status, PanoramaByLocationHandler handler) {
+
+  private static final void getPanoramaByLocationImpl(StreetViewPanoramaData data, String status,
+      PanoramaByLocationHandler handler) {
     handler.onCallback(data, StreetViewStatus.fromValue(status));
   }
-  
+
 }
