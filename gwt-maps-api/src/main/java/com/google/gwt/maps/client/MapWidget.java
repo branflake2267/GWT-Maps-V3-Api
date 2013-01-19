@@ -661,19 +661,10 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   /**
    * Has to be called to resize the map if the canvas has changed
    */
-  public final void resizeMap() {
+  public final void triggerResize() {
     final LatLng center = getCenter();
-    resizeMap(getJso());
+    impl.triggerResize();
     setCenter(center);
   }
-
-  /**
-   * Has to be called to resize the map if the canvas has changed
-   * 
-   * @param map
-   */
-  private final native void resizeMap(MapImpl map) /*-{
-    $wnd.google.maps.event.trigger(map, 'resize');
-  }-*/;
   
 }

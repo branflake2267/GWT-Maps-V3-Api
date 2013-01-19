@@ -410,6 +410,15 @@ public class MapImpl extends MVCObject<MapImpl> {
   public final native MVCArray<JavaScriptObject> getOverlayMapTypes() /*-{
     return this.overlayMapTypes;
   }-*/;
+  
+  /**
+   * Has to be called to resize the map if the canvas has changed
+   * 
+   * @param map
+   */
+  public final native void triggerResize() /*-{
+    $wnd.google.maps.event.trigger(this, 'resize');
+  }-*/;
 
   /**
    * This event is fired when the viewport bounds have changed.
