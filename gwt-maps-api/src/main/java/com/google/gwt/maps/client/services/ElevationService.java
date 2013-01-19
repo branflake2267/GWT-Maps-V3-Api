@@ -60,7 +60,7 @@ public class ElevationService extends JavaScriptObject {
    */
   public final native void getElevationAlongPath(PathElevationRequest request, ElevationServiceHandler handler) /*-{
     var callback = function(result, status) {
-      @com.google.gwt.maps.client.services.ElevationService::processHandler(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/ElevationServiceHandler;)(result, status, handler);
+      $entry(@com.google.gwt.maps.client.services.ElevationService::processHandler(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/ElevationServiceHandler;)(result, status, handler));
     };
     this.getElevationAlongPath(request, callback);
   }-*/;
@@ -73,7 +73,7 @@ public class ElevationService extends JavaScriptObject {
    */
   public final native void getElevationForLocations(LocationElevationRequest request, ElevationServiceHandler handler) /*-{
     var callback = function(result, status) {
-      @com.google.gwt.maps.client.services.ElevationService::processHandler(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/ElevationServiceHandler;)(result, status, handler);
+      $entry(@com.google.gwt.maps.client.services.ElevationService::processHandler(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/ElevationServiceHandler;)(result, status, handler));
     };
     this.getElevationForLocations(request, callback);
   }-*/;

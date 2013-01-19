@@ -112,7 +112,7 @@ public class MapHandlerRegistration {
   private static native <E extends MapEvent> JavaScriptObject addHandlerImpl(JavaScriptObject jso, String eventName,
       MapHandler<E> handler, MapEventFormatter<E> formatter) /*-{
     var callback = function(event) {
-      @com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, event, formatter);
+      $entry(@com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, event, formatter));
     };
     return $wnd.google.maps.event.addListener(jso, eventName, callback)
   }-*/;
@@ -133,7 +133,7 @@ public class MapHandlerRegistration {
       var eventCon = {
         index : event
       };
-      @com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter);
+      $entry(@com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter));
     };
     return $wnd.google.maps.event.addListener(jso, eventName, callback)
   }-*/;
@@ -154,7 +154,7 @@ public class MapHandlerRegistration {
       var eventCon = {
         overlay : event
       };
-      @com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter);
+      $entry(@com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter));
     };
     return $wnd.google.maps.event.addListener(jso, eventName, callback)
   }-*/;

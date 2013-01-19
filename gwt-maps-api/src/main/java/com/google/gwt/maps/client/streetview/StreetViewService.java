@@ -60,7 +60,7 @@ public class StreetViewService extends JavaScriptObject {
   public final native void getPanoramaById(String pano, PanoramaIdHandler handler) /*-{
     // 
     var callback = function(data, status) {
-      @com.google.gwt.maps.client.streetview.StreetViewService::getPanoramaByIdImpl(Lcom/google/gwt/maps/client/streetview/StreetViewPanoramaData;Ljava/lang/String;Lcom/google/gwt/maps/client/streetview/PanoramaIdHandler;)(data, status, handler);
+      $entry(@com.google.gwt.maps.client.streetview.StreetViewService::getPanoramaByIdImpl(Lcom/google/gwt/maps/client/streetview/StreetViewPanoramaData;Ljava/lang/String;Lcom/google/gwt/maps/client/streetview/PanoramaIdHandler;)(data, status, handler));
     };
     this.getPanoramaById(pano, callback);
   }-*/;
@@ -80,7 +80,7 @@ public class StreetViewService extends JavaScriptObject {
    */
   public final native void getPanoramaByLocation(LatLng latlng, double radius, PanoramaByLocationHandler handler) /*-{
     var callback = function(data, status) {
-      @com.google.gwt.maps.client.streetview.StreetViewService::getPanoramaByLocationImpl(Lcom/google/gwt/maps/client/streetview/StreetViewPanoramaData;Ljava/lang/String;Lcom/google/gwt/maps/client/streetview/PanoramaByLocationHandler;)(data, status, handler);
+      $entry(@com.google.gwt.maps.client.streetview.StreetViewService::getPanoramaByLocationImpl(Lcom/google/gwt/maps/client/streetview/StreetViewPanoramaData;Ljava/lang/String;Lcom/google/gwt/maps/client/streetview/PanoramaByLocationHandler;)(data, status, handler));
     };
     this.getPanoramaByLocation(latlng, radius, callback);
   }-*/;
