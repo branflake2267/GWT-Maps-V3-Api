@@ -36,18 +36,47 @@ public enum MapTypeStyleElementType {
    * Apply the rule to the feature's geometry.
    */
   GEOMETRY,
-  
+
+  /**
+   * Apply the rule to the fill of the feature's geometry.
+   */
+  GEOMETRY__FILL,
+
+  /**
+   * Apply the rule to the stroke of the feature's geometry.
+   */
+  GEOMETRY__STROKE,
+
   /**
    * Apply the rule to the feature's labels.
    */
-  LABELS;
-  
+  LABELS,
+
+  /**
+   * 	Apply the rule to icons within the feature's labels.
+   */
+  LABELS__ICON,
+
+  /**
+   * Apply the rule to the text in the feature's label.
+   */
+  LABELS__TEXT,
+
+  /**
+   * Apply the rule to the fill of the text in the feature's labels.
+   */
+  LABELS__TEXT__FILL,
+
+  /**
+   * Apply the rule to the stroke of the text in the feature's labels.
+   */
+  LABELS__TEXT__STROKE;
   /**
    * return the enum value as a String
    * @return String
    */
   public String value() {
-    return name().toLowerCase();
+    return name().replaceAll("__", ".").toLowerCase();
   }
 
   /**
@@ -56,6 +85,7 @@ public enum MapTypeStyleElementType {
    * @return TYPE
    */
   public static MapTypeStyleElementType fromValue(String type) {
+    type = type.replaceAll("\\.", "__");
     return valueOf(type.toUpperCase());
   }
 
@@ -64,6 +94,6 @@ public enum MapTypeStyleElementType {
    */
   @Override
   public String toString() {
-    return name().toLowerCase();
+    return name().replaceAll("__", ".").toLowerCase();
   }
 }

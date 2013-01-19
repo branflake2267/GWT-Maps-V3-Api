@@ -433,9 +433,18 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 	 */
 	public MVCArray<Element> getControls() {
 		return impl.getControls();
-	};
+	}
 
-	/**
+    /**
+     * returns all controls for a controlPosition
+     * @param controlPosition
+     * @return
+     */
+    public MVCArray<Element> getControls(ControlPosition controlPosition) {
+        return impl.getControls(controlPosition);
+    }
+
+    /**
 	 * TODO sets A registry of MapType instances by string ID.
 	 * 
 	 * @param mapTypes
@@ -691,4 +700,19 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
 		return impl.addZoomChangeHandler(handler);
 	}
 
-}
+    /**
+     * Has to be called to resize the map if the canvas has changed
+     */
+    public final void resizeMap() {
+       final LatLng center = getCenter();
+       resizeMap(getJso());
+       setCenter(center);
+   }
+
+    /**
+     * Has to be called to resize the map if the canvas has changed
+     * @param map
+     */
+   private final native void resizeMap(MapImpl map) /*-{
+       $wnd.google.maps.event.trigger(map, 'resize');
+   }-*/;}

@@ -30,8 +30,10 @@ import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.base.Point;
+import com.google.gwt.maps.client.controls.ControlPosition;
 import com.google.gwt.maps.client.maptypes.Projection;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
@@ -388,5 +390,41 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
 	// });
 
 	// }
+
+  public void testGetControl() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        FlowPanel fp = new FlowPanel();
+        RootPanel.get().add(fp);
+
+        MapOptions options = MapOptions.newInstance();
+        MapWidget o = new MapWidget(options);
+        Label label = new Label("test");
+        assertEquals(0, o.getControls(ControlPosition.TOP_CENTER).getLength());
+        o.setControls(ControlPosition.TOP_CENTER, label);
+        assertEquals(1, o.getControls(ControlPosition.TOP_CENTER).getLength());
+        finishTest();
+      }
+    });
+  }
+
+  public void testResize() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        FlowPanel fp = new FlowPanel();
+        RootPanel.get().add(fp);
+
+        MapOptions options = MapOptions.newInstance();
+        MapWidget o = new MapWidget(options);
+        LatLng center = o.getCenter();
+        o.resizeMap();
+        assertEquals(center.getLatitude(), o.getCenter().getLatitude());
+        assertEquals(center.getLongitude(), o.getCenter().getLongitude());
+        finishTest();
+      }
+    });
+  }
 
 }
