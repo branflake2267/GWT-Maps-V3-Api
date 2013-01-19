@@ -24,17 +24,19 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 /**
- * A service for computing distances between multiple origins and destinations.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixService">DistanceMatrixService API Doc</a>
+ * A service for computing distances between multiple origins and destinations. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#DistanceMatrixService">
+ * DistanceMatrixService API Doc</a>
  */
 public class DistanceMatrixService extends JavaScriptObject {
 
   /**
    * use newInstance();
    */
-  protected DistanceMatrixService() {}
-  
+  protected DistanceMatrixService() {
+  }
+
   /**
    * Creates a new instance of a DistanceMatrixService that sends distance matrix queries to Google servers.
    */
@@ -43,20 +45,21 @@ public class DistanceMatrixService extends JavaScriptObject {
     WorkAroundUtils.removeGwtObjectId(jso);
     return jso.cast();
   }
-  
+
   private static final native JavaScriptObject createJso() /*-{
     return new $wnd.google.maps.DistanceMatrixService();
   }-*/;
-  
+
   public final native void getDistanceMatrix(DistanceMatrixRequest request, DistanceMatrixRequestHandler handler) /*-{
     var callback = function(response, status) {
       @com.google.gwt.maps.client.services.DistanceMatrixService::getDistanceMatrixImpl(Lcom/google/gwt/maps/client/services/DistanceMatrixResponse;Ljava/lang/String;Lcom/google/gwt/maps/client/services/DistanceMatrixRequestHandler;)(response, status, handler);
     };
     this.getDistanceMatrix(request, callback);
   }-*/;
-  
-  private static final void getDistanceMatrixImpl(DistanceMatrixResponse response, String status, DistanceMatrixRequestHandler handler) {
+
+  private static final void getDistanceMatrixImpl(DistanceMatrixResponse response, String status,
+      DistanceMatrixRequestHandler handler) {
     handler.onCallback(response, DistanceMatrixStatus.fromValue(status));
   }
-  
+
 }

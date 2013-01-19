@@ -25,48 +25,47 @@ import com.google.gwt.maps.client.LoadApi.LoadLibrary;
 
 public class LabelColorGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.WEATHER };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.WEATHER };
+  }
 
-	public void testValueOf() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testValueOf() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				for (LabelColor windUnit : LabelColor.values()) {
-					assertEquals(windUnit,
-							LabelColor.valueOf(windUnit.toString()));
-				}
+        for (LabelColor windUnit : LabelColor.values()) {
+          assertEquals(windUnit, LabelColor.valueOf(windUnit.toString()));
+        }
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testReverseEngineer() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				reverseEngineerValues();
-				finishTest();
-			}
-		});
+  public void testReverseEngineer() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        reverseEngineerValues();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	protected void reverseEngineerValues() {
+  protected void reverseEngineerValues() {
 
-		for (LabelColor labelColor : LabelColor.values()) {
-			String expected = reverseEngineer(labelColor.toString());
-			assertEquals(expected, labelColor.value());
-		}
-	}
+    for (LabelColor labelColor : LabelColor.values()) {
+      String expected = reverseEngineer(labelColor.toString());
+      assertEquals(expected, labelColor.value());
+    }
+  }
 
-	private native String reverseEngineer(String type) /*-{
-		return $wnd.google.maps.weather.LabelColor.valueOf()[type];
-	}-*/;
+  private native String reverseEngineer(String type) /*-{
+                                                     return $wnd.google.maps.weather.LabelColor.valueOf()[type];
+                                                     }-*/;
 
 }

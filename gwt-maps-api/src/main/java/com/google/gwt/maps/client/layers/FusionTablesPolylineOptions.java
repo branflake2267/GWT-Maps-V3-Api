@@ -23,16 +23,18 @@ package com.google.gwt.maps.client.layers;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Options which control the appearance of polylines in a FusionTablesLayer.
- * <br><br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolygonOptions">FusionTablesPolygonOptions API Doc</a>
+ * Options which control the appearance of polylines in a FusionTablesLayer. <br>
+ * <br>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolygonOptions">
+ * FusionTablesPolygonOptions API Doc</a>
  */
 public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * use newInstance();
    */
-  protected FusionTablesPolylineOptions() {}
+  protected FusionTablesPolylineOptions() {
+  }
 
   /**
    * Options which control the appearance of polylines in a FusionTablesLayer.
@@ -43,6 +45,7 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * sets The fill color, defined by a six-digit hexadecimal number in RRGGBB format (e.g. #00AAFF).
+   * 
    * @param strokeColor
    */
   public final native void setStrokeColor(String strokeColor) /*-{
@@ -58,6 +61,7 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * sets The stroke opacity between 0.0 and 1.0.
+   * 
    * @param strokeOpacity
    */
   public final native void setStrokeOpacity(double strokeOpacity) /*-{
@@ -73,6 +77,7 @@ public class FusionTablesPolylineOptions extends JavaScriptObject {
 
   /**
    * sets The stroke width in pixels, between 0 and 10.
+   * 
    * @param strokeWeight
    */
   public final native void setStrokeWeight(int strokeWeight) /*-{

@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class MapTypeIdChangeMapEvent extends MapEvent<MapTypeIdChangeMapHandler, MapTypeIdChangeMapEvent> {
 
   public static Type<MapTypeIdChangeMapHandler> TYPE = new Type<MapTypeIdChangeMapHandler>();
-  
+
   public MapTypeIdChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class MapTypeIdChangeMapEvent extends MapEvent<MapTypeIdChangeMapHandler,
   protected void dispatch(MapTypeIdChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

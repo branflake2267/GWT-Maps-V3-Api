@@ -37,84 +37,76 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 
 public class DistanceMatrixServiceGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.PLACES };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.PLACES };
+  }
 
-	/**
-	 * TODO I can't get this to work in Devmode, probably the same as Distance
-	 * service
-	 */
-	@SuppressWarnings("unused")
-	public void testUse1() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  /**
+   * TODO I can't get this to work in Devmode, probably the same as Distance service
+   */
+  @SuppressWarnings("unused")
+  public void testUse1() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				LatLng[] ao = new LatLng[2];
-				ao[0] = LatLng.newInstance(55.930385, -3.118425);
-				ao[1] = LatLng.newInstance(26, 27);
-				JsArray<LatLng> origins = ArrayHelper.toJsArray(ao);
+        LatLng[] ao = new LatLng[2];
+        ao[0] = LatLng.newInstance(55.930385, -3.118425);
+        ao[1] = LatLng.newInstance(26, 27);
+        JsArray<LatLng> origins = ArrayHelper.toJsArray(ao);
 
-				LatLng[] ad = new LatLng[2];
-				ad[0] = LatLng.newInstance(50.087692, 14.421150);
-				ad[1] = LatLng.newInstance(26, 27);
-				JsArray<LatLng> destinations = ArrayHelper.toJsArray(ad);
+        LatLng[] ad = new LatLng[2];
+        ad[0] = LatLng.newInstance(50.087692, 14.421150);
+        ad[1] = LatLng.newInstance(26, 27);
+        JsArray<LatLng> destinations = ArrayHelper.toJsArray(ad);
 
-				DistanceMatrixRequest request = DistanceMatrixRequest
-						.newInstance();
-				request.setOrigins(origins);
-				request.setDestinations(destinations);
-				request.setTravelMode(TravelMode.DRIVING);
+        DistanceMatrixRequest request = DistanceMatrixRequest.newInstance();
+        request.setOrigins(origins);
+        request.setDestinations(destinations);
+        request.setTravelMode(TravelMode.DRIVING);
 
-				DistanceMatrixService o = DistanceMatrixService.newInstance();
+        DistanceMatrixService o = DistanceMatrixService.newInstance();
 
-				// fix for debugging mode
-				WorkAroundUtils.removeGwtObjectId(o);
-				WorkAroundUtils.removeGwtObjectId(request);
+        // fix for debugging mode
+        WorkAroundUtils.removeGwtObjectId(o);
+        WorkAroundUtils.removeGwtObjectId(request);
 
-				o.getDistanceMatrix(request,
-						new DistanceMatrixRequestHandler() {
-							@Override
-							public void onCallback(
-									DistanceMatrixResponse response,
-									DistanceMatrixStatus status) {
+        o.getDistanceMatrix(request, new DistanceMatrixRequestHandler() {
+          @Override
+          public void onCallback(DistanceMatrixResponse response, DistanceMatrixStatus status) {
 
-								System.out.println("status=" + status.value());
+            System.out.println("status=" + status.value());
 
-								if (status == DistanceMatrixStatus.INVALID_REQUEST) {
-									fail();
-								} else if (status == DistanceMatrixStatus.MAX_DIMENSIONS_EXCEEDED) {
-									fail();
-								} else if (status == DistanceMatrixStatus.MAX_ELEMENTS_EXCEEDED) {
-									fail();
-								} else if (status == DistanceMatrixStatus.OK) {
+            if (status == DistanceMatrixStatus.INVALID_REQUEST) {
+              fail();
+            } else if (status == DistanceMatrixStatus.MAX_DIMENSIONS_EXCEEDED) {
+              fail();
+            } else if (status == DistanceMatrixStatus.MAX_ELEMENTS_EXCEEDED) {
+              fail();
+            } else if (status == DistanceMatrixStatus.OK) {
 
-									JsArrayString dest = response
-											.getDestinationAddresses();
-									JsArrayString org = response
-											.getOriginAddresses();
-									JsArray<DistanceMatrixResponseRow> rows = response
-											.getRows();
+              JsArrayString dest = response.getDestinationAddresses();
+              JsArrayString org = response.getOriginAddresses();
+              JsArray<DistanceMatrixResponseRow> rows = response.getRows();
 
-									assertTrue(true);
+              assertTrue(true);
 
-								} else if (status == DistanceMatrixStatus.OVER_QUERY_LIMIT) {
-									fail();
-								} else if (status == DistanceMatrixStatus.REQUEST_DENIED) {
-									fail();
-								} else if (status == DistanceMatrixStatus.UNKNOWN_ERROR) {
-									fail();
-								}
+            } else if (status == DistanceMatrixStatus.OVER_QUERY_LIMIT) {
+              fail();
+            } else if (status == DistanceMatrixStatus.REQUEST_DENIED) {
+              fail();
+            } else if (status == DistanceMatrixStatus.UNKNOWN_ERROR) {
+              fail();
+            }
 
-							}
-						});
+          }
+        });
 
-				finishTest();
-			}
+        finishTest();
+      }
 
-		});
-	}
+    });
+  }
 
 }

@@ -47,11 +47,11 @@ public class OverlayCompleteMapEvent extends MapEvent<OverlayCompleteMapHandler,
   protected void dispatch(OverlayCompleteMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
   public OverlayType getOverlayType() {
     String type = null;
     try {
-     type = properties.getString("type");
+      type = properties.getString("type");
     } catch (TypeException e) {
       e.printStackTrace();
     }
@@ -68,9 +68,9 @@ public class OverlayCompleteMapEvent extends MapEvent<OverlayCompleteMapHandler,
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
   public Marker getMarker() {
     Marker overlay = null;
     try {
@@ -80,7 +80,7 @@ public class OverlayCompleteMapEvent extends MapEvent<OverlayCompleteMapHandler,
     }
     return overlay;
   }
-  
+
   public Polygon getPolygon() {
     Polygon overlay = null;
     try {
@@ -88,9 +88,9 @@ public class OverlayCompleteMapEvent extends MapEvent<OverlayCompleteMapHandler,
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
   public Polyline getPolyline() {
     Polyline overlay = null;
     try {
@@ -98,9 +98,9 @@ public class OverlayCompleteMapEvent extends MapEvent<OverlayCompleteMapHandler,
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
   public Rectangle getRectangle() {
     Rectangle overlay = null;
     try {
@@ -108,7 +108,7 @@ public class OverlayCompleteMapEvent extends MapEvent<OverlayCompleteMapHandler,
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
 }

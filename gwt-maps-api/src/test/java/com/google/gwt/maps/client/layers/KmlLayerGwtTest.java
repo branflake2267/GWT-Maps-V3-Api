@@ -34,297 +34,296 @@ import com.google.gwt.user.client.ui.RootPanel;
  * 
  * <br>
  * <br>
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/layers.html#KMLLayers"
- * >KMLLayers API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/layers.html#KMLLayers" >KMLLayers API
+ * Doc</a>
  */
 public class KmlLayerGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	public void testClose() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayerOptions options = KmlLayerOptions.newInstance();
-				KmlLayer o = KmlLayer.newInstance(url, options);
+  public void testClose() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayerOptions options = KmlLayerOptions.newInstance();
+        KmlLayer o = KmlLayer.newInstance(url, options);
 
-				MapOptions mapOptions = MapOptions.newInstance();
-				MapWidget left = new MapWidget(mapOptions);
-				o.setMap(left);
-				o.close();
-				finishTest();
-			}
-		});
+        MapOptions mapOptions = MapOptions.newInstance();
+        MapWidget left = new MapWidget(mapOptions);
+        o.setMap(left);
+        o.close();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testClose2() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayerOptions options = KmlLayerOptions.newInstance();
-				KmlLayer o = KmlLayer.newInstance(url, options);
-				MapOptions mapOptions = MapOptions.newInstance();
-				MapWidget left = new MapWidget(mapOptions);
-				o.setMap(left);
-				o.setMap((MapWidget) null);
-				finishTest();
-			}
-		});
+  public void testClose2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayerOptions options = KmlLayerOptions.newInstance();
+        KmlLayer o = KmlLayer.newInstance(url, options);
+        MapOptions mapOptions = MapOptions.newInstance();
+        MapWidget left = new MapWidget(mapOptions);
+        o.setMap(left);
+        o.setMap((MapWidget) null);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	@SuppressWarnings("unused")
-	public void testGetDefaultViewport() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  @SuppressWarnings("unused")
+  public void testGetDefaultViewport() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				String left = "";
-				LatLngBounds right = o.getDefaultViewport();
+        String left = "";
+        LatLngBounds right = o.getDefaultViewport();
 
-				// assertEquals(left, right.getToString()); // not sure why
-				// right is null as of yet. I'll fish out in render testing
+        // assertEquals(left, right.getToString()); // not sure why
+        // right is null as of yet. I'll fish out in render testing
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	@SuppressWarnings("unused")
-	public void testMetadata() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  @SuppressWarnings("unused")
+  public void testMetadata() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				KmlLayerMetadata right = o.getMetadata();
-				KmlAuthor author = right.getAuthor();
-				String authName = author.getName();
-				String authEmail = author.getEmail();
-				String authUri = author.getUri();
+        KmlLayerMetadata right = o.getMetadata();
+        KmlAuthor author = right.getAuthor();
+        String authName = author.getName();
+        String authEmail = author.getEmail();
+        String authUri = author.getUri();
 
-				String desc = right.getDescription();
-				String name = right.getName();
-				String snippet = right.getSnippet();
+        String desc = right.getDescription();
+        String name = right.getName();
+        String snippet = right.getSnippet();
 
-				// I need a better link with the attributes
-				// assertEquals("", authName);
-				// assertEquals("", authEmail);
-				// assertEquals("", authUri);
-				// assertEquals("", desc);
-				// assertEquals("", name);
-				// assertEquals("", snippet);
+        // I need a better link with the attributes
+        // assertEquals("", authName);
+        // assertEquals("", authEmail);
+        // assertEquals("", authUri);
+        // assertEquals("", desc);
+        // assertEquals("", name);
+        // assertEquals("", snippet);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testUrl() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  public void testUrl() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				String right = o.getUrl();
-				assertEquals(url, right);
+        String right = o.getUrl();
+        assertEquals(url, right);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayerOptions options = KmlLayerOptions.newInstance();
-				KmlLayer o = KmlLayer.newInstance(url, options);
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayerOptions options = KmlLayerOptions.newInstance();
+        KmlLayer o = KmlLayer.newInstance(url, options);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testGetMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  public void testGetMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				MapWidget right = o.getMap();
-				assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
+        MapWidget right = o.getMap();
+        assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 
-	public void testGetStatus_null() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  public void testGetStatus_null() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				// test - not yet loaded
-				KmlLayerStatus actual = o.getStatus();
-				assertNull(actual);
+        // test - not yet loaded
+        KmlLayerStatus actual = o.getStatus();
+        assertNull(actual);
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 
-	public void testGetStatus_waitForLoad_success() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  public void testGetStatus_waitForLoad_success() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
-				final KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss";
+        final KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				// wait for item to load
-				Timer wait = new Timer() {
+        // wait for item to load
+        Timer wait = new Timer() {
 
-					@Override
-					public void run() {
-						KmlLayerStatus actual = o.getStatus();
-						KmlLayerStatus expected = KmlLayerStatus.OK;
+          @Override
+          public void run() {
+            KmlLayerStatus actual = o.getStatus();
+            KmlLayerStatus expected = KmlLayerStatus.OK;
 
-						if (actual != null) {
-							assertEquals(expected, actual);
-						}
+            if (actual != null) {
+              assertEquals(expected, actual);
+            }
 
-						finishTest();
-					}
-				};
+            finishTest();
+          }
+        };
 
-				wait.scheduleRepeating(200); // wait for doc load, then check
-				// will fail timeout if the doc does not load
-			}
-		});
-	}
+        wait.scheduleRepeating(200); // wait for doc load, then check
+        // will fail timeout if the doc does not load
+      }
+    });
+  }
 
-	public void testGetStatus_waitForLoad_fail() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				LatLng center = LatLng.newInstance(49.496675, -102.65625);
-				MapOptions opts = MapOptions.newInstance();
-				opts.setZoom(4);
-				opts.setCenter(center);
-				opts.setMapTypeId(MapTypeId.ROADMAP);
+  public void testGetStatus_waitForLoad_fail() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        LatLng center = LatLng.newInstance(49.496675, -102.65625);
+        MapOptions opts = MapOptions.newInstance();
+        opts.setZoom(4);
+        opts.setCenter(center);
+        opts.setMapTypeId(MapTypeId.ROADMAP);
 
-				MapWidget mapWidget = new MapWidget(opts);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapWidget mapWidget = new MapWidget(opts);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				String url = "http://999.999.999.999"; // bogus, instant fail
-				final KmlLayer o = KmlLayer.newInstance(url);
-				o.setMap(mapWidget);
+        String url = "http://999.999.999.999"; // bogus, instant fail
+        final KmlLayer o = KmlLayer.newInstance(url);
+        o.setMap(mapWidget);
 
-				// wait for item to load
-				Timer wait = new Timer() {
+        // wait for item to load
+        Timer wait = new Timer() {
 
-					@Override
-					public void run() {
-						KmlLayerStatus actual = o.getStatus();
-						KmlLayerStatus expected = KmlLayerStatus.FETCH_ERROR;
+          @Override
+          public void run() {
+            KmlLayerStatus actual = o.getStatus();
+            KmlLayerStatus expected = KmlLayerStatus.FETCH_ERROR;
 
-						if (actual != null) {
-							assertEquals(expected, actual);
-						}
+            if (actual != null) {
+              assertEquals(expected, actual);
+            }
 
-						finishTest();
-					}
-				};
+            finishTest();
+          }
+        };
 
-				wait.scheduleRepeating(200); // wait for doc load, then check
-				// will fail timeout if the doc does not load
-			}
-		});
-	}
+        wait.scheduleRepeating(200); // wait for doc load, then check
+        // will fail timeout if the doc does not load
+      }
+    });
+  }
 }

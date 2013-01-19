@@ -28,50 +28,49 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class BicyclingLayerGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				BicyclingLayer o = BicyclingLayer.newInstance();
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        BicyclingLayer o = BicyclingLayer.newInstance();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testUse2() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				MapOptions options = MapOptions.newInstance();
-				MapWidget mapWidget = new MapWidget(options);
-				mapWidget.setSize("500px", "500px");
-				RootPanel.get().add(mapWidget);
+  public void testUse2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MapOptions options = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(options);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				BicyclingLayer o = BicyclingLayer.newInstance();
+        BicyclingLayer o = BicyclingLayer.newInstance();
 
-				// test getting null map
-				assertNull(o.getMap());
+        // test getting null map
+        assertNull(o.getMap());
 
-				o.setMap(mapWidget);
-				MapWidget right = o.getMap();
+        o.setMap(mapWidget);
+        MapWidget right = o.getMap();
 
-				assertEquals(mapWidget.getCenter().getToString(), right
-						.getCenter().getToString());
+        assertEquals(mapWidget.getCenter().getToString(), right.getCenter().getToString());
 
-				// test clearing from map
-				o.setMap(null);
-				assertNull(o.getMap());
+        // test clearing from map
+        o.setMap(null);
+        assertNull(o.getMap());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 }

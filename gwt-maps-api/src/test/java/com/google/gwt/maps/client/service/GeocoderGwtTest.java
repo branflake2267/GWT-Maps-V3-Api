@@ -121,12 +121,12 @@ public class GeocoderGwtTest extends AbstractMapsGWTTestHelper {
                 assertNotNull(address);
 
                 GeocoderGeometry geo = result.getGeometry();
-//
-//                LatLng pointNE = LatLng.newInstance(48.0582905d, -122.176957d);
-//                LatLng pointSW = LatLng.newInstance(48.0582905d, -122.176934d);
-//                LatLngBounds bounds = geo.getBounds();
-//                assertLatLngEquals(bounds.getNorthEast(), pointNE);
-//                assertLatLngEquals(bounds.getSouthWest(), pointSW);
+                //
+                // LatLng pointNE = LatLng.newInstance(48.0582905d, -122.176957d);
+                // LatLng pointSW = LatLng.newInstance(48.0582905d, -122.176934d);
+                // LatLngBounds bounds = geo.getBounds();
+                // assertLatLngEquals(bounds.getNorthEast(), pointNE);
+                // assertLatLngEquals(bounds.getSouthWest(), pointSW);
 
                 GeocoderLocationType lt = geo.getLocation_Type();
                 assertEquals(GeocoderLocationType.RANGE_INTERPOLATED, lt);

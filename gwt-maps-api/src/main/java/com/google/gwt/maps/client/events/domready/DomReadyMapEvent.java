@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class DomReadyMapEvent extends MapEvent<DomReadyMapHandler, DomReadyMapEvent> {
 
   public static Type<DomReadyMapHandler> TYPE = new Type<DomReadyMapHandler>();
-  
+
   public DomReadyMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class DomReadyMapEvent extends MapEvent<DomReadyMapHandler, DomReadyMapEv
   protected void dispatch(DomReadyMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

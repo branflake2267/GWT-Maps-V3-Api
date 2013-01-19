@@ -27,7 +27,7 @@ import com.google.gwt.maps.client.events.MouseEvent;
 public class MouseDownMapEvent extends MapEvent<MouseDownMapHandler, MouseDownMapEvent> {
 
   public static Type<MouseDownMapHandler> TYPE = new Type<MouseDownMapHandler>();
-  
+
   public MouseDownMapEvent(Properties properties) {
     super(properties);
   }
@@ -45,5 +45,5 @@ public class MouseDownMapEvent extends MapEvent<MouseDownMapHandler, MouseDownMa
   public MouseEvent getMouseEvent() {
     return new MouseEvent(properties);
   }
-  
+
 }

@@ -53,11 +53,11 @@ public class MarkerCompleteMapEvent extends MapEvent<MarkerCompleteMapHandler, M
     }
     return overlay;
   }
-  
+
   public OverlayType getOverlayType() {
     String type = null;
     try {
-     type = properties.getString("type");
+      type = properties.getString("type");
     } catch (TypeException e) {
       e.printStackTrace();
     }
@@ -66,5 +66,5 @@ public class MarkerCompleteMapEvent extends MapEvent<MarkerCompleteMapHandler, M
     }
     return OverlayType.fromValue(type);
   }
-  
+
 }

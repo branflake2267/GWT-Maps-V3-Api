@@ -44,12 +44,12 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
-  
+
   /**
    * Used for nearby search
    */
   private int page;
-  
+
   @Override
   public LoadLibrary[] getLibraries() {
     return new LoadLibrary[] { LoadLibrary.PLACES };
@@ -96,9 +96,9 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
 
         PlacesService o = PlacesService.newInstance(mapWidget);
 
-        String reference = "CnRkAAAAGnBVNFDeQoOQHzgdOpOqJNV7K9-c5IQrWFUYD9TNhUmz5-aHhfqyKH0zmAcUlkqVCrpaKcV8Z" +
-        		"jGQKzB6GXxtzUYcP-muHafGsmW-1CwjTPBCmK43AZpAwW0FRtQDQADj3H2bzwwHVIXlQAiccm7r4xIQmjt_Oqm2FejWpBxLW" +
-        		"s3L_RoUbharABi5FMnKnzmRL2TGju6UA4k";
+        String reference = "CnRkAAAAGnBVNFDeQoOQHzgdOpOqJNV7K9-c5IQrWFUYD9TNhUmz5-aHhfqyKH0zmAcUlkqVCrpaKcV8Z"
+            + "jGQKzB6GXxtzUYcP-muHafGsmW-1CwjTPBCmK43AZpAwW0FRtQDQADj3H2bzwwHVIXlQAiccm7r4xIQmjt_Oqm2FejWpBxLW"
+            + "s3L_RoUbharABi5FMnKnzmRL2TGju6UA4k";
         PlaceDetailsRequest request = PlaceDetailsRequest.newInstance();
         request.setReference(reference);
 
@@ -167,15 +167,15 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
         request.setRadius(15);
 
         placeService.nearbySearch(request, new PlaceSearchHandler() {
-          
+
           @Override
-          public void onCallback(JsArray<PlaceResult> results, PlaceSearchPagination pagination, 
+          public void onCallback(JsArray<PlaceResult> results, PlaceSearchPagination pagination,
               PlacesServiceStatus status) {
             System.out.println("status=" + status.toString());
-            
+
             String s = new JSONObject(results).toString();
             System.out.println(s);
-            
+
             if (status == PlacesServiceStatus.OK) {
               assertTrue(true);
               assertTrue(pagination.hasNextPage());
@@ -208,7 +208,7 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
       }
     });
   }
-  
+
   public void testGetDetailsPlaceResult() {
     asyncLibTest(new Runnable() {
       @Override
@@ -219,35 +219,35 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
         opts.setCenter(center);
         opts.setMapTypeId(MapTypeId.HYBRID);
         MapWidget mapWidget = new MapWidget(opts);
-        
+
         PlacesService placeService = PlacesService.newInstance(mapWidget);
         PlaceDetailsRequest request = PlaceDetailsRequest.newInstance();
-        request.setReference("CpQBjgAAAFCaT73TRgKBKFaeNsvq-wGNIErZoG1kSxvtgrDH6TDaDNBZsb2PDKKxWqmKHZr8kIo_JIzK8CEFgGb" +
-            "Luyt1BsdUR20ZiCg3CAXkkLxh2Q08mAzNN7Ai7WzUixXOHjnbnlm6WV-NpFhbJyTPgsV_2l-AfUlyt_SbleAsUUWtdxJTp0HPHWEnQ" +
-            "ZNPvcnmQ-lpRRIQZfKps0iYL5VOEBD5dQDF9xoUGgMSwqd1H9CNcwZsbVo1IY4BU44");
+        request.setReference("CpQBjgAAAFCaT73TRgKBKFaeNsvq-wGNIErZoG1kSxvtgrDH6TDaDNBZsb2PDKKxWqmKHZr8kIo_JIzK8CEFgGb"
+            + "Luyt1BsdUR20ZiCg3CAXkkLxh2Q08mAzNN7Ai7WzUixXOHjnbnlm6WV-NpFhbJyTPgsV_2l-AfUlyt_SbleAsUUWtdxJTp0HPHWEnQ"
+            + "ZNPvcnmQ-lpRRIQZfKps0iYL5VOEBD5dQDF9xoUGgMSwqd1H9CNcwZsbVo1IY4BU44");
 
         placeService.getDetails(request, new PlaceDetailsHandler() {
           public void onCallback(PlaceResult result, PlacesServiceStatus status) {
             String s = new JSONObject(result).toString();
             System.out.println(s);
-            
+
             String s1 = new JSONObject(result.getOpeningHours()).toString();
             System.out.println(s1);
-            
+
             String s2 = new JSONObject(result.getOpeningHours().getPeriods().get(0)).toString();
             System.out.println(s2);
-            
+
             String s3 = new JSONObject(result.getOpeningHours().getPeriods().get(0).getOpen()).toString();
             System.out.println(s3);
-            
+
             String s4 = new JSONObject(result.getReviews()).toString();
             System.out.println(s4);
-            
+
             assertEquals(-480, result.getUtcOffset());
-            
+
             finishTest();
           }
-        });       
+        });
       }
     });
   }
@@ -262,31 +262,31 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
         opts.setCenter(center);
         opts.setMapTypeId(MapTypeId.HYBRID);
         MapWidget mapWidget = new MapWidget(opts);
-        
+
         TextSearchRequest request = TextSearchRequest.newInstance();
         request.setLocation(LatLng.newInstance(47.6107, -122.3348));
         request.setRadius(15);
         request.setQuery("pike");
-        
+
         PlacesService placeService = PlacesService.newInstance(mapWidget);
         placeService.textSearch(request, new PlaceTextSearchHandler() {
           public void onCallback(JsArray<PlaceResult> results, PlacesServiceStatus status) {
             System.out.println("status=" + status);
-            
+
             String s = new JSONObject(results).toString();
             System.out.println(s);
-            
+
             assertEquals(PlacesServiceStatus.OK, status);
-            
+
             assertTrue(results.length() > 0);
-            
+
             finishTest();
           }
         });
       }
     });
   }
-  
+
   public void testSearchNearBy() {
     asyncLibTest(new Runnable() {
       @Override
@@ -297,26 +297,26 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
         opts.setCenter(center);
         opts.setMapTypeId(MapTypeId.HYBRID);
         MapWidget mapWidget = new MapWidget(opts);
-        
+
         PlaceSearchRequest request = PlaceSearchRequest.newInstance();
         request.setLocation(center);
         request.setRadius(5000);
         request.setTypes("store");
-        
+
         PlacesService placeService = PlacesService.newInstance(mapWidget);
         placeService.nearbySearch(request, new PlaceSearchHandler() {
           @Override
-          public void onCallback(JsArray<PlaceResult> results, 
-              PlaceSearchPagination pagination, PlacesServiceStatus status) {
+          public void onCallback(JsArray<PlaceResult> results, PlaceSearchPagination pagination,
+              PlacesServiceStatus status) {
             String s = new JSONObject(results).toString();
             System.out.println(s);
-            
+
             System.out.println("pagination hasNextPage=" + pagination.hasNextPage());
-            
+
             assertEquals(PlacesServiceStatus.OK, status);
-            
+
             assertTrue(pagination.hasNextPage());
-           
+
             // Since this should use the same callback
             if (page == 0) {
               page++;
@@ -325,9 +325,9 @@ public class PlacesServiceGwtTest extends AbstractMapsGWTTestHelper {
               finishTest();
             }
           }
-        });        
+        });
       }
     });
   }
-  
+
 }

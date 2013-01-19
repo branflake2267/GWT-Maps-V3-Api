@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class FormatChangeMapEvent extends MapEvent<FormatChangeMapHandler, FormatChangeMapEvent> {
 
   public static Type<FormatChangeMapHandler> TYPE = new Type<FormatChangeMapHandler>();
-  
+
   public FormatChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class FormatChangeMapEvent extends MapEvent<FormatChangeMapHandler, Forma
   protected void dispatch(FormatChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

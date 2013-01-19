@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class PanoChangeMapEvent extends MapEvent<PanoChangeMapHandler, PanoChangeMapEvent> {
 
   public static Type<PanoChangeMapHandler> TYPE = new Type<PanoChangeMapHandler>();
-  
+
   public PanoChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class PanoChangeMapEvent extends MapEvent<PanoChangeMapHandler, PanoChang
   protected void dispatch(PanoChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

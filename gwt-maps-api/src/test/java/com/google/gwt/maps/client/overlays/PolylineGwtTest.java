@@ -32,122 +32,122 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class PolylineGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				PolylineOptions options = PolylineOptions.newInstance();
-				Polyline o = Polyline.newInstance(options);
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        PolylineOptions options = PolylineOptions.newInstance();
+        Polyline o = Polyline.newInstance(options);
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testEditable() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				PolylineOptions options = PolylineOptions.newInstance();
-				Polyline o = Polyline.newInstance(options);
-				boolean left = true;
-				o.setEditable(left);
-				boolean right = o.getEditable();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
-	}
+  public void testEditable() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        PolylineOptions options = PolylineOptions.newInstance();
+        Polyline o = Polyline.newInstance(options);
+        boolean left = true;
+        o.setEditable(left);
+        boolean right = o.getEditable();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
+  }
 
-	public void testVisible() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				PolylineOptions options = PolylineOptions.newInstance();
-				Polyline o = Polyline.newInstance(options);
+  public void testVisible() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        PolylineOptions options = PolylineOptions.newInstance();
+        Polyline o = Polyline.newInstance(options);
 
-				o.setVisible(false);
-				assertFalse("Polyline should not be visible", o.getVisible());
+        o.setVisible(false);
+        assertFalse("Polyline should not be visible", o.getVisible());
 
-				o.setVisible(true);
-				assertTrue("Polyline should be visible", o.getVisible());
+        o.setVisible(true);
+        assertTrue("Polyline should be visible", o.getVisible());
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 
-	public void testMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				PolylineOptions options = PolylineOptions.newInstance();
-				Polyline o = Polyline.newInstance(options);
+  public void testMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        PolylineOptions options = PolylineOptions.newInstance();
+        Polyline o = Polyline.newInstance(options);
 
-				// test getting null map
-				assertNull(o.getMap());
+        // test getting null map
+        assertNull(o.getMap());
 
-				MapOptions opts = MapOptions.newInstance();
-				MapWidget left = new MapWidget(opts);
-				left.setSize("500px", "500px");
-				RootPanel.get().add(left);
-				o.setMap(left);
-				MapWidget right = o.getMap();
-				assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
+        MapOptions opts = MapOptions.newInstance();
+        MapWidget left = new MapWidget(opts);
+        left.setSize("500px", "500px");
+        RootPanel.get().add(left);
+        o.setMap(left);
+        MapWidget right = o.getMap();
+        assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
 
-				// test clearing from map
-				o.setMap(null);
-				assertNull(o.getMap());
+        // test clearing from map
+        o.setMap(null);
+        assertNull(o.getMap());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testPath_JsArray() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				PolylineOptions options = PolylineOptions.newInstance();
-				Polyline o = Polyline.newInstance(options);
-				LatLng[] a = new LatLng[3];
-				a[0] = LatLng.newInstance(35, 36);
-				a[1] = LatLng.newInstance(36, 37);
-				a[2] = LatLng.newInstance(38, 39);
-				JsArray<LatLng> left = ArrayHelper.toJsArray(a);
-				o.setPath(left);
-				// fail and it will throw
-				finishTest();
-			}
-		});
+  public void testPath_JsArray() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        PolylineOptions options = PolylineOptions.newInstance();
+        Polyline o = Polyline.newInstance(options);
+        LatLng[] a = new LatLng[3];
+        a[0] = LatLng.newInstance(35, 36);
+        a[1] = LatLng.newInstance(36, 37);
+        a[2] = LatLng.newInstance(38, 39);
+        JsArray<LatLng> left = ArrayHelper.toJsArray(a);
+        o.setPath(left);
+        // fail and it will throw
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testPath_MVCArray() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				PolylineOptions options = PolylineOptions.newInstance();
-				Polyline o = Polyline.newInstance(options);
-				LatLng[] a = new LatLng[3];
-				a[0] = LatLng.newInstance(35, 36);
-				a[1] = LatLng.newInstance(36, 37);
-				a[2] = LatLng.newInstance(38, 39);
-				MVCArray<LatLng> left = MVCArray.newInstance(a);
-				o.setPath(left);
-				// fail and it will throw
-				finishTest();
-			}
-		});
+  public void testPath_MVCArray() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        PolylineOptions options = PolylineOptions.newInstance();
+        Polyline o = Polyline.newInstance(options);
+        LatLng[] a = new LatLng[3];
+        a[0] = LatLng.newInstance(35, 36);
+        a[1] = LatLng.newInstance(36, 37);
+        a[2] = LatLng.newInstance(38, 39);
+        MVCArray<LatLng> left = MVCArray.newInstance(a);
+        o.setPath(left);
+        // fail and it will throw
+        finishTest();
+      }
+    });
 
-	}
+  }
 
 }

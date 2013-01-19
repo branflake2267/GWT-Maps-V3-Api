@@ -50,7 +50,7 @@ public class RectangleCompleteMapEvent extends MapEvent<RectangleCompleteMapHand
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return overlay ;
+    return overlay;
   }
-  
+
 }

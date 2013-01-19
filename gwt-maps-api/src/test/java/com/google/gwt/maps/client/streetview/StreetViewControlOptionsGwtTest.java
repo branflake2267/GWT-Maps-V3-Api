@@ -27,38 +27,36 @@ import com.google.gwt.maps.client.controls.StreetViewControlOptions;
 
 public class StreetViewControlOptionsGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				StreetViewControlOptions options = StreetViewControlOptions
-						.newInstance();
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        StreetViewControlOptions options = StreetViewControlOptions.newInstance();
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testPosition() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				StreetViewControlOptions o = StreetViewControlOptions
-						.newInstance();
-				ControlPosition left = ControlPosition.TOP_CENTER;
-				o.setPosition(left);
-				ControlPosition right = o.getPosition();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testPosition() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        StreetViewControlOptions o = StreetViewControlOptions.newInstance();
+        ControlPosition left = ControlPosition.TOP_CENTER;
+        o.setPosition(left);
+        ControlPosition right = o.getPosition();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
 }

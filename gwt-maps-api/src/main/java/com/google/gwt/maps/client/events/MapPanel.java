@@ -29,12 +29,12 @@ public class MapPanel extends FlowPanel {
   public MapPanel() {
     super();
   }
-  
+
   @Override
   public void onAttach() {
     super.onAttach();
   }
-  
+
   /**
    * todo only do this once, b/c other wise it probably won't act right adding it over and over
    */
@@ -44,5 +44,5 @@ public class MapPanel extends FlowPanel {
     onAttach();
     RootPanel.detachOnWindowClose(this);
   }
-  
+
 }

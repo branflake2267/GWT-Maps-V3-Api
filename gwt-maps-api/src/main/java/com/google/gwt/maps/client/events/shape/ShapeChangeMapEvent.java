@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class ShapeChangeMapEvent extends MapEvent<ShapeChangeMapHandler, ShapeChangeMapEvent> {
 
   public static Type<ShapeChangeMapHandler> TYPE = new Type<ShapeChangeMapHandler>();
-  
+
   public ShapeChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class ShapeChangeMapEvent extends MapEvent<ShapeChangeMapHandler, ShapeCh
   protected void dispatch(ShapeChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

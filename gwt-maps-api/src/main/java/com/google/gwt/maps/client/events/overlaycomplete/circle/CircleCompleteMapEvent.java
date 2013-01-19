@@ -50,8 +50,7 @@ public class CircleCompleteMapEvent extends MapEvent<CircleCompleteMapHandler, C
     } catch (TypeException e) {
       e.printStackTrace();
     }
-    return circle ;
+    return circle;
   }
-  
-  
+
 }

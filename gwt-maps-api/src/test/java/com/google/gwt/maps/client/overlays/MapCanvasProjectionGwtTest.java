@@ -103,7 +103,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng actual = o.fromContainerPixelToLatLng(pixel);
 
             LatLng expected = LatLng.newInstance(40.75820649610606, -74.20574920654298);
-            
+
             assertLatLngEquals(expected, actual);
             finishTest();
           }
@@ -151,7 +151,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng actual = o.fromContainerPixelToLatLng(pixel, true);
 
             LatLng expected = LatLng.newInstance(40.75820649610606, -74.20574920654298);
-            
+
             assertLatLngEquals(expected, actual);
             finishTest();
           }
@@ -199,7 +199,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng actual = o.fromContainerPixelToLatLng(pixel, false);
 
             LatLng expected = LatLng.newInstance(40.75820649610606, -74.20574920654298);
-            
+
             assertLatLngEquals(expected, actual);
             finishTest();
           }
@@ -247,7 +247,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng actual = o.fromDivPixelToLatLng(pixel);
 
             LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
-            
+
             assertLatLngEquals(expected, actual);
             finishTest();
           }
@@ -295,7 +295,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng actual = o.fromDivPixelToLatLng(pixel, true);
 
             LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
-            
+
             assertLatLngEquals(expected, actual);
             finishTest();
           }
@@ -343,7 +343,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng actual = o.fromDivPixelToLatLng(pixel, false);
 
             LatLng expected = LatLng.newInstance(-74.22147d, 131.625d);
-            
+
             assertLatLngEquals(expected, actual);
             finishTest();
           }
@@ -392,7 +392,7 @@ public class MapCanvasProjectionGwtTest extends AbstractMapsGWTTestHelper {
 
             // actual -87500.08256000001, 46656.067931791535
             assertEquals(Double.doubleToLongBits(-87500.08256000001), Double.doubleToLongBits(actual.getX()));
-            assertEquals(Double.doubleToLongBits(46656.067931791535), Double.doubleToLongBits(actual.getY())); 
+            assertEquals(Double.doubleToLongBits(46656.067931791535), Double.doubleToLongBits(actual.getY()));
             finishTest();
           }
         };

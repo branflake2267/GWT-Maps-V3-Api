@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class RadiusChangeMapEvent extends MapEvent<RadiusChangeMapHandler, RadiusChangeMapEvent> {
 
   public static Type<RadiusChangeMapHandler> TYPE = new Type<RadiusChangeMapHandler>();
-  
+
   public RadiusChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class RadiusChangeMapEvent extends MapEvent<RadiusChangeMapHandler, Radiu
   protected void dispatch(RadiusChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

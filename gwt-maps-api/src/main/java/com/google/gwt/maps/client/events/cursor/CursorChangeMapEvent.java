@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class CursorChangeMapEvent extends MapEvent<CursorChangeMapHandler, CursorChangeMapEvent> {
 
   public static Type<CursorChangeMapHandler> TYPE = new Type<CursorChangeMapHandler>();
-  
+
   public CursorChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class CursorChangeMapEvent extends MapEvent<CursorChangeMapHandler, Curso
   protected void dispatch(CursorChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

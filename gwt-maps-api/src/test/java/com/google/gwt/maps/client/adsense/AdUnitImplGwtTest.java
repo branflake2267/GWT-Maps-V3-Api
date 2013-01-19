@@ -31,40 +31,39 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class AdUnitImplGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.ADSENSE };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.ADSENSE };
+  }
 
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
 
-				MapOptions optionsMap = MapOptions.newInstance();
-				MapWidget mapWidget = new MapWidget(optionsMap);
-				RootPanel.get().add(mapWidget);
-				mapWidget.setSize("500px", "500px");
+        MapOptions optionsMap = MapOptions.newInstance();
+        MapWidget mapWidget = new MapWidget(optionsMap);
+        RootPanel.get().add(mapWidget);
+        mapWidget.setSize("500px", "500px");
 
-				AdUnitOptions options = AdUnitOptions.newInstance();
-				options.setFormat(AdFormat.HALF_BANNER);
-				options.setPosition(ControlPosition.RIGHT_CENTER);
-				options.setMap(mapWidget);
-				options.setPublisherId("pub-0032065764310410");
+        AdUnitOptions options = AdUnitOptions.newInstance();
+        options.setFormat(AdFormat.HALF_BANNER);
+        options.setPosition(ControlPosition.RIGHT_CENTER);
+        options.setMap(mapWidget);
+        options.setPublisherId("pub-0032065764310410");
 
-				FlowPanel fp = new FlowPanel();
-				Element element = fp.getElement();
-				AdUnitImpl o = AdUnitImpl.newInstance(element, options);
+        FlowPanel fp = new FlowPanel();
+        Element element = fp.getElement();
+        AdUnitImpl o = AdUnitImpl.newInstance(element, options);
 
-				assertEquals(options.getMap().getElement(), o.getMap()
-						.getElement());
-				assertEquals(options.getPublisherId(), o.getPublisherId());
-				assertEquals(options.getChannelNumber(), o.getChannelNumber());
-				assertEquals(options.getFormat(), o.getFormat());
-				assertNotNull(o.getContainer());
+        assertEquals(options.getMap().getElement(), o.getMap().getElement());
+        assertEquals(options.getPublisherId(), o.getPublisherId());
+        assertEquals(options.getChannelNumber(), o.getChannelNumber());
+        assertEquals(options.getFormat(), o.getFormat());
+        assertNotNull(o.getContainer());
 
-				finishTest();
-			}
-		});
-	}
+        finishTest();
+      }
+    });
+  }
 }

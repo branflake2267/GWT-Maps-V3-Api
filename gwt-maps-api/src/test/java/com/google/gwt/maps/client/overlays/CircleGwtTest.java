@@ -30,124 +30,121 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class CircleGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return null;
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return null;
+  }
 
-	@SuppressWarnings("unused")
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CircleOptions options = CircleOptions.newInstance();
-				Circle o = Circle.newInstance(options);
-				finishTest();
-			}
-		});
+  @SuppressWarnings("unused")
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CircleOptions options = CircleOptions.newInstance();
+        Circle o = Circle.newInstance(options);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testBounds() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CircleOptions options = CircleOptions.newInstance();
-				LatLng center = LatLng.newInstance(23, 25);
-				options.setCenter(center);
-				options.setRadius(10);
-				Circle o = Circle.newInstance(options);
-				LatLngBounds right = o.getBounds();
-				assertEquals(
-						"((22.999910168471587, 24.999902410586856), (23.000089831528413, 25.000097589413144))",
-						right.getToString());
-				finishTest();
-			}
-		});
+  public void testBounds() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CircleOptions options = CircleOptions.newInstance();
+        LatLng center = LatLng.newInstance(23, 25);
+        options.setCenter(center);
+        options.setRadius(10);
+        Circle o = Circle.newInstance(options);
+        LatLngBounds right = o.getBounds();
+        assertEquals("((22.999910168471587, 24.999902410586856), (23.000089831528413, 25.000097589413144))",
+            right.getToString());
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testCenter() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CircleOptions options = CircleOptions.newInstance();
-				LatLng center = LatLng.newInstance(23, 25);
-				options.setCenter(center);
-				options.setRadius(10);
-				Circle o = Circle.newInstance(options);
-				LatLng right = o.getCenter();
-				assertEquals("(23, 25)", right.getToString());
-				finishTest();
-			}
-		});
+  public void testCenter() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CircleOptions options = CircleOptions.newInstance();
+        LatLng center = LatLng.newInstance(23, 25);
+        options.setCenter(center);
+        options.setRadius(10);
+        Circle o = Circle.newInstance(options);
+        LatLng right = o.getCenter();
+        assertEquals("(23, 25)", right.getToString());
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testEditable() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CircleOptions options = CircleOptions.newInstance();
-				Circle o = Circle.newInstance(options);
-				boolean left = true;
-				o.setEditable(left);
-				boolean right = o.getEditable();
-				assertEquals(left, right);
-				finishTest();
-			}
-		});
+  public void testEditable() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CircleOptions options = CircleOptions.newInstance();
+        Circle o = Circle.newInstance(options);
+        boolean left = true;
+        o.setEditable(left);
+        boolean right = o.getEditable();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CircleOptions options = CircleOptions.newInstance();
-				Circle o = Circle.newInstance(options);
-				MapOptions opts = MapOptions.newInstance();
+  public void testMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CircleOptions options = CircleOptions.newInstance();
+        Circle o = Circle.newInstance(options);
+        MapOptions opts = MapOptions.newInstance();
 
-				// test getting null map
-				assertNull(o.getMap());
+        // test getting null map
+        assertNull(o.getMap());
 
-				MapWidget left = new MapWidget(opts);
-				left.setSize("500px", "500px");
-				RootPanel.get().add(left);
-				o.setMap(left);
-				MapWidget right = o.getMap();
-				assertEquals(left.getCenter().getToString(), right.getCenter()
-						.getToString());
+        MapWidget left = new MapWidget(opts);
+        left.setSize("500px", "500px");
+        RootPanel.get().add(left);
+        o.setMap(left);
+        MapWidget right = o.getMap();
+        assertEquals(left.getCenter().getToString(), right.getCenter().getToString());
 
-				// test clearing from map
-				o.setMap(null);
-				assertNull(o.getMap());
+        // test clearing from map
+        o.setMap(null);
+        assertNull(o.getMap());
 
-				finishTest();
-			}
-		});
+        finishTest();
+      }
+    });
 
-	}
+  }
 
-	public void testRadius() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				CircleOptions options = CircleOptions.newInstance();
-				LatLng center = LatLng.newInstance(23, 25);
-				options.setCenter(center);
-				options.setRadius(10d);
-				Circle o = Circle.newInstance(options);
-				LatLngBounds right = o.getBounds();
-				assertEquals(
-						"((22.999910168471587, 24.999902410586856), (23.000089831528413, 25.000097589413144))",
-						right.getToString());
-				double radius = o.getRadius();
-				assertEquals(10d, radius);
-				finishTest();
-			}
-		});
+  public void testRadius() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        CircleOptions options = CircleOptions.newInstance();
+        LatLng center = LatLng.newInstance(23, 25);
+        options.setCenter(center);
+        options.setRadius(10d);
+        Circle o = Circle.newInstance(options);
+        LatLngBounds right = o.getBounds();
+        assertEquals("((22.999910168471587, 24.999902410586856), (23.000089831528413, 25.000097589413144))",
+            right.getToString());
+        double radius = o.getRadius();
+        assertEquals(10d, radius);
+        finishTest();
+      }
+    });
 
-	}
+  }
 
 }

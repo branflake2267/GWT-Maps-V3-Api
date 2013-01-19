@@ -33,126 +33,124 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class HeatMapLayerOptionsGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.VISUALIZATION };
-	}
-	
-	public void testUse() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
-				@SuppressWarnings("unused")
-				HeatMapLayer layer = HeatMapLayer.newInstance(options);
-				finishTest();
-				finishTest();
-			}
-		});
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.VISUALIZATION };
+  }
 
-	public void testGetSetMap() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
-				assertNotNull(options);
+  public void testUse() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
+        @SuppressWarnings("unused")
+        HeatMapLayer layer = HeatMapLayer.newInstance(options);
+        finishTest();
+        finishTest();
+      }
+    });
+  }
 
-				// getting/setting map
-				MapOptions mapOptions = MapOptions.newInstance();
-				mapOptions.setMapTypeId(MapTypeId.TERRAIN);
-				MapWidget mapWidget = new MapWidget(mapOptions);
-				mapWidget.setSize("500px", "500px");
-				RootPanel.get().add(mapWidget);
+  public void testGetSetMap() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
+        assertNotNull(options);
 
-				assertNull(options.getMap());
+        // getting/setting map
+        MapOptions mapOptions = MapOptions.newInstance();
+        mapOptions.setMapTypeId(MapTypeId.TERRAIN);
+        MapWidget mapWidget = new MapWidget(mapOptions);
+        mapWidget.setSize("500px", "500px");
+        RootPanel.get().add(mapWidget);
 
-				options.setMap(mapWidget);
-				MapWidget actual = options.getMap();
-				assertEquals(mapWidget.getMapTypeId(), actual.getMapTypeId());
+        assertNull(options.getMap());
 
-				options.setMap(null);
-				assertNull(options.getMap());
-				finishTest();
-				finishTest();
-			}
-		});
-	}
+        options.setMap(mapWidget);
+        MapWidget actual = options.getMap();
+        assertEquals(mapWidget.getMapTypeId(), actual.getMapTypeId());
 
-	public void testGetSetData() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
-				assertNotNull(options);
+        options.setMap(null);
+        assertNull(options.getMap());
+        finishTest();
+        finishTest();
+      }
+    });
+  }
 
-				// getting/setting data
+  public void testGetSetData() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
+        assertNotNull(options);
 
-				assertNull(options.getData());
+        // getting/setting data
 
-				MVCArray<LatLng> expected = HeatMapLayerGwtTest.getMVCLatLngData();
-				options.setData(expected);
+        assertNull(options.getData());
 
-				// test set
-				MVCArray<LatLng> actual = options.getData();
-				assertEquals(expected.getLength(), actual.getLength());
-				assertEquals(expected.get(0).toString(), actual.get(0)
-						.toString());
+        MVCArray<LatLng> expected = HeatMapLayerGwtTest.getMVCLatLngData();
+        options.setData(expected);
 
-				// test clear
-				MVCArray<LatLng> emptySet = MVCArray.newInstance();
-				options.setData(emptySet);
-				actual = options.getData();
-				assertEquals(0, actual.getLength());
+        // test set
+        MVCArray<LatLng> actual = options.getData();
+        assertEquals(expected.getLength(), actual.getLength());
+        assertEquals(expected.get(0).toString(), actual.get(0).toString());
 
-				finishTest();
-				finishTest();
-			}
-		});
-	}
+        // test clear
+        MVCArray<LatLng> emptySet = MVCArray.newInstance();
+        options.setData(emptySet);
+        actual = options.getData();
+        assertEquals(0, actual.getLength());
 
-	public void testGetSetOthers() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
-				assertNotNull(options);
+        finishTest();
+        finishTest();
+      }
+    });
+  }
 
-				// dissipating
-				// assertFalse(options.getDissipating());
-				boolean expected = true;
-				options.setDissipating(expected);
-				assertEquals(expected, options.getDissipating());
+  public void testGetSetOthers() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        HeatMapLayerOptions options = HeatMapLayerOptions.newInstance();
+        assertNotNull(options);
 
-				// gradient
-				assertNull(options.getGradient());
-				String[] colors = new String[] { "red", "blue", "orange",
-						"green" };
-				JsArrayString expectedGradient = ArrayHelper.toJsArrayString(colors);
-				options.setGradient(expectedGradient);
-				assertEquals(expectedGradient, options.getGradient());
-				
-				// maxIntensity
-				// assertNotNull(options.getMaxIntensity());
-				double expectedMax = 554.45d;
-				options.setMaxIntensity(expectedMax);
-				assertEquals(expectedMax, options.getMaxIntensity());
+        // dissipating
+        // assertFalse(options.getDissipating());
+        boolean expected = true;
+        options.setDissipating(expected);
+        assertEquals(expected, options.getDissipating());
 
-				// opacity
-				assertEquals(0.6d, options.getOpacity());
-				double expectedOpacity = 0.45d;
-				options.setOpacity(expectedOpacity);
-				assertEquals(expectedOpacity, options.getOpacity());
+        // gradient
+        assertNull(options.getGradient());
+        String[] colors = new String[] { "red", "blue", "orange", "green" };
+        JsArrayString expectedGradient = ArrayHelper.toJsArrayString(colors);
+        options.setGradient(expectedGradient);
+        assertEquals(expectedGradient, options.getGradient());
 
-				// radius
-				// assertNotNull(options.getRadius());
-				double expectedRadius = 0.45d;
-				options.setRadius(expectedRadius);
-				assertEquals(expectedRadius, options.getRadius());
+        // maxIntensity
+        // assertNotNull(options.getMaxIntensity());
+        double expectedMax = 554.45d;
+        options.setMaxIntensity(expectedMax);
+        assertEquals(expectedMax, options.getMaxIntensity());
 
-				finishTest();
-				finishTest();
-			}
-		});
-	}
+        // opacity
+        assertEquals(0.6d, options.getOpacity());
+        double expectedOpacity = 0.45d;
+        options.setOpacity(expectedOpacity);
+        assertEquals(expectedOpacity, options.getOpacity());
+
+        // radius
+        // assertNotNull(options.getRadius());
+        double expectedRadius = 0.45d;
+        options.setRadius(expectedRadius);
+        assertEquals(expectedRadius, options.getRadius());
+
+        finishTest();
+        finishTest();
+      }
+    });
+  }
 }

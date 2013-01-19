@@ -27,24 +27,23 @@ import com.google.gwt.maps.client.LoadApi.LoadLibrary;
  */
 public class SandboxGwtTest extends AbstractMapsGWTTestHelper {
 
-	@Override
-	public LoadLibrary[] getLibraries() {
-		return new LoadLibrary[] { LoadLibrary.GEOMETRY, LoadLibrary.PANORAMIO,
-				LoadLibrary.PLACES, LoadLibrary.WEATHER };
-	}
+  @Override
+  public LoadLibrary[] getLibraries() {
+    return new LoadLibrary[] { LoadLibrary.GEOMETRY, LoadLibrary.PANORAMIO, LoadLibrary.PLACES, LoadLibrary.WEATHER };
+  }
 
-	protected void runSomething() {
-		assertTrue(true);
-	}
+  protected void runSomething() {
+    assertTrue(true);
+  }
 
-	public void testLoadAllLibraries() {
-		asyncLibTest(new Runnable() {
-			@Override
-			public void run() {
-				runSomething();
-				finishTest();
-			}
-		});
-	}
-	
+  public void testLoadAllLibraries() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        runSomething();
+        finishTest();
+      }
+    });
+  }
+
 }

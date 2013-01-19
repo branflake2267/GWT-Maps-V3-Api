@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class AnimationChangeMapEvent extends MapEvent<AnimationChangeMapHandler, AnimationChangeMapEvent> {
 
   public static Type<AnimationChangeMapHandler> TYPE = new Type<AnimationChangeMapHandler>();
-  
+
   public AnimationChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class AnimationChangeMapEvent extends MapEvent<AnimationChangeMapHandler,
   protected void dispatch(AnimationChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }

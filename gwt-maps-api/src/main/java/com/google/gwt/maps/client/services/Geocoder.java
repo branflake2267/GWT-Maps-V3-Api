@@ -27,11 +27,12 @@ import com.google.gwt.core.client.JsArray;
  * A service for converting between an address and LatLng.
  */
 public class Geocoder extends JavaScriptObject {
-  
+
   /**
    * use newInstance();
    */
-  protected Geocoder() {}
+  protected Geocoder() {
+  }
 
   /**
    * Creates a new instance of a Geocoder that sends geocode requests to Google servers.
@@ -43,9 +44,10 @@ public class Geocoder extends JavaScriptObject {
   private static final native JavaScriptObject createJso() /*-{
     return new $wnd.google.maps.Geocoder();
   }-*/;
-  
+
   /**
    * Geocode a request.
+   * 
    * @param request
    * @param handler
    */
@@ -55,9 +57,9 @@ public class Geocoder extends JavaScriptObject {
     };
     this.geocode(request, callback);
   }-*/;
-  
+
   private static final void geocodeImpl(JsArray<GeocoderResult> results, String status, GeocoderRequestHandler handler) {
     handler.onCallback(results, GeocoderStatus.fromValue(status));
   }
-  
+
 }

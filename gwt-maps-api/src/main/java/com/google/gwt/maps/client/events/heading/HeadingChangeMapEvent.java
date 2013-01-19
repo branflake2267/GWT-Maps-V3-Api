@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.events.MapEvent;
 public class HeadingChangeMapEvent extends MapEvent<HeadingChangeMapHandler, HeadingChangeMapEvent> {
 
   public static Type<HeadingChangeMapHandler> TYPE = new Type<HeadingChangeMapHandler>();
-  
+
   public HeadingChangeMapEvent(Properties properties) {
     super(properties);
   }
@@ -40,5 +40,5 @@ public class HeadingChangeMapEvent extends MapEvent<HeadingChangeMapHandler, Hea
   protected void dispatch(HeadingChangeMapHandler handler) {
     handler.onEvent(this);
   }
-  
+
 }
