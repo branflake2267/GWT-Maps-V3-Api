@@ -9,7 +9,7 @@
 
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.9.0-build-17</version>
+    <version>3.9.0-build-18-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
