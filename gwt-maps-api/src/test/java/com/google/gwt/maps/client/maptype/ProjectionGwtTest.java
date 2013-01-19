@@ -49,7 +49,6 @@ public class ProjectionGwtTest extends AbstractMapsGWTTestHelper {
         finishTest();
       }
     });
-
   }
 
   public void testFromLatLngToPoint() {
@@ -66,7 +65,6 @@ public class ProjectionGwtTest extends AbstractMapsGWTTestHelper {
         finishTest();
       }
     });
-
   }
 
   public void testFromPointToLatLng() {
@@ -77,9 +75,9 @@ public class ProjectionGwtTest extends AbstractMapsGWTTestHelper {
         final MapWidget w = new MapWidget(options);
         RootPanel.get().add(w);
         
-        w.addProjectionChangeHandler(new ProjectionChangeMapHandler() {
-          @Override
-          public void onEvent(ProjectionChangeMapEvent event) {
+//        w.addProjectionChangeHandler(new ProjectionChangeMapHandler() {
+//          @Override
+//          public void onEvent(ProjectionChangeMapEvent event) {
             Projection projection = w.getProjection();
             assertNotNull(projection);
             
@@ -88,11 +86,10 @@ public class ProjectionGwtTest extends AbstractMapsGWTTestHelper {
             LatLng p2 = p.fromPointToLatLng(point, false);
             assertEquals("(84.67351256610525, -174.375)", p2.getToString());
             finishTest();
-          }
-        });
+//          }
+//        });
       }
     });
-
   }
 
 }

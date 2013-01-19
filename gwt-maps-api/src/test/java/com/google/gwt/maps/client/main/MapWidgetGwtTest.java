@@ -175,9 +175,9 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
         final MapWidget w = new MapWidget(options);
         fp.add(w);
         
-        w.addProjectionChangeHandler(new ProjectionChangeMapHandler() {
-          @Override
-          public void onEvent(ProjectionChangeMapEvent event) {
+//        w.addProjectionChangeHandler(new ProjectionChangeMapHandler() {
+//          @Override
+//          public void onEvent(ProjectionChangeMapEvent event) {
             Projection projection = w.getProjection();
             assertNotNull(projection);
             
@@ -186,8 +186,8 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
             LatLng a = projection.fromPointToLatLng(pixel, nowrap);
             assertEquals("(83.67694304841554, -165.9375)", a.getToString());
             finishTest();
-          }
-        });
+//          }
+//        });
       }
     });
   }
