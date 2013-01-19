@@ -31,6 +31,8 @@ import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.base.Point;
 import com.google.gwt.maps.client.controls.ControlPosition;
+import com.google.gwt.maps.client.events.projection.ProjectionChangeMapEvent;
+import com.google.gwt.maps.client.events.projection.ProjectionChangeMapHandler;
 import com.google.gwt.maps.client.maptypes.Projection;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -170,16 +172,24 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
         RootPanel.get().add(fp);
 
         MapOptions options = MapOptions.newInstance();
-        MapWidget o = new MapWidget(options);
-        Projection projection = o.getProjection();
-        boolean nowrap = false;
-        Point pixel = Point.newInstance(10d, 10d);
-        Point a = projection.fromPointToLatLng(pixel, nowrap);
-        assertEquals("(83.67694304841554, -165.9375)", a.getToString());
-        finishTest();
+        final MapWidget w = new MapWidget(options);
+        fp.add(w);
+        
+        w.addProjectionChangeHandler(new ProjectionChangeMapHandler() {
+          @Override
+          public void onEvent(ProjectionChangeMapEvent event) {
+            Projection projection = w.getProjection();
+            assertNotNull(projection);
+            
+            boolean nowrap = false;
+            Point pixel = Point.newInstance(10d, 10d);
+            LatLng a = projection.fromPointToLatLng(pixel, nowrap);
+            assertEquals("(83.67694304841554, -165.9375)", a.getToString());
+            finishTest();
+          }
+        });
       }
     });
-
   }
 
   // /**

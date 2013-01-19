@@ -26,7 +26,10 @@ import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Point;
+import com.google.gwt.maps.client.events.projection.ProjectionChangeMapEvent;
+import com.google.gwt.maps.client.events.projection.ProjectionChangeMapHandler;
 import com.google.gwt.maps.client.maptypes.Projection;
+import com.google.gwt.user.client.ui.RootPanel;
 
 public class ProjectionGwtTest extends AbstractMapsGWTTestHelper {
 
@@ -71,12 +74,22 @@ public class ProjectionGwtTest extends AbstractMapsGWTTestHelper {
       @Override
       public void run() {
         MapOptions options = MapOptions.newInstance();
-        MapWidget wMap = new MapWidget(options);
-        Projection p = wMap.getProjection();
-        Point point = Point.newInstance(4d, 3d);
-        Point p2 = p.fromPointToLatLng(point, false);
-        assertEquals("(84.67351256610525, -174.375)", p2.getToString());
-        finishTest();
+        final MapWidget w = new MapWidget(options);
+        RootPanel.get().add(w);
+        
+        w.addProjectionChangeHandler(new ProjectionChangeMapHandler() {
+          @Override
+          public void onEvent(ProjectionChangeMapEvent event) {
+            Projection projection = w.getProjection();
+            assertNotNull(projection);
+            
+            Projection p = w.getProjection();
+            Point point = Point.newInstance(4d, 3d);
+            LatLng p2 = p.fromPointToLatLng(point, false);
+            assertEquals("(84.67351256610525, -174.375)", p2.getToString());
+            finishTest();
+          }
+        });
       }
     });
 
