@@ -21,6 +21,7 @@ package com.google.gwt.maps.testing.client.maps;
  */
 
 import com.google.gwt.maps.client.MapOptions;
+import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.Point;
@@ -69,7 +70,8 @@ public class ImageMapTypeWidget extends Composite {
 
     // draw map
     MapTypeControlOptions controlOpts = MapTypeControlOptions.newInstance();
-    controlOpts.setMapTypeIds(new String[] { LUNAR_NAME, MARTIAN_NAME });
+    //TODO How it make it label as "Earth" not "Satellite" without redefining that standard map type?
+    controlOpts.setMapTypeIds(new String[] { LUNAR_NAME, MARTIAN_NAME, MapTypeId.SATELLITE.toString() });
 
     MapOptions opts = MapOptions.newInstance();
     opts.setCenter(LatLng.newInstance(-12d, -70d));
