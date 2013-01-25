@@ -39,6 +39,7 @@ import com.google.gwt.maps.testing.client.maps.ImageMapTypeWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.MultipleKmlMapWidget;
+import com.google.gwt.maps.testing.client.maps.OpenStreetMapLayerWidget;
 import com.google.gwt.maps.testing.client.maps.OverlayViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
 import com.google.gwt.maps.testing.client.maps.PlaceSearchMapWidget;
@@ -91,7 +92,7 @@ public class Showcase implements EntryPoint {
 		HTML html = new HTML("<a href='fullpage.html'>See FullScreen Map Demo</a><br/><br/>");
 
 		RootPanel.get(mapsContainer).add(html);
-
+			
 		drawHeatMap();
 
 		drawImageMapType();
@@ -102,6 +103,8 @@ public class Showcase implements EntryPoint {
 
 		drawDrawingMap();
 
+		drawOpenStreetMapLayerMap();
+		
 		drawPolylineMap();
 
 		drawDirections();
@@ -137,6 +140,7 @@ public class Showcase implements EntryPoint {
 		drawMultipleKmlMap();
 		
 		drawOverlayViewMap();
+
 	}
 
 	/**
@@ -262,5 +266,10 @@ public class Showcase implements EntryPoint {
 	private void drawOverlayViewMap() {
 	  OverlayViewMapWidget wMap = new OverlayViewMapWidget();
 	  addMapWidget(wMap);
+	}
+	
+	private void drawOpenStreetMapLayerMap() {
+		OpenStreetMapLayerWidget wMap = new OpenStreetMapLayerWidget();
+		addMapWidget(wMap);
 	}
 }
