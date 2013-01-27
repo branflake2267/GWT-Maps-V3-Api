@@ -65,7 +65,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
     Element div = DOM.createDiv();
     setElement(div);
     impl = StreetViewPanoramaImpl.newInstance(div, options);
-    setStyleName("gwt-map-StreetViewPanoramaWidget-div");
   }
 
   /**
@@ -77,7 +76,6 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
     this.impl = impl;
     Element div = DOM.createDiv(); // setup a new div only option.
     setElement(div);
-    setStyleName("gwt-map-StreetViewPanoramaWidget-div");
   }
 
   /**
