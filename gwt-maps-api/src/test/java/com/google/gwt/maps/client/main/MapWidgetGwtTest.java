@@ -31,8 +31,6 @@ import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.base.Point;
 import com.google.gwt.maps.client.controls.ControlPosition;
-import com.google.gwt.maps.client.events.projection.ProjectionChangeMapEvent;
-import com.google.gwt.maps.client.events.projection.ProjectionChangeMapHandler;
 import com.google.gwt.maps.client.maptypes.Projection;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -281,7 +279,6 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
         finishTest();
       }
     });
-
   }
 
   public void testPanTo() {
@@ -290,17 +287,19 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
       public void run() {
         FlowPanel fp = new FlowPanel();
         RootPanel.get().add(fp);
+        fp.setSize("500px", "500px");
 
         MapOptions options = MapOptions.newInstance();
         MapWidget o = new MapWidget(options);
-        LatLng latLng = LatLng.newInstance(35.3d, 38.5d);
+        fp.add(o);
+        
+        LatLng latLng = LatLng.newInstance(35.3, 38.5);
         o.panTo(latLng);
-        LatLng latlng = o.getCenter();
-        assertEquals("(35.29999999999999, 38.49999999999998)", latlng.getToString());
+        assertTrue(latLng.getLatitude() > 35);
+        assertTrue(latLng.getLongitude() > 35);
         finishTest();
       }
     });
-
   }
 
   public void testPanToBounds() {
@@ -321,7 +320,6 @@ public class MapWidgetGwtTest extends AbstractMapsGWTTestHelper {
         finishTest();
       }
     });
-
   }
 
   public void testSetCenter() {
