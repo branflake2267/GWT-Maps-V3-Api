@@ -416,7 +416,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
    * returns all controls for a controlPosition
    * 
    * @param controlPosition
-   * @return
+   * @return controls
    */
   public MVCArray<Element> getControls(ControlPosition controlPosition) {
     return impl.getControls(controlPosition);

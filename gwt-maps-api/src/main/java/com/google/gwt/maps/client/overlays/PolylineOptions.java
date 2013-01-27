@@ -121,7 +121,8 @@ public class PolylineOptions extends JavaScriptObject {
 
   /**
    * Gets Map on which to display Polyline. <br>
-   * See {@link #getMap()}
+   * See {@link #getMap()}.<br>
+   * Method will be removed in version 3.11
    */
   @Deprecated
   public final MapWidget getMapWidget() {
