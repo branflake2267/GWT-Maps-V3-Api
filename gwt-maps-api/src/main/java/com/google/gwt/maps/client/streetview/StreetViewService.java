@@ -45,6 +45,15 @@ public class StreetViewService extends JavaScriptObject {
     return createJso().cast();
   }
 
+  /**
+   * Use newInstance(). This method has been spelled incorrectly.
+   * @return
+   */
+  @Deprecated
+  public static final StreetViewService newInstnace() {
+    return newInstance();
+  }
+  
   private static final native JavaScriptObject createJso() /*-{
     return new $wnd.google.maps.StreetViewService();
   }-*/;
