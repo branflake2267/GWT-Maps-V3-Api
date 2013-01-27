@@ -72,7 +72,7 @@ public class StreetViewSideBySideMapWidget extends Composite {
 
   private void setup() {
     // setup streetview finding and searching service
-    service = StreetViewService.newInstnace();
+    service = StreetViewService.newInstance();
   }
 
   /**

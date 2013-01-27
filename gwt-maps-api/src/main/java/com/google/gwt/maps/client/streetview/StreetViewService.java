@@ -41,7 +41,7 @@ public class StreetViewService extends JavaScriptObject {
   /**
    * A StreetViewService object performs searches for Street View data.
    */
-  public static final StreetViewService newInstnace() {
+  public static final StreetViewService newInstance() {
     return createJso().cast();
   }
 
