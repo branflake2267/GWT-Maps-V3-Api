@@ -47,7 +47,7 @@ public class StreetViewService extends JavaScriptObject {
 
   /**
    * Use newInstance(). This method has been spelled incorrectly.
-   * Deprecated on 1/26/2013
+   * Deprecated on 1/26/2013. Deprecate in 3.11
    */
   @Deprecated
   public static final StreetViewService newInstnace() {
