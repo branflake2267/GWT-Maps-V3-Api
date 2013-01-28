@@ -289,6 +289,47 @@
                                     <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/</link>
                                     <link>http://aopalliance.sourceforge.net/doc/</link>
                                 </links>
+				<header>
+				  <![CDATA[
+				    <!-- learn more about api users -->
+				    <!-- oracle still forces use to use ugly frames, so conditionally show/track this in central frame -->
+					  <script type="text/javascript">
+					    
+					    var hasNav = document.getElementsByClassName('topNav').length!=0;
+					    
+					    if(hasNav) {
+					      var _gaq = _gaq || [];
+					      _gaq.push(['_setAccount', 'UA-34327650-1']);
+					      _gaq.push(['_trackPageview']);
+					    
+					      (function() {
+						var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+						ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					      })();
+					  
+					      var el = document.getElementById('gitHeader');
+					      el.style.display = 'block';
+					    }
+					    
+					    
+					  </script>
+					  <!-- Show them the source -->
+					  <div id="gitHeader" style="display:none;margin-top: 4px;position: absolute;right: 0px;" >
+						  <span class="gh-section">Follow us on GitHub</span>
+						  <iframe
+							  src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large"
+							  allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+							  height="30px"></iframe>
+						  <iframe
+							  src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large"
+							  allowtransparency="true" frameborder="0" scrolling="0" width="170px"
+							  height="30px"></iframe>
+					  </div>
+				  ]]>
+
+
+				  </header>
                             </configuration>
                         </plugin>
                     </plugins>
