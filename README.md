@@ -110,11 +110,12 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 4. Inherit the module
 	
 	```xml
-	<inherits name='com.google.gwt.maps.Apis_Google_Maps' />
+	<inherits name='com.google.gwt.maps.Maps'/>
 	```
 
 ##Documentation
-[GWT-Maps-V3-API JavaDoc's (3.8.0)](http://branflake2267.github.com/GWT-Maps-V3-Api/javadoc/3.8.0/)
+* [GWT-Maps-V3-API JavaDoc's (3.9.0)](http://branflake2267.github.com/GWT-Maps-V3-Api/javadoc/3.9.0-build-17/)
+* Complete list on [Wiki page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki)
 
 ##Contribute
 * Learn about contributing under [Eclipse Contributor Setup](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Eclipse-Contributor-Setup)
