@@ -88,3 +88,40 @@ body {
 	margin-top: 5px;
 	
 }
+
+/** Custom overlay CSS **/
+.toggleButton
+{
+    background-color            :    #ccc;
+    color                       :    #000;
+    border                      :    1px solid #666;
+    cursor                      :    hand;
+    cursor                      :    pointer;
+    font-size                   :    75%;
+    margin                      :    3px 1px;
+    padding                     :    1px 10px;
+    width                       :    150px;
+    text-align                  :    center;
+}
+.toggleButton-up-hovering
+{
+    padding                     :    0px 9px;
+    color                       :    #fff;
+    border-top                  :    2px solid #fff;
+    border-left                 :    2px solid #fff;
+    border-right                :    2px solid #888;
+    border-bottom               :    2px solid #888;
+}
+.toggleButton-down, .toggleButton-down-hovering
+{
+    background-color            :    #888;
+    padding                     :    0px 9px;
+    border-top                  :    2px solid #333;
+    border-left                 :    2px solid #333;
+    border-right                :    2px solid #ccc;
+    border-bottom               :    2px solid #ccc;
+}
+
+.customOverlay {
+	background-color            :    #fff;
+}
