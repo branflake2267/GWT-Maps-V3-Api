@@ -84,6 +84,15 @@ public class Circle extends MVCObject<Circle> {
   }-*/;
 
   /**
+   * set center
+   * 
+   * @param latlng
+   */
+  public final native void setCenter(LatLng latlng) /*-{
+    this.setCenter(latlng);
+  }-*/;
+  
+  /**
    * Returns the center of this circle.
    */
   public final native LatLng getCenter() /*-{
