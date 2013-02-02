@@ -84,7 +84,7 @@ public class Circle extends MVCObject<Circle> {
   }-*/;
 
   /**
-   * set center
+   * set center.
    * 
    * @param latlng
    */
