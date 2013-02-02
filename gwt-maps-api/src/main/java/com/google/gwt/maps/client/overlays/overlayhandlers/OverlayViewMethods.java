@@ -33,6 +33,8 @@ public class OverlayViewMethods extends JavaScriptObject {
 
   /**
    * Returns the MapCanvasProjection object associated with this OverlayView. Only available after draw has been called.
+   * 
+   * Note: Not available for onRemove().
    */
   public final native MapCanvasProjection getProjection() /*-{
     return this.getProjection();

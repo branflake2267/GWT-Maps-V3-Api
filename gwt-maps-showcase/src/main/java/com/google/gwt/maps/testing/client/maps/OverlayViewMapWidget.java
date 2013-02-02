@@ -47,16 +47,15 @@ import com.google.gwt.user.client.ui.ToggleButton;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
- * See <a href=
- * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
- * >FusionTables API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables" >FusionTables API
+ * Doc</a>
  */
 public class OverlayViewMapWidget extends Composite {
 
   private final VerticalPanel pWidget;
   private MapWidget mapWidget;
   private VerticalPanel htmlOverlayMessage;
-  
+
   private OverlayView customOverlayView;
   private GroundOverlay groundOverlay;
 
@@ -68,52 +67,51 @@ public class OverlayViewMapWidget extends Composite {
   }
 
   private void draw() {
-    // This is just ot show the effect of behind the scenes
-	  final ToggleButton groundOverlayBtn = new ToggleButton("Clear Ground Overlay","Add Ground Overlay");
-	  groundOverlayBtn.setStyleName("toggleButton");
-	  groundOverlayBtn.addClickHandler(new ClickHandler() {
+    // This is just to show the effect of behind the scenes
+    final ToggleButton groundOverlayBtn = new ToggleButton("Clear Ground Overlay", "Add Ground Overlay");
+    groundOverlayBtn.setStyleName("toggleButton");
+    groundOverlayBtn.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-    	  if(groundOverlayBtn.isDown()) {
-    		  groundOverlay.setMap(null);
-    	  } else {
-    		  groundOverlay.setMap(mapWidget);
-    	  }
+        if (groundOverlayBtn.isDown()) {
+          groundOverlay.setMap(null);
+        } else {
+          groundOverlay.setMap(mapWidget);
+        }
       }
     });
-	  
-	  final ToggleButton customOverlayBtn = new ToggleButton("Clear custom Overlay","Add custom Overlay");
-	  customOverlayBtn.setStyleName("toggleButton");
-	  customOverlayBtn.addClickHandler(new ClickHandler() {
+
+    final ToggleButton customOverlayBtn = new ToggleButton("Clear custom Overlay", "Add custom Overlay");
+    customOverlayBtn.setStyleName("toggleButton");
+    customOverlayBtn.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-    	  if(customOverlayBtn.isDown()) {
-    		  htmlOverlayMessage.getElement().removeFromParent();
-    	  } else {
-    		  // any other way to do it ?
-    		  customOverlayView.setMap(mapWidget);
-    	  }
+        if (customOverlayBtn.isDown()) {
+          htmlOverlayMessage.getElement().removeFromParent();
+        } else {
+          customOverlayView.setMap(mapWidget);
+        }
       }
     });
-	  
-	  final ToggleButton overlayViewBtn = new ToggleButton("Remove Overlay View","Add Overlay View");
-	  overlayViewBtn.setStyleName("toggleButton");
-	  overlayViewBtn.addClickHandler(new ClickHandler() {
+
+    final ToggleButton overlayViewBtn = new ToggleButton("Remove Overlay View", "Add Overlay View");
+    overlayViewBtn.setStyleName("toggleButton");
+    overlayViewBtn.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-    	  if(overlayViewBtn.isDown()) {
-    		  customOverlayView.setMap(null);
-    	  } else {
-    		  customOverlayView.setMap(mapWidget);
-    	  }
+        if (overlayViewBtn.isDown()) {
+          customOverlayView.setMap(null);
+        } else {
+          customOverlayView.setMap(mapWidget);
+        }
       }
     });
-    
+
     HorizontalPanel hp = new HorizontalPanel();
     hp.add(overlayViewBtn);
     hp.add(groundOverlayBtn);
     hp.add(customOverlayBtn);
-    
+
     pWidget.clear();
     pWidget.add(hp);
-    
+
     htmlOverlayMessage = new VerticalPanel();
     htmlOverlayMessage.setStyleName("customOverlay");
 
@@ -133,64 +131,59 @@ public class OverlayViewMapWidget extends Composite {
     pWidget.add(mapWidget);
     mapWidget.setSize("750px", "500px");
   }
-  
-  private void drawOverlay_Generic_OverlayView() {    
+
+  private void drawOverlay_Generic_OverlayView() {
     OverlayViewOnDrawHandler onDrawHandler = new OverlayViewOnDrawHandler() {
       @Override
       public void onDraw(OverlayViewMethods methods) {
         MapCanvasProjection projection = methods.getProjection();
-        LatLng sw = LatLng.newInstance(40.710216,-74.213393);
+        LatLng sw = LatLng.newInstance(40.710216, -74.213393);
         Point p = projection.fromLatLngToDivPixel(sw);
         htmlOverlayMessage.getElement().getStyle().setPosition(Position.ABSOLUTE);
         htmlOverlayMessage.getElement().getStyle().setLeft(p.getX(), Unit.PX);
         htmlOverlayMessage.getElement().getStyle().setTop(p.getY(), Unit.PX);
-        
+
         String message = "OverlayView draw() called... the projection world width is " + projection.getWorldWidth();
         htmlOverlayMessage.clear();
         htmlOverlayMessage.add(new HTML(message));
         System.out.println(message);
       }
     };
-    
+
     OverlayViewOnAddHandler onAddHandler = new OverlayViewOnAddHandler() {
       @Override
       public void onAdd(OverlayViewMethods methods) {
         MapCanvasProjection projection = methods.getProjection();
         String message = "OverlayView add() called... the projection world width is " + projection.getWorldWidth();
         System.out.println(message);
-        
+
         methods.getPanes().getFloatPane().appendChild(htmlOverlayMessage.getElement());
       }
     };
-    
+
     OverlayViewOnRemoveHandler onRemoveHandler = new OverlayViewOnRemoveHandler() {
       @Override
       public void onRemove(OverlayViewMethods methods) {
-        MapCanvasProjection projection = methods.getProjection();
-
-        // TODO : abnormal, following call failed because methods is null
-        /*
-        String message = "OverlayView remove() called... the projection world width is " + projection.getWorldWidth();
+        String message = "OverlayView remove() called...";
         System.out.println(message);
-         */
-        
+
         // remove existing nodes
         htmlOverlayMessage.getElement().removeFromParent();
       }
     };
-    
+
     customOverlayView = OverlayView.newInstance(mapWidget, onDrawHandler, onAddHandler, onRemoveHandler);
   }
-  
+
   private void drawOverlay_GroundOverlay() {
     String url = "http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg";
-    LatLng sw = LatLng.newInstance(40.716216,-74.213393);
-    LatLng ne = LatLng.newInstance(40.765641,-74.139235);
+    LatLng sw = LatLng.newInstance(40.716216, -74.213393);
+    LatLng ne = LatLng.newInstance(40.765641, -74.139235);
     LatLngBounds bounds = LatLngBounds.newInstance(sw, ne);
-    GroundOverlayOptions options = GroundOverlayOptions.newInstance(); 
-    
+    GroundOverlayOptions options = GroundOverlayOptions.newInstance();
+
     groundOverlay = GroundOverlay.newInstance(url, bounds, options);
     groundOverlay.setMap(mapWidget);
   }
-  
+
 }
