@@ -38,8 +38,6 @@ import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewMethods;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnAddHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnDrawHandler;
 import com.google.gwt.maps.client.overlays.overlayhandlers.OverlayViewOnRemoveHandler;
-import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -124,12 +122,12 @@ public class OverlayViewMapWidget extends Composite {
     LatLng center = LatLng.newInstance(40.740, -74.18);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(13);
-    opts.setCenter(center);
+    opts.setCenter(center); 
     opts.setMapTypeId(MapTypeId.HYBRID);
 
     mapWidget = new MapWidget(opts);
     pWidget.add(mapWidget);
-    mapWidget.setSize("750px", "500px");
+    mapWidget.setSize("750px", "500px"); 
   }
 
   private void drawOverlay_Generic_OverlayView() {
