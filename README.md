@@ -54,7 +54,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	```xml
 	<inherits name='com.google.gwt.maps.Maps' />
 	```
-3. Load and use the API: 
+3. Load and use the API.
 
 * Example of loading the api. Find the showcase example [here](https://github.com/branflake2267/GWT-Maps-V3-Api/blob/master/gwt-maps-showcase/src/main/java/com/google/gwt/maps/testing/client/Showcase.java#L78).
 	```java
