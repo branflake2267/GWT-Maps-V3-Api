@@ -54,6 +54,33 @@ This library provides Java language bindings for the Google maps Javascript api.
 	```xml
 	<inherits name='com.google.gwt.maps.Maps' />
 	```
+3. Load and use the API: 
+
+* Example of loading the api. Find another [here](https://github.com/branflake2267/GWT-Maps-V3-Api/blob/master/gwt-maps-showcase/src/main/java/com/google/gwt/maps/testing/client/Showcase.java#L78).
+```java
+  private void loadMapApi() {
+    boolean sensor = true;
+
+    // load all the libs for use in the maps
+    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
+    loadLibraries.add(LoadLibrary.ADSENSE);
+    loadLibraries.add(LoadLibrary.DRAWING);
+    loadLibraries.add(LoadLibrary.GEOMETRY);
+    loadLibraries.add(LoadLibrary.PANORAMIO);
+    loadLibraries.add(LoadLibrary.PLACES);
+    loadLibraries.add(LoadLibrary.WEATHER);
+    loadLibraries.add(LoadLibrary.VISUALIZATION);
+
+    Runnable onLoad = new Runnable() {
+      @Override
+      public void run() {
+        draw();
+      }
+    };
+
+    LoadApi.go(onLoad, loadLibraries, sensor);
+  }
+```
 
 ##Current Maven Snapshots
 1. Add Maven dependencies	
