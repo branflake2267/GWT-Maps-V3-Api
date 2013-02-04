@@ -50,6 +50,38 @@ public class DirectionsLeg extends JavaScriptObject {
   }
 
   /**
+   * An estimated arrival time for this leg. Only applicable for TRANSIT requests.
+   * 
+   * @param arrivalTime
+   */
+  public final native void setArrival_Time(Time arrivalTime) /*-{
+    this.arrival_time = arrivalTime;
+  }-*/;
+
+  /**
+   * An estimated arrival time for this leg. Only applicable for TRANSIT requests.
+   */
+  public final native Time getArrival_Time() /*-{
+    return this.arrival_time;
+  }-*/;
+
+  /**
+   * An estimated departure time for this leg. Only applicable for TRANSIT requests.
+   * 
+   * @param arrivalTime
+   */
+  public final native void setDeparture_Time(Time departureTime) /*-{
+    this.departure_time = departureTime;
+  }-*/;
+
+  /**
+   * An estimated departure time for this leg. Only applicable for TRANSIT requests.
+   */
+  public final native Time getDeparture_Time() /*-{
+    return this.departure_time;
+  }-*/;
+
+  /**
    * The total distance covered by this leg. This property may be undefined as the distance may be unknown.
    * 
    * @param distance
