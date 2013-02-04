@@ -61,6 +61,15 @@ public class TransitOptions extends JavaScriptObject {
   }
 
   /**
+   * The desired arrival time for the route, specified as a Date object.
+   * The Date object measures time in milliseconds since 1 January 1970.
+   * If arrival time is specified, departure time is ignored.
+   */
+  public final Date getArrivalTime() {
+    return new Date((long)this.getArrivalTimeImpl().getTime());
+  }
+
+  /**
    * The desired departure time for the route, specified as a Date object.
    * The Date object measures time in milliseconds since 1 January 1970.
    * If neither departure time nor arrival time is specified, the time is assumed to be "now".
@@ -70,12 +79,29 @@ public class TransitOptions extends JavaScriptObject {
     this.setDepartureTime(JsDate.create(time.getTime()));
   }
 
+  /**
+   * The desired departure time for the route, specified as a Date object.
+   * The Date object measures time in milliseconds since 1 January 1970.
+   * If neither departure time nor arrival time is specified, the time is assumed to be "now".
+   */
+  public final Date getDepartureTime() {
+    return new Date((long)this.getDepartureTimeImpl().getTime());
+  }
+
   private final native void setArrivalTime(JsDate time) /*-{
     this.arrivalTime = time;
+  }-*/;
+  
+  private final native JsDate getArrivalTimeImpl() /*-{
+    return this.arrivalTime;
   }-*/;
 
   private final native void setDepartureTime(JsDate time) /*-{
     this.departureTime = time;
+  }-*/;
+
+  private final native JsDate getDepartureTimeImpl() /*-{
+    return this.departureTime;
   }-*/;
 
 }
