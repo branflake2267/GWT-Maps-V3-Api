@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,7 +10,7 @@
 
     <groupId>com.github.branflake2267</groupId>
     <artifactId>gwt-maps</artifactId>
-    <version>3.10.0-alpha-1-SNAPSHOT</version>
+    <version>3.10.0-alpha-1</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -40,9 +41,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</connection>
-        <developerConnection>scm:git:https://github.com/branflake2267/GWT-Maps-V3-Api</developerConnection>
-        <url>https://github.com/branflake2267/GWT-Maps-V3-Api</url>
+        <connection>scm:git:git@github.com:branflake2267/GWT-Maps-V3-Api.git</connection>
+        <developerConnection>scm:git:git@github.com:branflake2267/GWT-Maps-V3-Api.git</developerConnection>
+        <url>https://github.com/branflake2267/GWT-Maps-V3-Api.git</url>
     </scm>
 
     <developers>
@@ -120,8 +121,7 @@
                                 <root>src</root>
                                 <root>target/generated-sources</root>
                                 <root>target/processed-sources</root>
-                                <!-- Included because HTML/CSS/KML files 
-                                    are here -->
+                                <!-- Included because HTML/CSS/KML files are here -->
                                 <root>war</root>
                             </roots>
                             <!-- Don't touch these compiler generated files -->
@@ -161,8 +161,8 @@
 
         <pluginManagement>
             <plugins>
-                <!--This plugin's configuration is used to store Eclipse 
-                    m2e settings only. It has no influence on the Maven build itself. -->
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
+                    build itself. -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
@@ -194,6 +194,12 @@
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-maven-plugin</artifactId>
+                    <version>2.1</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -236,8 +242,8 @@
 
     <!-- Run by using: mvn clean integration-test deploy -->
     <!-- https://issues.sonatype.org/browse/OSSRH-4661 -->
-    <!-- Build a local maven repo: mvn -DaltDeploymentRepository=snapshot-repo::default::file:./distribution/snapshots 
-        clean deploy -->
+    <!-- Build a local maven repo: mvn -DaltDeploymentRepository=snapshot-repo::default::file:./distribution/snapshots clean 
+        deploy -->
     <distributionManagement>
         <repository>
             <id>sona-nexus-deploy</id> <!-- Add to settings.xml <server><id>sona-nexus-deploy</id> -->
@@ -289,7 +295,7 @@
                                     <link>http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/</link>
                                     <link>http://aopalliance.sourceforge.net/doc/</link>
                                 </links>
-				<header>
+                                <header>
 				  <![CDATA[
 				    <!-- learn more about api users -->
 				    <!-- oracle still forces use to use ugly frames, so conditionally show/track this in central frame -->
@@ -317,19 +323,17 @@
 					  <!-- Show them the source -->
 					  <div id="gitHeader" style="display:none;margin-top: 4px;position: absolute;right: 0px;" >
 						  <span class="gh-section">Follow us on GitHub</span>
-						  <iframe
-							  src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large"
+						  <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large"
 							  allowtransparency="true" frameborder="0" scrolling="0" width="170px"
 							  height="30px"></iframe>
-						  <iframe
-							  src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large"
+						  <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large"
 							  allowtransparency="true" frameborder="0" scrolling="0" width="170px"
 							  height="30px"></iframe>
 					  </div>
 				  ]]>
 
 
-				  </header>
+                                </header>
                             </configuration>
                         </plugin>
                     </plugins>
