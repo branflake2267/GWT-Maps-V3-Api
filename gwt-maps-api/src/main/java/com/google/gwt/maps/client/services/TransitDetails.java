@@ -25,8 +25,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * Details of a transit leg, if the leg is of type TRANSIT.<br>
  * <br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#TransitDetails">TransitDetails API
- * Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#TransitDetails" >TransitDetails
+ * API Doc</a>
  */
 public class TransitDetails extends JavaScriptObject {
 
@@ -44,70 +44,70 @@ public class TransitDetails extends JavaScriptObject {
 
   /**
    * The arrival stop of this transit step.
-   */ 
+   */
   public final native void setArrival_Stop(TransitStop arrivalStop) /*-{
     this.arrival_stop = arrivalStop;
   }-*/;
 
   /**
    * The arrival stop of this transit step.
-   */ 
+   */
   public final native TransitStop getArrival_Stop() /*-{
     return this.arrival_stop;
   }-*/;
 
   /**
    * The arrival time of this step, specified as a Time object.
-   */ 
+   */
   public final native void setArrival_Time(Time time) /*-{
     this.arrival_time = time;
   }-*/;
 
   /**
    * The arrival time of this step, specified as a Time object.
-   */ 
+   */
   public final native Time getArrival_Time() /*-{
     return this.arrival_time;
   }-*/;
 
   /**
    * The departure stop of this transit step.
-   */ 
+   */
   public final native void setDeparture_Stop(TransitStop departureStop) /*-{
     this.departure_stop = departureStop;
   }-*/;
 
   /**
    * The departure stop of this transit step.
-   */ 
+   */
   public final native TransitStop getDeparture_Stop() /*-{
     return this.departure_stop;
   }-*/;
 
   /**
    * The departure time of this step, specified as a Time object.
-   */ 
+   */
   public final native void setDeparture_Time(Time time) /*-{
     this.departure_time = time;
   }-*/;
 
   /**
    * The departure time of this step, specified as a Time object.
-   */ 
+   */
   public final native Time getDeparture_Time() /*-{
     return this.departure_time;
   }-*/;
 
   /**
    * The direction in which to travel on this line, as it is marked on the vehicle or at the departure stop.
-   */ 
+   */
   public final native void setHeadsign(String headsign) /*-{
     this.headsign = headsign;
   }-*/;
 
   /**
    * The direction in which to travel on this line, as it is marked on the vehicle or at the departure stop.
-   */ 
+   */
   public final native String getHeadsign() /*-{
     return this.headsign;
   }-*/;
@@ -128,14 +128,14 @@ public class TransitDetails extends JavaScriptObject {
 
   /**
    * Details about the transit line used in this step.
-   */ 
+   */
   public final native void setLine(TransitLine line) /*-{
     this.line = line;
   }-*/;
 
   /**
    * Details about the transit line used in this step.
-   */ 
+   */
   public final native TransitLine getLine() /*-{
     return this.line;
   }-*/;

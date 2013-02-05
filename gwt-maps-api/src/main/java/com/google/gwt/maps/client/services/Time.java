@@ -28,8 +28,7 @@ import com.google.gwt.core.client.JsDate;
 /**
  * A Time incorporate time and timezone information. Used within TRANSIT legs.<br>
  * <br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Time">Time API
- * Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Time" >Time API Doc</a>
  */
 public class Time extends JavaScriptObject {
 
@@ -47,30 +46,30 @@ public class Time extends JavaScriptObject {
 
   /**
    * A string representing the time's value. The time is displayed in the time zone of the transit stop.
-   */ 
+   */
   public final native void setText(String text) /*-{
     this.text = text;
   }-*/;
 
   /**
    * A string representing the time's value. The time is displayed in the time zone of the transit stop.
-   */ 
+   */
   public final native String getText() /*-{
     return this.text;
   }-*/;
 
   /**
-   * The time zone in which this stop lies.
-   * The value is the name of the time zone as defined in the IANA Time Zone Database, e.g. "America/New_York".
-   */ 
+   * The time zone in which this stop lies. The value is the name of the time zone as defined in the IANA Time Zone
+   * Database, e.g. "America/New_York".
+   */
   public final native void setTime_Zone(String timezone) /*-{
     this.time_zone = timezone;
   }-*/;
 
   /**
-   * The time zone in which this stop lies.
-   * The value is the name of the time zone as defined in the IANA Time Zone Database, e.g. "America/New_York".
-   */ 
+   * The time zone in which this stop lies. The value is the name of the time zone as defined in the IANA Time Zone
+   * Database, e.g. "America/New_York".
+   */
   public final native String getTime_Zone() /*-{
     return this.time_zone;
   }-*/;
@@ -81,21 +80,21 @@ public class Time extends JavaScriptObject {
   public final void setValue(Date date) {
     setValue(JsDate.create(date.getTime()));
   }
-  
+
   /**
    * The time of this departure or arrival, specified as a JavaScript Date object.
    */
   public final native void setValue(JsDate date) /*-{
     this.value = date;
   }-*/;
-  
+
   /**
    * The time of this departure or arrival, specified as a Java Date object.
-   */ 
+   */
   public final Date getValue() {
     return new Date((long) getValueAsJsDate().getTime());
   }
-  
+
   /**
    * The time of this departure or arrival, specified as a JavaScript Date object.
    */

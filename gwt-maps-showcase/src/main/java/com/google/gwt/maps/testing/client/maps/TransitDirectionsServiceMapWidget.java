@@ -54,7 +54,7 @@ public class TransitDirectionsServiceMapWidget extends Composite {
   private HTML htmlStatus = new HTML("&nbsp;");
   private HTML htmlSummary = new HTML();
   private int nRequests;
-  
+
   private static final double MIN_LAT = 44.77;
   private static final double MAX_LAT = 44.90;
   private static final double MIN_LON = -0.70;
@@ -79,15 +79,14 @@ public class TransitDirectionsServiceMapWidget extends Composite {
     drawMap();
     htmlSummary = new HTML();
     pWidget.add(htmlSummary);
-    
+
     nRequests = 0;
     Timer directionsTimer = new Timer() {
       @Override
       public void run() {
         drawRandomDirections();
-        /* We do not want to make the client
-         * to be blacklisted by Google if its
-         * browser window is left open for too
+        /*
+         * We do not want to make the client to be blacklisted by Google if its browser window is left open for too
          * long... :)
          */
         if (nRequests++ > 10)
@@ -116,20 +115,17 @@ public class TransitDirectionsServiceMapWidget extends Composite {
 
   private void drawRandomDirections() {
     /* Compute a direction with random from, to */
-    LatLng origin = LatLng.newInstance(
-            Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT,
-            Math.random() * (MAX_LON - MIN_LON) + MIN_LON);
-    LatLng destination = LatLng.newInstance(
-            Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT,
-            Math.random() * (MAX_LON - MIN_LON) + MIN_LON);
+    LatLng origin = LatLng.newInstance(Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT, Math.random()
+        * (MAX_LON - MIN_LON) + MIN_LON);
+    LatLng destination = LatLng.newInstance(Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT, Math.random()
+        * (MAX_LON - MIN_LON) + MIN_LON);
 
     DirectionsRequest request = DirectionsRequest.newInstance();
     request.setOrigin(origin);
     request.setDestination(destination);
     request.setTravelMode(TravelMode.TRANSIT);
     TransitOptions transitOptions = TransitOptions.newInstance();
-    long departure = System.currentTimeMillis()
-            + Math.round(Math.random() * DELTA_TIME_MS) - DELTA_TIME_MS / 2;
+    long departure = System.currentTimeMillis() + Math.round(Math.random() * DELTA_TIME_MS) - DELTA_TIME_MS / 2;
     final Date departureDateTime = new Date(departure);
     transitOptions.setDepartureTime(departureDateTime);
     request.setTransitOptions(transitOptions);
@@ -149,7 +145,7 @@ public class TransitDirectionsServiceMapWidget extends Composite {
       }
     });
   }
-  
+
   private void updateStatus(DirectionsRoute route, Date departureDateTime) {
     StringBuffer sb = new StringBuffer();
     for (int i = 0; i < route.getLegs().length(); i++) {
@@ -165,7 +161,7 @@ public class TransitDirectionsServiceMapWidget extends Composite {
       sb.append(" (");
       sb.append(departureDateTime.toString());
       if (arrivalDate != null)
-    	  sb.append(" &rarr; ").append(arrivalDate.toString());
+        sb.append(" &rarr; ").append(arrivalDate.toString());
       sb.append(")<br/>");
     }
     htmlSummary.setHTML(sb.toString());

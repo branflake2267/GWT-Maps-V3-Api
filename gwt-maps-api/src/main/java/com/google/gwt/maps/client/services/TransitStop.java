@@ -26,7 +26,7 @@ import com.google.gwt.maps.client.base.LatLng;
 /**
  * TransitStop, used within TRANSIT legs.<br>
  * <br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#TransitStop">TransitStop API
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#TransitStop" >TransitStop API
  * Doc</a>
  */
 public class TransitStop extends JavaScriptObject {
@@ -45,28 +45,28 @@ public class TransitStop extends JavaScriptObject {
 
   /**
    * The location of this stop.
-   */ 
+   */
   public final native void setLocation(LatLng location) /*-{
     this.location = location;
   }-*/;
 
   /**
    * The location of this stop.
-   */ 
+   */
   public final native LatLng getLocation() /*-{
     return this.location;
   }-*/;
 
   /**
    * The name of this transit stop.
-   */ 
+   */
   public final native void setName(String name) /*-{
     this.name = name;
   }-*/;
 
   /**
    * The name of this transit stop.
-   */ 
+   */
   public final native String getName() /*-{
     return this.name;
   }-*/;

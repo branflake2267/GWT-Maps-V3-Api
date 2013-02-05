@@ -25,7 +25,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * TransitAgency, used within TRANSIT legs.<br>
  * <br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#TransitAgency">TransitAgency API
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#TransitAgency" >TransitAgency API
  * Doc</a>
  */
 public class TransitAgency extends JavaScriptObject {
@@ -44,42 +44,42 @@ public class TransitAgency extends JavaScriptObject {
 
   /**
    * The name of this transit agency.
-   */ 
+   */
   public final native void setName(String name) /*-{
     this.name = name;
   }-*/;
 
   /**
    * The name of this transit agency.
-   */ 
+   */
   public final native String getName() /*-{
     return this.name;
   }-*/;
 
   /**
    * The transit agency's phone number.
-   */ 
+   */
   public final native void setPhone(String phone) /*-{
     this.phone = phone;
   }-*/;
 
   /**
    * The transit agency's phone number.
-   */ 
+   */
   public final native String getPhone() /*-{
     return this.phone;
   }-*/;
 
   /**
    * The transit agency's URL.
-   */ 
+   */
   public final native void setUrl(String url) /*-{
     this.url = url;
   }-*/;
 
   /**
    * The transit agency's URL.
-   */ 
+   */
   public final native String getUrl() /*-{
     return this.url;
   }-*/;

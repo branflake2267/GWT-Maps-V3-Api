@@ -45,16 +45,16 @@ public class TransitDirectionsServiceGwtTest extends AbstractMapsGWTTestHelper {
 
   @Override
   public LoadLibrary[] getLibraries() {
-    return new LoadLibrary[] { };
+    return new LoadLibrary[] {};
   }
-  
+
   public void testTransit() {
     asyncLibTest(new Runnable() {
       @Override
       public void run() {
 
-        LatLng center = LatLng.newInstance(45.522947, -122.67849); // Portland, OR
-
+        // Portland, OR
+        LatLng center = LatLng.newInstance(45.522947, -122.67849);
         MapOptions optionsMap = MapOptions.newInstance();
         optionsMap.setCenter(center);
         optionsMap.setZoom(10);
@@ -64,7 +64,7 @@ public class TransitDirectionsServiceGwtTest extends AbstractMapsGWTTestHelper {
         RootPanel.get().add(mapWidget);
 
         // Random places around Portland, OR, where we expect
-        // to have reliable transit always available. 
+        // to have reliable transit always available.
         LatLng origin = LatLng.newInstance(45.48541, -122.815819);
         LatLng destination = LatLng.newInstance(45.559497, -122.601242);
 
@@ -101,19 +101,16 @@ public class TransitDirectionsServiceGwtTest extends AbstractMapsGWTTestHelper {
       }
     });
   }
-  
+
   private void checkRoute(DirectionsRequest request, DirectionsRoute route) {
     assertTrue(route.getLegs().length() >= 1);
-    assertLatLngDistance(request.getOrigin_LatLng(),
-            route.getLegs().get(0).getStart_Location(),
-            100);
-    assertLatLngDistance(request.getDestination_LatLng(),
-            route.getLegs().get(route.getLegs().length() - 1).getEnd_Location(),
-            100);
+    assertLatLngDistance(request.getOrigin_LatLng(), route.getLegs().get(0).getStart_Location(), 100);
+    assertLatLngDistance(request.getDestination_LatLng(), route.getLegs().get(route.getLegs().length() - 1)
+        .getEnd_Location(), 100);
     for (int i = 0; i < route.getLegs().length(); i++) {
       DirectionsLeg leg = route.getLegs().get(i);
-      long deltaDepartureSec = Math.abs(leg.getDeparture_Time().getValue().getTime() -
-    		  request.getTransitOptions().getDepartureTime().getTime()) / 1000;
+      long deltaDepartureSec = Math.abs(leg.getDeparture_Time().getValue().getTime()
+          - request.getTransitOptions().getDepartureTime().getTime()) / 1000;
       assertTrue(deltaDepartureSec < 3 * 3600); // 3h, should be safe
       long durationSec = leg.getDuration().getValue();
       assertTrue(durationSec < 3 * 3600); // 3h, actual is ~1h30

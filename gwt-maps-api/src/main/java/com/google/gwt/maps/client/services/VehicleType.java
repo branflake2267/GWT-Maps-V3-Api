@@ -21,10 +21,10 @@ package com.google.gwt.maps.client.services;
  */
 
 /**
- * Possible values for vehicle types. These values are specifed as strings, i.e. 'BUS' or 'TRAIN'.
+ * Possible values for vehicle types. These values are specifed as strings, i.e. 'BUS' or 'TRAIN'. <br>
  * <br>
- * <br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#VehicleType">VehicleType API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#VehicleType" >VehicleType API
+ * Doc</a>
  */
 public enum VehicleType {
 
@@ -42,12 +42,12 @@ public enum VehicleType {
    * Commuter rail.
    */
   COMMUTER_TRAIN,
-  
+
   /**
    * Ferry.
    */
   FERRY,
-  
+
   /**
    * A vehicle that is pulled up a steep incline by a cable.
    */
@@ -60,7 +60,7 @@ public enum VehicleType {
 
   /**
    * Heavy rail.
-   * 		
+   * 
    */
   HEAVY_RAIL,
 
@@ -95,7 +95,8 @@ public enum VehicleType {
   RAIL,
 
   /**
-   * Share taxi is a sort of bus transport with ability to drop off and pick up passengers anywhere on its route. Generally share taxi uses minibus vehicles.
+   * Share taxi is a sort of bus transport with ability to drop off and pick up passengers anywhere on its route.
+   * Generally share taxi uses minibus vehicles.
    */
   SHARE_TAXI,
 

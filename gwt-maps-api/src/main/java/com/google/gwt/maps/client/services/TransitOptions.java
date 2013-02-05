@@ -29,8 +29,8 @@ import com.google.gwt.maps.client.workaround.WorkAroundUtils;
 /**
  * The TransitOptions object to be included in a DirectionsRequest when the travel mode is set to TRANSIT.<br>
  * <br>
- * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#TransitOptions"
- * >TransitOptions API Doc</a>
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#TransitOptions" >TransitOptions
+ * API Doc</a>
  */
 public class TransitOptions extends JavaScriptObject {
 
@@ -50,9 +50,8 @@ public class TransitOptions extends JavaScriptObject {
   }
 
   /**
-   * The desired arrival time for the route, specified as a Date object.
-   * The Date object measures time in milliseconds since 1 January 1970.
-   * If arrival time is specified, departure time is ignored.
+   * The desired arrival time for the route, specified as a Date object. The Date object measures time in milliseconds
+   * since 1 January 1970. If arrival time is specified, departure time is ignored.
    * 
    * @param time
    */
@@ -61,18 +60,17 @@ public class TransitOptions extends JavaScriptObject {
   }
 
   /**
-   * The desired arrival time for the route, specified as a Date object.
-   * The Date object measures time in milliseconds since 1 January 1970.
-   * If arrival time is specified, departure time is ignored.
+   * The desired arrival time for the route, specified as a Date object. The Date object measures time in milliseconds
+   * since 1 January 1970. If arrival time is specified, departure time is ignored.
    */
   public final Date getArrivalTime() {
-    return new Date((long)this.getArrivalTimeImpl().getTime());
+    return new Date((long) this.getArrivalTimeImpl().getTime());
   }
 
   /**
-   * The desired departure time for the route, specified as a Date object.
-   * The Date object measures time in milliseconds since 1 January 1970.
-   * If neither departure time nor arrival time is specified, the time is assumed to be "now".
+   * The desired departure time for the route, specified as a Date object. The Date object measures time in milliseconds
+   * since 1 January 1970. If neither departure time nor arrival time is specified, the time is assumed to be "now".
+   * 
    * @param time
    */
   public final void setDepartureTime(Date time) {
@@ -80,18 +78,17 @@ public class TransitOptions extends JavaScriptObject {
   }
 
   /**
-   * The desired departure time for the route, specified as a Date object.
-   * The Date object measures time in milliseconds since 1 January 1970.
-   * If neither departure time nor arrival time is specified, the time is assumed to be "now".
+   * The desired departure time for the route, specified as a Date object. The Date object measures time in milliseconds
+   * since 1 January 1970. If neither departure time nor arrival time is specified, the time is assumed to be "now".
    */
   public final Date getDepartureTime() {
-    return new Date((long)this.getDepartureTimeImpl().getTime());
+    return new Date((long) this.getDepartureTimeImpl().getTime());
   }
 
   private final native void setArrivalTime(JsDate time) /*-{
     this.arrivalTime = time;
   }-*/;
-  
+
   private final native JsDate getArrivalTimeImpl() /*-{
     return this.arrivalTime;
   }-*/;
