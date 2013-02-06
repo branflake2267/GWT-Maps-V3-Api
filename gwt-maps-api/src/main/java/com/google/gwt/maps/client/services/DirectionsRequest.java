@@ -197,6 +197,24 @@ public class DirectionsRequest extends JavaScriptObject {
   }-*/;
 
   /**
+   * Settings that apply only to requests where travelMode is TRANSIT.
+   * This object will have no effect for other travel modes.
+   * 
+   * @param transitOptions
+   */
+  public final native void setTransitOptions(TransitOptions transitOptions) /*-{
+    this.transitOptions = transitOptions;
+  }-*/;
+  
+  /**
+   * Settings that apply only to requests where travelMode is TRANSIT.
+   * This object will have no effect for other travel modes.
+   */
+  public final native TransitOptions getTransitOptions() /*-{
+    return this.transitOptions;
+  }-*/;
+  
+  /**
    * Type of routing requested. Required.
    * 
    * @param travelMode
