@@ -37,7 +37,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<!-- GWT Maps API V3 -->
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
-		<artifactId>gwt-maps</artifactId>
+		<artifactId>gwt-maps-api</artifactId>
 		<version>3.10.0-alpha-1</version>
 	</dependency>
 
@@ -98,7 +98,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<!-- GWT Maps API V3 -->
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
-		<artifactId>gwt-maps</artifactId>
+		<artifactId>gwt-maps-api</artifactId>
 		<version>3.10.0-alpha-2-SNAPSHOT</version>
 	</dependency>
 
