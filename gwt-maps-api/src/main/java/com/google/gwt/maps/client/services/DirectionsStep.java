@@ -144,7 +144,42 @@ public class DirectionsStep extends JavaScriptObject {
   public final native LatLng getStart_Location() /*-{
     return this.start_location;
   }-*/;
-
+  
+  /**
+   * Sub-steps of this step. Specified for non-transit sections of transit routes.
+   * 
+   * @param steps
+   */
+  public final native void setSteps(JsArray<DirectionsStep> steps) /*-{
+    this.steps = steps;
+  }-*/;
+  
+  /**
+   * Sub-steps of this step. Specified for non-transit sections of transit routes.
+   */
+  public final native JsArray<DirectionsStep> getSteps() /*-{
+    return this.steps;
+  }-*/;
+  
+  /**
+   * Transit-specific details about this step.
+   * This property will be undefined unless the travel mode of this step is TRANSIT.
+   * 
+   * @param transit
+   */
+  public final native void setTransit(TransitDetails transit) /*-{
+    this.transit = transit;
+  }-*/;
+  
+  /**
+   * Transit-specific details about this step.
+   * This property will be undefined unless the travel mode of this step is TRANSIT.
+   * 
+   */
+  public final native TransitDetails getTransit() /*-{
+    return this.transit;
+  }-*/;
+  
   /**
    * The mode of travel used in this step.
    * 

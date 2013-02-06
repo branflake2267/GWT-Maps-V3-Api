@@ -48,6 +48,7 @@ import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewSideBySideMapWidget;
 import com.google.gwt.maps.testing.client.maps.StyledMapWidget;
+import com.google.gwt.maps.testing.client.maps.TransitDirectionsServiceMapWidget;
 import com.google.gwt.maps.testing.client.maps.WeatherLayersWidget;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -108,6 +109,8 @@ public class Showcase implements EntryPoint {
     drawPolylineMap();
 
     drawDirections();
+
+    drawTransitDirections();
 
     drawElevation();
 
@@ -183,6 +186,11 @@ public class Showcase implements EntryPoint {
 
   private void drawDirections() {
     DirectionsServiceMapWidget wMap = new DirectionsServiceMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawTransitDirections() {
+    TransitDirectionsServiceMapWidget wMap = new TransitDirectionsServiceMapWidget();
     addMapWidget(wMap);
   }
 
