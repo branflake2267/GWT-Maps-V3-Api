@@ -28,8 +28,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 
 ##Maven Versions Available
 * [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
-* 3.9.0-build-17 - Release
-* 3.10.0-alpha-1-SNAPSHOT - Snapshot 
+* 3.10.0-alpha-2
+* 3.10.0-alpha-3-SNAPSHOT 
 
 ##Current Maven Release	
 1. Add Maven dependencies	
@@ -38,7 +38,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps-api</artifactId>
-		<version>3.10.0-alpha-1</version>
+		<version>3.10.0-alpha-2</version>
 	</dependency>
 
 	<!-- Other GWT Maps Dependency from Google -->
@@ -99,7 +99,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps-api</artifactId>
-		<version>3.10.0-alpha-2-SNAPSHOT</version>
+		<version>3.10.0-alpha-3-SNAPSHOT</version>
 	</dependency>
 
 	<!-- Other GWT Maps Dependency from Google -->
