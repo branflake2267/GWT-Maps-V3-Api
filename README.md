@@ -13,19 +13,6 @@ This library provides Java language bindings for the Google maps Javascript api.
 * [Cycling the Alps](http://www.cyclingthealps.com)
 * [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 
-##New Features
-* Released to sonatype `3.9.0-build-17-SNAPSHOT` 1/19/2013
-* Fixed some bugs, added triggerResize to mapWidget. Started G+ Community. 1/18/2013
-* v16 released to sonatype `3.9.0-build-16` 1/13/2013
-* v16 Switching from alpha to build b/c it is stable 1/13/2013 (3.9.0-build-16-SNAPSHOT)
-* v16 Fixed Marker Animation and added marker animation controls to examples 1/13/2013
-* v15 Fixed Custom overlay setMap 1/13/2013
-* Custom overlay view added 12/20/2012
-* Added waypoint to directions example
-* InfoWindow supports GWT widgets with events
-* Added PlaceSearchRequest map example
-* 3.9.0 code now in master has the place result with pagination search
-
 ##Maven Versions Available
 * [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
 * 3.10.0-alpha-2
@@ -145,6 +132,20 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 ##Contribute
 * Learn about contributing under [Eclipse Contributor Setup](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Eclipse-Contributor-Setup)
 * [Build Server](http://teamcity.gonevertical.org/)
+
+##New Features
+* Released `3.10.0-alpha-2` 2/10/2013, includes transit api and overlay fix.
+* Released to sonatype `3.9.0-build-17-SNAPSHOT` 1/19/2013
+* Fixed some bugs, added triggerResize to mapWidget. Started G+ Community. 1/18/2013
+* v16 released to sonatype `3.9.0-build-16` 1/13/2013
+* v16 Switching from alpha to build b/c it is stable 1/13/2013 (3.9.0-build-16-SNAPSHOT)
+* v16 Fixed Marker Animation and added marker animation controls to examples 1/13/2013
+* v15 Fixed Custom overlay setMap 1/13/2013
+* Custom overlay view added 12/20/2012
+* Added waypoint to directions example
+* InfoWindow supports GWT widgets with events
+* Added PlaceSearchRequest map example
+* 3.9.0 code now in master has the place result with pagination search
 
 ##Thanks to
 [![Arcbees.com](http://arcbees-ads.appspot.com/images/1.png)](http://arcbees.com)
