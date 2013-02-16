@@ -82,7 +82,7 @@
         <!-- GWT -->
         <gwt.version>2.5.0</gwt.version>
         <gwt.maven.version>2.5.0</gwt.maven.version>
-        <gae.version>1.7.4</gae.version>
+        <gae.version>1.7.5</gae.version>
         <gwt.style>OBF</gwt.style>
 
         <!-- Java -->
