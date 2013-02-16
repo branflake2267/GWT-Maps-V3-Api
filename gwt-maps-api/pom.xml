@@ -45,8 +45,28 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
                 <configuration>
-                    <module>com.google.gwt.maps.Maps</module>
+                    <strict>true</strict>
+
+                    <testTimeOut>180</testTimeOut>
+                    <includes>**/*GwtTestSuite.java</includes>
+                    <excludes>**/*GwtTest.java</excludes>
+                    <mode>htmlunit</mode>
+
+                    <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
+                    <logLevel>INFO</logLevel>
+                    <style>${gwt.style}</style>
+
+                    <compileSourcesArtifacts>
+                        <compileSourcesArtifact>com.google.gwt.maps:Maps</compileSourcesArtifact>
+                    </compileSourcesArtifacts>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
