@@ -256,32 +256,6 @@
 
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>gwt-maven-plugin</artifactId>
-                    <version>${gwt.version}</version>
-                    <configuration>
-                        <strict>true</strict>
-
-                        <testTimeOut>180</testTimeOut>
-                        <includes>**/*GwtTestSuite.java</includes>
-                        <excludes>**/*GwtTest.java</excludes>
-                        <mode>htmlunit</mode>
-
-                        <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
-                        <logLevel>INFO</logLevel>
-                        <style>${gwt.style}</style>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>test</goal>
-                                <goal>compile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                
                 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
                     build itself. -->
                 <plugin>

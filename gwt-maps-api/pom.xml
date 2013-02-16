@@ -31,18 +31,15 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt.maven.version}</version>
                 <configuration>
-                    <strict>true</strict>
-
-                    <testTimeOut>180</testTimeOut>
+                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
                     <includes>**/*GwtTestSuite.java</includes>
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
-
-                    <extraJvmArgs>-Xss1024k -Xmx1024M</extraJvmArgs>
-                    <logLevel>INFO</logLevel>
+                    <testTimeOut>180</testTimeOut>
+                    <strict>true</strict>
                     <style>${gwt.style}</style>
-
                     <compileSourcesArtifacts>
                         <compileSourcesArtifact>com.google.gwt.maps:Maps</compileSourcesArtifact>
                     </compileSourcesArtifacts>
@@ -54,6 +51,18 @@
                         </goals>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-user</artifactId>
+                        <version>${gwt.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-servlet</artifactId>
+                        <version>${gwt.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <plugin>
