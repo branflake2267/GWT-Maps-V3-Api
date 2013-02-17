@@ -70,8 +70,8 @@
                     <strict>true</strict>
 
                     <testTimeOut>180</testTimeOut>
-                    <includes>**/*GwtTestSuite.java</includes>
-                    <excludes>**/*GwtTest.java</excludes>
+                    <!-- <includes>**/*GwtTestSuite.java</includes> -->
+                    <includes>**/*GwtTest.java</includes>
                     <mode>htmlunit</mode>
 
                     <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
