@@ -24,5 +24,5 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.maps.client.overlays.Marker;
 
 public interface ClusterCalculator {
-    ClusterIconInfo execute(JsArray<Marker> markers, int numStyles);
+  ClusterIconInfo execute(JsArray<Marker> markers, int numStyles);
 }

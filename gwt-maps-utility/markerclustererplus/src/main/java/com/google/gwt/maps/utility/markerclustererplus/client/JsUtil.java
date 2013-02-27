@@ -27,28 +27,29 @@ import com.google.gwt.core.client.JsArrayInteger;
 import java.util.Collection;
 
 public final class JsUtil {
-    static <T extends JavaScriptObject> JsArray<T> toArray(final Collection<T> collection) {
-        JsArray<T> array = JavaScriptObject.createArray().cast();
-        for (T t : collection) {
-            array.push(t);
-        }
-        return array;
-    }
 
-    static JsArrayInteger toIntegerArray(int... javaArray) {
-        JsArrayInteger jsArray = JavaScriptObject.createArray().cast();
-        for (int integer : javaArray) {
-            jsArray.push(integer);
-        }
-        return jsArray;
+  static <T extends JavaScriptObject> JsArray<T> toArray(final Collection<T> collection) {
+    JsArray<T> array = JavaScriptObject.createArray().cast();
+    for (T t : collection) {
+      array.push(t);
     }
+    return array;
+  }
 
-    static JsArrayInteger toIntegerArray(final Collection<Integer> collection) {
-        JsArrayInteger array = JavaScriptObject.createArray().cast();
-        for (Integer integer : collection) {
-            array.push(integer);
-        }
-        return array;
+  static JsArrayInteger toIntegerArray(int... javaArray) {
+    JsArrayInteger jsArray = JavaScriptObject.createArray().cast();
+    for (int integer : javaArray) {
+      jsArray.push(integer);
     }
+    return jsArray;
+  }
+
+  static JsArrayInteger toIntegerArray(final Collection<Integer> collection) {
+    JsArrayInteger array = JavaScriptObject.createArray().cast();
+    for (Integer integer : collection) {
+      array.push(integer);
+    }
+    return array;
+  }
 
 }

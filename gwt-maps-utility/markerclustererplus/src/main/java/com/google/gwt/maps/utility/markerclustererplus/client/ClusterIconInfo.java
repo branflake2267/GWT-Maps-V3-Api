@@ -24,35 +24,35 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 public class ClusterIconInfo extends JavaScriptObject {
 
-    protected ClusterIconInfo() {
-    }
+  protected ClusterIconInfo() {
+  }
 
-    public static ClusterIconInfo getInstance() {
-        JavaScriptObject jso = JavaScriptObject.createObject();
-        return jso.cast();
-    }
+  public static ClusterIconInfo newInstance() {
+    JavaScriptObject jso = JavaScriptObject.createObject();
+    return jso.cast();
+  }
 
-    public final native int getIndex() /*-{
-        return this.index;
-    }-*/;
+  public final native int getIndex() /*-{
+      return this.index;
+  }-*/;
 
-    public final native void setIndex(int index) /*-{
-        this.index = index;
-    }-*/;
+  public final native void setIndex(int index) /*-{
+      this.index = index;
+  }-*/;
 
-    public final native int getText() /*-{
-        return this.text;
-    }-*/;
+  public final native int getText() /*-{
+      return this.text;
+  }-*/;
 
-    public final native void setText(String text) /*-{
-        this.text = text;
-    }-*/;
+  public final native void setText(String text) /*-{
+      this.text = text;
+  }-*/;
 
-    public final native String getTitle() /*-{
-        return this.title;
-    }-*/;
+  public final native String getTitle() /*-{
+      return this.title;
+  }-*/;
 
-    public final native void setTitle(String title) /*-{
-        this.title = title;
-    }-*/;
+  public final native void setTitle(String title) /*-{
+      this.title = title;
+  }-*/;
 }

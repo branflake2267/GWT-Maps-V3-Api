@@ -25,66 +25,66 @@ import com.google.gwt.core.client.JsArrayInteger;
 
 public class ClusterIconStyle extends JavaScriptObject {
 
-    protected ClusterIconStyle() {
-    }
+  protected ClusterIconStyle() {
+  }
 
-    public static ClusterIconStyle getInstance() {
-        return createObject().cast();
-    }
+  public static ClusterIconStyle newInstance() {
+    return createObject().cast();
+  }
 
-    public final void setAnchor(int yOffset, int xOffset) {
-        setAnchor(JsUtil.toIntegerArray(yOffset, xOffset));
-    }
+  public final void setAnchor(int yOffset, int xOffset) {
+    setAnchor(JsUtil.toIntegerArray(yOffset, xOffset));
+  }
 
-    public final native void setAnchor(JsArrayInteger value) /*-{
-        this.anchor = value;
-    }-*/;
+  public final native void setAnchor(JsArrayInteger value) /*-{
+      this.anchor = value;
+  }-*/;
 
-    public final void setAnchorIcon(int yOffset, int xOffset) {
-        setAnchorIcon(JsUtil.toIntegerArray(yOffset, xOffset));
-    }
+  public final void setAnchorIcon(int yOffset, int xOffset) {
+    setAnchorIcon(JsUtil.toIntegerArray(yOffset, xOffset));
+  }
 
-    public final native void setAnchorIcon(JsArrayInteger value) /*-{
-        this.anchorIcon = value;
-    }-*/;
+  public final native void setAnchorIcon(JsArrayInteger value) /*-{
+      this.anchorIcon = value;
+  }-*/;
 
-    public final native void setBackgroundPosition(String value) /*-{
-        this.backgroundPosition = value;
-    }-*/;
+  public final native void setBackgroundPosition(String value) /*-{
+      this.backgroundPosition = value;
+  }-*/;
 
-    public final native void setFontFamily(String value) /*-{
-        this.fontFamily = value;
-    }-*/;
+  public final native void setFontFamily(String value) /*-{
+      this.fontFamily = value;
+  }-*/;
 
-    public final native void setFontStyle(String value) /*-{
-        this.fontStyle = value;
-    }-*/;
+  public final native void setFontStyle(String value) /*-{
+      this.fontStyle = value;
+  }-*/;
 
-    public final native void setFontWeight(String value) /*-{
-        this.fontWeight = value;
-    }-*/;
+  public final native void setFontWeight(String value) /*-{
+      this.fontWeight = value;
+  }-*/;
 
-    public final native void setHeight(int value) /*-{
-        this.height = value;
-    }-*/;
+  public final native void setHeight(int value) /*-{
+      this.height = value;
+  }-*/;
 
-    public final native void setTextColor(String value) /*-{
-        this.textColor = value;
-    }-*/;
+  public final native void setTextColor(String value) /*-{
+      this.textColor = value;
+  }-*/;
 
-    public final native void setTextDecoration(String value) /*-{
-        this.textDecoration = value;
-    }-*/;
+  public final native void setTextDecoration(String value) /*-{
+      this.textDecoration = value;
+  }-*/;
 
-    public final native void setTextSize(int value) /*-{
-        this.textSize = value;
-    }-*/;
+  public final native void setTextSize(int value) /*-{
+      this.textSize = value;
+  }-*/;
 
-    public final native void setUrl(String value) /*-{
-        this.url = value;
-    }-*/;
+  public final native void setUrl(String value) /*-{
+      this.url = value;
+  }-*/;
 
-    public final native void setWidth(int value) /*-{
-        this.width = value;
-    }-*/;
+  public final native void setWidth(int value) /*-{
+      this.width = value;
+  }-*/;
 }
