@@ -189,13 +189,6 @@
                             <goal>site</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>release-upload-javadocs</id>
-                        <phase>release-perform</phase>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
@@ -258,13 +251,6 @@
                         <execution>
                             <id>site-build-javadocs</id>
                             <phase>site</phase>
-                            <goals>
-                                <goal>aggregate</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>release-build-javadocs</id>
-                            <phase>release-perform</phase>
                             <goals>
                                 <goal>aggregate</goal>
                             </goals>
