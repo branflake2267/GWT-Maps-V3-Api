@@ -1,0 +1,32 @@
+-classpath
+'/Users/branflake2267/git/GWT-Maps-V3-Api/target/classes:/Users/branflake2267/git/GWT-Maps-V3-Api/gwt-maps-api/target/classes:/Users/branflake2267/git/GWT-Maps-V3-Api/gwt-maps-showcase/target/gwt-maps-showcase-3.10.0-alpha-3-SNAPSHOT/WEB-INF/classes:/Users/branflake2267/.m2/repository/com/google/gwt/google-apis/gwt-ajaxloader/1.1.0/gwt-ajaxloader-1.1.0.jar:/Users/branflake2267/.m2/repository/com/github/branflake2267/gwt-maps-api/3.10.0-alpha-3-SNAPSHOT/gwt-maps-api-3.10.0-alpha-3-SNAPSHOT.jar:/Users/branflake2267/.m2/repository/com/google/appengine/appengine-api-labs/1.7.4/appengine-api-labs-1.7.4.jar:/Users/branflake2267/.m2/repository/org/json/json/20090211/json-20090211.jar:/Users/branflake2267/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar:/Users/branflake2267/.m2/repository/com/google/gwt/gwt-user/2.5.0/gwt-user-2.5.0.jar:/Users/branflake2267/.m2/repository/com/google/appengine/appengine-api-1.0-sdk/1.7.4/appengine-api-1.0-sdk-1.7.4.jar:/Users/branflake2267/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/branflake2267/git/GWT-Maps-V3-Api/gwt-maps-api/src/main/java:/Users/branflake2267/git/GWT-Maps-V3-Api/gwt-maps-showcase/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2011-2013 <a href="https://github.com/branflake2267/GWT-Maps-V3-Api.git">GWT Maps API V3</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/branflake2267/git/GWT-Maps-V3-Api/target/site/javadoc/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'GWT-Maps-V3-Api Javadocs'
+-header
+'<!-- learn more about api users -->                             <!-- oracle still forces use to use ugly frames, so conditionally show/track this in central frame -->                             <script type="text/javascript">                             var hasNav = document.getElementsByClassName(\'topNav\').length!=0;                                                          if (hasNav) {                               var _gaq = _gaq || [];                               _gaq.push([\'_setAccount\', \'UA-34327650-1\']);                               _gaq.push([\'_trackPageview\']);                                                            (function() {                                 var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;                                 ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';                                 var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);                               })();                                                            var el = document.getElementById(\'gitHeader\');                               el.style.display = \'block\';                             }                                                          </script>                             <!-- Show them the source -->                             <div id="gitHeader" style="display:none;margin-top: 4px;position: absolute;right: 0px;" >                               <span class="gh-section">Follow us on GitHub</span>                               <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=fork&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>                               <iframe src="http://ghbtns.com/github-btn.html?user=branflake2267&repo=GWT-Maps-V3-Api&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>                             </div>'
+-link
+'http://download.oracle.com/javase/6/docs/api'
+-link
+'http://google-web-toolkit.googlecode.com/svn/javadoc/latest'
+-link
+'http://aopalliance.sourceforge.net/doc'
+-linkoffline
+'http://docs.oracle.com/javase/6/docs/api' '/Users/branflake2267/git/GWT-Maps-V3-Api/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'GWT Maps API V3 3.10.0-alpha-3-SNAPSHOT API'
