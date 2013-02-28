@@ -89,7 +89,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
     Element div = DOM.createDiv();
     setElement(div);
     impl = MapImpl.newInstance(div, options);
-    setStyleName("gwt-map-MapWidget-div");
   }
 
   @Override
@@ -118,7 +117,6 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   private MapWidget(MapImpl impl) {
     this.impl = impl;
     setElement(impl.getDiv());
-    setStyleName("gwt-map-MapWidget-div");
   }
 
   /**
@@ -418,7 +416,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
    * returns all controls for a controlPosition
    * 
    * @param controlPosition
-   * @return
+   * @return controls
    */
   public MVCArray<Element> getControls(ControlPosition controlPosition) {
     return impl.getControls(controlPosition);

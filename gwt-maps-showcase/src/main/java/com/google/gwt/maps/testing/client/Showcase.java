@@ -39,6 +39,7 @@ import com.google.gwt.maps.testing.client.maps.ImageMapTypeWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.MultipleKmlMapWidget;
+import com.google.gwt.maps.testing.client.maps.OpenStreetMapLayerWidget;
 import com.google.gwt.maps.testing.client.maps.OverlayViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.PanoramioMapWidget;
 import com.google.gwt.maps.testing.client.maps.PlaceSearchMapWidget;
@@ -47,6 +48,7 @@ import com.google.gwt.maps.testing.client.maps.StreetViewCustomMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewMapWidget;
 import com.google.gwt.maps.testing.client.maps.StreetViewSideBySideMapWidget;
 import com.google.gwt.maps.testing.client.maps.StyledMapWidget;
+import com.google.gwt.maps.testing.client.maps.TransitDirectionsServiceMapWidget;
 import com.google.gwt.maps.testing.client.maps.WeatherLayersWidget;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -54,213 +56,226 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class Showcase implements EntryPoint {
 
-	private final String mapsContainer = "maps";
+  private final String mapsContainer = "maps";
 
-	@Override
-	public void onModuleLoad() {
-		loadMapApi();
-	}
+  @Override
+  public void onModuleLoad() {
+    loadMapApi();
+  }
 
-	private void loadMapApi() {
-		boolean sensor = true;
+  private void loadMapApi() {
+    boolean sensor = true;
 
-		// load all the libs for use in the maps
-		ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
-		loadLibraries.add(LoadLibrary.ADSENSE);
-		loadLibraries.add(LoadLibrary.DRAWING);
-		loadLibraries.add(LoadLibrary.GEOMETRY);
-		loadLibraries.add(LoadLibrary.PANORAMIO);
-		loadLibraries.add(LoadLibrary.PLACES);
-		loadLibraries.add(LoadLibrary.WEATHER);
-		loadLibraries.add(LoadLibrary.VISUALIZATION);
+    // load all the libs for use in the maps
+    ArrayList<LoadLibrary> loadLibraries = new ArrayList<LoadApi.LoadLibrary>();
+    loadLibraries.add(LoadLibrary.ADSENSE);
+    loadLibraries.add(LoadLibrary.DRAWING);
+    loadLibraries.add(LoadLibrary.GEOMETRY);
+    loadLibraries.add(LoadLibrary.PANORAMIO);
+    loadLibraries.add(LoadLibrary.PLACES);
+    loadLibraries.add(LoadLibrary.WEATHER);
+    loadLibraries.add(LoadLibrary.VISUALIZATION);
 
-		Runnable onLoad = new Runnable() {
-			@Override
-			public void run() {
-				draw();
-			}
-		};
+    Runnable onLoad = new Runnable() {
+      @Override
+      public void run() {
+        draw();
+      }
+    };
 
-		LoadApi.go(onLoad, loadLibraries, sensor);
-	}
+    LoadApi.go(onLoad, loadLibraries, sensor);
+  }
 
-	/**
-	 * See the map widgets for different map configurations
-	 */
-	private void draw() {
-		HTML html = new HTML("<a href='fullpage.html'>See FullScreen Map Demo</a><br/><br/>");
+  /**
+   * See the map widgets for different map configurations
+   */
+  private void draw() {
+    HTML html = new HTML("<a href='fullpage.html'>See FullScreen Map Demo</a><br/><br/>");
 
-		RootPanel.get(mapsContainer).add(html);
+    RootPanel.get(mapsContainer).add(html);
 
-		drawHeatMap();
+    drawHeatMap();
 
-		drawImageMapType();
+    drawImageMapType();
 
-		drawWeatherMap();
+    drawWeatherMap();
 
-		drawStyledMap();
+    drawStyledMap();
 
-		drawDrawingMap();
+    drawDrawingMap();
 
-		drawPolylineMap();
+    drawOpenStreetMapLayerMap();
 
-		drawDirections();
+    drawPolylineMap();
 
-		drawElevation();
+    drawDirections();
 
-		drawAdvancedLayers();
+    drawTransitDirections();
 
-		drawCustomControlsMap();
+    drawElevation();
 
-		drawInfoWindowMap();
+    drawAdvancedLayers();
 
-		drawStreetViewSideBySide();
+    drawCustomControlsMap();
 
-		drawStreetViewCustom();
+    drawInfoWindowMap();
 
-		drawStreetView();
+    drawStreetViewSideBySide();
 
-		drawAutocomplete();
+    drawStreetViewCustom();
 
-		drawBasicMap();
+    drawStreetView();
 
-		drawFusionMap();
+    drawAutocomplete();
 
-		drawKmlMap();
+    drawBasicMap();
 
-		drawMapWcontrols();
+    drawFusionMap();
 
-		drawPanoramioMap();
+    drawKmlMap();
 
-		drawPlaceSearchRequestMap();
-		
-		drawMultipleKmlMap();
-		
-		drawOverlayViewMap();
-	}
+    drawMapWcontrols();
 
-	/**
-	 * Add the widget to the demos
-	 * 
-	 * @param widget
-	 *            map
-	 */
-	private void addMapWidget(Widget widget) {
-		RootPanel.get(mapsContainer).add(widget);
-	}
+    drawPanoramioMap();
 
-	private void drawHeatMap() {
-		HeatMapLayerWidget wMap = new HeatMapLayerWidget();
-		addMapWidget(wMap);
-	}
+    drawPlaceSearchRequestMap();
 
-	private void drawImageMapType() {
-		ImageMapTypeWidget wMap = new ImageMapTypeWidget();
-		addMapWidget(wMap);
-	}
+    drawMultipleKmlMap();
 
-	private void drawWeatherMap() {
-		WeatherLayersWidget wMap = new WeatherLayersWidget();
-		addMapWidget(wMap);
-	}
+    drawOverlayViewMap();
+  }
 
-	private void drawStyledMap() {
-		StyledMapWidget wMap = new StyledMapWidget();
-		addMapWidget(wMap);
-	}
+  /**
+   * Add the widget to the demos
+   * 
+   * @param widget map
+   */
+  private void addMapWidget(Widget widget) {
+    RootPanel.get(mapsContainer).add(widget);
+  }
 
-	private void drawElevation() {
-		ElevationMapWidget wMap = new ElevationMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawHeatMap() {
+    HeatMapLayerWidget wMap = new HeatMapLayerWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawAdvancedLayers() {
-		AdvancedLayersWidget wMap = new AdvancedLayersWidget();
-		addMapWidget(wMap);
-	}
+  private void drawImageMapType() {
+    ImageMapTypeWidget wMap = new ImageMapTypeWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawDirections() {
-		DirectionsServiceMapWidget wMap = new DirectionsServiceMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawWeatherMap() {
+    WeatherLayersWidget wMap = new WeatherLayersWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawCustomControlsMap() {
-		CustomControlsMapWidget wMap = new CustomControlsMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawStyledMap() {
+    StyledMapWidget wMap = new StyledMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawInfoWindowMap() {
-		InfoWindowMapWidget wMap = new InfoWindowMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawElevation() {
+    ElevationMapWidget wMap = new ElevationMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawStreetViewSideBySide() {
-		StreetViewSideBySideMapWidget wStreet = new StreetViewSideBySideMapWidget();
-		addMapWidget(wStreet);
-	}
+  private void drawAdvancedLayers() {
+    AdvancedLayersWidget wMap = new AdvancedLayersWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawStreetViewCustom() {
-		StreetViewCustomMapWidget wStreet = new StreetViewCustomMapWidget();
-		addMapWidget(wStreet);
-	}
+  private void drawDirections() {
+    DirectionsServiceMapWidget wMap = new DirectionsServiceMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawStreetView() {
-		StreetViewMapWidget wStreet = new StreetViewMapWidget();
-		addMapWidget(wStreet);
-	}
+  private void drawTransitDirections() {
+    TransitDirectionsServiceMapWidget wMap = new TransitDirectionsServiceMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawDrawingMap() {
-		DrawingMapWidget wMap = new DrawingMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawCustomControlsMap() {
+    CustomControlsMapWidget wMap = new CustomControlsMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawPolylineMap() {
-		PolylineMapWidget plMap = new PolylineMapWidget();
-		addMapWidget(plMap);
-	}
+  private void drawInfoWindowMap() {
+    InfoWindowMapWidget wMap = new InfoWindowMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawBasicMap() {
-		BasicMapWidget wMap = new BasicMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawStreetViewSideBySide() {
+    StreetViewSideBySideMapWidget wStreet = new StreetViewSideBySideMapWidget();
+    addMapWidget(wStreet);
+  }
 
-	private void drawFusionMap() {
-		FusionTablesMapWidget wMap = new FusionTablesMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawStreetViewCustom() {
+    StreetViewCustomMapWidget wStreet = new StreetViewCustomMapWidget();
+    addMapWidget(wStreet);
+  }
 
-	private void drawKmlMap() {
-		KmlMapWidget wMap = new KmlMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawStreetView() {
+    StreetViewMapWidget wStreet = new StreetViewMapWidget();
+    addMapWidget(wStreet);
+  }
 
-	private void drawMapWcontrols() {
-		ControlsMapWidget wMap = new ControlsMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawDrawingMap() {
+    DrawingMapWidget wMap = new DrawingMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawPanoramioMap() {
-		PanoramioMapWidget wMap = new PanoramioMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawPolylineMap() {
+    PolylineMapWidget plMap = new PolylineMapWidget();
+    addMapWidget(plMap);
+  }
 
-	private void drawAutocomplete() {
-		AutocompletePlacesMapWidget wMap = new AutocompletePlacesMapWidget();
-		addMapWidget(wMap);
-	}
+  private void drawBasicMap() {
+    BasicMapWidget wMap = new BasicMapWidget();
+    addMapWidget(wMap);
+  }
 
-	private void drawPlaceSearchRequestMap() {
-		PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
-		addMapWidget(wMap);
-	}
-	
-	private void drawMultipleKmlMap() {
-		MultipleKmlMapWidget wMap = new MultipleKmlMapWidget();
-		addMapWidget(wMap);
-	}
-	
-	private void drawOverlayViewMap() {
-	  OverlayViewMapWidget wMap = new OverlayViewMapWidget();
-	  addMapWidget(wMap);
-	}
+  private void drawFusionMap() {
+    FusionTablesMapWidget wMap = new FusionTablesMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawKmlMap() {
+    KmlMapWidget wMap = new KmlMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawMapWcontrols() {
+    ControlsMapWidget wMap = new ControlsMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawPanoramioMap() {
+    PanoramioMapWidget wMap = new PanoramioMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawAutocomplete() {
+    AutocompletePlacesMapWidget wMap = new AutocompletePlacesMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawPlaceSearchRequestMap() {
+    PlaceSearchMapWidget wMap = new PlaceSearchMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawMultipleKmlMap() {
+    MultipleKmlMapWidget wMap = new MultipleKmlMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawOverlayViewMap() {
+    OverlayViewMapWidget wMap = new OverlayViewMapWidget();
+    addMapWidget(wMap);
+  }
+
+  private void drawOpenStreetMapLayerMap() {
+    OpenStreetMapLayerWidget wMap = new OpenStreetMapLayerWidget();
+    addMapWidget(wMap);
+  }
 }

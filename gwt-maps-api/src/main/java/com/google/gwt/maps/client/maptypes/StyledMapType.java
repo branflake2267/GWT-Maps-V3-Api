@@ -55,7 +55,7 @@ public class StyledMapType extends JavaScriptObject {
    * 
    * @param styles
    * @param options
-   * @return
+   * @return jso
    */
   private final static native JavaScriptObject createJso(JsArray<MapTypeStyle> styles, StyledMapTypeOptions options) /*-{
     return new $wnd.google.maps.StyledMapType(styles, options);

@@ -44,7 +44,7 @@ public class StreetViewServiceGwtTest extends AbstractMapsGWTTestHelper {
       @Override
       public void run() {
 
-        final StreetViewService service = StreetViewService.newInstnace();
+        final StreetViewService service = StreetViewService.newInstance();
 
         LatLng position = LatLng.newInstance(21.271525, -157.822731);
 

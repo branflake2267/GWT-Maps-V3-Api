@@ -41,10 +41,19 @@ public class StreetViewService extends JavaScriptObject {
   /**
    * A StreetViewService object performs searches for Street View data.
    */
-  public static final StreetViewService newInstnace() {
+  public static final StreetViewService newInstance() {
     return createJso().cast();
   }
 
+  /**
+   * Use newInstance(). This method has been spelled incorrectly.
+   * Deprecated on 1/26/2013. Deprecate in 3.11
+   */
+  @Deprecated
+  public static final StreetViewService newInstnace() {
+    return newInstance();
+  }
+  
   private static final native JavaScriptObject createJso() /*-{
     return new $wnd.google.maps.StreetViewService();
   }-*/;

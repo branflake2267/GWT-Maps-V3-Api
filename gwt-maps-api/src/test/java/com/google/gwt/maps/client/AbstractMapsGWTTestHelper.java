@@ -143,5 +143,32 @@ public abstract class AbstractMapsGWTTestHelper extends GWTTestCase {
     assertEquals(Double.doubleToLongBits(expected.getLatitude()), Double.doubleToLongBits(actual.getLatitude()));
     assertEquals(Double.doubleToLongBits(expected.getLongitude()), Double.doubleToLongBits(actual.getLongitude()));
   }
+  
+  /**
+   * Assert that two (@link LatLng} are within a certain distance from each other.
+   * @param expected
+   * @param actual
+   * @param maxDistanceMeters The maximum distance between the two points, in meters.
+   */
+  public final void assertLatLngDistance(LatLng expected, LatLng actual, double maxDistanceMeters) {
+    double distance = computeHaversineDistance(expected.getLatitude(), expected.getLongitude(), actual.getLatitude(), actual.getLongitude());
+    assertTrue(distance < maxDistanceMeters);
+  }
+  
+  private static final double EARTH_RADIUS = 6371 * 1000;
+
+  /*
+   * Approximation of the haversine formula, but much faster (use only one
+   * cosine and one square root). Works only if lat1 ~ lat2 and lon1 ~ lon2.
+   * Coordinates are given in decimal DEGREES.
+   */
+  public static double computeHaversineDistance(double lat1, double lon1,
+    double lat2, double lon2) {
+    double dLat = Math.toRadians(lat2 - lat1);
+    double dLon = Math.toRadians(lon2 - lon1)
+    		* Math.cos(Math.toRadians((lat1 + lat2) / 2));
+    return EARTH_RADIUS * Math.sqrt(dLat * dLat + dLon * dLon);
+  }
+
 
 }

@@ -196,7 +196,8 @@ public class MarkerOptions extends JavaScriptObject {
   /**
    * Gets Map on which to display Polyline. <br>
    * <br>
-   * See {@link #getMap()}
+   * See {@link #getMap()}.<br>
+   * Method will be removed in version 3.11
    */
   @Deprecated
   public final MapWidget getMapWidget() {

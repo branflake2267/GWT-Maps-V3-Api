@@ -138,6 +138,14 @@ public class OverlayView extends MVCObject<OverlayView> {
     this.setMap();
   }-*/;
 
+  /**
+   * Returns the MapCanvasProjection object associated with this OverlayView. The projection is not initialized until
+   * onAdd is called by the API.
+   */
+  public final native MapCanvasProjection getProjection() /*-{
+    return this.getProjection();
+  }-*/;
+  
   private final native void setMapImpl(MapImpl map) /*-{
     this.setMap(map);
   }-*/;

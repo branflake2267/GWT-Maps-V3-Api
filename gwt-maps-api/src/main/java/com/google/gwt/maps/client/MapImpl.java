@@ -353,7 +353,7 @@ public class MapImpl extends MVCObject<MapImpl> {
    * returns all controls for a controlPosition
    * 
    * @param controlPosition
-   * @return
+   * @return controls
    */
   public final MVCArray<Element> getControls(ControlPosition controlPosition) {
     return getControls(controlPosition.value());
@@ -363,7 +363,7 @@ public class MapImpl extends MVCObject<MapImpl> {
    * returns all controls for a controlPosition
    * 
    * @param controlPosition
-   * @return
+   * @return controls
    */
   private final native MVCArray<Element> getControls(int controlPosition) /*-{
     return this.controls[controlPosition];
@@ -413,8 +413,6 @@ public class MapImpl extends MVCObject<MapImpl> {
   
   /**
    * Has to be called to resize the map if the canvas has changed
-   * 
-   * @param map
    */
   public final native void triggerResize() /*-{
     $wnd.google.maps.event.trigger(this, 'resize');

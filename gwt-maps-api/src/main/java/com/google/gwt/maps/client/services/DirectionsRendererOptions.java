@@ -151,7 +151,8 @@ public class DirectionsRendererOptions extends JavaScriptObject {
   /**
    * Map on which to display the directions. <br>
    * <br>
-   * Ssee {@link #getMap()}
+   * See {@link #getMap()}.<br>
+   * Method will be removed in version 3.11
    */
   @Deprecated
   public final MapWidget getMapWidget() {
