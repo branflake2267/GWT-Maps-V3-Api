@@ -62,6 +62,9 @@ public enum AutocompleteType {
   ELECTRICIAN,
   ELECTRONICS_STORE,
   EMBASSY,
+  /**
+   * Sets the types of predictions to be returned. Supported type 'establishment' for businesses
+   */
   ESTABLISHMENT,
   FINANCE,
   FIRE_STATION,
@@ -136,6 +139,9 @@ public enum AutocompleteType {
   COLLOQUIAL_AREA,
   COUNTRY,
   FLOOR,
+  /**
+   * Sets the types of predictions to be returned. Supported type 'geocode' for addresses
+   */
   GEOCODE,
   INTERSECTION,
   LOCALITY,
