@@ -247,9 +247,10 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   }
 
   /**
-   * Has to be called to resize the panorama if the canvas has changed
+   * Has to be called to resize the panorama if the canvas has changed.
    */
   public final void triggerResize() {
     impl.triggerResize();
   }
+  
 }

@@ -252,6 +252,7 @@ public class StreetViewPanoramaImpl extends MVCObject<StreetViewPanoramaImpl> {
    * Has to be called to resize the panorama if the canvas has changed
    */
   public final native void triggerResize() /*-{
-      $wnd.google.maps.event.trigger(this, 'resize');
+    $wnd.google.maps.event.trigger(this, 'resize');
   }-*/;
+
 }
