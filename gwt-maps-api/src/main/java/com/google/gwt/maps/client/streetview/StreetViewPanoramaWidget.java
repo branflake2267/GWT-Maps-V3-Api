@@ -252,5 +252,5 @@ public class StreetViewPanoramaWidget extends MVCObjectWidget<StreetViewPanorama
   public final void triggerResize() {
     impl.triggerResize();
   }
-  
+
 }
