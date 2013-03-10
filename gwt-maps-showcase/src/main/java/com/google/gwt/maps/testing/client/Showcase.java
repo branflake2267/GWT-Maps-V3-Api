@@ -38,6 +38,7 @@ import com.google.gwt.maps.testing.client.maps.HeatMapLayerWidget;
 import com.google.gwt.maps.testing.client.maps.ImageMapTypeWidget;
 import com.google.gwt.maps.testing.client.maps.InfoWindowMapWidget;
 import com.google.gwt.maps.testing.client.maps.KmlMapWidget;
+import com.google.gwt.maps.testing.client.maps.LanguageMapWidget;
 import com.google.gwt.maps.testing.client.maps.MultipleKmlMapWidget;
 import com.google.gwt.maps.testing.client.maps.OpenStreetMapLayerWidget;
 import com.google.gwt.maps.testing.client.maps.OverlayViewMapWidget;
@@ -143,6 +144,9 @@ public class Showcase implements EntryPoint {
     drawMultipleKmlMap();
 
     drawOverlayViewMap();
+    
+    // TODO put on its own page someday
+    //drawLanguageMap();
   }
 
   /**
@@ -278,4 +282,10 @@ public class Showcase implements EntryPoint {
     OpenStreetMapLayerWidget wMap = new OpenStreetMapLayerWidget();
     addMapWidget(wMap);
   }
+  
+  private void drawLanguageMap() {
+    LanguageMapWidget wMap = new LanguageMapWidget();
+    addMapWidget(wMap);
+  }
+  
 }

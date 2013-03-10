@@ -103,6 +103,10 @@ public class LoadApi {
     }
   }
 
+  /**
+   * @See <a href="https://developers.google.com/maps/documentation/javascript/basics#Localization">Localization docs</a>
+   * @See <a href="https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1">List of languages</a>
+   */
   public static enum Language {
 
     GERMAN("de"),
