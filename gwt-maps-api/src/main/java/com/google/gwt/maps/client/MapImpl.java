@@ -412,7 +412,7 @@ public class MapImpl extends MVCObject<MapImpl> {
   }-*/;
   
   /**
-   * Has to be called to resize the map if the canvas has changed
+   * Has to be called to resize the map if the canvas has changed.
    */
   public final native void triggerResize() /*-{
     $wnd.google.maps.event.trigger(this, 'resize');

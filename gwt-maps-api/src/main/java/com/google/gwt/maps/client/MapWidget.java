@@ -657,7 +657,7 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
   }
 
   /**
-   * Has to be called to resize the map if the canvas has changed
+   * Has to be called to resize the map if the canvas has changed.
    */
   public final void triggerResize() {
     final LatLng center = getCenter();
