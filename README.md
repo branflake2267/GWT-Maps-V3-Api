@@ -102,6 +102,16 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<inherits name='com.google.gwt.maps.Maps' />
 	```
 
+##Utility Library
+
+    ```xml
+    <dependency>
+        <groupId>com.github.branflake2267.gwt-maps-utility</groupId>
+        <artifactId>markerclustererplus</artifactId>
+        <version>2.0.9-build-1</version>
+    </dependency>
+    ```
+
 ##Previous Versions
 Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenized this project, but are currently having it added to the Central Repo. Until then, here are the current jars.
 
