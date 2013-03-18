@@ -8,10 +8,11 @@
         <version>3.10.0-alpha-5-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.github.branflake2267.gwt-maps-utility</groupId>
+    <version>2.0.15-build-1</version>
     <artifactId>markerclustererplus</artifactId>
     <name>Marker Clusterer Plus</name>
-    <version>2.0.15-build-1</version>
-
+    
     <build>
         <resources>
             <resource>
