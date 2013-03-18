@@ -1,8 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.branflake2267</groupId> 
+        <groupId>com.github.branflake2267</groupId>
         <artifactId>gwt-maps</artifactId>
         <version>3.10.0-alpha-3-SNAPSHOT</version>
     </parent>
@@ -57,8 +58,7 @@
             <!-- 'mvn gwt:debug' - runs debug mode -->
             <!-- 'mvn gwt:compile' - compiles gwt -->
             <!-- 'mvn integration-test' - runs the gwt tests (*GwtTest.java) -->
-            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to 
-                gae & sona with out running tests -->
+            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to gae & sona with out running tests -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -106,7 +106,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            
+
             <!-- App Engine -->
             <plugin>
                 <groupId>net.kindleit</groupId>
@@ -133,13 +133,13 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>    
+            </plugin>
         </plugins>
 
         <pluginManagement>
             <plugins>
-                <!--This plugin's configuration is used to store Eclipse 
-                    m2e settings only. It has no influence on the Maven build itself. -->
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
+                    build itself. -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>

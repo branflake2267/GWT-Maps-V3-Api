@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.github.branflake2267</groupId>
-        <artifactId>gwt-maps</artifactId>
-        <version>3.9.0-build-17</version>
+        <artifactId>gwt-maps-utility</artifactId>
+        <version>3.10.0-alpha-3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>gwt-maps-utility-markerclustererplus</artifactId>
-    <name>GWT Maps API V3 - Utility API - MarkerClustererPlus</name>
-    <version>2.0.15-build-1-SNAPSHOT</version>
+    <artifactId>markerclustererplus</artifactId>
+    <name>Marker Clusterer Plus</name>
+    <version>2.0.9-build-1</version>
 
     <build>
         <resources>
@@ -41,13 +40,15 @@
                 <artifactId>gwt-maven-plugin</artifactId>
                 <version>${gwt.maven.version}</version>
                 <configuration>
-                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
-                    <includes>**/*GwtTestSuite.java</includes>
-                    <excludes>**/*GwtTest.java</excludes>
-                    <mode>htmlunit</mode>
-                    <testTimeOut>180</testTimeOut>
                     <strict>true</strict>
                     <style>${gwt.style}</style>
+                    <extraJvmArgs>-Xss1024K -Xmx1024M</extraJvmArgs>
+                    
+                    <mode>htmlunit</mode>
+                    <testTimeOut>180</testTimeOut>
+                    <includes>**/*GwtTestSuite.java</includes>
+                    <excludes>**/*GwtTest.java</excludes>
+                    
                     <compileSourcesArtifacts>
                         <compileSourcesArtifact>com.google.gwt.maps:Maps</compileSourcesArtifact>
                     </compileSourcesArtifacts>
@@ -59,27 +60,8 @@
                         </goals>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-user</artifactId>
-                        <version>${gwt.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-servlet</artifactId>
-                        <version>${gwt.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-
         </plugins>
-
     </build>
 
     <dependencies>
@@ -91,48 +73,8 @@
         <dependency>
             <groupId>com.github.branflake2267</groupId>
             <artifactId>gwt-maps-api</artifactId>
-            <version>3.9.0-build-17</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
 </project>
 
