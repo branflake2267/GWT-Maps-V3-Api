@@ -129,6 +129,7 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 * [Build Server](http://teamcity.gonevertical.org/)
 
 ##New Features
+* Released `3.10.0-alpha-3` 3/18/2013. Added utility lib and more 3.10 features. 
 * Released `3.10.0-alpha-2` 2/10/2013, includes transit api and overlay fix.
 * Released to sonatype `3.9.0-build-17-SNAPSHOT` 1/19/2013
 * Fixed some bugs, added triggerResize to mapWidget. Started G+ Community. 1/18/2013
