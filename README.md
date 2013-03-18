@@ -25,16 +25,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps-api</artifactId>
-		<version>3.10.0-alpha-4</version>
+		<version>3.10.0-alpha-3</version>
 	</dependency>
-
-	<!-- Other GWT Maps Dependency from Google -->
-	<dependency>
-		<groupId>com.google.gwt.google-apis</groupId>
-		<artifactId>gwt-ajaxloader</artifactId>
-		<version>1.1.0</version>
-	</dependency>
-	```
 	
 2. Add the inherits statement to your module.gwt.xml.	
 	```xml
@@ -86,14 +78,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps-api</artifactId>
-		<version>3.10.0-alpha-3-SNAPSHOT</version>
-	</dependency>
-
-	<!-- Other GWT Maps Dependency from Google -->
-	<dependency>
-		<groupId>com.google.gwt.google-apis</groupId>
-		<artifactId>gwt-ajaxloader</artifactId>
-		<version>1.1.0</version>
+		<version>3.10.0-alpha-4-SNAPSHOT</version>
 	</dependency>
 	```
 	
