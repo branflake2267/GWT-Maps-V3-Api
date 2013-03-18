@@ -104,13 +104,91 @@ public class LoadApi {
   }
 
   /**
+   * @See <a href="https://developers.google.com/maps/documentation/javascript/basics#Localization">Localization docs</a>
+   * @See <a href="https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1">List of languages</a>
+   */
+  public static enum Language {
+
+    GERMAN("de"),
+    GREEK("el"),
+    ENGLISH("en"),
+    ENGLISH_AUSTRALIAN("en-AU"),
+    ENGLISH_GREAT_BRITAIN("en-GB"),
+    SPANISH("es"),
+    BASQUE("eu"),
+    FARSI("fa"),
+    FINNISH("fi"),
+    FILIPINO("fil"),
+    FRENCH("fr"),
+    GALICIAN("gl"),
+    GUJARATI("gu"),
+    HINDI("hi"),
+    CROATIAN("hr"),
+    HUNGARIAN("hu"),
+    INDONESIAN("id"),
+    ITALIAN("it"),
+    HEBREW("iw"),
+    JAPANESE("ja"),
+    KANNADA("kn"),
+    KOREAN("ko"),
+    LITHUANIAN("lt"),
+    LATVIAN("lv"),
+    MALAYALAM("ml"),
+    MARATHI("mr"),
+    DUTCH("nl"),
+    NORWEGIAN_NYNORSK("nn"),
+    NORWEGIAN("no"),
+    ORIYA("or"),
+    POLISH("pl"),
+    PORTUGUESE("pt"),
+    PORTUGUESE_BRAZIL("pt-BR"),
+    PORTUGUESE_PORTUGAL("pt-PT"),
+    ROMANSCH("rm"),
+    ROMANIAN("ro"),
+    RUSSIAN("ru"),
+    SLOVAK("sk"),
+    SLOVENIAN("sl"),
+    SERBIAN("sr"),
+    SWEDISH("sv"),
+    TAGALOG("tl"),
+    TAMIL("ta"),
+    TELUGU("te"),
+    THAI("th"),
+    TURKISH("tr"),
+    UKRAINIAN("uk"),
+    VIETNAMESE("vi"),
+    CHINESE_SIMPLIFIED("zh-CN"),
+    CHINESE_TRADITIONAL("zh-TW");
+
+    private String value;
+
+    Language(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    public static Language fromValue(String value) {
+      return valueOf(value.toUpperCase());
+    }
+
+    @Override
+    public String toString() {
+      return name().toLowerCase() + "(" + value + ")";
+    }
+
+  }
+
+  /**
    * Load Maps javascript v3 api with default libraries. these are not loaded {@link LoadLibrary}
    * 
    * @param onLoad - callback on success
    * @param sensor - derive location [true|false]
    */
   public static void go(Runnable onLoad, boolean sensor) {
-    load(onLoad, sensor, null, null);
+    load(onLoad, sensor, null, null, null);
   }
 
   /**
@@ -121,7 +199,19 @@ public class LoadApi {
    * @param sensor derive location [true|false]
    */
   public static void go(Runnable onLoad, ArrayList<LoadLibrary> loadLibraries, boolean sensor) {
-    load(onLoad, sensor, loadLibraries, null);
+    load(onLoad, sensor, loadLibraries, null, null);
+  }
+  
+  /**
+   * loads maps api
+   * 
+   * @param onLoad callback on success
+   * @param loadLibraries load additional libraries like geometry
+   * @param sensor derive location [true|false]
+   * @param language choose a language
+   */
+  public static void go(Runnable onLoad, ArrayList<LoadLibrary> loadLibraries, boolean sensor, Language language) {
+    load(onLoad, sensor, loadLibraries, language, null);
   }
 
   /**
@@ -133,18 +223,31 @@ public class LoadApi {
    */
   public static void go(Runnable onLoad, LoadLibrary[] loadLibraries, boolean sensor) {
     ArrayList<LoadLibrary> loadLibrariesList = new ArrayList<LoadLibrary>(Arrays.asList(loadLibraries));
-    load(onLoad, sensor, loadLibrariesList, null);
+    load(onLoad, sensor, loadLibrariesList, null, null);
+  }
+  
+  /**
+   * loads maps api
+   * 
+   * @param onLoad callback on success
+   * @param loadLibraries load additional libraries like geometry
+   * @param sensor derive location [true|false]
+   * @param language choose a language
+   */
+  public static void go(Runnable onLoad, LoadLibrary[] loadLibraries, boolean sensor, Language language) {
+    ArrayList<LoadLibrary> loadLibrariesList = new ArrayList<LoadLibrary>(Arrays.asList(loadLibraries));
+    load(onLoad, sensor, loadLibrariesList, language, null);
   }
 
   /**
-   * Load Maps javascript v3 api
+   * loads maps api
    * 
    * @param onLoad callback on success
    * @param sensor derive location [true|false]
    * @param otherParams add additional params. like "key=YOUR_API_KEY"
    */
   public static void go(Runnable onLoad, boolean sensor, String otherParams) {
-    load(onLoad, sensor, null, otherParams);
+    load(onLoad, sensor, null, null, otherParams);
   }
 
   /**
@@ -156,19 +259,25 @@ public class LoadApi {
    * @param otherParams add additional params. like "key=YOUR_API_KEY"
    */
   public static void go(Runnable onLoad, ArrayList<LoadLibrary> loadLibraries, boolean sensor, String otherParams) {
-    load(onLoad, sensor, loadLibraries, otherParams);
+    load(onLoad, sensor, loadLibraries, null, otherParams);
   }
 
   /**
-   * load the maps library
+   * loads maps api
    * 
-   * @param onLoad
-   * @param sensor
-   * @param loadLibraries
-   * @param otherParams
+   * @param onLoad callback on success
+   * @param loadLibraries load additional libraries like geometry
+   * @param sensor sensor derive location [true|false]
+   * @param language choose a language
+   * @param otherParams add additional params. like "key=YOUR_API_KEY"
    */
-  private static void load(Runnable onLoad, boolean sensor, ArrayList<LoadLibrary> loadLibraries, String otherParams) {
+  public static void go(Runnable onLoad, ArrayList<LoadLibrary> loadLibraries, boolean sensor, Language language,
+      String otherParams) {
+    load(onLoad, sensor, loadLibraries, language, otherParams);
+  }
 
+  private static void load(Runnable onLoad, boolean sensor, ArrayList<LoadLibrary> loadLibraries, Language language,
+      String otherParams) {
     String op = "sensor=" + sensor;
     if (otherParams != null) {
       op += "&" + otherParams;
@@ -176,6 +285,10 @@ public class LoadApi {
 
     if (loadLibraries != null) {
       op += "&" + getLibraries(loadLibraries);
+    }
+
+    if (language != null) {
+      op += "&language=" + language.getValue();
     }
 
     AjaxLoaderOptions settings = AjaxLoaderOptions.newInstance();
