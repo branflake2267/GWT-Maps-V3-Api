@@ -42,7 +42,7 @@
                 <configuration>
                     <strict>true</strict>
                     <style>${gwt.style}</style>
-                    <extraJvmArgs>-Xss1024K -Xmx1024M </extraJvmArgs>
+                    <extraJvmArgs>-Xss1024K -Xmx1024M</extraJvmArgs>
                     
                     <mode>htmlunit</mode>
                     <testTimeOut>180</testTimeOut>
