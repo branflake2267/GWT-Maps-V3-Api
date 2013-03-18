@@ -15,8 +15,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 
 ##Maven Versions Available
 * [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
-* 3.10.0-alpha-2
-* 3.10.0-alpha-3-SNAPSHOT 
+* 3.10.0-alpha-3
+* 3.10.0-alpha-4-SNAPSHOT 
 
 ##Current Maven Release	
 1. Add Maven dependencies	
@@ -25,16 +25,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps-api</artifactId>
-		<version>3.10.0-alpha-2</version>
+		<version>3.10.0-alpha-3</version>
 	</dependency>
-
-	<!-- Other GWT Maps Dependency from Google -->
-	<dependency>
-		<groupId>com.google.gwt.google-apis</groupId>
-		<artifactId>gwt-ajaxloader</artifactId>
-		<version>1.1.0</version>
-	</dependency>
-	```
 	
 2. Add the inherits statement to your module.gwt.xml.	
 	```xml
@@ -86,14 +78,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<dependency>
 		<groupId>com.github.branflake2267</groupId>
 		<artifactId>gwt-maps-api</artifactId>
-		<version>3.10.0-alpha-3-SNAPSHOT</version>
-	</dependency>
-
-	<!-- Other GWT Maps Dependency from Google -->
-	<dependency>
-		<groupId>com.google.gwt.google-apis</groupId>
-		<artifactId>gwt-ajaxloader</artifactId>
-		<version>1.1.0</version>
+		<version>3.10.0-alpha-4-SNAPSHOT</version>
 	</dependency>
 	```
 	
@@ -101,6 +86,16 @@ This library provides Java language bindings for the Google maps Javascript api.
 	```xml
 	<inherits name='com.google.gwt.maps.Maps' />
 	```
+
+##Utility Library
+
+    ```xml
+    <dependency>
+        <groupId>com.github.branflake2267</groupId>
+        <artifactId>gwt-maps-utility-markerclustererplus</artifactId>
+        <version>2.0.9-build-1</version>
+    </dependency>
+    ```
 
 ##Previous Versions
 Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenized this project, but are currently having it added to the Central Repo. Until then, here are the current jars.
@@ -134,6 +129,7 @@ Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenize
 * [Build Server](http://teamcity.gonevertical.org/)
 
 ##New Features
+* Released `3.10.0-alpha-3` 3/18/2013. Added utility lib and more 3.10 features. 
 * Released `3.10.0-alpha-2` 2/10/2013, includes transit api and overlay fix.
 * Released to sonatype `3.9.0-build-17-SNAPSHOT` 1/19/2013
 * Fixed some bugs, added triggerResize to mapWidget. Started G+ Community. 1/18/2013
