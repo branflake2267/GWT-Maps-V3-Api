@@ -3,14 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.branflake2267.gwt-maps-utility</groupId>
+        <groupId>com.github.branflake2267</groupId>
         <artifactId>gwt-maps-utility</artifactId>
         <version>3.10.0-alpha-5-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.branflake2267.gwt-maps-utility</groupId>
-    <version>2.0.15-build-1</version>
-    <artifactId>markerclustererplus</artifactId>
+    <version>2.0.15-build-1-SNAPSHOT</version>
+    <artifactId>gwt-maps-utility-markerclustererplus</artifactId>
     <name>Marker Clusterer Plus</name>
     
     <build>

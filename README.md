@@ -91,8 +91,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 
     ```xml
     <dependency>
-        <groupId>com.github.branflake2267.gwt-maps-utility</groupId>
-        <artifactId>markerclustererplus</artifactId>
+        <groupId>com.github.branflake2267</groupId>
+        <artifactId>gwt-maps-utility-markerclustererplus</artifactId>
         <version>2.0.9-build-1</version>
     </dependency>
     ```
