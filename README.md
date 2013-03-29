@@ -19,7 +19,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 * 3.10.0-alpha-7-SNAPSHOT 
 
 ##Current Maven Release	
-1. Add Maven dependencies	
+1. Add Maven dependencies
+
 	```xml
 	<!-- GWT Maps API V3 -->
 	<dependency>
