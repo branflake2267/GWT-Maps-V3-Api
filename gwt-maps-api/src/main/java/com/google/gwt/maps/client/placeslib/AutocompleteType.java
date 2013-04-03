@@ -20,6 +20,10 @@ package com.google.gwt.maps.client.placeslib;
  * #L%
  */
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Supported types are 'establishment' for businesses and 'geocode' for addresses. If no type is specified, both types
  * will be returned. <br>
@@ -132,7 +136,7 @@ public enum AutocompleteType {
   /**
    * Search place types
    */
-  
+
   ADMINISTRATIVE_AREA_LEVEL_1,
   ADMINISTRATIVE_AREA_LEVEL_2,
   ADMINISTRATIVE_AREA_LEVEL_3,
@@ -165,10 +169,30 @@ public enum AutocompleteType {
   SUBLOCALITY_LEVEL_2,
   SUBLOCALITY_LEVEL_1,
   SUBPREMISE,
-  TRANSIT_STATION;
+  TRANSIT_STATION,
+
+  REGIONS("(regions)"),
+  CITIES("(cities)");
+
+  private static final List<AutocompleteType> EXPLICIT_TYPES = Arrays.asList(ESTABLISHMENT, GEOCODE);
+  private static final List<AutocompleteType> TYPE_COLLECTIONS = Arrays.asList(CITIES, REGIONS);
+
+  private final String value;
+
+  AutocompleteType() {
+    this(null);
+  }
+
+  AutocompleteType(String value) {
+    this.value = value;
+  }
 
   public String value() {
-    return name().toLowerCase();
+    if (value == null) {
+      return name().toLowerCase();
+    } else {
+      return value;
+    }
   }
 
   public static AutocompleteType fromValue(String type) {
@@ -177,6 +201,17 @@ public enum AutocompleteType {
 
   public String toString() {
     return name();
+  }
+
+  public static void validateTypesAreCompatibles(AutocompleteType... types) {
+    List<AutocompleteType> autocompleteTypes = Arrays.asList(types);
+
+    boolean hasExplicitTypes = !Collections.disjoint(autocompleteTypes, EXPLICIT_TYPES);
+    boolean hasTypeCollections = !Collections.disjoint(autocompleteTypes, TYPE_COLLECTIONS);
+
+    if (hasExplicitTypes && hasTypeCollections) {
+      throw new IllegalArgumentException("You cannot use both explicit types and type collections");
+    }
   }
 
 }
