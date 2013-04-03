@@ -74,6 +74,9 @@ public class AutocompleteOptions extends JavaScriptObject {
     if (types == null) {
       return;
     }
+
+    AutocompleteType.validateTypesAreCompatibles(types);
+
     String[] stypes = new String[types.length];
     for (int i = 0; i < types.length; i++) {
       stypes[i] = types[i].value();
