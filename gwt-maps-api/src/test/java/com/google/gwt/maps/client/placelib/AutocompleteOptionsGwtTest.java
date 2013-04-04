@@ -20,8 +20,6 @@ package com.google.gwt.maps.client.placelib;
  * #L%
  */
 
-import java.util.ArrayList;
-
 import com.google.gwt.maps.client.AbstractMapsGWTTestHelper;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
@@ -30,11 +28,13 @@ import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.placeslib.AutocompleteOptions;
 import com.google.gwt.maps.client.placeslib.AutocompleteType;
 
+import java.util.ArrayList;
+
 public class AutocompleteOptionsGwtTest extends AbstractMapsGWTTestHelper {
 
   @Override
   public LoadLibrary[] getLibraries() {
-    return new LoadLibrary[] { LoadLibrary.PLACES };
+    return new LoadLibrary[]{LoadLibrary.PLACES};
   }
 
   @SuppressWarnings("unused")
@@ -92,6 +92,88 @@ public class AutocompleteOptionsGwtTest extends AbstractMapsGWTTestHelper {
         o.setTypes(left);
         AutocompleteType[] right = o.getTypes();
         assertEquals(left.value(), right[0].value());
+        finishTest();
+      }
+    });
+  }
+
+  public void testCompatibleTypes1() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteOptions options = AutocompleteOptions.newInstance();
+        options.setTypes(AutocompleteType.ESTABLISHMENT, AutocompleteType.GEOCODE);
+        finishTest();
+      }
+    });
+  }
+
+  public void testCompatibleTypes2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteOptions options = AutocompleteOptions.newInstance();
+        options.setTypes(AutocompleteType.REGIONS, AutocompleteType.CITIES);
+        finishTest();
+      }
+    });
+  }
+
+  public void testCompatibleTypesThrows1() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteOptions options = AutocompleteOptions.newInstance();
+        try {
+          options.setTypes(AutocompleteType.ESTABLISHMENT, AutocompleteType.CITIES);
+          fail();
+        } catch (IllegalArgumentException e) {
+        }
+        finishTest();
+      }
+    });
+  }
+
+  public void testCompatibleTypesThrows2() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteOptions options = AutocompleteOptions.newInstance();
+        try {
+          options.setTypes(AutocompleteType.ESTABLISHMENT, AutocompleteType.REGIONS);
+          fail();
+        } catch (IllegalArgumentException e) {
+        }
+        finishTest();
+      }
+    });
+  }
+
+  public void testCompatibleTypesThrows3() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteOptions options = AutocompleteOptions.newInstance();
+        try {
+          options.setTypes(AutocompleteType.GEOCODE, AutocompleteType.CITIES);
+          fail();
+        } catch (IllegalArgumentException e) {
+        }
+        finishTest();
+      }
+    });
+  }
+
+  public void testCompatibleTypesThrows4() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        AutocompleteOptions options = AutocompleteOptions.newInstance();
+        try {
+          options.setTypes(AutocompleteType.GEOCODE, AutocompleteType.REGIONS);
+          fail();
+        } catch (IllegalArgumentException e) {
+        }
         finishTest();
       }
     });
