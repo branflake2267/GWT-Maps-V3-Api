@@ -97,6 +97,23 @@ public class PlacesService extends JavaScriptObject {
     this.nearbySearch(request, callback);
   }-*/;
   
+  /**
+   * Similar to the nearbySearch function, with the following differences: the search 
+   * response will include up to 200 Places, identified only by their geographic 
+   * coordinates and Place reference.
+   * 
+   * <p>Required parameters: location, radius</p>
+   * 
+   * @param request
+   * @param handler
+   */
+  public final native void radarSearch(PlaceSearchRequest request, PlaceSearchHandler handler) /*-{
+	var callback = function(results, status, pagination) {
+	  $entry(@com.google.gwt.maps.client.placeslib.PlacesService::processSearchCallback(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceSearchPagination;Lcom/google/gwt/maps/client/placeslib/PlaceSearchHandler;)(results, status, pagination, handler));
+	};
+	this.radarSearch(request, callback);
+  }-*/;
+  
   private static final void processSearchCallback(JsArray<PlaceResult> results, String status, 
       PlaceSearchPagination pagination, PlaceSearchHandler handler) {
     handler.onCallback(results, pagination, PlacesServiceStatus.fromValue(status));
