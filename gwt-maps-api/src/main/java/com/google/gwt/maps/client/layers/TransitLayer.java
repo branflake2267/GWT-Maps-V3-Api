@@ -32,7 +32,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * "https://developers.google.com/maps/documentation/javascript/reference#TransitLayer"
  * >TransitLayer API Doc</a>
  */
-public class TransitLayer extends MVCObject<TransitLayer> implements Layer {
+public class TransitLayer extends MVCObject<TransitLayer> {
 
 	/**
 	 * use newInstance();

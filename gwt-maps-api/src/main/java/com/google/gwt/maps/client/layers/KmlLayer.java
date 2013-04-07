@@ -42,7 +42,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * "https://developers.google.com/maps/documentation/javascript/reference#KmlLayer"
  * >KmlLayer API Doc</a>
  */
-public class KmlLayer extends MVCObject<KmlLayer> implements Layer {
+public class KmlLayer extends MVCObject<KmlLayer> {
 
 	/**
 	 * use newInstance();

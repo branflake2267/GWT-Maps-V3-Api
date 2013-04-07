@@ -35,7 +35,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br><br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesLayer">FusionTablesLayer API Doc</a>
  */
-public class FusionTablesLayer extends MVCObject<FusionTablesLayer> implements Layer {
+public class FusionTablesLayer extends MVCObject<FusionTablesLayer> {
   
   /**
    * use newInstance();
