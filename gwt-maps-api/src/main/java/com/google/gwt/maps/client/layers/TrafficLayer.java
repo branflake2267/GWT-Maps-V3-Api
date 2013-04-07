@@ -32,7 +32,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * "https://developers.google.com/maps/documentation/javascript/reference#TrafficLayer"
  * >TrafficLayer API Doc</a>
  */
-public class TrafficLayer extends MVCObject<TrafficLayer> {
+public class TrafficLayer extends MVCObject<TrafficLayer> implements Layer {
 
 	/**
 	 * use newInstance();

@@ -32,7 +32,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * "https://developers.google.com/maps/documentation/javascript/reference#BicyclingLayer"
  * >BicyclingLayer API Doc</a>
  */
-public class BicyclingLayer extends MVCObject<BicyclingLayer> {
+public class BicyclingLayer extends MVCObject<BicyclingLayer> implements Layer {
 
 	/**
 	 * use newInstance();
