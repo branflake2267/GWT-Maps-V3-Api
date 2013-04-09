@@ -49,11 +49,19 @@ public class PanoramioLayer extends MVCObject<PanoramioLayer> {
   public static final PanoramioLayer newInstance(PanoramioLayerOptions options) {
     return createJso(options).cast();
   }
-
+  /**
+   * A PanoramioLayer displays photos from Panoramio as a rendered layer. This class extends MVCObject.
+   * 
+   */
+  public static final PanoramioLayer newInstance() {
+    return createJso().cast();
+  }
   private static final native JavaScriptObject createJso(PanoramioLayerOptions options) /*-{
     return new $wnd.google.maps.panoramio.PanoramioLayer(options);
   }-*/;
-  
+  private static final native JavaScriptObject createJso() /*-{
+    return new $wnd.google.maps.panoramio.PanoramioLayer();
+  }-*/;
   /**
    * The map on which to display the layer.
    * @param mapWidget
