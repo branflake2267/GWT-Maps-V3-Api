@@ -280,7 +280,7 @@ public class MapImpl extends MVCObject<MapImpl> {
 	 * @param mapTypeId
 	 */
 	public final void setMapTypeId(MapTypeId mapTypeId) {
-		setMapTypeIdImpl(mapTypeId.name());
+		setMapTypeIdImpl(mapTypeId.name().toLowerCase());
 	}
 
 	/**
