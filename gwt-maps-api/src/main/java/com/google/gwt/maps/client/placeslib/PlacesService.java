@@ -108,10 +108,10 @@ public class PlacesService extends JavaScriptObject {
    * @param handler
    */
   public final native void radarSearch(PlaceSearchRequest request, PlaceSearchHandler handler) /*-{
-	var callback = function(results, status, pagination) {
-	  $entry(@com.google.gwt.maps.client.placeslib.PlacesService::processSearchCallback(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceSearchPagination;Lcom/google/gwt/maps/client/placeslib/PlaceSearchHandler;)(results, status, pagination, handler));
-	};
-	this.radarSearch(request, callback);
+    var callback = function(results, status, pagination) {
+      $entry(@com.google.gwt.maps.client.placeslib.PlacesService::processSearchCallback(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceSearchPagination;Lcom/google/gwt/maps/client/placeslib/PlaceSearchHandler;)(results, status, pagination, handler));
+    };
+    this.radarSearch(request, callback);
   }-*/;
   
   private static final void processSearchCallback(JsArray<PlaceResult> results, String status, 

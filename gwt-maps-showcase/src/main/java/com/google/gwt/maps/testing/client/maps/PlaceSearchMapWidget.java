@@ -35,8 +35,10 @@ import com.google.gwt.maps.client.placeslib.PlaceResult;
 import com.google.gwt.maps.client.placeslib.PlaceSearchHandler;
 import com.google.gwt.maps.client.placeslib.PlaceSearchPagination;
 import com.google.gwt.maps.client.placeslib.PlaceSearchRequest;
+import com.google.gwt.maps.client.placeslib.PlaceTextSearchHandler;
 import com.google.gwt.maps.client.placeslib.PlacesService;
 import com.google.gwt.maps.client.placeslib.PlacesServiceStatus;
+import com.google.gwt.maps.client.placeslib.TextSearchRequest;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
@@ -79,7 +81,7 @@ public class PlaceSearchMapWidget extends Composite {
       public void onCallback(JsArray<PlaceResult> results, PlaceSearchPagination pagination, PlacesServiceStatus status) {
 
         if (status == PlacesServiceStatus.OK) {
-          Window.alert("I found this many places " + results.length());
+          Window.alert("nearbySearch found this many places " + results.length());
 
           // look up the details for the first place
           if (results.length() > 0) {
@@ -96,6 +98,33 @@ public class PlaceSearchMapWidget extends Composite {
       }
 
     });
+    
+    placeService.radarSearch(request, new PlaceSearchHandler() {
+
+      @Override
+      public void onCallback(JsArray<PlaceResult> results, PlaceSearchPagination pagination, PlacesServiceStatus status) {
+
+        if (status == PlacesServiceStatus.OK) {
+          Window.alert("radarSearch found this many places " + results.length());
+        } else {
+          Window.alert("radarSearch Status is: status=" + status);
+        }
+      }
+    });
+    
+    TextSearchRequest textSearchRequest = TextSearchRequest.newInstance(); 
+    textSearchRequest.setQuery(Window.prompt("Please enter a place text", "shoe stores near ottawa")); 
+    placeService.textSearch(textSearchRequest, new PlaceTextSearchHandler() {		
+		@Override
+		public void onCallback(JsArray<PlaceResult> results, PlacesServiceStatus status) {
+			 if (status == PlacesServiceStatus.OK) {
+				Window.alert("textSearch found this many places " + results.length());
+			 }
+			 else {
+				 Window.alert("textSearch Status is: status=" + status);
+			 }
+		}
+	});
   }
 
   private void getPlaceDetails(String reference) {
