@@ -40,42 +40,18 @@ import com.google.gwt.maps.client.events.mapchange.MapChangeMapHandler;
 import com.google.gwt.maps.client.events.position.PositionChangeMapEvent;
 import com.google.gwt.maps.client.events.position.PositionChangeMapHandler;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.RequiresResize;
 
 /**
- * 
- * <br>
- * <br>
  * See <a href=
  * "https://developers.google.com/maps/documentation/javascript/layers.html#FusionTables"
  * >FusionTables API Doc</a>
  */
-public class FullPageMapWidget extends Composite {
-
-  private FlowPanel pWidget;
+public class FullPageMapWidget extends Composite implements RequiresResize {
 
   private MapWidget mapWidget;
 
   public FullPageMapWidget() {
-
-    pWidget = new FlowPanel();
-
-    initWidget(pWidget);
-
-    pWidget.setSize("100%", "100%");
-    // pWidget.addStyleName("test3");
-
-    draw();
-  }
-
-  private void draw() {
-
-    drawMap();
-
-    drawMapAds();
-  }
-
-  private void drawMap() {
     LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(4);
@@ -83,15 +59,17 @@ public class FullPageMapWidget extends Composite {
     opts.setMapTypeId(MapTypeId.HYBRID);
 
     mapWidget = new MapWidget(opts);
-    pWidget.add(mapWidget);
     mapWidget.setSize("100%", "100%");
-
+    initWidget(mapWidget);
+    
     mapWidget.addClickHandler(new ClickMapHandler() {
       public void onEvent(ClickMapEvent event) {
         // TODO fix the event getting, getting ....
         GWT.log("clicked on latlng=" + event.getMouseEvent().getLatLng());
       }
     });
+    
+    drawMapAds();
   }
 
   private void drawMapAds() {
@@ -125,6 +103,11 @@ public class FullPageMapWidget extends Composite {
       }
     });
 
+  }
+
+  @Override
+  public void onResize() {
+    mapWidget.onResize();
   }
 
 }

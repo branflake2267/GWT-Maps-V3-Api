@@ -22,11 +22,11 @@ package com.google.gwt.maps.testing.client;
 
 import java.util.ArrayList;
 
-import com.google.gwt.maps.testing.client.maps.FullPageMapWidget;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.maps.client.LoadApi;
 import com.google.gwt.maps.client.LoadApi.LoadLibrary;
-import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.maps.testing.client.maps.FullPageMapWidget;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 /**
  * 
@@ -62,7 +62,7 @@ public class ShowcaseFullPage implements EntryPoint {
   
   private void draw() {
     FullPageMapWidget wMap = new FullPageMapWidget();
-    RootPanel.get().add(wMap);
+    RootLayoutPanel.get().add(wMap);
   }
   
 }

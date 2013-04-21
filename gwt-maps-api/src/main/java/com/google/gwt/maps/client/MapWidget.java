@@ -58,9 +58,10 @@ import com.google.gwt.maps.client.mvc.MVCArray;
 import com.google.gwt.maps.client.mvc.MVCObjectWidget;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaImpl;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
 
-public class MapWidget extends MVCObjectWidget<MapImpl> {
+public class MapWidget extends MVCObjectWidget<MapImpl> implements RequiresResize {
 
   /**
    * added controls, must remove them when finished
@@ -663,6 +664,14 @@ public class MapWidget extends MVCObjectWidget<MapImpl> {
     final LatLng center = getCenter();
     impl.triggerResize();
     setCenter(center);
+  }
+
+  /**
+   * Widget implements onResize. Fired from the layoutchain
+   */
+  @Override
+  public void onResize() {
+    triggerResize();
   }
   
 }
