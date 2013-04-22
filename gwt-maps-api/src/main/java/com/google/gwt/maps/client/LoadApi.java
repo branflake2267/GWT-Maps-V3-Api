@@ -159,6 +159,7 @@ public class LoadApi {
     VIETNAMESE("vi"),
     CHINESE_SIMPLIFIED("zh-CN"),
     CHINESE_TRADITIONAL("zh-TW");
+    DANISH("da");
 
     private String value;
 
