@@ -158,7 +158,7 @@ public class LoadApi {
     UKRAINIAN("uk"),
     VIETNAMESE("vi"),
     CHINESE_SIMPLIFIED("zh-CN"),
-    CHINESE_TRADITIONAL("zh-TW");
+    CHINESE_TRADITIONAL("zh-TW"),
     DANISH("da");
 
     private String value;
