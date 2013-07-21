@@ -3,7 +3,7 @@
 This library provides Java language bindings for the Google maps Javascript api. 
 
 ##Demo
-# ![tiny arrow](http://www.lirmm.fr/bib-icons/Stanford/arrow.small.rightT.gif "tiny arrow")  [Live Showcase](http://gonevertical-apis.appspot.com/)
+# [Live Showcase](http://gonevertical-apis.appspot.com/)
 
 ##Community
 # [GWT Maps V3 API G+ Community](https://plus.google.com/communities/105780740892495987648)
