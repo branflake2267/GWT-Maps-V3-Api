@@ -6,7 +6,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 ###[Live Showcase](http://gonevertical-apis.appspot.com/)
 
 ##Community
-# [GWT Maps V3 API G+ Community](https://plus.google.com/communities/105780740892495987648)
+###[GWT Maps V3 API G+ Community](https://plus.google.com/communities/105780740892495987648)
 
 ##Implementers
 * [Live Showcase](http://gonevertical-apis.appspot.com)
