@@ -58,7 +58,7 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
    * @param key
    * @param target
    */
-  public final native void bindTo(String key, MVCObject<T> target) /*-{
+  public final native void bindTo(String key, MVCObject<?> target) /*-{
     this.bindTo(key, target);
   }-*/;
 
@@ -69,7 +69,7 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
    * @param target
    * @param targetKey
    */
-  public final native void bindTo(String key, MVCObject<T> target, String targetKey) /*-{
+  public final native void bindTo(String key, MVCObject<?> target, String targetKey) /*-{
     this.bindTo(key, target, targetKey);
   }-*/;
 
@@ -81,7 +81,7 @@ public class MVCObject<T extends JavaScriptObject> extends JavaScriptObject {
    * @param targetKey
    * @param noNotify
    */
-  public final native void bindTo(String key, MVCObject<T> target, String targetKey, boolean noNotify) /*-{
+  public final native void bindTo(String key, MVCObject<?> target, String targetKey, boolean noNotify) /*-{
     this.bindTo(key, target, targetKey, noNotify);
   }-*/;
 
