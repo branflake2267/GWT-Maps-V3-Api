@@ -81,7 +81,7 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
  * <br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">Marker API Doc</a>
  */
-public class Marker extends MVCObject<Marker> {
+public class Marker extends MVCObject<Marker> implements Overlay {
 
   /**
    * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
@@ -161,6 +161,13 @@ public class Marker extends MVCObject<Marker> {
     return this.getIcon();
   }-*/;
 
+  /**
+   * get Icon (if it is an {@link Icon})
+   */
+  public final native Icon getIcon() /*-{
+    return this.getIcon();
+  }-*/;
+
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
   }
@@ -198,6 +205,13 @@ public class Marker extends MVCObject<Marker> {
    * get Shadow (if it is a MarkerImage)
    */
   public final native MarkerImage getShadow_MarkerImage() /*-{
+    return this.getShadow();
+  }-*/;
+
+  /**
+   * get Shadow (if it is an {@link Icon})
+   */
+  public final native Icon getShadow_Icon() /*-{
     return this.getShadow();
   }-*/;
 
@@ -301,6 +315,15 @@ public class Marker extends MVCObject<Marker> {
   }-*/;
 
   /**
+   * set Icon
+   *
+   * @param icon
+   */
+  public final native void setIcon(Icon icon) /*-{
+    this.setIcon(icon);
+  }-*/;
+
+  /**
    * set Map
    * 
    * @param mapWidget
@@ -364,6 +387,15 @@ public class Marker extends MVCObject<Marker> {
    */
   public final native void setShadow(MarkerImage markerImage) /*-{
     this.setShadow(markerImage);
+  }-*/;
+
+  /**
+   * set shadow Icon
+   *
+   * @param icon
+   */
+  public final native void setShadow(Icon icon) /*-{
+    this.setShadow(icon);
   }-*/;
 
   /**

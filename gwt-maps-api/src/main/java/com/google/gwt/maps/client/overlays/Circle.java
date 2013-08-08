@@ -55,7 +55,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Circle" >Circle API Doc</a>
  */
-public class Circle extends MVCObject<Circle> {
+public class Circle extends MVCObject<Circle> implements Overlay {
 
   /**
    * use newInstance();
@@ -97,6 +97,24 @@ public class Circle extends MVCObject<Circle> {
    */
   public final native LatLng getCenter() /*-{
     return this.getCenter();
+  }-*/;
+
+  /**
+   * Returns whether this circle is visible on the map.
+   *
+   * @return <code>true</code> if the circle is visible, <code>false</code> if it is not.
+   */
+  public final native boolean getVisible() /*-{
+    return this.getVisible();
+  }-*/;
+
+  /**
+   * Hides the circle if set to false.
+   *
+   * @param visible <code>true</code> if the circle should be visible, <code>false</code> if it should not.
+   */
+  public final native void setVisible(boolean visible) /*-{
+    this.setVisible(visible);
   }-*/;
 
   /**

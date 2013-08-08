@@ -52,7 +52,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Rectangle" >Rectangle API Doc</a>
  */
-public class Rectangle extends MVCObject<Rectangle> {
+public class Rectangle extends MVCObject<Rectangle> implements Overlay {
 
   /**
    * use newInstance();
@@ -78,6 +78,31 @@ public class Rectangle extends MVCObject<Rectangle> {
    */
   public final native LatLngBounds getBounds() /*-{
     return this.getBounds();
+  }-*/;
+
+  /**
+   * Sets the bounds of this rectangle.
+   */
+  public final native void setBounds(LatLngBounds bounds) /*-{
+    this.setBounds(bounds);
+  }-*/;
+
+  /**
+   * Returns whether this rectangle is visible on the map.
+   *
+   * @return <code>true</code> if the rectangle is visible, <code>false</code> if it is not.
+   */
+  public final native boolean getVisible() /*-{
+    return this.getVisible();
+  }-*/;
+
+  /**
+   * Hides this rectangle if set to <code>false</code>.
+   *
+   * @param visible <code>true</code> if the rectangle should be visible, <code>false</code> if it should not.
+   */
+  public final native void setVisible(boolean visible) /*-{
+    this.setVisible(visible);
   }-*/;
 
   /**
