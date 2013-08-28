@@ -110,7 +110,7 @@
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
-                <version>0.9.5</version>
+                <version>0.9.6</version>
                 <configuration>
                     <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
                     <serverId>gonevertical-apis</serverId>
@@ -118,13 +118,6 @@
                     <sdkDir>${gae.home}</sdkDir>
                 </configuration>
                 <executions>
-                    <execution>
-                        <id>install-server-jar</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                    </execution>
                     <execution>
                         <id>deploy</id>
                         <goals>
