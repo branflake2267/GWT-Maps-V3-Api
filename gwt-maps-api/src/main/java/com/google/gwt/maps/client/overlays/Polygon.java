@@ -53,7 +53,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Polygon" >Polygon API Doc</a>
  */
-public class Polygon extends MVCObject<Polygon> implements Overlay {
+public class Polygon extends MVCObject<Polygon> {
 
   /**
    * use newInstance();

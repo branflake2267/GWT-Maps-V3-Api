@@ -81,7 +81,7 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
  * <br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">Marker API Doc</a>
  */
-public class Marker extends MVCObject<Marker> implements Overlay {
+public class Marker extends MVCObject<Marker> {
 
   /**
    * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
@@ -239,7 +239,7 @@ public class Marker extends MVCObject<Marker> implements Overlay {
   /**
    * get Z Index
    */
-  public final native int getZindex() /*-{
+  public final native int getZIndex() /*-{
     return this.getZIndex();
   }-*/;
 

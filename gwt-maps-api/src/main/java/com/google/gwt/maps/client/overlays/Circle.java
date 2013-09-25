@@ -55,7 +55,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Circle" >Circle API Doc</a>
  */
-public class Circle extends MVCObject<Circle> implements Overlay {
+public class Circle extends MVCObject<Circle> {
 
   /**
    * use newInstance();

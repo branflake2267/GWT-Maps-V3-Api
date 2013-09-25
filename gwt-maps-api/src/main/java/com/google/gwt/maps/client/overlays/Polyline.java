@@ -52,7 +52,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Polyline" >Polyline API Doc</a>
  */
-public class Polyline extends MVCObject<Polyline> implements Overlay {
+public class Polyline extends MVCObject<Polyline> {
 
   /**
    * use newInstance();

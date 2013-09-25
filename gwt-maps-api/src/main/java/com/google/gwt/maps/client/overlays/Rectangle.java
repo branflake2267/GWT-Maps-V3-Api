@@ -52,7 +52,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Rectangle" >Rectangle API Doc</a>
  */
-public class Rectangle extends MVCObject<Rectangle> implements Overlay {
+public class Rectangle extends MVCObject<Rectangle> {
 
   /**
    * use newInstance();
