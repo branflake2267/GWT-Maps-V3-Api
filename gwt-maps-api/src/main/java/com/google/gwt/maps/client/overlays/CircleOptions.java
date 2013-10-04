@@ -77,6 +77,48 @@ public class CircleOptions extends JavaScriptObject {
   public final native boolean getClickable() /*-{
     return this.clickable;
   }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can drag this circle
+   * over the map. Defaults to <code>false</code>.
+   * 
+   * @param draggable whether or not the user can drag this circle
+   */
+  public final native void setDraggable(boolean draggable) /*-{
+  	this.draggable = draggable;
+  }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can drag this circle
+   * over the map. Defaults to <code>false</code>.
+   * 
+   * @return whether or not the user can drag this circle
+   */
+  public final native boolean getDraggable() /*-{
+  	return this.draggable;
+  }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can edit this circle by
+   * dragging the control points shown at the center and around the
+   * circumference of the circle. Defaults to <code>false</code>.
+   * 
+   * @param editable whether or not the user can edit this circle
+   */
+  public final native void setEditable(boolean editable) /*-{
+  	this.editable = editable;
+  }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can edit this circle by
+   * dragging the control points shown at the center and around the
+   * circumference of the circle. Defaults to <code>false</code>.
+   * 
+   * @return whether or not the user can edit this circle
+   */
+  public final native boolean getEditable() /*-{
+  	return this.editable;
+  }-*/;
 
   /**
    * The fill color. All CSS3 colors are supported except for extended named colors.
@@ -213,6 +255,24 @@ public class CircleOptions extends JavaScriptObject {
    */
   public final native int getStrokeWeight() /*-{
     return this.strokeWeight;
+  }-*/;
+  
+  /**
+   * Whether this circle is visible on the map. Defaults to <code>true</code>.
+   * 
+   * @param visible visibility of this circle
+   */
+  public final native void setVisible(boolean visible) /*-{
+  	this.visible = visible;
+  }-*/;
+  
+  /**
+   * Whether this circle is visible on the map. Defaults to <code>true</code>.
+   * 
+   * @return visibility of this circle
+   */
+  public final native boolean getVisible() /*-{
+  	return this.visible;
   }-*/;
 
   /**

@@ -22,8 +22,6 @@ package com.google.gwt.maps.client.overlays;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.maps.client.MapImpl;
-import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.events.MapEventType;
@@ -48,14 +46,13 @@ import com.google.gwt.maps.client.events.radius.RadiusChangeEventFormatter;
 import com.google.gwt.maps.client.events.radius.RadiusChangeMapHandler;
 import com.google.gwt.maps.client.events.rightclick.RightClickEventFormatter;
 import com.google.gwt.maps.client.events.rightclick.RightClickMapHandler;
-import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A circle overlay. This class extends MVCObject. <br>
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Circle" >Circle API Doc</a>
  */
-public class Circle extends MVCObject<Circle> {
+public class Circle extends Overlay<Circle> {
 
   /**
    * use newInstance();
@@ -100,56 +97,10 @@ public class Circle extends MVCObject<Circle> {
   }-*/;
 
   /**
-   * Returns whether this circle is visible on the map.
-   *
-   * @return <code>true</code> if the circle is visible, <code>false</code> if it is not.
-   */
-  public final native boolean getVisible() /*-{
-    return this.getVisible();
-  }-*/;
-
-  /**
-   * Hides the circle if set to false.
-   *
-   * @param visible <code>true</code> if the circle should be visible, <code>false</code> if it should not.
-   */
-  public final native void setVisible(boolean visible) /*-{
-    this.setVisible(visible);
-  }-*/;
-
-  /**
    * Returns whether this circle can be edited by the user.
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
-  }-*/;
-
-  /**
-   * Renders the circle on the specified map. If map is set to null, the circle will be removed.
-   * 
-   * @param mapWidget
-   */
-  public final void setMap(MapWidget mapWidget) {
-    if (mapWidget == null) {
-      setMapImpl(null);
-    } else {
-      setMapImpl(mapWidget.getJso());
-    }
-  }
-
-  private final native void setMapImpl(MapImpl map) /*-{
-    this.setMap(map);
-  }-*/;
-
-  /**
-   * Returns the map on which this circle is displayed.
-   */
-  public final MapWidget getMap() {
-    return MapWidget.newInstance(getMapImpl());
-  }
-
-  private final native MapImpl getMapImpl() /*-{
-    return this.getMap();
   }-*/;
 
   /**

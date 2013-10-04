@@ -22,8 +22,6 @@ package com.google.gwt.maps.client.overlays;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.maps.client.MapImpl;
-import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.events.MapEventType;
 import com.google.gwt.maps.client.events.MapHandlerRegistration;
@@ -71,7 +69,6 @@ import com.google.gwt.maps.client.events.visible.VisibleChangeEventFormatter;
 import com.google.gwt.maps.client.events.visible.VisibleChangeMapHandler;
 import com.google.gwt.maps.client.events.zindex.ZindexChangeEventFormatter;
 import com.google.gwt.maps.client.events.zindex.ZindexChangeMapHandler;
-import com.google.gwt.maps.client.mvc.MVCObject;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaImpl;
 import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
 
@@ -81,7 +78,7 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
  * <br>
  * See <a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">Marker API Doc</a>
  */
-public class Marker extends MVCObject<Marker> {
+public class Marker extends Overlay<Marker> {
 
   /**
    * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
@@ -134,13 +131,6 @@ public class Marker extends MVCObject<Marker> {
   }-*/;
 
   /**
-   * get Draggable
-   */
-  public final native boolean getDraggable() /*-{
-    return this.getDraggable();
-  }-*/;
-
-  /**
    * get Flat
    */
   public final native boolean getFlat() /*-{
@@ -167,14 +157,6 @@ public class Marker extends MVCObject<Marker> {
   public final native Icon getIcon() /*-{
     return this.getIcon();
   }-*/;
-
-  public final MapWidget getMap() {
-    return MapWidget.newInstance(getMapImpl());
-  }
-
-  private final native MapImpl getMapImpl() /*-{
-    return this.getMap();
-  }-*/;;
 
   /**
    * get Map (if it is a pano)
@@ -230,13 +212,6 @@ public class Marker extends MVCObject<Marker> {
   }-*/;
 
   /**
-   * get Visible
-   */
-  public final native boolean getVisible() /*-{
-    return this.getVisible();
-  }-*/;
-
-  /**
    * get Z Index
    */
   public final native int getZIndex() /*-{
@@ -279,15 +254,6 @@ public class Marker extends MVCObject<Marker> {
   }-*/;
 
   /**
-   * set Draggable
-   * 
-   * @param draggable
-   */
-  public final native void setDraggable(boolean draggable) /*-{
-    this.setDraggable(draggable);
-  }-*/;
-
-  /**
    * set Flat
    * 
    * @param flat
@@ -321,23 +287,6 @@ public class Marker extends MVCObject<Marker> {
    */
   public final native void setIcon(Icon icon) /*-{
     this.setIcon(icon);
-  }-*/;
-
-  /**
-   * set Map
-   * 
-   * @param mapWidget
-   */
-  public final void setMap(MapWidget mapWidget) {
-    if (mapWidget == null) {
-      close();
-    } else {
-      setMapImpl(mapWidget.getJso());
-    }
-  }
-
-  private final native void setMapImpl(MapImpl map) /*-{
-    this.setMap(map);
   }-*/;
 
   /**
@@ -414,15 +363,6 @@ public class Marker extends MVCObject<Marker> {
    */
   public final native void setTitle(String title) /*-{
     this.setTitle(title);
-  }-*/;
-
-  /**
-   * set Visible
-   * 
-   * @param visible
-   */
-  public final native void setVisible(boolean visible) /*-{
-    this.setVisible(visible);
   }-*/;
 
   /**

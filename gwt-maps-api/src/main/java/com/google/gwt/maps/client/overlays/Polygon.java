@@ -23,8 +23,6 @@ package com.google.gwt.maps.client.overlays;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.maps.client.MapImpl;
-import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.events.MapEventType;
 import com.google.gwt.maps.client.events.MapHandlerRegistration;
@@ -45,7 +43,6 @@ import com.google.gwt.maps.client.events.mouseup.MouseUpMapHandler;
 import com.google.gwt.maps.client.events.rightclick.RightClickEventFormatter;
 import com.google.gwt.maps.client.events.rightclick.RightClickMapHandler;
 import com.google.gwt.maps.client.mvc.MVCArray;
-import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * 
@@ -53,7 +50,7 @@ import com.google.gwt.maps.client.mvc.MVCObject;
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Polygon" >Polygon API Doc</a>
  */
-public class Polygon extends MVCObject<Polygon> {
+public class Polygon extends Overlay<Polygon> {
 
   /**
    * use newInstance();
@@ -78,38 +75,10 @@ public class Polygon extends MVCObject<Polygon> {
   }-*/;
 
   /**
-   * Hides this poly if set to <code>false</code>.
-   * 
-   * @param visible
-   */
-  public final native void setVisible(boolean visible) /*-{
-    this.setVisible(visible);
-  }-*/;
-
-  /**
-   * Returns whether this poly is visible on the map.<br>
-   * Do not call unless first associated with a map as undefined return will cause error.
-   */
-  public final native boolean getVisible() /*-{
-    return this.getVisible();
-  }-*/;
-
-  /**
    * Returns whether this shape can be edited by the user.
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
-  }-*/;
-
-  /**
-   * Returns the map on which this shape is attached.
-   */
-  public final MapWidget getMap() {
-    return MapWidget.newInstance(getMapImpl());
-  }
-
-  private final native MapImpl getMapImpl() /*-{
-    return this.getMap();
   }-*/;
 
   /**
@@ -134,23 +103,6 @@ public class Polygon extends MVCObject<Polygon> {
    */
   public final native void setEditable(boolean editable) /*-{
     this.setEditable(editable);
-  }-*/;
-
-  /**
-   * Renders this shape on the specified map. If map is set to null, the shape will be removed.
-   * 
-   * @param mapWidget
-   */
-  public final void setMap(MapWidget mapWidget) {
-    if (mapWidget == null) {
-      setMapImpl(null);
-    } else {
-      setMapImpl(mapWidget.getJso());
-    }
-  }
-
-  private final native void setMapImpl(MapImpl impl) /*-{
-    this.setMap(impl);
   }-*/;
 
   /**

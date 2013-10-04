@@ -53,6 +53,7 @@ public class PolylineOptions extends JavaScriptObject {
    * Set expected defaults
    */
   private void setDefaults() {
+	this.setDraggable(false);
     this.setGeodesic(false);
     this.setVisible(true);
     this.setClickable(true);
@@ -72,6 +73,29 @@ public class PolylineOptions extends JavaScriptObject {
    */
   public final native boolean getClickable() /*-{
     return this.clickable;
+  }-*/;
+
+  /**
+   * If set to <code>true</code>, the user can drag this shape over the map.
+   * The <code>geodesic</code> property defines the mode of dragging.
+   * Defaults to <code>false</code>.
+   * 
+   * @param draggable whether or not the user can drag this polygon
+   */
+  public final native void setDraggable(boolean draggable) /*-{
+  	this.draggable = draggable;
+  }-*/;
+
+
+  /**
+   * If set to <code>true</code>, the user can drag this shape over the map.
+   * The <code>geodesic</code> property defines the mode of dragging.
+   * Defaults to <code>false</code>.
+   * 
+   * @return whether or not the user can drag this polygon
+   */
+  public final native boolean getDraggable() /*-{
+  	return this.draggable;
   }-*/;
 
   /**
