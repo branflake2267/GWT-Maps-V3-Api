@@ -22,6 +22,7 @@ package com.google.gwt.maps.client.events;
 
 import com.google.gwt.ajaxloader.client.Properties;
 import com.google.gwt.ajaxloader.client.Properties.TypeException;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.maps.client.base.LatLng;
 
 /**
@@ -36,6 +37,11 @@ public class MouseEvent {
    * {@link LatLng}
    */
   private LatLng latLng;
+  
+  /**
+   * The original event jso as provided by the Google Maps API
+   */
+  private JavaScriptObject event;
 
   /**
    * Create a new MouseEvent from properties of the map event call back
@@ -54,6 +60,7 @@ public class MouseEvent {
   private void parseProperties(Properties properties) {
     try {
       latLng = (LatLng) properties.getObject("latLng");
+      event = properties;
     } catch (TypeException e) {
       e.printStackTrace();
     }
@@ -71,8 +78,12 @@ public class MouseEvent {
   /**
    * Prevents this event from propagating further.
    */
-  public final native void stop() /*-{
-    this.stop();
+  public final void stop() {
+	  stop(event);
+  }
+  
+  private final native void stop(JavaScriptObject jso) /*-{
+    jso.stop();
   }-*/;
 
 }
