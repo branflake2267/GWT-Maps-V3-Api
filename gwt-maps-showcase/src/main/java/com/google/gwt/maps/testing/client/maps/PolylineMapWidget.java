@@ -28,8 +28,11 @@ import com.google.gwt.maps.client.MapOptions;
 import com.google.gwt.maps.client.MapTypeId;
 import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
+import com.google.gwt.maps.client.overlays.IconSequence;
 import com.google.gwt.maps.client.overlays.Polyline;
 import com.google.gwt.maps.client.overlays.PolylineOptions;
+import com.google.gwt.maps.client.overlays.Symbol;
+import com.google.gwt.maps.client.overlays.SymbolPath;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
@@ -85,7 +88,7 @@ public class PolylineMapWidget extends Composite {
   }
 
   /**
-   * Add {@link Polyline} overlay to {@link MapWidget}.
+   * Add {@link Polyline} overlay to {@link MapWidget} with an {@link IconSequence}
    */
   private void drawPolyline() {
 
@@ -104,6 +107,34 @@ public class PolylineMapWidget extends Composite {
     a[10] = LatLng.newInstance(35.871369, -78.756759);
     a[11] = LatLng.newInstance(35.874168, -78.756781);
     JsArray<LatLng> simpleLatLngArr = ArrayHelper.toJsArray(a);
+    
+    // Draw various recurring symbols on the map
+    // different colors and sizes/types shown
+	final Symbol icon1 = Symbol.newInstance(SymbolPath.CIRCLE, 4d);
+	icon1.setStrokeColor("blue");
+	final Symbol icon2 = Symbol.newInstance(SymbolPath.FORWARD_CLOSED_ARROW, 5d);
+	icon2.setStrokeColor("yellow");
+	final Symbol icon3 = Symbol.newInstance(SymbolPath.FORWARD_OPEN_ARROW, 3d);
+	icon3.setStrokeColor("orange");
+	
+	// start different sequences in different areas
+	final IconSequence iconSeq1 = IconSequence.newInstance();
+	iconSeq1.setIcon(icon1);
+	iconSeq1.setOffset("10%");
+	iconSeq1.setRepeat("22%");
+
+	final IconSequence iconSeq2 = IconSequence.newInstance();
+	iconSeq2.setIcon(icon2);
+	iconSeq2.setOffset("50%");
+	iconSeq2.setRepeat("7%");
+	
+	final IconSequence iconSeq3 = IconSequence.newInstance();
+	iconSeq3.setIcon(icon3);
+	iconSeq3.setOffset("70%");
+	iconSeq3.setRepeat("5%");
+
+	final JsArray<IconSequence> iconsArr = ArrayHelper
+			.toJsArray(new IconSequence[] { iconSeq1, iconSeq2, iconSeq3 });
 
     PolylineOptions opts = PolylineOptions.newInstance();
     // opts.setMap(mapWidget); // you can attach it to the map here
@@ -111,7 +142,8 @@ public class PolylineMapWidget extends Composite {
     opts.setStrokeColor("#0000FF");
     opts.setStrokeOpacity(1.0);
     opts.setStrokeWeight(2);
-
+	opts.setIcons(iconsArr);
+	
     Polyline polyLine = Polyline.newInstance(opts);
     polyLine.setMap(mapWidget); // or here, but this can also reassign it if you
                                 // like
