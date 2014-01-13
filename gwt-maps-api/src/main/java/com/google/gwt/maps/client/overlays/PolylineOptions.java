@@ -93,6 +93,22 @@ public class PolylineOptions extends JavaScriptObject {
   public final native boolean getGeodesic() /*-{
     return this.geodesic;
   }-*/;
+  
+  /**
+   * Set the icons to be rendered along the polyline.
+   * 
+   * @param sequence
+   */
+  public final native void setIcons(JsArray<IconSequence> sequence) /*-{
+    this.icons = sequence;
+  }-*/;
+  
+  /**
+   * Get the icons to be rendered along the polyline.
+   */
+  public final native JsArray<IconSequence> getIcons() /*-{
+    return this.icons;
+  }-*/;
 
   /**
    * sets Map on which to display Polyline.

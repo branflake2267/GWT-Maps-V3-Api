@@ -138,7 +138,7 @@ public class MarkerGwtTest extends AbstractMapsGWTTestHelper {
 
   }
 
-  public void testIcon_MarkerImage_() {
+  public void testIcon_MarkerImage() {
     asyncLibTest(new Runnable() {
       @Override
       public void run() {
@@ -152,6 +152,22 @@ public class MarkerGwtTest extends AbstractMapsGWTTestHelper {
         finishTest();
       }
     });
+  }
+  
+  public void testIcon_Symbol() {
+	  asyncLibTest(new Runnable() {
+		  @Override
+		  public void run() {
+			  MarkerOptions options = MarkerOptions.newInstance();
+			  Marker o = Marker.newInstance(options);
+
+			  Symbol expected = Symbol.newInstance(SymbolPath.CIRCLE, 1);
+			  o.setIcon(expected);
+			  Symbol actual = o.getIcon_Symbol();
+			  assertEquals("Wrong icon symbol", expected, actual);
+			  finishTest();
+		  }
+	  });
   }
 
   public void testMap_Map() {
@@ -230,6 +246,22 @@ public class MarkerGwtTest extends AbstractMapsGWTTestHelper {
         finishTest();
       }
     });
+  }
+  
+  public void testShadow_Symbol() {
+	  asyncLibTest(new Runnable() {
+		  @Override
+		  public void run() {
+			  MarkerOptions options = MarkerOptions.newInstance();
+			  Marker o = Marker.newInstance(options);
+			  
+			  Symbol expected = Symbol.newInstance(SymbolPath.CIRCLE, 1);
+			  o.setShadow(expected);
+			  Symbol actual = o.getShadow_Symbol();
+			  assertEquals("Wrong shadow symbol", expected, actual);
+			  finishTest();
+		  }
+	  });
   }
 
   public void testShadow_Shape() {

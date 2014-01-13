@@ -160,6 +160,13 @@ public class Marker extends MVCObject<Marker> {
   public final native MarkerImage getIcon_MarkerImage() /*-{
     return this.getIcon();
   }-*/;
+  
+  /**
+   * get Icon (if it is a {@link Symbol})
+   */
+  public final native Symbol getIcon_Symbol() /*-{
+    return this.getIcon();
+  }-*/;
 
   public final MapWidget getMap() {
     return MapWidget.newInstance(getMapImpl());
@@ -198,6 +205,13 @@ public class Marker extends MVCObject<Marker> {
    * get Shadow (if it is a MarkerImage)
    */
   public final native MarkerImage getShadow_MarkerImage() /*-{
+    return this.getShadow();
+  }-*/;
+  
+  /**
+   * get Shadow (if it is a {@link Symbol})
+   */
+  public final native Symbol getShadow_Symbol() /*-{
     return this.getShadow();
   }-*/;
 
@@ -290,6 +304,15 @@ public class Marker extends MVCObject<Marker> {
   public final native void setIcon(String icon) /*-{
     this.setIcon(icon);
   }-*/;
+  
+  /**
+   * set Icon using a {@link Symbol}
+   * 
+   * @param icon
+   */
+  public final native void setIcon(Symbol icon) /*-{
+    this.setIcon(icon);
+  }-*/;
 
   /**
    * set Icon
@@ -358,11 +381,20 @@ public class Marker extends MVCObject<Marker> {
   }-*/;
 
   /**
-   * set MarkerImage
+   * set shadow using a {@link MarkerImage}
    * 
    * @param markerImage
    */
   public final native void setShadow(MarkerImage markerImage) /*-{
+    this.setShadow(markerImage);
+  }-*/;
+  
+  /**
+   * set shadow using a {@link Symbol}
+   * 
+   * @param markerImage
+   */
+  public final native void setShadow(Symbol symbol) /*-{
     this.setShadow(markerImage);
   }-*/;
 
