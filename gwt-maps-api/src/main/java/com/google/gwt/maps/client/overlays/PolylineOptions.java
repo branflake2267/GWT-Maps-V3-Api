@@ -30,7 +30,7 @@ import com.google.gwt.maps.client.mvc.MVCArray;
 /**
  * polyline options <br>
  * <br>
- * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#PolygonOptions" >PolygonOptions
+ * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#PolylineOptions" >PolygonOptions
  * API Doc</a>
  */
 public class PolylineOptions extends JavaScriptObject {
