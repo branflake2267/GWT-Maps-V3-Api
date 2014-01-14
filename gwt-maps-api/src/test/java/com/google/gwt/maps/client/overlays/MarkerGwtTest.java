@@ -62,6 +62,23 @@ public class MarkerGwtTest extends AbstractMapsGWTTestHelper {
     });
   }
 
+  // ensure does not infinite loop
+  public void testAnimation_null() {
+	  asyncLibTest(new Runnable() {
+		  @Override
+		  public void run() {
+			  MarkerOptions options = MarkerOptions.newInstance();
+			  Marker o = Marker.newInstance(options);
+
+			  Animation expected = null;
+			  o.setAnimation(expected);
+			  Animation actual = o.getAnimation();
+			  assertEquals("Wrong animation returned",expected, actual);
+			  finishTest();
+		  }
+	  });
+  }
+
   public void testClickable() {
     asyncLibTest(new Runnable() {
       @Override

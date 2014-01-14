@@ -250,9 +250,9 @@ public class Marker extends MVCObject<Marker> {
    */
   public final void setAnimation(Animation animation) {
     if (animation == null) {
-      setAnimation(animation);
+    	setAnimationImpl(null);
     } else {
-      setAnimationImpl(animation.value());
+    	setAnimationImpl(animation.value());
     }
   }
 
