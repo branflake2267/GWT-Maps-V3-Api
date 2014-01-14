@@ -83,96 +83,96 @@ import com.google.gwt.maps.client.streetview.StreetViewPanoramaWidget;
  */
 public class Marker extends MVCObject<Marker> {
 
-	/**
-	 * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
-	 * construction. Note that the position must be set for the marker to display. use newInstance();
-	 */
-	protected Marker() {
-	}
+  /**
+   * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
+   * construction. Note that the position must be set for the marker to display. use newInstance();
+   */
+  protected Marker() {
+  }
 
-	/**
-	 * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
-	 * construction. Note that the position must be set for the marker to display.
-	 * 
-	 * @param options {@link MarkerOptions}
-	 */
-	public static Marker newInstance(final MarkerOptions options) {
-		return createJso(options).cast();
-	}
+  /**
+   * Creates a marker with the options specified. If a map is specified, the marker is added to the map upon
+   * construction. Note that the position must be set for the marker to display.
+   * 
+   * @param options {@link MarkerOptions}
+   */
+  public static Marker newInstance(MarkerOptions options) {
+    return createJso(options).cast();
+  }
 
-	private static final native JavaScriptObject createJso(MarkerOptions options) /*-{
+  private static final native JavaScriptObject createJso(MarkerOptions options) /*-{
     return new $wnd.google.maps.Marker(options);
   }-*/;
 
-	/**
-	 * get animation
-	 */
-	public final Animation getAnimation() {
-		final Integer animation = getAnimationImpl();
-		if (animation == null) {
-			return null;
-		}
-		return Animation.fromValue(animation);
-	}
+  /**
+   * get animation
+   */
+  public final Animation getAnimation() {
+    Integer animation = getAnimationImpl();
+    if (animation == null) {
+      return null;
+    }
+    return Animation.fromValue(animation);
+  }
 
-	private final native Integer getAnimationImpl() /*-{
+  private final native Integer getAnimationImpl() /*-{
     return this.getAnimation();
   }-*/;
 
-	/**
-	 * get Clickable
-	 */
-	public final native boolean getClickable() /*-{
+  /**
+   * get Clickable
+   */
+  public final native boolean getClickable() /*-{
     return this.getClickable();
   }-*/;
 
-	/**
-	 * get Cursor
-	 */
-	public final native String getCursor() /*-{
+  /**
+   * get Cursor
+   */
+  public final native String getCursor() /*-{
     return this.getCursor();
   }-*/;
 
-	/**
-	 * get Draggable
-	 */
-	public final native boolean getDraggable() /*-{
+  /**
+   * get Draggable
+   */
+  public final native boolean getDraggable() /*-{
     return this.getDraggable();
   }-*/;
 
-	/**
-	 * get Flat
-	 */
-	public final native boolean getFlat() /*-{
+  /**
+   * get Flat
+   */
+  public final native boolean getFlat() /*-{
     return this.getFlat();
   }-*/;
 
-	/**
-	 * get Icon (if its a string use this)
-	 */
-	public final native String getIcon_String() /*-{
+  /**
+   * get Icon (if its a string use this)
+   */
+  public final native String getIcon_String() /*-{
     return this.getIcon();
   }-*/;
 
-	/**
-	 * get Icon (if it is a marker image)
-	 */
-	public final native MarkerImage getIcon_MarkerImage() /*-{
+  /**
+   * get Icon (if it is a marker image)
+   */
+  public final native MarkerImage getIcon_MarkerImage() /*-{
+    return this.getIcon();
+  }-*/;
+  
+  /**
+   * get Icon (if it is a {@link Symbol})
+   */
+  public final native Symbol getIcon_Symbol() /*-{
     return this.getIcon();
   }-*/;
 
-	/**
-	 * get Icon (if it is a {@link Symbol})
-	 */
-	public final native Symbol getIcon_Symbol() /*-{
-    return this.getIcon();
-  }-*/;
+  public final MapWidget getMap() {
+    return MapWidget.newInstance(getMapImpl());
+  }
 
-	public final MapWidget getMap() {
-		return MapWidget.newInstance(getMapImpl());
-	}
-
-	private final native MapImpl getMapImpl() /*-{
+  private final native MapImpl getMapImpl() /*-{
     return this.getMap();
   }-*/;;
 
@@ -180,7 +180,7 @@ public class Marker extends MVCObject<Marker> {
    * get Map (if it is a pano)
    */
   public final StreetViewPanoramaWidget getMap_StreetViewPanorama() {
-	  return StreetViewPanoramaWidget.newInstance(getMap_StreetViewPanoramaImpl());
+    return StreetViewPanoramaWidget.newInstance(getMap_StreetViewPanoramaImpl());
   }
 
   private final native StreetViewPanoramaImpl getMap_StreetViewPanoramaImpl() /*-{
@@ -207,7 +207,7 @@ public class Marker extends MVCObject<Marker> {
   public final native MarkerImage getShadow_MarkerImage() /*-{
     return this.getShadow();
   }-*/;
-
+  
   /**
    * get Shadow (if it is a {@link Symbol})
    */
@@ -248,12 +248,12 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param animation
    */
-  public final void setAnimation(final Animation animation) {
-	  if (animation == null) {
-			setAnimationImpl(null);
-	  } else {
-			setAnimationImpl(animation.value());
-	  }
+  public final void setAnimation(Animation animation) {
+    if (animation == null) {
+    	setAnimationImpl(null);
+    } else {
+    	setAnimationImpl(animation.value());
+    }
   }
 
   private final native void setAnimationImpl(Integer animation) /*-{
@@ -304,7 +304,7 @@ public class Marker extends MVCObject<Marker> {
   public final native void setIcon(String icon) /*-{
     this.setIcon(icon);
   }-*/;
-
+  
   /**
    * set Icon using a {@link Symbol}
    * 
@@ -328,12 +328,12 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param mapWidget
    */
-  public final void setMap(final MapWidget mapWidget) {
-	  if (mapWidget == null) {
-		  close();
-	  } else {
-		  setMapImpl(mapWidget.getJso());
-	  }
+  public final void setMap(MapWidget mapWidget) {
+    if (mapWidget == null) {
+      close();
+    } else {
+      setMapImpl(mapWidget.getJso());
+    }
   }
 
   private final native void setMapImpl(MapImpl map) /*-{
@@ -345,8 +345,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param pano
    */
-  public final void setMap(final StreetViewPanoramaWidget pano) {
-	  setMapImpl(pano.getJso());
+  public final void setMap(StreetViewPanoramaWidget pano) {
+    setMapImpl(pano.getJso());
   }
 
   private final native void setMapImpl(StreetViewPanoramaImpl pano) /*-{
@@ -388,7 +388,7 @@ public class Marker extends MVCObject<Marker> {
   public final native void setShadow(MarkerImage markerImage) /*-{
     this.setShadow(markerImage);
   }-*/;
-
+  
   /**
    * set shadow using a {@link Symbol}
    * 
@@ -447,9 +447,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addAnimationChangeHandler(final AnimationChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.ANIMATION_CHANGED, handler,
-			  new AnimationChangeEventFormatter());
+  public final HandlerRegistration addAnimationChangeHandler(AnimationChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.ANIMATION_CHANGED, handler,
+        new AnimationChangeEventFormatter());
   }
 
   /**
@@ -457,8 +457,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addClickHandler(final ClickMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
+  public final HandlerRegistration addClickHandler(ClickMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.CLICK, handler, new ClickEventFormatter());
   }
 
   /**
@@ -466,9 +466,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addClickableChangeHandler(final ClickableChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.CLICKABLE_CHANGED, handler,
-			  new ClickableChangeEventFormatter());
+  public final HandlerRegistration addClickableChangeHandler(ClickableChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.CLICKABLE_CHANGED, handler,
+        new ClickableChangeEventFormatter());
   }
 
   /**
@@ -476,9 +476,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addCursorChangeHandler(final CursorChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.CURSOR_CHANGED, handler,
-			  new CursorChangeEventFormatter());
+  public final HandlerRegistration addCursorChangeHandler(CursorChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.CURSOR_CHANGED, handler,
+        new CursorChangeEventFormatter());
   }
 
   /**
@@ -486,8 +486,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addDblClickHandler(final DblClickMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
+  public final HandlerRegistration addDblClickHandler(DblClickMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.DBLCLICK, handler, new DblClickEventFormatter());
   }
 
   /**
@@ -495,8 +495,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addDragHandler(final DragMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.DRAG, handler, new DragEventFormatter());
+  public final HandlerRegistration addDragHandler(DragMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.DRAG, handler, new DragEventFormatter());
   }
 
   /**
@@ -504,8 +504,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addDragEndHandler(final DragEndMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.DRAGEND, handler, new DragEndEventFormatter());
+  public final HandlerRegistration addDragEndHandler(DragEndMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.DRAGEND, handler, new DragEndEventFormatter());
   }
 
   /**
@@ -513,9 +513,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addDraggableChangeHandler(final DraggableChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.DRAGGABLE_CHANGED, handler,
-			  new DraggableChangeEventFormatter());
+  public final HandlerRegistration addDraggableChangeHandler(DraggableChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.DRAGGABLE_CHANGED, handler,
+        new DraggableChangeEventFormatter());
   }
 
   /**
@@ -523,8 +523,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addDragStartHandler(final DragStartMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.DRAGSTART, handler, new DragStartEventFormatter());
+  public final HandlerRegistration addDragStartHandler(DragStartMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.DRAGSTART, handler, new DragStartEventFormatter());
   }
 
   /**
@@ -532,8 +532,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addFlatChangeHandler(final FlatChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.FLAT_CHANGED, handler, new FlatChangeEventFormatter());
+  public final HandlerRegistration addFlatChangeHandler(FlatChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.FLAT_CHANGED, handler, new FlatChangeEventFormatter());
   }
 
   /**
@@ -541,8 +541,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addIconChangeHandler(final IconChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.ICON_CHANGED, handler, new IconChangeEventFormatter());
+  public final HandlerRegistration addIconChangeHandler(IconChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.ICON_CHANGED, handler, new IconChangeEventFormatter());
   }
 
   /**
@@ -550,8 +550,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addMouseDownHandler(final MouseDownMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
+  public final HandlerRegistration addMouseDownHandler(MouseDownMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEDOWN, handler, new MouseDownEventFormatter());
   }
 
   /**
@@ -559,8 +559,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addMouseOutMoveHandler(final MouseOutMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
+  public final HandlerRegistration addMouseOutMoveHandler(MouseOutMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOUT, handler, new MouseOutEventFormatter());
   }
 
   /**
@@ -568,8 +568,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addMouseOverHandler(final MouseOverMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
+  public final HandlerRegistration addMouseOverHandler(MouseOverMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEOVER, handler, new MouseOverEventFormatter());
   }
 
   /**
@@ -577,8 +577,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addMouseUpHandler(final MouseUpMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
+  public final HandlerRegistration addMouseUpHandler(MouseUpMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.MOUSEUP, handler, new MouseUpEventFormatter());
   }
 
   /**
@@ -586,9 +586,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addProjectionChangeHandler(final ProjectionChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.PROJECTION_CHANGED, handler,
-			  new ProjectionChangeEventFormatter());
+  public final HandlerRegistration addProjectionChangeHandler(ProjectionChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.PROJECTION_CHANGED, handler,
+        new ProjectionChangeEventFormatter());
   }
 
   /**
@@ -596,8 +596,8 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addRightClickHandler(final RightClickMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());
+  public final HandlerRegistration addRightClickHandler(RightClickMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.RIGHTCLICK, handler, new RightClickEventFormatter());
   }
 
   /**
@@ -605,9 +605,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addShadowChangeHandler(final ShadowChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.SHADOW_CHANGED, handler,
-			  new ShadowChangeEventFormatter());
+  public final HandlerRegistration addShadowChangeHandler(ShadowChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.SHADOW_CHANGED, handler,
+        new ShadowChangeEventFormatter());
   }
 
   /**
@@ -615,9 +615,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addShapeChangeHandler(final ShapeChangeMapHandler handler) {
-	  return MapHandlerRegistration
-			  .addHandler(this, MapEventType.SHAPE_CHANGED, handler, new ShapeChangeEventFormatter());
+  public final HandlerRegistration addShapeChangeHandler(ShapeChangeMapHandler handler) {
+    return MapHandlerRegistration
+        .addHandler(this, MapEventType.SHAPE_CHANGED, handler, new ShapeChangeEventFormatter());
   }
 
   /**
@@ -625,9 +625,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addTitleChangeHandler(final TitleChangeMapHandler handler) {
-	  return MapHandlerRegistration
-			  .addHandler(this, MapEventType.TITLE_CHANGED, handler, new TitleChangeEventFormatter());
+  public final HandlerRegistration addTitleChangeHandler(TitleChangeMapHandler handler) {
+    return MapHandlerRegistration
+        .addHandler(this, MapEventType.TITLE_CHANGED, handler, new TitleChangeEventFormatter());
   }
 
   /**
@@ -635,9 +635,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addVisibleChangeHandler(final VisibleChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.VISIBLE_CHANGED, handler,
-			  new VisibleChangeEventFormatter());
+  public final HandlerRegistration addVisibleChangeHandler(VisibleChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.VISIBLE_CHANGED, handler,
+        new VisibleChangeEventFormatter());
   }
 
   /**
@@ -645,9 +645,9 @@ public class Marker extends MVCObject<Marker> {
    * 
    * @param handler
    */
-  public final HandlerRegistration addZindexChangeHandler(final ZindexChangeMapHandler handler) {
-	  return MapHandlerRegistration.addHandler(this, MapEventType.ZINDEX_CHANGED, handler,
-			  new ZindexChangeEventFormatter());
+  public final HandlerRegistration addZindexChangeHandler(ZindexChangeMapHandler handler) {
+    return MapHandlerRegistration.addHandler(this, MapEventType.ZINDEX_CHANGED, handler,
+        new ZindexChangeEventFormatter());
   }
 
   /**
