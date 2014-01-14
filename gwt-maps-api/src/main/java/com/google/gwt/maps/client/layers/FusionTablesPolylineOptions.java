@@ -25,8 +25,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * Options which control the appearance of polylines in a FusionTablesLayer. <br>
  * <br>
- * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolygonOptions">
- * FusionTablesPolygonOptions API Doc</a>
+ * See <a href="https://developers.google.com/maps/documentation/javascript/reference#FusionTablesPolylineOptions">
+ * FusionTablesPolylineOptions API Doc</a>
  */
 public class FusionTablesPolylineOptions extends JavaScriptObject {
 
