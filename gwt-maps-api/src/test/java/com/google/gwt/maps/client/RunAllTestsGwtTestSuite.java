@@ -38,21 +38,21 @@ public class RunAllTestsGwtTestSuite extends GWTTestSuite {
   public static final String TARGET_CLASS_SUFFIX = "Test";
 
   public static TestSuite suite() throws Exception {
-    GWTTestSuite suite = new GWTTestSuite();
+    final GWTTestSuite suite = new GWTTestSuite();
 
     // be sure the libs get loaded at the beginning b/c they won't want to
     // add the libs during
     suite.addTestSuite(LoadApiGwtTest.class);
 
     // don't run these twice
-    ArrayList<String> ignoreTestList = new ArrayList<String>();
+    final ArrayList<String> ignoreTestList = new ArrayList<String>();
     ignoreTestList.add(LoadApiGwtTest.class.getName());
     ignoreTestList.add(AbstractMapsGWTTestHelper.class.getName());
 
     // make sure this test is run first to prime all library loads
     suite.addTestSuite(LoadApiGwtTest.class);
 
-    for (Class<? extends GWTTestCase> clazz : getClasses("com.google.gwt.maps.client")) {
+    for (final Class<? extends GWTTestCase> clazz : getClasses("com.google.gwt.maps.client")) {
       if (!ignoreTestList.contains(clazz.getName())) {
         suite.addTestSuite(clazz);
       }
@@ -69,21 +69,21 @@ public class RunAllTestsGwtTestSuite extends GWTTestSuite {
    * @throws IOException
    */
   @SuppressWarnings("unchecked")
-  private static List<Class<? extends GWTTestCase>> getClasses(String packageName) throws ClassNotFoundException,
+  private static List<Class<? extends GWTTestCase>> getClasses(final String packageName) throws ClassNotFoundException,
       IOException {
-    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     assert classLoader != null;
-    String path = packageName.replace('.', '/');
-    Enumeration<URL> resources = classLoader.getResources(path);
-    List<File> dirs = new ArrayList<File>();
+    final String path = packageName.replace('.', '/');
+    final Enumeration<URL> resources = classLoader.getResources(path);
+    final List<File> dirs = new ArrayList<File>();
     while (resources.hasMoreElements()) {
-      URL resource = resources.nextElement();
+      final URL resource = resources.nextElement();
       dirs.add(new File(resource.getFile()));
     }
-    List<Class<? extends GWTTestCase>> classes = new ArrayList<Class<? extends GWTTestCase>>();
-    for (File directory : dirs) {
+    final List<Class<? extends GWTTestCase>> classes = new ArrayList<Class<? extends GWTTestCase>>();
+    for (final File directory : dirs) {
 
-      for (@SuppressWarnings("rawtypes")
+      for (@SuppressWarnings("rawtypes") final
       Class dirClazz : findClasses(directory, packageName)) {
 
         if (GWTTestCase.class.isAssignableFrom(dirClazz)) {
@@ -103,16 +103,16 @@ public class RunAllTestsGwtTestSuite extends GWTTestSuite {
    * @throws ClassNotFoundException
    */
   @SuppressWarnings("rawtypes")
-  private static List<Class> findClasses(File directory, String packageName) throws ClassNotFoundException {
+  private static List<Class> findClasses(final File directory, final String packageName) throws ClassNotFoundException {
 
     final String targetSuffix = TARGET_CLASS_SUFFIX + ".class";
 
-    List<Class> classes = new ArrayList<Class>();
+    final List<Class> classes = new ArrayList<Class>();
     if (!directory.exists()) {
       return classes;
     }
-    File[] files = directory.listFiles();
-    for (File file : files) {
+    final File[] files = directory.listFiles();
+    for (final File file : files) {
       if (file.isDirectory()) {
         assert !file.getName().contains(".");
         classes.addAll(findClasses(file, packageName + "." + file.getName()));

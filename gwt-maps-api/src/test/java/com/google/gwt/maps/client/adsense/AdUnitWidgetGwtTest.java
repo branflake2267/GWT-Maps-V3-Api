@@ -81,7 +81,8 @@ public class AdUnitWidgetGwtTest extends AbstractMapsGWTTestHelper {
 
         Element right = o.getContainer();
         String sright = right.getInnerHTML();
-        assertEquals("<span></span>", sright);
+        // empty string expected
+        assertEquals("", sright);
 
         finishTest();
       }

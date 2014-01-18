@@ -84,15 +84,15 @@ public class Symbol extends JavaScriptObject {
 	 * @param anchor
 	 */
 	public final native void setAnchor(Point anchor) /*-{
-    	this.anchor = anchor;
+		this.anchor = anchor;
 	}-*/;
 
 	/**
 	 * Gets The position of the symbol relative to the marker or polyline
 	 */
 	public final native Point getAnchor() /*-{
-    	return this.anchor;
-  	}-*/;
+		return this.anchor;
+	}-*/;
 
 	/**
 	 * Set the symbol's path to a built-in symbol path. Required.
@@ -124,13 +124,32 @@ public class Symbol extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Get the symbol's path in SVN Path Notation.
+	 * Get the symbol's path in SVG Path Notation.
 	 * 
 	 * @return path as SVG string
 	 */
-	public final native String getPath() /*-{
+	public final native String getPath_String() /*-{
 		return this.path;
 	}-*/;
+
+	/**
+	 * Get the path if it is a {@link SymbolPath}
+	 * 
+	 * @return {@link SymbolPath} or NULL not a {@link SymbolPath} or none set
+	 */
+	public final SymbolPath getPath_SymbolPath() {
+		return SymbolPath.fromValue(getPath_int());
+	}
+
+	/**
+	 * Get the {@link SymbolPath} value, if set
+	 * 
+	 * @return [@link SymbolPath}'s value or null
+	 */
+	private final native int getPath_int() /*-{
+		return this.path;
+	}-*/;
+
 
 	/**
 	 * Set the angle by which to rotate the symbol, expressed clockwise in
@@ -145,7 +164,7 @@ public class Symbol extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Get the symbol's path in SVN Path Notation.
+	 * Get the symbol's path in SVG Path Notation.
 	 * 
 	 * @return rotation amount
 	 */

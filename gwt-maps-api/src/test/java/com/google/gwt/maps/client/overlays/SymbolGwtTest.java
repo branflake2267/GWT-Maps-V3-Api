@@ -43,7 +43,8 @@ public class SymbolGwtTest extends AbstractMapsGWTTestHelper {
 				// test
 				assertNotNull("Object not created", actual);
 				assertEquals("Wrong scaling", scale, actual.getScale());
-				assertEquals("Wrong icon", symbolPath.value(), actual.getPath());
+				assertEquals("Wrong icon", symbolPath,
+						actual.getPath_SymbolPath());
 
 				finishTest();
 			}
@@ -80,7 +81,7 @@ public class SymbolGwtTest extends AbstractMapsGWTTestHelper {
 				final String expected = "M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z";
 				symbol.setPath(expected);
 
-				final String actual = symbol.getPath();
+				final String actual = symbol.getPath_String();
 				assertEquals("Wrong svg path", expected, actual);
 
 				finishTest();
@@ -99,7 +100,7 @@ public class SymbolGwtTest extends AbstractMapsGWTTestHelper {
 				final SymbolPath expected = SymbolPath.CIRCLE;
 				symbol.setPath(expected);
 
-				final String actual = symbol.getPath();
+				final SymbolPath actual = symbol.getPath_SymbolPath();
 				assertEquals("Wrong predefined path", expected, actual);
 
 				finishTest();
