@@ -50,7 +50,12 @@ public enum PlacesServiceStatus {
   /**
    * No result was found for this request.
    */
-  ZERO_RESULTS;
+  ZERO_RESULTS,
+
+  /**
+   * Undocumented in API but is returned by service in some cases.
+   */
+  NOT_FOUND;
 
   public String value() {
     return name().toLowerCase();
