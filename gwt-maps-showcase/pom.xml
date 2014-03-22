@@ -107,12 +107,12 @@
             </plugin>
 
             <!-- App Engine -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
                 <version>0.9.6</version>
                 <configuration>
-                    <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
+                    Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id>
                     <serverId>gonevertical-apis</serverId>
                     <splitJars>true</splitJars>
                     <sdkDir>${gae.home}</sdkDir>
@@ -125,7 +125,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
 
         <pluginManagement>
@@ -245,7 +245,7 @@
         </dependency>
 
         <!-- Google App Engine dependencies -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
             <version>${gae.version}</version>
@@ -266,6 +266,17 @@
             <artifactId>appengine-testing</artifactId>
             <version>${gae.version}</version>
             <scope>test</scope>
+        </dependency> -->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>${gae.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Testing -->
