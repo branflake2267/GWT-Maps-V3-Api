@@ -104,14 +104,8 @@ This library provides Java language bindings for the Google maps Javascript api.
     ```
 
 ##Previous Versions
-Here is the most recent build of the **GWT-Maps-V3-Api**. We've already Mavenized this project, but are currently having it added to the Central Repo. Until then, here are the current jars.
-
-* Downloads Built Nov, 7th 2012
-* [gwt-maps-api-v3-3.8.1-javadoc.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1-javadoc.jar)
-* [gwt-maps-api-v3-3.8.1-sources.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1-sources.jar)
-* [gwt-maps-api-v3-3.8.1.jar](https://github.com/downloads/branflake2267/GWT-Maps-V3-Api/Apis_Google_Maps-3.8.1.jar)
-
-##Jar Use
+See the [downloads page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Direct-API-Jar-Downloads)
+##Maven-Free Jar Use
 1. [Download the jar](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Direct-API-Jar-Downloads)
 2. Add jar to your /WEB-INF/lib
 3. Right click on the jar and goto Build path > add to build path
