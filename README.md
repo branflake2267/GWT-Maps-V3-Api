@@ -91,6 +91,9 @@ This library provides Java language bindings for the Google maps Javascript api.
 
 ##Utility Library
 
+
+* Marker Cluster Plus
+
     ```xml
     <dependency>
         <groupId>com.github.branflake2267</groupId>
