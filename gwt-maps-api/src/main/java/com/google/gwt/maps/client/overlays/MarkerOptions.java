@@ -372,6 +372,14 @@ public class MarkerOptions extends JavaScriptObject {
   }-*/;
 
   /**
+   * sets opacity  
+   * @param opacity
+   */
+  public final native void setOpacity(int opacity) /*-{
+    this.opacity = opacity;
+  }-*/;
+
+  /**
    * gets All markers are displayed on the map in order of their zIndex, with higher values displaying in front of
    * markers with lower values. By default, markers are displayed according to their vertical position on screen, with
    * lower markers appearing in front of markers further up the screen.
