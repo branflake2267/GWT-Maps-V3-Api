@@ -375,7 +375,7 @@ public class MarkerOptions extends JavaScriptObject {
    * sets opacity  
    * @param opacity
    */
-  public final native void setOpacity(int opacity) /*-{
+  public final native void setOpacity(double opacity) /*-{
     this.opacity = opacity;
   }-*/;
 
