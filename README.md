@@ -12,7 +12,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 * [Live Showcase](http://gonevertical-apis.appspot.com)
 * [Cycling the Alps](http://www.cyclingthealps.com)
 * [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
-* [WikiRoutes Public Transportation](http://wikiroutes.info/en/) example: [From A to B] (http://wikiroutes.info/msk?ab=55.819030133331495-37.483978271484375-55.67603572236136-37.640533447265625)
+* [Wikiroutes Public Transportation](http://wikiroutes.info/en/) example: [From A to B] (http://wikiroutes.info/en/msk?ab=55.819030133331495-37.483978271484375-55.67603572236136-37.640533447265625)
 
 ##Maven Versions Available
 * [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
