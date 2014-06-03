@@ -5,10 +5,10 @@
     <parent>
         <groupId>com.github.branflake2267</groupId>
         <artifactId>gwt-maps-utility</artifactId>
-        <version>3.10.0-alpha-7-SNAPSHOT</version>
+        <version>3.10.0-alpha-8-SNAPSHOT</version>
     </parent>
 
-    <version>3.10.0-alpha-7-SNAPSHOT</version>
+    <version>3.10.0-alpha-8-SNAPSHOT</version>
     <artifactId>gwt-maps-utility-markerclustererplus</artifactId>
     <name>Marker Clusterer Plus</name>
     
