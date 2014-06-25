@@ -42,6 +42,7 @@ public class PolygonOptions extends JavaScriptObject {
    * Set expected defaults
    */
   private void setDefaults() {
+	setDraggable(false);
     setEditable(false);
     setGeodesic(false);
     setVisible(true);
@@ -65,6 +66,28 @@ public class PolygonOptions extends JavaScriptObject {
     return this.visible;
   }-*/;
 
+  /**
+   * If set to <code>true</code>, the user can drag this shape over the map.
+   * The <code>geodesic</code> property defines the mode of dragging.
+   * Defaults to <code>false</code>.
+   * 
+   * @param draggable whether or not the user can drag this polygon
+   */
+  public final native void setDraggable(boolean draggable) /*-{
+  	this.draggable = draggable;
+  }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can drag this shape over the map.
+   * The <code>geodesic</code> property defines the mode of dragging.
+   * Defaults to <code>false</code>.
+   * 
+   * @return whether or not the user can drag this polygon
+   */
+  public final native boolean getDraggable() /*-{
+  	return this.draggable;
+  }-*/;
+  
   /**
    * If set to true, the user can edit this shape by dragging the control points shown at the vertices and on each
    * segment. Defaults to false.

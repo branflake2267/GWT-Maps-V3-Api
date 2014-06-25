@@ -23,8 +23,6 @@ package com.google.gwt.maps.client.overlays;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.maps.client.MapImpl;
-import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLng;
 import com.google.gwt.maps.client.events.MapEventType;
 import com.google.gwt.maps.client.events.MapHandlerRegistration;
@@ -45,14 +43,13 @@ import com.google.gwt.maps.client.events.mouseup.MouseUpMapHandler;
 import com.google.gwt.maps.client.events.rightclick.RightClickEventFormatter;
 import com.google.gwt.maps.client.events.rightclick.RightClickMapHandler;
 import com.google.gwt.maps.client.mvc.MVCArray;
-import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A polyline is a linear overlay of connected line segments on the map. This class extends MVCObject. <br>
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Polyline" >Polyline API Doc</a>
  */
-public class Polyline extends MVCObject<Polyline> {
+public class Polyline extends Overlay<Polyline> {
 
   /**
    * use newInstance();
@@ -77,38 +74,10 @@ public class Polyline extends MVCObject<Polyline> {
   }-*/;
 
   /**
-   * Hides this polyline if set to <code>false</code>.
-   * 
-   * @param visible
-   */
-  public final native void setVisible(boolean visible) /*-{
-    this.setVisible(visible);
-  }-*/;
-
-  /**
-   * Returns whether this polyline is visible on the map.<br>
-   * Do not call unless first associated with a map as undefined return will cause error.
-   */
-  public final native boolean getVisible() /*-{
-    return this.getVisible();
-  }-*/;
-
-  /**
    * Returns whether this shape can be edited by the user.
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
-  }-*/;
-
-  /**
-   * Returns the map on which this shape is attached.
-   */
-  public final MapWidget getMap() {
-    return MapWidget.newInstance(getMapImpl());
-  }
-
-  private final native MapImpl getMapImpl() /*-{
-    return this.getMap();
   }-*/;
 
   /**
@@ -126,23 +95,6 @@ public class Polyline extends MVCObject<Polyline> {
    */
   public final native void setEditable(boolean editable) /*-{
     this.setEditable(editable);
-  }-*/;
-
-  /**
-   * Renders this shape on the specified map. If map is set to null, the shape will be removed.
-   * 
-   * @param mapWidget
-   */
-  public final void setMap(MapWidget mapWidget) {
-    if (mapWidget == null) {
-      setMapImpl(null);
-    } else {
-      setMapImpl(mapWidget.getJso());
-    }
-  }
-
-  private final native void setMapImpl(MapImpl impl) /*-{
-    this.setMap(impl);
   }-*/;
 
   /**

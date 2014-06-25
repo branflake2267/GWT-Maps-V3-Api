@@ -22,8 +22,6 @@ package com.google.gwt.maps.client.overlays;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.maps.client.MapImpl;
-import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.maps.client.base.LatLngBounds;
 import com.google.gwt.maps.client.events.MapEventType;
 import com.google.gwt.maps.client.events.MapHandlerRegistration;
@@ -45,14 +43,13 @@ import com.google.gwt.maps.client.events.mouseup.MouseUpEventFormatter;
 import com.google.gwt.maps.client.events.mouseup.MouseUpMapHandler;
 import com.google.gwt.maps.client.events.rightclick.RightClickEventFormatter;
 import com.google.gwt.maps.client.events.rightclick.RightClickMapHandler;
-import com.google.gwt.maps.client.mvc.MVCObject;
 
 /**
  * A rectangle overlay. This class extends MVCObject. <br>
  * <br>
  * See <a href= "https://developers.google.com/maps/documentation/javascript/reference#Rectangle" >Rectangle API Doc</a>
  */
-public class Rectangle extends MVCObject<Rectangle> {
+public class Rectangle extends Overlay<Rectangle> {
 
   /**
    * use newInstance();
@@ -81,38 +78,17 @@ public class Rectangle extends MVCObject<Rectangle> {
   }-*/;
 
   /**
+   * Sets the bounds of this rectangle.
+   */
+  public final native void setBounds(LatLngBounds bounds) /*-{
+    this.setBounds(bounds);
+  }-*/;
+
+  /**
    * Returns whether this rectangle can be edited by the user.
    */
   public final native boolean getEditable() /*-{
     return this.getEditable();
-  }-*/;
-
-  /**
-   * Renders the rectangle on the specified map. If map is set to null, the rectangle will be removed.
-   * 
-   * @param mapWidget
-   */
-  public final void setMap(MapWidget mapWidget) {
-    if (mapWidget == null) {
-      setMapImpl(null);
-    } else {
-      setMapImpl(mapWidget.getJso());
-    }
-  }
-
-  private final native void setMapImpl(MapImpl map) /*-{
-    this.setMap(map);
-  }-*/;
-
-  /**
-   * Returns the map on which this rectangle is displayed.
-   */
-  public final MapWidget getMap() {
-    return MapWidget.newInstance(getMapImpl());
-  }
-
-  private final native MapImpl getMapImpl() /*-{
-    return this.getMap();
   }-*/;
 
   /**

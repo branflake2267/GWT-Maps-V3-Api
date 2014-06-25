@@ -153,7 +153,7 @@ public class MarkerOptions extends JavaScriptObject {
   }-*/;
 
   /**
-   * sets Map on which to display Marker.
+   * sets Icon for the foreground
    * 
    * @param icon
    */
@@ -162,9 +162,25 @@ public class MarkerOptions extends JavaScriptObject {
   }-*/;
 
   /**
-   * gets Map on which to display Marker.
+   * gets Icon for the foreground
    */
   public final native MarkerImage getIcon_MarkerImage() /*-{
+    return this.icon;
+  }-*/;
+
+  /**
+   * sets Icon for the foreground
+   *
+   * @param icon
+   */
+  public final native void setIcon(Icon icon) /*-{
+    this.icon = icon;
+  }-*/;
+
+  /**
+   * gets Icon for the foreground
+   */
+  public final native Icon getIcon() /*-{
     return this.icon;
   }-*/;
 
@@ -309,6 +325,22 @@ public class MarkerOptions extends JavaScriptObject {
    * gets Shadow image
    */
   public final native MarkerImage getShadow_MarkerImage() /*-{
+    return this.shadow;
+  }-*/;
+
+  /**
+   * set Shadow image
+   *
+   * @param shadow
+   */
+  public final native void setShadow(Icon shadow) /*-{
+    this.shadow = shadow;
+  }-*/;
+
+  /**
+   * gets Shadow image
+   */
+  public final native Icon getShadow_Icon() /*-{
     return this.shadow;
   }-*/;
 

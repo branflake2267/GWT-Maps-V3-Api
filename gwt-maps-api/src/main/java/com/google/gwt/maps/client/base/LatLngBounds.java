@@ -39,6 +39,37 @@ public class LatLngBounds extends JavaScriptObject {
   }
 
   /**
+   * Create a new, "empty" LatLngBounds object. The bounds can then be
+   * made valid by subsequent calls to {@link #extend(LatLng)} or
+   * {@link #union(LatLngBounds)}.
+   *
+   * @return A new empty LatLngBounds object.
+   */
+  public final static LatLngBounds newInstance() {
+    return createJso().cast();
+  }
+
+  private final static native LatLngBounds createJso() /*-{
+    return new $wnd.google.maps.LatLngBounds();
+  }-*/;
+
+  /**
+   * Create a new LatLngBounds object which has as its extents just a
+   * single point. Strictly speaking the bounds will not be empty, but
+   * the area covered by the bounds will be 0.
+   *
+   * @param point The point that the bounds should cover.
+   * @return A new LatLngBounds object with zero area.
+   */
+  public final static LatLngBounds newInstance(LatLng point) {
+    return createJso(point).cast();
+  }
+
+  private final static native LatLngBounds createJso(LatLng point) /*-{
+    return new $wnd.google.maps.LatLngBounds(point);
+  }-*/;
+
+  /**
    * creates A LatLngBounds instance represents a rectangle in geographical coordinates, including one that crosses the
    * 180 degrees longitudinal meridian.
    * 

@@ -79,6 +79,46 @@ public class RectangleOptions extends JavaScriptObject {
   }-*/;
 
   /**
+   * If set to <code>true</code>, the user can drag this rectangle over the map. Defaults to <code>false</code>.
+   * 
+   * @param draggable whether or not the user can drag this rectangle
+   */
+  public final native void setDraggable(boolean draggable) /*-{
+  	this.draggable = draggable;
+  }-*/;
+
+  /**
+   * If set to <code>true</code>, the user can drag this rectangle over the map. Defaults to <code>false</code>.
+   * 
+   * @return whether or not the user can drag this rectangle
+   */
+  public final native boolean getDraggable() /*-{
+  	return this.draggable;
+  }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can edit this rectangle
+   * by dragging the control points shown at the corners and on each
+   * edge. Defaults to <code>false</code>.
+	*
+   * @param editable whether or not the user can edit this rectangle
+   */
+  public final native void setEditable(boolean editable) /*-{
+  	this.editable = editable;
+  }-*/;
+  
+  /**
+   * If set to <code>true</code>, the user can edit this rectangle
+   * by dragging the control points shown at the corners and on each
+   * edge. Defaults to <code>false</code>.
+	*
+   * @return whether or not the user can edit this rectangle
+   */
+  public final native boolean getEditable() /*-{
+  	return this.editable;
+  }-*/;
+  
+  /**
    * The fill color. All CSS3 colors are supported except for extended named colors.
    * 
    * @param fillColor
