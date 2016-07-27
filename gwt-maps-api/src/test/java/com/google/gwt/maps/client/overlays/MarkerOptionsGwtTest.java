@@ -328,4 +328,26 @@ public class MarkerOptionsGwtTest extends AbstractMapsGWTTestHelper {
     });
   }
 
+  public void testOpacity() {
+    asyncLibTest(new Runnable() {
+      @Override
+      public void run() {
+        MarkerOptions o = MarkerOptions.newInstance();
+        float left = 0.42f;
+        o.setOpacity(left);
+        float right = o.getOpacity();
+        assertEquals(left, right);
+        left = 0.0f;
+        o.setOpacity(left);
+        right = o.getOpacity();
+        assertEquals(left, right);
+        left = 1.0f;
+        o.setOpacity(left);
+        right = o.getOpacity();
+        assertEquals(left, right);
+        finishTest();
+      }
+    });
+  }
+
 }
