@@ -380,4 +380,18 @@ public class MarkerOptions extends JavaScriptObject {
     return this.zIndex;
   }-*/;
 
+  /**
+   * @param opacity The marker's opacity between 0.0 and 1.0.
+   */
+  public final native void setOpacity(float opacity) /*-{
+    this.opacity = opacity;
+  }-*/;
+
+  /**
+   * @return The marker's opacity between 0.0 and 1.0.
+   */
+  public final native int getOpacity() /*-{
+    return this.opacity;
+  }-*/;
+
 }
