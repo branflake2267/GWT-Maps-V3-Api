@@ -1,26 +1,26 @@
-#GWT-Maps-V3-Api
+# GWT-Maps-V3-Api
 
 This library provides Java language bindings for the Google maps Javascript api. 
 
-##Demo
-###[Live Showcase](http://gonevertical-apis.appspot.com/)
+## Demo
+### [Live Showcase](http://gonevertical-apis.appspot.com/)
 
-##Community
-###[GWT Maps V3 API G+ Community](https://plus.google.com/communities/105780740892495987648)
+## Community
+### [GWT Maps V3 API G+ Community](https://plus.google.com/communities/105780740892495987648)
 
-##Implementers
+## Implementers
 * [Live Showcase](http://gonevertical-apis.appspot.com)
 * [Cycling the Alps](http://www.cyclingthealps.com)
 * [Open City Agora](http://opencityagora.appspot.com/) example: [San Francisco Open City Agora](http://sf.opencityagora.appspot.com/Agora.html)
 * [Wikiroutes Public Transportation](http://wikiroutes.info/en/) example: [From A to B] (http://wikiroutes.info/en/msk?ab=55.819030133331495-37.483978271484375-55.67603572236136-37.640533447265625)
 
-##Maven Versions Available
+## Maven Versions Available
 * [See what is available on Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.branflake2267)
 * gwt-maps-api-3.9.0-alpha-15
 * gwt-maps-api-3.9.0-build-17
 * Or [download directly](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Direct-API-Jar-Downloads)
 
-##Current Maven Release	
+## Current Maven Release	
 1. Add Maven dependencies
 
 	```xml
@@ -63,7 +63,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	  }
 	```
 
-##Current Maven Snapshots
+## Current Maven Snapshots
 1. Add Maven dependencies	
 	```xml
 	<repositories>
@@ -90,7 +90,7 @@ This library provides Java language bindings for the Google maps Javascript api.
 	<inherits name='com.google.gwt.maps.Maps' />
 	```
 
-##Utility Library
+## Utility Library
 
 
 * Marker Cluster Plus
@@ -103,14 +103,14 @@ This library provides Java language bindings for the Google maps Javascript api.
     </dependency>
     ```
 
-##Previous Versions
+## Previous Versions
 See the [downloads page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Direct-API-Jar-Downloads)
-##Maven-Free Jar Use
+## Maven-Free Jar Use
 1. [Download the jar](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Direct-API-Jar-Downloads)
 2. Add jar to your /WEB-INF/lib
 3. Right click on the jar and goto Build path > add to build path
 
-##Eclipse Setup Using Source
+## Eclipse Setup Using Source
 1. Clone the source with EGit
 2. Add the project to your build path
 3. Link the maps source "src" folder as src_maps in your build path
@@ -120,15 +120,15 @@ See the [downloads page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/D
 	<inherits name='com.google.gwt.maps.Maps'/>
 	```
 
-##Documentation
+## Documentation
 * [GWT-Maps-V3-API JavaDoc's (3.9.0)](http://branflake2267.github.com/GWT-Maps-V3-Api/javadoc/3.9.0-build-17/)
 * Complete list on [Wiki page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki)
 
-##Contribute
+## Contribute
 * Learn about contributing under [Eclipse Contributor Setup](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Eclipse-Contributor-Setup)
 * [Build Server](http://teamcity.gonevertical.org/)
 
-##New Features
+## New Features
 * Released `3.10.0-alpha-3` 3/18/2013. Added utility lib and more 3.10 features. 
 * Released `3.10.0-alpha-2` 2/10/2013, includes transit api and overlay fix.
 * Released to sonatype `3.9.0-build-17-SNAPSHOT` 1/19/2013
@@ -143,5 +143,5 @@ See the [downloads page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/D
 * Added PlaceSearchRequest map example
 * 3.9.0 code now in master has the place result with pagination search
 
-##Thanks to
+## Thanks to
 [![Arcbees.com](http://arcbees-ads.appspot.com/images/1.png)](http://arcbees.com)
