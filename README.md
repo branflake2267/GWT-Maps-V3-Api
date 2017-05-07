@@ -20,6 +20,8 @@ This library provides Java language bindings for the Google maps Javascript api.
 * gwt-maps-api-3.9.0-build-17
 * Or [download directly](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/Direct-API-Jar-Downloads)
 
+- NB : [AjaxLoader](http://www.java2s.com/Code/Jar/g/Downloadgwtajaxloader100jar.htm) is required to  this library 
+
 ##Current Maven Release	
 1. Add Maven dependencies
 
