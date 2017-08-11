@@ -68,9 +68,9 @@ public class ImageMapTypeOptions extends JavaScriptObject {
    * @param callback
    */
   public final native void setTileUrl(TileUrlCallBack callback) /*-{
-    this.getTileUrl = function(point, zoomLevel) {
+    this.getTileUrl = $entry(function(point, zoomLevel) {
       return @com.google.gwt.maps.client.maptypes.ImageMapTypeOptions::processTileUrlCallBack(Lcom/google/gwt/maps/client/base/Point;ILcom/google/gwt/maps/client/maptypes/TileUrlCallBack;)(point, zoomLevel, callback);
-    };
+    });
   }-*/;
 
   /**

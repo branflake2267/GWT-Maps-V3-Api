@@ -125,9 +125,9 @@ public class StreetViewPanoramaImpl extends MVCObject<StreetViewPanoramaImpl> {
    * @param provider
    */
   public final native void registerPanoProvider(StreetViewPanoramaProvider provider) /*-{
-    this.panoProvider = function(pano, zoom, tileX, tileY) {
+    this.panoProvider = $entry(function(pano, zoom, tileX, tileY) {
       provider.@com.google.gwt.maps.client.streetview.StreetViewPanoramaProvider::getPanoData(Ljava/lang/String;III)(pano, zoom, tileX, tileY);
-    }
+    });
   }-*/;
 
   /**

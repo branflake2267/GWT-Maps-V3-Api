@@ -55,9 +55,9 @@ public class StreetViewTileData extends JavaScriptObject {
    * @param handler
    */
   public final native String getTileUrl(String pano, int zoom, int tileX, int tileY, TileUrlHandler handler) /*-{
-    this.getTileUrl = function(pano, zoom, tileX, tileY) {
+    this.getTileUrl = $entry(function(pano, zoom, tileX, tileY) {
       return @com.google.gwt.maps.client.streetview.StreetViewTileData::getTileUrlImpl(Ljava/lang/String;IIILcom/google/gwt/maps/client/streetview/TileUrlHandler;)(pano, zoom, tileX, tileY, handler);
-    };
+    });
   }-*/;
 
   private final static String getTileUrlImpl(String pano, int zoom, int tileX, int tileY, TileUrlHandler handler) {
