@@ -58,9 +58,9 @@ public class DirectionsService extends JavaScriptObject {
    * @param handler
    */
   public final native void route(DirectionsRequest request, DirectionsResultHandler handler) /*-{
-    var callback = function(result, status) {
-      $entry(@com.google.gwt.maps.client.services.DirectionsService::routeImpl(Lcom/google/gwt/maps/client/services/DirectionsResult;Ljava/lang/String;Lcom/google/gwt/maps/client/services/DirectionsResultHandler;)(result, status, handler));
-    };
+    var callback = $entry(function(result, status) {
+      @com.google.gwt.maps.client.services.DirectionsService::routeImpl(Lcom/google/gwt/maps/client/services/DirectionsResult;Ljava/lang/String;Lcom/google/gwt/maps/client/services/DirectionsResultHandler;)(result, status, handler);
+    });
 
     this.route(request, callback);
   }-*/;

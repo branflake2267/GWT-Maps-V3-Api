@@ -74,9 +74,9 @@ public class PlacesService extends JavaScriptObject {
    * @param handler
    */
   public final native void getDetails(PlaceDetailsRequest request, PlaceDetailsHandler handler) /*-{
-    var callback = function(result, status) {
-      $entry(@com.google.gwt.maps.client.placeslib.PlacesService::processDetailsCallback(Lcom/google/gwt/maps/client/placeslib/PlaceResult;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceDetailsHandler;)(result, status, handler));
-    };
+    var callback = $entry(function(result, status) {
+      @com.google.gwt.maps.client.placeslib.PlacesService::processDetailsCallback(Lcom/google/gwt/maps/client/placeslib/PlaceResult;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceDetailsHandler;)(result, status, handler);
+    });
     this.getDetails(request, callback);
   }-*/;
 
@@ -95,9 +95,9 @@ public class PlacesService extends JavaScriptObject {
    * @param handler
    */
   public final native void nearbySearch(PlaceSearchRequest request, PlaceSearchHandler handler) /*-{
-    var callback = function(results, status, pagination) {
-      $entry(@com.google.gwt.maps.client.placeslib.PlacesService::processSearchCallback(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceSearchPagination;Lcom/google/gwt/maps/client/placeslib/PlaceSearchHandler;)(results, status, pagination, handler));
-    };
+    var callback = $entry(function(results, status, pagination) {
+      @com.google.gwt.maps.client.placeslib.PlacesService::processSearchCallback(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceSearchPagination;Lcom/google/gwt/maps/client/placeslib/PlaceSearchHandler;)(results, status, pagination, handler);
+    });
     this.nearbySearch(request, callback);
   }-*/;
 
@@ -113,9 +113,9 @@ public class PlacesService extends JavaScriptObject {
    * it.
    */
   public final native void textSearch(TextSearchRequest request, PlaceTextSearchHandler handler) /*-{
-    var callback = function(results, status) {
-      $entry(@com.google.gwt.maps.client.placeslib.PlacesService::processTextSearch(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceTextSearchHandler;)(results, status, handler));
-    };
+    var callback = $entry(function(results, status) {
+      @com.google.gwt.maps.client.placeslib.PlacesService::processTextSearch(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlaceTextSearchHandler;)(results, status, handler);
+    });
     this.textSearch(request, callback);
   }-*/;
 

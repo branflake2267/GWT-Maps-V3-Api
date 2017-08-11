@@ -83,17 +83,17 @@ public class OverlayView extends MVCObject<OverlayView> {
 
     MapOverlay.prototype = new $wnd.google.maps.OverlayView();
 
-    MapOverlay.prototype.onAdd = function() {
-      $entry(@com.google.gwt.maps.client.overlays.OverlayView::onAddCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnAddHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onAddHandler, this));
-    };
+    MapOverlay.prototype.onAdd = $entry(function() {
+      @com.google.gwt.maps.client.overlays.OverlayView::onAddCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnAddHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onAddHandler, this);
+    });
 
-    MapOverlay.prototype.onRemove = function() {
-      $entry(@com.google.gwt.maps.client.overlays.OverlayView::onRemoveCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnRemoveHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onRemoveHandler, this));
-    };
+    MapOverlay.prototype.onRemove = $entry(function() {
+        @com.google.gwt.maps.client.overlays.OverlayView::onRemoveCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnRemoveHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onRemoveHandler, this);
+    });
 
-    MapOverlay.prototype.draw = function() {
-      $entry(@com.google.gwt.maps.client.overlays.OverlayView::onDrawCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnDrawHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onDrawHandler, this));
-    };
+    MapOverlay.prototype.draw = $enyry(function() {
+      @com.google.gwt.maps.client.overlays.OverlayView::onDrawCallback(Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewOnDrawHandler;Lcom/google/gwt/maps/client/overlays/overlayhandlers/OverlayViewMethods;)(onDrawHandler, this);
+    });
 
     var jso = new MapOverlay(map);
     return jso;

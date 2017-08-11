@@ -57,9 +57,9 @@ public class MaxZoomService extends JavaScriptObject {
    * @param handler
    */
   public final native void getMaxZoomAtLatLng(LatLng latlng, MaxZoomServiceHandler handler) /*-{
-    var callback = function(result) {
-      $entry(@com.google.gwt.maps.client.services.MaxZoomService::getMaxZoomAtLatLngImpl(Lcom/google/gwt/maps/client/services/MaxZoomResult;Lcom/google/gwt/maps/client/services/MaxZoomServiceHandler;)(result, handler));
-    };
+    var callback = $entry(function(result) {
+      @com.google.gwt.maps.client.services.MaxZoomService::getMaxZoomAtLatLngImpl(Lcom/google/gwt/maps/client/services/MaxZoomResult;Lcom/google/gwt/maps/client/services/MaxZoomServiceHandler;)(result, handler);
+    });
     this.getMaxZoomAtLatLng(latlng, callback);
   }-*/;
 

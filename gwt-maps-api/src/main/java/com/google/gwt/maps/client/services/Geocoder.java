@@ -52,9 +52,9 @@ public class Geocoder extends JavaScriptObject {
    * @param handler
    */
   public final native void geocode(GeocoderRequest request, GeocoderRequestHandler handler) /*-{
-    var callback = function(results, status) {
-      $entry(@com.google.gwt.maps.client.services.Geocoder::geocodeImpl(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/GeocoderRequestHandler;)(results, status, handler));
-    };
+    var callback = $entry(function(results, status) {
+      @com.google.gwt.maps.client.services.Geocoder::geocodeImpl(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/services/GeocoderRequestHandler;)(results, status, handler);
+    });
     this.geocode(request, callback);
   }-*/;
 
