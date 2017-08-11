@@ -235,12 +235,12 @@ public class StreetViewPanoramaOptions extends JavaScriptObject {
    * @param provider
    */
   public final native void setPanoProvider(StreetViewPanoramaProvider provider) /*-{
-    this.panoProvider = function(pano, zoom, tileX, tileY) {
+    this.panoProvider = $entry(function(pano, zoom, tileX, tileY) {
       var z = zoom ? zoom : -1;
       var x = tileX ? tileX : -1;
       var y = tileY ? tileY : -1;
       return @com.google.gwt.maps.client.streetview.StreetViewPanoramaOptions::setPanoProviderImpl(Ljava/lang/String;IIILcom/google/gwt/maps/client/streetview/StreetViewPanoramaProvider;)(pano, z, x, y, provider);
-    }
+    });
   }-*/;
 
   private static StreetViewPanoramaData setPanoProviderImpl(String pano, int zoom, int tileX, int tileY,

@@ -50,9 +50,9 @@ public class AutocompleteService extends JavaScriptObject {
   }-*/;
 
   public final native void getPlacePredictions(AutocompletionRequest request, PlacePredictionsHandler handler) /*-{
-    var callback = function (results, status) {
-      $entry(@com.google.gwt.maps.client.placeslib.AutocompleteService::processPlacePredictions(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlacePredictionsHandler;)(results, status, handler));
-    };
+    var callback = $entry(function (results, status) {
+      @com.google.gwt.maps.client.placeslib.AutocompleteService::processPlacePredictions(Lcom/google/gwt/core/client/JsArray;Ljava/lang/String;Lcom/google/gwt/maps/client/placeslib/PlacePredictionsHandler;)(results, status, handler);
+    });
     this.getPlacePredictions(request, callback);
   }-*/;
 

@@ -54,10 +54,10 @@ public class MarkerClustererOptions extends JavaScriptObject {
   }
 
   private native JavaScriptObject getCalculatorFunction(final ClusterCalculator calculator) /*-{
-      var fn = function (markers, nStyles) {
+      var fn = $entry(function (markers, nStyles) {
           var info = calculator.@com.google.gwt.maps.utility.markerclustererplus.client.ClusterCalculator::execute(Lcom/google/gwt/core/client/JsArray;I)(markers, nStyles);
           return info;
-      };
+      });
       return fn;
   }-*/;
 

@@ -51,9 +51,9 @@ public class DistanceMatrixService extends JavaScriptObject {
   }-*/;
 
   public final native void getDistanceMatrix(DistanceMatrixRequest request, DistanceMatrixRequestHandler handler) /*-{
-    var callback = function(response, status) {
-      $entry(@com.google.gwt.maps.client.services.DistanceMatrixService::getDistanceMatrixImpl(Lcom/google/gwt/maps/client/services/DistanceMatrixResponse;Ljava/lang/String;Lcom/google/gwt/maps/client/services/DistanceMatrixRequestHandler;)(response, status, handler));
-    };
+    var callback = $entry(function(response, status) {
+      @com.google.gwt.maps.client.services.DistanceMatrixService::getDistanceMatrixImpl(Lcom/google/gwt/maps/client/services/DistanceMatrixResponse;Ljava/lang/String;Lcom/google/gwt/maps/client/services/DistanceMatrixRequestHandler;)(response, status, handler);
+    });
     this.getDistanceMatrix(request, callback);
   }-*/;
 

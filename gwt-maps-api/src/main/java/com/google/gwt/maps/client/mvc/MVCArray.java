@@ -109,9 +109,9 @@ public class MVCArray<T extends JavaScriptObject> extends MVCObject<T> {
    * @param callback
    */
   private final native void onCallback(MVCArrayCallback<T> callback) /*-{
-    var cb = function(element, index) {
-      $entry(@com.google.gwt.maps.client.mvc.MVCArray::forEachImplCallback(Lcom/google/gwt/core/client/JavaScriptObject;ILcom/google/gwt/maps/client/mvc/MVCArrayCallback;)(element, index, callback));
-    };
+    var cb = $entry(function(element, index) {
+      @com.google.gwt.maps.client.mvc.MVCArray::forEachImplCallback(Lcom/google/gwt/core/client/JavaScriptObject;ILcom/google/gwt/maps/client/mvc/MVCArrayCallback;)(element, index, callback);
+    });
     this.forEach(cb);
   }-*/;
 
