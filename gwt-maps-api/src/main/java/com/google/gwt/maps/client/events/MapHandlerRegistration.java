@@ -111,9 +111,9 @@ public class MapHandlerRegistration {
   // is ugly, but is a cyclic generic type, so suppressed
   private static native <E extends MapEvent> JavaScriptObject addHandlerImpl(JavaScriptObject jso, String eventName,
       MapHandler<E> handler, MapEventFormatter<E> formatter) /*-{
-    var callback = function(event) {
-      $entry(@com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, event, formatter));
-    };
+    var callback = $entry(function(event) {
+      @com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, event, formatter);
+    });
     return $wnd.google.maps.event.addListener(jso, eventName, callback)
   }-*/;
 
@@ -129,12 +129,12 @@ public class MapHandlerRegistration {
   // is ugly, but is a cyclic generic type, so suppressed
   private static native <E extends MapEvent> JavaScriptObject addHandlerImplMvc(JavaScriptObject jso, String eventName,
       MapHandler<E> handler, MapEventFormatter<E> formatter) /*-{
-    var callback = function(event) {
+    var callback = $entry(function(event) {
       var eventCon = {
         index : event
       };
-      $entry(@com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter));
-    };
+      @com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter);
+    });
     return $wnd.google.maps.event.addListener(jso, eventName, callback)
   }-*/;
 
@@ -150,12 +150,12 @@ public class MapHandlerRegistration {
   // is ugly, but is a cyclic generic type, so suppressed
   private static native <E extends MapEvent> JavaScriptObject addHandlerImplDrawing(JavaScriptObject jso,
       String eventName, MapHandler<E> handler, MapEventFormatter<E> formatter) /*-{
-    var callback = function(event) {
+    var callback = $entry(function(event) {
       var eventCon = {
         overlay : event
       };
-      $entry(@com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter));
-    };
+      @com.google.gwt.maps.client.events.MapHandlerRegistration::onCallback(Lcom/google/gwt/maps/client/events/MapHandler;Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapEventFormatter;)(handler, eventCon, formatter);
+    });
     return $wnd.google.maps.event.addListener(jso, eventName, callback)
   }-*/;
 
@@ -253,9 +253,9 @@ public class MapHandlerRegistration {
 
   private static native <E> void addDomListener(JavaScriptObject object, String eventName, MapHandler<?> handler,
       boolean capture) /*-{
-    var callback = function(event) {
+    var callback = $entry(function(event) {
       @com.google.gwt.maps.client.events.MapHandlerRegistration::addDomListenerImpl(Lcom/google/gwt/ajaxloader/client/Properties;Lcom/google/gwt/maps/client/events/MapHandler;)(event, handler)
-    };
+    });
     $wnd.google.maps.event.addDomListener(object, eventName, callback, capture);
   }-*/;
 
