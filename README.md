@@ -144,4 +144,9 @@ See the [downloads page](https://github.com/branflake2267/GWT-Maps-V3-Api/wiki/D
 * 3.9.0 code now in master has the place result with pagination search
 
 ##Thanks to
-[![Arcbees.com](http://arcbees-ads.appspot.com/images/1.png)](http://arcbees.com)
+[![Arcbees.com](http://arcbees-ads.appspot.com/images/1.png)](http://arcbees.com)[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbranflake2267%2FGWT-Maps-V3-Api.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbranflake2267%2FGWT-Maps-V3-Api?ref=badge_shield)
+
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbranflake2267%2FGWT-Maps-V3-Api.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbranflake2267%2FGWT-Maps-V3-Api?ref=badge_large)
