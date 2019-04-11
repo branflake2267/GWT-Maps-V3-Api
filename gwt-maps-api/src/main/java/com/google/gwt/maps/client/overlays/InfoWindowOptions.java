@@ -50,7 +50,7 @@ public class InfoWindowOptions extends JavaScriptObject {
   /**
    * InfoWindow Options
    */
-  public static final InfoWindowOptions newInstance() {
+  public static InfoWindowOptions newInstance() {
     return JavaScriptObject.createObject().cast();
   }
 
@@ -153,8 +153,8 @@ public class InfoWindowOptions extends JavaScriptObject {
    * 
    * @param size
    */
-  public final native void setPixelOffet(Size size) /*-{
-    this.size = size;
+  public final native void setPixelOffset(Size pixelOffset) /*-{
+    this.pixelOffset = pixelOffset;
   }-*/;
 
   /**
@@ -163,7 +163,7 @@ public class InfoWindowOptions extends JavaScriptObject {
    * calculated from the top-center of the anchor's bounds.
    */
   public final native Size getPixelOffset() /*-{
-    return this.size;
+    return this.pixelOffset;
   }-*/;
 
   /**

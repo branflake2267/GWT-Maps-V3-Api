@@ -664,4 +664,12 @@ public class Marker extends MVCObject<Marker> {
     this.setMap();
   }-*/;
 
+  public final native boolean isZoomSensitive() /*-{
+    return this.zoomSensitive;
+  }-*/;
+
+  public final native void setZoomSensitive(boolean zoomSensitive) /*-{
+    this.zoomSensitive = zoomSensitive;
+  }-*/;
+
 }

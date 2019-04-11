@@ -21,7 +21,6 @@ package com.google.gwt.maps.client.events;
  */
 
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class MapPanel extends FlowPanel {
@@ -42,7 +41,6 @@ public class MapPanel extends FlowPanel {
   public void add(Widget child) {
     super.add(child);
     onAttach();
-    RootPanel.detachOnWindowClose(this);
   }
 
 }

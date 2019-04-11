@@ -24,6 +24,7 @@ import com.google.gwt.ajaxloader.client.ArrayHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.maps.client.base.LatLng;
+import com.google.gwt.maps.client.controls.FullscreenControlOptions;
 import com.google.gwt.maps.client.controls.MapTypeControlOptions;
 import com.google.gwt.maps.client.controls.MapTypeStyle;
 import com.google.gwt.maps.client.controls.OverviewMapControlOptions;
@@ -106,6 +107,7 @@ public class MapOptions extends JavaScriptObject {
     options.setOverviewMapControl(false);
     options.setPanControl(true);
     options.setZoomControl(true);
+    options.setFullscreenControl(true);
     options.setMapMaker(false);
     // Max/Min zoom not set with default here because it depends on the map type in use
     // We don't want to risk overriding that
@@ -620,6 +622,22 @@ public class MapOptions extends JavaScriptObject {
     return this.streetViewControlOptions;
   }-*/;
 
+  public final native void setFullscreenControl(boolean fullscreenControl) /*-{
+    this.fullscreenControl = fullscreenControl;
+  }-*/;
+
+  public final native boolean getFullscreenControl() /*-{
+    return this.fullscreenControl;
+  }-*/;
+
+  public final native void setFullscreenControlOptions(FullscreenControlOptions fullscreenControlOptions) /*-{
+    this.fullscreenControlOptions = fullscreenControlOptions;
+  }-*/;
+
+  public final native FullscreenControlOptions getFullscreenControlOptions() /*-{
+    return this.fullscreenControlOptions;
+  }-*/;
+
   public final void setMapTypeStyles(MapTypeStyle[] styles) {
     JsArray<MapTypeStyle> arr = ArrayHelper.toJsArray(styles);
     setMapTypeStyles(arr);
@@ -740,6 +758,14 @@ public class MapOptions extends JavaScriptObject {
    */
   public final native ZoomControlOptions getZoomControlOptions() /*-{
     return this.zoomControlOptions;
+  }-*/;
+
+  public final native void setClickableIcons(boolean clickableIcons) /*-{
+    this.clickableIcons = clickableIcons;
+  }-*/;
+
+  public final native boolean getClickableIcons() /*-{
+    return this.clickableIcons;
   }-*/;
 
 }

@@ -113,7 +113,7 @@ public class InfoWindowOptionsGwtTest extends AbstractMapsGWTTestHelper {
       public void run() {
         InfoWindowOptions o = InfoWindowOptions.newInstance();
         Size left = Size.newInstance(102d, 203d);
-        o.setPixelOffet(left);
+        o.setPixelOffset(left);
         Size right = o.getPixelOffset();
         assertEquals(left.getToString(), right.getToString());
         finishTest();
